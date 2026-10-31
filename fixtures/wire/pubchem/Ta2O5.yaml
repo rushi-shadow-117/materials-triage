@@ -294,4 +294,84 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=90C6B402AE624A11_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/62157/synonyms/JSON
+  response:
+    body:
+      string: "{\n  \"InformationList\": {\n    \"Information\": [\n      {\n        \"CID\":
+        62157,\n        \"Synonym\": [\n          \"Tantalum(V) oxide\",\n          \"Tantalum
+        pentoxide\",\n          \"1314-61-0\",\n          \"Tantalum oxide (Ta2O5)\",\n
+        \         \"Tantalic acid anhydride\",\n          \"Ditantalum pentaoxide\",\n
+        \         \"Tantalum penta oxide\",\n          \"OEZ64Z53M4\",\n          \"DTXSID10893849\",\n
+        \         \"tantalumpentoxide\",\n          \"RefChem:891102\",\n          \"DTXCID601323889\",\n
+        \         \"215-238-2\",\n          \"TANTALUM OXIDE\",\n          \"Tantalum
+        oxide dusts\",\n          \"oxygen(2-);tantalum(5+)\",\n          \"EINECS
+        215-238-2\",\n          \"UNII-OEZ64Z53M4\",\n          \"TANTALUM PENTOXIDE
+        [MI]\",\n          \"Tantalum(5+) oxide (2/5)\",\n          \"EC 215-238-2\",\n
+        \         \"Q425103\",\n          \"TANTALUM(V)OXIDE\",\n          \"59763-75-6\",\n
+        \         \"Tantalum pentaoxide\",\n          \"Cerac T 1013\",\n          \"DITANTALUM
+        PENTOXIDE\",\n          \"Tantalum oxide (TaO2.5)\",\n          \"KMKHNG 158\",\n
+        \         \"SCHEMBL34398\",\n          \"Tantalum oxide (Ta0.8O2)\",\n          \"Tantalum
+        Pentoxide (Ta2O5)\"\n        ]\n      }\n    ]\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '1109'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 18:09:29 GMT
+      expires:
+      - Sat, 31 Oct 2026 19:09:29 GMT
+      ncbi-phid:
+      - 90C6CB1FAE62ED910000000000000001.m_1
+      ncbi-sid:
+      - 90C6B402AE624A11_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=90C6B402AE624A11_0000SID; domain=.nih.gov; path=/; expires=Sun, 31
+        Oct 2027 18:09:29 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (1%), Request Time status: Green (0%), Service
+        status: Green (33%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
 version: 1

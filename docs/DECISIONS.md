@@ -179,3 +179,53 @@ Tests for each rule land with the adapter in Phase 1. `parse_icsd` in
 Reason: 42 of 64 fields in the slice use `"na"`, including every gap and dielectric field. A
 careless cast turns a missing value into a 0 eV gap that sinks a good candidate.
 Alternative: coerce with a default.
+
+## 2026-10-31 Owner-sourced values enter config now, each with a status
+Decision: the owner's resolved sourcing queue is written into `config/` as YAML with
+`schema_version: 0` before the Phase 2 Pydantic schema exists, so the schema is built around
+real entries. Every entry carries `status`, `entered_by`, `entered_on`, and a `source` block
+(citation, url, access). Statuses: `entered` (value with a located open source),
+`pending_verification` (owner-supplied value whose primary source is not yet located or
+checked), `pending_signoff` (owner asked to sign off), `open` (no value yet). The Phase 2
+loader uses only `entered`; the rest render as missing with their status shown. A test checks
+the structure. Values and relevance judgments are the owner's and are attributed as such.
+Reason: entries without a locatable open source must not drive a score; entering them with a
+visible status keeps the queue honest without losing the owner's work.
+Alternative: hold the values in internal notes until the schema exists.
+
+## 2026-10-31 Hazard policy defaults from the owner's sourcing
+Decision (owner): tiers are by hazard type and authority. Carcinogenicity from IARC: exclude
+elements whose compounds are IARC Group 1 as a group (arsenic, beryllium, cadmium); chromium is
+flagged, not excluded, because only Cr(VI) compounds are Group 1 and the flag names the
+oxidation state; nickel defaults to exclude with `pending_signoff` and an admin may downgrade
+it to flag. Radiological hazard from nuclear data: exclude elements with no stable isotope
+(technetium, promethium, polonium and every heavier element), citing the NNDC chart of
+nuclides. Acute toxicity (mercury, thallium, lead, soluble barium) is `open` until GHS acute
+toxicity classifications for representative compounds are recorded from PubChem in Phase 1.
+Particulate hazards are a process-hazard tier: keep the material and attach the owner's caveat
+text with a per-material classification entry.
+Reason: "non-toxic" hides three different hazards with three different authorities.
+Alternative: one combined toxicity switch.
+
+## 2026-10-31 Scoring defaults from the owner's sourcing
+Decision (owner): in the `gate_dielectric_on_si` profile, band gap is a soft preference starting
+at 5 eV with a standing caveat that band offsets to the substrate are not checked; dielectric
+constant is a 10 to 30 target band at zero weight by default; simplicity is at most 3 elements
+with oxygen as the only anion and a ternary penalty (a PI preference, listed as a discovery
+question); several experimental gap values aggregate to the median, scored on the median with
+the full range shown, minimum offered as the conservative option; anchors default to SiO2 only
+(HfO2 is an expected ranked result and is not anchored). The stability threshold is `open`
+until the oxide-specific 90th percentile of observed metastability is read from Sun et al.
+2016; its planned shape is a soft ramp to that value and a hard cutoff there, with the paper's
+24 meV/atom DFT uncertainty noted. The band gap conflict tolerance is not sourced but measured
+in Phase 2 as twice the TBmBJ-vs-experimental error on the oxide subset, derivation recorded.
+Reason: each is either a sourced recommendation, a measured quantity, or an explicit preference,
+never a value chosen by the code's author.
+Alternative: fixed literature thresholds without derivation.
+
+## 2026-10-31 Search synonyms come from PubChem, curated by the FDE
+Decision: the recorder fetches PubChem's synonyms list for each chosen CID; the FDE-owned
+synonym table is curated from that recorded, sourced list down to trivial names (hafnia,
+zirconia, alumina, and so on). Recorded for all 11 oxides on 2026-10-31 (28 to 1288 names each).
+Reason: deterministic and sourced; the FDE still controls what drives literature search.
+Alternative: hand-written synonyms.

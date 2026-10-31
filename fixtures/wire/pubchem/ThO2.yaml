@@ -398,4 +398,82 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=90C6AC90AE624971_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/14808/synonyms/JSON
+  response:
+    body:
+      string: "{\n  \"InformationList\": {\n    \"Information\": [\n      {\n        \"CID\":
+        14808,\n        \"Synonym\": [\n          \"THORIUM DIOXIDE\",\n          \"Thoria\",\n
+        \         \"1314-20-1\",\n          \"Thorium oxide (ThO2)\",\n          \"Umbrathor\",\n
+        \         \"Thorium anhydride\",\n          \"Thortrast\",\n          \"Dioxide,
+        Thorium\",\n          \"9XA7X17UQC\",\n          \"CHEBI:37339\",\n          \"Oxide,
+        Thorium\",\n          \"RefChem:189704\",\n          \"215-225-1\",\n          \"Thorium
+        oxide\",\n          \"dioxothorium\",\n          \"Thorium(IV) oxide\",\n
+        \         \"ThO2\",\n          \"Thorotrast\",\n          \"Thorianite\",\n
+        \         \"Thorium-232 dioxide\",\n          \"HSDB 6364\",\n          \"EINECS
+        215-225-1\",\n          \"UNII-9XA7X17UQC\",\n          \"SCHEMBL49643\",\n
+        \         \"Thorium oxide, >=99.0%\",\n          \"Thorium Oxide Nanoparticle
+        Dispersion\",\n          \"NS00076164\",\n          \"Q420634\"\n        ]\n
+        \     }\n    ]\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '890'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 18:09:22 GMT
+      expires:
+      - Sat, 31 Oct 2026 19:09:23 GMT
+      ncbi-phid:
+      - 95B7C4E4AE62ED210000000000000001.m_1
+      ncbi-sid:
+      - 90C6AC90AE624971_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=90C6AC90AE624971_0000SID; domain=.nih.gov; path=/; expires=Sun, 31
+        Oct 2027 18:09:23 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (1%), Request Time status: Green (0%), Service
+        status: Green (23%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
 version: 1

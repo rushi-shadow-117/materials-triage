@@ -1,0 +1,39 @@
+# Default site profile, owned by the site admin. Status vocabulary in config/README.md.
+schema_version: 0
+
+deposition_methods:
+  status: pending_verification
+  preferred: null
+  methods: [CVD, electron_beam_evaporation, magnetron_sputtering, sol_gel, pulsed_laser_deposition, ALD]
+  note: "Published routes for alumina films, per the owner; no method preferred until the site configures its equipment. Owner to supply the review that lists them."
+  source:
+    citation: "Owner to supply"
+    url: null
+    access: unknown
+  entered_by: owner
+  entered_on: 2026-10-31
+
+screen_cannot_tell_you:
+  description: "Properties always shown as missing; the screen does not estimate them."
+  status: entered
+  items:
+    - breakdown field
+    - leakage current density
+    - band offsets to the substrate
+    - interface trap and defect density
+    - crystallization temperature
+    - interfacial reaction with the substrate
+    - the film's actual phase and density
+  rationale: "Owner's reading of Robertson (2004): early high-k oxides had inferior electronic properties to SiO2, such as a tendency to crystallise and high electronic defect concentrations. None of these are in the data sources used here."
+  source:
+    citation: "Owner decision 2026-10-31, informed by J. Robertson, Eur. Phys. J. Appl. Phys. 28, 265-291 (2004)"
+    url: https://doi.org/10.1051/epjap:2004206
+    access: unknown
+  entered_by: owner
+  entered_on: 2026-10-31
+
+glossary:
+  status: open
+  terms: {}
+  entered_by: owner
+  entered_on: 2026-10-31

@@ -293,4 +293,90 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=90C6A56FAE6248B1_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/292779/synonyms/JSON
+  response:
+    body:
+      string: "{\n  \"InformationList\": {\n    \"Information\": [\n      {\n        \"CID\":
+        292779,\n        \"Synonym\": [\n          \"12055-23-1\",\n          \"Hafnium
+        dioxide\",\n          \"Hafnia\",\n          \"Hafnium oxide (HfO2)\",\n          \"Hafnotrast\",\n
+        \         \"37230-85-6\",\n          \"NBTXR3\",\n          \"3C4Z4KG52T\",\n
+        \         \"DTXSID70893204\",\n          \"NSC-158931\",\n          \"RefChem:145003\",\n
+        \         \"DTXCID40113209\",\n          \"DTXSID901015562\",\n          \"235-013-2\",\n
+        \         \"Hafnium oxide\",\n          \"Hafnium(IV) oxide\",\n          \"dioxohafnium\",\n
+        \         \"Bis(oxido)hafnium\",\n          \"Hafnia (HfO2)\",\n          \"Hafnium
+        dioxide (HfO2)\",\n          \"Hafnium Oxide Nanoparticle Dispersion\",\n
+        \         \"MFCD00003565\",\n          \"NSC 158931\",\n          \"Hafnium
+        (IV) Oxide\",\n          \"Hf 05 (oxide)\",\n          \"UNII-3C4Z4KG52T\",\n
+        \         \"SCHEMBL24169\",\n          \"Hf 05\",\n          \"Hafnium(IV)
+        oxide, powder, 98%\",\n          \"EINECS 235-013-2\",\n          \"Hafnium(IV)
+        oxide, >=99.95%\",\n          \"NSC158931\",\n          \"AKOS015903694\",\n
+        \         \"Hafnium oxide nanopowder  (~100 nm)\",\n          \"Hafnium(IV)
+        oxide, Spectrographic Grade\",\n          \"CS-0198879\",\n          \"NS00130065\",\n
+        \         \"D95076\",\n          \"EC 235-013-2\",\n          \"Q418740\",\n
+        \         \"Hafnium(IV) oxide, pellets, diam. x thickness 13 mm x 5 mm\",\n
+        \         \"Hafnium(IV) oxide, pellets, diam. x thickness 9 mm x 4.2 mm\",\n
+        \         \"Hafnium oxide powder, - 325 mesh approx 99.9% purity (metals basis)
+        Zr < 0.5%\"\n        ]\n      }\n    ]\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '1516'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 18:09:16 GMT
+      expires:
+      - Sat, 31 Oct 2026 19:09:16 GMT
+      ncbi-phid:
+      - 95B7C15EAE62ECC10000000000000001.m_1
+      ncbi-sid:
+      - 90C6A56FAE6248B1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=90C6A56FAE6248B1_0000SID; domain=.nih.gov; path=/; expires=Sun, 31
+        Oct 2027 18:09:16 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (0%), Request Time status: Green (0%), Service
+        status: Green (20%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
 version: 1

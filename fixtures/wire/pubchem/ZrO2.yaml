@@ -377,4 +377,109 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=90C6A841AE6248F1_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/62395/synonyms/JSON
+  response:
+    body:
+      string: "{\n  \"InformationList\": {\n    \"Information\": [\n      {\n        \"CID\":
+        62395,\n        \"Synonym\": [\n          \"Rhuligel\",\n          \"Zirconium
+        White\",\n          \"Zirconic anhydride\",\n          \"Zirox Zt 35\",\n
+        \         \"PCS (filler)\",\n          \"CAP (oxide)\",\n          \"Norton
+        9839\",\n          \"Zircoa 5027\",\n          \"TZ 3YTSK\",\n          \"NZS
+        30A\",\n          \"Nissan Zirconia Sol NZS 20A\",\n          \"CC 10\",\n
+        \         \"C.I. 77990\",\n          \"ZD 100\",\n          \"RefChem:1101191\",\n
+        \         \"215-227-2\",\n          \"DTXCID001396163\",\n          \"1314-23-4\",\n
+        \         \"DTXSID1042520\",\n          \"Zirconium dioxide\",\n          \"Zirconium
+        oxide (ZrO2)\",\n          \"Zirconium(IV) oxide\",\n          \"dioxozirconium\",\n
+        \         \"Baddeleyite (ZrO2)\",\n          \"ZrO2\",\n          \"12036-23-6\",\n
+        \         \"Zirconium(IV) oxide, calcia stabilized\",\n          \"Nyacol
+        Zr (acetate)\",\n          \"Torayceram Sol ZS-OA\",\n          \"Zirconium
+        oxide (VAN)\",\n          \"CCRIS 6601\",\n          \"Zirconia(IV)\",\n          \"Zirconia
+        Nanopowder\",\n          \"Bis(oxido)zirconium\",\n          \"EINECS 215-227-2\",\n
+        \         \"EINECS 234-843-2\",\n          \"NSC 12958\",\n          \"AI3-29087\",\n
+        \         \"Zirconium(IV) oxide, CP\",\n          \"SCHEMBL15909\",\n          \"UNII-S38N85C5G0\",\n
+        \         \"Zirconium(IV) oxide, 99.9%\",\n          \"Zirconium oxide, catalyst
+        support\",\n          \"Zirconium(IV) oxide, Puratronic?\",\n          \"DTXSID301315847\",\n
+        \         \"NSC12958\",\n          \"Zirconium oxide powder (0.8 micron)\",\n
+        \         \"AKOS015914003\",\n          \"Zirconium oxide nanopowder  (~10
+        nm)\",\n          \"Zirconium oxide nanopowder (20-30 nm)\",\n          \"Zirconium(IV)
+        oxide, granular, 3-6 mm\",\n          \"CS-0111468\",\n          \"NS00112646\",\n
+        \         \"Zirconium oxide, calcia stabilized 325 mesh\",\n          \"Zirconium
+        oxide micron powder  (1~3 micron)\",\n          \"EC 215-227-2\",\n          \"Q36200\",\n
+        \         \"Yttria stabilized Zirconium oxide nanopowder  (20 nm)\",\n          \"Zirconium(IV)
+        oxide, purum, >=99% ZrO2 + HfO2 basis\",\n          \"Yttria stabilized Zirconium
+        oxide nanopowder  (15~25 nm)\",\n          \"Yttria stabilized Zirconium oxide
+        nanopowder  (20~30 nm)\",\n          \"Yttria stabilized zirconium oxide powder
+        (0.3~0.5 micron)\",\n          \"Zirconium oxide yttria stabilized 10-15%
+        20-45 microns\",\n          \"Zirconium(IV) oxide, nanopowder, <100 nm particle
+        size (TEM)\",\n          \"Zirconium(IV) oxide, powder, 5 mum, 99% trace metals
+        basis\",\n          \"Zirconium(IV) oxide, pellets, diam. x thickness 10 mm
+        x 3.5 mm\",\n          \"Zirconium(IV) oxide, pellets, diam. x thickness 13.5
+        mm x 9.5 mm\",\n          \"Zirconium(IV) oxide, pellets, diam. x thickness
+        17.5 mm x 5 mm\",\n          \"Zirconium(IV) oxide, pellets, diam. x thickness
+        18.5 mm x 7.3 mm\",\n          \"Zirconium(IV) oxide, 99.99% trace metals
+        basis (purity excludes ~2% HfO2)\",\n          \"Zirconium(IV) oxide, sputtering
+        target, diam. x thickness 2.00 in. x 0.25 in., 99.95% trace metals basis (excludes
+        2% HfO2)\"\n        ]\n      }\n    ]\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '2992'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 18:09:19 GMT
+      expires:
+      - Sat, 31 Oct 2026 19:09:19 GMT
+      ncbi-phid:
+      - 90C6C649AE62ECF10000000000000001.m_1
+      ncbi-sid:
+      - 90C6A841AE6248F1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=90C6A841AE6248F1_0000SID; domain=.nih.gov; path=/; expires=Sun, 31
+        Oct 2027 18:09:19 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (0%), Request Time status: Green (0%), Service
+        status: Green (27%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
 version: 1

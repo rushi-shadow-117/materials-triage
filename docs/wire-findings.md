@@ -80,6 +80,12 @@ URLs in matminer's `dataset_metadata.json`, both with SHA256 matching the hash m
   JVASP-1169 (spg 225, ehull 0.0) a TBmBJ gap of 5.013 eV. The owner is sourcing a reference
   value. The design response is the conflict rule in docs/DECISIONS.md (show both, flag
   "sources conflict", apply the policy fallback); ThO2 is its planned test case.
+- Owner's resolution (2026-10-31), entered in `config/reference_values.yaml`: two located open
+  sources give ThO2 about 5.9 eV (sputtered films, Evans et al., SPIE 2006, BYU ScholarsArchive)
+  and 5.4 eV (single crystal, spectroscopic ellipsometry, Mock et al., APL 2019, NSF PAR). The
+  owner's assessment, recorded as their hypothesis, is that the compendium rows trace to the
+  older sub-4 eV absorption-edge reports the 2006 paper discusses. The TBmBJ value agrees with
+  the located sources, not with the compendium. The compendium rows stay in the data, flagged.
 
 ## OpenAlex
 
@@ -122,6 +128,10 @@ and how formula strings match against a one-word synonym ("hafnia").
 - GHS says nothing about radioactivity: ThO2's record lists toxicity codes only. The
   element-level policy stays primary; GHS is a secondary, per-compound signal.
 - Rate limit held at about 4 requests per second with a 0.25 s pause; no 503 seen.
+- Synonyms: `GET /rest/pug/compound/cid/{cid}/synonyms/JSON` returns `InformationList >
+  Information[0] > Synonym`, a list of 28 (ThO2) to 1,288 (TiO2) strings mixing trivial names,
+  CAS numbers, trade names, and systematic names. Recorded for all eleven. The FDE curates the
+  search synonym table from this list; it is not used raw.
 
 ## COD (OPTIMADE)
 

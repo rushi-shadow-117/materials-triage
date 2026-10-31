@@ -148,6 +148,14 @@ def rec_pubchem(client: httpx.Client, formula: str) -> dict[str, Any]:
         )
         out["ghs"] = {"status": ghs["status"], "summary": summarize_ghs(ghs["body"])}
         time.sleep(PUBCHEM_PAUSE_S)
+        syn = get_json(client, f"{base}/pug/compound/cid/{chosen}/synonyms/JSON")
+        names: list[str] = []
+        body = syn["body"]
+        if isinstance(body, dict):
+            infos = body.get("InformationList", {}).get("Information", [])
+            names = [str(n) for info in infos for n in info.get("Synonym", [])]
+        out["synonyms"] = {"status": syn["status"], "count": len(names), "first": names[:8]}
+        time.sleep(PUBCHEM_PAUSE_S)
     return {"records": 1 if chosen is not None else 0, "detail": out}
 
 

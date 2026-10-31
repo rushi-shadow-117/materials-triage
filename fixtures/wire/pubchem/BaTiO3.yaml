@@ -238,4 +238,94 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=90C6AF7CAE6249B1_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/159419/synonyms/JSON
+  response:
+    body:
+      string: "{\n  \"InformationList\": {\n    \"Information\": [\n      {\n        \"CID\":
+        159419,\n        \"Synonym\": [\n          \"Barium metatitanate\",\n          \"Nova
+        Chem AB\",\n          \"Kyorix BT-S\",\n          \"BT 10 (titanate)\",\n
+        \         \"Kyorix BT-HD 9DX\",\n          \"Barium titanate (IV)\",\n          \"VK
+        4 (oxide)\",\n          \"BT 05 (filler)\",\n          \"N 220 (titanate)\",\n
+        \         \"Tamtron X 7R262L\",\n          \"Tamtron X 7R302H\",\n          \"Ticon
+        5016\",\n          \"Titanate barium (1:1)\",\n          \"BT-HD 9DX\",\n
+        \         \"HPBT 1\",\n          \"BT-HP 8KB2\",\n          \"HBT 3\",\n          \"73LKE302QO\",\n
+        \         \"YV 100AN\",\n          \"BT 100M\",\n          \"BT 100P\",\n
+        \         \"BT 01\",\n          \"BT 02\",\n          \"BT 05\",\n          \"BT
+        201\",\n          \"BT 204\",\n          \"BT 206\",\n          \"BT 303\",\n
+        \         \"Titanate (TiO3(2-)) barium (1:1)\",\n          \"N 5500\",\n          \"barium
+        titanate (BaTiO3)\",\n          \"RefChem:116562\",\n          \"titanium(4+)
+        ion barium(2+) ion trioxidandiide\",\n          \"12047-27-7\",\n          \"Barium
+        titanate\",\n          \"Barium titanate(IV)\",\n          \"Barium titanium
+        oxide\",\n          \"Titanium barium oxide\",\n          \"Barium titanium
+        oxide (BaTiO3)\",\n          \"barium(2+);oxygen(2-);titanium(4+)\",\n          \"12642-89-6\",\n
+        \         \"Barium Titanate  Powder, 99.9%\",\n          \"Transelco 219-3\",\n
+        \         \"BT 8\",\n          \"TB 1\",\n          \"VK 4\",\n          \"EINECS
+        234-975-0\",\n          \"BaTiO3\",\n          \"UNII-73LKE302QO\",\n          \"SCHEMBL58317\",\n
+        \         \"Barium titanium oxide, Puratronic\",\n          \"DTXSID60925543\",\n
+        \         \"BARIUM TITANATE(IV) [MI]\",\n          \"VKJLWXGJGDEGSO-UHFFFAOYSA-N\",\n
+        \         \"Barium Titanate Nanopowder, 99.5%\",\n          \"Barium titanium(4+)
+        oxide (1/1/3)\",\n          \"EC 234-975-0\",\n          \"F576418\"\n        ]\n
+        \     }\n    ]\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '1810'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 18:09:25 GMT
+      expires:
+      - Sat, 31 Oct 2026 19:09:25 GMT
+      ncbi-phid:
+      - 95B7C60FAE62ED510000000000000001.m_1
+      ncbi-sid:
+      - 90C6AF7CAE6249B1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=90C6AF7CAE6249B1_0000SID; domain=.nih.gov; path=/; expires=Sun, 31
+        Oct 2027 18:09:25 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (1%), Request Time status: Green (0%), Service
+        status: Green (13%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
 version: 1

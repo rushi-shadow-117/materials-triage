@@ -1,0 +1,163 @@
+# Owner-entered reference values. Each entry cites a public source and states the material
+# form. Status vocabulary is in config/README.md. Only `entered` values are used by the loader;
+# the rest render as missing with their status. Nothing here is asserted by the code's author.
+schema_version: 0
+entries:
+  - id: sio2_gap_robertson2004
+    composition: SiO2
+    property: band_gap_ev
+    value: 9.0
+    form: amorphous_film
+    status: pending_verification
+    source:
+      citation: "J. Robertson, High dielectric constant oxides, Eur. Phys. J. Appl. Phys. 28, 265-291 (2004), Table of candidate oxides"
+      doi: 10.1051/epjap:2004206
+      url: https://doi.org/10.1051/epjap:2004206
+      access: unknown
+    note: "Owner read the value from a secondary reproduction of the table. The primary article returned HTTP 403 to automated fetches on 2026-10-31; owner to verify against the article before this becomes entered."
+    entered_by: owner
+    entered_on: 2026-10-31
+
+  - id: sio2_gap_ald_film
+    composition: SiO2
+    property: band_gap_ev
+    value: 8.7
+    form: amorphous_film
+    status: pending_verification
+    source:
+      citation: "ALD SiO2 film band gap measurement (owner to supply citation)"
+      url: null
+      access: unknown
+    note: "Value supplied by the owner; source not yet provided."
+    entered_by: owner
+    entered_on: 2026-10-31
+
+  - id: al2o3_gap_crystalline_robertson2004
+    composition: Al2O3
+    property: band_gap_ev
+    value: 8.8
+    form: crystalline_bulk
+    status: pending_verification
+    source:
+      citation: "J. Robertson, Eur. Phys. J. Appl. Phys. 28, 265-291 (2004), Table of candidate oxides"
+      doi: 10.1051/epjap:2004206
+      url: https://doi.org/10.1051/epjap:2004206
+      access: unknown
+    note: "Same secondary-copy caveat as sio2_gap_robertson2004."
+    entered_by: owner
+    entered_on: 2026-10-31
+
+  - id: al2o3_gap_amorphous_ald_range
+    composition: Al2O3
+    property: band_gap_ev
+    value_range: [6.0, 7.0]
+    form: amorphous_film
+    status: entered
+    source:
+      citation: "O. A. Dicks, J. Cottom, A. L. Shluger, V. V. Afanas'ev, The origin of negative charging in amorphous Al2O3 films: The role of native defects, arXiv:1811.00610"
+      url: https://arxiv.org/abs/1811.00610
+      access: open
+      quote: "the range of band gaps observed for a-Al2O3 grown using ALD is 6.0 eV - 7.0 eV"
+    note: "The paper cites its references 43-45 for the range; it is a review statement, not a new measurement. Quote confirmed against the PDF text on 2026-10-31."
+    entered_by: owner
+    entered_on: 2026-10-31
+
+  - id: al2o3_gap_amorphous_ald_point
+    composition: Al2O3
+    property: band_gap_ev
+    value: 6.6
+    uncertainty: 0.2
+    form: amorphous_film
+    status: pending_verification
+    source:
+      citation: "Open-access arXiv study of ALD Al2O3 reporting 6.6 +/- 0.2 eV (owner to supply the arXiv identifier)"
+      url: null
+      access: open
+    entered_by: owner
+    entered_on: 2026-10-31
+
+  - id: al2o3_gap_amorphous_7p0
+    composition: Al2O3
+    property: band_gap_ev
+    value: 7.0
+    uncertainty: 0.1
+    form: amorphous_film
+    status: pending_verification
+    source:
+      citation: "Study reporting 7.0 +/- 0.1 eV amorphous and 7.6 +/- 0.1 eV gamma-Al2O3 (owner to supply)"
+      url: null
+      access: unknown
+    entered_by: owner
+    entered_on: 2026-10-31
+
+  - id: al2o3_gap_gamma_7p6
+    composition: Al2O3
+    property: band_gap_ev
+    value: 7.6
+    uncertainty: 0.1
+    form: crystalline_bulk
+    phase: gamma
+    status: pending_verification
+    source:
+      citation: "Same study as al2o3_gap_amorphous_7p0 (owner to supply)"
+      url: null
+      access: unknown
+    entered_by: owner
+    entered_on: 2026-10-31
+
+  - id: tho2_gap_sputtered_film_evans2006
+    composition: ThO2
+    property: band_gap_ev
+    value: 5.9
+    form: thin_film
+    status: entered
+    source:
+      citation: "W. R. Evans, D. D. Allred, et al., Understanding DC-bias sputtered thorium oxide thin films useful in EUV optics, Proc. SPIE (2006); abstract: direct band gap about 5.9 eV, clarifying earlier reports of an absorption edge below 4 eV"
+      url: https://scholarsarchive.byu.edu/facpub/990
+      access: open
+    note: "Owner's assessment: the expt_gap compendium rows for ThO2 (3.30 to 3.50 eV) most likely trace to the older sub-4 eV absorption-edge reports this paper discusses. Recorded as the owner's hypothesis; the compendium rows stay in the data flagged as conflicting."
+    entered_by: owner
+    entered_on: 2026-10-31
+
+  - id: tho2_gap_single_crystal_mock2019
+    composition: ThO2
+    property: band_gap_ev
+    value: 5.4
+    form: crystalline_bulk
+    status: entered
+    source:
+      citation: "A. Mock et al., Band-to-band transitions, selection rules, effective mass, and excitonic contributions in monoclinic beta-Ga2O3 ... [title to confirm]; NSF PAR record: spectroscopic ellipsometry of UO2 and ThO2 single crystals, band gaps 2.1 eV and 5.4 eV (Appl. Phys. Lett. 2019)"
+      url: https://par.nsf.gov/servlets/purl/10095694
+      access: open
+    note: "Title to be corrected from the PAR record during the next pass; the value and record are confirmed from the abstract."
+    entered_by: owner
+    entered_on: 2026-10-31
+
+  - id: tho2_gap_single_crystal_photoemission
+    composition: ThO2
+    property: band_gap_ev
+    value_range: [6.0, 7.0]
+    form: crystalline_bulk
+    status: pending_verification
+    source:
+      citation: "Photoemission study of hydrothermally grown ThO2 single crystals (owner to supply)"
+      url: null
+      access: unknown
+    entered_by: owner
+    entered_on: 2026-10-31
+
+  - id: al2o3_gap_alpha_dicks2018
+    composition: Al2O3
+    property: band_gap_ev
+    value: 8.7
+    form: crystalline_bulk
+    phase: alpha
+    status: pending_signoff
+    source:
+      citation: "O. A. Dicks et al., arXiv:1811.00610 (review statement within the paper)"
+      url: https://arxiv.org/abs/1811.00610
+      access: open
+      quote: "alpha-Al2O3 having a band gap of 8.7 eV"
+    note: "Found in the owner-named source while confirming the amorphous range; not entered by the owner. Differs from the owner's Robertson-table value of 8.8 eV. Owner to decide which crystalline entry to keep."
+    entered_by: claude-code
+    entered_on: 2026-10-31

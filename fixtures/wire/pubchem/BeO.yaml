@@ -1189,4 +1189,82 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=90C6B13FAE6249D1_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/14775/synonyms/JSON
+  response:
+    body:
+      string: "{\n  \"InformationList\": {\n    \"Information\": [\n      {\n        \"CID\":
+        14775,\n        \"Synonym\": [\n          \"BERYLLIUM OXIDE\",\n          \"1304-56-9\",\n
+        \         \"oxoberyllium\",\n          \"Beryllia\",\n          \"Bromellete\",\n
+        \         \"Thermalox\",\n          \"Beryllium monoxide\",\n          \"Natural
+        bromellite\",\n          \"Thermalox 995\",\n          \"Beryllium oxide (BeO)\",\n
+        \         \"2S8NLR37S3\",\n          \"CHEBI:62842\",\n          \"BROMELITE\",\n
+        \         \"RefChem:119116\",\n          \"DTXCID101841830\",\n          \"215-133-1\",\n
+        \         \"680-425-1\",\n          \"DTXSID30872818\",\n          \"CCRIS
+        83\",\n          \"HSDB 1607\",\n          \"EINECS 215-133-1\",\n          \"UNII-2S8NLR37S3\",\n
+        \         \"Beryllium oxide, purum\",\n          \"EC 215-133-1\",\n          \"SCHEMBL29351058\",\n
+        \         \"AKOS015903963\",\n          \"Beryllium Oxide Nanoparticle Dispersion\",\n
+        \         \"Beryllium oxide, 99.98% trace metals basis\",\n          \"Q422714\"\n
+        \       ]\n      }\n    ]\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '954'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 18:09:26 GMT
+      expires:
+      - Sat, 31 Oct 2026 19:09:26 GMT
+      ncbi-phid:
+      - 95B7C6D3AE62ED610000000000000001.m_1
+      ncbi-sid:
+      - 90C6B13FAE6249D1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=90C6B13FAE6249D1_0000SID; domain=.nih.gov; path=/; expires=Sun, 31
+        Oct 2027 18:09:26 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (1%), Request Time status: Green (0%), Service
+        status: Green (33%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
 version: 1

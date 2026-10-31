@@ -414,4 +414,86 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=95B7A1B1AE624981_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/150906/synonyms/JSON
+  response:
+    body:
+      string: "{\n  \"InformationList\": {\n    \"Information\": [\n      {\n        \"CID\":
+        150906,\n        \"Synonym\": [\n          \"Lanthanum oxide\",\n          \"1312-81-8\",\n
+        \         \"Lanthana\",\n          \"Lanthanum sesquioxide\",\n          \"Lanthanum
+        oxide (La2O3)\",\n          \"Dilanthanum trioxide\",\n          \"Dilanthanum
+        oxide\",\n          \"Lanthanum(3+) oxide\",\n          \"Lanthanum trioxide\",\n
+        \         \"Lanthania (La2O3)\",\n          \"4QI5EL790W\",\n          \"La(2)O(3)\",\n
+        \         \"RefChem:152325\",\n          \"DTXCID4030209\",\n          \"215-200-5\",\n
+        \         \"682-684-6\",\n          \"DTXSID7051478\",\n          \"Lanthanum(III)
+        oxide\",\n          \"Lanthanum(III)Oxide\",\n          \"La2O3\",\n          \"lanthanum(3+);oxygen(2-)\",\n
+        \         \"Lanthania\",\n          \"EINECS 215-200-5\",\n          \"LANTHANUM
+        OXYDATUM\",\n          \"UNII-4QI5EL790W\",\n          \"SCHEMBL36463\",\n
+        \         \"LANTHANUM OXIDE [MI]\",\n          \"Lanthanum(III) oxide, nanopowder,\",\n
+        \         \"AC2338\",\n          \"AKOS030228233\",\n          \"Lanthanum
+        Oxide Nanoparticle Dispersion\",\n          \"Lanthanum oxide nanopowder  (100
+        nm)\",\n          \"Lanthanum oxide powder  (300~500 nm)\",\n          \"SY010043\",\n
+        \         \"EC 215-200-5\",\n          \"Q417250\",\n          \"12680-02-3\"\n
+        \       ]\n      }\n    ]\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '1247'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 18:09:24 GMT
+      expires:
+      - Sat, 31 Oct 2026 19:09:24 GMT
+      ncbi-phid:
+      - 95B7C552AE62ED410000000000000001.m_1
+      ncbi-sid:
+      - 95B7A1B1AE624981_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=95B7A1B1AE624981_0000SID; domain=.nih.gov; path=/; expires=Sun, 31
+        Oct 2027 18:09:24 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (1%), Request Time status: Green (0%), Service
+        status: Green (17%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
 version: 1

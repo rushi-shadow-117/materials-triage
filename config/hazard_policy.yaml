@@ -1,0 +1,141 @@
+# Element-level hazard policy, owned by the site admin. Tiers by hazard type and authority.
+# Status vocabulary is in config/README.md. The loader (Phase 2) applies only `entered` rules.
+schema_version: 0
+
+tiers:
+  exclude:
+    description: "Candidates containing these elements are excluded; the exclusion rule is shown."
+    entries:
+      - element: As
+        reason: "IARC Group 1: arsenic and inorganic arsenic compounds"
+        status: entered
+        source:
+          citation: "IARC Monographs Volume 100C, Arsenic, Metals, Fibres, and Dusts (2012)"
+          url: https://publications.iarc.who.int/120
+          access: open
+        entered_by: owner
+        entered_on: 2026-10-31
+      - element: Be
+        reason: "IARC Group 1: beryllium and beryllium compounds"
+        status: entered
+        source:
+          citation: "IARC Monographs Volume 100C (2012)"
+          url: https://publications.iarc.who.int/120
+          access: open
+        entered_by: owner
+        entered_on: 2026-10-31
+      - element: Cd
+        reason: "IARC Group 1: cadmium and cadmium compounds"
+        status: entered
+        source:
+          citation: "IARC Monographs Volume 100C (2012)"
+          url: https://publications.iarc.who.int/120
+          access: open
+        entered_by: owner
+        entered_on: 2026-10-31
+      - element: Ni
+        reason: "IARC Group 1: nickel compounds, evaluated as a group"
+        status: pending_signoff
+        admin_may_downgrade_to: flag
+        note: "IARC states that some group evaluations apply to the group of compounds as a whole and not necessarily to every individual compound. Owner's default is exclude; a site admin may downgrade to flag."
+        source:
+          citation: "IARC Monographs Volume 100C (2012)"
+          url: https://publications.iarc.who.int/120
+          access: open
+        entered_by: owner
+        entered_on: 2026-10-31
+
+  flag:
+    description: "Candidates stay ranked; the row carries the flag text."
+    entries:
+      - element: Cr
+        reason: "IARC Group 1 applies to chromium(VI) compounds only; Cr2O3 is chromium(III). Flag text names the oxidation state present."
+        flag_text: "Contains chromium. IARC Group 1 applies to Cr(VI) compounds; verify the oxidation state in the candidate phase."
+        status: entered
+        source:
+          citation: "IARC Monographs Volume 100C (2012)"
+          url: https://publications.iarc.who.int/120
+          access: open
+        entered_by: owner
+        entered_on: 2026-10-31
+
+  radioactive_exclude:
+    description: "Elements with no stable isotope. Admin-locked, default on."
+    status: entered
+    elements: [Tc, Pm, Po, At, Rn, Fr, Ra, Ac, Th, Pa, U, Np, Pu, Am, Cm, Bk, Cf, Es, Fm, Md, No, Lr, Rf, Db, Sg, Bh, Hs, Mt, Ds, Rg, Cn, Nh, Fl, Mc, Lv, Ts, Og]
+    note: "Technetium, promethium, and polonium onward, per the owner's rule. Bismuth is not listed (its one natural isotope has a half-life far longer than the age of the universe); the owner can add it."
+    source:
+      citation: "NNDC NuDat 3 chart of nuclides, Brookhaven National Laboratory"
+      url: https://www.nndc.bnl.gov/nudat3/
+      access: open
+    additional_sources:
+      - element: Th
+        citation: "IARC Group 1: thorium-232 and its decay products (as colloidal thorium dioxide), IARC Monographs Volume 78 (2001), carried into Volume 100D (2012)"
+        url: https://publications.iarc.who.int/121
+        access: open
+        status: entered
+    entered_by: owner
+    entered_on: 2026-10-31
+
+  acute_toxicity:
+    description: "Elements whose common compounds carry GHS acute toxicity classifications. Candidate elements named by the owner; the tier and sources are filled from PubChem GHS recordings of representative compounds in Phase 1."
+    status: open
+    candidate_elements: [Hg, Tl, Pb, Ba]
+    note: "Soluble barium compounds only for Ba; BaTiO3 handling is decided once GHS data for representative compounds is recorded."
+    entered_by: owner
+    entered_on: 2026-10-31
+
+  process_hazard:
+    description: "Keep the candidate and attach a caveat. Triggered by GHS particulate codes on the compound or by a per-material classification below."
+    caveat_template:
+      status: entered
+      text: "Particulate hazard during processing: powders, sputter targets, and chamber residues may present inhalation hazards that the deposited film does not. {material_specific_classification} Follow site EHS procedures."
+      source:
+        citation: "Owner-drafted caveat text, 2026-10-31"
+        url: null
+        access: not_applicable
+      entered_by: owner
+      entered_on: 2026-10-31
+    material_classifications:
+      - composition: SiO2
+        text: "Crystalline silica inhaled as quartz or cristobalite from occupational sources is IARC Group 1. The classification applies to crystalline forms; device SiO2 films are typically amorphous, and the hazard is in powders and particulates."
+        status: entered
+        source:
+          citation: "IARC Monographs Volume 100C, Silica dust, crystalline, in the form of quartz or cristobalite (2012)"
+          url: https://publications.iarc.who.int/120
+          access: open
+        entered_by: owner
+        entered_on: 2026-10-31
+      - composition: TiO2
+        text: "Titanium dioxide is IARC Group 2B (possibly carcinogenic to humans), based on animal inhalation studies of respirable particles. The EU Court of Justice on 1 August 2025 upheld the annulment of its EU classification as a carcinogen by inhalation."
+        status: entered
+        source:
+          citation: "IARC Monographs Volume 93, Carbon Black, Titanium Dioxide, and Talc (2010)"
+          url: https://publications.iarc.who.int/111
+          access: open
+        additional_sources:
+          - citation: "Court of Justice of the European Union, press release No 99/25, 1 August 2025, Joined Cases C-71/23 P and C-82/23 P"
+            url: https://curia.europa.eu/jcms/upload/docs/application/pdf/2025-08/cp250099en.pdf
+            access: open
+          - citation: "NIOSH: titanium dioxide as a potential occupational carcinogen (owner to supply the NIOSH document URL)"
+            url: null
+            access: open
+            status: pending_verification
+        entered_by: owner
+        entered_on: 2026-10-31
+
+unknown_hazard_rule:
+  description: "A compound with no PubChem record, or an element with no tier entry, lands in the flag tier with a neutral score and a caveat. Never shown as safe."
+  status: entered
+  source:
+    citation: "docs/DECISIONS.md, 2026-10-31, unknown-hazard rule (design decision, not a chemistry fact)"
+    url: null
+    access: not_applicable
+  entered_by: owner
+  entered_on: 2026-10-31
+
+ghs_display_rule:
+  description: "PubChem GHS aggregates are shown as 'hazard codes in M of N notifications' and never collapsed to a majority verdict."
+  status: entered
+  entered_by: owner
+  entered_on: 2026-10-31
