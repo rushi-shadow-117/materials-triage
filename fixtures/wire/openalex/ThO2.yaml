@@ -1,0 +1,564 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search=ThO2+dielectric+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 95, "db_response_time_ms": 46, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (ThO2 dielectric
+        thin film) in the full text where it has an abstract", "x_new_oql": "get works
+        with (ThO2 dielectric thin film) in the full text where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "fulltext.search",
+        "value": "ThO2 dielectric thin film", "operator": "has"}, {"column_id": "has_abstract",
+        "value": true}]}, "url": "/works?filter=fulltext.search:ThO2 dielectric thin
+        film,has_abstract:true&per_page=5", "order": "best matches first", "order_default":
+        true}, "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2045628643",
+        "doi": "https://doi.org/10.1088/0022-3727/41/20/205414", "title": "Ti-doped
+        ThO2: a first-principles study of dielectric properties", "publication_year":
+        2008, "abstract_inverted_index": {"We": [0, 30, 55], "determine": [1], "electronic":
+        [2], "structure": [3], "and": [4, 9, 25, 71], "dielectric": [5, 78], "response":
+        [6, 79], "of": [7, 80], "25": [8], "50%": [10], "Ti-substituted": [11], "thoria":
+        [12, 64], "(ThO": [13], "2": [14, 38, 53], "),": [15], "using": [16], "first-principles":
+        [17], "density": [18], "functional": [19], "theory": [20], "calculations":
+        [21], "based": [22], "on": [23], "pseudopotentials": [24], "a": [26, 43, 96],
+        "plane": [27], "wave": [28], "basis.": [29], "find": [31], "that": [32, 57],
+        "Th": [33, 48], "0.75": [34], "Ti": [35, 50, 69], "0.25": [36], "O": [37,
+        52], "is": [39], "more": [40], "promising": [41], "as": [42, 95], "high-":
+        [44], "k": [45], "material": [46, 86], "than": [47], "0.5": [49, 51], ".":
+        [54], "show": [56], "the": [58, 72, 85], "IR-active": [59], "phonon": [60],
+        "modes": [61, 74], "in": [62], "pure": [63], "can": [65], "be": [66], "tuned":
+        [67], "upon": [68], "doping": [70], "softened": [73], "cause": [75], "an":
+        [76], "enhanced": [77], "25%": [81], "Ti-doped": [82], "thoria.": [83], "As":
+        [84], "remains": [87], "insulating,": [88], "it": [89], "holds": [90], "promise":
+        [91], "for": [92], "applications": [93], "such": [94], "gate": [97], "oxide":
+        [98], "material.": [99]}, "primary_location": {"id": "doi:10.1088/0022-3727/41/20/205414",
+        "doi": "https://doi.org/10.1088/0022-3727/41/20/205414", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.1088/0022-3727/41/20/205414", "pdf_url": "https://iopscience.iop.org/article/10.1088/0022-3727/41/20/205414/pdf",
+        "source": {"id": "https://openalex.org/S111927887", "display_name": "Journal
+        of Physics D Applied Physics", "issn_l": "0022-3727", "issn": ["0022-3727",
+        "1361-6463"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1", "ki-jl-1", "norway-1",
+        "poland-70", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310311669",
+        "host_organization_name": "Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310311669"], "host_organization_lineage_names": ["Institute
+        of Physics"], "type": "journal"}, "license": null, "license_id": null, "version":
+        "publishedVersion", "is_accepted": true, "is_published": true, "raw_source_name":
+        "Journal of Physics D: Applied Physics", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W4224657314", "doi": "https://doi.org/10.1088/1361-6633/ac968e",
+        "title": "Advances in actinide thin films: synthesis, properties, and future
+        directions", "publication_year": 2022, "abstract_inverted_index": {"Actinide-based":
+        [0], "compounds": [1], "exhibit": [2], "unique": [3, 50], "physics": [4],
+        "due": [5], "to": [6, 37, 160, 165], "the": [7, 46, 49, 100, 112, 123, 155],
+        "presence": [8], "of": [9, 25, 48, 66, 84, 92, 102, 114, 127], "5f": [10],
+        "electrons,": [11], "and": [12, 56, 62, 75, 107, 125, 137, 149, 171], "serve":
+        [13], "in": [14, 31, 35, 59, 81, 131, 158], "many": [15], "cases": [16], "as":
+        [17, 69, 71], "important": [18], "technological": [19], "materials.": [20,
+        116, 142], "Targeted": [21], "thin": [22, 93, 129, 169], "film": [23, 94],
+        "synthesis": [24, 124, 135], "actinide": [26, 60, 168], "materials": [27],
+        "has": [28], "been": [29, 79], "successful": [30], "generating": [32], "high-purity":
+        [33], "specimens": [34], "which": [36], "study": [38, 47], "individual": [39],
+        "physical": [40], "phenomena.": [41], "These": [42], "films": [43, 130, 170],
+        "have": [44, 78], "enabled": [45], "electron": [51], "configuration,": [52],
+        "strong": [53], "mass": [54], "renormalization,": [55], "nuclear": [57], "decay":
+        [58], "metals": [61], "compounds.": [63], "The": [64], "growth": [65], "these":
+        [67, 141], "films,": [68], "well": [70], "their": [72], "thermophysical,":
+        [73], "magnetic,": [74], "topological": [76], "properties,": [77], "studied":
+        [80], "a": [82, 162], "range": [83], "chemistries,": [85], "albeit": [86],
+        "far": [87], "fewer": [88], "than": [89], "most": [90], "classes": [91], "systems.":
+        [95], "This": [96], "relative": [97], "scarcity": [98], "is": [99], "result":
+        [101], "limited": [103], "source": [104], "material": [105], "availability":
+        [106], "safety": [108], "constraints": [109], "associated": [110], "with":
+        [111], "handling": [113], "radioactive": [115], "Here,": [117], "we": [118],
+        "review": [119, 144], "recent": [120], "work": [121], "on": [122, 146], "characterization":
+        [126], "actinide-based": [128], "detail,": [132], "describing": [133], "both":
+        [134], "methods": [136], "modeling": [138], "techniques": [139], "for": [140],
+        "We": [143, 153], "reports": [145], "pyrometallurgical,": [147], "solution-based,":
+        [148], "vapor": [150], "deposition": [151], "methods.": [152], "highlight":
+        [154], "current": [156], "state-of-the-art": [157], "order": [159], "construct":
+        [161], "path": [163], "forward": [164], "higher": [166], "quality": [167],
+        "heterostructure": [172], "devices.": [173]}, "primary_location": {"id": "doi:10.1088/1361-6633/ac968e",
+        "doi": "https://doi.org/10.1088/1361-6633/ac968e", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1088/1361-6633/ac968e", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S105282323", "display_name": "Reports on Progress in
+        Physics", "issn_l": "0034-4885", "issn": ["0034-4885", "1361-6633"], "is_oa":
+        false, "is_in_doaj": false, "is_core": true, "listed_in": ["anvur-scientific",
+        "cwts-core", "dongbi-b", "jufo-3", "medline", "norway-2", "poland-200", "russia-white-list-1"],
+        "host_organization": "https://openalex.org/P4310320083", "host_organization_name":
+        "IOP Publishing", "host_organization_lineage": ["https://openalex.org/P4310320083",
+        "https://openalex.org/P4310311669"], "host_organization_lineage_names": ["IOP
+        Publishing", "Institute of Physics"], "type": "journal"}, "license": null,
+        "license_id": null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Reports on Progress in Physics", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2946932758", "doi": "https://doi.org/10.1063/1.5087059",
+        "title": "Band-to-band transitions and critical points in the near-infrared
+        to vacuum ultraviolet dielectric functions of single crystal urania and thoria",
+        "publication_year": 2019, "abstract_inverted_index": {"Band-to-band": [0],
+        "transition": [1], "energy": [2], "parameters": [3], "for": [4, 64, 76], "single-crystal":
+        [5], "actinide": [6], "samples": [7], "of": [8, 45, 70], "uranium": [9, 46],
+        "oxide": [10, 13, 47], "and": [11, 16, 21, 48, 58, 73, 78], "thorium": [12,
+        49], "were": [14, 38], "determined": [15], "compared": [17], "using": [18],
+        "spectroscopic": [19], "ellipsometry": [20, 27], "critical-point": [22, 52],
+        "dielectric": [23, 43], "function": [24], "analyses.": [25], "Spectroscopic":
+        [26], "measurements": [28], "from": [29], "the": [30, 33, 42], "near-infrared":
+        [31], "to": [32, 40], "vacuum": [34], "ultraviolet": [35], "spectral": [36],
+        "region": [37], "used": [39], "determine": [41], "functions": [44], "oxide.":
+        [50], "The": [51], "structure": [53], "is": [54], "similar": [55], "between":
+        [56], "UO2": [57, 77], "ThO2": [59], "but": [60], "strongly": [61], "blue":
+        [62], "shifted": [63], "ThO2.": [65], "We": [66], "find": [67], "bandgap":
+        [68], "energies": [69], "2.1": [71], "eV": [72, 75], "5.4": [74], "ThO2,":
+        [79], "respectively.": [80]}, "primary_location": {"id": "doi:10.1063/1.5087059",
+        "doi": "https://doi.org/10.1063/1.5087059", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.5087059", "pdf_url": null, "source": {"id": "https://openalex.org/S105243760",
+        "display_name": "Applied Physics Letters", "issn_l": "0003-6951", "issn":
+        ["0003-6951", "1077-3118", "1520-8842"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-a",
+        "jufo-3", "ki-jl-1", "norway-2", "poland-100", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Applied Physics
+        Letters", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2940930829",
+        "doi": "https://doi.org/10.21220/s2-1yx5-xk98", "title": "Enhanced Field Emission
+        From Vertically Oriented Graphene By Thin Solid Film Coatings", "publication_year":
+        2011, "abstract_inverted_index": {"Recent": [0], "progress": [1], "and": [2,
+        17, 30, 59, 70, 176, 179, 224, 236, 302, 337, 358, 378, 415, 459, 473, 508,
+        521], "a": [3, 118, 124, 138, 160, 232, 244, 269, 307, 316, 369, 401, 429,
+        514], "coordinated": [4], "national": [5], "research": [6], "program": [7],
+        "have": [8, 33, 46], "brought": [9], "considerable": [10], "effort": [11],
+        "to": [12, 56, 78, 115, 155, 169, 262, 355, 519, 532], "bear": [13], "on":
+        [14, 206, 300, 347, 484], "the": [15, 26, 100, 111, 148, 153, 156, 183, 188,
+        248, 281, 321, 330, 417, 439, 474, 477, 485, 500, 506, 509, 517], "synthesis":
+        [16], "application": [18, 83], "of": [19, 28, 38, 68, 84, 94, 97, 110, 120,
+        126, 159, 165, 173, 187, 214, 222, 240, 268, 273, 280, 284, 296, 310, 320,
+        372, 410, 413, 419, 476, 487, 505], "carbon": [20, 423], "nanostructures":
+        [21], "for": [22, 196, 443, 470, 516], "field": [23, 35, 98, 103, 149, 238,
+        352, 394, 420, 431, 442], "emission.": [24], "at": [25, 123, 182, 208, 227,
+        327, 392, 527], "College": [27], "William": [29], "Mary,": [31], "we": [32],
+        "developed": [34], "emission": [36, 52, 104, 150, 239, 249, 304, 353, 385,
+        395, 421, 432, 472, 525], "arrays": [37], "vertically": [39], "oriented":
+        [40], "graphene": [41, 507], "(carbon": [42], "nanosheets,": [43], "CNS)":
+        [44], "that": [45, 398], "demonstrated": [47, 350], "promising": [48, 266],
+        "cathode": [49, 60, 73], "performance,": [50], "delivering": [51], "current":
+        [53, 250, 433], "densities": [54], "up": [55], "2": [57], "mA/mm2": [58],
+        "lifetime": [61], ">800": [62], "hours.": [63], "The": [64, 82, 107, 132,
+        163, 277, 468, 491], "work": [65, 86, 271, 308, 370], "function": [66, 87,
+        119, 272, 309, 371], "(&phis;)": [67], "CNS": [69, 102, 112, 166, 207, 348,
+        445], "other": [71], "carbonaceous": [72], "materials": [74], "has": [75,
+        498], "been": [76, 499], "reported": [77, 210, 270], "be": [79, 263], "&phis;\u223c4.5-5.1":
+        [80], "eV.": [81, 276, 375], "low": [85], "thin": [88, 257, 297, 322, 411,
+        489], "films": [89, 412, 518], "can": [90], "achieve": [91], "several": [92],
+        "orders": [93], "magnitude": [95, 418], "enhancement": [96], "emission.;Initially,":
+        [99], "intrinsic": [101], "was": [105, 113, 135, 167, 216, 251, 287, 313,
+        324, 426, 446], "studied.": [106], "mean": [108], "height": [109], "observed":
+        [114, 494], "decrease": [116], "as": [117], "operating": [121], "time": [122],
+        "rate": [125], "\u223c0.05": [127], "nm/h": [128], "(I": [129], "1\u223c40":
+        [130], "muA/mm2).": [131], "erosion": [133, 164, 199], "mechanism": [134,
+        469], "studied": [136, 288], "using": [137], "unique": [139], "UHV": [140,
+        290], "diode": [141, 154], "design": [142], "which": [143, 229, 511], "allowed":
+        [144], "line-of-site": [145], "assessment": [146], "from": [147, 383, 422,
+        523], "region": [151], "in": [152, 231, 289, 388, 495, 502, 513], "ion": [157],
+        "source": [158], "mass": [161], "spectrometer.": [162], "found": [168], "occur":
+        [170], "by": [171, 191, 218, 294, 315], "impingement": [172], "hyperthermal":
+        [174], "H": [175], "O": [177], "neutrals": [178], "ions": [180], "generated":
+        [181], "surface": [184, 335, 380, 503, 536], "oxide": [185], "complex": [186],
+        "Cu": [189], "anode": [190], "electron": [192], "stimulated": [193], "desorption.":
+        [194], "Techniques": [195, 397], "minimizing": [197], "this": [198, 534],
+        "are": [200, 407, 479, 538], "presented.;The": [201, 408], "Mo2C": [202, 234,
+        414, 456], "(&phis;\u223c3.7": [203, 457], "eV)": [204, 458], "beading": [205,
+        377], "previously": [209], "carbide": [211], "formation": [212], "temperatures":
+        [213], "\u223c800??C": [215], "circumvented": [217], "physical": [219], "vapor":
+        [220], "deposition": [221], "Mo": [223], "vacuum": [225], "annealing": [226],
+        "\u223c300??C": [228], "resulted": [230, 387, 512], "conformal": [233, 405],
+        "coating": [235, 406], "stable": [237, 340, 403], "1\u223c50": [241], "muA/mm2.":
+        [242], "For": [243, 428], "given": [245, 430], "applied": [246, 441], "field,":
+        [247], ">102": [252], "greater": [253], "than": [254], "uncoated": [255, 444],
+        "CNS.;ThO2": [256], "film": [258, 298, 323, 333, 343], "coatings": [259, 299,
+        345, 478, 510], "were": [260], "presumed": [261], "even": [264], "more": [265,
+        402], "because": [267], "&phis;": [274, 373], "\u223c2.6": [275, 374], "fundamental":
+        [278], "behavior": [279], "initial": [282], "oxidation": [283], "polycrystalline":
+        [285], "Th": [286], "(p<1x10-11": [291], "Torr),": [292], "followed": [293],
+        "studies": [295, 497], "Ir": [301], "thermionic": [303], "characteristics.":
+        [305], "Although": [306], "3.3": [311], "eV": [312], "determined": [314],
+        "RichardDushman": [317], "plot,": [318], "activation": [319, 486], "not":
+        [325], "achieved": [326], "T<1700??C.": [328], "Rather,": [329], "deposited":
+        [331, 346], "ThO2": [332, 344, 379, 465, 488], "decomposed,": [334], "diffused":
+        [336], "aggregated": [338], "into": [339], "ThO2(111)": [341], "crystallites.;Thin":
+        [342], "initially": [349], "excellent": [351], "(up": [354], "\u223c2": [356,
+        436], "muA/mm2)": [357], "apparently": [359], "activated": [360], "spontaneously":
+        [361], "without": [362], "significant": [363], "thermal": [364], "energy.":
+        [365], "Fowler-Nordheim": [366], "plots": [367], "suggested": [368], "Undesired":
+        [376], "diffusion": [381, 537], "away": [382], "active": [384, 524], "sites":
+        [386, 526], "rapidly": [389], "deteriorating": [390], "performance": [391],
+        "higher": [393], "currents.": [396, 529], "should": [399], "provide": [400],
+        "ThO2/CNS": [404], "impact": [409], "ThO2on": [416], "nanosheets": [424],
+        "(CNS)": [425], "substantial.": [427], "density,": [434], "J": [435], "muA/mm":
+        [437], "2,": [438], "necessary": [440], "\u223c12": [447], "V/mum,": [448],
+        "but": [449], "only": [450], "\u223c8": [451], "V/mum": [452, 461], "when":
+        [453, 462], "coated": [454, 463], "with": [455, 464, 481], "\u223c5": [460],
+        "(&phis;\u223c2,6": [466], "eV).": [467], "enhanced": [471], "stability":
+        [475], "discussed,": [480], "special": [482], "focus": [483], "films.": [490],
+        "major": [492], "limitation": [493], "these": [496], "difference": [501],
+        "energy": [504], "tendency": [515], "bead": [520], "separate": [522], "elevated":
+        [528], "Suggested": [530], "techniques": [531], "prevent": [533], "unwanted":
+        [535], "presented.": [539]}, "primary_location": {"id": "pmh:oai:scholarworks.wm.edu:etd-6829",
+        "doi": null, "is_oa": true, "landing_page_url": "https://scholarworks.wm.edu/etd/1563899054",
+        "pdf_url": "https://scholarworks.wm.edu/etd/1563899054", "source": {"id":
+        "https://openalex.org/S4306401254", "display_name": "W&M Publish (College
+        of William & Mary)", "issn_l": null, "issn": null, "is_oa": false, "is_in_doaj":
+        false, "is_core": false, "listed_in": [], "host_organization": "https://openalex.org/I16285277",
+        "host_organization_name": "William & Mary", "host_organization_lineage": ["https://openalex.org/I16285277"],
+        "host_organization_lineage_names": [], "type": "repository"}, "license": null,
+        "license_id": null, "version": "submittedVersion", "is_accepted": false, "is_published":
+        false, "raw_source_name": "Dissertations, Theses, and Masters Projects", "raw_type":
+        "text"}}, {"id": "https://openalex.org/W4405907494", "doi": "https://doi.org/10.61326/jaasci.v3i2.313",
+        "title": "X-Ray Radiation Responses of 4H-SiC MOS with Eu2O3/SiO2 Dual Dielectric",
+        "publication_year": 2024, "abstract_inverted_index": {"This": [0], "study":
+        [1], "examines": [2], "the": [3, 9, 101, 104, 112, 126], "effects": [4], "of":
+        [5, 14, 128], "X-ray": [6, 38], "irradiation": [7], "on": [8, 20], "structural":
+        [10, 33], "and": [11, 31, 49, 67, 74, 88], "electrical": [12, 42, 109], "properties":
+        [13, 43], "Eu\u2082O\u2083": [15, 129], "dielectric": [16, 105, 133], "thin":
+        [17], "films": [18, 24], "deposited": [19], "SiC": [21], "substrates.": [22],
+        "The": [23, 53], "were": [25, 35, 44], "exposed": [26], "to": [27, 61, 71,
+        92], "varying": [28], "radiation": [29, 58, 114], "durations,": [30], "their":
+        [32], "changes": [34], "analyzed": [36], "using": [37], "diffraction": [39],
+        "(XRD),": [40], "while": [41], "evaluated": [45], "through": [46], "capacitance-voltage":
+        [47], "(C-V)": [48], "conductance-voltage": [50], "(G/\u03c9-V)": [51], "measurements.":
+        [52], "results": [54], "revealed": [55], "that": [56], "increased": [57],
+        "exposure": [59], "led": [60], "an": [62], "increase": [63], "in": [64, 85,
+        140], "crystalline": [65], "size": [66], "lattice": [68], "strain,": [69],
+        "attributed": [70], "local": [72], "heating": [73], "atomic": [75], "rearrangements":
+        [76], "caused": [77], "by": [78], "radiation.": [79], "Electrical": [80],
+        "analysis": [81], "showed": [82], "slight": [83], "shifts": [84], "flat":
+        [86], "band": [87], "mid-gap": [89], "voltages": [90], "due": [91], "radiation-induced":
+        [93], "defects,": [94, 103], "which": [95], "influenced": [96], "charge":
+        [97], "trapping": [98], "behavior.": [99], "Despite": [100], "observed": [102],
+        "material": [106, 134], "exhibited": [107], "stable": [108], "performance":
+        [110], "under": [111], "tested": [113], "conditions,": [115], "indicating":
+        [116], "its": [117], "potential": [118], "for": [119, 135], "radiation-tolerant":
+        [120], "electronic": [121, 137], "devices.": [122], "These": [123], "findings":
+        [124], "highlight": [125], "applicability": [127], "as": [130], "a": [131],
+        "high-k": [132], "advanced": [136], "devices": [138], "operating": [139],
+        "radiation-harsh": [141], "environments.": [142]}, "primary_location": {"id":
+        "doi:10.61326/jaasci.v3i2.313", "doi": "https://doi.org/10.61326/jaasci.v3i2.313",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.61326/jaasci.v3i2.313",
+        "pdf_url": "https://prensipjournals.com/ojs/index.php/jaasci/article/download/313/234",
+        "source": {"id": "https://openalex.org/S4387285998", "display_name": "Journal
+        of Advanced Applied Sciences", "issn_l": "2979-9759", "issn": ["2979-9759"],
+        "is_oa": false, "is_in_doaj": false, "is_core": false, "listed_in": [], "host_organization":
+        null, "host_organization_name": null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "journal"}, "license": "cc-by", "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Journal of Advanced Applied Sciences", "raw_type": "journal-article"}}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a534af18ed4be8ea-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '19785'
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 18:22:14 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=9WIYvFvKrVyDU9E8BqsPrEotquHyRFJU8fNSrmx3LL8%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793470933"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=9WIYvFvKrVyDU9E8BqsPrEotquHyRFJU8fNSrmx3LL8%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793470933"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9890'
+      x-ratelimit-remaining-usd:
+      - '0.989'
+      x-ratelimit-reset:
+      - '20266'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search=thoria+dielectric+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 144, "db_response_time_ms": 48, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (thoria dielectric
+        thin film) in the full text where it has an abstract", "x_new_oql": "get works
+        with (thoria dielectric thin film) in the full text where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "fulltext.search",
+        "value": "thoria dielectric thin film", "operator": "has"}, {"column_id":
+        "has_abstract", "value": true}]}, "url": "/works?filter=fulltext.search:thoria
+        dielectric thin film,has_abstract:true&per_page=5", "order": "best matches
+        first", "order_default": true}, "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2946932758",
+        "doi": "https://doi.org/10.1063/1.5087059", "title": "Band-to-band transitions
+        and critical points in the near-infrared to vacuum ultraviolet dielectric
+        functions of single crystal urania and thoria", "publication_year": 2019,
+        "abstract_inverted_index": {"Band-to-band": [0], "transition": [1], "energy":
+        [2], "parameters": [3], "for": [4, 64, 76], "single-crystal": [5], "actinide":
+        [6], "samples": [7], "of": [8, 45, 70], "uranium": [9, 46], "oxide": [10,
+        13, 47], "and": [11, 16, 21, 48, 58, 73, 78], "thorium": [12, 49], "were":
+        [14, 38], "determined": [15], "compared": [17], "using": [18], "spectroscopic":
+        [19], "ellipsometry": [20, 27], "critical-point": [22, 52], "dielectric":
+        [23, 43], "function": [24], "analyses.": [25], "Spectroscopic": [26], "measurements":
+        [28], "from": [29], "the": [30, 33, 42], "near-infrared": [31], "to": [32,
+        40], "vacuum": [34], "ultraviolet": [35], "spectral": [36], "region": [37],
+        "used": [39], "determine": [41], "functions": [44], "oxide.": [50], "The":
+        [51], "structure": [53], "is": [54], "similar": [55], "between": [56], "UO2":
+        [57, 77], "ThO2": [59], "but": [60], "strongly": [61], "blue": [62], "shifted":
+        [63], "ThO2.": [65], "We": [66], "find": [67], "bandgap": [68], "energies":
+        [69], "2.1": [71], "eV": [72, 75], "5.4": [74], "ThO2,": [79], "respectively.":
+        [80]}, "primary_location": {"id": "doi:10.1063/1.5087059", "doi": "https://doi.org/10.1063/1.5087059",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.5087059", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S105243760", "display_name":
+        "Applied Physics Letters", "issn_l": "0003-6951", "issn": ["0003-6951", "1077-3118",
+        "1520-8842"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Applied Physics Letters", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W4292665896", "doi": "https://doi.org/10.1002/pssb.202200238",
+        "title": "Interband Transitions and Critical Points of Single\u2010Crystal
+        Thoria Compared with Urania", "publication_year": 2022, "abstract_inverted_index":
+        {"The": [0], "interband": [1], "transitions": [2], "of": [3, 31, 36, 46, 61,
+        65], "UO2are": [4], "validated": [5], "independently": [6], "through": [7],
+        "cathode": [8], "luminescence.": [9], "A": [10], "picture": [11], "emerges":
+        [12], "consistent": [13, 22], "with": [14, 23], "density": [15, 71], "functional":
+        [16, 37, 72], "theory.": [17], "While": [18], "theory": [19, 73], "is": [20,
+        26], "generally": [21], "experiment,": [24], "it": [25], "evident": [27],
+        "from": [28], "the": [29, 34, 41, 47, 53, 62, 66], "comparison": [30], "UO2and":
+        [32], "ThO2that": [33], "choice": [35], "can": [38], "significantly": [39],
+        "alter": [40], "bandgap": [42], "and": [43], "some": [44], "details": [45],
+        "band": [48, 55], "structure,": [49], "in": [50], "particular": [51], "at":
+        [52], "conduction": [54], "minimum.": [56], "Strictly": [57], "ab": [58],
+        "initio": [59], "predictions": [60], "optical": [63], "properties": [64],
+        "actinide": [67], "compounds,": [68], "based": [69], "on": [70], "alone,":
+        [74], "continue": [75], "to": [76], "be": [77], "somewhat": [78], "elusive.":
+        [79]}, "primary_location": {"id": "doi:10.1002/pssb.202200238", "doi": "https://doi.org/10.1002/pssb.202200238",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.1002/pssb.202200238",
+        "pdf_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/pssb.202200238",
+        "source": {"id": "https://openalex.org/S71689831", "display_name": "physica
+        status solidi (b)", "issn_l": "0370-1972", "issn": ["0370-1972", "1521-3951"],
+        "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core",
+        "dongbi-d", "jufo-1", "poland-70", "russia-white-list-2"], "host_organization":
+        "https://openalex.org/P4310320595", "host_organization_name": "Wiley", "host_organization_lineage":
+        ["https://openalex.org/P4310320595"], "host_organization_lineage_names": ["Wiley"],
+        "type": "journal"}, "license": "cc-by", "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "physica status solidi (b)", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W4210404619", "doi": "https://doi.org/10.20944/preprints202201.0432.v1",
+        "title": "Interband Transitions And Critical Points Of Single Crystal Thoria
+        Compared To Urania", "publication_year": 2022, "abstract_inverted_index":
+        {"The": [0], "interband": [1], "transitions": [2], "of": [3, 12, 35, 46, 61,
+        65], "urania": [4], "(UO2)": [5], "are": [6], "validated": [7], "independently":
+        [8], "through": [9], "cathode": [10], "luminescence": [11], "UO2.": [13],
+        "A": [14], "picture": [15], "emerges": [16], "consistent": [17, 26], "with":
+        [18, 27], "density": [19, 71], "functional": [20, 36, 72], "theory.": [21],
+        "While": [22], "theory": [23, 73], "is": [24, 30], "generally": [25], "experiment,":
+        [28], "it": [29], "evident": [31], "that": [32], "the": [33, 40, 47, 53, 62,
+        66], "choice": [34], "can": [37], "significantly": [38], "alter": [39], "band":
+        [41, 48, 55], "gap": [42], "and": [43], "some": [44], "details": [45], "structure,":
+        [49], "in": [50], "particular": [51], "at": [52], "conduction": [54], "minimum.":
+        [56], "Strictly": [57], "ab": [58], "initio": [59], "predictions": [60], "optical":
+        [63], "properties": [64], "actinide": [67], "compounds,": [68], "based": [69],
+        "on": [70], "alone": [74], "continues": [75], "to": [76], "be": [77], "somewhat":
+        [78], "elusive.": [79]}, "primary_location": {"id": "doi:10.20944/preprints202201.0432.v1",
+        "doi": "https://doi.org/10.20944/preprints202201.0432.v1", "is_oa": true,
+        "landing_page_url": "https://doi.org/10.20944/preprints202201.0432.v1", "pdf_url":
+        "https://www.preprints.org/manuscript/202201.0432/v1/download", "source":
+        {"id": "https://openalex.org/S6309402219", "display_name": "Preprints.org",
+        "issn_l": null, "issn": null, "is_oa": true, "is_in_doaj": false, "is_core":
+        false, "listed_in": [], "host_organization": null, "host_organization_name":
+        null, "host_organization_lineage": ["https://openalex.org/P4310310987"], "host_organization_lineage_names":
+        ["Multidisciplinary Digital Publishing Institute"], "type": "repository"},
+        "license": "cc-by", "license_id": "https://openalex.org/licenses/cc-by", "version":
+        "acceptedVersion", "is_accepted": true, "is_published": false, "raw_source_name":
+        null, "raw_type": "posted-content"}}, {"id": "https://openalex.org/W2329961449",
+        "doi": "https://doi.org/10.6028/jres.036.013", "title": "Studies of binary
+        and ternary combinations of magnesia, calcia, baria, beryllia, alumina, thoria
+        and zirconia in relation to their use as porcelains", "publication_year":
+        1946, "abstract_inverted_index": {"silicates": [0], "in": [1, 49, 103], "a":
+        [2, 60], "matrix": [3], "or": [4, 38], "bond": [5, 18], "of": [6, 19, 47,
+        97, 119], "glass.": [7], "Since": [8], "time": [9], "immemorial": [10], "these":
+        [11], "bodies": [12], "have": [13, 59, 108], "been": [14], "dependent": [15],
+        "upon": [16], "this": [17], "glass": [20, 33, 102], "for": [21], "the": [22,
+        50, 77, 90, 94, 98, 120], "mechanical": [23], "strength": [24], "and": [25,
+        68, 85], "dense": [26], "structure": [27], "necessary": [28], "to": [29, 107],
+        "their": [30], "usefulness.": [31], "This": [32], "is": [34, 105], "essentially":
+        [35], "an": [36], "alkaline,": [37], "alkaline": [39], "earth,": [40], "silicate":
+        [41], "usually": [42], "derived": [43], "from": [44, 117], "some": [45], "form":
+        [46], "feldspar": [48], "raw": [51], "batch.": [52], "Like": [53], "all":
+        [54], "glasses,": [55], "it": [56, 81], "does": [57], "not": [58], "sharply":
+        [61], "defined": [62], "fusion": [63], "point": [64], "but": [65], "will":
+        [66], "soften,": [67], "deform": [69], "under": [70], "stress,": [71], "at":
+        [72, 79, 92], "temperatures": [73, 91], "much": [74, 87], "lower": [75, 88],
+        "than": [76, 89], "temperature": [78], "which": [80, 93], "becomes": [82],
+        "entirely": [83], "liquid,": [84], "also": [86], "crystalline": [95, 121],
+        "phases": [96], "body": [99], "liquefy.": [100], "The": [101], "addition,":
+        [104], "likely": [106], "other": [109], "characteristics,": [110], "such":
+        [111], "as": [112], "thermal": [113], "expansion,": [114], "that": [115],
+        "differ": [116], "those": [118], "phases.": [122]}, "primary_location": {"id":
+        "doi:10.6028/jres.036.013", "doi": "https://doi.org/10.6028/jres.036.013",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.6028/jres.036.013",
+        "pdf_url": "https://doi.org/10.6028/jres.036.013", "source": {"id": "https://openalex.org/S2764585816",
+        "display_name": "Journal of research of the National Bureau of Standards",
+        "issn_l": "0091-0635", "issn": ["0091-0635", "2376-5305"], "is_oa": false,
+        "is_in_doaj": false, "is_core": false, "listed_in": [], "host_organization":
+        "https://openalex.org/P4324105088", "host_organization_name": "US government",
+        "host_organization_lineage": ["https://openalex.org/P4324105088"], "host_organization_lineage_names":
+        ["US government"], "type": "journal"}, "license": null, "license_id": null,
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Journal of Research of the National Bureau of Standards",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2045628643",
+        "doi": "https://doi.org/10.1088/0022-3727/41/20/205414", "title": "Ti-doped
+        ThO2: a first-principles study of dielectric properties", "publication_year":
+        2008, "abstract_inverted_index": {"We": [0, 30, 55], "determine": [1], "electronic":
+        [2], "structure": [3], "and": [4, 9, 25, 71], "dielectric": [5, 78], "response":
+        [6, 79], "of": [7, 80], "25": [8], "50%": [10], "Ti-substituted": [11], "thoria":
+        [12, 64], "(ThO": [13], "2": [14, 38, 53], "),": [15], "using": [16], "first-principles":
+        [17], "density": [18], "functional": [19], "theory": [20], "calculations":
+        [21], "based": [22], "on": [23], "pseudopotentials": [24], "a": [26, 43, 96],
+        "plane": [27], "wave": [28], "basis.": [29], "find": [31], "that": [32, 57],
+        "Th": [33, 48], "0.75": [34], "Ti": [35, 50, 69], "0.25": [36], "O": [37,
+        52], "is": [39], "more": [40], "promising": [41], "as": [42, 95], "high-":
+        [44], "k": [45], "material": [46, 86], "than": [47], "0.5": [49, 51], ".":
+        [54], "show": [56], "the": [58, 72, 85], "IR-active": [59], "phonon": [60],
+        "modes": [61, 74], "in": [62], "pure": [63], "can": [65], "be": [66], "tuned":
+        [67], "upon": [68], "doping": [70], "softened": [73], "cause": [75], "an":
+        [76], "enhanced": [77], "25%": [81], "Ti-doped": [82], "thoria.": [83], "As":
+        [84], "remains": [87], "insulating,": [88], "it": [89], "holds": [90], "promise":
+        [91], "for": [92], "applications": [93], "such": [94], "gate": [97], "oxide":
+        [98], "material.": [99]}, "primary_location": {"id": "doi:10.1088/0022-3727/41/20/205414",
+        "doi": "https://doi.org/10.1088/0022-3727/41/20/205414", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.1088/0022-3727/41/20/205414", "pdf_url": "https://iopscience.iop.org/article/10.1088/0022-3727/41/20/205414/pdf",
+        "source": {"id": "https://openalex.org/S111927887", "display_name": "Journal
+        of Physics D Applied Physics", "issn_l": "0022-3727", "issn": ["0022-3727",
+        "1361-6463"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1", "ki-jl-1", "norway-1",
+        "poland-70", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310311669",
+        "host_organization_name": "Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310311669"], "host_organization_lineage_names": ["Institute
+        of Physics"], "type": "journal"}, "license": null, "license_id": null, "version":
+        "publishedVersion", "is_accepted": true, "is_published": true, "raw_source_name":
+        "Journal of Physics D: Applied Physics", "raw_type": "journal-article"}}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a534af1c1daae8ea-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '13061'
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 18:22:14 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=wnAK%2BSUFgVv3QqwfOvT8TTpCPntv6OAkzqrd2YjylwQ%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793470934"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=wnAK%2BSUFgVv3QqwfOvT8TTpCPntv6OAkzqrd2YjylwQ%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793470934"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9880'
+      x-ratelimit-remaining-usd:
+      - '0.988'
+      x-ratelimit-reset:
+      - '20266'
+    status:
+      code: 200
+      message: OK
+version: 1

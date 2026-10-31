@@ -8,15 +8,53 @@ assumptions. Anything not observed is marked unverified.
 
 Recording status per material is in `fixtures/wire/<source>/meta.json`. Replay with
 `uv run python scripts/record_wire.py --mode none` serves every recorded source from
-cassettes with no network; PubChem and OQMD pass that replay.
+cassettes with no network; PubChem, OQMD, Materials Project, and OpenAlex pass that replay.
+COD has no cassettes (unreachable).
 
 ## Materials Project
 
-Unverified: no API key yet. Nothing recorded. To confirm on the first keyed run: the exact
-summary field names (`energy_above_hull`, `band_gap`, `theoretical`, `deprecated`), which
-functional produced each value and whether the summary document exposes it, the database
-version string, dielectric endpoint coverage for the eleven oxides, extra hosts the
-`mp-api` client contacts, and whether a deprecated entry can be fetched by ID.
+Recorded 2026-10-31 with a free key through `mp-api` 0.47.0 against database version
+`2026.09.28` (API version 0.88.1). Cassettes in `fixtures/wire/mp/`.
+
+- Endpoints contacted, from the cassettes and confirmed by an offline replay that passed with
+  no unrecorded request: `GET /materials/summary/`, `GET /materials/dielectric/`,
+  `GET /materials/thermo/`, and `GET /heartbeat` (twice across 14 client sessions; the client
+  does not call it every time). No PyPI or version-check host was contacted. These four paths on
+  `api.materialsproject.org` are the egress allowlist for this source.
+- Summary fields confirmed present, with the names used in the request: `material_id`,
+  `formula_pretty`, `composition_reduced`, `nelements`, `energy_above_hull`, `is_stable`,
+  `band_gap`, `theoretical`, `deprecated`, `symmetry` (with `symbol` and `number`),
+  `database_IDs` (a dict; observed key `icsd` with values like `icsd-61586`), `last_updated`.
+- Two ID forms. The raw response body carries IDs like `mp-aaaaaayt`; the client returns
+  `mp-643` for the same document. Provenance stores the raw body hash and the raw ID, and the
+  normalized record carries the client ID. Both must be kept or the raw store cannot be
+  cross-referenced.
+- The summary `energy_above_hull` is the mixed `GGA_GGA+U_R2SCAN` hull. The thermo endpoint
+  returns up to three documents per material, one per `thermo_type` (`GGA_GGA+U`, `r2SCAN`,
+  `GGA_GGA+U_R2SCAN`), and the mixed value matches the summary for every probed entry. The
+  functional changes stability: Ta2O5 mp-1539317 is on the hull in `GGA_GGA+U` (0.0) and off
+  it in the mixed hull (0.0136 eV/atom); SiO2 mp-7000 and TiO2 mp-390 are the reverse. The
+  adapter records `thermo_type` beside every hull energy, as the overview requires. The summary
+  document does not say which functional produced `band_gap`; unverified, to check in Phase 1
+  against the electronic-structure endpoint.
+- Counts per formula (summary docs / of which `theoretical=True` / with a dielectric doc):
+  HfO2 15/10/2, Al2O3 89/85/7, ZrO2 20/14/4, SiO2 322/238/60, TiO2 46/37/5, ThO2 2/0/0,
+  La2O3 6/4/1, BaTiO3 11/1/3, BeO 9/6/2, Y2O3 14/12/0, Ta2O5 24/21/2. Most entries are
+  theoretical; dielectric coverage is sparse and absent for ThO2 and Y2O3.
+- Hull-stable entry per formula (mixed hull, `is_stable=True`): HfO2 mp-352 (P2_1/c),
+  Al2O3 mp-1143, ZrO2 mp-2858, SiO2 mp-7000, TiO2 mp-390, ThO2 mp-643 (Fm-3m), La2O3 mp-1968,
+  BaTiO3 mp-5777, BeO mp-2542, Y2O3 mp-2652 (Ia-3), Ta2O5 mp-10390. Example entries for later
+  tests: `theoretical=True` mp-775757 (HfO2); no dielectric doc mp-775757 (HfO2) and every
+  ThO2 and Y2O3 entry; `deprecated=True`: none. The summary search returns no deprecated
+  entries by default, and `deprecated=True` is an accepted filter that returned zero HfO2
+  documents, so there is no recorded deprecated example.
+- Discovery-shaped query (`elements=["O"]`, 2 to 3 elements, band gap at least 3 eV, hull
+  energy at most 0.05 eV/atom, six fields, two chunks of 100): 200 documents in 2.9 s with no
+  rate limiting observed. Volume at full scale is unknown; the adapter pages with a cap.
+- A lesson from this recording, relevant to the "missing is never zero" rule: an analysis
+  helper in this session used `value or 9` as a sort key and silently treated a hull energy of
+  exactly 0.0 as missing, mis-identifying the ground state for every formula until the thermo
+  probe exposed it. The adapter tests must include a value of exactly zero.
 
 ## JARVIS-DFT dft_3d (file snapshot)
 
@@ -89,9 +127,26 @@ URLs in matminer's `dataset_metadata.json`, both with SHA256 matching the hash m
 
 ## OpenAlex
 
-Unverified: no API key yet. Nothing recorded. To confirm: key enforcement and the daily
-credit budget, the `/rate-limit` endpoint, abstract coverage for oxide dielectric papers,
-and how formula strings match against a one-word synonym ("hafnia").
+Recorded 2026-10-31 with a free key. Cassettes in `fixtures/wire/openalex/`; the key and any
+`mailto` are stripped from the recorded query strings.
+
+- Endpoint: `GET https://api.openalex.org/works` with `search`, `filter=has_abstract:true`,
+  `per-page`, `select`, `api_key`. All 22 calls returned 200. Each response `meta` reports
+  `cost_usd` (0.001 per call here), `count`, `page`, `per_page`, and an `x_query` block that
+  restates the query. No separate rate-limit endpoint is documented; the budget is tracked
+  from `cost_usd`.
+- `search=` is full-text search: `x_query` shows `fulltext.search`, so a hit can mention the
+  term anywhere in the full text, not only in the title or abstract. The evidence classifier
+  must therefore not assume the abstract mentions the composition.
+- `select` works and keeps responses small. `abstract_inverted_index` is a word-to-positions
+  dict (89 and 109 words in the two HfO2 top hits); rebuild text by sorting positions.
+  `primary_location` carries `is_oa`, `license`, `pdf_url`, `landing_page_url`, and `source`.
+- Result counts for "<formula> dielectric thin film" with an abstract: HfO2 6,816, Al2O3 17,008,
+  ZrO2 6,279, SiO2 32,141, TiO2 23,894, ThO2 95, La2O3 995, BaTiO3 7,625, BeO 1,205, Y2O3 1,774,
+  Ta2O5 2,552. The synonym query changes the count substantially (hafnia 3,393; alumina 26,153;
+  lanthana 76), which is why the synonym table is FDE-owned and versioned.
+- Unverified: coverage of works without abstracts (the recording filtered them out), and the
+  daily credit budget attached to this key.
 
 ## PubChem
 
@@ -162,12 +217,16 @@ and how formula strings match against a one-word synonym ("hafnia").
 
 ## Cross-cutting
 
+- Credential hygiene: vcrpy's `filter_headers` is case-sensitive. The string `X-Api-Key` does
+  appear in MP cassettes, but only as a CORS `Access-Control-Expose-Headers` value in responses;
+  no request carries a credential header and no query string carries `api_key` or `mailto`.
+  `tests/test_fixtures_clean.py` checks exactly that, by parsing requests rather than grepping.
 - Three formula notations are now in play: pretty (HfO2), OPTIMADE alphabetical (O2Hf is
   wrong, HfO2 is right because H sorts before O; but TiO2 is O2Ti), and PubChem's common
   name. The normalized record model needs one canonical key (pymatgen reduced formula) and
   must store the source's own identifier beside it.
-- `vcrpy` with `httpx` recorded and replayed both REST sources cleanly. The `mp-api` client
-  uses `requests`; replay through the same library is unverified until a key exists.
+- `vcrpy` recorded and replayed all four reachable sources: `httpx` (PubChem, OQMD, OpenAlex)
+  and `requests` through the `mp-api` client. The offline replay of 47 cassettes passed.
 - The httpx default timeout did not stop a hung connection to COD inside the first run; an
   explicit `httpx.Timeout(connect=15, read=120)` did. Adapters must set explicit timeouts.
 

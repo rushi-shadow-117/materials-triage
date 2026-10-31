@@ -1,0 +1,82 @@
+interactions:
+- request:
+    body: null
+    headers:
+      user-agent:
+      - mp-api/0.47.0 (Python/3.12.16 Darwin/25.5.0)
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cdeprecated%2Cformula_pretty&_limit=1000&deprecated=True&formula=HfO2
+  response:
+    body:
+      string: '{"data":[],"meta":{"api_version":"0.88.1","time_stamp":"2026-10-31T18:25:11.751511+00:00","total_doc":0,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+    headers:
+      Access-Control-Expose-Headers:
+      - X-Api-Key
+      CF-RAY:
+      - a534b36f2b721969-ORD
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '168'
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 31 Oct 2026 18:25:11 GMT
+      RateLimit-Limit:
+      - '25'
+      RateLimit-Remaining:
+      - '24'
+      RateLimit-Reset:
+      - '1'
+      Set-Cookie:
+      - _csrf_token=anonymous; Domain=.materialsproject.org; Path=/; SameSite=Strict
+      - mp-session=WbWhbEmAYUcDk1HO1kocbQ|1794680711|6dmXFhNGkH3O0OCYvOE2BI0bYjg;
+        Expires=Sat, 14 Nov 2026 18:25:11 GMT; Max-Age=1209600; Domain=materialsproject.org;
+        Path=/; SameSite=Lax; Secure; HttpOnly
+      - __cf_bm=aJsspduU24CWj0MqBUB8Qy09aRwXRRSafO9_jF2FJjc-1793471111.548398-1.0.1.1-C5Zy_CGdHxsaDMwK9X3IaiyazhO9U9Guc8mLWl1j.R4mYQUzMkdRk8ikgNrrfDnc28KRlFW8QLOzkbYkHE.Trz5Xi2mq.RYEedieSXqbaApjB6USHUPtgLIkhgBhtFDk;
+        HttpOnly; SameSite=None; Secure; Path=/; Domain=materialsproject.org; Expires=Sat,
+        31 Oct 2026 18:55:11 GMT
+      Via:
+      - kong/2.8.4
+      X-Kong-Proxy-Latency:
+      - '9'
+      X-Kong-Upstream-Latency:
+      - '93'
+      X-RateLimit-Limit-Day:
+      - '640000'
+      X-RateLimit-Limit-Hour:
+      - '40000'
+      X-RateLimit-Limit-Minute:
+      - '1000'
+      X-RateLimit-Limit-Month:
+      - '12800000'
+      X-RateLimit-Limit-Second:
+      - '25'
+      X-RateLimit-Limit-Year:
+      - '100000000'
+      X-RateLimit-Remaining-Day:
+      - '639964'
+      X-RateLimit-Remaining-Hour:
+      - '39964'
+      X-RateLimit-Remaining-Minute:
+      - '999'
+      X-RateLimit-Remaining-Month:
+      - '12799964'
+      X-RateLimit-Remaining-Second:
+      - '24'
+      X-RateLimit-Remaining-Year:
+      - '99999964'
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      server:
+      - cloudflare
+      vary:
+      - Origin
+      x-consumer-id:
+      - 58e0b4c2-4c2d-439b-ba0a-648cd568a0fa
+    status:
+      code: 200
+      message: OK
+version: 1

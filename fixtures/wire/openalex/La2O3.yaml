@@ -1,0 +1,557 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search=La2O3+dielectric+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 995, "db_response_time_ms": 56, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (La2O3 dielectric
+        thin film) in the full text where it has an abstract", "x_new_oql": "get works
+        with (La2O3 dielectric thin film) in the full text where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "fulltext.search",
+        "value": "La2O3 dielectric thin film", "operator": "has"}, {"column_id": "has_abstract",
+        "value": true}]}, "url": "/works?filter=fulltext.search:La2O3 dielectric thin
+        film,has_abstract:true&per_page=5", "order": "best matches first", "order_default":
+        true}, "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2066130678",
+        "doi": "https://doi.org/10.1063/1.4869761", "title": "Effects of Ta incorporation
+        in La2O3 gate dielectric of InGaZnO thin-film transistor", "publication_year":
+        2014, "abstract_inverted_index": {"The": [0], "effects": [1], "of": [2, 9,
+        28, 37, 62, 80, 91, 97, 106], "Ta": [3, 18, 69, 107], "incorporation": [4,
+        19, 105], "in": [5, 54, 58], "La2O3": [6, 30], "gate": [7], "dielectric":
+        [8, 41], "amorphous": [10], "InGaZnO": [11], "thin-film": [12], "transistor":
+        [13], "are": [14], "investigated.": [15], "Since": [16], "the": [17, 25, 29,
+        35, 40, 47, 59, 65, 71, 83, 110], "is": [20], "found": [21], "to": [22, 114],
+        "effectively": [23], "enhance": [24], "moisture": [26], "resistance": [27],
+        "film": [31], "and": [32, 43, 100], "thus": [33], "suppress": [34], "formation":
+        [36], "La(OH)3,": [38], "both": [39], "roughness": [42], "trap": [44], "density":
+        [45], "at/near": [46], "InGaZnO/dielectric": [48], "interface": [49], "can":
+        [50, 108], "be": [51], "reduced,": [52], "resulting": [53], "a": [55, 74],
+        "significant": [56], "improvement": [57], "electrical": [60], "characteristics":
+        [61, 112], "transistor.": [63], "Among": [64], "samples": [66], "with": [67,
+        73], "different": [68], "contents,": [70], "one": [72], "Ta/(Ta": [75], "+":
+        [76], "La)": [77], "atomic": [78], "ratio": [79], "21.7%": [81], "exhibits":
+        [82], "best": [84], "performance,": [85], "including": [86], "high": [87],
+        "saturation": [88], "carrier": [89], "mobility": [90], "23.4": [92], "cm2/V\u00b7s,":
+        [93], "small": [94], "subthreshold": [95], "swing": [96], "0.177": [98], "V/dec,":
+        [99], "negligible": [101], "hysteresis.": [102], "Nevertheless,": [103], "excessive":
+        [104], "degrade": [109], "device": [111], "due": [113], "newly": [115], "generated":
+        [116], "Ta-related": [117], "traps.": [118]}, "primary_location": {"id": "doi:10.1063/1.4869761",
+        "doi": "https://doi.org/10.1063/1.4869761", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.4869761", "pdf_url": null, "source": {"id": "https://openalex.org/S105243760",
+        "display_name": "Applied Physics Letters", "issn_l": "0003-6951", "issn":
+        ["0003-6951", "1077-3118", "1520-8842"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-a",
+        "jufo-3", "ki-jl-1", "norway-2", "poland-100", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Applied Physics
+        Letters", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W3201596387",
+        "doi": "https://doi.org/10.1109/jeds.2021.3111866", "title": "Improved Performance
+        of InGaZnO Thin-Film Transistor With Ti Incorporation Into La2O3 Gate Dielectric",
+        "publication_year": 2021, "abstract_inverted_index": {"The": [0], "effects":
+        [1], "of": [2, 13, 48, 55, 61, 68, 81, 94, 97], "Ti": [3, 39, 102, 106], "incorporation":
+        [4, 107], "in": [5, 120], "La2O3": [6, 26, 98], "gate": [7, 27, 121], "dielectric":
+        [8], "on": [9], "the": [10, 22, 29, 42, 79, 82, 86, 92], "electrical": [11],
+        "characteristics": [12], "amorphous": [14], "InGaZnO": [15], "thin-film":
+        [16], "transistor": [17], "are": [18], "studied.": [19], "Compared": [20],
+        "to": [21, 78, 101, 109, 115], "control": [23], "sample": [24, 43], "with":
+        [25, 36, 44], "dielectric,": [28], "device": [30, 110], "performance": [31],
+        "can": [32], "be": [33], "significantly": [34], "improved": [35], "an": [37,
+        76], "appropriate": [38], "dose.": [40], "Accordingly,": [41], "a": [45, 51],
+        "Ti/(Ti+La)": [46], "ratio": [47, 67], "6.7%": [49], "presents": [50], "high":
+        [52], "saturation": [53], "mobility": [54], "28.1": [56], "cmV-1s-1,": [57],
+        "small": [58], "subthreshold": [59], "slope": [60], "0.17": [62], "V/dec,":
+        [63], "large": [64], "on/off": [65], "current": [66], "7.2\u00d710,": [69],
+        "and": [70], "acceptable": [71], "hysteresis.": [72], "We": [73], "attribute":
+        [74], "such": [75], "improvement": [77], "passivation": [80], "defect": [83],
+        "states": [84], "at/near": [85], "La2O3/InGaZnO": [87], "interface": [88],
+        "as": [89, 91], "well": [90], "enhancement": [93], "moisture": [95], "resistance":
+        [96], "film": [99], "due": [100, 114], "incorporation.": [103], "However,":
+        [104], "excessive": [105], "leads": [108], "degradation,": [111], "which":
+        [112], "is": [113], "more": [116], "oxygen": [117], "vacancies": [118], "generated":
+        [119], "dielectric.": [122]}, "primary_location": {"id": "doi:10.1109/jeds.2021.3111866",
+        "doi": "https://doi.org/10.1109/jeds.2021.3111866", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.1109/jeds.2021.3111866", "pdf_url": "https://ieeexplore.ieee.org/ielx7/6245494/6423298/09536240.pdf",
+        "source": {"id": "https://openalex.org/S2482167115", "display_name": "IEEE
+        Journal of the Electron Devices Society", "issn_l": "2168-6734", "issn": ["2168-6734"],
+        "is_oa": true, "is_in_doaj": true, "is_core": true, "listed_in": ["cwts-core",
+        "doaj", "dongbi-c", "jufo-2", "norway-1", "oarl", "poland-100", "russia-white-list-2"],
+        "host_organization": "https://openalex.org/P4310319808", "host_organization_name":
+        "Institute of Electrical and Electronics Engineers", "host_organization_lineage":
+        ["https://openalex.org/P4310319808"], "host_organization_lineage_names": ["Institute
+        of Electrical and Electronics Engineers"], "type": "journal"}, "license":
+        "cc-by-nc-nd", "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "IEEE Journal of the Electron Devices Society", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W1759907222", "doi": "https://doi.org/10.1149/2.0011509ssl",
+        "title": "Effects of Thermal Annealing on La2O3 Gate Dielectric of InGaZnO
+        Thin-Film Transistor", "publication_year": 2015, "abstract_inverted_index":
+        {"The": [0, 83], "effects": [1], "of": [2, 12, 30], "thermal": [3, 48], "annealing":
+        [4, 21, 63, 88], "on": [5], "La": [6, 32, 78], "2": [7, 33, 79, 110], "O":
+        [8, 34, 80], "3": [9, 35, 81], "gate": [10], "dielectric": [11, 66], "InGaZnO":
+        [13, 43], "thin-film": [14], "transistor": [15], "(TFT)": [16], "are": [17,
+        44], "investigated": [18], "by": [19, 46], "varying": [20], "temperature.":
+        [22], "Due": [23], "to": [24, 52], "densification": [25], "and": [26, 40,
+        68, 112], "enhanced": [27], "moisture": [28], "resistance": [29], "the": [31,
+        47, 56, 65, 77, 91], "film,": [36], "its": [37], "surface": [38], "roughness":
+        [39, 67], "interface": [41], "with": [42, 73, 85, 94], "improved": [45], "annealing,":
+        [49], "thus": [50], "leading": [51], "significant": [53], "improvement": [54],
+        "in": [55, 76], "TFT": [57, 84], "electrical": [58], "performance.": [59],
+        "However,": [60], "higher-temperature": [61], "(450\u00b0C)": [62], "deteriorates":
+        [64], "induces": [69], "more": [70], "traps": [71], "associated": [72], "grain":
+        [74], "boundaries": [75], "film.": [82], "an": [86], "appropriate": [87],
+        "(350\u00b0C)": [89], "shows": [90], "best": [92], "performance": [93], "smallest":
+        [95], "sub-threshold": [96], "swing": [97], "(0.276": [98], "V/dec),": [99],
+        "lowest": [100], "threshold": [101], "voltage": [102], "(3.01": [103], "V),":
+        [104], "highest": [105], "field-effect": [106], "mobility": [107], "(23.2":
+        [108], "cm": [109], "/V.s)": [111], "largest": [113], "on-off": [114], "current":
+        [115], "ratio": [116], "(3.52": [117], "\u00d7": [118], "10": [119], "8":
+        [120], ").": [121]}, "primary_location": {"id": "doi:10.1149/2.0011509ssl",
+        "doi": "https://doi.org/10.1149/2.0011509ssl", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1149/2.0011509ssl", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S2492252179", "display_name": "ECS Solid State Letters",
+        "issn_l": "2162-8742", "issn": ["2162-8742", "2162-8750"], "is_oa": false,
+        "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core"], "host_organization":
+        "https://openalex.org/P4310320195", "host_organization_name": "Electrochemical
+        Society", "host_organization_lineage": ["https://openalex.org/P4310320195"],
+        "host_organization_lineage_names": ["Electrochemical Society"], "type": "journal"},
+        "license": null, "license_id": null, "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "ECS Solid State Letters",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2188823998",
+        "doi": null, "title": "Electrical characteristics of high-k stack gate dielectric
+        thin films with LA2O3 as a buffer layer", "publication_year": 2003, "abstract_inverted_index":
+        {"Lanthanum": [0], "oxide": [1], "(La2O3)": [2], "were": [3, 19, 30], "deposited":
+        [4, 20, 66], "by": [5, 32], "MBE": [6], "on": [7, 21], "n-Si(100),": [8],
+        "and": [9], "while": [10], "keeping": [11], "vacuum": [12], "state,": [13],
+        "other": [14], "high-k": [15], "gate": [16, 39], "dielectric": [17, 40], "films":
+        [18, 29, 42], "that.": [22], "The": [23], "electrical": [24, 45], "characteristics":
+        [25], "of": [26, 37, 70], "the": [27, 44, 48], "stack": [28, 38], "evaluated":
+        [31], "fabricating": [33], "Metal-Insulator-Semiconductor": [34], "capacitors.":
+        [35], "Formation": [36], "thin": [41], "improved": [43], "characteristics.":
+        [46], "Especially,": [47], "leakage": [49], "current": [50], "density": [51],
+        "was": [52], "dramatically": [53], "reduced": [54], "less": [55], "than":
+        [56], "1": [57, 61], "\u00b5A/cm": [58], "2": [59], "at": [60], "V": [62],
+        "even": [63], "for": [64], "as": [65], "film": [67], "with": [68], "EOT":
+        [69], "1.18": [71], "nm.": [72]}, "primary_location": {"id": "mag:2188823998",
+        "doi": null, "is_oa": false, "landing_page_url": "https://scholar.nctu.edu.tw/en/publications/electrical-characteristics-of-high-k-stack-gate-dielectric-thin-f",
+        "pdf_url": null, "source": null, "license": null, "license_id": null, "version":
+        null, "is_accepted": false, "is_published": false, "raw_source_name": null,
+        "raw_type": null}}, {"id": "https://openalex.org/W2318023160", "doi": "https://doi.org/10.1149/1.2355738",
+        "title": "La2O3 Gate Dielectric Thin Film with Sc2O3 Buffer Layer for High
+        Temperature Annealing", "publication_year": 2006, "abstract_inverted_index":
+        {"Leakage": [0], "current": [1, 19], "characteristics": [2], "of": [3, 17,
+        44], "high": [4, 29, 52], "temperature": [5, 30, 53], "annealed": [6, 27],
+        "La2O3": [7], "film": [8], "with": [9], "Sc2O3": [10, 25], "buffer": [11],
+        "layer": [12], "was": [13, 21], "reported.": [14], "Large": [15], "amount":
+        [16], "leakage": [18], "suppression": [20], "obtained": [22], "by": [23],
+        "inserting": [24], "when": [26], "at": [28], ",without": [31], "degrading":
+        [32], "the": [33, 45], "Equivalent": [34], "Oxide": [35], "Thickness": [36],
+        "(EOT).": [37], "La2O3/Sc2O3": [38], "gate": [39, 49], "stack": [40], "would":
+        [41], "be": [42], "one": [43], "solution": [46], "for": [47, 51], "La2O3-based":
+        [48], "insulator": [50], "annealing.": [54]}, "primary_location": {"id": "doi:10.1149/1.2355738",
+        "doi": "https://doi.org/10.1149/1.2355738", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.1149/1.2355738", "pdf_url": "https://iopscience.iop.org/article/10.1149/1.2355738/pdf",
+        "source": {"id": "https://openalex.org/S4210205149", "display_name": "ECS
+        Transactions", "issn_l": "1938-5862", "issn": ["1938-5862", "1938-6737", "2151-2051"],
+        "is_oa": false, "is_in_doaj": false, "is_core": false, "listed_in": ["norway-1",
+        "poland-20"], "host_organization": "https://openalex.org/P4310311669", "host_organization_name":
+        "Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310311669"],
+        "host_organization_lineage_names": ["Institute of Physics"], "type": "journal"},
+        "license": null, "license_id": null, "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "ECS Transactions", "raw_type":
+        "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a534af1e7f40fa17-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '12785'
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 18:22:14 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=wnAK%2BSUFgVv3QqwfOvT8TTpCPntv6OAkzqrd2YjylwQ%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793470934"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=wnAK%2BSUFgVv3QqwfOvT8TTpCPntv6OAkzqrd2YjylwQ%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793470934"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9870'
+      x-ratelimit-remaining-usd:
+      - '0.987'
+      x-ratelimit-reset:
+      - '20266'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search=lanthana+dielectric+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 76, "db_response_time_ms": 46, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (lanthana dielectric
+        thin film) in the full text where it has an abstract", "x_new_oql": "get works
+        with (lanthana dielectric thin film) in the full text where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "fulltext.search",
+        "value": "lanthana dielectric thin film", "operator": "has"}, {"column_id":
+        "has_abstract", "value": true}]}, "url": "/works?filter=fulltext.search:lanthana
+        dielectric thin film,has_abstract:true&per_page=5", "order": "best matches
+        first", "order_default": true}, "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2098178354",
+        "doi": "https://doi.org/10.1149/1.1724824", "title": "Atomic Layer Deposition
+        of Lanthanum Oxide Films for High-\u03ba Gate Dielectrics", "publication_year":
+        2004, "abstract_inverted_index": {"Lanthanum-containing": [0], "oxide": [1],
+        "films": [2, 46], "are": [3], "emerging": [4], "candidates": [5], "for": [6],
+        "gate-oxide": [7], "films,": [8], "due": [9], "to": [10, 28], "expected":
+        [11], "high": [12], "dielectric": [13, 60], "constants": [14], "as": [15,
+        17], "well": [16], "promising": [18], "crystal": [19], "and": [20, 40, 58],
+        "electronic": [21], "band": [22], "structure.": [23], "We": [24], "have":
+        [25, 47], "used": [26], "tris(bistrimethylsilylamido)-lanthanum": [27], "achieve":
+        [29], "atomic": [30], "layer": [31], "deposition": [32], "of": [33, 43, 56,
+        63, 72], "on": [34], "a": [35, 59], "(100)": [36], "Si": [37], "wafer.": [38],
+        "Crystalline": [39], "electrical": [41, 70], "properties": [42, 71], "the":
+        [44, 54], "resulting": [45], "been": [48], "characterized.": [49], "Dielectric":
+        [50], "constant": [51], "values": [52], "in": [53], "range": [55], "20-23,":
+        [57], "breakdown": [61], "field": [62], "about": [64], "4.2": [65], "MV/cm":
+        [66], "were": [67], "observed.": [68], "The": [69, 84], "our": [73], "structures":
+        [74], "remain": [75], "consistent": [76], "even": [77], "after": [78], "prolonged":
+        [79], "ambient": [80], "exposure.": [81], "\u00a9": [82], "2004": [83], "Electrochemical":
+        [85], "Society.": [86], "All": [87], "rights": [88], "reserved.": [89]}, "primary_location":
+        {"id": "doi:10.1149/1.1724824", "doi": "https://doi.org/10.1149/1.1724824",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.1149/1.1724824", "pdf_url":
+        "https://iopscience.iop.org/article/10.1149/1.1724824/pdf", "source": {"id":
+        "https://openalex.org/S47478517", "display_name": "Electrochemical and Solid-State
+        Letters", "issn_l": "1099-0062", "issn": ["1099-0062", "1944-8775"], "is_oa":
+        false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core", "jufo-1",
+        "norway-1"], "host_organization": "https://openalex.org/P4310320195", "host_organization_name":
+        "Electrochemical Society", "host_organization_lineage": ["https://openalex.org/P4310320195"],
+        "host_organization_lineage_names": ["Electrochemical Society"], "type": "journal"},
+        "license": null, "license_id": null, "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "Electrochemical and Solid-State
+        Letters", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W3195762455",
+        "doi": "https://doi.org/10.3390/nano11082118", "title": "Characteristic Variabilities
+        of Subnanometer EOT La2O3 Gate Dielectric Film of Nano CMOS Devices", "publication_year":
+        2021, "abstract_inverted_index": {"As": [0], "CMOS": [1], "devices": [2, 75,
+        154], "are": [3, 146], "scaled": [4], "down": [5], "to": [6, 53, 77, 97, 148],
+        "a": [7, 14, 54, 62, 104, 125], "nanoscale": [8, 74], "range,": [9], "characteristic":
+        [10, 57], "variability": [11], "has": [12], "become": [13], "critical": [15],
+        "issue": [16], "for": [17, 100], "yield": [18], "and": [19, 33, 50, 65, 91,
+        134, 161], "performance": [20], "control": [21], "of": [22, 73, 127, 164],
+        "gigascale": [23], "integrated": [24], "circuit": [25], "manufacturing.":
+        [26], "Nanoscale": [27], "in": [28, 121, 151], "size,": [29], "few": [30],
+        "monolayers": [31], "thick,": [32], "less": [34], "thermally": [35], "stable":
+        [36], "high-k": [37], "interfaces": [38], "all": [39], "together": [40], "cause":
+        [41], "more": [42], "significant": [43], "surface": [44, 79, 122, 143], "roughness-induced":
+        [45], "local": [46, 128], "electric": [47], "field": [48], "fluctuation":
+        [49], "thus": [51], "leads": [52], "large": [55], "device": [56], "variability.":
+        [58], "This": [59], "paper": [60], "presents": [61], "comprehensive": [63],
+        "study": [64], "detailed": [66], "discussion": [67], "on": [68], "the": [69,
+        78, 84, 119, 131, 135, 139, 165], "gate": [70, 158], "leakage": [71, 92],
+        "variabilities": [72, 94], "corresponding": [76], "roughness": [80, 123, 144],
+        "effects.": [81], "By": [82], "taking": [83], "W/La2O3/Si": [85], "structure":
+        [86], "as": [87, 124], "an": [88], "example,": [89], "capacitance": [90],
+        "current": [93], "were": [95], "found": [96], "increase": [98, 120], "pronouncedly":
+        [99], "samples": [101], "even": [102, 156], "with": [103, 118, 155], "very":
+        [105], "low-temperature": [106], "thermal": [107], "annealing": [108], "at":
+        [109, 130, 138], "300": [110], "\u00b0C.": [111], "These": [112], "results":
+        [113], "can": [114], "be": [115, 149], "explained": [116], "consistently":
+        [117], "result": [126], "oxidation": [129], "La2O3/Si": [132], "interface":
+        [133, 136], "reactions": [137], "W/La2O3": [140], "interface.": [141], "The":
+        [142], "effects": [145], "expected": [147], "severe": [150], "future": [152],
+        "generations\u2019": [153], "thinner": [157], "dielectric": [159], "film":
+        [160], "smaller": [162], "size": [163], "devices.": [166]}, "primary_location":
+        {"id": "doi:10.3390/nano11082118", "doi": "https://doi.org/10.3390/nano11082118",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.3390/nano11082118",
+        "pdf_url": "https://www.mdpi.com/2079-4991/11/8/2118/pdf?version=1629441307",
+        "source": {"id": "https://openalex.org/S2764646681", "display_name": "Nanomaterials",
+        "issn_l": "2079-4991", "issn": ["2079-4991"], "is_oa": true, "is_in_doaj":
+        true, "is_core": true, "listed_in": ["cwts-core", "doaj", "jufo-1", "ki-jl-1",
+        "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310310987", "host_organization_name": "Multidisciplinary
+        Digital Publishing Institute", "host_organization_lineage": ["https://openalex.org/P4310310987"],
+        "host_organization_lineage_names": ["Multidisciplinary Digital Publishing
+        Institute"], "type": "journal"}, "license": "cc-by", "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Nanomaterials", "raw_type": "journal-article"}}, {"id":
+        "https://openalex.org/W2152420149", "doi": "https://doi.org/10.1063/1.2971032",
+        "title": "Spontaneous nanoclustering of ZrO2 in atomic layer deposited LayZr1\u2212yOx
+        thin films", "publication_year": 2008, "abstract_inverted_index": {"During":
+        [0], "atomic": [1], "layer": [2], "deposition": [3], "of": [4, 11, 73], "homogeneous":
+        [5], "LayZr1\u2212yOx": [6, 32], "thin": [7, 83], "films": [8, 84], "spontaneous":
+        [9], "segregation": [10], "ZrO2": [12, 60], "nanocrystals": [13, 61], "that":
+        [14, 58], "are": [15, 62], "embedded": [16], "in": [17, 30, 63], "an": [18],
+        "amorphous": [19], "La2O3": [20], "matrix": [21], "takes": [22], "place.":
+        [23], "This": [24], "occurs": [25], "if": [26, 38], "the": [27, 31, 39, 43,
+        47, 59, 64, 69, 77, 90], "Zr": [28, 91], "content": [29, 92], "film": [33],
+        "rises": [34], "above": [35], "30%,": [36], "i.e.,": [37], "pulse": [40],
+        "ratio": [41], "between": [42], "lanthanum": [44], "precursor": [45, 49],
+        "and": [46], "zirconium": [48], "is": [50, 68], "larger": [51], "than": [52],
+        "four.": [53], "X-ray": [54], "diffraction": [55], "analysis": [56], "shows":
+        [57], "tetragonal": [65], "phase,": [66], "which": [67], "most": [70], "stable":
+        [71], "configuration": [72], "this": [74], "material": [75], "with": [76],
+        "highest": [78], "dielectric": [79, 87], "permittivity.": [80], "These": [81],
+        "nanocrystal-embedded": [82], "exhibit": [85], "higher": [86], "constants":
+        [88], "as": [89], "increases.": [93]}, "primary_location": {"id": "doi:10.1063/1.2971032",
+        "doi": "https://doi.org/10.1063/1.2971032", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.1063/1.2971032", "pdf_url": "https://aip.scitation.org/doi/pdf/10.1063/1.2971032",
+        "source": {"id": "https://openalex.org/S105243760", "display_name": "Applied
+        Physics Letters", "issn_l": "0003-6951", "issn": ["0003-6951", "1077-3118",
+        "1520-8842"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Applied Physics Letters", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W7120558653", "doi": null, "title": "Influence
+        of excess lead on ferroelectric phase stability in ceramics and thin films",
+        "publication_year": 2017, "abstract_inverted_index": {"O": [0, 236], "presente":
+        [1, 201], "trabalho": [2], "tem": [3], "como": [4], "objetivo": [5], "investigar":
+        [6], "a": [7, 32, 111, 159, 252], "influ\u00eancia": [8, 33], "do": [9, 18,
+        206], "excesso": [10, 79, 207], "de": [11, 22, 51, 80, 100, 132, 134, 142,
+        147, 149, 190, 198, 208, 224, 232, 240, 254, 259, 264, 274], "PbO": [12, 81,
+        260], "na": [13, 115, 186, 193, 280], "estabiliza\u00e7\u00e3o": [14], "da":
+        [15, 161, 163, 177, 195, 238], "fase": [16, 200], "ferroel\u00e9trica": [17],
+        "sistema": [19], "titanato": [20], "zirconato": [21], "chumbo": [23], "modificado":
+        [24], "com": [25, 40, 58, 63, 83, 165, 172, 244, 257, 276], "lant\u00e2nio,":
+        [26], "o": [27, 121, 166], "Pb1-xLaxZr1-yTiyO3": [28], "(PLZT),": [29], "bem":
+        [30], "como,": [31], "nas": [34], "propriedades": [35, 42, 124, 153, 211],
+        "estruturais": [36, 125, 191], "e": [37, 45, 48, 61, 67, 74, 82, 102, 108,
+        126, 145, 155, 169, 184, 192, 213, 256, 272], "suas": [38], "correla\u00e7\u00f5es":
+        [39], "as": [41, 130, 277], "microestruturais,": [43, 127], "diel\u00e9tricas":
+        [44, 156, 212], "ferroel\u00e9tricas.": [46], "Cer\u00e2micas": [47], "filmes":
+        [49, 118, 227, 265], "finos": [50, 228], "PLZT": [52], "foram": [53, 76, 95,
+        128, 157, 179, 218, 229, 270], "obtidos": [54, 180, 269], "considerando":
+        [55], "diferentes": [56, 222, 246], "composi\u00e7\u00f5es": [57, 71], "simetrias":
+        [59], "rombo\u00e9drica": [60], "tetragonal,": [62], "grupo": [64], "espacial":
+        [65], "(R3m)": [66], "(P4mm),": [68], "respectivamente.": [69, 174], "As":
+        [70, 152, 210], "nominais": [72], "Pb(0,94)La(0,06)(Zr0,6895Ti0,2955)O3":
+        [73], "Pb(0,94)La(0,06)(Zr0,52205Ti0,46295)O3,": [75], "obtidas": [77], "sem":
+        [78], "os": [84, 221, 245, 248], "excessos": [85, 223], "0,02;": [86], "0,05;":
+        [87], "0,10;": [88], "0,15;": [89], "0,20": [90], "em": [91, 204], "mols.":
+        [92], "Os": [93, 175, 226, 267], "p\u00f3s-precursores": [94], "preparados":
+        [96, 230], "por": [97], "mistura": [98], "convencional": [99], "\u00f3xidos,":
+        [101], "utilizados": [103], "para": [104, 109, 220, 262], "conforma\u00e7\u00e3o":
+        [105], "das": [106, 123], "cer\u00e2micas": [107], "obter": [110], "resina":
+        [112], "precursora": [113], "utilizada": [114], "s\u00edntese": [116], "dos":
+        [117, 188, 215], "finos.": [119], "Para": [120], "estudo": [122, 237], "utilizadas":
+        [129], "t\u00e9cnicas": [131], "difra\u00e7\u00e3o": [133], "raios": [135],
+        "X": [136], "(DRX),": [137], "Espectroscopia": [138, 146], "Raman,": [139],
+        "Microscopia": [140], "Eletr\u00f4nica": [141], "Varredura": [143], "(MEV)":
+        [144], "Dispers\u00e3o": [148], "Energia": [150], "(EDX).": [151], "ferroel\u00e9tricas":
+        [154, 214], "investigadas": [158], "partir": [160], "depend\u00eancia": [162],
+        "polariza\u00e7\u00e3o": [164], "campo": [167], "el\u00e9trico": [168], "resposta":
+        [170], "diel\u00e9trica": [171], "temperatura,": [173], "refinamentos": [176],
+        "estrutura": [178], "pelo": [181], "m\u00e9todo": [182, 234], "Rietveld":
+        [183], "auxiliaram": [185], "obten\u00e7\u00e3o": [187], "par\u00e2metros":
+        [189], "determina\u00e7\u00e3o": [194], "quantidade": [196], "percentual":
+        [197], "cada": [199], "no": [202], "composto": [203], "fun\u00e7\u00e3o":
+        [205], "PbO.": [209, 225], "corpos": [216], "cer\u00e2micos": [217], "alteradas":
+        [219], "atrav\u00e9s": [231], "um": [233], "qu\u00edmico.": [235], "temperatura":
+        [239, 253], "pir\u00f3lise": [241], "foi": [242], "realizado,": [243], "p\u00f3s-obtidos,":
+        [247], "resultados": [249, 268], "revelaram": [250], "que": [251], "300\u00baC":
+        [255], "20%": [258], "contribu\u00ed": [261], "forma\u00e7\u00e3o": [263],
+        "monof\u00e1sicos.": [266], "discutidos": [271], "comparados": [273], "acordo":
+        [275], "teorias": [278], "descritas": [279], "literatura": [281], "atual.":
+        [282]}, "primary_location": {"id": "pmh:oai:repositorio.unesp.br:11449/151889",
+        "doi": null, "is_oa": true, "landing_page_url": "http://hdl.handle.net/11449/151889",
+        "pdf_url": "http://hdl.handle.net/11449/151889", "source": {"id": "https://openalex.org/S4306402641",
+        "display_name": "LA Referencia (Red Federada de Repositorios Institucionales
+        de Publicaciones Cient\u00edficas)", "issn_l": null, "issn": null, "is_oa":
+        false, "is_in_doaj": false, "is_core": false, "listed_in": [], "host_organization":
+        "https://openalex.org/I4383465926", "host_organization_name": "LA Referencia",
+        "host_organization_lineage": ["https://openalex.org/I4383465926"], "host_organization_lineage_names":
+        [], "type": "repository"}, "license": "other-oa", "license_id": "https://openalex.org/licenses/other-oa",
+        "version": "submittedVersion", "is_accepted": false, "is_published": false,
+        "raw_source_name": "instacron:UNESP", "raw_type": "info:eu-repo/semantics/doctoralThesis"}},
+        {"id": "https://openalex.org/W2515857812", "doi": "https://doi.org/10.32657/10356/68931",
+        "title": "Novel high-k dielectrics for nanoelectronics", "publication_year":
+        2016, "abstract_inverted_index": {"The": [0, 174, 291], "aggressive": [1],
+        "downsizing": [2], "in": [3, 17, 36, 48, 168, 250], "metal-oxide-semiconductor":
+        [4], "field": [5], "effect": [6], "transistors": [7], "(MOSFET)": [8], "has":
+        [9, 30, 76], "been": [10, 77], "the": [11, 94, 129, 141, 164, 169, 184, 193,
+        208, 216, 226, 241, 259, 275, 285, 303, 315, 321, 344], "driving": [12], "force":
+        [13], "for": [14, 157, 176, 189, 311, 352], "performance": [15], "progress":
+        [16], "microelectronics.": [18], "In": [19, 101, 255], "association": [20],
+        "with": [21, 63, 79, 87, 122, 152, 252], "device": [22], "parameters": [23],
+        "related": [24], "to": [25, 33, 40, 54, 92, 103, 137, 197, 214, 239, 257,
+        273, 280, 302, 333, 349, 356, 368, 372], "MOSFET,": [26], "SiO2": [27], "based":
+        [28], "oxide": [29, 50, 113, 230], "already": [31], "faced": [32], "its":
+        [34], "limit": [35], "further": [37, 46], "thinning": [38], "due": [39, 301,
+        355], "excess": [41], "gate": [42, 61, 150], "leakage": [43, 299, 322, 336],
+        "current.": [44], "However,": [45], "scaling": [47], "equivalent": [49], "thickness":
+        [51, 286], "(EOT)": [52], "down": [53], "0.5": [55, 74], "nm": [56, 75], "or":
+        [57], "less": [58], "requires": [59], "a": [60, 64, 80, 84, 116, 120], "stack":
+        [62], "high": [65, 154], "k": [66, 97], "insulating": [67], "layer.": [68],
+        "Till": [69], "date,": [70], "an": [71, 88, 148], "EOT": [72], "below": [73],
+        "obtained": [78], "careful": [81], "deposition": [82, 269, 278], "of": [83,
+        119, 135, 143, 163, 172, 183, 228, 263, 284, 287, 329, 366], "high-k": [85,
+        121, 247], "combined": [86], "optimized": [89], "heat": [90], "treatment":
+        [91], "suppress": [93, 240], "SiOx-based": [95], "low": [96], "interfacial":
+        [98, 243, 304], "layer": [99, 244, 268, 305], "growth.": [100], "addition":
+        [102], "this": [104], "process": [105], "optimization,": [106], "studies":
+        [107], "have": [108], "revealed": [109], "that": [110, 212, 341], "rare":
+        [111], "earth": [112], "can": [114], "achieve": [115], "direct": [117], "contact":
+        [118, 251], "Si": [123], "substrate": [124], "by": [125, 219, 326, 362], "forming":
+        [126], "RE-silicates": [127], "at": [128], "interface,": [130], "which": [131,
+        370], "produce": [132], "dielectric": [133, 155, 295], "constants": [134,
+        156, 296], "8": [136], "20": [138], "pending": [139], "on": [140], "amount":
+        [142], "incorporated": [144], "silicon.": [145], "Nevertheless,": [146], "developing":
+        [147], "alternative": [149], "material": [151, 248], "suitable": [153, 277],
+        "approaching": [158], "CMOS": [159], "generations": [160], "is": [161, 249,
+        271, 317, 324], "one": [162], "most": [165, 276], "challenging": [166], "problems":
+        [167], "continuous": [170], "development": [171], "electronics.": [173], "criteria":
+        [175], "these": [177, 264, 288], "materials": [178], "are": [179, 206], "stringent.":
+        [180], "On": [181], "top": [182], "basic": [185], "and": [186, 200, 203, 232,
+        261, 306], "absolute": [187], "requirement": [188], "higher": [190], "permittivity":
+        [191], "(k)-values,": [192], "energy": [194], "band": [195], "offsets": [196],
+        "silicon,": [198], "interface": [199], "bulk": [201, 357], "charges": [202],
+        "thermal": [204], "stability,": [205], "among": [207], "various": [209], "essential":
+        [210], "properties": [211], "need": [213], "satisfy": [215], "demands": [217],
+        "set": [218], "MOS": [220], "production": [221], "processes.": [222], "This":
+        [223], "work": [224], "features": [225], "use": [227], "titanium": [229],
+        "(TiO2)": [231], "gadolinium": [233], "silicate": [234], "(GdSiO)": [235],
+        "as": [236, 331], "passivation": [237, 289], "layers": [238], "undesirable":
+        [242], "formation": [245, 308], "when": [246], "silicon": [253], "substrate.":
+        [254], "addition,": [256], "ensure": [258, 281], "uniformity": [260], "conformality":
+        [262], "thin": [265], "films,": [266], "atomic": [267], "(ALD)": [270], "chosen":
+        [272], "be": [274], "technique": [279], "good": [282], "controllability":
+        [283], "layers.": [290], "CeO2/TiO2": [292], "showed": [293, 340], "comparable":
+        [294], "but": [297, 320], "severe": [298], "degradation": [300], "silicide":
+        [307], "post-annealing.": [309], "As": [310], "CeO2/GdSiO": [312, 353], "samples,":
+        [313], "although": [314], "k-value": [316], "lower": [318], "(~13)": [319],
+        "current": [323, 337], "improved": [325], "4-5": [327], "orders": [328], "magnitude":
+        [330], "compared": [332], "CeO2/TiO2.": [334], "Furthermore,": [335], "conduction":
+        [338], "mechanism": [339, 345], "upon": [342], "annealing,": [343], "switches":
+        [346], "from": [347], "Schottky": [348], "Poole-Frenkel": [350], "emission":
+        [351], "samples": [354], "CeO2": [358], "being": [359], "dominant": [360],
+        "caused": [361], "oxidation": [363], "state": [364], "change": [365], "Ce2+":
+        [367], "Ce3+": [369], "leads": [371], "oxygen": [373], "vacancies.": [374]},
+        "primary_location": {"id": "doi:10.32657/10356/68931", "doi": "https://doi.org/10.32657/10356/68931",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.32657/10356/68931",
+        "pdf_url": "https://dr.ntu.edu.sg/bitstream/10356/68931/1/Thesis%20report%20%28Vanessa%29-Revised%2020160804.pdf",
+        "source": null, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Nanyang Technological
+        University", "raw_type": "dissertation"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a534af1f7952fa17-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '19665'
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 18:22:15 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=wnAK%2BSUFgVv3QqwfOvT8TTpCPntv6OAkzqrd2YjylwQ%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793470934"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=wnAK%2BSUFgVv3QqwfOvT8TTpCPntv6OAkzqrd2YjylwQ%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793470934"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9860'
+      x-ratelimit-remaining-usd:
+      - '0.986'
+      x-ratelimit-reset:
+      - '20265'
+    status:
+      code: 200
+      message: OK
+version: 1

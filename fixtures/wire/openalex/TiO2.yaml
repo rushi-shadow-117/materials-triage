@@ -1,0 +1,586 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search=TiO2+dielectric+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 23894, "db_response_time_ms": 106, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (TiO2 dielectric
+        thin film) in the full text where it has an abstract", "x_new_oql": "get works
+        with (TiO2 dielectric thin film) in the full text where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "fulltext.search",
+        "value": "TiO2 dielectric thin film", "operator": "has"}, {"column_id": "has_abstract",
+        "value": true}]}, "url": "/works?filter=fulltext.search:TiO2 dielectric thin
+        film,has_abstract:true&per_page=5", "order": "best matches first", "order_default":
+        true}, "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W4412132593",
+        "doi": "https://doi.org/10.1063/5.0274769", "title": "High-k TiO2 dielectric
+        thin films by atomic layer deposition on InAlN/GaN and ScAlN/GaN heterostructures",
+        "publication_year": 2025, "abstract_inverted_index": {"In": [0], "this": [1],
+        "paper,": [2], "high": [3, 15], "quality": [4], "atomic": [5], "layer": [6],
+        "deposition": [7, 213], "(ALD)": [8], "grown": [9, 232], "TiO2": [10, 44,
+        82, 97, 108, 125, 177, 212, 230], "was": [11, 73, 104, 152, 168, 237], "investigated":
+        [12], "as": [13, 214], "a": [14, 112, 127, 175, 182, 199, 206, 221, 257],
+        "dielectric": [16, 179], "constant": [17], "(k)": [18], "thin": [19, 263],
+        "film": [20], "for": [21, 53, 142, 154, 227, 259, 268, 272], "integration":
+        [22, 260], "with": [23, 62, 119, 205], "In0.17Al0.83N/GaN": [24], "and": [25,
+        39, 51, 57, 60, 86, 91, 100, 115, 121, 133, 135, 157, 225, 235], "Sc0.22Al0.78N/GaN":
+        [26], "high-electron-mobility": [27], "transistor": [28], "(HEMT)": [29],
+        "structures.": [30], "ALD": [31, 68, 81, 96, 107, 229], "process": [32], "windows":
+        [33], "were": [34, 49], "optimized": [35], "using": [36, 174], "in": [37,
+        111, 165, 202, 209, 246, 251, 291], "situ": [38, 41], "ex": [40], "characterization.":
+        [42], "Optimal": [43], "films": [45, 109, 231, 264], "on": [46, 98, 233],
+        "HEMT": [47, 253, 266], "structures": [48, 254], "deposited": [50], "characterized":
+        [52], "surface": [54], "morphology,": [55], "stoichiometry,": [56], "structural":
+        [58], "properties": [59, 65], "correlated": [61], "the": [63, 67, 77, 80,
+        84, 87, 136, 147, 186, 217, 228, 243, 252, 285], "electrical": [64], "of":
+        [66, 79, 95, 261], "films.": [69], "X-ray": [70], "photoelectron": [71], "spectroscopy":
+        [72], "used": [74], "to": [75, 131, 181, 194, 198], "measure": [76], "bandgap":
+        [78, 129], "films,": [83], "In0.17Al0.83N": [85, 99, 120, 132, 234], "Sc0.22Al0.78N":
+        [88, 101, 236], "barrier": [89, 248], "layers,": [90], "calculate": [92],
+        "band": [93, 138, 280], "alignments": [94], "layers.": [102], "It": [103],
+        "determined": [105], "that": [106, 279], "result": [110], "type": [113, 116],
+        "I": [114], "II": [117], "alignment": [118, 139, 281], "Sc0.22Al0.78N,": [122,
+        134], "respectively.": [123], "While": [124], "has": [126], "narrower": [128],
+        "compared": [130, 180], "extracted": [137, 238], "appears": [140], "unfavorable":
+        [141], "mitigating": [143], "electron": [144], "transport": [145], "across":
+        [146], "barrier,": [148], "reduced": [149, 169], "leakage": [150, 164], "current":
+        [151], "measured": [153, 215], "both": [155], "TiO2/In0.17Al0.83N/GaN": [156],
+        "TiO2/Sc0.22Al0.78N/GaN": [158], "heterostructures.": [159], "For": [160],
+        "example,": [161], "off-state": [162], "gate": [163, 178], "In0.17Al0.83N-barrier":
+        [166], "HEMTs": [167], "by": [170, 173, 216], "nearly": [171], "104": [172],
+        "7-nm": [176], "Schottky-gated": [183], "HEMT.": [184], "Concurrently,": [185],
+        "access": [187], "region": [188], "sheet": [189], "resistance": [190], "dropped":
+        [191], "from": [192], "275": [193], "250": [195], "\u2126/sq": [196], "due":
+        [197], "15%": [200], "increase": [201], "channel": [203], "density": [204],
+        "negligible": [207], "decrease": [208, 244], "mobility": [210], "after": [211],
+        "Hall": [218], "effect.": [219], "Furthermore,": [220], "k": [222], "between":
+        [223], "47": [224], "50": [226], "via": [239], "capacitance\u2013voltage":
+        [240], "measurements,": [241], "minimizing": [242], "(increase)": [245], "effective":
+        [247], "capacitance": [249], "(thickness)": [250], "while": [255], "providing":
+        [256], "pathway": [258], "high-k": [262], "into": [265], "designs": [267],
+        "electric": [269], "field": [270], "management": [271], "improved": [273],
+        "breakdown": [274], "voltage.": [275], "These": [276], "results": [277], "suggest":
+        [278], "should": [282], "not": [283], "be": [284], "only": [286], "consideration":
+        [287], "when": [288], "selecting": [289], "dielectrics": [290], "device":
+        [292], "concepts.": [293]}, "primary_location": {"id": "doi:10.1063/5.0274769",
+        "doi": "https://doi.org/10.1063/5.0274769", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.1063/5.0274769", "pdf_url": null, "source": {"id": "https://openalex.org/S5407042506",
+        "display_name": "APL Electronic Devices", "issn_l": "2995-8423", "issn": ["2995-8423"],
+        "is_oa": true, "is_in_doaj": true, "is_core": false, "listed_in": ["doaj",
+        "jufo-1", "norway-1"], "host_organization": null, "host_organization_name":
+        null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "journal"}, "license": "cc-by", "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "APL Electronic Devices", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W1643213584", "doi": "https://doi.org/10.1063/1.120746",
+        "title": "Dielectric property of (TiO2)x\u2212(Ta2O5)1\u2212x thin films",
+        "publication_year": 1998, "abstract_inverted_index": {"(": [0], "TiO": [1],
+        "2": [2, 7], ")": [3, 10], "x": [4], "\u2212(": [5], "Ta": [6], "O": [8],
+        "5": [9], "1\u2212x": [11], "thin": [12, 83], "films": [13, 30], "were": [14],
+        "prepared": [15], "with": [16], "radio-frequency": [17], "magnetron": [18],
+        "sputtering": [19], "deposition": [20], "in": [21, 87], "this": [22], "study.":
+        [23], "The": [24, 47, 59], "dielectric": [25, 63, 88], "constant": [26, 64,
+        89], "measured": [27], "from": [28], "these": [29], "appears": [31], "to":
+        [32, 53, 80], "critically": [33], "depend": [34], "on": [35, 56], "the": [36,
+        42], "amount": [37], "of": [38, 62, 72, 96], "TiO2": [39, 70], "incorporated":
+        [40], "into": [41], "film": [43], "and": [44, 74], "post-anneal": [45], "condition.":
+        [46], "composition": [48], "dependence": [49], "was": [50], "found": [51],
+        "similar": [52], "that": [54], "reported": [55], "(TiO2)x\u2212(Ta2O5)1\u2212x":
+        [57], "bulk.": [58], "highest": [60], "value": [61], "is": [65, 90], "about":
+        [66], "55": [67], "for": [68], "a": [69], "content": [71], "8%": [73], "annealing":
+        [75], "at": [76], "800": [77], "\u00b0C.": [78], "Compared": [79], "pure":
+        [81], "Ta2O5": [82], "films,": [84], "significant": [85], "enhancement": [86],
+        "obtained": [91], "by": [92], "adding": [93], "small": [94], "quantity": [95],
+        "TiO2.": [97]}, "primary_location": {"id": "doi:10.1063/1.120746", "doi":
+        "https://doi.org/10.1063/1.120746", "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.120746",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S105243760", "display_name":
+        "Applied Physics Letters", "issn_l": "0003-6951", "issn": ["0003-6951", "1077-3118",
+        "1520-8842"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Applied Physics Letters", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2084833079", "doi": "https://doi.org/10.1063/1.1812832",
+        "title": "High dielectric constant TiO2 thin films on a Ru electrode grown
+        at 250 \u00b0C by atomic-layer deposition", "publication_year": 2004, "abstract_inverted_index":
+        {"TiO": [0], "2": [1], "thin": [2], "films": [3, 29, 105, 119], "with": [4,
+        32, 38, 64], "high": [5, 41, 53], "dielectric": [6, 54, 138], "constants":
+        [7], "(83\u2013100)": [8], "were": [9, 30, 80], "grown": [10, 120], "on":
+        [11, 121], "a": [12, 16, 39, 61, 122, 137], "Ru": [13, 100], "electrode":
+        [14, 128], "at": [15, 74], "growth": [17], "temperature": [18, 88], "of":
+        [19, 36, 60, 69, 98, 113, 140], "250": [20], "\u00b0C": [21], "using": [22],
+        "the": [23, 48, 52, 86, 95, 99, 110, 130], "atomic-layer": [24], "deposition":
+        [25], "method.": [26], "The": [27, 56], "as-deposited": [28], "crystallized":
+        [31], "rutile": [33, 49], "structure.": [34], "Adoption": [35], "O3": [37],
+        "very": [40, 107], "concentration": [42], "(400g\u2215m3)": [43], "was": [44,
+        72, 89], "crucial": [45, 93], "for": [46], "obtaining": [47], "phase": [50],
+        "and": [51, 136], "constant.": [55], "leakage": [57], "current": [58], "density":
+        [59], "TiO2": [62, 104, 118], "film": [63], "an": [65], "equivalent": [66],
+        "oxide": [67], "thickness": [68], "1.0\u20131.5": [70], "nm": [71], "10\u22126\u201310\u22128A\u2215cm2":
+        [73], "\u00b11V.": [75], "All": [76], "these": [77, 103], "electrical": [78],
+        "properties": [79], "obtained": [81], "after": [82], "limited": [83], "postannealing":
+        [84], "where": [85], "annealing": [87], "<500\u00b0C,": [90], "which": [91],
+        "is": [92], "to": [94], "structural": [96], "stability": [97], "electrode.":
+        [101], "Therefore,": [102], "are": [106], "promising": [108], "as": [109],
+        "capacitor": [111], "dielectrics": [112], "dynamic": [114], "random": [115],
+        "access": [116], "memories.": [117], "bare": [123], "Si": [124], "wafer":
+        [125], "or": [126], "Pt": [127], "by": [129], "same": [131], "process": [132],
+        "had": [133], "anatase": [134], "structure": [135], "constant": [139], "\u223c40.":
+        [141]}, "primary_location": {"id": "doi:10.1063/1.1812832", "doi": "https://doi.org/10.1063/1.1812832",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.1812832", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S105243760", "display_name":
+        "Applied Physics Letters", "issn_l": "0003-6951", "issn": ["0003-6951", "1077-3118",
+        "1520-8842"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Applied Physics Letters", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W138944078", "doi": null, "title": "COMPARISON
+        OF THE DIELECTRIC PROPERTIES FOR DOPED AND UNDOPED TiO2 THIN FILMS", "publication_year":
+        2003, "abstract_inverted_index": {"The": [0, 110], "dielectric": [1, 60, 69,
+        99, 113], "properties": [2], "of": [3, 17, 25, 58, 62, 97, 112], "TiO2": [4],
+        "thin": [5], "films": [6], "have": [7], "been": [8], "investigated": [9],
+        "on": [10], "ITO/TiO2/Au": [11], "structures": [12], "for": [13, 74], "a":
+        [14, 94], "large": [15, 95], "domain": [16], "signal": [18], "frequencies":
+        [19], "(102Hz-106Hz).": [20], "At": [21, 65], "100Hz,": [22], "the": [23,
+        26, 56, 59, 63, 68, 75, 98], "values": [24], "electric": [27], "capacitance":
+        [28], "increases": [29], "from": [30, 72], "5.22nF": [31], "to": [32, 42,
+        78, 85], "22nF,": [33], "by": [34, 44, 80, 87], "doping": [35, 45, 81, 88],
+        "with": [36, 46, 55, 82, 89], "Nb": [37, 91], "(0.35": [38], "at.": [39, 49],
+        "%)": [40], "and": [41, 84], "10.2nF": [43], "Ce": [47, 83], "(0.4": [48],
+        "%).": [50], "This": [51], "increase": [52, 57, 71, 96], "is": [53, 104],
+        "correlated": [54], "constant": [61, 70], "film.": [64], "100": [66], "Hz,":
+        [67], "83.6": [73], "undoped": [76], "sample,": [77], "179": [79], "108,":
+        [86], "Fe.": [90], "impurities": [92], "determine": [93], "constant,": [100],
+        "till": [101], "371,": [102], "which": [103], "very": [105], "important":
+        [106], "in": [107], "fabricating": [108], "capacitors.": [109], "dependence":
+        [111], "loss": [114], "versus": [115], "frequency": [116], "was": [117], "also":
+        [118], "examined.": [119]}, "primary_location": {"id": "pmh:oai:CiteSeerX.psu:10.1.1.476.1388",
+        "doi": null, "is_oa": false, "landing_page_url": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.476.1388",
+        "pdf_url": null, "source": null, "license": null, "license_id": null, "version":
+        "submittedVersion", "is_accepted": false, "is_published": false, "raw_source_name":
+        "http://joam.inoe.ro/arhiva/pdf6_1/Mardare.pdf", "raw_type": "text"}}, {"id":
+        "https://openalex.org/W2183137149", "doi": null, "title": "DIELECTRIC CONSTANT
+        OF Fe DOPED TiO2 THIN FILMS", "publication_year": 2015, "abstract_inverted_index":
+        {"ABSTRACT": [0], "High": [1], "dielectric": [2, 47, 65], "constant": [3,
+        48], "materials,": [4], "as": [5], "TiO2": [6], "thin": [7, 20], "films,":
+        [8], "are": [9, 22], "considered": [10], "attractive": [11], "materials":
+        [12], "for": [13, 35, 52], "high-density": [14], "dynamic-memory": [15], "applications.":
+        [16], "Dielectric": [17], "properties": [18, 28], "of": [19, 39, 64], "films":
+        [21], "influenced": [23], "by": [24, 58], "impurities": [25], "doping.": [26],
+        "These": [27], "have": [29], "been": [30], "investigated": [31], "on": [32],
+        "ITO/TiO2/Au": [33], "structures": [34], "a": [36], "large": [37], "domain":
+        [38], "signal": [40], "frequencies:": [41], "102Hz-106Hz.": [42], "At": [43],
+        "100": [44], "Hz,": [45], "the": [46, 53], "increase": [49], "from": [50],
+        "83.6": [51], "undoped": [54], "sample,": [55], "to": [56], "108,": [57],
+        "doping": [59], "with": [60], "Fe.": [61], "The": [62], "dependence": [63],
+        "loss": [66], "versus": [67], "frequency": [68], "was": [69], "also": [70],
+        "examined.": [71]}, "primary_location": {"id": "pmh:oai:CiteSeerX.psu:10.1.1.535.2485",
+        "doi": null, "is_oa": false, "landing_page_url": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.535.2485",
+        "pdf_url": null, "source": null, "license": null, "license_id": null, "version":
+        "submittedVersion", "is_accepted": false, "is_published": false, "raw_source_name":
+        "http://stoner.phys.uaic.ro/old/ANALE/Anale_2001_2002/An_Univ_Iasi_2001_2002_09.pdf",
+        "raw_type": "text"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a534af15bb57f433-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '14683'
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 18:22:13 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=9WIYvFvKrVyDU9E8BqsPrEotquHyRFJU8fNSrmx3LL8%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793470933"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=9WIYvFvKrVyDU9E8BqsPrEotquHyRFJU8fNSrmx3LL8%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793470933"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9910'
+      x-ratelimit-remaining-usd:
+      - '0.991'
+      x-ratelimit-reset:
+      - '20267'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search=titania+dielectric+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 10397, "db_response_time_ms": 108, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (titania dielectric
+        thin film) in the full text where it has an abstract", "x_new_oql": "get works
+        with (titania dielectric thin film) in the full text where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "fulltext.search",
+        "value": "titania dielectric thin film", "operator": "has"}, {"column_id":
+        "has_abstract", "value": true}]}, "url": "/works?filter=fulltext.search:titania
+        dielectric thin film,has_abstract:true&per_page=5", "order": "best matches
+        first", "order_default": true}, "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2074486569",
+        "doi": "https://doi.org/10.1088/1009-0630/8/3/09", "title": "Deposition of
+        Thin Titania Films by Dielectric Barrier Discharge", "publication_year": 2006,
+        "abstract_inverted_index": {"A": [0, 32], "homogeneous": [1], "atmospheric":
+        [2], "pressure": [3], "dielectric": [4], "barrier": [5], "discharge": [6,
+        72, 142], "is": [7, 10], "studied.": [8, 173], "It": [9], "in": [11, 38, 73],
+        "argon": [12], "with": [13, 109], "small": [14], "admixtures": [15], "of":
+        [16, 25, 76, 128, 146, 167], "titanium": [17], "tetrachloride": [18], "vapour":
+        [19], "and": [20, 62, 104, 125, 163], "oxygen": [21], "for": [22], "the":
+        [23, 42, 71, 74, 105, 120, 129, 141, 144, 150, 153, 157, 160, 164, 168], "deposition":
+        [24, 81, 154, 161], "thin": [26], "titania": [27, 43, 169], "films": [28,
+        130], "on": [29, 156], "glass": [30], "substrates.": [31], "special": [33],
+        "electrode": [34], "configuration": [35], "was": [36, 96, 107], "applied":
+        [37], "order": [39], "to": [40, 52, 69, 89, 119, 149], "deposit": [41], "film":
+        [44, 94, 170], "uniformly.": [45], "The": [46, 93, 122], "sustaining": [47],
+        "voltage": [48], "(6": [49], "kV": [51], "12": [53], "kV),": [55], "current":
+        [56], "density": [57], "(about": [58], "3": [59], "mA/cm2)": [61], "total":
+        [63], "optical": [64], "emission": [65], "spectroscopy": [66, 114], "were":
+        [67, 131, 171], "monitored": [68], "characterize": [70], "gap": [75], "2":
+        [77], "mm.": [79], "Typical": [80], "rates": [82], "ranged": [83], "from":
+        [84], "approximately": [85], "30": [86], "nm/min": [88], "120": [90], "nm/min.":
+        [92], "morphology": [95, 166], "investigated": [97], "by": [98, 133], "using":
+        [99], "scanning": [100], "electron": [101], "microscopy": [102], "(SEM)":
+        [103], "composition": [106, 127], "determined": [108], "an": [110], "energy":
+        [111], "dispersive": [112], "x-ray": [113, 134], "(EDS)": [115], "analysis":
+        [116], "tool": [117], "attached": [118], "SEM.": [121], "crystal": [123],
+        "structure": [124], "phase": [126], "studied": [132], "diffraction": [135],
+        "(XRD).": [136], "Several": [137], "parameters": [138], "such": [139], "as":
+        [140], "power,": [143], "ratio": [145], "carrier": [147], "gas": [148], "precursor":
+        [151], "gas,": [152], "time": [155], "crystallization": [158], "behavior,":
+        [159], "rate": [162], "surface": [165], "extensively": [172]}, "primary_location":
+        {"id": "doi:10.1088/1009-0630/8/3/09", "doi": "https://doi.org/10.1088/1009-0630/8/3/09",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1088/1009-0630/8/3/09",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S199470047", "display_name":
+        "Plasma Science and Technology", "issn_l": "1009-0630", "issn": ["1009-0630",
+        "2058-6272"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "dongbi-d", "jufo-1", "norway-1", "poland-70", "russia-white-list-2"],
+        "host_organization": "https://openalex.org/P4310320083", "host_organization_name":
+        "IOP Publishing", "host_organization_lineage": ["https://openalex.org/P4310320083",
+        "https://openalex.org/P4310311669"], "host_organization_lineage_names": ["IOP
+        Publishing", "Institute of Physics"], "type": "journal"}, "license": null,
+        "license_id": null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Plasma Science and Technology", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2027047101", "doi": "https://doi.org/10.1111/j.1551-2916.2009.03452.x",
+        "title": "Electrodeposition of Titania Thin Films on Metallic Surface for
+        High\u2010 k Dielectric Applications", "publication_year": 2009, "abstract_inverted_index":
+        {"Current": [0], "microelectronics": [1], "devices": [2], "based": [3], "on":
+        [4, 22, 102, 176], "flexible": [5], "as": [6, 8, 216], "well": [7], "rigid":
+        [9], "substrates": [10], "demand": [11], "high": [12, 180], "dielectric":
+        [13, 181], "constant": [14], "(": [15, 198], "k": [16, 37, 184], ")": [17,
+        41, 201], "films": [18, 42, 133, 168, 212], "to": [19, 96, 123, 213], "be":
+        [20, 214], "grown": [21, 175], "conductive": [23], "substrate": [24, 115],
+        "from": [25, 48, 108, 138], "a": [26, 60, 88, 98, 109, 119, 170, 217], "low\u2010cost,":
+        [27], "low\u2010temperature": [28], "deposition": [29, 57, 151], "technique.":
+        [30], "In": [31], "this": [32], "study,": [33], "we": [34], "produced": [35],
+        "high\u2010": [36], "titania": [38, 99, 132, 211], "(TiO": [39], "2": [40,
+        190], "through": [43, 59], "an": [44], "affordable": [45], "electrodeposition":
+        [46], "protocol": [47], "the": [49, 69, 80, 103, 127, 144, 207], "electrochemical":
+        [50], "bath": [51, 164], "maintained": [52], "at": [53, 191], "about": [54],
+        "0\u00b0C.": [55], "The": [56, 130, 166], "occurs": [58], "rapid": [61], "hydrolysis":
+        [62], "mechanism": [63], "of": [64, 143, 161, 172, 209], "titanium": [65],
+        "containing": [66], "ions": [67, 77], "in": [68, 145], "precursor": [70, 112],
+        "solution": [71], "aided": [72], "by": [73, 118], "electrochemically": [74],
+        "generated": [75], "hydroxyl": [76], "formed": [78], "near": [79], "cathode":
+        [81, 104], "surface": [82], "(copper": [83], "(Cu)": [84], "substrate).":
+        [85], "Upon": [86], "attaining": [87], "sufficient": [89], "supersaturation":
+        [90], "level,": [91], "such": [92], "hydrolyzed": [93], "species": [94], "precipitate":
+        [95], "form": [97], "thin": [100], "film": [101], "surface.": [105], "While":
+        [106], "depositing": [107], "highly": [110], "acidic": [111], "solution,":
+        [113], "Cu": [114, 177], "was": [116, 156], "protected": [117], "cathodic":
+        [120], "potential": [121, 208], "(\u22123": [122], "\u22125": [124], "V":
+        [125, 199], "against": [126], "counter": [128], "electrode).": [129], "resultant":
+        [131, 167], "show": [134], "nanoparticulate": [135], "structures": [136],
+        "evolved": [137], "nucleation": [139], "and": [140, 194], "growth": [141],
+        "events": [142], "situ": [146], "precipitated": [147], "particles.": [148],
+        "Much": [149], "higher": [150], "rate": [152], "(about": [153], "1": [154],
+        "\u03bcm/min)": [155], "observed": [157], "compared": [158], "with": [159,
+        169], "that": [160], "typical": [162], "chemical": [163], "deposition.": [165],
+        "thickness": [171], "1500": [173], "nm": [174], "exhibit": [178], "very":
+        [179], "properties": [182, 205], "(e.g.,": [183], "\u223c30,": [185], "capacitance":
+        [186], "density": [187], ">110": [188], "nF/in.": [189], "100": [192], "kHz)":
+        [193], "moderate": [195], "breakdown": [196], "voltage": [197], "B": [200],
+        "(\u223c17.5": [202], "V).": [203], "These": [204], "indicate": [206], "electrodeposited":
+        [210], "used": [215], "small\u2010area": [218], "thin\u2010film": [219], "capacitor":
+        [220], "for": [221], "miniaturized": [222], "electronic": [223], "devices.":
+        [224]}, "primary_location": {"id": "doi:10.1111/j.1551-2916.2009.03452.x",
+        "doi": "https://doi.org/10.1111/j.1551-2916.2009.03452.x", "is_oa": false,
+        "landing_page_url": "https://doi.org/10.1111/j.1551-2916.2009.03452.x", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S53162366", "display_name": "Journal
+        of the American Ceramic Society", "issn_l": "0002-7820", "issn": ["0002-7820",
+        "1551-2916"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "dongbi-b", "jufo-2", "norway-2", "poland-100", "russia-white-list-1",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310320595", "host_organization_name":
+        "Wiley", "host_organization_lineage": ["https://openalex.org/P4310320595"],
+        "host_organization_lineage_names": ["Wiley"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Journal of the American Ceramic
+        Society", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2235189038",
+        "doi": "https://doi.org/10.1021/acs.jpcc.5b09621", "title": "Buffer Layer
+        Assisted Growth of Ag Nanoparticles in Titania Thin Films", "publication_year":
+        2015, "abstract_inverted_index": {"Developing": [0], "materials": [1], "with":
+        [2, 198], "improved": [3], "photocatalytic": [4, 191], "activity": [5, 161,
+        192], "is": [6], "important": [7], "for": [8, 134, 211], "light": [9, 44],
+        "energy": [10], "conversion": [11], "and": [12, 73, 101, 114, 182], "storage":
+        [13], "within": [14, 31], "chemical": [15], "bonds.": [16], "Here": [17],
+        "we": [18], "present": [19], "a": [20, 71, 131, 139], "new": [21], "type":
+        [22], "of": [23, 26, 49, 123, 142, 156, 162, 172, 193, 206], "hybrid": [24,
+        164], "film": [25, 197], "silver": [27, 125], "nanoparticles": [28, 53], "(AgNPs)":
+        [29], "embedded": [30], "TiO": [32], "x": [33, 35], "(": [34], "\u2264": [36],
+        "2)": [37], "to": [38, 129, 138, 148, 153, 203], "approach": [39], "this":
+        [40, 212], "goal,": [41], "introducing": [42], "visible": [43, 183], "absorption":
+        [45], "via": [46], "surface-plasmon": [47], "excitation": [48], "the": [50,
+        79, 94, 102, 124, 135, 157, 170, 194, 204, 207], "AgNPs.": [51, 208], "Silver":
+        [52], "were": [54, 76, 104, 127], "prepared": [55], "by": [56, 78, 108], "an":
+        [57], "ultrahigh": [58], "vacuum": [59], "(UHV)": [60], "based": [61], "buffer":
+        [62, 95], "layer": [63, 81], "assisted": [64, 82], "growth": [65], "method.":
+        [66], "The": [67, 97, 117], "titania": [68, 99, 118, 196], "films": [69, 100,
+        165], "as": [70], "substrate": [72], "protective": [74, 119], "layers": [75,
+        120], "grown": [77], "reactive": [80], "deposition": [83], "(RLAD)": [84],
+        "technique;": [85], "in": [86, 151, 176], "both": [87, 180], "cases": [88],
+        "amorphous": [89], "solid": [90], "water": [91], "(ASW)": [92], "was": [93],
+        "material.": [96], "thin": [98], "AgNPs": [103], "ex": [105], "situ": [106],
+        "characterized": [107], "UV\u2013vis,": [109], "micro-Raman,": [110], "XRD,":
+        [111], "XPS,": [112], "SEM,": [113], "TEM": [115], "techniques.": [116], "on":
+        [121], "top": [122], "particles": [126], "found": [128], "introduce": [130],
+        "dielectric": [132], "environment": [133], "AgNPs,": [136], "leading": [137],
+        "significant": [140], "red-shift": [141], "their": [143], "plasmon": [144],
+        "resonance": [145], "from": [146], "460": [147], "530": [149], "nm,": [150],
+        "addition": [152], "avoiding": [154], "oxidation": [155], "small": [158],
+        "nanoparticles.": [159], "Photoinduced": [160], "these": [163], "has": [166],
+        "been": [167], "tested": [168], "following": [169], "degradation": [171],
+        "methylene": [173], "blue": [174], "(MB)": [175], "aqueous": [177], "solution":
+        [178], "under": [179], "UV": [181], "pulsed": [184], "laser": [185], "irradiation.":
+        [186], "Preliminary": [187], "results": [188], "have": [189], "shown": [190],
+        "RLAD": [195], "only": [199], "marginal": [200], "influence": [201], "due":
+        [202], "presence": [205], "Possible": [209], "reasons": [210], "observation":
+        [213], "are": [214], "discussed.": [215]}, "primary_location": {"id": "doi:10.1021/acs.jpcc.5b09621",
+        "doi": "https://doi.org/10.1021/acs.jpcc.5b09621", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1021/acs.jpcc.5b09621", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S95739953", "display_name": "The Journal of Physical
+        Chemistry C", "issn_l": "1932-7447", "issn": ["1932-7447", "1932-7455"], "is_oa":
+        false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core", "dongbi-c",
+        "jufo-2", "ki-jl-1", "norway-1", "poland-140", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320006", "host_organization_name":
+        "American Chemical Society", "host_organization_lineage": ["https://openalex.org/P4310320006"],
+        "host_organization_lineage_names": ["American Chemical Society"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "The Journal
+        of Physical Chemistry C", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W1779921476",
+        "doi": null, "title": "Sputter Deposition Processes For Thin Film Oxide Dielectrics",
+        "publication_year": 2009, "abstract_inverted_index": {"As": [0], "new": [1,
+        16], "semiconductor": [2], "systems": [3], "are": [4, 228], "developed": [5],
+        "and": [6, 101, 196, 223], "implemented": [7], "in": [8, 53, 136, 155, 170,
+        211, 230], "niche": [9], "or": [10], "mainstream": [11], "applications,":
+        [12], "the": [13, 60, 75, 104, 189, 193, 198, 202, 212, 221, 231], "need":
+        [14], "for": [15, 31, 40, 45, 59, 226], "dielectric": [17, 54, 63, 76, 105,
+        153, 173, 238], "materials": [18, 30], "becomes": [19], "prevalent.": [20],
+        "Sputter": [21], "deposition": [22, 121], "is": [23, 78, 115, 209], "a": [24,
+        36, 130, 140, 149, 156, 184], "versatile": [25], "approach": [26], "to": [27,
+        95, 108, 151, 188], "preparing": [28], "candidate": [29], "thin": [32, 174],
+        "film": [33], "dielectrics,": [34], "affording": [35], "large": [37], "processing":
+        [38], "space": [39], "optimization.": [41], "The": [42, 204], "choices": [43],
+        "made": [44], "these": [46], "sputtering": [47, 164], "parameters": [48],
+        "can": [49], "effect": [50], "significant": [51], "variation": [52], "properties.":
+        [55], "We": [56, 182], "find": [57], "that": [58, 168], "complex": [61], "amorphous":
+        [62], "oxide": [64, 138], "of": [65, 129, 201, 206, 220], "Zr": [66], "sub(0.2)":
+        [67, 69], "Sn": [68], "Ti": [70], "sub(0.6)": [71], "O": [72], "sub(2)": [73],
+        ",": [74], "constant": [77, 106], "strongly": [79], "dependent": [80], "on":
+        [81, 122], "substrate": [82], "temperature": [83], "during": [84], "reactive":
+        [85, 118], "sputter": [86, 120], "deposition,": [87], "with": [88, 139], "epsilon-r":
+        [89], "~55": [90], "if": [91], "deposited": [92, 160], "at": [93, 99], "150":
+        [94], "280": [96], "degree": [97], "C;": [98], "higher": [100], "lower": [102],
+        "temperatures,": [103], "falls": [107], "~30-35.": [109], "A": [110], "high":
+        [111], "quality": [112], "dysprosium-substituted": [113], "titania": [114],
+        "prepared": [116], "by": [117, 126], "RF": [119], "unheated": [123], "substrates.":
+        [124], "Preparation": [125], "thermal": [127], "oxidation": [128], "sputtered":
+        [131], "metal": [132], "film,": [133], "however,": [134], "results": [135],
+        "an": [137, 162, 177], "defect": [141], "polarization": [142, 195], "along":
+        [143], "phase": [144], "boundaries.": [145], "Finally,": [146], "we": [147],
+        "develop": [148], "methodology": [150], "co-sputter": [152], "oxides": [154],
+        "composition": [157, 171], "gradient.": [158], "When": [159], "from": [161],
+        "oblique": [163], "source,": [165], "such": [166], "as": [167], "used": [169],
+        "spreads,": [172], "films": [175], "exhibit": [176], "abnormal": [178], "low":
+        [179], "frequency": [180], "polarization.": [181], "implement": [183], "negative":
+        [185], "electrical": [186], "bias": [187], "substrate,": [190], "which": [191],
+        "eliminates": [192], "void-mediated": [194], "recovers": [197], "intrinsic":
+        [199], "properties": [200], "dielectric.": [203], "validity": [205], "this":
+        [207], "technique": [208, 222], "demonstrated": [210], "model": [213], "system":
+        [214], "Ta": [215], "sub(2)O": [216], "sub(5)": [217], ".": [218], "Implementation":
+        [219], "its": [224], "implications": [225], "resputtering": [227], "considered":
+        [229], "mixed": [232], "TaO": [233], "sub(x)": [234, 237], "-": [235], "GeO":
+        [236], "system.": [239]}, "primary_location": {"id": "pmh:oai:ecommons.cornell.edu:1813/12805",
+        "doi": null, "is_oa": true, "landing_page_url": "https://hdl.handle.net/1813/12805",
+        "pdf_url": "https://ecommons.cornell.edu/bitstreams/93526f7e-52a4-41e1-b054-c8c0bd5f95eb/download",
+        "source": {"id": "https://openalex.org/S4306400757", "display_name": "eCommons
+        (Cornell University)", "issn_l": null, "issn": null, "is_oa": false, "is_in_doaj":
+        false, "is_core": false, "listed_in": [], "host_organization": "https://openalex.org/I205783295",
+        "host_organization_name": "Cornell University", "host_organization_lineage":
+        ["https://openalex.org/I205783295"], "host_organization_lineage_names": [],
+        "type": "repository"}, "license": null, "license_id": null, "version": "submittedVersion",
+        "is_accepted": false, "is_published": false, "raw_source_name": null, "raw_type":
+        "dissertation or thesis"}}, {"id": "https://openalex.org/W3023707369", "doi":
+        "https://doi.org/10.1088/2632-959x/ab9024", "title": "Tolerance against conducting
+        filament formation in nanosheet-derived titania thin films", "publication_year":
+        2020, "abstract_inverted_index": {"Abstract": [0], "Herein,": [1], "titania":
+        [2, 21, 38, 62, 97, 125, 140], "thin": [3, 39, 63, 126, 141], "films": [4,
+        40, 64, 113, 127, 142], "are": [5], "fabricated": [6, 65, 128], "by": [7,
+        26, 66, 129], "a": [8, 17, 79], "facile": [9], "liquid-phase": [10], "method":
+        [11], "based": [12], "on": [13], "vacuum": [14], "filtration": [15], "of":
+        [16, 20, 82, 92, 96, 104, 111, 124, 138], "colloidal": [18], "suspension":
+        [19], "nanosheets,": [22], "which": [23, 88], "is": [24, 51, 89, 114], "followed":
+        [25], "thermal": [27], "annealing": [28], "to": [29, 78, 116, 119], "transform":
+        [30], "the": [31, 54, 93, 107, 136], "nanosheet": [32], "film": [33], "into":
+        [34], "anatase": [35], "TiO2.": [36, 105], "Nanosheet-derived": [37], "exhibit":
+        [41], "poor": [42], "resistive": [43], "switching": [44, 56], "with": [45,
+        61], "an": [46], "interface-type": [47], "mechanism.": [48], "This": [49,
+        70], "behaviour": [50], "distinct": [52], "from": [53], "filamentary": [55],
+        "that": [57, 103, 123], "has": [58], "been": [59], "observed": [60], "other":
+        [67, 130], "conventional": [68], "techniques.": [69, 131], "tolerance": [71],
+        "against": [72], "conducting-filament": [73], "formation": [74], "may": [75],
+        "be": [76, 117], "ascribed": [77], "low": [80], "concentration": [81], "oxygen":
+        [83], "vacancies": [84], "in": [85], "nanosheet-derived": [86, 112, 139],
+        "films,": [87], "expected": [90], "because": [91], "O/Ti": [94], "ratio":
+        [95], "(Ti0.87O2)": [98], "nanosheets": [99], "being": [100], "larger": [101],
+        "than": [102, 122], "Besides,": [106], "dielectric": [108, 144], "breakdown":
+        [109], "strength": [110], "found": [115], "comparable": [118], "or": [120],
+        "higher": [121], "These": [132], "findings": [133], "clearly": [134], "indicate":
+        [135], "usefulness": [137], "for": [143], "applications.": [145]}, "primary_location":
+        {"id": "doi:10.1088/2632-959x/ab9024", "doi": "https://doi.org/10.1088/2632-959x/ab9024",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.1088/2632-959x/ab9024",
+        "pdf_url": "https://iopscience.iop.org/article/10.1088/2632-959X/ab9024/pdf",
+        "source": {"id": "https://openalex.org/S4210215939", "display_name": "Nano
+        Express", "issn_l": "2632-959X", "issn": ["2632-959X"], "is_oa": true, "is_in_doaj":
+        true, "is_core": true, "listed_in": ["cwts-core", "doaj", "dongbi-d", "jufo-1",
+        "oarl", "poland-20", "russia-white-list-2"], "host_organization": "https://openalex.org/P4310320083",
+        "host_organization_name": "IOP Publishing", "host_organization_lineage": ["https://openalex.org/P4310320083",
+        "https://openalex.org/P4310311669"], "host_organization_lineage_names": ["IOP
+        Publishing", "Institute of Physics"], "type": "journal"}, "license": "cc-by",
+        "license_id": "https://openalex.org/licenses/cc-by", "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Nano Express",
+        "raw_type": "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a534af174920f433-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '19846'
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 18:22:13 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=9WIYvFvKrVyDU9E8BqsPrEotquHyRFJU8fNSrmx3LL8%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793470933"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=9WIYvFvKrVyDU9E8BqsPrEotquHyRFJU8fNSrmx3LL8%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793470933"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9900'
+      x-ratelimit-remaining-usd:
+      - '0.99'
+      x-ratelimit-reset:
+      - '20267'
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -75,8 +75,8 @@ Only commands that work are listed.
   is what CI runs.
 - `docker compose up -d` starts Postgres 16; `docker compose exec postgres pg_isready -U triage`
   checks it.
-- `uv run python scripts/record_wire.py --mode once --sources pubchem,oqmd,cod` records live
-  responses into `fixtures/wire/`; `--mode none` replays with no network. MP and OpenAlex
-  need keys in `.env`.
+- `uv run python scripts/record_wire.py --mode once --sources pubchem,oqmd,mp,openalex,cod`
+  records live responses into `fixtures/wire/`; `--mode none` replays with no network. MP and
+  OpenAlex read their keys from `.env`.
 - `uv run python scripts/fetch_snapshots.py` downloads the JARVIS and matbench files into
   `.data-cache/` and writes slices plus `fixtures/snapshots/MANIFEST.json`.

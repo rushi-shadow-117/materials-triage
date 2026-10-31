@@ -1,0 +1,608 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search=BeO+dielectric+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 1205, "db_response_time_ms": 189, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (BeO dielectric
+        thin film) in the full text where it has an abstract", "x_new_oql": "get works
+        with (BeO dielectric thin film) in the full text where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "fulltext.search",
+        "value": "BeO dielectric thin film", "operator": "has"}, {"column_id": "has_abstract",
+        "value": true}]}, "url": "/works?filter=fulltext.search:BeO dielectric thin
+        film,has_abstract:true&per_page=5", "order": "best matches first", "order_default":
+        true}, "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W4409618038",
+        "doi": "https://doi.org/10.1021/acs.nanolett.5c00552", "title": "High-Performance
+        Oxide Thin-Film Transistors with Atomic Layer Deposition-Grown HfO 2 /BeO
+        Hetero-Dielectric", "publication_year": 2025, "abstract_inverted_index": {"Atomic":
+        [0], "layer": [1, 63], "deposition-grown": [2], "beryllium": [3], "oxide":
+        [4], "(BeO)": [5], "is": [6], "gaining": [7], "attention": [8], "as": [9],
+        "a": [10, 57, 88, 123], "dielectric": [11, 23], "material": [12], "that":
+        [13, 55, 81, 142], "can": [14, 64], "minimize": [15], "device": [16], "power":
+        [17], "consumption": [18], "because": [19], "of": [20, 43, 91, 126], "its":
+        [21, 34], "high": [22, 25, 124], "constant,": [24], "thermal": [26], "conductivity,":
+        [27], "and": [28, 68, 76, 100, 131], "low": [29, 89], "leakage": [30], "current":
+        [31], "enabled": [32], "by": [33], "wide": [35], "bandgap": [36], "energy.":
+        [37], "In": [38], "this": [39], "study,": [40], "the": [41, 82, 114], "impact":
+        [42], "BeO": [44], "dielectrics": [45], "on": [46], "InSnZnO": [47], "(ITZO)":
+        [48], "thin-film": [49], "transistors": [50], "(TFTs)": [51], "was": [52],
+        "investigated,": [53], "revealing": [54], "adding": [56], "hafnium": [58],
+        "dioxide": [59], "(HfO": [60], "2": [61, 94, 116, 129, 146], ")": [62, 108],
+        "enhance": [65], "electrical": [66], "performance": [67], "bias": [69, 111],
+        "stress": [70], "reliability.": [71], "Time-of-flight": [72], "secondary-ion":
+        [73], "mass": [74], "spectrometry": [75], "X-ray": [77], "photoelectron":
+        [78], "spectroscopy": [79], "confirmed": [80], "single-BeO": [83], "dielectric-based":
+        [84], "ITZO": [85, 120, 149], "TFTs": [86, 121, 150], "exhibited": [87, 122],
+        "mobility": [90, 125], "27.6": [92], "cm": [93, 128], "/V\u00b7s": [95, 130],
+        "due": [96], "to": [97], "Be": [98], "migration": [99], "demonstrated": [101],
+        "abnormal": [102, 133], "threshold": [103], "voltage": [104], "(": [105],
+        "V": [106, 134], "TH": [107, 135], "shifts": [109], "under": [110], "stress.":
+        [112], "Conversely,": [113], "HfO": [115, 145], "20": [117], "nm/BeO": [118],
+        "hetero-dielectric": [119], "76.6": [127], "enhanced": [132], "shift": [136],
+        "characteristics.": [137], "Therefore,": [138], "these": [139], "results":
+        [140], "demonstrate": [141], "our": [143], "high-performance": [144], "/BeO":
+        [147], "hetero-dielectric-based": [148], "could": [151], "be": [152], "utilized":
+        [153], "in": [154], "back-end-of-line": [155], "devices": [156], "for": [157],
+        "monolithic": [158], "three-dimensional": [159], "memory": [160], "technologies.":
+        [161]}, "primary_location": {"id": "doi:10.1021/acs.nanolett.5c00552", "doi":
+        "https://doi.org/10.1021/acs.nanolett.5c00552", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1021/acs.nanolett.5c00552", "pdf_url": null, "source":
+        {"id": "https://openalex.org/S143846845", "display_name": "Nano Letters",
+        "issn_l": "1530-6984", "issn": ["1530-6984", "1530-6992"], "is_oa": false,
+        "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core", "dongbi-a",
+        "jufo-3", "ki-jl-2", "medline", "norway-2", "poland-200", "russia-white-list-1",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310320006", "host_organization_name":
+        "American Chemical Society", "host_organization_lineage": ["https://openalex.org/P4310320006"],
+        "host_organization_lineage_names": ["American Chemical Society"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Nano Letters",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2091079521",
+        "doi": "https://doi.org/10.1063/1.1729764", "title": "Current Flow in Very
+        Thin Films of Al2O3 and BeO", "publication_year": 1963, "abstract_inverted_index":
+        {"This": [0], "paper": [1], "describes": [2], "a": [3, 71], "study": [4],
+        "of": [5, 57, 64, 113, 135, 179, 182, 200, 210], "current": [6], "flow": [7],
+        "through": [8], "very": [9], "thin": [10], "insulating": [11, 91], "films.":
+        [12], "Several": [13], "possible": [14], "conduction": [15, 26, 133], "mechanisms":
+        [16], "are": [17, 22, 85, 152, 163, 174, 186], "presented": [18], "and": [19,
+        116, 150, 167], "their": [20], "properties": [21], "discussed.": [23], "The":
+        [24, 61, 82], "dominant": [25], "process": [27], "in": [28, 110, 144, 206],
+        "the": [29, 48, 65, 75, 79, 105, 123, 132, 145, 155, 161, 180, 201, 207, 211,
+        218], "layers": [30, 92, 104, 137], "studied": [31], "is": [32, 40, 67, 107],
+        "quantum-mechanical": [33], "tunneling.": [34, 221], "Previous": [35], "work":
+        [36], "on": [37, 78, 90], "this": [38], "mechanism": [39], "extended": [41],
+        "by": [42, 141], "an": [43], "exact": [44], "calculation": [45], "which":
+        [46, 216], "shows": [47], "current-voltage": [49], "characteristic": [50],
+        "to": [51, 69, 87, 154, 193, 196], "be": [52, 139, 194], "divided": [53],
+        "into": [54, 203], "three": [55], "regions": [56], "different": [58], "logarithmic":
+        [59], "curvature.": [60], "dielectric": [62], "constant": [63], "insulator":
+        [66], "found": [68], "have": [70], "large": [72], "effect,": [73], "via":
+        [74], "image": [76], "force,": [77], "tunneling": [80, 142, 197], "current.":
+        [81], "theoretical": [83], "results": [84], "fitted": [86], "measurements":
+        [88], "made": [89], "less": [93, 121], "than": [94, 122, 165], "100": [95],
+        "\u00c5": [96, 120], "thick,": [97], "sandwiched": [98], "between": [99],
+        "metal": [100], "electrodes.": [101], "For": [102], "Al2O3": [103, 156], "fit":
+        [106], "excellent,": [108], "resulting": [109], "barrier": [111, 148, 219],
+        "heights": [112], "2.0\u20132.5": [114], "eV": [115], "thicknesses": [117],
+        "approximately": [118], "25": [119], "values": [124], "determined": [125],
+        "from": [126, 198], "capacitance,": [127], "as": [128], "expected.": [129],
+        "In": [130], "contrast": [131], "characteristics": [134], "BeO": [136], "can":
+        [138], "explained": [140], "only": [143, 187], "low-voltage": [146], "region;":
+        [147], "height": [149], "thickness": [151], "similar": [153], "case.": [157],
+        "At": [158], "intermediate": [159], "voltages": [160, 170], "currents": [162],
+        "lower": [164], "predicted": [166], "at": [168], "high": [169], "reproducible":
+        [171], "hysteresis": [172], "effects": [173, 185], "observed": [175], "with":
+        [176], "time": [177], "constants": [178], "order": [181], "minutes.": [183],
+        "These": [184], "weakly": [188], "temperature": [189], "dependent.": [190],
+        "They": [191], "appear": [192], "due": [195], "one": [199], "metals": [202],
+        "trap": [204], "states": [205], "forbidden": [208], "gap": [209], "insulator,":
+        [212], "creating": [213], "space": [214], "charge": [215], "distorts": [217],
+        "for": [220]}, "primary_location": {"id": "doi:10.1063/1.1729764", "doi":
+        "https://doi.org/10.1063/1.1729764", "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.1729764",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S187991544", "display_name":
+        "Journal of Applied Physics", "issn_l": "0021-8979", "issn": ["0021-8979",
+        "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1",
+        "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2048845112",
+        "doi": "https://doi.org/10.1002/pssb.2220860138", "title": "Optical properties
+        of amorphous and polycrystalline BeO thin films from electron energy loss
+        measurements", "publication_year": 1978, "abstract_inverted_index": {"Abstract":
+        [0], "Energy": [1], "loss": [2, 20], "measurements": [3], "on": [4, 51], "amorphous":
+        [5, 66], "and": [6, 27, 45], "polycrystalline": [7, 52, 74], "BeO": [8, 53,
+        67], "thin": [9], "films": [10], "are": [11, 40, 54, 68], "performed": [12],
+        "applying": [13], "25": [14], "keV": [15], "electrons.": [16], "From": [17],
+        "the": [18, 24, 32, 43, 73], "energy\u2010dependent": [19], "function": [21,
+        26], "Im": [22], "(\u22121/\u03b5)": [23], "dielectric": [25], "its": [28],
+        "first": [29], "energy": [30], "derivative,": [31], "reflectance,": [33],
+        "\u03b7eff,": [34], "\u03b52E2": [35], "up": [36], "to": [37, 58], "44": [38],
+        "eV": [39], "computed": [41], "using": [42], "Kramers\u2010Kronig\u2010analysis":
+        [44], "well\u2010known": [46], "formulae.": [47], "The": [48, 62], "results":
+        [49], "obtained": [50], "discussed": [55], "with": [56, 70], "respect": [57],
+        "band": [59], "structure": [60], "information.": [61], "corresponding": [63],
+        "spectra": [64], "of": [65, 72], "compared": [69], "those": [71], "material.":
+        [75]}, "primary_location": {"id": "doi:10.1002/pssb.2220860138", "doi": "https://doi.org/10.1002/pssb.2220860138",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1002/pssb.2220860138",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S71689831", "display_name":
+        "physica status solidi (b)", "issn_l": "0370-1972", "issn": ["0370-1972",
+        "1521-3951"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "dongbi-d", "jufo-1", "poland-70", "russia-white-list-2"], "host_organization":
+        "https://openalex.org/P4310320595", "host_organization_name": "Wiley", "host_organization_lineage":
+        ["https://openalex.org/P4310320595"], "host_organization_lineage_names": ["Wiley"],
+        "type": "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "physica status
+        solidi (b)", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W4416402363",
+        "doi": "https://doi.org/10.1109/itherm55376.2025.11235795", "title": "Thermal
+        Conductivity Measurements of BeO Thin Films Grown by Plasma Enhanced Atomic
+        Layer Deposition", "publication_year": 2025, "abstract_inverted_index": {"Beryllium":
+        [0], "oxide": [1], "(BeO)": [2], "shows": [3], "great": [4], "potential":
+        [5, 160], "as": [6, 16, 18, 29, 149], "a": [7, 54, 58], "gate": [8], "dielectric":
+        [9, 36, 59], "in": [10, 19, 73], "high": [11, 13, 35, 41, 62], "power,": [12],
+        "frequency": [14], "devices,": [15], "well": [17], "Si-based": [20], "CMOS":
+        [21], "technologies,": [22], "owing": [23], "to": [24, 94, 111, 125], "its":
+        [25, 69], "attractive": [26], "properties": [27], "such": [28, 148], "the":
+        [30, 66, 82, 113, 159], "wide": [31], "bandgap": [32], "(10.6": [33], "eV),":
+        [34], "constant": [37], "($\\sim": [38], "6.9$),": [39], "and": [40, 152],
+        "bulk": [42, 63], "thermal": [43, 64, 70, 83, 115, 132], "conductivity": [44,
+        116, 133], "($370": [45], "\\mathrm{~W}": [46, 127], "/": [47, 49], "\\mathrm{m}":
+        [48], "\\mathrm{K}$).": [50], "Although": [51], "BeO": [52, 86, 118, 135,
+        163], "is": [53, 76, 138], "promising": [55], "candidate": [56], "for": [57],
+        "material": [60], "with": [61, 89], "conductivity,": [65, 71], "literature":
+        [67], "on": [68, 81, 104], "particularly": [72], "thin": [74, 87, 119, 136,
+        164], "films,": [75], "still": [77], "limited.": [78], "We": [79], "report":
+        [80], "conductivities": [84], "of": [85, 117, 134, 143, 162], "films": [88,
+        120, 137], "thicknesses": [90], "ranging": [91], "from": [92, 123], "30":
+        [93], "105": [95], "nm,": [96], "grown": [97], "using": [98], "plasma-enhanced":
+        [99], "atomic": [100], "layer": [101], "deposition": [102], "(PEALD),": [103],
+        "Si": [105], "substrates.": [106], "Frequency-domain": [107], "thermoreflectance":
+        [108], "was": [109], "used": [110], "measure": [112], "effective": [114, 131],
+        "which": [121], "ranges": [122], "2.4": [124], "$10.5": [126], "\\mathrm{~m}^{-1}":
+        [128], "\\mathrm{~K}^{-1}$.": [129], "The": [130], "significantly": [139],
+        "higher": [140], "than": [141], "that": [142], "other": [144], "PEALD-grown":
+        [145], "high-k": [146], "materials,": [147], "$\\mathrm{HfO}_{2},": [150],
+        "\\mathrm{ZrO}_{2}$,": [151], "TiO2.": [153], "These": [154], "findings":
+        [155], "provide": [156], "insights": [157], "into": [158], "applications":
+        [161], "films.": [165]}, "primary_location": {"id": "doi:10.1109/itherm55376.2025.11235795",
+        "doi": "https://doi.org/10.1109/itherm55376.2025.11235795", "is_oa": false,
+        "landing_page_url": "https://doi.org/10.1109/itherm55376.2025.11235795", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S4210169055", "display_name":
+        "I-THERM :/I-THERM - Intersociety Conference on Thermal Phenomena in Electronic
+        Systems", "issn_l": "1087-9870", "issn": ["1087-9870", "2577-0799"], "is_oa":
+        false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core"], "host_organization":
+        "https://openalex.org/P4310319808", "host_organization_name": "Institute of
+        Electrical and Electronics Engineers", "host_organization_lineage": ["https://openalex.org/P4310319808"],
+        "host_organization_lineage_names": ["Institute of Electrical and Electronics
+        Engineers"], "type": "conference"}, "license": null, "license_id": null, "version":
+        "publishedVersion", "is_accepted": true, "is_published": true, "raw_source_name":
+        "2025 24th IEEE Intersociety Conference on Thermal and Thermomechanical Phenomena
+        in Electronic Systems (ITherm)", "raw_type": "proceedings-article"}}, {"id":
+        "https://openalex.org/W4238406162", "doi": "https://doi.org/10.1149/ma2019-01/45/2164",
+        "title": "Crystallization of Atomic Layer Deposited MgO Thin Filmsas a Buffer
+        Layer for Rocksalt Beo Film Growth", "publication_year": 2019, "abstract_inverted_index":
+        {"Rocksalt": [0], "structure": [1, 57, 80, 111, 146, 171], "beryllium": [2],
+        "oxide": [3], "(BeO)": [4], "thin": [5, 234], "film": [6, 105, 261, 274, 282,
+        289, 307], "has": [7], "been": [8], "highlighted": [9], "as": [10, 160, 266],
+        "an": [11, 44, 87, 310], "exceptional": [12], "high-k": [13, 27], "dielectric":
+        [14, 240], "material": [15], "for": [16, 142, 150, 270], "various": [17],
+        "semiconductor": [18], "device": [19, 250], "application": [20], "because":
+        [21], "it": [22, 95], "can": [23, 295], "have": [24], "a": [25, 126, 161,
+        267, 297], "very": [26], "value": [28], "of": [29, 36, 58, 71, 103, 157, 168,
+        181, 194, 203, 207, 230, 247, 279, 285, 304], ">": [30], "200": [31], "and":
+        [32, 147, 184, 188, 191, 196, 232, 239, 264], "high": [33], "band": [34],
+        "gap": [35], "~": [37], "10": [38], "eV": [39], "simultaneously.": [40], "However,":
+        [41], "this": [42, 293], "was": [43], "only": [45, 75, 85], "theoretical":
+        [46], "expectation": [47], "based": [48], "on": [49, 199, 205, 283], "the":
+        [50, 54, 78, 99, 109, 114, 120, 155, 166, 179, 200, 208, 227, 245, 271, 277,
+        280, 286, 301], "first-principles": [51], "calculation.": [52], "Also,": [53],
+        "stable": [55], "crystal": [56, 129, 145, 153, 170], "BeO": [59, 81, 104,
+        136, 169, 204, 233, 273, 281, 306], "is": [60, 74, 96, 132, 139, 290], "wurtzite":
+        [61, 110, 144, 173], "at": [62], "normal": [63], "thermal": [64], "Atomic":
+        [65], "Layer": [66], "Deposition": [67], "(ALD)": [68], "processing": [69],
+        "conditions": [70, 193], "which": [72, 131], "k-value": [73], "~8,": [76],
+        "whereas": [77], "rocksalt": [79, 128, 152, 272, 287, 305], "could": [82],
+        "be": [83], "stabilized": [84], "under": [86], "extremely": [88], "high-pressure":
+        [89], "condition": [90], "(>": [91], "100": [92], "GPa).": [93], "Therefore,":
+        [94], "expected": [97], "that": [98], "usual": [100], "ALD": [101, 186, 311],
+        "process": [102, 190], "may": [106, 164], "result": [107], "in": [108], "film.":
+        [112], "Considering": [113], "interfacial": [115], "tensile": [116], "strain":
+        [117], "offered": [118], "by": [119, 213, 262, 309], "larger": [121], "MgO":
+        [122, 159, 195, 209, 231, 260, 288], "lattice": [123, 137], "parameter": [124,
+        138], "with": [125], "cubic-based": [127, 151, 158], "structure,": [130, 154],
+        "4.21": [133], "\u00c5": [134, 141, 149], "while": [135], "2.70": [140], "hexagonal-based":
+        [143], "3.62": [148], "adoption": [156], "buffer": [162, 210, 268], "layer":
+        [163, 269], "enable": [165], "transition": [167], "from": [172], "to": [174,
+        258], "quasi-rocksalt.": [175], "This": [176, 254], "work": [177, 294], "reported":
+        [178], "optimization": [180], "both": [182], "Thermal": [183], "Plasma-Enhanced":
+        [185], "(TALD,": [187], "PEALD)": [189], "post-annealing": [192], "their":
+        [197], "influences": [198], "crystallization": [201], "properties": [202,
+        229], "top": [206, 284], "layer,": [211], "observed": [212], "X-Ray": [214],
+        "Diffraction": [215], "(Figure": [216, 251], "1": [217, 252, 314], "(a),":
+        [218], "(b)),": [219], "Transmission": [220], "Electron": [221], "Microscope":
+        [222], "Selected": [223], "Area": [224], "Diffraction.": [225], "Moreover,":
+        [226], "electronic": [228], "films,": [235], "especially": [236], "leakage":
+        [237], "current": [238], "constant,": [241], "were": [242], "verified": [243],
+        "through": [244], "measurement": [246], "Metal-Insulator-Metal": [248], "(MIM)":
+        [249], "(c)).": [253], "work,": [255], "thus,": [256], "attempted": [257],
+        "grow": [259], "TALD,": [263], "PEALD": [265], "growth.": [275], "Although":
+        [276], "growth": [278, 308], "ongoing": [291], "project,": [292], "provide":
+        [296], "fundamental": [298], "step": [299], "toward": [300], "final": [302],
+        "goal": [303], "method.": [312], "Figure": [313]}, "primary_location": {"id":
+        "doi:10.1149/ma2019-01/45/2164", "doi": "https://doi.org/10.1149/ma2019-01/45/2164",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1149/ma2019-01/45/2164",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4210168594", "display_name":
+        "ECS Meeting Abstracts", "issn_l": "1091-8213", "issn": ["1091-8213", "2151-2035",
+        "2151-2043", "2152-8365"], "is_oa": false, "is_in_doaj": false, "is_core":
+        false, "listed_in": [], "host_organization": "https://openalex.org/P4310311669",
+        "host_organization_name": "Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310311669"], "host_organization_lineage_names": ["Institute
+        of Physics"], "type": "journal"}, "license": null, "license_id": null, "version":
+        "publishedVersion", "is_accepted": true, "is_published": true, "raw_source_name":
+        "ECS Meeting Abstracts", "raw_type": "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a534af24cbf2000b-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '18961'
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 18:22:16 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=I1XS0FqbG9S5oZkKaFByW8aZmsB07B1WC%2F58dW%2BYb20%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793470936"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=I1XS0FqbG9S5oZkKaFByW8aZmsB07B1WC%2F58dW%2BYb20%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793470936"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9830'
+      x-ratelimit-remaining-usd:
+      - '0.983'
+      x-ratelimit-reset:
+      - '20264'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search=beryllia+dielectric+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 183, "db_response_time_ms": 50, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (beryllia dielectric
+        thin film) in the full text where it has an abstract", "x_new_oql": "get works
+        with (beryllia dielectric thin film) in the full text where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "fulltext.search",
+        "value": "beryllia dielectric thin film", "operator": "has"}, {"column_id":
+        "has_abstract", "value": true}]}, "url": "/works?filter=fulltext.search:beryllia
+        dielectric thin film,has_abstract:true&per_page=5", "order": "best matches
+        first", "order_default": true}, "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2030846373",
+        "doi": "https://doi.org/10.1143/jjap.14.341", "title": "A New Crystal Mounting
+        Method for Thin-Film Thickness Monitor", "publication_year": 1975, "abstract_inverted_index":
+        {"Conventional": [0], "crystal": [1, 48, 75, 136], "mounting": [2], "with":
+        [3, 51], "a": [4, 55, 63, 66, 81, 87], "water-cooled": [5, 67], "shield":
+        [6, 88], "is": [7, 35, 49, 60, 127], "unsatisfactory": [8], "for": [9, 106,
+        118], "use": [10], "in": [11, 37, 86], "monitoring": [12], "the": [13, 39,
+        43, 47, 74, 77, 101, 130, 135, 138], "film": [14, 102], "thickness": [15,
+        103], "during": [16], "vacuum": [17], "evaporation,": [18], "because": [19],
+        "temperature": [20], "changes": [21], "under": [22, 121], "usual": [23], "working":
+        [24, 123], "conditions": [25], "are": [26], "too": [27], "large.": [28], "A":
+        [29], "new": [30, 91], "type": [31], "of": [32, 42, 46, 73, 99], "monitor":
+        [33, 92], "head": [34, 93], "described,": [36], "which": [38, 59], "peripheral":
+        [40], "zone": [41], "rear": [44], "surface": [45, 72], "pasted": [50], "silver":
+        [52], "paste": [53], "on": [54], "thin": [56], "Beryllia": [57], "spacer,":
+        [58], "pressed": [61], "against": [62], "heat": [64, 132, 139], "sink,": [65],
+        "copper": [68], "block.": [69], "The": [70, 90, 125], "front": [71], "sees":
+        [76], "evaporation": [78], "source": [79], "through": [80], "diaphragm,":
+        [82], "and": [83, 113, 115, 137], "an": [84], "opening": [85], "cap.": [89],
+        "has": [94], "proved": [95], "to": [96, 104, 116, 129], "be": [97], "capable":
+        [98], "determining": [100], "\u00b110\u00c5": [105], "dielectric": [107],
+        "films": [108, 120], "such": [109], "as": [110], "MgF": [111], "2": [112],
+        "ZnS": [114], "\u00b13\u00c5": [117], "gold": [119], "typical": [122], "conditions.":
+        [124], "success": [126], "ascribed": [128], "improved": [131], "transfer":
+        [133], "between": [134], "sink.": [140]}, "primary_location": {"id": "doi:10.1143/jjap.14.341",
+        "doi": "https://doi.org/10.1143/jjap.14.341", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.1143/jjap.14.341", "pdf_url": "https://iopscience.iop.org/article/10.1143/JJAP.14.341/pdf",
+        "source": {"id": "https://openalex.org/S143744711", "display_name": "Japanese
+        Journal of Applied Physics", "issn_l": "0021-4922", "issn": ["0021-4922",
+        "1347-4065"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "dongbi-d", "jufo-1", "ki-jl-1", "norway-1", "poland-70", "russia-white-list-2",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310311669", "host_organization_name":
+        "Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310311669"],
+        "host_organization_lineage_names": ["Institute of Physics"], "type": "journal"},
+        "license": null, "license_id": null, "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "Japanese Journal of Applied
+        Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2329961449",
+        "doi": "https://doi.org/10.6028/jres.036.013", "title": "Studies of binary
+        and ternary combinations of magnesia, calcia, baria, beryllia, alumina, thoria
+        and zirconia in relation to their use as porcelains", "publication_year":
+        1946, "abstract_inverted_index": {"silicates": [0], "in": [1, 49, 103], "a":
+        [2, 60], "matrix": [3], "or": [4, 38], "bond": [5, 18], "of": [6, 19, 47,
+        97, 119], "glass.": [7], "Since": [8], "time": [9], "immemorial": [10], "these":
+        [11], "bodies": [12], "have": [13, 59, 108], "been": [14], "dependent": [15],
+        "upon": [16], "this": [17], "glass": [20, 33, 102], "for": [21], "the": [22,
+        50, 77, 90, 94, 98, 120], "mechanical": [23], "strength": [24], "and": [25,
+        68, 85], "dense": [26], "structure": [27], "necessary": [28], "to": [29, 107],
+        "their": [30], "usefulness.": [31], "This": [32], "is": [34, 105], "essentially":
+        [35], "an": [36], "alkaline,": [37], "alkaline": [39], "earth,": [40], "silicate":
+        [41], "usually": [42], "derived": [43], "from": [44, 117], "some": [45], "form":
+        [46], "feldspar": [48], "raw": [51], "batch.": [52], "Like": [53], "all":
+        [54], "glasses,": [55], "it": [56, 81], "does": [57], "not": [58], "sharply":
+        [61], "defined": [62], "fusion": [63], "point": [64], "but": [65], "will":
+        [66], "soften,": [67], "deform": [69], "under": [70], "stress,": [71], "at":
+        [72, 79, 92], "temperatures": [73, 91], "much": [74, 87], "lower": [75, 88],
+        "than": [76, 89], "temperature": [78], "which": [80, 93], "becomes": [82],
+        "entirely": [83], "liquid,": [84], "also": [86], "crystalline": [95, 121],
+        "phases": [96], "body": [99], "liquefy.": [100], "The": [101], "addition,":
+        [104], "likely": [106], "other": [109], "characteristics,": [110], "such":
+        [111], "as": [112], "thermal": [113], "expansion,": [114], "that": [115],
+        "differ": [116], "those": [118], "phases.": [122]}, "primary_location": {"id":
+        "doi:10.6028/jres.036.013", "doi": "https://doi.org/10.6028/jres.036.013",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.6028/jres.036.013",
+        "pdf_url": "https://doi.org/10.6028/jres.036.013", "source": {"id": "https://openalex.org/S2764585816",
+        "display_name": "Journal of research of the National Bureau of Standards",
+        "issn_l": "0091-0635", "issn": ["0091-0635", "2376-5305"], "is_oa": false,
+        "is_in_doaj": false, "is_core": false, "listed_in": [], "host_organization":
+        "https://openalex.org/P4324105088", "host_organization_name": "US government",
+        "host_organization_lineage": ["https://openalex.org/P4324105088"], "host_organization_lineage_names":
+        ["US government"], "type": "journal"}, "license": null, "license_id": null,
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Journal of Research of the National Bureau of Standards",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W790424027",
+        "doi": null, "title": "Research for development of thin-film space- charge-limited
+        triode devices", "publication_year": 1967, "abstract_inverted_index": {"Charge":
+        [0], "distribution": [1], "for": [2], "negative": [3], "and": [4], "positive":
+        [5], "gate": [6], "operation": [7], ".e": [8], "e": [9], ".": [10, 11]}, "primary_location":
+        {"id": "pmh:oai:casi.ntrs.nasa.gov:19690022838", "doi": null, "is_oa": true,
+        "landing_page_url": "http://hdl.handle.net/2060/19690022838", "pdf_url": "http://hdl.handle.net/2060/19690022838",
+        "source": {"id": "https://openalex.org/S4306402118", "display_name": "NASA
+        Technical Reports Server (NASA)", "issn_l": null, "issn": null, "is_oa": false,
+        "is_in_doaj": false, "is_core": false, "listed_in": [], "host_organization":
+        "https://openalex.org/I1305493378", "host_organization_name": "NASA Headquarters",
+        "host_organization_lineage": ["https://openalex.org/I1305493378"], "host_organization_lineage_names":
+        [], "type": "repository"}, "license": null, "license_id": null, "version":
+        "submittedVersion", "is_accepted": false, "is_published": false, "raw_source_name":
+        "CASI", "raw_type": "NASA-CR-86184"}}, {"id": "https://openalex.org/W2755305559",
+        "doi": "https://doi.org/10.31390/gradschool_theses.3688", "title": "Contact
+        effects in thermally evaporated pentacene thin films and aspects of microsystem
+        hybrid integration", "publication_year": 2005, "abstract_inverted_index":
+        {"Organic": [0], "thin": [1, 37], "film": [2, 38, 41], "transistors": [3,
+        11, 42], "have": [4, 247], "the": [5, 130, 157, 169], "potential": [6], "to":
+        [7, 21, 59, 114, 305], "replace": [8], "silicon": [9, 75], "based": [10],
+        "in": [12, 45, 107, 125, 156, 207], "applications": [13], "such": [14], "as":
+        [15, 34, 67, 79, 85], "smart": [16], "cards": [17], "and": [18, 25, 71, 90,
+        98, 230, 244, 271, 292, 321], "RF-ID": [19], "due": [20], "their": [22], "low":
+        [23, 26], "cost": [24], "processing": [27], "temperatures.": [28], "Thermally":
+        [29], "evaporated": [30], "pentacene": [31, 53, 108, 131], "is": [32, 153,
+        314], "studied": [33], "an": [35, 138, 175], "organic": [36, 211], "material.":
+        [39], "Thin": [40], "were": [43, 103, 275, 283], "fabricated": [44], "bottom":
+        [46], "contact": [47, 86], "structure": [48], "using": [49, 266], "thermal":
+        [50], "evaporation": [51], "of": [52, 57, 95, 100, 129, 141, 146, 160, 174,
+        222, 227, 233, 254], "at": [54, 119, 289, 294], "a": [55, 68, 80, 147, 188,
+        263], "rate": [56], "0.5": [58], "1": [60], "nm/s.": [61], "Heavily": [62],
+        "doped": [63], "Si": [64], "was": [65, 77, 83, 196, 259, 303], "used": [66,
+        78, 84, 197, 304], "gate": [69], "material": [70], "100": [72, 278], "nm":
+        [73, 113, 116], "thick": [74, 280], "dioxide": [76], "dielectric.": [81],
+        "Ni": [82], "metal": [87], "for": [88, 122, 198, 209, 236, 250, 297, 317],
+        "source": [89], "drain": [91], "contacts.": [92], "Threshold": [93], "voltage":
+        [94], "16": [96], "V": [97], "mobility": [99], "0.0016": [101], "cm2/V-s":
+        [102], "obtained.": [104], "Grain": [105], "size": [106], "films": [109, 132],
+        "increased": [110], "from": [111], "120": [112], "150": [115], "upon": [117],
+        "annealing": [118, 135], "200": [120], "\u25e6C": [121, 296], "30": [123,
+        298], "min.": [124, 299], "nitrogen": [126], "ambient.": [127], "Resistivity":
+        [128], "decreased": [133], "with": [134], "temperature": [136], "indicating":
+        [137], "activation": [139], "energy": [140], "0.22": [142], "eV.": [143],
+        "Hybrid": [144], "Integration": [145], "Bio-implantable": [148], "Electrical":
+        [149], "Stimulation": [150], "System": [151], "(BESS)": [152], "carried":
+        [154], "out": [155], "second": [158], "part": [159], "this": [161], "work.":
+        [162], "BESS": [163, 172, 199, 312], "produces": [164], "periodic": [165],
+        "pulses": [166], "that": [167], "stimulate": [168], "gastric": [170], "muscles.":
+        [171], "consists": [173], "application": [176], "specific": [177], "integrated":
+        [178], "circuit": [179], "powered": [180], "by": [181, 187, 285], "rechargeable":
+        [182], "batteries,": [183], "which": [184], "are": [185], "charged": [186],
+        "remote": [189], "power": [190], "delivery": [191], "system.": [192], "Screen":
+        [193], "printing": [194, 216], "technique": [195], "hybrid": [200, 319], "integration.":
+        [201], "The": [202, 213, 311], "same": [203], "can": [204], "be": [205], "extended":
+        [206], "future": [208], "fabricating": [210], "transistors.": [212], "optimum":
+        [214], "screen": [215, 260], "process": [217], "determined": [218], "included":
+        [219], "squeegee": [220, 231], "speed": [221], "2.2": [223], "cm/s,": [224],
+        "off-contact": [225], "height": [226], "2": [228], "mm": [229], "pressure":
+        [232], "80": [234], "PSI": [235], "ED3000": [237, 267, 300], "ink": [238,
+        270, 302], "used.": [239], "Ceramic,": [240], "silicon,": [241], "glass,":
+        [242], "polyimide": [243, 281, 309], "kapton": [245], "substrates": [246,
+        282], "been": [248], "utilized": [249], "printing.": [251], "Interconnect":
+        [252], "pattern": [253], "area": [255], "1\u201d": [256], "\u00d7": [257],
+        "0.75\u201d": [258], "printed": [261], "on": [262, 308], "ceramic": [264],
+        "substrate": [265], "silver": [268], "conductive": [269, 301], "surface":
+        [272], "mount": [273], "components": [274], "mounted.": [276], "Bio-compatible":
+        [277], "\u00b5m": [279], "prepared": [284], "spin": [286], "coating": [287],
+        "pyralin": [288], "750": [290], "RPM": [291], "baked": [293], "350": [295],
+        "print": [306], "electrodes": [307], "substrates.": [310], "system": [313],
+        "now": [315], "ready": [316], "full": [318], "integration": [320], "testing.":
+        [322]}, "primary_location": {"id": "doi:10.31390/gradschool_theses.3688",
+        "doi": "https://doi.org/10.31390/gradschool_theses.3688", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.31390/gradschool_theses.3688", "pdf_url": "https://repository.lsu.edu/cgi/viewcontent.cgi?article=4687&context=gradschool_theses",
+        "source": null, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Louisiana State
+        University and Agricultural and Mechanical College", "raw_type": "dissertation"}},
+        {"id": "https://openalex.org/W7169726768", "doi": "https://doi.org/10.63964/atjb.2026.1.6",
+        "title": "Advances in Thin-Film Deposition Technologies: From Physical and
+        Chemical Vapor Deposition to Computational Modeling", "publication_year":
+        2026, "abstract_inverted_index": {"Because": [0], "of": [1, 35, 44, 86, 126,
+        142, 149, 198, 208], "their": [2, 224], "many": [3], "uses": [4, 85], "in":
+        [5, 75, 114, 159, 219], "microelectronics,": [6], "optoelectronics,": [7],
+        "energy": [8], "systems,": [9], "biomedical": [10], "devices,": [11], "protective":
+        [12], "coatings,": [13], "and": [14, 26, 32, 68, 83, 89, 108, 123, 136, 175,
+        188, 201, 211, 216, 223, 232], "surface": [15], "engineering,": [16], "thin-film":
+        [17, 51, 220], "deposition": [18, 47, 52, 62, 66, 121, 173, 221], "technologies":
+        [19, 222], "are": [20, 38, 72, 162], "essential": [21], "to": [22, 146], "contemporary":
+        [23], "materials": [24, 200], "science": [25], "engineering.": [27], "The":
+        [28, 49, 78], "structural,": [29], "mechanical,": [30], "electrical,": [31],
+        "optical": [33], "characteristics": [34], "thin": [36, 152], "films": [37,
+        153], "largely": [39], "dependent": [40], "on": [41], "the": [42, 120, 127,
+        140, 147, 193, 196, 206], "choice": [43], "a": [45, 230], "suitable": [46],
+        "method.": [48], "main": [50], "techniques,": [53, 71], "such": [54], "as":
+        [55, 93, 164], "molecular": [56, 143, 181], "beam": [57, 97, 111, 144], "epitaxy":
+        [58, 145], "(MBE),": [59], "chemical": [60], "vapor": [61, 65], "(CVD),":
+        [63], "physical": [64], "(PVD),": [67], "computational": [69, 160], "simulation":
+        [70], "thoroughly": [73], "covered": [74, 113], "this": [76, 115, 227], "review.":
+        [77, 116], "operating": [79], "principles,": [80], "benefits,": [81], "drawbacks,":
+        [82], "common": [84], "both": [87], "traditional": [88], "cutting-edge": [90],
+        "PVD": [91], "methods\u2014such": [92], "thermal": [94], "evaporation,": [95,
+        98, 107], "electron": [96], "sputtering,": [99], "pulsed": [100], "laser":
+        [101], "deposition,": [102], "ion": [103], "plating,": [104], "activated":
+        [105], "reactive": [106], "ionized": [109], "cluster": [110], "deposition\u2014are":
+        [112], "Additionally,": [117, 139], "it": [118], "highlights": [119, 195],
+        "mechanisms": [122], "process": [124], "features": [125], "major": [128],
+        "CVD": [129], "processes,": [130], "including": [131], "conventional": [132],
+        "CVD,": [133, 135], "plasma-enhanced": [134], "laser-assisted": [137], "CVD.":
+        [138], "contribution": [141], "production": [148], "superior": [150], "epitaxial":
+        [151], "is": [154], "discussed.": [155], "Furthermore,": [156], "recent":
+        [157], "advances": [158], "modeling": [161], "reviewed": [163], "useful":
+        [165], "tools": [166], "for": [167], "comprehending": [168], "film": [169],
+        "growth": [170], "mechanisms,": [171], "optimizing": [172], "parameters,":
+        [174], "enhancing": [176], "coating": [177], "performance.": [178], "These":
+        [179], "include": [180], "dynamics,": [182], "Monte": [183], "Carlo": [184],
+        "methods,": [185], "multiscale": [186], "modeling,": [187], "predictive":
+        [189], "control": [190], "techniques.": [191], "Lastly,": [192], "review":
+        [194], "suitability": [197], "various": [199], "industrial": [202], "applications":
+        [203], "by": [204], "contrasting": [205], "capabilities": [207], "physical,":
+        [209], "chemical,": [210], "simulation-based": [212], "approaches.": [213],
+        "For": [214], "researchers": [215], "engineers": [217], "interested": [218],
+        "future": [225], "development,": [226], "work": [228], "offers": [229], "succinct":
+        [231], "current": [233], "reference.": [234]}, "primary_location": {"id":
+        "doi:10.63964/atjb.2026.1.6", "doi": "https://doi.org/10.63964/atjb.2026.1.6",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.63964/atjb.2026.1.6",
+        "pdf_url": "https://atjb.uoturath.edu.iq/index.php/ATJB/article/download/14/39",
+        "source": {"id": "https://openalex.org/S5407049530", "display_name": "Al-Turath
+        Journal for Biology", "issn_l": "3080-5732", "issn": ["3080-5732", "3080-5740"],
+        "is_oa": false, "is_in_doaj": false, "is_core": false, "listed_in": [], "host_organization":
+        "https://openalex.org/I2801460691", "host_organization_name": "Al-Turath University",
+        "host_organization_lineage": ["https://openalex.org/I2801460691"], "host_organization_lineage_names":
+        [], "type": "journal"}, "license": "cc-by", "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Al-Turath Journal for Biology", "raw_type": "journal-article"}}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a534af29f9e1000b-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '17109'
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 18:22:16 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=I1XS0FqbG9S5oZkKaFByW8aZmsB07B1WC%2F58dW%2BYb20%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793470936"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=I1XS0FqbG9S5oZkKaFByW8aZmsB07B1WC%2F58dW%2BYb20%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793470936"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9820'
+      x-ratelimit-remaining-usd:
+      - '0.982'
+      x-ratelimit-reset:
+      - '20264'
+    status:
+      code: 200
+      message: OK
+version: 1

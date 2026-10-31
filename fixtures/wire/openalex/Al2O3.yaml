@@ -1,0 +1,518 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search=Al2O3+dielectric+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 17008, "db_response_time_ms": 132, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Al2O3 dielectric
+        thin film) in the full text where it has an abstract", "x_new_oql": "get works
+        with (Al2O3 dielectric thin film) in the full text where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "fulltext.search",
+        "value": "Al2O3 dielectric thin film", "operator": "has"}, {"column_id": "has_abstract",
+        "value": true}]}, "url": "/works?filter=fulltext.search:Al2O3 dielectric thin
+        film,has_abstract:true&per_page=5", "order": "best matches first", "order_default":
+        true}, "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W1599013718",
+        "doi": "https://doi.org/10.1063/1.2903708", "title": "Effect of metal contacts
+        on the electrical characteristics of Al2O3 dielectric thin films", "publication_year":
+        2008, "abstract_inverted_index": {"The": [0, 16, 75], "effect": [1], "of":
+        [2, 10, 86], "top": [3], "metal": [4], "electrodes": [5, 36], "on": [6, 29],
+        "the": [7, 30, 59, 64, 87], "electrical": [8, 76], "characteristics": [9,
+        21, 77], "Al2O3": [11], "metal-insulator-metal": [12], "capacitors": [13,
+        68], "is": [14], "studied.": [15], "leakage": [17, 65], "current": [18, 66],
+        "and": [19, 49, 62, 72, 94], "breakdown": [20, 40, 60], "were": [22, 78],
+        "observed": [23], "to": [24, 43, 80, 83], "have": [25], "a": [26], "strong":
+        [27], "dependence": [28], "electrode": [31], "material.": [32], "Devices":
+        [33], "with": [34, 45, 69], "Al": [35, 54], "exhibited": [37], "significantly":
+        [38], "higher": [39], "voltages": [41], "compared": [42], "devices": [44],
+        "Au,": [46, 71], "Ni,": [47], "Cu,": [48], "Ag": [50], "electrodes.": [51,
+        74], "Introducing": [52], "an": [53], "diffusion": [55, 95], "barrier": [56],
+        "dramatically": [57], "increased": [58], "field": [61], "reduced": [63], "for":
+        [67], "Ag,": [70], "Cu": [73], "found": [79], "relate": [81], "well": [82],
+        "material": [84], "properties": [85], "contacting": [88], "metals,": [89],
+        "such": [90], "as": [91], "ionization": [92], "potential": [93], "coefficient.":
+        [96]}, "primary_location": {"id": "doi:10.1063/1.2903708", "doi": "https://doi.org/10.1063/1.2903708",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.2903708", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S105243760", "display_name":
+        "Applied Physics Letters", "issn_l": "0003-6951", "issn": ["0003-6951", "1077-3118",
+        "1520-8842"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Applied Physics Letters", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2089317954", "doi": "https://doi.org/10.1063/1.2177383",
+        "title": "Influence of single and double deposition temperatures on the interface
+        quality of atomic layer deposited Al2O3 dielectric thin films on silicon",
+        "publication_year": 2006, "abstract_inverted_index": {"An": [0], "electrical":
+        [1], "characterization": [2], "of": [3, 75, 120, 149, 183], "Al2O3": [4, 45],
+        "based": [5], "metal-insulator-semiconductor": [6], "structures": [7], "has":
+        [8], "been": [9], "carried": [10], "out": [11], "by": [12, 55, 98], "using":
+        [13, 56, 99, 188], "capacitance-voltage,": [14], "deep": [15], "level": [16],
+        "transient": [17], "spectroscopy,": [18], "and": [19, 42, 112, 137, 185],
+        "conductance-transient": [20], "(G-t)": [21], "techniques.": [22], "Dielectric":
+        [23], "films": [24], "were": [25], "atomic": [26], "layer": [27, 47, 141,
+        163], "deposited": [28], "(ALD)": [29], "at": [30, 60, 142, 170], "temperatures":
+        [31, 103, 191], "ranging": [32], "from": [33, 79], "300": [34, 61, 68], "to":
+        [35, 71, 82, 90, 107, 113, 133], "800": [36], "\u00b0C": [37, 69], "directly":
+        [38], "on": [39, 43], "silicon": [40], "substrates": [41], "an": [44, 139],
+        "buffer": [46], "that": [48], "was": [49, 168], "grown": [50, 169], "in":
+        [51, 118, 159, 181], "the": [52, 72, 80, 83, 91, 115, 128, 134, 154, 161,
+        165, 171, 177], "same": [53], "process": [54], "15": [57], "ALD": [58, 125,
+        144], "cycles": [59, 126], "\u00b0C.": [62], "As": [63], "for": [64], "single":
+        [65], "growth": [66, 102], "temperatures,": [67], "leads": [70], "lowest":
+        [73], "density": [74, 95], "states": [76, 87], "distributed": [77], "away":
+        [78], "interface": [81, 116, 155], "insulator": [84], "[disorder-induced":
+        [85], "gap": [86], "(DIGS)],": [88], "but": [89], "highest": [92, 172], "interfacial":
+        [93, 150], "state": [94], "(Dit).": [96], "However,": [97], "300\u2215500\u00b0C":
+        [100], "double": [101], "it": [104], "is": [105], "possible": [106], "maintain":
+        [108], "low": [109], "DIGS": [110], "values": [111], "improve": [114], "quality":
+        [117], "terms": [119, 182], "Dit.": [121], "The": [122], "very": [123, 131,
+        189], "first": [124], "define": [127], "dielectric": [129, 194], "properties":
+        [130], "near": [132], "dielectric-semiconductor": [135], "interface,": [136],
+        "growing": [138], "upper": [140, 166], "higher": [143], "temperature": [145,
+        173], "produces": [146], "some": [147], "annealing": [148], "states,": [151],
+        "thus": [152], "improving": [153], "quality.": [156], "Also,": [157], "samples":
+        [158], "which": [160], "only": [162], "or": [164], "one": [167], "(800": [174],
+        "\u00b0C)": [175], "show": [176], "poorest": [178], "results": [179], "both":
+        [180], "Dit": [184], "DIGS,": [186], "so": [187], "high": [190], "yield":
+        [192], "defective": [193], "films.": [195]}, "primary_location": {"id": "doi:10.1063/1.2177383",
+        "doi": "https://doi.org/10.1063/1.2177383", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.2177383", "pdf_url": null, "source": {"id": "https://openalex.org/S187991544",
+        "display_name": "Journal of Applied Physics", "issn_l": "0021-8979", "issn":
+        ["0021-8979", "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d",
+        "jufo-1", "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W1632024277",
+        "doi": "https://doi.org/10.1063/1.2387126", "title": "Enhancement of dielectric
+        constant in HfO2 thin films by the addition of Al2O3", "publication_year":
+        2006, "abstract_inverted_index": {"Hf": [0, 66], "O": [1], "2": [2], "films":
+        [3], "with": [4, 69, 91], "an": [5, 31], "enhanced": [6], "dielectric": [7,
+        76], "constant,": [8], "prepared": [9], "through": [10], "phase": [11, 43,
+        73], "transition": [12], "engineering": [13], "by": [14, 21], "the": [15,
+        36, 53, 59, 85], "addition": [16], "of": [17, 44, 78, 88], "Al2O3,": [18],
+        "were": [19], "deposited": [20], "plasma-enhanced": [22], "atomic": [23],
+        "layer": [24], "deposition": [25], "adopting": [26], "a": [27, 41, 64, 70,
+        75, 92], "supercycle": [28], "concept.": [29], "After": [30], "annealing":
+        [32], "step": [33], "at": [34, 49], "700\u00b0C,": [35], "tetragonal": [37,
+        72], "phase,": [38], "which": [39], "is": [40], "high-temperature": [42],
+        "HfO2,": [45], "was": [46, 56], "stabilized": [47], "completely": [48], "room":
+        [50], "temperature": [51], "and": [52], "crystallographic": [54], "direction":
+        [55], "changed": [57], "to": [58], "preferred": [60], "(002)": [61], "orientation.":
+        [62], "As": [63], "result,": [65], "aluminate": [67], "film": [68, 90], "(002)-oriented":
+        [71], "had": [74], "constant": [77], "47,": [79], "approximately": [80], "twice":
+        [81], "as": [82, 84], "large": [83], "reported": [86], "value": [87], "HfO2":
+        [89], "monoclinic": [93], "phase.": [94]}, "primary_location": {"id": "doi:10.1063/1.2387126",
+        "doi": "https://doi.org/10.1063/1.2387126", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.2387126", "pdf_url": null, "source": {"id": "https://openalex.org/S105243760",
+        "display_name": "Applied Physics Letters", "issn_l": "0003-6951", "issn":
+        ["0003-6951", "1077-3118", "1520-8842"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-a",
+        "jufo-3", "ki-jl-1", "norway-2", "poland-100", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Applied Physics
+        Letters", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2182484087",
+        "doi": null, "title": "AC CONDUCTIVITY AND DIELECTRIC PROPERTIES OF Al2O3
+        THIN FILMS", "publication_year": 2012, "abstract_inverted_index": {"Al2O3":
+        [0], "thin": [1], "films": [2, 40], "of": [3, 38], "different": [4], "thicknesses":
+        [5, 37], "were": [6], "prepared": [7], "onto": [8], "clean": [9], "glass":
+        [10], "substrates": [11], "using": [12], "ohmic": [13], "aluminum": [14],
+        "electrodes.": [15], "Their": [16], "dielectric": [17, 46], "properties":
+        [18], "and": [19, 30, 57], "ac": [20], "conductivity": [21], "have": [22],
+        "been": [23], "investigated": [24], "in": [25], "the": [26, 32, 39], "frequency":
+        [27, 56], "range": [28, 34, 41], "0.1-100KHz": [29], "within": [31], "temperature":
+        [33], "100400K.": [35], "Oxide-layer": [36], "between": [42], "50-1550": [43],
+        "A.": [44], "The": [45], "constant": [47], "1": [48], "\uf065": [49], "was":
+        [50], "found": [51], "to": [52], "decrease": [53], "with": [54, 59], "increasing":
+        [55], "increase": [58]}, "primary_location": {"id": "mag:2182484087", "doi":
+        null, "is_oa": false, "landing_page_url": "https://www.chalcogen.ro/179_Deger.pdf",
+        "pdf_url": null, "source": null, "license": null, "license_id": null, "version":
+        null, "is_accepted": false, "is_published": false, "raw_source_name": null,
+        "raw_type": null}}, {"id": "https://openalex.org/W2156636351", "doi": "https://doi.org/10.1063/1.1638615",
+        "title": "Improvement of dielectric loss tangent of Al2O3 doped Ba0.5Sr0.5TiO3
+        thin films for tunable microwave devices", "publication_year": 2004, "abstract_inverted_index":
+        {"Al": [0], "2": [1], "O": [2], "3": [3], "doped": [4, 40, 90, 146], "Ba0.5Sr0.5TiO3":
+        [5], "(BST)": [6], "thin": [7, 28, 70], "films,": [8], "with": [9, 45], "different":
+        [10], "Al2O3": [11, 39, 57, 73, 127], "contents,": [12], "were": [13, 43],
+        "deposited": [14], "on": [15], "(100)": [16], "LaAlO3": [17], "substrates":
+        [18], "by": [19], "the": [20, 56, 65, 77, 94, 102, 112, 126, 130, 136], "pulsed":
+        [21], "laser": [22], "deposition": [23], "technique": [24], "to": [25, 87,
+        99, 143], "develop": [26], "agile": [27], "films": [29, 42, 138], "for": [30,
+        120, 135], "tunable": [31, 121], "microwave": [32, 122], "device": [33], "applications.":
+        [34, 124], "The": [35, 72], "dielectric": [36, 66, 78, 103, 106], "properties":
+        [37, 67], "of": [38, 68, 132], "BST": [41, 69, 137], "determined": [44], "a":
+        [46, 60], "nondestructive": [47], "dual": [48], "resonator": [49], "near":
+        [50], "7.7": [51], "GHz.": [52], "We": [53], "demonstrated": [54], "that":
+        [55, 111], "doping": [58, 74, 128], "plays": [59], "significant": [61], "role":
+        [62], "in": [63, 93, 101], "improving": [64], "films.": [71], "successfully":
+        [75], "reduced": [76], "loss": [79, 95], "tangent": [80, 96], "(tan": [81],
+        "\u03b4)": [82], "from": [83, 139], "0.03": [84], "(pure": [85, 141], "BST)":
+        [86, 142], "0.011": [88], "(Al2O3": [89, 145], "BST).": [91, 147], "Reduction":
+        [92], "also": [97], "leads": [98], "reduction": [100], "constant": [104],
+        "and": [105], "tunability.": [107], "Our": [108], "results": [109], "showed":
+        [110], "BSTA4": [113], "film": [114], "remains": [115], "tunability=15.9%,":
+        [116], "which": [117], "is": [118], "sufficient": [119], "devices": [123],
+        "Consequently,": [125], "improved": [129], "figure": [131], "merit": [133],
+        "(K)": [134], "K=7.33": [140], "K=14.45": [144]}, "primary_location": {"id":
+        "doi:10.1063/1.1638615", "doi": "https://doi.org/10.1063/1.1638615", "is_oa":
+        false, "landing_page_url": "https://doi.org/10.1063/1.1638615", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S187991544", "display_name":
+        "Journal of Applied Physics", "issn_l": "0021-8979", "issn": ["0021-8979",
+        "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1",
+        "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a534af0a9edbe800-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '13805'
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 18:22:11 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=mCJ9dM7jZRNLl4wThpxKpmNKS65t6nms0SHTkR8e5fw%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793470931"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=mCJ9dM7jZRNLl4wThpxKpmNKS65t6nms0SHTkR8e5fw%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793470931"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9970'
+      x-ratelimit-remaining-usd:
+      - '0.997'
+      x-ratelimit-reset:
+      - '20269'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search=alumina+dielectric+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 26153, "db_response_time_ms": 92, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (alumina dielectric
+        thin film) in the full text where it has an abstract", "x_new_oql": "get works
+        with (alumina dielectric thin film) in the full text where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "fulltext.search",
+        "value": "alumina dielectric thin film", "operator": "has"}, {"column_id":
+        "has_abstract", "value": true}]}, "url": "/works?filter=fulltext.search:alumina
+        dielectric thin film,has_abstract:true&per_page=5", "order": "best matches
+        first", "order_default": true}, "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2322765287",
+        "doi": "https://doi.org/10.1166/jnn.2001.061", "title": "Dielectric Properties
+        of KDP Filled Porous Alumina Nanocomposite Thin Films", "publication_year":
+        2001, "abstract_inverted_index": {"A": [0], "new": [1], "concept": [2], "of":
+        [3, 16, 38, 76, 83, 106, 114, 148, 164], "a": [4, 24, 30, 51, 74, 77, 161],
+        "composite": [5, 78, 108, 150], "dielectric": [6, 79, 90, 101, 104, 124, 151,
+        158], "thin": [7, 25, 80], "film": [8, 27, 33, 81, 109, 118, 152], "fabrication":
+        [9, 13, 139], "is": [10, 22, 46, 110, 126], "presented.": [11], "The": [12,
+        19, 43, 103, 123], "process": [14, 71, 140], "consists": [15], "two": [17],
+        "stages.": [18], "first": [20], "stage": [21, 45], "anodizing": [23], "aluminum":
+        [26], "to": [28, 58, 133], "produce": [29], "porous": [31, 116], "alumina":
+        [32, 85, 117], "that": [34, 113], "contains": [35], "an": [36, 134], "array":
+        [37], "nanometer": [39], "sized": [40], "parallel": [41], "pores.": [42, 69],
+        "second": [44], "filling": [47], "the": [48, 68, 84, 93, 97, 115, 143, 149],
+        "pores": [49, 86, 98], "with": [50], "saturated": [52], "KDP": [53, 63, 94],
+        "(KH2PO4)": [54], "liquid": [55], "solution": [56], "due": [57, 132], "capillary":
+        [59], "forces.": [60], "After": [61], "drying": [62], "nanocrystals": [64,
+        95], "are": [65], "formed": [66], "inside": [67, 96], "This": [70, 138], "results":
+        [72], "in": [73], "formation": [75], "composed": [82], "walls": [87], "as":
+        [88, 99], "one": [89], "material": [91], "and": [92, 146, 154], "another":
+        [100], "material.": [102], "permittivity": [105], "this": [107], "higher":
+        [111], "than": [112], "at": [119, 129], "all": [120], "applied": [121], "frequencies.":
+        [122], "enhancement": [125], "more": [127], "pronounced": [128], "low": [130],
+        "frequencies": [131], "interface": [135], "polarization": [136], "mechanism.":
+        [137], "enables": [141], "controlling": [142], "size,": [144], "composition,":
+        [145], "microstructure": [147], "constituents": [153], "thus": [155], "changing":
+        [156], "its": [157], "properties": [159], "over": [160], "wide": [162], "range":
+        [163], "values.": [165]}, "primary_location": {"id": "doi:10.1166/jnn.2001.061",
+        "doi": "https://doi.org/10.1166/jnn.2001.061", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1166/jnn.2001.061", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S133947007", "display_name": "Journal of Nanoscience
+        and Nanotechnology", "issn_l": "1533-4880", "issn": ["1533-4880", "1533-4899"],
+        "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in": ["anvur-scientific",
+        "cwts-core", "poland-40"], "host_organization": "https://openalex.org/P4310321646",
+        "host_organization_name": "American Scientific Publishers", "host_organization_lineage":
+        ["https://openalex.org/P4310321646"], "host_organization_lineage_names": ["American
+        Scientific Publishers"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Journal of Nanoscience and Nanotechnology", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W2165818102", "doi": "https://doi.org/10.1109/lmwc.2003.814091",
+        "title": "Voltage and frequency dependent dielectric properties of BST-0.5
+        thin films on alumina substrates", "publication_year": 2003, "abstract_inverted_index":
+        {"Dielectric": [0], "properties": [1], "of": [2, 17, 45, 53, 65, 82], "Ba/sub":
+        [3], "0.5/Sr/sub": [4], "0.5/TiO/sub": [5], "3/": [6], "(BST-0.5)": [7], "polycrystalline":
+        [8], "thin": [9], "films,": [10], "deposited": [11], "on": [12], "alumina":
+        [13], "substrates": [14], "by": [15, 80], "means": [16, 81], "reactive": [18],
+        "pulsed": [19], "laser": [20], "deposition": [21], "(PLD),": [22], "were":
+        [23], "measured": [24], "at": [25, 47, 58], "GHz": [26], "frequencies": [27],
+        "using": [28, 77], "an": [29], "interdigital": [30], "capacitor": [31], "(IDC).":
+        [32], "By": [33], "applying": [34], "a": [35, 50, 90, 95], "voltage": [36],
+        "up": [37], "to": [38], "40": [39], "V": [40], "between": [41], "the": [42,
+        70, 83, 109], "two": [43], "groups": [44], "fingers": [46], "room": [48],
+        "temperature,": [49], "high": [51], "tunability": [52], "/spl": [54, 66, 106],
+        "sim/27%": [55], "was": [56, 103], "achieved": [57], "5": [59], "GHz.": [60,
+        112], "A": [61], "relative": [62], "dielectric": [63], "constant": [64], "sim/500":
+        [67], "(consistent": [68], "with": [69, 88], "low-frequency": [71], "IDC":
+        [72], "measurements)": [73], "has": [74], "been": [75], "obtained": [76],
+        "coplanar": [78], "waveguides": [79], "through-reflect-line": [84], "(TRL)":
+        [85], "analysis": [86], "combined": [87], "either": [89], "conformal": [91],
+        "mapping": [92], "model": [93], "or": [94], "full": [96], "wave": [97], "calculation.":
+        [98], "The": [99], "BST": [100], "loss": [101], "tangent": [102], "estimated":
+        [104], "as": [105], "sim/0.05": [107], "in": [108], "range": [110], "3-16":
+        [111]}, "primary_location": {"id": "doi:10.1109/lmwc.2003.814091", "doi":
+        "https://doi.org/10.1109/lmwc.2003.814091", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1109/lmwc.2003.814091", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S37189094", "display_name": "IEEE Microwave and Wireless
+        Components Letters", "issn_l": "1531-1309", "issn": ["1531-1309", "1558-1764"],
+        "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in": ["anvur-scientific",
+        "cwts-core", "poland-20"], "host_organization": "https://openalex.org/P4310320754",
+        "host_organization_name": "IEEE Microwave Theory and Techniques Society",
+        "host_organization_lineage": ["https://openalex.org/P4310320754"], "host_organization_lineage_names":
+        ["IEEE Microwave Theory and Techniques Society"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "IEEE Microwave and Wireless Components
+        Letters", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W1593638336",
+        "doi": "https://doi.org/10.1063/1.3125245", "title": "Dielectric properties
+        of KTa0.6Nb0.4O3 thin films on alumina substrates prepared by chemical solution
+        deposition", "publication_year": 2009, "abstract_inverted_index": {"Dielectric":
+        [0, 17], "properties": [1], "of": [2, 46, 74], "KTa0.6Nb0.4O3": [3], "thin":
+        [4, 57], "films": [5, 58], "on": [6, 29], "polycrystalline": [7], "alumina":
+        [8], "substrates": [9], "prepared": [10], "by": [11, 25, 38, 63], "chemical":
+        [12], "solution": [13], "deposition": [14], "were": [15, 19], "investigated.":
+        [16], "measurements": [18], "performed": [20], "in": [21, 34, 54], "radio":
+        [22], "frequency": [23, 36], "range": [24, 37], "patterning": [26], "planar":
+        [27], "capacitors": [28], "the": [30, 64, 67], "film": [31], "surface": [32],
+        "and": [33, 76, 85, 97], "microwave": [35], "split-post": [39], "dielectric":
+        [40, 47, 77], "resonator": [41], "method.": [42], "The": [43, 70, 88], "relaxorlike":
+        [44], "behavior": [45], "properties,": [48], "which": [49], "has": [50], "not":
+        [51], "been": [52], "determined": [53], "K(Ta,": [55], "Nb)O3": [56], "previously,":
+        [59], "was": [60], "unambiguously": [61], "confirmed": [62], "fit": [65],
+        "to": [66], "Vogel\u2013Fulcher": [68], "law.": [69], "room": [71], "temperature":
+        [72], "values": [73], "permittivity": [75], "losses,": [78], "measured": [79,
+        91], "at": [80, 92], "10": [81], "kHz,": [82], "are": [83, 95], "2430": [84],
+        "0.08,": [86], "respectively.": [87], "corresponding": [89], "values,": [90],
+        "14.5": [93], "GHz,": [94], "590": [96], "0.52.": [98]}, "primary_location":
+        {"id": "doi:10.1063/1.3125245", "doi": "https://doi.org/10.1063/1.3125245",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.3125245", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S105243760", "display_name":
+        "Applied Physics Letters", "issn_l": "0003-6951", "issn": ["0003-6951", "1077-3118",
+        "1520-8842"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Applied Physics Letters", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2108874819", "doi": "https://doi.org/10.1149/1.2197972",
+        "title": "Effect of Alumina Addition on Bi-Ti-Al-O Dielectric Thin Films",
+        "publication_year": 2006, "abstract_inverted_index": {"The": [0, 40, 79],
+        "alumina": [1, 16, 22, 28, 53, 70, 95], "addition": [2, 20, 51, 93], "effect":
+        [3], "on": [4], "dielectric": [5, 80], "films": [6, 11], "was": [7, 89], "investigated":
+        [8], "with": [9, 49], "nanolaminate": [10], "of": [12, 21, 42, 52, 82, 94],
+        "bismuth": [13], "titanate": [14], "and": [15, 35, 54, 63], "layers.": [17,
+        96], "By": [18], "the": [19, 25, 27, 33, 50, 58, 69, 86, 92], "layers": [23,
+        71], "to": [24, 45], "system,": [26], "content": [29], "gradually": [30, 66],
+        "increases": [31, 44, 67], "but": [32, 85], "Bi": [34], "Ti": [36], "contents":
+        [37], "conversely": [38], "decrease.": [39], "bandgap": [41], "BTAO": [43,
+        83], "a": [46], "certain": [47], "level": [48, 62], "then": [55], "saturates.":
+        [56], "However,": [57], "difference": [59], "between": [60], "Fermi": [61],
+        "valence": [64], "bandedge": [65], "as": [68], "are": [72], "added,": [73],
+        "making": [74], "them": [75], "more": [76], "n-type": [77], "material.": [78],
+        "constant": [81], "decreases": [84], "insulating": [87], "property": [88],
+        "improved": [90], "by": [91]}, "primary_location": {"id": "doi:10.1149/1.2197972",
+        "doi": "https://doi.org/10.1149/1.2197972", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.1149/1.2197972", "pdf_url": "https://iopscience.iop.org/article/10.1149/1.2197972/pdf",
+        "source": {"id": "https://openalex.org/S47478517", "display_name": "Electrochemical
+        and Solid-State Letters", "issn_l": "1099-0062", "issn": ["1099-0062", "1944-8775"],
+        "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core",
+        "jufo-1", "norway-1"], "host_organization": "https://openalex.org/P4310320195",
+        "host_organization_name": "Electrochemical Society", "host_organization_lineage":
+        ["https://openalex.org/P4310320195"], "host_organization_lineage_names": ["Electrochemical
+        Society"], "type": "journal"}, "license": null, "license_id": null, "version":
+        "publishedVersion", "is_accepted": true, "is_published": true, "raw_source_name":
+        "Electrochemical and Solid-State Letters", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W3170193350", "doi": "https://doi.org/10.1039/d1dt01439k",
+        "title": "Solution synthesis and dielectric properties of alumina thin films:
+        understanding the role of the organic additive in film formation", "publication_year":
+        2021, "abstract_inverted_index": {"Alumina": [0], "thin": [1], "films": [2,
+        64, 99, 147], "are": [3], "synthesized": [4], "by": [5, 47, 152, 194], "combustion":
+        [6, 122], "synthesis": [7], "of": [8, 10, 19, 22, 33, 49, 52, 73, 88, 110,
+        115, 129, 145, 162, 189, 196], "mixtures": [9], "aluminium": [11], "nitrate":
+        [12], "(ALN)": [13], "and": [14, 24, 30, 42, 75, 181], "methylcarbazate":
+        [15], "(MCZ).": [16], "The": [17, 40, 143], "interdependence": [18], "the":
+        [20, 34, 111, 136, 141, 146, 160, 163, 168, 187], "ratio": [21], "oxidizer":
+        [23], "reducing": [25], "agent": [26], "on": [27, 167], "composition,": [28],
+        "microstructure": [29, 170], "electronic": [31], "properties": [32], "resulting":
+        [35, 169], "oxide": [36], "layers": [37], "is": [38, 45, 124], "investigated.":
+        [39], "dielectric": [41, 70, 77], "insulating": [43], "behaviour": [44], "improved":
+        [46], "addition": [48, 195], "different": [50], "amounts": [51, 128], "MCZ":
+        [53, 89], "(MCZ": [54, 90], ":": [55, 91], "ALN": [56, 92, 177], "=": [57,
+        93], "0.67": [58], "or": [59, 95], "2.5).": [60], "In": [61, 157, 185], "this":
+        [62, 158], "way": [63, 159], "(thickness": [65], "\u223c140": [66], "nm)":
+        [67], "with": [68, 100], "a": [69, 76], "constant": [71], "\u03ba": [72],
+        "9.7": [74], "loss": [78], "tan": [79], "\u03b4": [80], "below": [81], "0.015":
+        [82], "can": [83, 148, 171, 191], "be": [84, 149, 172, 192], "achieved.":
+        [85], "Medium": [86], "concentrations": [87], "1.0": [94], "1.5)": [96], "lead":
+        [97], "to": [98], "lower": [101], "performance,": [102], "though.": [103],
+        "Our": [104], "studies": [105], "indicate": [106], "two": [107], "opposing":
+        [108], "effects": [109], "organic": [112, 116, 164], "additive.": [113], "Removal":
+        [114], "residues": [117], "during": [118], "film": [119], "formation": [120,
+        188], "as": [121], "gases": [123], "potentially": [125], "detrimental.": [126],
+        "Larger": [127], "MCZ,": [130], "however,": [131], "cause": [132], "condensation":
+        [133], "reactions": [134], "in": [135], "precusor": [137], "mixture,": [138],
+        "which": [139], "improve": [140], "microstructure.": [142], "porosity": [144],
+        "sucessfully": [150], "analyzed": [151], "positron": [153], "annihilation":
+        [154], "liftetime": [155], "studies.": [156], "impact": [161], "ligand": [165],
+        "sphere": [166], "quantified.": [173], "Samples": [174], "prepared": [175],
+        "from": [176], "alone": [178], "exhibit": [179], "mesopores": [180, 190],
+        "also": [182], "larger": [183], "micropores.": [184], "contrast,": [186],
+        "inhibited": [193], "MCZ.": [197]}, "primary_location": {"id": "doi:10.1039/d1dt01439k",
+        "doi": "https://doi.org/10.1039/d1dt01439k", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1039/d1dt01439k", "pdf_url": null, "source": {"id": "https://openalex.org/S166159787",
+        "display_name": "Dalton Transactions", "issn_l": "1477-9226", "issn": ["1477-9226",
+        "1477-9234"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-1", "ki-jl-1", "medline",
+        "norway-1", "poland-140", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320556", "host_organization_name": "Royal Society
+        of Chemistry", "host_organization_lineage": ["https://openalex.org/P4310320556"],
+        "host_organization_lineage_names": ["Royal Society of Chemistry"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Dalton Transactions",
+        "raw_type": "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a534af0c4a21e800-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '15292'
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 18:22:12 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=mCJ9dM7jZRNLl4wThpxKpmNKS65t6nms0SHTkR8e5fw%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793470931"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=mCJ9dM7jZRNLl4wThpxKpmNKS65t6nms0SHTkR8e5fw%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793470931"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9960'
+      x-ratelimit-remaining-usd:
+      - '0.996'
+      x-ratelimit-reset:
+      - '20268'
+    status:
+      code: 200
+      message: OK
+version: 1

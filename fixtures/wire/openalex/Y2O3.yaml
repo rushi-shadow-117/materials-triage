@@ -1,0 +1,591 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search=Y2O3+dielectric+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 1774, "db_response_time_ms": 48, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Y2O3 dielectric
+        thin film) in the full text where it has an abstract", "x_new_oql": "get works
+        with (Y2O3 dielectric thin film) in the full text where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "fulltext.search",
+        "value": "Y2O3 dielectric thin film", "operator": "has"}, {"column_id": "has_abstract",
+        "value": true}]}, "url": "/works?filter=fulltext.search:Y2O3 dielectric thin
+        film,has_abstract:true&per_page=5", "order": "best matches first", "order_default":
+        true}, "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2029297425",
+        "doi": "https://doi.org/10.1063/1.350605", "title": "Structural and electrical
+        characteristics of metal-insulator-semiconductor diodes based on Y2O3 dielectric
+        thin films on silicon", "publication_year": 1992, "abstract_inverted_index":
+        {"Metal-insulator-semiconductor": [0], "(MIS)": [1], "diodes": [2, 141], "with":
+        [3, 142], "an": [4, 106], "electron-beam-deposited": [5], "and": [6, 26, 40,
+        129, 169], "oxygen-annealed": [7], "thin": [8], "(\u224a80": [9], "nm)": [10],
+        "Y2O3": [11, 21, 47, 86, 168, 180], "dielectric": [12, 73], "layer": [13,
+        111], "on": [14, 88], "p-Si(100)": [15], "show": [16, 27], "metal-oxide-semiconductor":
+        [17], "capacitor": [18, 35], "action.": [19], "As-deposited": [20], "films":
+        [22], "are": [23], "oxygen-deficient": [24], "amorphous": [25], "low": [28,
+        78], "5\u00d710\u22129": [29], "A": [30, 116, 128], "leakage": [31, 124],
+        "currents": [32], "for": [33, 139], "a": [34, 51, 77], "area": [36], "of":
+        [37, 43, 80, 105, 120, 154, 179], "0.785": [38], "mm2": [39], "breakdown":
+        [41, 132], "fields": [42], "1.0": [44], "MV/cm.": [45], "Amorphous": [46],
+        "film": [48, 87], "crystallizes": [49], "to": [50, 63, 82, 103, 126, 134],
+        "bcc": [52], "phase": [53], "by": [54, 175], "annealing": [55], "at": [56,
+        69, 112, 159], "400": [57], "\u00b0C": [58, 101], "causing": [59], "increased":
+        [60], "conduction": [61, 177], "due": [62], "asperities": [64], "related":
+        [65], "localized": [66], "high-field": [67], "regions": [68], "contacts":
+        [70], "while": [71], "its": [72], "constant": [74], "increases": [75], "from":
+        [76], "value": [79], "9.0\u03b50": [81], "27\u03b50.": [83], "Annealing":
+        [84], "the": [85, 91, 95, 113, 149, 160, 182], "Si": [89], "above": [90],
+        "crystallization": [92], "temperature": [93], "in": [94, 123, 131, 148, 167],
+        "range": [96], "425": [97], "\u00b0C<Ts": [98], "<": [99], "650": [100], "leads":
+        [102], "growth": [104], "about": [107], "5-nm-thick": [108], "intermediate":
+        [109], "SiO2": [110], "Y2O3/SiO2": [114, 144, 161, 170], "interface.": [115],
+        "remarkable": [117], "two": [118], "orders": [119], "magnitude": [121], "decrease":
+        [122], "current": [125, 165], "2\u00d710\u221211": [127], "increase": [130],
+        "field": [133], "2.0": [135], "MV/cm": [136], "is": [137, 173], "observed":
+        [138], "MIS": [140], "composite": [143], "dielectric.": [145], "Current-voltage":
+        [146], "behavior": [147, 178], "inversion": [150], "mode": [151], "demonstrates":
+        [152], "existence": [153], "positive": [155], "charge": [156], "trapping":
+        [157], "states": [158], "interface": [162], "region.": [163], "The": [164],
+        "transport": [166], "insulator": [171], "layers": [172], "dominated": [174],
+        "bulk": [176], "through": [181], "Poole\u2013Frenkel": [183], "mechanism.":
+        [184]}, "primary_location": {"id": "doi:10.1063/1.350605", "doi": "https://doi.org/10.1063/1.350605",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.350605", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S187991544", "display_name":
+        "Journal of Applied Physics", "issn_l": "0021-8979", "issn": ["0021-8979",
+        "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1",
+        "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2063944426",
+        "doi": "https://doi.org/10.1063/1.346804", "title": "Dielectric properties
+        of rf-sputtered Y2O3 thin films", "publication_year": 1990, "abstract_inverted_index":
+        {"Yttrium": [0], "oxide": [1], "(Y2O3)": [2], "thin": [3], "films": [4, 32,
+        78, 107, 119], "were": [5, 33], "deposited": [6, 79, 108, 120], "on": [7],
+        "indium-tin-oxide(ITO)-coated": [8], "glass": [9], "substrates": [10], "by":
+        [11], "the": [12, 25, 30, 55, 58, 76, 87, 95, 106, 113, 117, 127, 132], "radio-frequency-sputtering":
+        [13], "method": [14], "using": [15], "an": [16], "Y2O3-sintered": [17], "target.":
+        [18], "The": [19, 70], "relative": [20], "dielectric": [21, 26, 114], "constant":
+        [22], "\u03b5r": [23, 39], "and": [24, 40, 46, 90, 137], "strength": [27],
+        "EBD": [28, 41], "of": [29, 57, 116], "Y2O3": [31, 77, 118], "studied.": [34],
+        "It": [35], "was": [36], "found": [37], "that": [38, 75], "have": [42], "a":
+        [43, 47], "maximum": [44], "value": [45], "minimum": [48], "value,": [49],
+        "respectively,": [50], "at": [51, 80, 109, 121], "1.3": [52, 81, 110, 122],
+        "Pa": [53, 82, 123], "when": [54], "pressure": [56], "sputtering": [59], "gas,":
+        [60], "Ar+10%": [61], "O2,": [62], "is": [63, 94], "varied": [64], "from":
+        [65, 103], "0.67": [66], "to": [67, 126], "9.3": [68], "Pa.": [69, 111], "x-ray":
+        [71], "diffraction": [72], "study": [73], "showed": [74, 100], "are": [83,
+        124], "predominantly": [84], "oriented": [85], "along": [86], "\u3008332\u3009":
+        [88, 133], "direction": [89], "their": [91], "grain": [92, 135], "size": [93],
+        "smallest.": [96], "Ion": [97], "mass": [98], "analysis": [99], "impurity":
+        [101, 138], "diffusion": [102], "ITO": [104], "in": [105], "Furthermore,":
+        [112], "properties": [115], "related": [125], "structural": [128], "properties,":
+        [129], "such": [130], "as": [131], "orientation,": [134], "size,": [136],
+        "diffusion.": [139]}, "primary_location": {"id": "doi:10.1063/1.346804", "doi":
+        "https://doi.org/10.1063/1.346804", "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.346804",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S187991544", "display_name":
+        "Journal of Applied Physics", "issn_l": "0021-8979", "issn": ["0021-8979",
+        "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1",
+        "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W1624346732",
+        "doi": "https://doi.org/10.1143/jjap.9.735", "title": "Dielectric Properties
+        of Y2O3 Thin Films Prepared by Vacuum Evaporation", "publication_year": 1970,
+        "abstract_inverted_index": {"The": [0, 49, 72], "dielectric": [1, 27, 50],
+        "films": [2], "formed": [3], "by": [4, 14], "evaporating": [5], "Y2O3": [6,
+        76], "in": [7, 33, 41], "vacuum": [8], "have": [9], "been": [10], "identified":
+        [11], "with": [12, 45, 64], "sesquioxide": [13], "infrared": [15], "transmission,":
+        [16], "electron": [17, 46], "and": [18, 36, 54], "X-ray": [19], "diffraction":
+        [20], "studies.": [21], "Thin": [22], "film": [23, 77], "capacitors": [24],
+        "using": [25], "this": [26], "material": [28], "exhibit": [29], "excellent":
+        [30], "electric": [31], "stability": [32], "high": [34], "termperature": [35],
+        "can": [37], "be": [38], "reproduced": [39], "easily": [40], "a": [42, 65],
+        "closed-cycle": [43], "process": [44], "beam": [47], "equipment.": [48], "constant":
+        [51], "is": [52, 59, 79], "13": [53], "dissipation": [55], "factor,": [56],
+        "tan": [57], "\u03b4,": [58], "0.003": [60], "at": [61], "room": [62], "temperature":
+        [63, 73], "breakdown": [66], "field": [67], "strength": [68], "of": [69, 75],
+        "3\u00d7106": [70], "V/cm.": [71], "coefficient": [74], "capacitor": [78],
+        "about": [80], "300": [81], "ppm/\u00b0C.": [82]}, "primary_location": {"id":
+        "doi:10.1143/jjap.9.735", "doi": "https://doi.org/10.1143/jjap.9.735", "is_oa":
+        false, "landing_page_url": "https://doi.org/10.1143/jjap.9.735", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S143744711", "display_name":
+        "Japanese Journal of Applied Physics", "issn_l": "0021-4922", "issn": ["0021-4922",
+        "1347-4065"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "dongbi-d", "jufo-1", "ki-jl-1", "norway-1", "poland-70", "russia-white-list-2",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310311669", "host_organization_name":
+        "Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310311669"],
+        "host_organization_lineage_names": ["Institute of Physics"], "type": "journal"},
+        "license": null, "license_id": null, "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "Japanese Journal of Applied
+        Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W4244264644",
+        "doi": "https://doi.org/10.1063/1.4965849", "title": "Effects of Ta incorporation
+        in Y2O3 gate dielectric of InGaZnO thin-film transistor", "publication_year":
+        2016, "abstract_inverted_index": {"The": [0], "effects": [1], "of": [2, 13,
+        32, 44, 59, 66, 74, 81, 103], "Ta": [3, 22, 97, 132], "incorporation": [4,
+        98, 133], "in": [5, 24, 134, 142], "Y2O3": [6, 26, 49, 104, 136], "gate":
+        [7, 27, 50, 137], "dielectric": [8, 138], "on": [9], "the": [10, 25, 29, 33,
+        45, 53, 93, 96, 101, 108, 114, 117, 135], "electrical": [11], "characteristics":
+        [12], "InGaZnO": [14], "thin-film": [15, 34], "transistor": [16, 35], "are":
+        [17, 148], "investigated.": [18], "With": [19], "an": [20], "appropriate":
+        [21], "content": [23], "dielectric,": [28], "saturation": [30, 64], "mobility":
+        [31, 65], "can": [36, 89, 99], "be": [37, 90], "significantly": [38], "increased,":
+        [39], "about": [40], "three": [41], "times": [42], "that": [43, 95], "control":
+        [46], "sample": [47, 54], "with": [48, 55], "dielectric.": [51], "Accordingly,":
+        [52], "a": [56, 62], "Ta/Ta+Y": [57], "ratio": [58, 80], "68.6%": [60], "presents":
+        [61], "high": [63], "33.5": [67], "cm2": [68], "V\u22121": [69], "s\u22121,":
+        [70], "low": [71], "threshold": [72], "voltage": [73], "2.0": [75], "V,":
+        [76], "large": [77], "on/off": [78], "current": [79], "2.8": [82], "\u00d7":
+        [83], "107,": [84], "and": [85, 105, 112, 125], "suppressed": [86], "hysteresis.":
+        [87], "This": [88], "attributed": [91], "to": [92, 140], "fact": [94], "suppress":
+        [100], "hygroscopicity": [102], "thus": [106], "reduces": [107], "Y2O3/InGaZnO":
+        [109], "interface": [110], "roughness": [111], "also": [113], "traps": [115],
+        "at/near": [116], "interface,": [118], "as": [119], "supported": [120], "by":
+        [121], "atomic": [122], "force": [123], "microscopy": [124], "low-frequency":
+        [126], "noise": [127], "measurement,": [128], "respectively.": [129], "However,":
+        [130], "excessive": [131], "leads": [139], "degradation": [141], "device":
+        [143], "performance": [144], "because": [145], "Ta-related": [146], "defects":
+        [147], "generated.": [149]}, "primary_location": {"id": "doi:10.1063/1.4965849",
+        "doi": "https://doi.org/10.1063/1.4965849", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.4965849", "pdf_url": null, "source": {"id": "https://openalex.org/S105243760",
+        "display_name": "Applied Physics Letters", "issn_l": "0003-6951", "issn":
+        ["0003-6951", "1077-3118", "1520-8842"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-a",
+        "jufo-3", "ki-jl-1", "norway-2", "poland-100", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Applied Physics
+        Letters", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W1745116713",
+        "doi": "https://doi.org/10.1063/1.3568893", "title": "Low-voltage ZnO thin-film
+        transistors based on Y2O3 and Al2O3 high-k dielectrics deposited by spray
+        pyrolysis in air", "publication_year": 2011, "abstract_inverted_index": {"We":
+        [0], "report": [1], "the": [2, 9, 76], "application": [3], "of": [4, 11, 33,
+        67, 78], "ambient": [5], "spray": [6, 49], "pyrolysis": [7], "for": [8], "deposition":
+        [10], "high-k": [12], "polycrystalline": [13], "Y2O3": [14, 51], "and": [15,
+        19, 42, 52, 59, 71, 93], "amorphous": [16], "Al2O3": [17, 53], "dielectrics":
+        [18, 54], "their": [20], "use": [21], "in": [22], "low-voltage": [23], "ZnO":
+        [24, 45], "thin-film": [25], "transistors.": [26], "The": [27], "films": [28],
+        "are": [29], "studied": [30], "by": [31], "means": [32], "atomic": [34], "force":
+        [35], "microscopy,": [36], "UV-visible": [37], "absorption": [38], "spectroscopy,":
+        [39, 41], "impedance": [40], "field-effect": [43], "measurements.": [44],
+        "transistors": [46], "based": [47], "on": [48, 75], "pyrolysed": [50], "show":
+        [55], "low": [56], "leakage": [57], "currents,": [58], "hysteresis-free":
+        [60], "operation": [61], "with": [62], "a": [63, 83], "maximum": [64], "electron":
+        [65], "mobility": [66], "34": [68], "cm2/V": [69], "s": [70], "current": [72],
+        "on/off": [73], "ratio": [74], "order": [77], "105.": [79], "This": [80],
+        "work": [81], "is": [82], "significant": [84], "step": [85], "toward": [86],
+        "high-performance": [87], "oxide": [88], "electronics": [89], "manufactured":
+        [90], "using": [91], "simple": [92], "scalable": [94], "processing": [95],
+        "methods.": [96]}, "primary_location": {"id": "doi:10.1063/1.3568893", "doi":
+        "https://doi.org/10.1063/1.3568893", "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.3568893",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S105243760", "display_name":
+        "Applied Physics Letters", "issn_l": "0003-6951", "issn": ["0003-6951", "1077-3118",
+        "1520-8842"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Applied Physics Letters", "raw_type": "journal-article"}}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a534af2b8dc01d26-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '15461'
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 18:22:17 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=I1XS0FqbG9S5oZkKaFByW8aZmsB07B1WC%2F58dW%2BYb20%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793470936"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=I1XS0FqbG9S5oZkKaFByW8aZmsB07B1WC%2F58dW%2BYb20%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793470936"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9810'
+      x-ratelimit-remaining-usd:
+      - '0.981'
+      x-ratelimit-reset:
+      - '20263'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search=yttria+dielectric+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 3487, "db_response_time_ms": 61, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (yttria dielectric
+        thin film) in the full text where it has an abstract", "x_new_oql": "get works
+        with (yttria dielectric thin film) in the full text where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "fulltext.search",
+        "value": "yttria dielectric thin film", "operator": "has"}, {"column_id":
+        "has_abstract", "value": true}]}, "url": "/works?filter=fulltext.search:yttria
+        dielectric thin film,has_abstract:true&per_page=5", "order": "best matches
+        first", "order_default": true}, "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2081704969",
+        "doi": "https://doi.org/10.1063/1.1367309", "title": "Dielectric properties
+        of strained (Ba, Sr)TiO3 thin films epitaxially grown on Si with thin yttria-stabilized
+        zirconia buffer layer", "publication_year": 2001, "abstract_inverted_index":
+        {"We": [0, 60], "have": [1, 61], "grown": [2, 52], "epitaxial": [3, 30, 49],
+        "(Ba0.5,": [4], "Sr0.5)TiO3": [5], "(BST)": [6], "thin": [7, 13, 20], "films":
+        [8, 51, 70, 89], "on": [9, 53], "Si": [10, 54], "with": [11, 72], "very":
+        [12], "yttria-stabilized": [14], "zirconia": [15], "(YSZ)": [16], "buffer":
+        [17, 22], "layer.": [18], "The": [19, 48, 83], "YSZ": [21], "layer": [23,
+        32], "affects": [24], "the": [25, 29, 36, 40, 44, 64, 68, 74, 78, 87, 93],
+        "stress": [26], "state": [27, 79], "of": [28, 39, 46, 67, 80, 86], "BST":
+        [31, 41, 50, 69, 88], "as": [33, 35], "well": [34], "growth": [37], "behavior":
+        [38], "layer,": [42], "i.e.,": [43], "degree": [45], "epitaxy.": [47], "are":
+        [55], "in": [56, 77], "two-dimensional": [57], "tensile": [58, 81], "stress.":
+        [59, 82], "found": [62], "that": [63], "dielectric": [65, 84], "constant":
+        [66, 85], "increased": [71], "decreasing": [73], "lattice": [75, 94, 98, 100],
+        "distortion": [76, 95], "reaches": [90], "1300": [91], "when": [92], "(surface":
+        [96], "normal": [97], "constant/in-plane": [99], "constant)": [101], "is":
+        [102], "0.993.": [103]}, "primary_location": {"id": "doi:10.1063/1.1367309",
+        "doi": "https://doi.org/10.1063/1.1367309", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.1367309", "pdf_url": null, "source": {"id": "https://openalex.org/S105243760",
+        "display_name": "Applied Physics Letters", "issn_l": "0003-6951", "issn":
+        ["0003-6951", "1077-3118", "1520-8842"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-a",
+        "jufo-3", "ki-jl-1", "norway-2", "poland-100", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Applied Physics
+        Letters", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W4398757018",
+        "doi": "https://doi.org/10.33484/sinopfbd.1369460", "title": "The Effect of
+        Deposition Temperature on Structural, Morphological, and Dielectric Properties
+        of Yttria-Doped Zirconia Thin Films", "publication_year": 2024, "abstract_inverted_index":
+        {"The": [0, 56, 94, 114, 126, 164], "aim": [1], "of": [2, 10, 21, 35, 42,
+        63, 78, 97, 129, 167, 185], "this": [3], "study": [4], "was": [5, 72, 101,
+        134, 143, 175], "to": [6, 87, 103, 120, 145], "investigate": [7], "the": [8,
+        14, 40, 43, 49, 64, 75, 79, 91, 98, 130, 137, 168, 178], "effect": [9], "deposition":
+        [11, 54, 92, 150], "temperature": [12], "on": [13], "structural,": [15], "optical,":
+        [16], "morphological,": [17], "and": [18, 48, 61, 142, 181], "dielectric":
+        [19, 162, 165, 183], "properties": [20, 166], "yttria-stabilised": [22], "zirconia":
+        [23], "(YSZ)": [24], "films": [25, 37, 66, 82, 100, 133], "prepared": [26],
+        "by": [27, 69, 108], "sol-gel": [28], "spin-coating": [29], "method.": [30],
+        "X-ray": [31], "diffraction": [32], "(XRD)": [33], "measurements": [34], "YSZ":
+        [36, 80, 131, 159], "showed": [38], "that": [39, 74, 177], "peaks": [41],
+        "cubic": [44], "phase": [45], "were": [46, 67, 155, 172], "prominent": [47],
+        "peak": [50], "intensities": [51], "increased": [52, 83, 116], "with": [53,
+        90, 123, 148], "temperature.": [55, 93, 125, 151], "crystallite": [57], "size,":
+        [58], "dislocation": [59], "density,": [60], "microstrain": [62], "thin":
+        [65, 81, 99, 132], "identified": [68], "XRD.": [70], "It": [71, 174], "observed":
+        [73], "crystal": [76], "size": [77], "from": [84, 117, 157], "16": [85], "nm":
+        [86, 89, 119, 122, 141], "22": [88], "surface": [95], "roughness": [96, 115],
+        "found": [102, 144, 176], "have": [104], "changed": [105], "as": [106], "revealed":
+        [107], "Atomic": [109], "Force": [110], "Microscopy": [111], "(AFM)": [112],
+        "measurements.": [113], "7.72": [118], "11.92": [121], "increasing": [124,
+        149], "optical": [127], "transmittance": [128], "investigated": [135], "in":
+        [136], "wavelength": [138], "range": [139], "200-900": [140], "increase":
+        [146], "slightly": [147], "Metal-Oxide-Semiconductor": [152], "(MOS)": [153],
+        "devices": [154], "fabricated": [156], "these": [158, 186], "materials": [160],
+        "for": [161], "characterization.": [163], "Ag/YSZ/n-Si": [169], "MOS": [170],
+        "structure": [171], "investigated.": [173], "capacitance,": [179], "conductivity":
+        [180], "other": [182], "parameters": [184], "structures": [187], "are": [188],
+        "strongly": [189], "frequency": [190], "dependent.": [191]}, "primary_location":
+        {"id": "doi:10.33484/sinopfbd.1369460", "doi": "https://doi.org/10.33484/sinopfbd.1369460",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.33484/sinopfbd.1369460",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4210192950", "display_name":
+        "Sinop \u00dcniversitesi Fen Bilimleri Dergisi", "issn_l": "2536-4383", "issn":
+        ["2536-4383", "2564-7873"], "is_oa": true, "is_in_doaj": false, "is_core":
+        false, "listed_in": ["tr-dizin"], "host_organization": null, "host_organization_name":
+        null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "journal"}, "license": "cc-by-nc", "license_id": "https://openalex.org/licenses/cc-by-nc",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Sinop \u00dcniversitesi Fen Bilimleri Dergisi", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W2093788837", "doi": "https://doi.org/10.1063/1.4844515",
+        "title": "Temperature dependent dielectric function in the near-infrared to
+        vacuum-ultraviolet ultraviolet spectral range of alumina and yttria stabilized
+        zirconia thin films", "publication_year": 2013, "abstract_inverted_index":
+        {"The": [0, 77, 122], "dielectric": [1], "function": [2], "of": [3, 45, 69,
+        80, 98, 102, 119], "nano-/polycrystalline": [4], "alumina": [5], "and": [6,
+        26, 31, 89, 130], "yttria": [7], "stabilised": [8], "zirconia": [9], "thin":
+        [10], "films": [11, 123], "has": [12], "been": [13, 125], "investigated":
+        [14], "in": [15, 73], "a": [16, 42], "wide": [17], "spectral": [18, 38, 100],
+        "range": [19, 71], "from": [20], "1.0": [21], "eV": [22, 25], "to": [23, 66,
+        84, 106], "7.5": [24], "temperatures": [27], "between": [28], "10": [29],
+        "K": [30], "room": [32, 128], "temperature.": [33], "In": [34], "the": [35,
+        49, 52, 67, 74, 81, 85, 96, 99, 107, 115], "near": [36], "band-edge": [37],
+        "range,": [39], "we": [40, 112], "found": [41], "broad": [43], "distribution":
+        [44], "optical": [46, 86], "transitions": [47], "within": [48], "band": [50],
+        "gap,": [51], "so-called": [53], "Urbach": [54], "absorption": [55], "tail":
+        [56], "which": [57, 111], "is": [58], "typical": [59], "for": [60], "amorphous":
+        [61], "or": [62], "polycrystalline": [63], "materials": [64], "due": [65],
+        "lack": [68], "long": [70], "order": [72], "crystal": [75], "structure.":
+        [76], "coupling": [78], "properties": [79], "electronic": [82], "system":
+        [83], "phonon": [87, 109], "bath": [88], "thermal": [90], "lattice": [91],
+        "vibrations": [92], "strongly": [93], "depend": [94], "on": [95], "ratio":
+        [97], "extent": [101], "these": [103], "disorder": [104], "states": [105],
+        "main": [108], "energy,": [110], "correlate": [113], "with": [114], "different":
+        [116], "crystalline": [117], "structure": [118], "our": [120], "samples.":
+        [121], "have": [124], "grown": [126], "at": [127], "temperature": [129], "650":
+        [131], "\u00b0C": [132], "by": [133], "pulsed": [134], "laser": [135], "deposition.":
+        [136]}, "primary_location": {"id": "doi:10.1063/1.4844515", "doi": "https://doi.org/10.1063/1.4844515",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.4844515", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S187991544", "display_name":
+        "Journal of Applied Physics", "issn_l": "0021-8979", "issn": ["0021-8979",
+        "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1",
+        "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2835736187",
+        "doi": null, "title": "Indium oxide-based thin film transistors implementing
+        Yttria-Stabilised Zirconia gate dielectrics processed from dispersed nanoparticles
+        by spray coating", "publication_year": 2018, "abstract_inverted_index": {"High-k":
+        [0], "dielectrics": [1, 12, 74, 153], "have": [2], "extensively": [3, 30],
+        "been": [4, 132], "studied": [5, 31], "as": [6, 10, 113, 134], "alternatives":
+        [7], "to": [8, 37, 68, 83, 301], "SiO2": [9], "gate": [11, 137, 152], "for":
+        [13], "the": [14, 28, 104, 144, 178, 221, 239, 291, 302, 311], "next": [15],
+        "generation": [16], "of": [17, 43, 59, 75, 106, 118, 125, 148, 163, 187, 197,
+        205, 220, 230, 256, 267, 281, 293], "field-effect": [18, 217], "transistors":
+        [19, 247], "employing": [20, 248], "metal-oxide": [21], "semiconducting":
+        [22], "channels.": [23], "Among": [24], "these,": [25], "ZrO2": [26, 73, 90],
+        "is": [27, 34], "most": [29], "dielectric": [32, 47, 81, 121, 138, 236, 313],
+        "and": [33, 52, 146, 216, 243, 284, 306, 314], "widely": [35], "considered":
+        [36], "be": [38, 98, 299], "excellent": [39, 262], "an": [40, 252], "candidate":
+        [41], "because": [42], "their": [44], "relatively": [45], "high": [46, 120,
+        276, 285], "constant,": [48], "good": [49], "thermal": [50], "stability,":
+        [51], "large": [53, 303], "band": [54, 304], "gap.": [55], "The": [56, 85,
+        194], "use": [57, 105], "however": [58], "substrate": [60], "temperatures":
+        [61, 102, 162], "compatible": [62], "with": [63, 91, 182, 235], "flexible":
+        [64], "glass": [65], "i.e.": [66], "up": [67], "500": [69], "oC": [70, 166],
+        "results": [71], "in": [72, 158, 170, 191, 238, 265, 279, 290], "a": [76,
+        92, 135, 231], "monoclinic": [77], "structure": [78], "limiting": [79], "its":
+        [80, 119], "constant": [82, 122, 237], "15.": [84], "desired": [86], "high-temperature":
+        [87], "(>800": [88], "oC)": [89], "tetragonal": [93], "cubic": [94, 232],
+        "phase": [95, 234], "can": [96], "readily": [97], "stabilized,": [99], "at":
+        [100, 160, 251], "lower": [101], "by": [103, 155, 176, 203], "different":
+        [107], "dopant": [108], "elements": [109], "(or": [110], "compounds": [111],
+        "such": [112], "CaO,": [114], "MgO,": [115], "Y2O3).": [116], "Because": [117],
+        "(in": [123], "excess": [124, 280], "24),": [126], "yttria-stabilized": [127],
+        "zirconia": [128, 150], "(YSZ)": [129, 151], "has": [130], "thus": [131],
+        "suggested": [133], "promising": [136], "candidate.": [139], "Here,": [140],
+        "we": [141], "report": [142], "on": [143], "deposition": [145], "characterisation":
+        [147], "yttria-stabilised": [149], "grown": [154], "spray": [156], "coating":
+        [157], "air": [159], "moderate": [161], "about": [164, 257], "450": [165],
+        "from": [167], "zirconium": [168, 179], "acetylacetonate": [169], "methanol.":
+        [171], "Y2O3": [172, 183, 199, 254], "doping": [173], "was": [174], "achieved":
+        [175], "blending": [177], "host": [180], "precursor": [181], "nanoparticles":
+        [184], "(average": [185], "diameter": [186], "20": [188], "nm)": [189, 229],
+        "dispersed": [190], "HCl": [192], "solution.": [193], "YSZ": [195, 222, 249,
+        312], "films": [196, 223, 226], "various": [198], "content": [200, 255], "were":
+        [201], "investigated": [202], "means": [204], "UV-Vis": [206], "absorption":
+        [207], "spectroscopy,": [208, 213], "x-ray": [209], "diffraction,": [210],
+        "AFM,": [211], "admittance": [212], "spectroscopic": [214], "ellipsometry,":
+        [215], "measurements.": [218], "Analyses": [219], "reveal": [224, 261], "smooth":
+        [225], "(RRMS<": [227], "1": [228], "(fluorite)": [233], "range": [240], "between":
+        [241, 310], "17": [242], "26.": [244], "In2O3-based": [245], "TFT": [246],
+        "deposited": [250], "optimal": [253], "4": [258], "%": [259], "mole,": [260],
+        "operation": [263], "characteristics": [264], "terms": [266], "low": [268,
+        271], "voltage": [269], "operation,": [270], "leakage": [272], "currents":
+        [273], "(1": [274], "nA/cm2),": [275], "electron": [277], "mobility": [278],
+        "35": [282], "cm2/Vs": [283], "on/off": [286], "current": [287], "modulation":
+        [288], "ration": [289], "order": [292], "10^7.": [294], "These": [295], "performance":
+        [296], "enhancements": [297], "may": [298], "attributable": [300], "offsets":
+        [305], "small": [307], "lattice": [308], "mismatch": [309], "In2O3.": [315]},
+        "primary_location": {"id": "pmh:oai:eprints.lancs.ac.uk:126220", "doi": null,
+        "is_oa": false, "landing_page_url": "https://eprints.lancs.ac.uk/id/eprint/126220/",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4306401916", "display_name":
+        "Lancaster EPrints (Lancaster University)", "issn_l": null, "issn": null,
+        "is_oa": false, "is_in_doaj": false, "is_core": false, "listed_in": [], "host_organization":
+        "https://openalex.org/I67415387", "host_organization_name": "Lancaster University",
+        "host_organization_lineage": ["https://openalex.org/I67415387"], "host_organization_lineage_names":
+        [], "type": "repository"}, "license": null, "license_id": null, "version":
+        "submittedVersion", "is_accepted": false, "is_published": false, "raw_source_name":
+        null, "raw_type": "Contribution to Conference"}}, {"id": "https://openalex.org/W1999090891",
+        "doi": "https://doi.org/10.1103/physrevb.82.235415", "title": "Agglomeration
+        of Pt thin films on dielectric substrates", "publication_year": 2010, "abstract_inverted_index":
+        {"The": [0, 41, 114, 254], "agglomeration": [1], "of": [2, 12, 31, 39, 44,
+        53, 102, 117, 127, 133, 142, 178, 209, 236, 241, 251], "metal": [3, 180],
+        "thin": [4, 46, 67, 136, 179], "films": [5, 47, 68, 181], "on": [6, 71], "dielectric":
+        [7], "materials": [8], "is": [9, 121, 153, 166, 194, 231], "a": [10, 19, 122,
+        157, 234, 247], "topic": [11], "high": [13], "technological": [14], "importance.":
+        [15], "In": [16], "this": [17], "contribution,": [18], "coupled": [20], "morphology-agglomeration":
+        [21], "approach": [22], "has": [23, 48], "been": [24, 49, 96, 190, 259], "chosen":
+        [25], "to": [26, 82, 86, 147, 155, 214, 221, 246], "reveal": [27], "the":
+        [28, 36, 99, 130, 134, 150, 175, 204, 215, 219, 222, 228, 239, 242, 252, 266],
+        "basic": [29, 108], "mechanism": [30, 116], "rupture,": [32], "mass": [33,
+        187], "transport,": [34], "and": [35, 60, 74, 80, 161, 171, 207, 218, 265],
+        "substrate": [37], "dependence": [38], "agglomeration.": [40], "morphological":
+        [42, 176, 205], "evolution": [43, 177, 206], "Pt": [45, 66, 135], "investigated":
+        [50], "by": [51, 140, 233], "means": [52, 141], "scanning": [54], "electron":
+        [55], "microscopy,": [56, 59], "atomic": [57], "force": [58], "focused": [61],
+        "ion-beam": [62], "(FIB)": [63], "etching": [64], "techniques.": [65], "were":
+        [69], "deposited": [70], "amorphous": [72], "${\\text{Si}}_{3}{\\text{N}}_{4}$":
+        [73], "polycrystalline": [75], "yttria": [76], "stabilized": [77], "${\\text{ZrO}}_{2}$":
+        [78], "substrates": [79], "subjected": [81], "heat": [83], "treatments": [84],
+        "up": [85], "1193": [87], "K": [88, 149], "for": [89, 174, 186, 269], "2":
+        [90], "h.": [91], "Three": [92], "main": [93], "observations": [94], "have":
+        [95, 189, 258], "made:": [97], "(i)": [98], "early": [100], "stage": [101],
+        "rupture": [103, 120], "can": [104], "be": [105, 156], "described": [106],
+        "via": [107], "thermodynamics": [109], "as": [110, 138], "an": [111], "order-disorder":
+        [112], "transition.": [113], "dominating": [115], "initial": [118], "film":
+        [119, 137], "defect": [123], "associated": [124], "barrierless": [125], "nucleation":
+        [126], "holes": [128], "in": [129, 162, 167, 198, 238], "spinodal": [131],
+        "regime": [132], "shown": [139, 195], "Minkowski": [143], "measures.": [144],
+        "(ii)": [145], "Up": [146], "1073": [148], "hole": [151], "growth": [152],
+        "found": [154], "surface-diffusion": [158], "limited": [159], "process,":
+        [160], "first": [163], "approximation": [164], "it": [165], "agreement": [168],
+        "with": [169], "Brandon": [170], "Bradshaw''s": [172], "theory": [173], "at":
+        [182, 227], "elevated": [183], "temperatures.": [184], "Values": [185], "transport":
+        [188], "derived.": [191], "(iii)": [192], "It": [193], "that": [196], "two":
+        [197], "general": [199], "independent": [200], "physical": [201], "processes":
+        [202], "control": [203], "kinetics": [208], "thin-film": [210], "agglomeration:":
+        [211], "one": [212], "attributes": [213], "film-ambient": [216], "interface":
+        [217, 230, 244], "other": [220], "film-substrate": [223, 229], "interface.":
+        [224], "Void": [225], "formation": [226], "enhanced": [232], "factor": [235],
+        "9": [237], "case": [240], "amorphous-crystalline": [243], "due": [245], "lower":
+        [248], "adhesion": [249, 256], "energy": [250], "film.": [253], "corresponding":
+        [255], "energies": [257], "determined": [260], "experimentally": [261], "using":
+        [262], "FIB": [263], "techniques": [264], "Wulff-Kaishew": [267], "theorem":
+        [268], "equilibrium": [270], "crystal": [271], "shapes.": [272]}, "primary_location":
+        {"id": "doi:10.1103/physrevb.82.235415", "doi": "https://doi.org/10.1103/physrevb.82.235415",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1103/physrevb.82.235415",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S6791298", "display_name":
+        "Physical Review B", "issn_l": "1098-0121", "issn": ["1098-0121", "1538-4489",
+        "1550-235X"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "vabb-shw"], "host_organization": "https://openalex.org/P4310320261",
+        "host_organization_name": "American Physical Society", "host_organization_lineage":
+        ["https://openalex.org/P4310320261"], "host_organization_lineage_names": ["American
+        Physical Society"], "type": "journal"}, "license": null, "license_id": null,
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Physical Review B", "raw_type": "journal-article"}}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a534af2cba301d26-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '19315'
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 18:22:17 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=VfTi9emzqmuzj03lFVIPE49LXbWoVz9ShA7xmaWfSMo%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793470937"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=VfTi9emzqmuzj03lFVIPE49LXbWoVz9ShA7xmaWfSMo%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793470937"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9800'
+      x-ratelimit-remaining-usd:
+      - '0.98'
+      x-ratelimit-reset:
+      - '20263'
+    status:
+      code: 200
+      message: OK
+version: 1

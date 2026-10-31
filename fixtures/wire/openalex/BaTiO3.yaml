@@ -1,0 +1,540 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search=BaTiO3+dielectric+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 7625, "db_response_time_ms": 252, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (BaTiO3 dielectric
+        thin film) in the full text where it has an abstract", "x_new_oql": "get works
+        with (BaTiO3 dielectric thin film) in the full text where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "fulltext.search",
+        "value": "BaTiO3 dielectric thin film", "operator": "has"}, {"column_id":
+        "has_abstract", "value": true}]}, "url": "/works?filter=fulltext.search:BaTiO3
+        dielectric thin film,has_abstract:true&per_page=5", "order": "best matches
+        first", "order_default": true}, "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W1970298396",
+        "doi": "https://doi.org/10.1063/1.121691", "title": "Dielectric properties
+        of epitaxial BaTiO3 thin films", "publication_year": 1998, "abstract_inverted_index":
+        {"The": [0, 25, 69, 95, 110], "dielectric": [1, 31, 54, 74, 114], "response":
+        [2, 55, 71, 115], "of": [3, 19, 29, 40, 52, 59, 66, 72, 112, 121], "epitaxial":
+        [4, 126], "BaTiO3": [5], "thin": [6, 127], "films": [7, 96], "deposited":
+        [8], "on": [9], "MgO": [10], "was": [11, 33], "measured": [12], "through":
+        [13], "surface": [14], "electrodes": [15], "as": [16], "a": [17, 36, 57, 62,
+        80, 98], "function": [18], "applied": [20, 64], "bias,": [21], "frequency,":
+        [22], "and": [23, 56], "temperature.": [24, 109], "room": [26], "temperature":
+        [27], "value": [28], "the": [30, 47, 53, 73, 90, 106, 113, 119, 125], "constant":
+        [32, 75], "\u223c500": [34], "with": [35, 85], "dissipation": [37], "factor,":
+        [38], "tan(\u03b4),": [39], "0.05": [41], "at": [42, 102], "100": [43], "kHz.":
+        [44], "Measurements": [45], "varying": [46], "bias": [48], "field": [49, 65],
+        "showed": [50], "hysteresis": [51], "tunability": [58], "30%": [60], "for":
+        [61], "maximum": [63], "\u223c7": [67], "MV/m.": [68], "frequency": [70],
+        "is": [76, 116], "well": [77], "described": [78], "by": [79], "Curie\u2013von":
+        [81], "Schweidler": [82], "power": [83], "law": [84], "an": [86], "exponent":
+        [87], "\u223c0.04": [88], "in": [89, 124], "range": [91], "1": [92], "kHz\u201313":
+        [93], "MHz.": [94], "undergo": [97], "diffuse": [99], "phase": [100], "transition":
+        [101], "temperatures": [103], "higher": [104], "than": [105], "bulk": [107],
+        "Curie": [108], "behavior": [111], "attributed": [117], "to": [118], "presence":
+        [120], "residual": [122], "strain": [123], "films.": [128]}, "primary_location":
+        {"id": "doi:10.1063/1.121691", "doi": "https://doi.org/10.1063/1.121691",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.121691", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S105243760", "display_name":
+        "Applied Physics Letters", "issn_l": "0003-6951", "issn": ["0003-6951", "1077-3118",
+        "1520-8842"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Applied Physics Letters", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2076161540", "doi": "https://doi.org/10.1063/1.124819",
+        "title": "Low-frequency dielectric relaxation of BaTiO3 thin-film capacitors",
+        "publication_year": 1999, "abstract_inverted_index": {"Ferroelectric": [0],
+        "BaTiO3": [1, 26, 66, 103], "thin": [2, 27, 67], "films": [3, 41, 68], "with":
+        [4], "perovskite": [5], "structure": [6], "were": [7, 57], "grown": [8], "by":
+        [9], "sol-gel": [10], "spin-on": [11], "processing": [12], "onto": [13], "(111)Pt/Ti/SiO2/Si":
+        [14], "substrates.": [15], "In": [16], "order": [17], "to": [18, 91], "investigate":
+        [19], "the": [20, 31, 36, 40, 74, 79, 92, 106, 114, 118], "effects": [21],
+        "of": [22, 39, 45, 117], "space": [23], "charge": [24], "in": [25, 78, 102],
+        "films,": [28], "we": [29], "measured": [30], "relative": [32], "dielectric":
+        [33, 55, 71, 87], "constant": [34, 53], "and": [35, 50, 54, 59, 77, 100, 105],
+        "ac": [37, 47], "conductivity": [38], "as": [42, 97], "a": [43], "function":
+        [44], "frequency,": [46], "oscillation": [48], "amplitude,": [49], "temperature.":
+        [51], "Dielectric": [52], "loss": [56], "147": [58], "0.03": [60], "at": [61],
+        "100": [62, 83], "kHz,": [63], "respectively.": [64], "Also,": [65], "exhibited":
+        [69], "marked": [70], "relaxation": [72, 88, 115], "above": [73], "Curie":
+        [75], "temperature": [76], "low-frequency": [80, 86], "region": [81], "below":
+        [82], "Hz.": [84], "This": [85], "is": [89], "attributed": [90], "ionized":
+        [93, 119], "space-charge": [94, 120], "carriers": [95, 121], "such": [96],
+        "oxygen": [98], "vacancies": [99], "defects": [101], "film": [104], "interfacial":
+        [107], "polarization.": [108], "The": [109], "thermal": [110], "activation":
+        [111], "energy": [112], "for": [113], "process": [116], "was": [122], "0.72":
+        [123], "eV.": [124]}, "primary_location": {"id": "doi:10.1063/1.124819", "doi":
+        "https://doi.org/10.1063/1.124819", "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.124819",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S105243760", "display_name":
+        "Applied Physics Letters", "issn_l": "0003-6951", "issn": ["0003-6951", "1077-3118",
+        "1520-8842"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Applied Physics Letters", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2331487288", "doi": "https://doi.org/10.7567/jjaps.24s2.401",
+        "title": "Dielectric Constants of Deposited BaTiO3 Thin Films", "publication_year":
+        1985, "abstract_inverted_index": {"Thin": [0], "films": [1, 23, 33], "of":
+        [2, 21, 50, 56], "BaTiO3": [3], "were": [4, 24, 44], "deposited": [5], "on":
+        [6], "a": [7, 11, 40, 47, 53], "platinum": [8], "substrate": [9, 48, 62],
+        "using": [10], "tungsten": [12], "heater": [13], "as": [14], "the": [15, 19,
+        22, 29, 35], "evaporation": [16], "source,": [17], "and": [18, 52, 66], "characteristics":
+        [20], "found": [25], "to": [26], "vary": [27], "with": [28, 34, 61], "deposition":
+        [30], "conditions.": [31], "The": [32], "most": [36], "favorable": [37], "characteristics,":
+        [38], "including": [39], "high": [41], "dielectric": [42], "constant,": [43],
+        "obtained": [45], "at": [46], "temperature": [49, 55], "1000\u00b0C": [51,
+        57], "heat-treatment": [54], "or": [58], "greater.": [59], "Films": [60],
+        "temperatures": [63], "between": [64], "600\u00b0C": [65], "800\u00b0C": [67],
+        "can": [68], "be": [69], "used": [70], "in": [71], "making": [72], "memory":
+        [73], "elements.": [74]}, "primary_location": {"id": "doi:10.7567/jjaps.24s2.401",
+        "doi": "https://doi.org/10.7567/jjaps.24s2.401", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.7567/jjaps.24s2.401", "pdf_url": "https://iopscience.iop.org/article/10.7567/JJAPS.24S2.401/pdf",
+        "source": {"id": "https://openalex.org/S143744711", "display_name": "Japanese
+        Journal of Applied Physics", "issn_l": "0021-4922", "issn": ["0021-4922",
+        "1347-4065"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "dongbi-d", "jufo-1", "ki-jl-1", "norway-1", "poland-70", "russia-white-list-2",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310311669", "host_organization_name":
+        "Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310311669"],
+        "host_organization_lineage_names": ["Institute of Physics"], "type": "journal"},
+        "license": null, "license_id": null, "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "Japanese Journal of Applied
+        Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W1989497405",
+        "doi": "https://doi.org/10.1143/jjap.33.5277", "title": "Film Thickness Dependence
+        of Dielectric Properties of BaTiO3 Thin Films Prepared by Sol-Gel Method",
+        "publication_year": 1994, "abstract_inverted_index": {"Ferroelectric": [0],
+        "BaTiO3": [1, 32, 99], "thin": [2, 33, 47, 91, 100], "films": [3, 34, 48,
+        65, 92], "were": [4], "prepared": [5], "on": [6], "Pt(111)/": [7], "SiO2/Si(100)":
+        [8], "substrates": [9], "at": [10], "650\u00b0": [11], "C": [12], "by": [13,
+        22], "the": [14, 31, 41, 75, 83, 90, 96], "sol-gel": [15], "method.": [16],
+        "Film": [17], "thickness": [18, 43, 104], "could": [19, 61], "be": [20, 62],
+        "varied": [21], "repeating": [23], "a": [24, 103, 110], "dip": [25], "coating/heating":
+        [26], "cycle.": [27], "The": [28, 45, 58], "texture": [29], "of": [30, 89,
+        95, 105, 113, 117, 124], "became": [35], "more": [36], "dense": [37], "and":
+        [38, 78, 82, 121], "homogeneous": [39], "when": [40], "film": [42, 73, 97,
+        101], "increased.": [44], "crystalline": [46], "showed": [49], "microstructure":
+        [50], "with": [51, 102], "grains": [52], "as": [53, 55], "small": [54], "20\u201330":
+        [56], "nm.": [57], "dielectric": [59, 76, 111], "properties": [60], "measured":
+        [63], "for": [64], "thicker": [66], "than": [67], "0.25": [68], "\u00b5":
+        [69, 107, 119], "m.": [70], "With": [71], "increasing": [72], "thickness,":
+        [74], "constant": [77, 112], "remanent": [79, 115], "polarization": [80, 116],
+        "increased": [81], "coercive": [84, 122], "field": [85, 123], "decreased.":
+        [86], "Loss": [87], "tangent": [88], "was": [93], "independent": [94], "thickness.":
+        [98], "0.58": [106], "m": [108], "exhibited": [109], "1000,": [114], "8":
+        [118], "C/cm2": [120], "30": [125], "kV/cm.": [126]}, "primary_location":
+        {"id": "doi:10.1143/jjap.33.5277", "doi": "https://doi.org/10.1143/jjap.33.5277",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.1143/jjap.33.5277",
+        "pdf_url": "https://iopscience.iop.org/article/10.1143/JJAP.33.5277/pdf",
+        "source": {"id": "https://openalex.org/S143744711", "display_name": "Japanese
+        Journal of Applied Physics", "issn_l": "0021-4922", "issn": ["0021-4922",
+        "1347-4065"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "dongbi-d", "jufo-1", "ki-jl-1", "norway-1", "poland-70", "russia-white-list-2",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310311669", "host_organization_name":
+        "Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310311669"],
+        "host_organization_lineage_names": ["Institute of Physics"], "type": "journal"},
+        "license": null, "license_id": null, "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "Japanese Journal of Applied
+        Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W1618771199",
+        "doi": "https://doi.org/10.1143/jjap.39.4839", "title": "Dielectric Investigation
+        of BaTiO3 Thin-Film Capacitor", "publication_year": 2000, "abstract_inverted_index":
+        {"The": [0, 36, 78, 99], "dielectric": [1, 56], "properties": [2, 57], "of":
+        [3, 38, 41, 51, 58, 66, 81, 106, 112], "BaTiO3": [4, 43, 68], "thin": [5,
+        14, 44, 60], "film": [6, 24, 45, 61, 83], "were": [7, 62, 72], "investigated":
+        [8], "on": [9, 86], "a": [10], "highly": [11], "c-axis-oriented": [12], "epitaxial":
+        [13], "crystal.": [15], "It": [16], "was": [17, 26, 32, 46, 91], "confirmed":
+        [18], "by": [19, 74], "X-ray": [20], "diffraction": [21], "that": [22, 30,
+        50], "the": [23, 42, 47, 55, 67, 75, 94, 107, 110], "thickness": [25], "120":
+        [27], "\u00c5": [28], "and": [29, 71, 88, 114], "it": [31], "high-quality":
+        [33], "single-crystal": [34], "film.": [35], "spread": [37], "crystal": [39],
+        "orientation": [40], "same": [48], "as": [49], "SrTiO3": [52], "substrate.":
+        [53], "However,": [54], "this": [59, 82, 89], "different": [63], "from": [64],
+        "those": [65], "bulk": [69], "crystals": [70], "explained": [73], "space-charge":
+        [76, 79], "effect.": [77], "polarization": [80], "strongly": [84], "depends":
+        [85], "temperature": [87], "behavior": [90], "observed": [92], "after": [93],
+        "incubation": [95], "time": [96], "had": [97], "passed.": [98], "experimental":
+        [100], "results": [101], "are": [102], "discussed": [103], "in": [104], "terms":
+        [105], "interaction": [108], "between": [109], "polarities": [111], "domain":
+        [113], "space": [115], "charges.": [116]}, "primary_location": {"id": "doi:10.1143/jjap.39.4839",
+        "doi": "https://doi.org/10.1143/jjap.39.4839", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.1143/jjap.39.4839", "pdf_url": "https://iopscience.iop.org/article/10.1143/JJAP.39.4839/pdf",
+        "source": {"id": "https://openalex.org/S143744711", "display_name": "Japanese
+        Journal of Applied Physics", "issn_l": "0021-4922", "issn": ["0021-4922",
+        "1347-4065"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "dongbi-d", "jufo-1", "ki-jl-1", "norway-1", "poland-70", "russia-white-list-2",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310311669", "host_organization_name":
+        "Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310311669"],
+        "host_organization_lineage_names": ["Institute of Physics"], "type": "journal"},
+        "license": null, "license_id": null, "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "Japanese Journal of Applied
+        Physics", "raw_type": "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a534af20aab0eb03-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '13889'
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 18:22:15 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=r34S9fHLTBwm%2FuFZ3HCBmxrYBHy1GjR46iKuTWXkdmQ%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793470935"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=r34S9fHLTBwm%2FuFZ3HCBmxrYBHy1GjR46iKuTWXkdmQ%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793470935"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9850'
+      x-ratelimit-remaining-usd:
+      - '0.985'
+      x-ratelimit-reset:
+      - '20265'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search=barium+titanate+dielectric+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 10502, "db_response_time_ms": 72, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (barium titanate
+        dielectric thin film) in the full text where it has an abstract", "x_new_oql":
+        "get works with (barium titanate dielectric thin film) in the full text where
+        it has an abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "fulltext.search", "value": "barium titanate dielectric thin film", "operator":
+        "has"}, {"column_id": "has_abstract", "value": true}]}, "url": "/works?filter=fulltext.search:barium
+        titanate dielectric thin film,has_abstract:true&per_page=5", "order": "best
+        matches first", "order_default": true}, "cost_usd": 0.001}, "results": [{"id":
+        "https://openalex.org/W2053645835", "doi": "https://doi.org/10.1063/1.124939",
+        "title": "The effect of stress on the dielectric properties of barium strontium
+        titanate thin films", "publication_year": 1999, "abstract_inverted_index":
+        {"Barium": [0], "strontium": [1], "titanate": [2], "thin": [3, 104], "films":
+        [4], "are": [5, 21], "being": [6], "developed": [7], "as": [8], "capacitors":
+        [9], "in": [10, 38, 81], "dynamic": [11], "random": [12], "access": [13],
+        "memories.": [14], "These": [15], "films,": [16], "grown": [17], "on": [18,
+        84, 103], "silicon": [19], "substrates,": [20], "under": [22, 120], "tensile":
+        [23, 33], "residual": [24, 63, 121], "stress.": [25, 122], "By": [26], "a":
+        [27, 70, 75, 82, 85], "converse": [28], "electrostrictive": [29], "effect,":
+        [30], "the": [31, 36, 39, 43, 47, 52, 55, 59, 62, 79, 90, 94, 99, 118], "in-plane":
+        [32], "stress": [34, 64, 80, 102, 108], "reduces": [35], "capacitance": [37,
+        91, 110, 119], "thickness": [40], "direction": [41], "of": [42, 54, 61, 93,
+        101], "film.": [44, 95], "We": [45], "measured": [46], "substrate": [48],
+        "curvature": [49], "change": [50, 92], "upon": [51], "removal": [53], "film,":
+        [56], "and": [57, 87], "found": [58, 112], "magnitude": [60], "to": [65, 77,
+        113], "be": [66, 114], "610": [67], "MPa.": [68], "In": [69], "separate":
+        [71], "experiment,": [72], "we": [73], "applied": [74], "force": [76], "vary":
+        [78], "film": [83, 105], "substrate,": [86], "simultaneously": [88], "recorded":
+        [89], "The": [96, 107], "measurements": [97], "quantify": [98], "effect":
+        [100], "capacitance.": [106], "free": [109], "was": [111], "23%": [115], "higher":
+        [116], "than": [117]}, "primary_location": {"id": "doi:10.1063/1.124939",
+        "doi": "https://doi.org/10.1063/1.124939", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.124939", "pdf_url": null, "source": {"id": "https://openalex.org/S105243760",
+        "display_name": "Applied Physics Letters", "issn_l": "0003-6951", "issn":
+        ["0003-6951", "1077-3118", "1520-8842"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-a",
+        "jufo-3", "ki-jl-1", "norway-2", "poland-100", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Applied Physics
+        Letters", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2093571121",
+        "doi": "https://doi.org/10.1063/1.1459482", "title": "Impact of thermal strain
+        on the dielectric constant of sputtered barium strontium titanate thin films",
+        "publication_year": 2002, "abstract_inverted_index": {"Barium": [0], "strontium":
+        [1, 19], "titanate": [2], "thin": [3], "films": [4, 45], "were": [5, 28],
+        "deposited": [6], "by": [7, 99], "sputtering": [8], "on": [9], "Pt/SiO2":
+        [10], "structures": [11], "using": [12], "five": [13], "different": [14],
+        "host": [15, 66], "substrates:": [16], "magnesium": [17], "oxide,": [18],
+        "titanate,": [20], "sapphire,": [21], "silicon,": [22], "and": [23, 89], "vycor":
+        [24], "glass.": [25], "These": [26], "substrates": [27], "chosen": [29], "to":
+        [30], "provide": [31], "a": [32, 47], "systematic": [33], "change": [34],
+        "in": [35], "thermal": [36, 61, 71, 87], "strain": [37, 88, 96], "while":
+        [38], "maintaining": [39], "the": [40, 65, 74, 90], "same": [41], "film":
+        [42, 75], "microstructure.": [43, 50], "All": [44], "have": [46], "weakly":
+        [48], "textured": [49], "Temperature": [51], "dependent": [52], "dielectric":
+        [53, 76], "measurements": [54], "from": [55], "100\u2013500": [56], "K": [57],
+        "determined": [58, 80], "that": [59], "decreasing": [60], "expansion": [62],
+        "coefficient": [63], "of": [64], "substrate": [67], "(i.e.,": [68], "larger":
+        [69], "tensile": [70, 86, 95], "strain)": [72], "reduced": [73], "permittivity.":
+        [77], "The": [78], "experimentally": [79], "Curie\u2013Weiss": [81, 91], "temperature":
+        [82], "decreased": [83], "with": [84, 94], "increasing": [85], "constant":
+        [92], "increased": [93], "as": [97], "predicted": [98], "Pertsev": [100],
+        "et": [101], "al.": [102], "[J.": [103], "Appl.": [104], "Phys.": [105], "85,":
+        [106], "1698": [107], "(1999)].": [108]}, "primary_location": {"id": "doi:10.1063/1.1459482",
+        "doi": "https://doi.org/10.1063/1.1459482", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.1459482", "pdf_url": null, "source": {"id": "https://openalex.org/S105243760",
+        "display_name": "Applied Physics Letters", "issn_l": "0003-6951", "issn":
+        ["0003-6951", "1077-3118", "1520-8842"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-a",
+        "jufo-3", "ki-jl-1", "norway-2", "poland-100", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Applied Physics
+        Letters", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W1995061549",
+        "doi": "https://doi.org/10.1063/1.2218765", "title": "Barium titanate nanocrystals
+        and nanocrystal thin films: Synthesis, ferroelectricity, and dielectric properties",
+        "publication_year": 2006, "abstract_inverted_index": {"Advanced": [0], "applications":
+        [1], "for": [2, 123, 200, 239], "high": [3], "k": [4], "dielectric": [5],
+        "and": [6, 33, 102, 156, 167, 195, 251], "ferroelectric": [7, 198], "materials":
+        [8], "in": [9, 22, 52, 179, 208, 221], "the": [10, 19, 26, 30, 64, 83, 133,
+        143, 201, 209, 216, 222, 227, 240], "electronics": [11], "industry": [12],
+        "continues": [13], "to": [14, 66, 76, 93], "demand": [15], "an": [16, 80,
+        91], "understanding": [17, 81], "of": [18, 36, 43, 58, 73, 82, 112, 139, 145,
+        211, 215, 224, 242], "underlying": [20], "physics": [21], "decreasing": [23],
+        "dimensions": [24], "into": [25, 96], "nanoscale.": [27], "We": [28, 54, 131,
+        141, 232], "report": [29], "synthesis,": [31], "processing,": [32], "electrical":
+        [34, 104], "characterization": [35], "thin": [37, 41, 97, 129, 173, 243],
+        "(<100nm": [38], "thick)": [39], "nanostructured": [40, 249], "films": [42,
+        69, 98, 174, 180, 204, 217, 244], "barium": [44], "titanate": [45], "(BaTiO3)":
+        [46], "built": [47], "from": [48], "uniform": [49, 101, 183, 248], "nanoparticles":
+        [50], "(<20nm": [51], "diameter).": [53], "introduce": [55], "a": [56, 61,
+        86, 109, 121, 182], "form": [57], "processing": [59], "as": [60, 85, 120,
+        163, 235], "step": [62], "toward": [63], "ability": [65, 92], "prepare": [67],
+        "textured": [68], "based": [70], "on": [71, 159], "assembly": [72], "nanoparticles.":
+        [74], "Essential": [75], "this": [77], "approach": [78], "is": [79], "nanoparticle":
+        [84], "building": [87, 237], "block,": [88], "combined": [89], "with": [90,
+        137, 152, 181, 205, 229], "integrate": [94], "them": [95], "that": [99], "have":
+        [100], "characteristic": [103], "properties.": [105], "Our": [106], "method":
+        [107], "offers": [108], "versatile": [110], "means": [111], "preparing": [113],
+        "BaTiO3": [114, 127, 134, 147, 171, 202], "nanocrystals,": [115], "which":
+        [116, 245], "can": [117], "be": [118], "used": [119], "basis": [122], "micropatterned":
+        [124], "or": [125], "continuous": [126], "nanocrystal": [128, 172], "films.":
+        [130], "observe": [132], "nanocrystals": [135, 148, 234], "crystallize": [136],
+        "evidence": [138], "tetragonality.": [140], "investigated": [142], "preparation":
+        [144, 241], "well-isolated": [146], "smaller": [149], "than": [150], "10nm":
+        [151], "control": [153], "over": [154, 226], "aggregation": [155], "crystal":
+        [157], "densities": [158], "various": [160], "substrates": [161], "such":
+        [162], "Si,": [164], "Si\u2215SiO2,": [165], "Si3N4\u2215Si,": [166], "Pt-coated":
+        [168], "Si": [169], "substrates.": [170], "were": [175], "then": [176], "prepared,":
+        [177], "resulting": [178], "nanocrystalline": [184, 203], "grain": [185, 206,
+        252], "texture.": [186], "Electric": [187], "field": [188], "dependent": [189],
+        "polarization": [190, 194], "measurements": [191, 214], "show": [192, 218],
+        "spontaneous": [193], "hysteresis,": [196], "indicating": [197], "behavior":
+        [199], "sizes": [207], "range": [210, 223], "10\u201330nm.": [212], "Dielectric":
+        [213], "dielectic": [219], "constants": [220], "85\u201390": [225], "1KHz\u2013100KHz,":
+        [228], "low": [230], "loss.": [231], "present": [233], "initial": [236], "blocks":
+        [238], "exhibit": [246], "highly": [247], "texture": [250], "sizes.": [253]},
+        "primary_location": {"id": "doi:10.1063/1.2218765", "doi": "https://doi.org/10.1063/1.2218765",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.2218765", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S187991544", "display_name":
+        "Journal of Applied Physics", "issn_l": "0021-8979", "issn": ["0021-8979",
+        "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1",
+        "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2042766778",
+        "doi": "https://doi.org/10.1063/1.358733", "title": "Structural and dielectric
+        properties of spin-on barium-strontium titanate thin films", "publication_year":
+        1995, "abstract_inverted_index": {"Barium-strontium-titanate": [0], "(Ba0.5Sr0.5)TiO3":
+        [1], "thin": [2], "film": [3], "capacitors": [4], "fabricated": [5], "by":
+        [6], "a": [7], "spin-on": [8], "technique": [9], "were": [10], "studied.":
+        [11], "At": [12], "room": [13], "temperature": [14], "the": [15, 39, 54, 73,
+        79], "films": [16], "have": [17], "high": [18], "dielectric": [19, 44, 74],
+        "constant": [20, 75], "\u03b5,": [21], "ranging": [22], "from": [23], "22":
+        [24], "to": [25, 37, 72], "151": [26], "at": [27, 85], "1": [28, 86], "MHz.":
+        [29], "Complex": [30], "impedance": [31], "spectroscopy": [32], "was": [33,
+        88], "used": [34], "in": [35, 53, 77], "order": [36], "measure": [38], "frequency":
+        [40, 55], "dependence": [41], "of": [42, 50, 64], "their": [43], "properties.":
+        [45], "Cole\u2013Cole": [46], "reactance": [47], "versus": [48], "resistance":
+        [49], "experimental": [51], "data": [52], "range": [56], "10": [57], "Hz\u201310":
+        [58], "MHz": [59, 87], "show": [60], "semicircular": [61], "behavior": [62],
+        "indicative": [63], "current": [65, 68, 82], "leakage.": [66], "The": [67],
+        "leakage": [69, 81], "is": [70], "proportional": [71], "and": [76], "particular":
+        [78], "lowest": [80], "we": [83], "measured": [84], "3\u00d710\u22125": [89],
+        "A/cm2": [90], "on": [91], "samples": [92], "with": [93], "\u03b5=22.": [94]},
+        "primary_location": {"id": "doi:10.1063/1.358733", "doi": "https://doi.org/10.1063/1.358733",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.358733", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S187991544", "display_name":
+        "Journal of Applied Physics", "issn_l": "0021-8979", "issn": ["0021-8979",
+        "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1",
+        "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2127713240",
+        "doi": "https://doi.org/10.1109/ectc.1998.678688", "title": "Barium titanate/epoxy
+        composite dielectric materials for integrated thin film capacitors", "publication_year":
+        2002, "abstract_inverted_index": {"Integration": [0], "of": [1, 75, 92, 106,
+        169, 175, 185], "passive": [2], "components": [3], "into": [4, 96], "electronic":
+        [5], "packaging": [6], "will": [7], "lead": [8], "to": [9], "further": [10],
+        "structural": [11], "miniaturization,": [12], "performance": [13], "and":
+        [14, 42, 80, 130, 181], "reliability": [15], "improvements,": [16], "as":
+        [17, 19], "well": [18], "cost": [20], "reduction": [21], "in": [22, 33, 73,
+        132], "the": [23, 28, 36, 48, 89, 97, 103, 107, 120], "microelectronics":
+        [24], "industry.": [25], "To": [26], "replace": [27], "discrete": [29], "capacitors":
+        [30, 159], "currently": [31], "employed": [32], "packages": [34], "with":
+        [35, 47, 110], "embedded": [37], "ones,": [38], "suitable": [39], "dielectric":
+        [40, 138, 164, 173], "materials": [41], "thin": [43, 61, 139], "film": [44,
+        62], "processes": [45], "compatible": [46], "PWB": [49], "technology": [50,
+        63], "are": [51], "desired.": [52], "Toward": [53], "this": [54, 87], "end,":
+        [55], "we": [56], "have": [57, 194], "been": [58, 195], "investigating": [59],
+        "a": [60, 111, 172, 190], "based": [64], "on": [65, 143, 157], "barium": [66,
+        94, 122, 170], "titanate": [67, 95, 123], "(BaTiO/sub": [68], "3/)/epoxy":
+        [69], "composites,": [70], "whose": [71], "advantages": [72], "terms": [74],
+        "processability,": [76], "low": [77, 182], "processing": [78], "temperature,":
+        [79], "versatility": [81], "make": [82], "it": [83], "quite": [84], "promising.":
+        [85], "In": [86], "process,": [88], "homogeneous": [90], "dispersion": [91],
+        "fine-grained": [93], "epoxy": [98, 127], "matrix": [99], "was": [100], "achieved":
+        [101], "through": [102], "surface": [104], "functionalization": [105], "ceramic":
+        [108], "powders": [109], "silane": [112], "coupling": [113], "agent.": [114],
+        "Particulate": [115], "coatings": [116], "were": [117, 141], "formulated":
+        [118], "using": [119], "functionalized": [121], "powders,": [124], "bisphenol":
+        [125], "A": [126], "resin,": [128], "dicyandiamide,": [129], "2-methylimidazole":
+        [131], "an": [133], "organic": [134], "solvent.": [135], "The": [136], "composite":
+        [137, 163], "layers": [140], "processed": [142], "Cu": [144], "substrates":
+        [145], "by": [146, 150], "spinor": [147], "dip-coating": [148], "followed":
+        [149], "curing": [151], "at": [152, 178], "175/spl": [153], "deg/C.": [154],
+        "Electrical": [155], "measurements": [156], "these": [158], "demonstrate":
+        [160], "that,": [161], "for": [162], "films": [165], "containing": [166],
+        "60": [167], "vol%": [168], "titanate,": [171], "constant": [174], "about":
+        [176], "40": [177], "1": [179], "kHz": [180], "loss": [183], "factors": [184],
+        "less": [186], "than": [187], "0.035": [188], "over": [189], "wide": [191],
+        "frequency": [192], "region": [193], "obtained.": [196]}, "primary_location":
+        {"id": "doi:10.1109/ectc.1998.678688", "doi": "https://doi.org/10.1109/ectc.1998.678688",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1109/ectc.1998.678688",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4363608088", "display_name":
+        "IEEE Electronic Components and Technology Conference (ECTC)", "issn_l": "2766-8401",
+        "issn": ["2766-8401"], "is_oa": false, "is_in_doaj": false, "is_core": false,
+        "listed_in": [], "host_organization": null, "host_organization_name": null,
+        "host_organization_lineage": [], "host_organization_lineage_names": [], "type":
+        "conference"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "1998 Proceedings.
+        48th Electronic Components and Technology Conference (Cat. No.98CH36206)",
+        "raw_type": "proceedings-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a534af236cb0eb03-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '17095'
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 18:22:15 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=r34S9fHLTBwm%2FuFZ3HCBmxrYBHy1GjR46iKuTWXkdmQ%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793470935"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=r34S9fHLTBwm%2FuFZ3HCBmxrYBHy1GjR46iKuTWXkdmQ%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793470935"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9840'
+      x-ratelimit-remaining-usd:
+      - '0.984'
+      x-ratelimit-reset:
+      - '20265'
+    status:
+      code: 200
+      message: OK
+version: 1

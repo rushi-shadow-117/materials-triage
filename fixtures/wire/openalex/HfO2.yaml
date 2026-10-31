@@ -1,0 +1,559 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search=HfO2+dielectric+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 6816, "db_response_time_ms": 110, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (HfO2 dielectric
+        thin film) in the full text where it has an abstract", "x_new_oql": "get works
+        with (HfO2 dielectric thin film) in the full text where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "fulltext.search",
+        "value": "HfO2 dielectric thin film", "operator": "has"}, {"column_id": "has_abstract",
+        "value": true}]}, "url": "/works?filter=fulltext.search:HfO2 dielectric thin
+        film,has_abstract:true&per_page=5", "order": "best matches first", "order_default":
+        true}, "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2023578199",
+        "doi": "https://doi.org/10.4028/www.scientific.net/kem.206-213.1285", "title":
+        "Crystallisation and Tetragonal-Monoclinic Transformation in ZrO2 and HfO2
+        Dielectric Thin Films", "publication_year": 2001, "abstract_inverted_index":
+        {"Abstract.": [0], "The": [1, 57, 73, 100, 126], "crystallisation": [2, 52,
+        58, 82], "and": [3, 10, 112], "the": [4, 47, 65, 70, 78, 81, 89, 104, 110,
+        117], "tetragonal-to-monoclinic": [5], "phase": [6, 101, 119], "transformation":
+        [7, 128], "in": [8, 40, 124], "ZrO2": [9], "HfO2": [11, 92], "thin": [12],
+        "films": [13, 31, 106], "prepared": [14], "by": [15], "atomic": [16], "layer":
+        [17], "chemical": [18], "vapour": [19], "deposition": [20], "(ALCVD)": [21],
+        "are": [22, 32], "studied": [23], "using": [24], "high-temperature": [25],
+        "grazing-incidence": [26], "X-ray": [27], "diffraction": [28], "(HT-XRD).":
+        [29], "These": [30], "developed": [33], "for": [34], "applications": [35],
+        "as": [36], "high-k": [37], "dielectric": [38], "gate": [39], "CMOS": [41],
+        "transistors.": [42], "HT-XRD": [43], "shows": [44], "that": [45], "all":
+        [46], "tested": [48], "samples": [49], "have": [50], "a": [51, 75, 86, 95],
+        "onset": [53, 59, 83], "temperature": [54, 60, 97], "below": [55], "600\u00b0C.":
+        [56], "depends": [61, 107], "not": [62], "only": [63], "on": [64, 69, 109],
+        "material,": [66], "but": [67], "also": [68, 108], "film": [71, 76, 87, 113],
+        "thickness.": [72, 114], "thinner": [74], "is,": [77], "higher": [79, 96],
+        "is": [80, 120], "temperature.": [84], "For": [85], "with": [88], "same":
+        [90], "thickness,": [91], "crystallises": [93], "at": [94], "than": [98, 123],
+        "ZrO2.": [99], "composition": [102], "of": [103], "crystallised": [105], "material":
+        [111], "In": [115], "ZrO2,": [116], "tetragonal": [118], "more": [121], "stable":
+        [122], "HfO2.": [125], "t-m": [127], "during": [129], "annealing": [130],
+        "has": [131], "been": [132], "observed.": [133]}, "primary_location": {"id":
+        "doi:10.4028/www.scientific.net/kem.206-213.1285", "doi": "https://doi.org/10.4028/www.scientific.net/kem.206-213.1285",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.4028/www.scientific.net/kem.206-213.1285",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S75411654", "display_name":
+        "Key engineering materials", "issn_l": "1013-9826", "issn": ["1013-9826",
+        "1662-9795", "1662-9809"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["cwts-core", "jufo-1", "norway-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310317839", "host_organization_name": "Trans Tech
+        Publications", "host_organization_lineage": ["https://openalex.org/P4310317839"],
+        "host_organization_lineage_names": ["Trans Tech Publications"], "type": "book
+        series"}, "license": "cc-by", "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Key Engineering Materials", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2754516706", "doi": "https://doi.org/10.1063/1.4999899",
+        "title": "Effects of biased irradiation on charge trapping in HfO2 dielectric
+        thin films", "publication_year": 2017, "abstract_inverted_index": {"This":
+        [0, 148], "paper": [1], "reports": [2], "the": [3, 13, 31, 66, 77, 91, 106,
+        132, 142, 157, 167, 177, 210, 217, 229, 234, 240], "low-dose-rate": [4], "radiation":
+        [5, 42, 230], "response": [6, 43, 231], "of": [7, 30, 57, 72, 76, 145, 200,
+        212, 216, 233], "Al-HfO2/SiO2\u2013Si": [8], "MOS": [9, 80, 236], "devices,":
+        [10], "in": [11, 156, 176, 255], "which": [12, 96], "gate": [14], "dielectric":
+        [15], "was": [16, 33, 124, 189, 244, 248], "formed": [17], "by": [18, 35,
+        101], "atomic": [19], "layer": [20], "deposition": [21], "(ALD)": [22], "with":
+        [23, 62, 131, 141, 196, 253], "5-nm": [24], "equivalent": [25], "oxide": [26,
+        93, 159], "thickness.": [27], "The": [28, 82, 161, 203], "degradation": [29],
+        "devices": [32, 237], "characterized": [34], "a": [36, 52, 127, 180], "pulse":
+        [37], "capacitance-voltage": [38], "(CV)": [39], "and": [40, 140, 170, 224],
+        "on-site": [41], "technique": [44], "under": [45, 126, 193], "continuous":
+        [46], "gamma": [47], "(\u03b3)": [48], "ray": [49], "exposure": [50], "at":
+        [51], "relatively": [53], "low": [54], "dose": [55, 134], "rate": [56], "0.116":
+        [58], "rad": [59], "(HfO2)/s.": [60], "Compared": [61], "conventional": [63],
+        "CV": [64], "measurements,": [65], "proposed": [67], "measurements": [68],
+        "extract": [69], "significant": [70], "variations": [71], "flat-band": [73,
+        84, 117, 182], "voltage": [74, 85, 118, 183], "shift": [75, 86, 119, 184,
+        205], "hafnium": [78], "based": [79], "devices.": [81], "large": [83], "is":
+        [87, 149, 206], "mainly": [88, 207], "attributed": [89, 150], "to": [90, 121,
+        136, 151, 186, 209], "radiation-induced": [92], "trapped": [94, 174, 213],
+        "charges,": [95], "are": [97, 164], "not": [98], "readily": [99], "compensated":
+        [100], "bias-induced": [102], "charges": [103, 163], "produced": [104], "over":
+        [105], "measurement": [107], "timescales": [108, 110], "(for": [109], "less":
+        [111], "than": [112], "5": [113], "ms).": [114], "A": [115], "negative": [116,
+        194], "up": [120, 135, 185], "\u22121.02": [122], "V": [123, 188], "observed":
+        [125, 190], "positive": [128, 153, 181, 204], "biased": [129], "irradiation":
+        [130, 192, 254], "total": [133], "40": [137], "krad": [138], "(HfO2)": [139],
+        "electric": [143, 198], "field": [144, 199], "0.5": [146], "MV/cm.": [147,
+        202], "net": [152], "charge": [154], "generation": [155], "HfO2": [158], "layer.":
+        [160], "generated": [162], "transported": [165], "towards": [166], "HfO2/SiO2":
+        [168], "interface,": [169], "then": [171], "form": [172], "effective": [173],
+        "holes": [175], "HfO2.": [178], "Similarly,": [179], "1.1": [187], "from":
+        [191], "bias": [195], "an": [197], "\u22120.5": [201], "due": [208], "accumulation":
+        [211], "electrons.": [214], "Analyses": [215], "experimental": [218], "results":
+        [219], "suggest": [220], "that": [221], "both": [222], "hole": [223], "electron":
+        [225], "trapping": [226], "can": [227], "dominate": [228], "performance":
+        [232], "HfO2-based": [235], "depending": [238], "upon": [239], "applied":
+        [241], "bias.": [242], "It": [243], "also": [245], "found": [246], "there":
+        [247], "no": [249], "distinct": [250], "border": [251], "traps": [252], "all":
+        [256], "cases.": [257]}, "primary_location": {"id": "doi:10.1063/1.4999899",
+        "doi": "https://doi.org/10.1063/1.4999899", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.4999899", "pdf_url": null, "source": {"id": "https://openalex.org/S2764696622",
+        "display_name": "AIP conference proceedings", "issn_l": "0094-243X", "issn":
+        ["0094-243X", "1551-7616", "1935-0465"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["cwts-core", "jufo-1", "norway-1"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "AIP Conference
+        Proceedings", "raw_type": "proceedings-article"}}, {"id": "https://openalex.org/W7168174439",
+        "doi": "https://doi.org/10.4313/jkem.2023.36.2.3", "title": "Study of Al Doping
+        Effect on HfO2 Dielectric Thin Film Using PEALD", "publication_year": 2023,
+        "abstract_inverted_index": {"Recently,": [0], "as": [1, 21, 38], "the": [2,
+        5, 12, 33, 48, 97, 121, 127, 146], "process": [3], "of": [4, 14, 35, 50, 126,
+        135, 149], "MOS": [6], "device": [7, 130, 152], "becomes": [8], "more": [9],
+        "detailed,": [10], "and": [11, 75, 96, 120, 123], "degree": [13], "integration":
+        [15], "thereof": [16], "increases,": [17], "many": [18, 52], "problems": [19],
+        "such": [20], "leakage": [22], "current": [23], "due": [24, 31], "to": [25,
+        32, 46, 102, 140], "an": [26, 77, 142], "increase": [27], "in": [28, 89, 99,
+        145], "electron": [29], "tunneling": [30], "thickness": [34], "SiO2": [36],
+        "used": [37], "a": [39, 61, 69], "gate": [40], "oxide": [41], "have": [42,
+        54], "occurred.": [43], "In": [44, 81], "order": [45], "overcome": [47], "limitation":
+        [49], "SiO2,": [51, 74], "studies": [53], "been": [55], "conducted": [56],
+        "on": [57], "HfO2": [58, 108], "that": [59], "has": [60, 68, 76], "thermodynamic":
+        [62], "stability": [63], "with": [64, 94], "silicon": [65], "during": [66],
+        "processing,": [67], "higher": [70], "dielectric": [71], "constant": [72],
+        "than": [73], "appropriate": [78], "band": [79], "gap.": [80], "this": [82,
+        136], "study,": [83], "HfO2,": [84], "which": [85], "is": [86], "attracting":
+        [87], "attention": [88], "various": [90], "fields,": [91], "was": [92, 105,
+        111], "doped": [93], "Al": [95], "change": [98], "properties": [100], "according":
+        [101], "its": [103], "concentration": [104], "studied.": [106], "Al-doped":
+        [107], "thin": [109], "film": [110], "deposited": [112], "using": [113], "Plasma":
+        [114], "Enhanced": [115], "Atomic": [116], "Layer": [117], "Deposition": [118],
+        "(PEALD),": [119], "structural": [122], "electrical": [124], "characteristics":
+        [125], "fabricated": [128], "MIM": [129], "were": [131], "evaluated.": [132],
+        "The": [133], "results": [134], "study": [137], "are": [138], "expected":
+        [139], "make": [141], "essential": [143], "cornerstone": [144], "future":
+        [147], "field": [148], "next-generation": [150], "semiconductor": [151], "materials.":
+        [153]}, "primary_location": {"id": "doi:10.4313/jkem.2023.36.2.3", "doi":
+        "https://doi.org/10.4313/jkem.2023.36.2.3", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.4313/jkem.2023.36.2.3", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S2764904510", "display_name": "Journal of the Korean
+        Institute of Electrical and Electronic Material Engineers", "issn_l": "1226-7945",
+        "issn": ["1226-7945", "2288-3258"], "is_oa": true, "is_in_doaj": false, "is_core":
+        false, "listed_in": ["kci-registered"], "host_organization": null, "host_organization_name":
+        null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Korean Institute of Electrical and Electronic Materials Engineers", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W3178428086", "doi": "https://doi.org/10.1063/5.0055847",
+        "title": "Utilizing tertiary butyl iodide as an effective film quality enhancing
+        agent for atomic layer deposition of HfO2 dielectric thin films", "publication_year":
+        2021, "abstract_inverted_index": {"The": [0, 34, 202], "effects": [1], "of":
+        [2, 6, 16, 36, 51, 89, 97, 121, 124, 165, 170, 176, 182, 210], "the": [3,
+        48, 84, 90, 111, 191, 194, 221], "initial": [4], "pulse": [5], "tert-butyl":
+        [7, 42, 198], "iodide": [8, 40, 43, 82, 116, 199], "as": [9, 144], "a": [10,
+        129, 179], "surfactant": [11], "in": [12, 103, 128, 132, 154, 184, 193], "atomic":
+        [13], "layer": [14], "deposition": [15], "HfO2": [17, 204], "using": [18],
+        "cyclopentadienyl": [19], "tris(dimethylamino)": [20], "hafnium,": [21], "CpHf(NMe2)3,":
+        [22], "and": [23, 31, 38, 61, 80, 86, 114, 139, 172], "ozone,": [24], "O3,":
+        [25], "are": [26], "investigated": [27], "at": [28, 136, 141, 215], "320,":
+        [29], "300,": [30], "250": [32, 142], "\u00b0C.": [33], "formation": [35],
+        "2-methylpropene": [37, 79], "hydrogen": [39, 81, 115], "from": [41], "via":
+        [44], "elimination": [45], "reactions": [46, 167], "is": [47, 157, 187, 200,
+        219], "key": [49], "idea": [50], "our": [52], "effective": [53, 119], "approach":
+        [54], "for": [55], "improving": [56], "film": [57, 59, 104, 155, 195, 205],
+        "conformality,": [58], "quality,": [60], "leakage": [62, 185, 208, 226], "current":
+        [63, 186, 227], "simultaneously.": [64], "Our": [65], "predicted": [66], "growth":
+        [67], "mechanisms,": [68], "supported": [69], "by": [70, 78, 146], "experimental":
+        [71], "results,": [72], "suggest": [73], "that": [74], "different": [75],
+        "blocking": [76], "probabilities": [77], "on": [83], "top": [85], "bottom":
+        [87], "sides": [88], "trench": [91], "feature": [92], "with": [93], "an":
+        [94], "aspect": [95], "ratio": [96], "22.6:1": [98], "lead": [99, 117], "to":
+        [100, 118, 162, 190], "10%": [101], "improvement": [102, 181, 192], "conformality.":
+        [105], "In": [106, 174], "addition,": [107], "ligand": [108], "exchanges":
+        [109], "between": [110, 168], "Hf": [112], "precursor": [113], "removal":
+        [120], "large": [122], "portions": [123], "carbon-containing": [125], "ligands,":
+        [126], "resulting": [127], "significant": [130, 180], "reduction": [131],
+        "carbon": [133], "residues,": [134], "76%": [135], "320": [137], "\u00b0C":
+        [138], "40%": [140], "\u00b0C,": [143], "evidenced": [145], "secondary": [147],
+        "ion": [148], "mass": [149], "spectrometry": [150], "results.": [151], "An":
+        [152], "increase": [153], "density": [156], "also": [158], "observed": [159],
+        "partly": [160], "due": [161, 189], "better": [163], "completion": [164],
+        "surface": [166], "\u2013I": [169], "Hf\u2013I": [171], "O3.": [173], "terms":
+        [175], "electrical": [177], "properties,": [178], "95%": [183], "achieved":
+        [188], "quality": [196], "when": [197], "employed.": [201], "deposited": [203],
+        "has": [206], "superior": [207], "properties": [209], "5.18": [211], "\u00d7":
+        [212], "10\u22128": [213], "A/cm2": [214], "3": [216], "MV/cm,": [217], "which":
+        [218], "below": [220], "dynamic": [222], "random": [223], "access": [224],
+        "memory": [225], "limit.": [228]}, "primary_location": {"id": "doi:10.1063/5.0055847",
+        "doi": "https://doi.org/10.1063/5.0055847", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.1063/5.0055847", "pdf_url": "https://aip.scitation.org/doi/pdf/10.1063/5.0055847",
+        "source": {"id": "https://openalex.org/S189917590", "display_name": "AIP Advances",
+        "issn_l": "2158-3226", "issn": ["2158-3226"], "is_oa": true, "is_in_doaj":
+        true, "is_core": true, "listed_in": ["cwts-core", "doaj", "dongbi-d", "jufo-1",
+        "ki-jl-1", "norway-1", "oarl", "poland-70", "russia-white-list-2", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": "cc-by", "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "AIP Advances", "raw_type": "journal-article"}}, {"id":
+        "https://openalex.org/W1965217481", "doi": "https://doi.org/10.1143/jjap.31.2501",
+        "title": "High Dielectric Constant of RF-Sputtered HfO2 Thin Films", "publication_year":
+        1992, "abstract_inverted_index": {"Hafnium": [0], "dioxide": [1], "(HfO2)":
+        [2], "thin": [3], "films": [4, 33, 47], "are": [5, 39, 48, 65, 81], "deposited":
+        [6], "on": [7], "indium-tin-oxide": [8], "(ITO)-coated": [9], "glass": [10],
+        "substrates": [11], "by": [12], "the": [13], "radio-frequency": [14], "(RF)":
+        [15], "sputtering": [16, 57], "method": [17], "using": [18], "a": [19], "HfO2":
+        [20, 32, 46], "sintered": [21], "target.": [22], "The": [23, 41, 61], "deposition":
+        [24, 43], "conditions,": [25], "dielectric": [26, 29, 63], "loss": [27], "and":
+        [28, 35, 56, 68, 76], "constant": [30], "of": [31], "before": [34, 75], "after":
+        [36, 77], "heat": [37], "treatment": [38], "studied.": [40], "best": [42],
+        "conditions": [44], "for": [45], "RF": [49], "power": [50], "200": [51], "W,":
+        [52], "substrate": [53], "temperature": [54], "100\u00b0C": [55], "gas": [58],
+        "pure": [59], "Ar.": [60], "maximum": [62], "constants": [64], "about": [66],
+        "150": [67], "45": [69], "with": [70], "1": [71], "kHz": [72], "signal": [73],
+        "excitation": [74], "annealing,": [78], "respectively.": [79], "They": [80],
+        "higher": [82], "than": [83], "any": [84], "ever": [85], "reported.": [86]},
+        "primary_location": {"id": "doi:10.1143/jjap.31.2501", "doi": "https://doi.org/10.1143/jjap.31.2501",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.1143/jjap.31.2501",
+        "pdf_url": "https://iopscience.iop.org/article/10.1143/JJAP.31.2501/pdf",
+        "source": {"id": "https://openalex.org/S143744711", "display_name": "Japanese
+        Journal of Applied Physics", "issn_l": "0021-4922", "issn": ["0021-4922",
+        "1347-4065"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "dongbi-d", "jufo-1", "ki-jl-1", "norway-1", "poland-70", "russia-white-list-2",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310311669", "host_organization_name":
+        "Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310311669"],
+        "host_organization_lineage_names": ["Institute of Physics"], "type": "journal"},
+        "license": null, "license_id": null, "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "Japanese Journal of Applied
+        Physics", "raw_type": "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a534af068a1df165-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '17762'
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 18:22:11 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=mCJ9dM7jZRNLl4wThpxKpmNKS65t6nms0SHTkR8e5fw%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793470931"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=mCJ9dM7jZRNLl4wThpxKpmNKS65t6nms0SHTkR8e5fw%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793470931"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9990'
+      x-ratelimit-remaining-usd:
+      - '0.999'
+      x-ratelimit-reset:
+      - '20269'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search=hafnia+dielectric+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 3393, "db_response_time_ms": 121, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (hafnia dielectric
+        thin film) in the full text where it has an abstract", "x_new_oql": "get works
+        with (hafnia dielectric thin film) in the full text where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "fulltext.search",
+        "value": "hafnia dielectric thin film", "operator": "has"}, {"column_id":
+        "has_abstract", "value": true}]}, "url": "/works?filter=fulltext.search:hafnia
+        dielectric thin film,has_abstract:true&per_page=5", "order": "best matches
+        first", "order_default": true}, "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W4367295383",
+        "doi": null, "title": "Thermal Decomposition of Hafnium Ethoxide-Mollecular
+        Precursor for Hafnia Dielectric Thin Films", "publication_year": 2012, "abstract_inverted_index":
+        {"The": [0, 14, 32, 47, 71], "HfO2": [1], "thin-film": [2], "is": [3, 36],
+        "a": [4, 37], "very": [5], "promising": [6], "gate": [7], "dielectric": [8],
+        "material": [9], "for": [10, 27], "last": [11], "generation": [12], "transistors.":
+        [13], "paper": [15], "presents": [16], "the": [17, 94, 117, 123, 128], "thermal":
+        [18, 48], "decomposition": [19, 49, 79, 129], "of": [20, 39, 50, 73, 119],
+        "hafnium": [21, 51], "ethoxide": [22, 52], "used": [23], "as": [24], "molecular":
+        [25, 34, 124], "precursor": [26, 35, 53, 125], "obtaining": [28], "hafnia":
+        [29], "thin": [30], "films.": [31], "investigated": [33, 55], "mixture": [38],
+        "Hf3O(OC2H5)10": [40], "and": [41, 89, 105, 112, 133], "Hf4O(OC2H5)14": [42],
+        "moisture": [43], "sensitive": [44], "amorphous": [45], "powder.": [46], "was":
+        [54], "by": [56, 83], "TG-DTG-DSC": [57], "analysis": [58], "from": [59, 122,
+        143], "room": [60], "temperature": [61], "to": [62], "600": [63], "oC": [64],
+        "in": [65, 127, 139], "nitrogen": [66], "atmosphere": [67], "at": [68], "5":
+        [69], "K/min.": [70], "composition": [72], "gas": [74, 95], "products": [75],
+        "resulted": [76], "during": [77], "pyrolytic": [78], "has": [80], "been":
+        [81], "studied": [82], "Fourier": [84], "Transformation": [85], "Infrared":
+        [86], "Spectroscopy": [87, 91], "(FTIR)": [88], "Mass": [90], "(MS).": [92],
+        "In": [93], "products,": [96], "hydrogen,": [97], "methyl,": [98], "ethyl,":
+        [99], "vinyl,": [100], "hydroxyl": [101], "groups,": [102], "acetic": [103],
+        "aldehyde": [104], "acetylene": [106], "were": [107], "identified.": [108],
+        "From": [109], "mass": [110], "spectroscopy": [111], "FTIR": [113], "data":
+        [114], "results": [115], "that": [116, 138], "loss": [118], "ethoxy": [120],
+        "groups": [121], "occurs": [126], "steps": [130], "between": [131], "200":
+        [132], "375": [134], "oC.": [135], "That": [136], "suggests": [137], "different":
+        [140, 144], "steps,": [141], "ligands": [142], "coordination": [145], "spheres":
+        [146], "are": [147], "lost.": [148]}, "primary_location": {"id": "pmh:oai:doaj.org/article:824b5b0995204fde84538d925ddaf0af",
+        "doi": null, "is_oa": true, "landing_page_url": "https://doaj.org/article/824b5b0995204fde84538d925ddaf0af",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4306401280", "display_name":
+        "DOAJ (DOAJ: Directory of Open Access Journals)", "issn_l": null, "issn":
+        null, "is_oa": false, "is_in_doaj": false, "is_core": false, "listed_in":
+        [], "host_organization": null, "host_organization_name": null, "host_organization_lineage":
+        [], "host_organization_lineage_names": [], "type": "repository"}, "license":
+        "cc-by-sa", "license_id": "https://openalex.org/licenses/cc-by-sa", "version":
+        "submittedVersion", "is_accepted": false, "is_published": false, "raw_source_name":
+        "The Annals of \u201cDunarea de Jos\u201d University of Galati. Fascicle IX,
+        Metallurgy and Materials Science, Vol 35, Iss 3 (2012)", "raw_type": "article"}},
+        {"id": "https://openalex.org/W2791579532", "doi": "https://doi.org/10.1134/s1995078017050020",
+        "title": "Dielectric Characteristics of Hafnia Thin Films", "publication_year":
+        2017, "abstract_inverted_index": {"The": [0, 31], "dielectric": [1, 33, 67],
+        "characteristics": [2, 68], "of": [3, 14, 46, 76, 101, 107, 123], "hafnia":
+        [4, 62], "thin": [5, 63], "films": [6, 64, 92, 126], "deposited": [7, 125],
+        "by": [8], "the": [9, 26, 47, 86, 91, 119, 124], "DC": [10], "reactive": [11],
+        "magnetron": [12], "sputtering": [13], "a": [15, 72, 98], "Hf": [16], "target":
+        [17], "in": [18, 50, 71], "an": [19, 51], "Ar/O": [20, 52], "2": [21, 53,
+        82], "gas": [22, 54], "mixture": [23, 55], "without": [24], "heating": [25,
+        85], "substrates": [27, 87], "have": [28], "been": [29], "studied.": [30],
+        "permittivity,": [32], "loss": [34, 99], "tangent,": [35], "band": [36], "gap,":
+        [37], "and": [38, 88, 103], "leakage": [39, 104], "current": [40], "density":
+        [41, 106], "are": [42, 69], "obtained": [43], "as": [44], "functions": [45],
+        "oxygen": [48, 77], "content": [49], "upon": [56], "film": [57], "deposition.":
+        [58], "As": [59], "is": [60, 127], "established,": [61], "with": [65], "good":
+        [66], "formed": [70], "relatively": [73], "wide": [74], "range": [75], "concentrations":
+        [78], "(about": [79], "12\u201320%": [80], "O": [81], ").": [83], "Without":
+        [84], "subsequent": [89], "annealing,": [90], "possess": [93], "permittivity":
+        [94], "\u03b5": [95], "=": [96, 113], "17\u201322,": [97], "tangent": [100],
+        "0.03\u20130.05,": [102], "currents": [105], "10": [108, 116], "\u22123":
+        [109], "A/cm": [110], "at": [111], "E": [112], "5": [114, 117], "\u00d7":
+        [115], "V/cm;": [118], "optical": [120], "band-gap": [121], "width": [122],
+        "found": [128], "to": [129], "be": [130], "5.7\u20135.8": [131], "eV.": [132]},
+        "primary_location": {"id": "doi:10.1134/s1995078017050020", "doi": "https://doi.org/10.1134/s1995078017050020",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1134/s1995078017050020",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S63651650", "display_name":
+        "Nanotechnologies in Russia", "issn_l": "1995-0780", "issn": ["1995-0780",
+        "1995-0799"], "is_oa": false, "is_in_doaj": false, "is_core": false, "listed_in":
+        ["poland-40"], "host_organization": "https://openalex.org/P4310319900", "host_organization_name":
+        "Springer Science+Business Media", "host_organization_lineage": ["https://openalex.org/P4310319900",
+        "https://openalex.org/P4310319965"], "host_organization_lineage_names": ["Springer
+        Science+Business Media", "Springer Nature"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Nanotechnologies in Russia", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W3152816201", "doi": "https://doi.org/10.1126/science.abf3789",
+        "title": "Reversible oxygen migration and phase transitions in hafnia-based
+        ferroelectric devices", "publication_year": 2021, "abstract_inverted_index":
+        {"capacitor": [0], "interfaced": [1], "with": [2, 15, 22, 39, 94], "various":
+        [3], "top": [4, 28, 63], "electrodes": [5, 40, 64], "while": [6], "performing":
+        [7], "in": [8, 87], "situ": [9], "electrical": [10], "biasing": [11], "using":
+        [12], "atomic-resolution": [13], "microscopy": [14], "direct": [16], "oxygen":
+        [17, 31, 36, 47, 78, 95], "imaging": [18], "as": [19, 21, 41, 53, 76], "well":
+        [20], "synchrotron": [23], "nanobeam": [24], "diffraction.": [25], "When":
+        [26], "the": [27, 42, 49, 71], "electrode": [29], "is": [30, 91], "reactive,":
+        [32], "we": [33], "observe": [34], "reversible": [35], "vacancy": [37], "migration":
+        [38], "source": [43, 79], "and": [44, 48, 65, 80], "sink": [45], "of": [46],
+        "dielectric": [50, 72], "layer": [51, 73], "acting": [52], "a": [54], "fast":
+        [55], "conduit": [56], "at": [57, 66], "millisecond": [58], "time": [59, 68],
+        "scales.": [60], "With": [61], "nonreactive": [62], "longer": [67], "scales":
+        [69], "(seconds),": [70], "also": [74], "acts": [75], "an": [77], "sink.":
+        [81], "Our": [82], "results": [83], "show": [84], "that": [85], "ferroelectricity":
+        [86], "hafnia-based": [88], "thin": [89], "films": [90], "unmistakably": [92],
+        "intertwined": [93], "voltammetry.": [96]}, "primary_location": {"id": "doi:10.1126/science.abf3789",
+        "doi": "https://doi.org/10.1126/science.abf3789", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1126/science.abf3789", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S3880285", "display_name": "Science", "issn_l": "0036-8075",
+        "issn": ["0036-8075", "0193-4511", "1095-9203"], "is_oa": false, "is_in_doaj":
+        false, "is_core": true, "listed_in": ["anvur-class-a", "anvur-scientific",
+        "cwts-core", "dongbi-a", "doyens", "erih-plus", "jufo-3", "ki-jl-3", "medline",
+        "norway-2", "poland-200", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310315823", "host_organization_name": "American Association
+        for the Advancement of Science", "host_organization_lineage": ["https://openalex.org/P4310315823"],
+        "host_organization_lineage_names": ["American Association for the Advancement
+        of Science"], "type": "journal"}, "license": null, "license_id": null, "version":
+        "publishedVersion", "is_accepted": true, "is_published": true, "raw_source_name":
+        "Science", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2873786885",
+        "doi": "https://doi.org/10.1063/1.5031491", "title": "Model of dielectric
+        breakdown in hafnia-based ferroelectric capacitors", "publication_year": 2018,
+        "abstract_inverted_index": {"Ultra-thin": [0], "ferroelectric": [1, 11, 37,
+        46, 80, 133, 149], "hafnia-based": [2], "thin": [3], "films": [4], "are":
+        [5, 82, 115], "very": [6], "promising": [7], "candidates": [8], "for": [9,
+        36, 45, 69, 97], "nanoscale": [10], "random": [12], "access": [13], "memories.":
+        [14], "However,": [15], "dielectric": [16, 42, 71, 86, 142], "breakdown":
+        [17, 43, 87], "is": [18, 55, 151], "a": [19, 41, 58], "main": [20], "failure":
+        [21], "mechanism": [22], "during": [23, 51], "repeated": [24], "polarization":
+        [25, 53], "switching.": [26], "Generalizing": [27], "Lou": [28], "et": [29],
+        "al.''s": [30], "local": [31], "phase": [32, 62], "decomposition": [33], "model,":
+        [34, 75], "originally": [35], "fatigue,": [38], "we": [39, 76], "propose":
+        [40], "model": [44], "hafnia.": [47], "While": [48], "charging": [49], "injection":
+        [50], "the": [52, 65, 70, 93, 98, 106, 109, 128, 138, 154], "reversal": [54],
+        "regarded": [56], "as": [57], "key": [59], "step,": [60], "eventual": [61],
+        "separation": [63], "of": [64, 156], "Hf": [66], "cluster": [67], "accounts":
+        [68], "breakdown.": [72], "Using": [73], "this": [74], "explain": [77], "why":
+        [78], "TaN/HfO2/TaN": [79], "capacitors": [81], "more": [83], "prone": [84],
+        "to": [85, 120], "than": [88], "TiN/HfO2/TiN,": [89], "and": [90, 146], "conclude":
+        [91], "that": [92], "lower": [94], "Schottky": [95], "barrier": [96], "TaN/Pca21-HfO2":
+        [99], "interface": [100], "stabilizes": [101], "neutral": [102], "oxygen":
+        [103, 117], "vacancies": [104, 118], "within": [105, 153], "dielectric.":
+        [107], "On": [108], "other": [110], "hand,": [111], "when": [112], "TiN":
+        [113], "electrodes": [114], "employed,": [116], "tend": [119], "be": [121],
+        "positively": [122], "charged.": [123], "They": [124], "can": [125], "further":
+        [126], "pin": [127], "domain": [129], "walls,": [130], "resulting": [131],
+        "in": [132, 148], "fatigue.": [134], "The": [135], "relationship": [136],
+        "between": [137], "conductive": [139], "filament": [140], "formation,": [141],
+        "breakdown,": [143], "wake": [144], "up,": [145], "fatigue": [147], "HfO2":
+        [150], "discussed": [152], "framework": [155], "our": [157], "model.": [158]},
+        "primary_location": {"id": "doi:10.1063/1.5031491", "doi": "https://doi.org/10.1063/1.5031491",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.5031491", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S187991544", "display_name":
+        "Journal of Applied Physics", "issn_l": "0021-8979", "issn": ["0021-8979",
+        "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1",
+        "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W3113145338",
+        "doi": "https://doi.org/10.1063/5.0033176", "title": "Optical parameters and
+        energy gap estimation in hafnia thin film", "publication_year": 2020, "abstract_inverted_index":
+        {"Optical": [0, 47], "absorption": [1, 51], "spectra": [2], "of": [3, 44,
+        60], "HfO2": [4], "thin": [5], "film": [6, 22, 68], "synthesized": [7], "by":
+        [8], "ion": [9], "beam": [10], "sputtering": [11], "deposition": [12], "technique":
+        [13], "were": [14, 18, 53], "studied.": [15], "Interference": [16], "effects":
+        [17], "used": [19], "to": [20, 29, 55], "determine": [21], "thickness,": [23],
+        "which": [24], "was": [25], "d=288": [26], "nm,": [27], "and": [28, 38, 41],
+        "calculate": [30], "dispersion": [31], "curves": [32], "for": [33], "refractive":
+        [34], "index,": [35], "extinction": [36], "coefficient": [37], "both": [39],
+        "real": [40], "imaginary": [42], "parts": [43], "dielectric": [45], "permittivity.":
+        [46], "data": [48], "near": [49], "intrinsic": [50], "edge": [52], "analyzed":
+        [54], "estimate": [56], "the": [57, 66], "energy": [58], "gap": [59], "Eg":
+        [61], "=": [62], "5.40\u00b10.05": [63], "eV": [64], "in": [65], "hafnia":
+        [67], "under": [69], "research.": [70]}, "primary_location": {"id": "doi:10.1063/5.0033176",
+        "doi": "https://doi.org/10.1063/5.0033176", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/5.0033176", "pdf_url": null, "source": {"id": "https://openalex.org/S2764696622",
+        "display_name": "AIP conference proceedings", "issn_l": "0094-243X", "issn":
+        ["0094-243X", "1551-7616", "1935-0465"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["cwts-core", "jufo-1", "norway-1"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "AIP Conference
+        Proceedings", "raw_type": "proceedings-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a534af08af73f165-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '14685'
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 18:22:11 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=mCJ9dM7jZRNLl4wThpxKpmNKS65t6nms0SHTkR8e5fw%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793470931"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=mCJ9dM7jZRNLl4wThpxKpmNKS65t6nms0SHTkR8e5fw%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793470931"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9980'
+      x-ratelimit-remaining-usd:
+      - '0.998'
+      x-ratelimit-reset:
+      - '20269'
+    status:
+      code: 200
+      message: OK
+version: 1

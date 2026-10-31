@@ -229,3 +229,20 @@ synonym table is curated from that recorded, sourced list down to trivial names 
 zirconia, alumina, and so on). Recorded for all 11 oxides on 2026-10-31 (28 to 1288 names each).
 Reason: deterministic and sourced; the FDE still controls what drives literature search.
 Alternative: hand-written synonyms.
+
+## 2026-10-31 Materials Project records keep both ID forms and the thermo type
+Decision: the provenance store keeps the raw response body (whose IDs look like `mp-aaaaaayt`)
+and its hash; the normalized record carries the client-decoded ID (`mp-643`) and a pointer to
+the raw record. Every hull energy is stored with its `thermo_type` from the thermo endpoint;
+the summary value is labeled as the mixed `GGA_GGA+U_R2SCAN` hull, which the recording showed
+it to be. Built in Phase 1.
+Reason: the two ID forms cannot be cross-referenced otherwise, and the functional changes which
+polymorph is on the hull (Ta2O5 mp-1539317 is stable in GGA_GGA+U and not in the mixed hull).
+Alternative: store the client ID only and the summary hull energy without its functional.
+
+## 2026-10-31 Egress allowlist for Materials Project and OpenAlex comes from the recordings
+Decision: `api.materialsproject.org` paths `/materials/summary/`, `/materials/dielectric/`,
+`/materials/thermo/`, `/heartbeat`; `api.openalex.org` path `/works`. Nothing else was
+contacted during recording, confirmed by an offline replay with no unrecorded request.
+Reason: the overview requires the allowlist to be built from observed hosts, not documentation.
+Alternative: allow the two hosts wholesale.

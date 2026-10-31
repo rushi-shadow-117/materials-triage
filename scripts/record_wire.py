@@ -291,10 +291,28 @@ def _mprester() -> Any:
 
 def rec_mp(client: httpx.Client, formula: str) -> dict[str, Any]:
     with _mprester() as mpr:
-        version = mpr.get_database_version()
+        version = mpr.db_version
         docs = mpr.materials.summary.search(formula=formula, fields=MP_FIELDS)
         ids = [str(d.material_id) for d in docs]
         diel = mpr.materials.dielectric.search(material_ids=ids) if ids else []
+        # Thermo docs carry the functional (thermo_type) behind the hull energy. Record them
+        # for the lowest-hull entry and the first theoretical entry only, to keep cassettes small.
+        probe = (
+            sorted(
+                (d for d in docs if d.energy_above_hull is not None),
+                key=lambda d: d.energy_above_hull,
+            )[:1]
+            + [d for d in docs if d.theoretical][:1]
+        )
+        probe_ids = sorted({str(d.material_id) for d in probe})
+        thermo = (
+            mpr.materials.thermo.search(
+                material_ids=probe_ids,
+                fields=["material_id", "thermo_type", "energy_above_hull", "is_stable"],
+            )
+            if probe_ids
+            else []
+        )
     rows = []
     for d in docs:
         rows.append(
@@ -313,6 +331,15 @@ def rec_mp(client: httpx.Client, formula: str) -> dict[str, Any]:
             "db_version": version,
             "n_dielectric": len(diel),
             "dielectric_ids": sorted(str(x.material_id) for x in diel),
+            "thermo_probe": [
+                {
+                    "material_id": str(t.material_id),
+                    "thermo_type": str(t.thermo_type),
+                    "energy_above_hull": t.energy_above_hull,
+                    "is_stable": t.is_stable,
+                }
+                for t in thermo
+            ],
             "rows": rows,
         },
     }
@@ -321,7 +348,7 @@ def rec_mp(client: httpx.Client, formula: str) -> dict[str, Any]:
 def rec_mp_discovery(client: httpx.Client) -> dict[str, Any]:
     t0 = time.monotonic()
     with _mprester() as mpr:
-        version = mpr.get_database_version()
+        version = mpr.db_version
         docs = mpr.materials.summary.search(
             elements=["O"],
             num_elements=(2, 3),
@@ -349,6 +376,25 @@ def rec_mp_discovery(client: httpx.Client) -> dict[str, Any]:
     }
 
 
+def rec_mp_deprecated_probe(client: httpx.Client) -> dict[str, Any]:
+    """Can deprecated entries be fetched at all? Unverified before this recording."""
+    with _mprester() as mpr:
+        try:
+            docs = mpr.materials.summary.search(
+                formula="HfO2",
+                deprecated=True,
+                fields=["material_id", "deprecated", "formula_pretty"],
+            )
+            outcome = {
+                "supported": True,
+                "n": len(docs),
+                "ids": sorted(str(d.material_id) for d in docs)[:5],
+            }
+        except Exception as e:  # noqa: BLE001 - the outcome is the finding
+            outcome = {"supported": False, "error": f"{type(e).__name__}: {str(e)[:200]}"}
+    return {"records": outcome.get("n", 0), "detail": outcome}
+
+
 # ----------------------------------------------------------------------------- driver
 
 PerMaterial = Callable[[httpx.Client, str], dict[str, Any]]
@@ -361,10 +407,10 @@ PER_MATERIAL: dict[str, PerMaterial] = {
     "openalex": rec_openalex,
     "mp": rec_mp,
 }
-SINGLE: dict[str, tuple[str, Single]] = {
-    "cod": ("_info", lambda c: rec_optimade_info(c, COD_BASE)),
-    "oqmd": ("_info", lambda c: rec_optimade_info(c, OQMD_BASE)),
-    "mp": ("_discovery", rec_mp_discovery),
+SINGLE: dict[str, list[tuple[str, Single]]] = {
+    "cod": [("_info", lambda c: rec_optimade_info(c, COD_BASE))],
+    "oqmd": [("_info", lambda c: rec_optimade_info(c, OQMD_BASE))],
+    "mp": [("_discovery", rec_mp_discovery), ("_deprecated_probe", rec_mp_deprecated_probe)],
 }
 
 
@@ -393,8 +439,7 @@ def run_source(name: str, mode: str) -> dict[str, Any]:
             print(f"  {name:9s} {label:12s} ERROR {type(e).__name__}: {e}")
             traceback.print_exc(limit=2)
 
-    if name in SINGLE:
-        label, fn = SINGLE[name]
+    for label, fn in SINGLE.get(name, []):
         one(label, fn)
     for formula in MATERIALS:
         one(formula, lambda c, f=formula: PER_MATERIAL[name](c, f))

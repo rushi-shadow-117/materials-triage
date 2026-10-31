@@ -1,0 +1,560 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search=SiO2+dielectric+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 32141, "db_response_time_ms": 109, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (SiO2 dielectric
+        thin film) in the full text where it has an abstract", "x_new_oql": "get works
+        with (SiO2 dielectric thin film) in the full text where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "fulltext.search",
+        "value": "SiO2 dielectric thin film", "operator": "has"}, {"column_id": "has_abstract",
+        "value": true}]}, "url": "/works?filter=fulltext.search:SiO2 dielectric thin
+        film,has_abstract:true&per_page=5", "order": "best matches first", "order_default":
+        true}, "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2018805880",
+        "doi": "https://doi.org/10.1364/oic.2013.thd.3", "title": "Temperature dependence
+        of the optical absorption in amorphous Ta2O5 and SiO2 dielectric thin films",
+        "publication_year": 2013, "abstract_inverted_index": {"Get": [0, 24], "PDF":
+        [1], "Email": [2], "Share": [3, 4, 12], "with": [5, 13], "Facebook": [6],
+        "Tweet": [7], "This": [8], "Post": [9], "on": [10], "reddit": [11], "LinkedIn":
+        [14], "Add": [15, 18, 21], "to": [16, 19, 22], "CiteULike": [17], "Mendeley":
+        [20], "BibSonomy": [23], "Citation": [25, 27, 82, 89], "Copy": [26], "Text":
+        [28, 88], "A.": [29], "S.": [30, 44], "Markosyan,": [31], "R.": [32, 35],
+        "M.": [33, 37, 38, 64], "Faris,": [34], "Route,": [36], "Fejer,": [39], "D.":
+        [40, 67], "Patel,": [41], "and": [42, 55, 66], "C.": [43], "Menoni,": [45],
+        "\"Temperature": [46], "dependence": [47], "of": [48, 76], "the": [49], "optical":
+        [50], "absorption": [51], "in": [52, 60], "amorphous": [53], "Ta2O5": [54],
+        "SiO2": [56], "dielectric": [57], "thin": [58], "films,\"": [59], "Optical":
+        [61], "Interference": [62], "Coatings,": [63], "Tilsch": [65], "Ristau,":
+        [68], "eds.,": [69], "OSA": [70], "Technical": [71], "Digest": [72], "(online)":
+        [73], "(Optical": [74], "Society": [75], "America,": [77], "2013),": [78],
+        "paper": [79], "ThD.3.": [80], "Export": [81], "BibTex": [83], "Endnote":
+        [84], "(RIS)": [85], "HTML": [86], "Plain": [87], "alert": [90], "Save": [91],
+        "article": [92]}, "primary_location": {"id": "doi:10.1364/oic.2013.thd.3",
+        "doi": "https://doi.org/10.1364/oic.2013.thd.3", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1364/oic.2013.thd.3", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S4363604758", "display_name": "Optical Interference
+        Coatings", "issn_l": null, "issn": null, "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["cwts-core"], "host_organization": null, "host_organization_name":
+        null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "conference"}, "license": null, "license_id": null, "version":
+        "publishedVersion", "is_accepted": true, "is_published": true, "raw_source_name":
+        "Optical Interference Coatings", "raw_type": "proceedings-article"}}, {"id":
+        "https://openalex.org/W1990184170", "doi": "https://doi.org/10.1063/1.4799415",
+        "title": "Study of spontaneous and induced absorption in amorphous Ta2O5 and
+        SiO2 dielectric thin films", "publication_year": 2013, "abstract_inverted_index":
+        {"Tantalum": [0], "pentoxide": [1], "(Ta2O5)": [2], "and": [3, 10, 32, 52,
+        91, 138, 164, 197], "silicon": [4], "dioxide": [5], "(SiO2)": [6], "are":
+        [7, 119], "common": [8], "high-index": [9], "low-index": [11], "materials":
+        [12], "used": [13], "in": [14, 124, 133, 208, 225], "dielectric": [15], "optical":
+        [16, 89, 126, 175], "coatings": [17], "for": [18], "high": [19], "average-power":
+        [20], "lasers": [21], "since": [22], "high-density": [23], "sputtered": [24,
+        136], "oxide": [25, 111], "films": [26, 141], "with": [27, 147, 203], "absorption":
+        [28, 55, 90, 127, 176, 190], "losses": [29], "at": [30, 56, 67, 95, 128, 177,
+        227], "near-": [31], "mid-infrared": [33], "wavelengths": [34], "of": [35,
+        84, 88, 166, 186], "less": [36], "than": [37], "1": [38], "ppm": [39], "can":
+        [40], "be": [41, 194, 201], "obtained.": [42], "These": [43], "oxides": [44],
+        "have": [45], "been": [46], "chosen": [47], "to": [48, 64, 121, 157, 172,
+        193, 200, 234], "investigate": [49], "the": [50, 75, 125, 167, 174, 183, 187,
+        209, 216], "spontaneous": [51], "optically": [53], "induced": [54, 188], "\u03bb0":
+        [57, 129, 178], "=": [58, 130, 154, 159, 179, 229], "1064": [59, 131, 180],
+        "nm": [60, 132, 156, 231], "that": [61, 212], "occurs": [62], "due": [63],
+        "simultaneous": [65], "illumination": [66, 149], "shorter": [68], "wavelengths.":
+        [69], "The": [70, 162, 220], "effect": [71, 223], "is": [72, 82, 104, 198,
+        232], "measured": [73], "using": [74], "photothermal": [76], "common-path":
+        [77], "interferometric": [78], "technique.": [79], "This": [80], "technique":
+        [81], "capable": [83], "detecting": [85], "sub-ppm": [86], "levels": [87],
+        "tracking": [92], "its": [93], "changes": [94, 123], "a": [96, 100, 108],
+        "given": [97], "wavelength": [98, 165, 195], "when": [99], "second": [101],
+        "laser": [102], "beam": [103, 117, 135], "also": [105], "incident": [106],
+        "on": [107, 143, 215], "thin": [109, 140], "film": [110], "sample.": [112],
+        "In": [113], "this": [114], "work,": [115], "dual": [116], "experiments":
+        [118], "employed": [120], "assess": [122], "ion": [134], "Ta2O5": [137, 226],
+        "SiO2": [139], "deposited": [142], "fused": [144], "silica": [145], "substrates,":
+        [146], "stimulating": [148, 168], "\u03bb1": [150, 153, 158, 228], "ranging":
+        [151], "from": [152], "266": [155, 230], "780": [160], "nm.": [161, 181],
+        "power": [163], "radiation": [169], "were": [170], "found": [171, 192], "affect":
+        [173], "Furthermore,": [182], "relaxation": [184], "dynamics": [185], "infrared":
+        [189], "was": [191], "dependent": [196], "thought": [199], "associated": [202],
+        "various": [204], "electron": [205], "traps": [206], "existing": [207], "forbidden":
+        [210], "gap": [211], "depend": [213], "essentially": [214], "film''s": [217],
+        "preparation": [218], "conditions.": [219], "significantly": [221], "greater":
+        [222], "observed": [224], "attributed": [233], "band-to-band": [235], "transitions.":
+        [236]}, "primary_location": {"id": "doi:10.1063/1.4799415", "doi": "https://doi.org/10.1063/1.4799415",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.4799415", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S187991544", "display_name":
+        "Journal of Applied Physics", "issn_l": "0021-8979", "issn": ["0021-8979",
+        "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1",
+        "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W4281552386",
+        "doi": "https://doi.org/10.1149/2162-8777/ac7350", "title": "Electrostatic
+        Tuning of Ionic Charge in SiO2 Dielectric Thin Films", "publication_year":
+        2022, "abstract_inverted_index": {"Dielectric": [0], "thin": [1, 96, 134],
+        "films": [2, 97], "are": [3, 21, 92], "a": [4, 22, 33, 99, 168], "fundamental":
+        [5], "part": [6], "of": [7, 45, 125, 132, 160, 171, 174], "solid-state": [8],
+        "devices": [9], "providing": [10], "the": [11, 43, 51, 119, 123, 138, 142,
+        172], "means": [12], "for": [13, 196], "advanced": [14], "structures": [15],
+        "and": [16, 41, 82, 101, 112, 122, 128, 163], "enhanced": [17], "operation.":
+        [18], "Charged": [19], "dielectrics": [20, 181], "particular": [23], "kind":
+        [24], "in": [25, 78], "which": [26, 37, 106], "embedded": [27], "charge":
+        [28, 52, 115, 149, 179], "is": [29, 87, 165, 194], "used": [30], "to": [31,
+        57, 148, 182], "create": [32], "static": [34], "electric": [35, 185], "field":
+        [36, 192], "can": [38, 107, 144, 187], "add": [39], "functionality": [40],
+        "improve": [42], "performance": [44], "adjacent": [46], "electronic": [47],
+        "materials.": [48], "To": [49], "date,": [50], "concentration": [53, 140],
+        "has": [54], "been": [55, 76], "limited": [56], "intrinsic": [58], "defects":
+        [59], "present": [60], "after": [61], "dielectric": [62], "synthesis,": [63],
+        "unstable": [64], "corona": [65], "charging,": [66], "or": [67], "complex":
+        [68], "implantation": [69], "processes.": [70], "While": [71], "such": [72],
+        "charging": [73], "mechanisms": [74], "have": [75], "exploited": [77, 195],
+        "silicon": [79], "surface": [80], "passivation": [81], "energy": [83], "harvesters,":
+        [84], "an": [85], "alternative": [86], "presented": [88, 166], "here.": [89],
+        "Solid-state": [90], "cations": [91, 130], "migrated": [93], "into": [94,
+        180], "SiO2": [95, 133], "using": [98], "gateless": [100], "implantation-free":
+        [102], "ion": [103, 139, 161], "injecting": [104], "method,": [105], "provide":
+        [108], "greater": [109], "long-term": [110], "durability": [111], "enable":
+        [113, 188], "fine": [114], "tailoring.": [116], "We": [117], "demonstrate":
+        [118], "migration": [120], "kinetics": [121, 173], "stability": [124], "potassium,":
+        [126], "rubidium,": [127], "caesium": [129], "inside": [131], "films,": [135],
+        "showing": [136], "that": [137], "within": [141], "film": [143], "be": [145],
+        "tuned,": [146], "leading": [147], "densities": [150], "between": [151], "0.1\u201310":
+        [152], "\u00d7": [153], "1012": [154], "q": [155], "cm\u22122.": [156], "A":
+        [157], "comprehensive": [158], "model": [159], "injection": [162], "transport":
+        [164], "along": [167], "detailed": [169], "investigation": [170], "alkali":
+        [175], "cations.": [176], "Integrating": [177], "ionic": [178], "produce":
+        [183], "controlled": [184], "fields": [186], "new": [189], "architectures":
+        [190], "where": [191], "effect": [193], "improved": [197], "electron": [198],
+        "devices.": [199]}, "primary_location": {"id": "doi:10.1149/2162-8777/ac7350",
+        "doi": "https://doi.org/10.1149/2162-8777/ac7350", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.1149/2162-8777/ac7350", "pdf_url": "https://iopscience.iop.org/article/10.1149/2162-8777/ac7350/pdf",
+        "source": {"id": "https://openalex.org/S2493531148", "display_name": "ECS
+        Journal of Solid State Science and Technology", "issn_l": "2162-8769", "issn":
+        ["2162-8769", "2162-8777"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["cwts-core", "dongbi-d", "jufo-1", "norway-1", "poland-70",
+        "russia-white-list-2", "vabb-shw"], "host_organization": "https://openalex.org/P4310311669",
+        "host_organization_name": "Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310311669"], "host_organization_lineage_names": ["Institute
+        of Physics"], "type": "journal"}, "license": "cc-by", "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "ECS Journal of Solid State Science and Technology", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W3148787680", "doi": "https://doi.org/10.1109/rsm.2011.6088297",
+        "title": "Evaluation of TiO2/SiO2 dielectric thin films to overcome the challenges
+        of CMOS scaling", "publication_year": 2011, "abstract_inverted_index": {"The":
+        [0, 37, 123], "Semiconductor": [1, 28], "Industry": [2], "Association": [3],
+        "(SIA)": [4], "expectations": [5], "are": [6], "to": [7, 34, 44, 134], "achieve":
+        [8], "the": [9, 13, 71, 77], "22nm": [10], "technology": [11], "at": [12],
+        "end": [14], "of": [15, 24, 48, 53, 55, 63, 66, 76, 80], "2018.": [16], "So":
+        [17, 92], "aggressively": [18], "continuation": [19], "in": [20, 84], "physical":
+        [21], "size": [22], "scaling": [23], "Complementary": [25], "Metal": [26],
+        "Oxide": [27], "Transistor": [29], "(MOSFET)": [30], "experiences": [31],
+        "difficulties": [32], "due": [33], "various": [35], "factors.": [36], "conventional":
+        [38], "oxide": [39], "can": [40], "be": [41], "scaled": [42], "down": [43],
+        "two": [45], "atomic": [46], "layers": [47], "about": [49], "7": [50], "A":
+        [51], "because": [52], "limitations": [54, 62], "leakage": [56], "current,":
+        [57], "interface": [58], "trap": [59], "densities,": [60], "and": [61, 74,
+        87, 98, 107, 119], "statistical": [64], "parameters": [65], "fabrications.":
+        [67], "This": [68], "paper": [69], "addresses": [70], "main": [72], "challenges":
+        [73], "analyzes": [75], "critical": [78], "issues": [79], "MOS": [81, 93],
+        "gate": [82], "dielectric": [83, 101], "nanometer": [85], "range": [86], "provides":
+        [88], "an": [89], "alternate": [90], "material.": [91], "capacitors": [94],
+        "were": [95, 113], "fabricated": [96], "with": [97], "TiO2/": [99], "SiO2as":
+        [100], "material": [102], "on": [103], "P-type": [104], "silicon": [105],
+        "wafers": [106], "characterized": [108, 114], "for": [109], "microelectronics":
+        [110], "application.": [111], "TiO2films": [112, 135], "using": [115], "XRD,":
+        [116], "Capacitance-voltage": [117], "(C-V)": [118], "Current-voltage": [120],
+        "(I-V)": [121], "measurements.": [122], "measured": [124], "results": [125],
+        "show": [126], "that": [127], "TiO2/SiO2dielectric": [128], "layer": [129],
+        "has": [130], "desirable": [131], "properties": [132], "compared": [133],
+        "grown": [136], "by": [137], "DC": [138], "magnetron.": [139]}, "primary_location":
+        {"id": "doi:10.1109/rsm.2011.6088297", "doi": "https://doi.org/10.1109/rsm.2011.6088297",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1109/rsm.2011.6088297",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4306422832", "display_name":
+        "IEEE Regional Symposium on Micro and Nanoelectronics", "issn_l": null, "issn":
+        null, "is_oa": false, "is_in_doaj": false, "is_core": false, "listed_in":
+        [], "host_organization": null, "host_organization_name": null, "host_organization_lineage":
+        [], "host_organization_lineage_names": [], "type": "conference"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "2011 IEEE Regional Symposium on
+        Micro and Nano Electronics", "raw_type": "proceedings-article"}}, {"id": "https://openalex.org/W2056786328",
+        "doi": "https://doi.org/10.1109/rsm.2011.6088341", "title": "Evaluation of
+        TiO2/SiO2 dielectric thin films to overcome the challenges of CMOS scaling",
+        "publication_year": 2011, "abstract_inverted_index": {"The": [0, 37, 123],
+        "Semiconductor": [1, 28], "Industry": [2], "Association": [3], "(SIA)": [4],
+        "expectations": [5], "are": [6], "to": [7, 34, 44, 134], "achieve": [8], "the":
+        [9, 13, 71, 77], "22nm": [10], "technology": [11], "at": [12], "end": [14],
+        "of": [15, 24, 48, 53, 55, 63, 66, 76, 80], "2018.": [16], "So": [17, 92],
+        "aggressively": [18], "continuation": [19], "in": [20, 84], "physical": [21],
+        "size": [22], "scaling": [23], "Complementary": [25], "Metal": [26], "Oxide":
+        [27], "Transistor": [29], "(MOSFET)": [30], "experiences": [31], "difficulties":
+        [32], "due": [33], "various": [35], "factors.": [36], "conventional": [38],
+        "oxide": [39], "can": [40], "be": [41], "scaled": [42], "down": [43], "two":
+        [45], "atomic": [46], "layers": [47], "about": [49], "7": [50], "A\u02da":
+        [51], "because": [52], "limitations": [54, 62], "leakage": [56], "current,":
+        [57], "interface": [58], "trap": [59], "densities,": [60], "and": [61, 74,
+        87, 98, 107, 119], "statistical": [64], "parameters": [65], "fabrications.":
+        [67], "This": [68], "paper": [69], "addresses": [70], "main": [72], "challenges":
+        [73], "analyzes": [75], "critical": [78], "issues": [79], "MOS": [81, 93],
+        "gate": [82], "dielectric": [83, 101], "nanometer": [85], "range": [86], "provides":
+        [88], "an": [89], "alternate": [90], "material.": [91], "capacitors": [94],
+        "were": [95, 113], "fabricated": [96], "with": [97], "TiO2/": [99], "SiO2as":
+        [100], "material": [102], "on": [103], "P-type": [104], "silicon": [105],
+        "wafers": [106], "characterized": [108, 114], "for": [109], "microelectronics":
+        [110], "application.": [111], "TiO2films": [112, 135], "using": [115], "XRD,":
+        [116], "Capacitance-voltage": [117], "(C-V)": [118], "Current-voltage": [120],
+        "(I-V)": [121], "measurements.": [122], "measured": [124], "results": [125],
+        "show": [126], "that": [127], "TiO2/SiO2dielectric": [128], "layer": [129],
+        "has": [130], "desirable": [131], "properties": [132], "compared": [133],
+        "grown": [136], "by": [137], "DC": [138], "magnetron": [139], "sputtering.":
+        [140]}, "primary_location": {"id": "doi:10.1109/rsm.2011.6088341", "doi":
+        "https://doi.org/10.1109/rsm.2011.6088341", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1109/rsm.2011.6088341", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S4306422832", "display_name": "IEEE Regional Symposium
+        on Micro and Nanoelectronics", "issn_l": null, "issn": null, "is_oa": false,
+        "is_in_doaj": false, "is_core": false, "listed_in": [], "host_organization":
+        null, "host_organization_name": null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "conference"}, "license": null, "license_id": null, "version":
+        "publishedVersion", "is_accepted": true, "is_published": true, "raw_source_name":
+        "2011 IEEE Regional Symposium on Micro and Nano Electronics", "raw_type":
+        "proceedings-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a534af117ab7251b-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '17313'
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 18:22:12 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=7Ecy27EXY9Vj9L1ylEFSuoJCw%2Fc0odDxhL9urB4L%2FUk%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793470932"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=7Ecy27EXY9Vj9L1ylEFSuoJCw%2Fc0odDxhL9urB4L%2FUk%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793470932"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9930'
+      x-ratelimit-remaining-usd:
+      - '0.993'
+      x-ratelimit-reset:
+      - '20268'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search=silica+dielectric+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 49794, "db_response_time_ms": 177, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (silica dielectric
+        thin film) in the full text where it has an abstract", "x_new_oql": "get works
+        with (silica dielectric thin film) in the full text where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "fulltext.search",
+        "value": "silica dielectric thin film", "operator": "has"}, {"column_id":
+        "has_abstract", "value": true}]}, "url": "/works?filter=fulltext.search:silica
+        dielectric thin film,has_abstract:true&per_page=5", "order": "best matches
+        first", "order_default": true}, "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2039726217",
+        "doi": "https://doi.org/10.1002/1521-4095(200105)13:10<746::aid-adma746>3.0.co;2-j",
+        "title": "Pure-Silica Zeolite Low-k Dielectric Thin Films", "publication_year":
+        2001, "abstract_inverted_index": {"Dielectric": [0], "materials": [1], "with":
+        [2], "a": [3, 51], "very": [4], "low": [5], "dielectric": [6], "constant,":
+        [7], "k,": [8], "will": [9], "be": [10], "required": [11], "to": [12], "overcome":
+        [13], "problems": [14], "such": [15], "as": [16, 37], "cross-talk": [17],
+        "and": [18, 50], "propagation": [19], "delay": [20], "in": [21], "future":
+        [22], "generations": [23], "of": [24], "microprocessors,": [25], "whose":
+        [26], "features": [27], "are": [28, 54], "becoming": [29], "increasingly":
+        [30], "smaller.": [31], "Here": [32], "pure-silica": [33], "zeolite": [34],
+        "is": [35], "examined": [36], "an": [38], "alternative": [39], "low-k": [40],
+        "material.": [41], "Thin": [42], "films": [43], "prepared": [44], "by": [45],
+        "in-situ": [46], "crystallization": [47], "(see": [48], "Figure)": [49], "spin-on":
+        [52], "process": [53], "compared.": [55]}, "primary_location": {"id": "doi:10.1002/1521-4095(200105)13:10<746::aid-adma746>3.0.co;2-j",
+        "doi": "https://doi.org/10.1002/1521-4095(200105)13:10<746::aid-adma746>3.0.co;2-j",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1002/1521-4095(200105)13:10<746::aid-adma746>3.0.co;2-j",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S99352657", "display_name":
+        "Advanced Materials", "issn_l": "0935-9648", "issn": ["0935-9648", "1521-4095"],
+        "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in": ["anvur-scientific",
+        "cwts-core", "dongbi-a", "jufo-3", "ki-jl-3", "medline", "norway-2", "poland-200",
+        "russia-white-list-1", "vabb-shw"], "host_organization": null, "host_organization_name":
+        null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Advanced Materials",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2014346499",
+        "doi": "https://doi.org/10.1063/1.1415042", "title": "Correlation between
+        the dielectric constant and porosity of nanoporous silica thin films deposited
+        by the gas evaporation technique", "publication_year": 2001, "abstract_inverted_index":
+        {"Nanoporous": [0], "silica": [1, 74, 99, 114], "thin": [2, 75, 115], "films":
+        [3, 100], "with": [4, 54, 59, 101], "low": [5, 123], "dielectric": [6, 28,
+        39, 63, 69, 124], "constants": [7], "were": [8], "deposited": [9], "by": [10,
+        46, 86], "gas": [11, 22, 79], "evaporation": [12, 80], "of": [13, 50, 71,
+        91, 96], "SiO2": [14, 60], "nanoparticles": [15], "in": [16], "an": [17, 130],
+        "argon": [18], "atmosphere.": [19], "With": [20], "increasing": [21], "pressure":
+        [23], "during": [24], "the": [25, 27, 32, 38, 57, 62, 68, 72, 78, 97, 105,
+        111], "evaporation,": [26], "constant": [29, 40, 70, 125], "decreases,": [30],
+        "while": [31], "porosity": [33, 42, 119], "increases.": [34], "The": [35],
+        "correlation": [36], "between": [37], "and": [41, 56, 126], "is": [43, 82,
+        127], "well": [44], "modeled": [45], "a": [47, 122], "serial": [48], "connection":
+        [49], "two": [51], "capacitors,": [52], "one": [53], "air": [55], "other":
+        [58], "as": [61, 129], "medium.": [64], "This": [65], "suggests": [66], "that":
+        [67], "nanoporous": [73, 98, 113], "film": [76, 116], "using": [77], "technique":
+        [81], "more": [83], "effectively": [84], "lowered": [85], "forming": [87],
+        "\u201cuniformly\u201d": [88], "distributed": [89], "voids": [90], "closed":
+        [92], "gaps": [93], "than": [94], "those": [95], "pores": [102], "extending":
+        [103], "from": [104], "back": [106], "to": [107, 120], "front": [108], "surface.":
+        [109], "Therefore,": [110], "former": [112], "requires": [117], "less": [118],
+        "obtain": [121], "regarded": [128], "ideal": [131], "low-k": [132], "material.":
+        [133]}, "primary_location": {"id": "doi:10.1063/1.1415042", "doi": "https://doi.org/10.1063/1.1415042",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.1415042", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S105243760", "display_name":
+        "Applied Physics Letters", "issn_l": "0003-6951", "issn": ["0003-6951", "1077-3118",
+        "1520-8842"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Applied Physics Letters", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W1984086524", "doi": "https://doi.org/10.1002/polb.21165",
+        "title": "Low dielectric constant nanocomposite thin films based on silica
+        nanoparticle and organic thermosets", "publication_year": 2007, "abstract_inverted_index":
+        {"Abstract": [0], "Low": [1], "dielectric": [2, 159, 169], "constant": [3,
+        160, 170], "(low\u2010k)": [4], "nanocomposite": [5, 51, 100, 110, 164, 173],
+        "thin": [6, 52, 101, 111, 165, 174], "films": [7, 53, 112, 175], "have": [8,
+        54], "been": [9, 55, 177], "prepared": [10], "by": [11, 118], "spin": [12],
+        "coating": [13], "and": [14, 28, 44, 69, 87, 90], "thermal": [15, 95], "cure":
+        [16], "of": [17, 20, 22, 36, 48, 74, 94, 97, 108, 133, 146, 161, 171], "solution":
+        [18], "mixtures": [19], "one": [21], "two": [23], "organic": [24, 81, 141,
+        153], "low\u2010k": [25, 50, 80, 152], "thermoset": [26, 142, 154], "prepolymers":
+        [27], "a": [29], "silica": [30, 76, 136, 148], "nanoparticle": [31, 77, 149],
+        "with": [32, 57, 64, 183], "an": [33, 65, 184], "average": [34], "diameter":
+        [35], "about": [37], "8": [38], "nm.": [39], "The": [40, 103, 144, 167], "electrical,":
+        [41], "the": [42, 45, 75, 79, 85, 88, 92, 98, 106, 109, 119, 125, 131, 134,
+        139, 147, 151, 157, 162, 172, 189], "mechanical,": [43], "thermomechanical":
+        [46], "properties": [47], "these": [49], "characterized": [56], "4\u2010point":
+        [58], "probe": [59], "electrical": [60], "measurements,": [61], "nanoindentation":
+        [62], "measurements": [63], "atomic": [66], "force": [67], "microscope,":
+        [68], "specular": [70], "X\u2010ray": [71], "reflectivity.": [72], "Addition":
+        [73], "to": [78, 124, 150, 179], "thermosets": [82], "enhances": [83], "both":
+        [84], "modulus": [86, 107], "hardness": [89], "reduces": [91], "coefficient":
+        [93], "expansion": [96], "resultant": [99, 163], "films.": [102, 166], "enhancements":
+        [104], "in": [105, 138], "are": [113], "less": [114], "than": [115], "those":
+        [116], "predicted": [117], "Halpin\u2010Tsai": [120], "equations,": [121],
+        "presumably": [122], "due": [123], "relatively": [126], "poor": [127], "interfacial":
+        [128], "adhesion": [129], "and/or": [130], "aggregation": [132], "hydrophilic":
+        [135], "nanoparticles": [137], "hydrophobic": [140], "matrices.": [143], "addition":
+        [145], "matrices": [155], "increases": [156], "relative": [158, 168], "has":
+        [176], "found": [178], "agree": [180], "fairly": [181], "well": [182], "additive":
+        [185], "formula": [186], "based": [187], "on": [188], "Debye": [190], "equation.":
+        [191], "\u00a9": [192], "2007": [193, 206], "Wiley": [194], "Periodicals,":
+        [195], "Inc.": [196], "J": [197], "Polym": [198, 202], "Sci": [199], "Part":
+        [200], "B:": [201], "Phys": [203], "45:": [204], "1482\u20131493,": [205]},
+        "primary_location": {"id": "doi:10.1002/polb.21165", "doi": "https://doi.org/10.1002/polb.21165",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1002/polb.21165",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S175770247", "display_name":
+        "Journal of Polymer Science Part B Polymer Physics", "issn_l": "0887-6266",
+        "issn": ["0887-6266", "1099-0488"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["cwts-core", "poland-20"], "host_organization": "https://openalex.org/P4310320595",
+        "host_organization_name": "Wiley", "host_organization_lineage": ["https://openalex.org/P4310320595"],
+        "host_organization_lineage_names": ["Wiley"], "type": "journal"}, "license":
+        "public-domain", "license_id": "https://openalex.org/licenses/public-domain",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Journal of Polymer Science Part B: Polymer Physics", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W1964609676", "doi": "https://doi.org/10.1063/1.1699491",
+        "title": "Dielectric property-microstructure relationship for nanoporous silica
+        based thin films", "publication_year": 2004, "abstract_inverted_index": {"Low":
+        [0], "dielectric": [1, 98, 120, 157, 199], "constant": [2, 121, 158, 200],
+        "silica": [3, 29, 48, 62, 165], "based": [4, 30, 49, 166], "films": [5, 31,
+        50, 63, 72, 95, 128, 142, 167, 181], "which": [6], "incorporate": [7], "a":
+        [8, 67, 74, 184, 204], "large": [9], "amount": [10], "of": [11, 135, 148,
+        159, 183], "nanometer": [12], "sized": [13], "pores": [14], "are": [15], "attractive":
+        [16], "candidates": [17], "as": [18, 82, 105], "interlayer": [19], "dielectrics":
+        [20], "in": [21], "future": [22], "gigascale": [23], "integrated": [24], "circuits":
+        [25], "chip": [26], "technology.": [27], "Nanoporous": [28], "were": [32,
+        51, 64], "deposited": [33, 52, 65, 168], "by": [34, 53, 66, 84, 169, 174],
+        "surfactant": [35], "templated": [36], "self-assembly": [37], "spin-on": [38],
+        "deposition": [39, 58], "(SOD).": [40], "Other": [41], "low-k": [42], "materials":
+        [43], "with": [44, 144], "relatively": [45], "low": [46, 186], "density":
+        [47, 187], "plasma": [54], "enhanced": [55], "chemical": [56], "vapor": [57],
+        "(PECVD),": [59], "and": [60, 90, 111, 122, 139, 196], "some": [61], "CVD":
+        [68], "process.": [69], "The": [70, 93, 116], "SOD": [71, 94, 127, 170], "have":
+        [73, 96], "higher": [75, 146], "porosity,": [76], "compared": [77, 100], "to":
+        [78, 101, 131, 203], "the": [79, 102, 119, 123, 126, 132, 136, 140, 145, 149,
+        156, 160, 179, 192], "PECVD/CVD": [80, 103, 141, 180], "films,": [81, 104],
+        "measured": [83], "x-ray": [85], "reflectivity,": [86], "Rutherford": [87],
+        "back": [88], "scattering,": [89], "ellipsometry": [91], "measurements.":
+        [92, 115], "lower": [97, 133], "constants": [99], "derived": [106], "from":
+        [107, 191], "electrical": [108], "(1": [109], "MHz)": [110], "optical": [112],
+        "(5\u00d71014": [113], "Hz)": [114], "correlation": [117], "between": [118],
+        "porosity": [124], "for": [125], "fits": [129], "well": [130], "prediction":
+        [134, 147], "Lorentz\u2013Lorenz": [137], "model,": [138], "agree": [143],
+        "Rayleigh": [150], "model.": [151], "These": [152], "results": [153], "suggest":
+        [154], "that": [155], "inhomogeneous": [161], "two": [162], "phase": [163],
+        "nanoporous": [164], "is": [171, 201], "significantly": [172], "lowered":
+        [173, 202], "forming": [175], "air": [176], "voids,": [177], "whereas": [178],
+        "consist": [182], "homogeneous": [185], "loose": [188], "microstructure":
+        [189], "originating": [190], "bonding": [193], "nature": [194], "alone,":
+        [195], "therefore": [197], "their": [198], "smaller": [205], "extent.": [206]},
+        "primary_location": {"id": "doi:10.1063/1.1699491", "doi": "https://doi.org/10.1063/1.1699491",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.1699491", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S187991544", "display_name":
+        "Journal of Applied Physics", "issn_l": "0021-8979", "issn": ["0021-8979",
+        "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1",
+        "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2138194133",
+        "doi": "https://doi.org/10.1088/0963-0252/18/4/045021", "title": "On the formation
+        mechanisms of the diffuse atmospheric pressure dielectric barrier discharge
+        in CVD processes of thin silica-like films", "publication_year": 2009, "abstract_inverted_index":
+        {"On": [0], "the": [1, 5], "formation": [2], "mechanisms": [3], "of": [4,
+        15], "diffuse": [6], "atmospheric": [7], "pressure": [8], "dielectric": [9],
+        "barrier": [10], "discharge": [11], "in": [12], "CVD": [13], "processes":
+        [14], "thin": [16], "silica-like": [17], "films,": [18], "Starostin,": [19],
+        "S": [20], "A,": [21], "Premkumar,": [22], "P": [23], "Antony,": [24], "Creatore,":
+        [25], "M,": [26, 30], "van": [27, 38], "Veldhuizen,": [28], "E": [29], "de":
+        [31, 39], "Vries,": [32], "H,": [33], "Paffen,": [34], "R": [35], "M": [36,
+        41, 43], "J,": [37], "Sanden,": [40], "C": [42]}, "primary_location": {"id":
+        "doi:10.1088/0963-0252/18/4/045021", "doi": "https://doi.org/10.1088/0963-0252/18/4/045021",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.1088/0963-0252/18/4/045021",
+        "pdf_url": "https://iopscience.iop.org/article/10.1088/0963-0252/18/4/045021/pdf",
+        "source": {"id": "https://openalex.org/S57082650", "display_name": "Plasma
+        Sources Science and Technology", "issn_l": "0963-0252", "issn": ["0963-0252",
+        "1361-6595"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-1", "norway-1", "poland-140",
+        "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320083",
+        "host_organization_name": "IOP Publishing", "host_organization_lineage": ["https://openalex.org/P4310320083",
+        "https://openalex.org/P4310311669"], "host_organization_lineage_names": ["IOP
+        Publishing", "Institute of Physics"], "type": "journal"}, "license": null,
+        "license_id": null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Plasma Sources Science and Technology", "raw_type":
+        "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a534af12fffb251b-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '15110'
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 18:22:13 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=9WIYvFvKrVyDU9E8BqsPrEotquHyRFJU8fNSrmx3LL8%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793470933"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=9WIYvFvKrVyDU9E8BqsPrEotquHyRFJU8fNSrmx3LL8%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793470933"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9920'
+      x-ratelimit-remaining-usd:
+      - '0.992'
+      x-ratelimit-reset:
+      - '20267'
+    status:
+      code: 200
+      message: OK
+version: 1

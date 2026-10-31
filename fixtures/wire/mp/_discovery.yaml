@@ -1,0 +1,267 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.34.2
+    method: GET
+    uri: https://api.materialsproject.org/heartbeat
+  response:
+    body:
+      string: '{"status":"OK","time":"2026-10-31T18:22:03.282879","version":"0.88.1","pymatgen":"2026.10.16","db_version":"2026.09.28","suffix":"green","access_controlled_batch_ids":["gnome_r2scan_statics"]}'
+    headers:
+      Access-Control-Expose-Headers:
+      - X-Api-Key
+      CF-RAY:
+      - a534aed5cdb96173-ORD
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 31 Oct 2026 18:22:03 GMT
+      Set-Cookie:
+      - _csrf_token=anonymous; Domain=.materialsproject.org; Path=/; SameSite=Strict
+      - __cf_bm=LrA7vWpHQphLPFP02H2ty3vbY1QSFtuqGOUmvUc3q08-1793470923.1671736-1.0.1.1-oWEh8GgSSN8gmi5WJywVHFMxRH.NE2EGc9RM6s.44ksZTVrUFDB3vMg6CWPkzXiEmuBAIYZQ0_vexIXKZSxEQJmgxjFm7p0KPVEyWNvam6XqrnKmdrJ55ztu1bx0tWLd;
+        HttpOnly; SameSite=None; Secure; Path=/; Domain=materialsproject.org; Expires=Sat,
+        31 Oct 2026 18:52:03 GMT
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - kong/2.8.4
+      X-Kong-Proxy-Latency:
+      - '1'
+      X-Kong-Upstream-Latency:
+      - '4'
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      content-length:
+      - '192'
+      server:
+      - cloudflare
+      vary:
+      - Origin
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.34.2
+    method: GET
+    uri: https://api.materialsproject.org/heartbeat
+  response:
+    body:
+      string: '{"status":"OK","time":"2026-10-31T18:22:03.457742","version":"0.88.1","pymatgen":"2026.10.16","db_version":"2026.09.28","suffix":"green","access_controlled_batch_ids":["gnome_r2scan_statics"]}'
+    headers:
+      Access-Control-Expose-Headers:
+      - X-Api-Key
+      CF-RAY:
+      - a534aed6f8f7a068-ORD
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 31 Oct 2026 18:22:03 GMT
+      Set-Cookie:
+      - _csrf_token=anonymous; Domain=.materialsproject.org; Path=/; SameSite=Strict
+      - __cf_bm=QzE.p6EBHOeU5OcNfEGo5nWQiB0E3dTvggXUeJrnPiY-1793470923.355177-1.0.1.1-FcqgmIPxxTV2lNfvMrB0XRNnIsSrORc_MqUIkVGKH.1CKqsNYd50XrdMHDRbKUXu2QeoVcw6g6C3J7h5FxHyULHhRMBQI4VLTuBqe7qPpagMZjnsRln_4RQwuat6LPBx;
+        HttpOnly; SameSite=None; Secure; Path=/; Domain=materialsproject.org; Expires=Sat,
+        31 Oct 2026 18:52:03 GMT
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - kong/2.8.4
+      X-Kong-Proxy-Latency:
+      - '1'
+      X-Kong-Upstream-Latency:
+      - '3'
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      content-length:
+      - '192'
+      server:
+      - cloudflare
+      vary:
+      - Origin
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      user-agent:
+      - mp-api/0.47.0 (Python/3.12.16 Darwin/25.5.0)
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cformula_pretty%2Cnelements%2Cenergy_above_hull%2Cband_gap%2Ctheoretical&_limit=100&band_gap_min=3.0&elements=O&energy_above_hull_max=0.05&energy_above_hull_min=0.0&nelements_max=3&nelements_min=2
+  response:
+    body:
+      string: '{"data":[{"theoretical":true,"band_gap":6.127800000000001,"energy_above_hull":0.000380385833333996,"nelements":2,"formula_pretty":"H2O","material_id":"mp-aaaeijhz"},{"theoretical":false,"band_gap":5.7031,"energy_above_hull":0.049447999166666534,"nelements":2,"formula_pretty":"H2O","material_id":"mp-aaafzwbn"},{"theoretical":true,"band_gap":5.3414,"energy_above_hull":0.018552960500000992,"nelements":3,"formula_pretty":"PCl3O","material_id":"mp-aaagbldj"},{"theoretical":true,"band_gap":4.1307,"energy_above_hull":0.04974180650000104,"nelements":3,"formula_pretty":"NbOF3","material_id":"mp-aaagblln"},{"theoretical":true,"band_gap":3.7632000000000003,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"BiOF","material_id":"mp-aaagbmbt"},{"theoretical":true,"band_gap":4.1483,"energy_above_hull":0.0485269835000004,"nelements":3,"formula_pretty":"VOF3","material_id":"mp-aaagjewz"},{"theoretical":true,"band_gap":5.4508,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"YbOF","material_id":"mp-aaahbatt"},{"theoretical":true,"band_gap":4.4369,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"PrOF","material_id":"mp-aaabrtvp"},{"theoretical":true,"band_gap":3.0568,"energy_above_hull":0.022910592500000604,"nelements":3,"formula_pretty":"VOF3","material_id":"mp-aaabseqk"},{"theoretical":true,"band_gap":3.113,"energy_above_hull":0.022392188499999577,"nelements":3,"formula_pretty":"VOF3","material_id":"mp-aaabsllp"},{"theoretical":false,"band_gap":3.2664000000000004,"energy_above_hull":0.03190816291666909,"nelements":3,"formula_pretty":"LuIO","material_id":"mp-aaacdkfp"},{"theoretical":false,"band_gap":4.462199999999999,"energy_above_hull":0.019420932083328957,"nelements":3,"formula_pretty":"PrBrO","material_id":"mp-aaacdnhq"},{"theoretical":false,"band_gap":5.0862,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"HoOF","material_id":"mp-aaacizze"},{"theoretical":false,"band_gap":5.1721,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"ErOF","material_id":"mp-aaacjacf"},{"theoretical":false,"band_gap":5.0137,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"DyOF","material_id":"mp-aaacjacu"},{"theoretical":true,"band_gap":4.0786999999999995,"energy_above_hull":0.029033442499999396,"nelements":3,"formula_pretty":"NaHO","material_id":"mp-aaacpdmr"},{"theoretical":false,"band_gap":4.7014,"energy_above_hull":0.049024384464285475,"nelements":3,"formula_pretty":"H5NO","material_id":"mp-aaacpfwp"},{"theoretical":true,"band_gap":5.1964,"energy_above_hull":0.04323758541666578,"nelements":2,"formula_pretty":"MgO","material_id":"mp-aaacpvpl"},{"theoretical":true,"band_gap":4.382000000000001,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"ErBrO","material_id":"mp-aaacqrhr"},{"theoretical":true,"band_gap":4.854315216868189,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"TmOF","material_id":"mp-aaacqsmv"},{"theoretical":true,"band_gap":5.033518652277741,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"LuOF","material_id":"mp-aaacqxch"},{"theoretical":true,"band_gap":5.2551,"energy_above_hull":0.022322871666668576,"nelements":3,"formula_pretty":"AlOF","material_id":"mp-aaacszxk"},{"theoretical":false,"band_gap":4.4292,"energy_above_hull":0.0,"nelements":2,"formula_pretty":"MgO","material_id":"mp-aaaaabwr"},{"theoretical":true,"band_gap":6.847700000000001,"energy_above_hull":0.006973667500000502,"nelements":2,"formula_pretty":"BeO","material_id":"mp-aaaaacqk"},{"theoretical":false,"band_gap":4.8986,"energy_above_hull":0.0,"nelements":2,"formula_pretty":"Li2O","material_id":"mp-aaaaacxk"},{"theoretical":false,"band_gap":3.276,"energy_above_hull":0.0,"nelements":2,"formula_pretty":"SrO","material_id":"mp-aaaaadrc"},{"theoretical":false,"band_gap":7.463099999999999,"energy_above_hull":0.0,"nelements":2,"formula_pretty":"BeO","material_id":"mp-aaaaadtu"},{"theoretical":false,"band_gap":3.6363,"energy_above_hull":0.0,"nelements":2,"formula_pretty":"CaO","material_id":"mp-aaaaadwf"},{"theoretical":false,"band_gap":4.9303,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"YOF","material_id":"mp-aaaaafjx"},{"theoretical":false,"band_gap":4.4798,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"ScOF","material_id":"mp-aaaaagxh"},{"theoretical":false,"band_gap":4.5776,"energy_above_hull":0.04772863500000035,"nelements":3,"formula_pretty":"ScOF","material_id":"mp-aaaaagxi"},{"theoretical":false,"band_gap":4.4986,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"NdOF","material_id":"mp-aaaaaiis"},{"theoretical":false,"band_gap":4.5658,"energy_above_hull":0.00009399500000029093,"nelements":3,"formula_pretty":"LaOF","material_id":"mp-aaaaaknc"},{"theoretical":false,"band_gap":7.0842,"energy_above_hull":0.015346631250000797,"nelements":2,"formula_pretty":"BeO","material_id":"mp-aaaaalgh"},{"theoretical":false,"band_gap":3.3117,"energy_above_hull":0.0004386727083316444,"nelements":3,"formula_pretty":"SbOF","material_id":"mp-aaaaalgr"},{"theoretical":false,"band_gap":4.2198,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"LaOF","material_id":"mp-aaaaalzz"},{"theoretical":false,"band_gap":4.7284,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"SmOF","material_id":"mp-aaaaaoay"},{"theoretical":false,"band_gap":4.9449000000000005,"energy_above_hull":0.01766424500000241,"nelements":3,"formula_pretty":"YOF","material_id":"mp-aaaaapdb"},{"theoretical":false,"band_gap":4.9353,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"TbOF","material_id":"mp-aaaaauwb"},{"theoretical":false,"band_gap":3.7353000000000005,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"LaBrO","material_id":"mp-aaaabibn"},{"theoretical":false,"band_gap":4.0688,"energy_above_hull":0.02770730916666686,"nelements":3,"formula_pretty":"LaClO","material_id":"mp-aaaabibp"},{"theoretical":false,"band_gap":4.483099999999999,"energy_above_hull":0.021972071388889347,"nelements":3,"formula_pretty":"NdBrO","material_id":"mp-aaaabidg"},{"theoretical":false,"band_gap":3.1303,"energy_above_hull":0.0044412408333345255,"nelements":3,"formula_pretty":"BiOF","material_id":"mp-aaaabidm"},{"theoretical":false,"band_gap":7.072800000000001,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"H4OF2","material_id":"mp-aaaabjfi"},{"theoretical":false,"band_gap":4.0344999999999995,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"LiHO","material_id":"mp-aaaabjho"},{"theoretical":false,"band_gap":5.4378,"energy_above_hull":0.005572493055555405,"nelements":2,"formula_pretty":"H2O","material_id":"mp-aaaabjot"},{"theoretical":false,"band_gap":4.0951,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"SeOF2","material_id":"mp-aaaabomp"},{"theoretical":false,"band_gap":3.3953,"energy_above_hull":0.01613958416666872,"nelements":3,"formula_pretty":"TmIO","material_id":"mp-aaaabopj"},{"theoretical":false,"band_gap":4.1739,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"MoOF4","material_id":"mp-aaaabosd"},{"theoretical":false,"band_gap":6.7458,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"H3OF","material_id":"mp-aaaabozy"},{"theoretical":false,"band_gap":4.9321,"energy_above_hull":0.04298201958333259,"nelements":3,"formula_pretty":"SmClO","material_id":"mp-aaaabped"},{"theoretical":false,"band_gap":4.7029,"energy_above_hull":0.04722103541666556,"nelements":3,"formula_pretty":"PrClO","material_id":"mp-aaaabpki"},{"theoretical":false,"band_gap":7.4093,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"H6OF4","material_id":"mp-aaaabplb"},{"theoretical":false,"band_gap":5.2894000000000005,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"SOF2","material_id":"mp-aaaabpuv"},{"theoretical":false,"band_gap":3.2029,"energy_above_hull":0.0028991109090883427,"nelements":3,"formula_pretty":"Sn4OF6","material_id":"mp-aaaabquu"},{"theoretical":false,"band_gap":3.6567,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"PrIO","material_id":"mp-aaaabrhe"},{"theoretical":false,"band_gap":4.6134,"energy_above_hull":0.03302383124999775,"nelements":3,"formula_pretty":"SmBrO","material_id":"mp-aaaabrjz"},{"theoretical":false,"band_gap":3.1616,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"NOF","material_id":"mp-aaaabsio"},{"theoretical":false,"band_gap":4.4457,"energy_above_hull":0.0016797366666647662,"nelements":3,"formula_pretty":"AcClO","material_id":"mp-aaaabsuj"},{"theoretical":false,"band_gap":4.2407,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"AcBrO","material_id":"mp-aaaabsuk"},{"theoretical":false,"band_gap":3.2805999999999997,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"LaIO","material_id":"mp-aaaabtwb"},{"theoretical":true,"band_gap":5.2905999999999995,"energy_above_hull":0.025225045,"nelements":2,"formula_pretty":"H2O","material_id":"mp-aaaabwtr"},{"theoretical":true,"band_gap":4.2561,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"AcOF","material_id":"mp-aaaaccaw"},{"theoretical":false,"band_gap":3.1087,"energy_above_hull":0.03270439083333354,"nelements":3,"formula_pretty":"WOF4","material_id":"mp-aaabetts"},{"theoretical":false,"band_gap":3.0440999999999994,"energy_above_hull":0.034668882499996556,"nelements":3,"formula_pretty":"Ba2I2O","material_id":"mp-aaabfkil"},{"theoretical":false,"band_gap":3.6563000000000003,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"VOF3","material_id":"mp-aaabfqnq"},{"theoretical":true,"band_gap":5.4788,"energy_above_hull":0.012027649444444677,"nelements":2,"formula_pretty":"H2O","material_id":"mp-aaabfscg"},{"theoretical":true,"band_gap":5.556800000000001,"energy_above_hull":0.011058480555554695,"nelements":2,"formula_pretty":"H2O","material_id":"mp-aaabftug"},{"theoretical":false,"band_gap":4.2002,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"TeOF2","material_id":"mp-aaabfual"},{"theoretical":true,"band_gap":5.461,"energy_above_hull":0.012356223611111439,"nelements":2,"formula_pretty":"H2O","material_id":"mp-aaabfuwk"},{"theoretical":false,"band_gap":3.637,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"IOF3","material_id":"mp-aaabfvmn"},{"theoretical":false,"band_gap":3.3226999999999998,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"SbOF","material_id":"mp-aaabfyrl"},{"theoretical":true,"band_gap":3.2972,"energy_above_hull":0.0475719950000002,"nelements":3,"formula_pretty":"NaHO","material_id":"mp-aaabjoql"},{"theoretical":true,"band_gap":3.4373,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"CsHO","material_id":"mp-aaabjots"},{"theoretical":true,"band_gap":4.022,"energy_above_hull":0.004186630000000413,"nelements":3,"formula_pretty":"LiHO","material_id":"mp-aaabjqaw"},{"theoretical":false,"band_gap":3.3366,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"RbHO","material_id":"mp-aaabjqyu"},{"theoretical":true,"band_gap":3.6246,"energy_above_hull":0.0032411483333332214,"nelements":3,"formula_pretty":"KHO","material_id":"mp-aaabjrcm"},{"theoretical":true,"band_gap":3.3498,"energy_above_hull":0.0003841666666666299,"nelements":3,"formula_pretty":"RbHO","material_id":"mp-aaabjrcr"},{"theoretical":false,"band_gap":3.3134,"energy_above_hull":0.001367150833333497,"nelements":3,"formula_pretty":"NaHO","material_id":"mp-aaabjrew"},{"theoretical":true,"band_gap":3.6825,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"KHO","material_id":"mp-aaabjrfd"},{"theoretical":true,"band_gap":3.1721000000000004,"energy_above_hull":0.030045265000000043,"nelements":3,"formula_pretty":"CsHO","material_id":"mp-aaabkoso"},{"theoretical":false,"band_gap":3.6423,"energy_above_hull":0.00018469083333272351,"nelements":3,"formula_pretty":"KHO","material_id":"mp-aaabkoxt"},{"theoretical":false,"band_gap":3.1071,"energy_above_hull":0.018754791666665938,"nelements":3,"formula_pretty":"RbHO","material_id":"mp-aaabkpgl"},{"theoretical":false,"band_gap":5.4898,"energy_above_hull":0.006665027499999532,"nelements":2,"formula_pretty":"H2O","material_id":"mp-aaabnqrn"},{"theoretical":false,"band_gap":5.3088,"energy_above_hull":0.02045928500000027,"nelements":2,"formula_pretty":"H2O","material_id":"mp-aaabnrez"},{"theoretical":false,"band_gap":5.520200000000001,"energy_above_hull":0.0,"nelements":2,"formula_pretty":"H2O","material_id":"mp-aaabnrfz"},{"theoretical":false,"band_gap":5.5378,"energy_above_hull":0.0010832130555558095,"nelements":2,"formula_pretty":"H2O","material_id":"mp-aaaboaqd"},{"theoretical":true,"band_gap":3.4485,"energy_above_hull":0.021136561999999692,"nelements":3,"formula_pretty":"VOF3","material_id":"mp-aaabqvpj"},{"theoretical":true,"band_gap":3.2211,"energy_above_hull":0.029276177500000777,"nelements":3,"formula_pretty":"VOF3","material_id":"mp-aaabqvqu"},{"theoretical":true,"band_gap":3.3087999999999997,"energy_above_hull":0.04956928583335518,"nelements":3,"formula_pretty":"BiOF","material_id":"mp-aaabqvvp"},{"theoretical":true,"band_gap":4.4106,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"WOF4","material_id":"mp-aaabqvvv"},{"theoretical":true,"band_gap":3.3637,"energy_above_hull":0.02039891799999971,"nelements":3,"formula_pretty":"VOF3","material_id":"mp-aaabqvys"},{"theoretical":true,"band_gap":3.3335999999999997,"energy_above_hull":0.038461640833355126,"nelements":3,"formula_pretty":"BiOF","material_id":"mp-aaabqwds"},{"theoretical":true,"band_gap":3.4546000000000006,"energy_above_hull":0.0008376637499987183,"nelements":3,"formula_pretty":"HoIO","material_id":"mp-aaabqwef"},{"theoretical":true,"band_gap":3.9154,"energy_above_hull":0.011738635571426848,"nelements":3,"formula_pretty":"Bi2OF4","material_id":"mp-aaabqwjl"},{"theoretical":true,"band_gap":3.2113,"energy_above_hull":0.024951513499999578,"nelements":3,"formula_pretty":"VOF3","material_id":"mp-aaabqwrt"},{"theoretical":true,"band_gap":3.4078000000000004,"energy_above_hull":0.03482161986110999,"nelements":3,"formula_pretty":"YIO","material_id":"mp-aaabqwyy"},{"theoretical":false,"band_gap":3.3587000000000002,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"GdOF","material_id":"mp-aaabqwzh"},{"theoretical":true,"band_gap":3.2629,"energy_above_hull":0.033699998999999536,"nelements":3,"formula_pretty":"NbOF3","material_id":"mp-aaabqxbt"},{"theoretical":true,"band_gap":3.6646,"energy_above_hull":0.011370697499998528,"nelements":3,"formula_pretty":"NbOF3","material_id":"mp-aaabqxci"}],"meta":{"api_version":"0.88.1","time_stamp":"2026-10-31T18:22:04.648917+00:00","total_doc":3229,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+    headers:
+      Access-Control-Expose-Headers:
+      - X-Api-Key
+      CF-RAY:
+      - a534aeda6aeb61b4-ORD
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 31 Oct 2026 18:22:04 GMT
+      RateLimit-Limit:
+      - '25'
+      RateLimit-Remaining:
+      - '24'
+      RateLimit-Reset:
+      - '1'
+      Set-Cookie:
+      - _csrf_token=anonymous; Domain=.materialsproject.org; Path=/; SameSite=Strict
+      - mp-session=KQ-V36unIHpQJ8R8AJg5Pg|1794680524|TmTjBG4jQWEn5TDWb4jLuNyDzOs;
+        Expires=Sat, 14 Nov 2026 18:22:04 GMT; Max-Age=1209600; Domain=materialsproject.org;
+        Path=/; SameSite=Lax; Secure; HttpOnly
+      - __cf_bm=_23IwGqtF3tCE_NhUMtoZpP_MvAad59.ApqISShEQOc-1793470923.9053853-1.0.1.1-d2DJCgBQlzR_Zvvt.eivzKCi99akKK5QCafX81SVrYwJPIbhQHVouSB6dMLefrwYG.BCWOIhscn4H6QWjFXgNlkso7MZ_DAwpPeSaYrFu4p_NdcvJAPQtz.DCzxCjmJC;
+        HttpOnly; SameSite=None; Secure; Path=/; Domain=materialsproject.org; Expires=Sat,
+        31 Oct 2026 18:52:04 GMT
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - kong/2.8.4
+      X-Kong-Proxy-Latency:
+      - '9'
+      X-Kong-Upstream-Latency:
+      - '696'
+      X-RateLimit-Limit-Day:
+      - '640000'
+      X-RateLimit-Limit-Hour:
+      - '40000'
+      X-RateLimit-Limit-Minute:
+      - '1000'
+      X-RateLimit-Limit-Month:
+      - '12800000'
+      X-RateLimit-Limit-Second:
+      - '25'
+      X-RateLimit-Limit-Year:
+      - '100000000'
+      X-RateLimit-Remaining-Day:
+      - '639999'
+      X-RateLimit-Remaining-Hour:
+      - '39999'
+      X-RateLimit-Remaining-Minute:
+      - '999'
+      X-RateLimit-Remaining-Month:
+      - '12799999'
+      X-RateLimit-Remaining-Second:
+      - '24'
+      X-RateLimit-Remaining-Year:
+      - '99999999'
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      server:
+      - cloudflare
+      vary:
+      - Accept-Encoding
+      - Origin
+      x-consumer-id:
+      - 58e0b4c2-4c2d-439b-ba0a-648cd568a0fa
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Cookie:
+      - _csrf_token=anonymous; mp-session=KQ-V36unIHpQJ8R8AJg5Pg|1794680524|TmTjBG4jQWEn5TDWb4jLuNyDzOs;
+        __cf_bm=_23IwGqtF3tCE_NhUMtoZpP_MvAad59.ApqISShEQOc-1793470923.9053853-1.0.1.1-d2DJCgBQlzR_Zvvt.eivzKCi99akKK5QCafX81SVrYwJPIbhQHVouSB6dMLefrwYG.BCWOIhscn4H6QWjFXgNlkso7MZ_DAwpPeSaYrFu4p_NdcvJAPQtz.DCzxCjmJC
+      user-agent:
+      - mp-api/0.47.0 (Python/3.12.16 Darwin/25.5.0)
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cformula_pretty%2Cnelements%2Cenergy_above_hull%2Cband_gap%2Ctheoretical&_limit=100&_skip=100&band_gap_min=3.0&elements=O&energy_above_hull_max=0.05&energy_above_hull_min=0.0&nelements_max=3&nelements_min=2
+  response:
+    body:
+      string: '{"data":[{"theoretical":true,"band_gap":3.6498999999999997,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"ClOF3","material_id":"mp-aaabqxhx"},{"theoretical":true,"band_gap":3.6304,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"SmIO","material_id":"mp-aaabqxsj"},{"theoretical":true,"band_gap":3.2009999999999996,"energy_above_hull":0.009983800000000542,"nelements":3,"formula_pretty":"GdOF","material_id":"mp-aaabqxxl"},{"theoretical":true,"band_gap":3.6156,"energy_above_hull":0.013757840454546866,"nelements":3,"formula_pretty":"Ba4OF6","material_id":"mp-aaabqxxq"},{"theoretical":true,"band_gap":3.0252000000000003,"energy_above_hull":0.021615947499999955,"nelements":3,"formula_pretty":"VOF3","material_id":"mp-aaabqytj"},{"theoretical":true,"band_gap":3.5729,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"NdIO","material_id":"mp-aaabqzjk"},{"theoretical":true,"band_gap":4.2124,"energy_above_hull":0.013323795681831285,"nelements":3,"formula_pretty":"Nb2OF8","material_id":"mp-aaabrent"},{"theoretical":true,"band_gap":3.0935,"energy_above_hull":0.04781965200000027,"nelements":3,"formula_pretty":"VOF3","material_id":"mp-aaabrfwf"},{"theoretical":true,"band_gap":4.3552,"energy_above_hull":0.04725245395833433,"nelements":3,"formula_pretty":"WOF4","material_id":"mp-aaabrfzu"},{"theoretical":true,"band_gap":3.4794,"energy_above_hull":0.04501223899999918,"nelements":3,"formula_pretty":"VOF3","material_id":"mp-aaabrggd"},{"theoretical":true,"band_gap":5.0069,"energy_above_hull":0.04075569666666734,"nelements":3,"formula_pretty":"WOF4","material_id":"mp-aaabrgmi"},{"theoretical":true,"band_gap":3.2116999999999996,"energy_above_hull":0.031780530833355414,"nelements":3,"formula_pretty":"BiOF","material_id":"mp-aaabrgna"},{"theoretical":true,"band_gap":3.6434,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"NbOF3","material_id":"mp-aaabrhkc"},{"theoretical":true,"band_gap":5.0012,"energy_above_hull":0.04265921270833317,"nelements":3,"formula_pretty":"WOF4","material_id":"mp-aaabrhxj"},{"theoretical":true,"band_gap":3.873,"energy_above_hull":0.024952771500000637,"nelements":3,"formula_pretty":"VOF3","material_id":"mp-aaabrhxy"},{"theoretical":true,"band_gap":3.2204999999999995,"energy_above_hull":0.035252384999997055,"nelements":3,"formula_pretty":"BiOF","material_id":"mp-aaabrjrk"},{"theoretical":true,"band_gap":3.4012000000000002,"energy_above_hull":0.006305061000000833,"nelements":3,"formula_pretty":"VOF3","material_id":"mp-aaabrmpe"},{"theoretical":true,"band_gap":3.5122,"energy_above_hull":0.022071160138889212,"nelements":3,"formula_pretty":"SbOF","material_id":"mp-aaabrped"},{"theoretical":true,"band_gap":3.1754000000000002,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"Rb2MgO2","material_id":"mp-aaadjssf"},{"theoretical":true,"band_gap":3.7457999999999996,"energy_above_hull":0.011443941322111684,"nelements":3,"formula_pretty":"NaSbO2","material_id":"mp-aaagbdbc"},{"theoretical":true,"band_gap":5.0172,"energy_above_hull":0.0015786471875003372,"nelements":3,"formula_pretty":"H5BrO2","material_id":"mp-aaagblmr"},{"theoretical":true,"band_gap":4.8302,"energy_above_hull":0.01050151124999843,"nelements":3,"formula_pretty":"TmHO2","material_id":"mp-aaabrsss"},{"theoretical":true,"band_gap":3.8089000000000004,"energy_above_hull":0.007280378749999983,"nelements":3,"formula_pretty":"KNdO2","material_id":"mp-aaabrtjs"},{"theoretical":true,"band_gap":4.016500000000001,"energy_above_hull":0.009928638750000829,"nelements":2,"formula_pretty":"HfO2","material_id":"mp-aaabsdov"},{"theoretical":true,"band_gap":3.3165999999999998,"energy_above_hull":0.04733514133333294,"nelements":2,"formula_pretty":"ZrO2","material_id":"mp-aaabsdus"},{"theoretical":true,"band_gap":4.1383,"energy_above_hull":0.03929804777777868,"nelements":2,"formula_pretty":"HfO2","material_id":"mp-aaabsebx"},{"theoretical":true,"band_gap":3.4628999999999994,"energy_above_hull":0.009497303333333207,"nelements":2,"formula_pretty":"ZrO2","material_id":"mp-aaabsens"},{"theoretical":true,"band_gap":3.9087000000000005,"energy_above_hull":0.036980001666666595,"nelements":2,"formula_pretty":"HfO2","material_id":"mp-aaabsesq"},{"theoretical":true,"band_gap":4.728,"energy_above_hull":0.00793065531249848,"nelements":3,"formula_pretty":"DyHO2","material_id":"mp-aaabsgaw"},{"theoretical":false,"band_gap":5.5882,"energy_above_hull":0.016306131666667056,"nelements":2,"formula_pretty":"SiO2","material_id":"mp-aaacdjbs"},{"theoretical":false,"band_gap":4.5644,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"LiDyO2","material_id":"mp-aaacdowk"},{"theoretical":true,"band_gap":5.599,"energy_above_hull":0.008480523472224277,"nelements":2,"formula_pretty":"SiO2","material_id":"mp-aaacebyo"},{"theoretical":true,"band_gap":5.515899999999999,"energy_above_hull":0.009721104722222762,"nelements":2,"formula_pretty":"SiO2","material_id":"mp-aaacebzi"},{"theoretical":true,"band_gap":3.3345,"energy_above_hull":0.048859919999999946,"nelements":3,"formula_pretty":"SrCaO2","material_id":"mp-aaacfxxk"},{"theoretical":true,"band_gap":6.4897,"energy_above_hull":0.02959196572916767,"nelements":3,"formula_pretty":"SiO2He","material_id":"mp-aaacgamv"},{"theoretical":true,"band_gap":6.5469,"energy_above_hull":0.026299072291667613,"nelements":3,"formula_pretty":"SiO2He","material_id":"mp-aaacgamw"},{"theoretical":false,"band_gap":3.7336,"energy_above_hull":0.023029582187499287,"nelements":3,"formula_pretty":"LiLaO2","material_id":"mp-aaacgayz"},{"theoretical":false,"band_gap":6.5856,"energy_above_hull":0.007274903333332361,"nelements":2,"formula_pretty":"CO2","material_id":"mp-aaacjiny"},{"theoretical":false,"band_gap":3.9499,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"TbHO2","material_id":"mp-aaacjlhe"},{"theoretical":true,"band_gap":4.0758,"energy_above_hull":0.00925111687500113,"nelements":3,"formula_pretty":"NaHoO2","material_id":"mp-aaackqxz"},{"theoretical":true,"band_gap":4.479152780084422,"energy_above_hull":0.036684101874999264,"nelements":3,"formula_pretty":"SmHO2","material_id":"mp-aaackrhe"},{"theoretical":true,"band_gap":3.9025,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"SmHO2","material_id":"mp-aaackrhl"},{"theoretical":true,"band_gap":3.3978,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"RbPrO2","material_id":"mp-aaackrhp"},{"theoretical":true,"band_gap":4.0747,"energy_above_hull":0.011298847499999098,"nelements":3,"formula_pretty":"NaDyO2","material_id":"mp-aaackrrh"},{"theoretical":false,"band_gap":6.4314,"energy_above_hull":0.0168115783333338,"nelements":2,"formula_pretty":"CO2","material_id":"mp-aaacksnj"},{"theoretical":true,"band_gap":4.893623899208317,"energy_above_hull":0.013243395104163724,"nelements":3,"formula_pretty":"LuHO2","material_id":"mp-aaacoykf"},{"theoretical":true,"band_gap":5.0674,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"LiTmO2","material_id":"mp-aaacoymm"},{"theoretical":true,"band_gap":5.687200000000001,"energy_above_hull":0.0019842293750009787,"nelements":3,"formula_pretty":"LiLuO2","material_id":"mp-aaacoyqt"},{"theoretical":true,"band_gap":3.1331,"energy_above_hull":0.048905014666666524,"nelements":3,"formula_pretty":"Li2FeO2","material_id":"mp-aaacpann"},{"theoretical":true,"band_gap":3.8604,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"KSmO2","material_id":"mp-aaacpauv"},{"theoretical":true,"band_gap":3.9403999999999995,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"KLuO2","material_id":"mp-aaacpaux"},{"theoretical":true,"band_gap":3.9736000000000002,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"KDyO2","material_id":"mp-aaacpavd"},{"theoretical":true,"band_gap":6.4741,"energy_above_hull":0.023373383055556474,"nelements":2,"formula_pretty":"SiO2","material_id":"mp-aaacpctj"},{"theoretical":true,"band_gap":6.0799,"energy_above_hull":0.0188390738888895,"nelements":2,"formula_pretty":"SiO2","material_id":"mp-aaacpctq"},{"theoretical":false,"band_gap":5.4517999999999995,"energy_above_hull":0.016530015555556332,"nelements":2,"formula_pretty":"SiO2","material_id":"mp-aaacppsu"},{"theoretical":true,"band_gap":3.1526999999999994,"energy_above_hull":0.02684457444444277,"nelements":2,"formula_pretty":"TeO2","material_id":"mp-aaacpskb"},{"theoretical":false,"band_gap":3.5793999999999997,"energy_above_hull":0.013256612916665134,"nelements":2,"formula_pretty":"ZrO2","material_id":"mp-aaacpsqk"},{"theoretical":false,"band_gap":6.496700000000001,"energy_above_hull":0.007384180833334142,"nelements":2,"formula_pretty":"CO2","material_id":"mp-aaacptkd"},{"theoretical":false,"band_gap":5.7794,"energy_above_hull":0.017651827291667033,"nelements":2,"formula_pretty":"SiO2","material_id":"mp-aaacqadt"},{"theoretical":false,"band_gap":7.1898,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"BHO2","material_id":"mp-aaacqfbs"},{"theoretical":false,"band_gap":3.6306,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"LiSbO2","material_id":"mp-aaacqfiy"},{"theoretical":false,"band_gap":5.5867,"energy_above_hull":0.026448057397661984,"nelements":2,"formula_pretty":"SiO2","material_id":"mp-aaacqhdu"},{"theoretical":false,"band_gap":5.7076,"energy_above_hull":0.015922946006945438,"nelements":2,"formula_pretty":"SiO2","material_id":"mp-aaacqhpc"},{"theoretical":false,"band_gap":5.5322,"energy_above_hull":0.01813383125000101,"nelements":2,"formula_pretty":"SiO2","material_id":"mp-aaacqjyl"},{"theoretical":false,"band_gap":5.4771,"energy_above_hull":0.030771927847222713,"nelements":2,"formula_pretty":"SiO2","material_id":"mp-aaacqmol"},{"theoretical":false,"band_gap":5.6518,"energy_above_hull":0.02258345675925888,"nelements":2,"formula_pretty":"SiO2","material_id":"mp-aaacqndx"},{"theoretical":true,"band_gap":3.228680362229027,"energy_above_hull":0.01921506850000121,"nelements":3,"formula_pretty":"Se(OF)2","material_id":"mp-aaacquli"},{"theoretical":true,"band_gap":3.1929,"energy_above_hull":0.020979639250001014,"nelements":3,"formula_pretty":"Se(OF)2","material_id":"mp-aaacqunh"},{"theoretical":true,"band_gap":4.5103,"energy_above_hull":0.0423199697500003,"nelements":2,"formula_pretty":"H3O2","material_id":"mp-aaacqzpu"},{"theoretical":true,"band_gap":3.8807,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"CsGaO2","material_id":"mp-aaacrazh"},{"theoretical":true,"band_gap":4.212199999999999,"energy_above_hull":0.008336155312497873,"nelements":3,"formula_pretty":"LiNdO2","material_id":"mp-aaacrofr"},{"theoretical":true,"band_gap":5.7492,"energy_above_hull":0.02157992868055736,"nelements":2,"formula_pretty":"SiO2","material_id":"mp-aaactbov"},{"theoretical":true,"band_gap":5.7815,"energy_above_hull":0.02289785114379228,"nelements":2,"formula_pretty":"SiO2","material_id":"mp-aaactbty"},{"theoretical":true,"band_gap":5.665900000000001,"energy_above_hull":0.01839271240740814,"nelements":2,"formula_pretty":"SiO2","material_id":"mp-aaactcdg"},{"theoretical":true,"band_gap":5.7045,"energy_above_hull":0.020061214662700166,"nelements":2,"formula_pretty":"SiO2","material_id":"mp-aaactcoz"},{"theoretical":true,"band_gap":6.5095,"energy_above_hull":0.023595856722224084,"nelements":2,"formula_pretty":"SiO2","material_id":"mp-aaactdbt"},{"theoretical":true,"band_gap":6.4818999999999996,"energy_above_hull":0.02140472166666818,"nelements":2,"formula_pretty":"SiO2","material_id":"mp-aaactdmz"},{"theoretical":true,"band_gap":5.6892,"energy_above_hull":0.018172296686508105,"nelements":2,"formula_pretty":"SiO2","material_id":"mp-aaactdyd"},{"theoretical":true,"band_gap":5.6677,"energy_above_hull":0.014886152749999937,"nelements":2,"formula_pretty":"SiO2","material_id":"mp-aaactebn"},{"theoretical":true,"band_gap":5.760400000000001,"energy_above_hull":0.02071808666666719,"nelements":2,"formula_pretty":"SiO2","material_id":"mp-aaactmxi"},{"theoretical":true,"band_gap":5.5917,"energy_above_hull":0.02873003033333532,"nelements":2,"formula_pretty":"SiO2","material_id":"mp-aaactnsq"},{"theoretical":true,"band_gap":5.6532,"energy_above_hull":0.012352554771242197,"nelements":2,"formula_pretty":"SiO2","material_id":"mp-aaactpge"},{"theoretical":true,"band_gap":5.6742,"energy_above_hull":0.020523518524306894,"nelements":2,"formula_pretty":"SiO2","material_id":"mp-aaacudwh"},{"theoretical":true,"band_gap":3.0405999999999995,"energy_above_hull":0.04949384916666677,"nelements":3,"formula_pretty":"Li2FeO2","material_id":"mp-aaacukud"},{"theoretical":true,"band_gap":3.1324000000000005,"energy_above_hull":0.01222658150000111,"nelements":3,"formula_pretty":"Ni(HO)2","material_id":"mp-aaacuohd"},{"theoretical":false,"band_gap":4.0161999999999995,"energy_above_hull":0.0,"nelements":2,"formula_pretty":"HfO2","material_id":"mp-aaaaaano"},{"theoretical":false,"band_gap":4.417999999999999,"energy_above_hull":0.0,"nelements":2,"formula_pretty":"ThO2","material_id":"mp-aaaaaayt"},{"theoretical":false,"band_gap":3.2874,"energy_above_hull":0.0,"nelements":2,"formula_pretty":"SeO2","material_id":"mp-aaaaabby"},{"theoretical":false,"band_gap":4.227500000000001,"energy_above_hull":0.016383926250000513,"nelements":2,"formula_pretty":"HfO2","material_id":"mp-aaaaactm"},{"theoretical":false,"band_gap":3.8825,"energy_above_hull":0.027125123333330947,"nelements":2,"formula_pretty":"ZrO2","material_id":"mp-aaaaadva"},{"theoretical":false,"band_gap":3.734,"energy_above_hull":0.014843958333333518,"nelements":2,"formula_pretty":"MgO2","material_id":"mp-aaaaadvp"},{"theoretical":false,"band_gap":3.5322,"energy_above_hull":0.0,"nelements":2,"formula_pretty":"ZrO2","material_id":"mp-aaaaaefy"},{"theoretical":false,"band_gap":4.5899,"energy_above_hull":0.01406045374999998,"nelements":3,"formula_pretty":"LiAlO2","material_id":"mp-aaaaafbv"},{"theoretical":false,"band_gap":3.7378,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"NaAsO2","material_id":"mp-aaaaafdk"},{"theoretical":false,"band_gap":3.0973999999999995,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"Tm2SO2","material_id":"mp-aaaaafgu"},{"theoretical":false,"band_gap":5.226,"energy_above_hull":0.01816399749999409,"nelements":3,"formula_pretty":"LiBO2","material_id":"mp-aaaaafjv"},{"theoretical":false,"band_gap":4.1041,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"NaBO2","material_id":"mp-aaaaaftp"},{"theoretical":false,"band_gap":4.1255,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"KBO2","material_id":"mp-aaaaafut"},{"theoretical":false,"band_gap":3.0499,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"KGaO2","material_id":"mp-aaaaagak"},{"theoretical":false,"band_gap":3.064000000000001,"energy_above_hull":0.0,"nelements":3,"formula_pretty":"La2SO2","material_id":"mp-aaaaagrn"}],"meta":{"api_version":"0.88.1","time_stamp":"2026-10-31T18:22:05.389031+00:00","total_doc":3229,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+    headers:
+      Access-Control-Expose-Headers:
+      - X-Api-Key
+      CF-RAY:
+      - a534aedffabc863e-ORD
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 31 Oct 2026 18:22:05 GMT
+      RateLimit-Limit:
+      - '25'
+      RateLimit-Remaining:
+      - '24'
+      RateLimit-Reset:
+      - '1'
+      Set-Cookie:
+      - _csrf_token=authenticated; Domain=.materialsproject.org; Path=/; SameSite=Strict
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - kong/2.8.4
+      X-Kong-Proxy-Latency:
+      - '8'
+      X-Kong-Upstream-Latency:
+      - '503'
+      X-RateLimit-Limit-Day:
+      - '640000'
+      X-RateLimit-Limit-Hour:
+      - '40000'
+      X-RateLimit-Limit-Minute:
+      - '1000'
+      X-RateLimit-Limit-Month:
+      - '12800000'
+      X-RateLimit-Limit-Second:
+      - '25'
+      X-RateLimit-Limit-Year:
+      - '100000000'
+      X-RateLimit-Remaining-Day:
+      - '639998'
+      X-RateLimit-Remaining-Hour:
+      - '39998'
+      X-RateLimit-Remaining-Minute:
+      - '998'
+      X-RateLimit-Remaining-Month:
+      - '12799998'
+      X-RateLimit-Remaining-Second:
+      - '24'
+      X-RateLimit-Remaining-Year:
+      - '99999998'
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      server:
+      - cloudflare
+      vary:
+      - Accept-Encoding
+      - Origin
+      x-consumer-id:
+      - 58e0b4c2-4c2d-439b-ba0a-648cd568a0fa
+    status:
+      code: 200
+      message: OK
+version: 1

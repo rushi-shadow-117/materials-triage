@@ -1,0 +1,540 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search=ZrO2+dielectric+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 6279, "db_response_time_ms": 95, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (ZrO2 dielectric
+        thin film) in the full text where it has an abstract", "x_new_oql": "get works
+        with (ZrO2 dielectric thin film) in the full text where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "fulltext.search",
+        "value": "ZrO2 dielectric thin film", "operator": "has"}, {"column_id": "has_abstract",
+        "value": true}]}, "url": "/works?filter=fulltext.search:ZrO2 dielectric thin
+        film,has_abstract:true&per_page=5", "order": "best matches first", "order_default":
+        true}, "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W1994907691",
+        "doi": "https://doi.org/10.4028/www.scientific.net/kem.602-603.767", "title":
+        "Structure and Characteristics of ZrO2 Dielectric Thin Films by Sol-Gel Technique",
+        "publication_year": 2014, "abstract_inverted_index": {"Dielectric": [0, 39],
+        "properties": [1, 40], "and": [2, 30, 53, 64], "microstructures": [3], "of":
+        [4, 41, 61], "ZrO2thin": [5], "films": [6, 20], "prepared": [7], "by": [8,
+        47], "the": [9, 27, 31, 42, 62], "sol-gel": [10], "method": [11], "at": [12],
+        "different": [13], "annealing": [14, 37, 68], "temperatures": [15], "have":
+        [16], "been": [17], "investigated.": [18, 72], "All": [19], "exhibited": [21],
+        "ZrO2(111)": [22], "highly": [23], "orientation": [24], "perpendicular": [25],
+        "to": [26], "substrate": [28], "surface": [29], "grain": [32], "size": [33],
+        "increased": [34], "with": [35], "increasing": [36], "temperature.": [38],
+        "Ag/ZrO2/Ag/Si": [43], "structure": [44], "were": [45], "measured": [46],
+        "using": [48], "HP": [49], "4192": [50], "Impedance": [51], "Analyzer": [52],
+        "Agilent": [54], "4155": [55], "Semiconductor": [56], "Parameter": [57], "Analyzer.":
+        [58], "The": [59], "dependence": [60], "microstructure": [63], "dielectric":
+        [65], "characteristics": [66], "on": [67], "temperature": [69], "was": [70],
+        "also": [71]}, "primary_location": {"id": "doi:10.4028/www.scientific.net/kem.602-603.767",
+        "doi": "https://doi.org/10.4028/www.scientific.net/kem.602-603.767", "is_oa":
+        true, "landing_page_url": "https://doi.org/10.4028/www.scientific.net/kem.602-603.767",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S75411654", "display_name":
+        "Key engineering materials", "issn_l": "1013-9826", "issn": ["1013-9826",
+        "1662-9795", "1662-9809"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["cwts-core", "jufo-1", "norway-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310317839", "host_organization_name": "Trans Tech
+        Publications", "host_organization_lineage": ["https://openalex.org/P4310317839"],
+        "host_organization_lineage_names": ["Trans Tech Publications"], "type": "book
+        series"}, "license": "cc-by", "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Key Engineering Materials", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W7169964246", "doi": null, "title": "Studies
+        on Electrical and Structural Properties of ZrO2/Y2O3/ZrO2 Dielectric Thin
+        Films for DRAM Capacitors", "publication_year": 2019, "abstract_inverted_index":
+        {"\ud559\uc704\ub17c\ubb38": [0], "(\uc11d\uc0ac)--": [1], "\uc11c\uc6b8\ub300\ud559\uad50":
+        [2], "\ub300\ud559\uc6d0": [3], ":": [4], "\uacf5\uacfc\ub300\ud559": [5],
+        "\uc7ac\ub8cc\uacf5\ud559\ubd80(\ud558\uc774\ube0c\ub9ac\ub4dc": [6], "\uc7ac\ub8cc),":
+        [7], "2019.": [8], "2.": [9], "\ud669\ucca0\uc131.": [10]}, "primary_location":
+        {"id": "pmh:oai:s-space.snu.ac.kr:10371/150738", "doi": null, "is_oa": false,
+        "landing_page_url": "https://hdl.handle.net/10371/150738", "pdf_url": null,
+        "source": {"id": "https://openalex.org/S4306401345", "display_name": "Seoul
+        National University Open Repository (Seoul National University)", "issn_l":
+        null, "issn": null, "is_oa": false, "is_in_doaj": false, "is_core": false,
+        "listed_in": [], "host_organization": "https://openalex.org/I139264467", "host_organization_name":
+        "Seoul National University", "host_organization_lineage": ["https://openalex.org/I139264467"],
+        "host_organization_lineage_names": [], "type": "repository"}, "license": null,
+        "license_id": null, "version": "submittedVersion", "is_accepted": false, "is_published":
+        false, "raw_source_name": null, "raw_type": "Thesis"}}, {"id": "https://openalex.org/W4404571775",
+        "doi": "https://doi.org/10.1021/acsaelm.4c01659", "title": "Achieving Equivalent
+        Oxide Thickness Scaling of a ZrO2 Dielectric Thin Film via Gd Doping without
+        Sacrificing Tetragonal Crystallinity", "publication_year": 2024, "abstract_inverted_index":
+        {"In": [0], "this": [1], "study,": [2], "we": [3], "examine": [4], "the":
+        [5, 33, 46, 54, 68, 73, 77, 80, 95, 102, 108, 124, 127], "potential": [6],
+        "of": [7, 37, 45, 79, 119, 126, 140], "Gd": [8, 85], "dopants": [9, 13, 26],
+        "to": [10, 31, 91, 94], "replace": [11], "Al": [12, 25], "in": [14, 66], "ZrO":
+        [15, 38, 47, 58, 110], "2": [16, 48, 59, 111, 135], "-based": [17], "dynamic":
+        [18], "random-access": [19], "memory": [20], "(DRAM)": [21], "capacitors.":
+        [22], "While": [23], "using": [24], "is": [27, 87], "a": [28, 113], "practical":
+        [29], "approach": [30], "solving": [32], "leakage": [34, 69, 81, 129], "current":
+        [35, 70, 82, 130], "problem": [36], "2,": [39], "it": [40], "induces": [41],
+        "tetragonal": [42, 74], "crystallinity": [43], "deterioration": [44], "dielectric":
+        [49, 60], "thin": [50, 61], "film,": [51], "thereby": [52], "decreasing":
+        [53], "capacitance.": [55], "The": [56], "Gd-doped": [57, 109], "film": [62],
+        "demonstrated": [63], "promising": [64], "results": [65], "suppressing": [67],
+        "while": [71, 122], "preserving": [72], "crystallinity.": [75], "Moreover,":
+        [76], "suppression": [78], "mechanism": [83], "by": [84, 101], "doping": [86,
+        105], "discussed": [88], "and": [89], "shown": [90], "be": [92], "due": [93],
+        "increasing": [96], "conduction": [97], "band": [98], "offset": [99], "caused":
+        [100], "acceptor": [103], "(p-type)": [104], "effect.": [106], "Consequently,":
+        [107], "achieved": [112], "minimum": [114], "equivalent": [115], "oxide":
+        [116], "thickness": [117], "value": [118], "0.76": [120], "nm": [121], "satisfying":
+        [123], "specifications": [125], "DRAM": [128], "density": [131], "(<10": [132],
+        "\u20137": [133], "A/cm": [134], "at": [136], "an": [137], "applied": [138],
+        "voltage": [139], "+0.8": [141], "V).": [142]}, "primary_location": {"id":
+        "doi:10.1021/acsaelm.4c01659", "doi": "https://doi.org/10.1021/acsaelm.4c01659",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1021/acsaelm.4c01659",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4210217399", "display_name":
+        "ACS Applied Electronic Materials", "issn_l": "2637-6113", "issn": ["2637-6113"],
+        "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core",
+        "dongbi-c", "jufo-1", "norway-1", "poland-20", "russia-white-list-1"], "host_organization":
+        "https://openalex.org/P4310320006", "host_organization_name": "American Chemical
+        Society", "host_organization_lineage": ["https://openalex.org/P4310320006"],
+        "host_organization_lineage_names": ["American Chemical Society"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "ACS Applied
+        Electronic Materials", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2023578199",
+        "doi": "https://doi.org/10.4028/www.scientific.net/kem.206-213.1285", "title":
+        "Crystallisation and Tetragonal-Monoclinic Transformation in ZrO2 and HfO2
+        Dielectric Thin Films", "publication_year": 2001, "abstract_inverted_index":
+        {"Abstract.": [0], "The": [1, 57, 73, 100, 126], "crystallisation": [2, 52,
+        58, 82], "and": [3, 10, 112], "the": [4, 47, 65, 70, 78, 81, 89, 104, 110,
+        117], "tetragonal-to-monoclinic": [5], "phase": [6, 101, 119], "transformation":
+        [7, 128], "in": [8, 40, 124], "ZrO2": [9], "HfO2": [11, 92], "thin": [12],
+        "films": [13, 31, 106], "prepared": [14], "by": [15], "atomic": [16], "layer":
+        [17], "chemical": [18], "vapour": [19], "deposition": [20], "(ALCVD)": [21],
+        "are": [22, 32], "studied": [23], "using": [24], "high-temperature": [25],
+        "grazing-incidence": [26], "X-ray": [27], "diffraction": [28], "(HT-XRD).":
+        [29], "These": [30], "developed": [33], "for": [34], "applications": [35],
+        "as": [36], "high-k": [37], "dielectric": [38], "gate": [39], "CMOS": [41],
+        "transistors.": [42], "HT-XRD": [43], "shows": [44], "that": [45], "all":
+        [46], "tested": [48], "samples": [49], "have": [50], "a": [51, 75, 86, 95],
+        "onset": [53, 59, 83], "temperature": [54, 60, 97], "below": [55], "600\u00b0C.":
+        [56], "depends": [61, 107], "not": [62], "only": [63], "on": [64, 69, 109],
+        "material,": [66], "but": [67], "also": [68, 108], "film": [71, 76, 87, 113],
+        "thickness.": [72, 114], "thinner": [74], "is,": [77], "higher": [79, 96],
+        "is": [80, 120], "temperature.": [84], "For": [85], "with": [88], "same":
+        [90], "thickness,": [91], "crystallises": [93], "at": [94], "than": [98, 123],
+        "ZrO2.": [99], "composition": [102], "of": [103], "crystallised": [105], "material":
+        [111], "In": [115], "ZrO2,": [116], "tetragonal": [118], "more": [121], "stable":
+        [122], "HfO2.": [125], "t-m": [127], "during": [129], "annealing": [130],
+        "has": [131], "been": [132], "observed.": [133]}, "primary_location": {"id":
+        "doi:10.4028/www.scientific.net/kem.206-213.1285", "doi": "https://doi.org/10.4028/www.scientific.net/kem.206-213.1285",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.4028/www.scientific.net/kem.206-213.1285",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S75411654", "display_name":
+        "Key engineering materials", "issn_l": "1013-9826", "issn": ["1013-9826",
+        "1662-9795", "1662-9809"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["cwts-core", "jufo-1", "norway-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310317839", "host_organization_name": "Trans Tech
+        Publications", "host_organization_lineage": ["https://openalex.org/P4310317839"],
+        "host_organization_lineage_names": ["Trans Tech Publications"], "type": "book
+        series"}, "license": "cc-by", "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Key Engineering Materials", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2023584139", "doi": "https://doi.org/10.1116/1.1885011",
+        "title": "Dielectric properties enhancement of ZrO2 thin films induced by
+        substrate biasing", "publication_year": 2005, "abstract_inverted_index": {"We":
+        [0], "have": [1], "fabricated": [2], "zirconia": [3], "(ZrO2)": [4], "thin":
+        [5, 43, 110, 118, 144], "films": [6, 44, 111, 119, 145], "on": [7, 94], "Si":
+        [8], "(100)": [9], "wafers": [10], "that": [11, 146], "possess": [12], "excellent":
+        [13, 24], "dielectric": [14, 114, 143], "properties": [15, 115], "such": [16],
+        "as": [17, 97, 122], "high": [18, 58], "permittivity": [19], "up": [20], "to":
+        [21, 33, 105, 137, 149], "53": [22], "and": [23, 39, 45, 60, 66, 85, 112],
+        "frequency": [25], "stability.": [26], "The": [27, 52, 128], "good": [28],
+        "performance": [29], "is": [30, 103], "mainly": [31], "attributed": [32],
+        "the": [34, 37, 42, 46, 63, 69, 76, 82, 90, 95, 106, 113, 117, 123, 134, 138,
+        151], "improvement": [35], "in": [36, 155], "crystallinity": [38], "orientation":
+        [40], "of": [41, 62, 68, 100, 108, 116, 133, 140], "interfacial": [47], "structure":
+        [48], "using": [49], "substrate": [50, 86, 101, 124], "biasing.": [51], "bias":
+        [53, 125], "endues": [54], "positive": [55, 78], "ions": [56, 79], "with":
+        [57], "energy": [59], "diffusion": [61], "incident": [64], "particles": [65],
+        "relaxation": [67], "surface": [70, 96], "are": [71, 120, 147], "enhanced":
+        [72], "by": [73], "collisions": [74], "between": [75], "impinging": [77],
+        "accelerated": [80], "through": [81], "plasma": [83], "sheath": [84], "atoms.":
+        [87], "In": [88], "addition,": [89], "higher": [91], "nuclei": [92], "density":
+        [93], "a": [98], "result": [99], "biasing": [102], "beneficial": [104], "fabrication":
+        [107], "oriented": [109], "improved": [121], "goes": [126], "up.": [127],
+        "results": [129], "increase": [130], "our": [131], "understanding": [132],
+        "factors": [135], "leading": [136], "deposition": [139], "high-quality": [141],
+        "ZrO2": [142], "able": [148], "meet": [150], "requirements": [152], "for":
+        [153], "capacitors": [154], "next-generation": [156], "memory": [157], "devices.":
+        [158]}, "primary_location": {"id": "doi:10.1116/1.1885011", "doi": "https://doi.org/10.1116/1.1885011",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1116/1.1885011", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S4210169477", "display_name":
+        "Journal of Vacuum Science & Technology B Microelectronics and Nanometer Structures
+        Processing Measurement and Phenomena", "issn_l": "1071-1023", "issn": ["1071-1023",
+        "1520-8567"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "poland-70"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Journal of Vacuum Science &amp; Technology B: Microelectronics
+        and Nanometer Structures Processing, Measurement, and Phenomena", "raw_type":
+        "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a534af0ddac85e0c-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '13647'
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 18:22:12 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=7Ecy27EXY9Vj9L1ylEFSuoJCw%2Fc0odDxhL9urB4L%2FUk%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793470932"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=7Ecy27EXY9Vj9L1ylEFSuoJCw%2Fc0odDxhL9urB4L%2FUk%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793470932"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9950'
+      x-ratelimit-remaining-usd:
+      - '0.995'
+      x-ratelimit-reset:
+      - '20268'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search=zirconia+dielectric+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 9615, "db_response_time_ms": 190, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (zirconia dielectric
+        thin film) in the full text where it has an abstract", "x_new_oql": "get works
+        with (zirconia dielectric thin film) in the full text where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "fulltext.search",
+        "value": "zirconia dielectric thin film", "operator": "has"}, {"column_id":
+        "has_abstract", "value": true}]}, "url": "/works?filter=fulltext.search:zirconia
+        dielectric thin film,has_abstract:true&per_page=5", "order": "best matches
+        first", "order_default": true}, "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2081704969",
+        "doi": "https://doi.org/10.1063/1.1367309", "title": "Dielectric properties
+        of strained (Ba, Sr)TiO3 thin films epitaxially grown on Si with thin yttria-stabilized
+        zirconia buffer layer", "publication_year": 2001, "abstract_inverted_index":
+        {"We": [0, 60], "have": [1, 61], "grown": [2, 52], "epitaxial": [3, 30, 49],
+        "(Ba0.5,": [4], "Sr0.5)TiO3": [5], "(BST)": [6], "thin": [7, 13, 20], "films":
+        [8, 51, 70, 89], "on": [9, 53], "Si": [10, 54], "with": [11, 72], "very":
+        [12], "yttria-stabilized": [14], "zirconia": [15], "(YSZ)": [16], "buffer":
+        [17, 22], "layer.": [18], "The": [19, 48, 83], "YSZ": [21], "layer": [23,
+        32], "affects": [24], "the": [25, 29, 36, 40, 44, 64, 68, 74, 78, 87, 93],
+        "stress": [26], "state": [27, 79], "of": [28, 39, 46, 67, 80, 86], "BST":
+        [31, 41, 50, 69, 88], "as": [33, 35], "well": [34], "growth": [37], "behavior":
+        [38], "layer,": [42], "i.e.,": [43], "degree": [45], "epitaxy.": [47], "are":
+        [55], "in": [56, 77], "two-dimensional": [57], "tensile": [58, 81], "stress.":
+        [59, 82], "found": [62], "that": [63], "dielectric": [65, 84], "constant":
+        [66, 85], "increased": [71], "decreasing": [73], "lattice": [75, 94, 98, 100],
+        "distortion": [76, 95], "reaches": [90], "1300": [91], "when": [92], "(surface":
+        [96], "normal": [97], "constant/in-plane": [99], "constant)": [101], "is":
+        [102], "0.993.": [103]}, "primary_location": {"id": "doi:10.1063/1.1367309",
+        "doi": "https://doi.org/10.1063/1.1367309", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.1367309", "pdf_url": null, "source": {"id": "https://openalex.org/S105243760",
+        "display_name": "Applied Physics Letters", "issn_l": "0003-6951", "issn":
+        ["0003-6951", "1077-3118", "1520-8842"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-a",
+        "jufo-3", "ki-jl-1", "norway-2", "poland-100", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Applied Physics
+        Letters", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W4398757018",
+        "doi": "https://doi.org/10.33484/sinopfbd.1369460", "title": "The Effect of
+        Deposition Temperature on Structural, Morphological, and Dielectric Properties
+        of Yttria-Doped Zirconia Thin Films", "publication_year": 2024, "abstract_inverted_index":
+        {"The": [0, 56, 94, 114, 126, 164], "aim": [1], "of": [2, 10, 21, 35, 42,
+        63, 78, 97, 129, 167, 185], "this": [3], "study": [4], "was": [5, 72, 101,
+        134, 143, 175], "to": [6, 87, 103, 120, 145], "investigate": [7], "the": [8,
+        14, 40, 43, 49, 64, 75, 79, 91, 98, 130, 137, 168, 178], "effect": [9], "deposition":
+        [11, 54, 92, 150], "temperature": [12], "on": [13], "structural,": [15], "optical,":
+        [16], "morphological,": [17], "and": [18, 48, 61, 142, 181], "dielectric":
+        [19, 162, 165, 183], "properties": [20, 166], "yttria-stabilised": [22], "zirconia":
+        [23], "(YSZ)": [24], "films": [25, 37, 66, 82, 100, 133], "prepared": [26],
+        "by": [27, 69, 108], "sol-gel": [28], "spin-coating": [29], "method.": [30],
+        "X-ray": [31], "diffraction": [32], "(XRD)": [33], "measurements": [34], "YSZ":
+        [36, 80, 131, 159], "showed": [38], "that": [39, 74, 177], "peaks": [41],
+        "cubic": [44], "phase": [45], "were": [46, 67, 155, 172], "prominent": [47],
+        "peak": [50], "intensities": [51], "increased": [52, 83, 116], "with": [53,
+        90, 123, 148], "temperature.": [55, 93, 125, 151], "crystallite": [57], "size,":
+        [58], "dislocation": [59], "density,": [60], "microstrain": [62], "thin":
+        [65, 81, 99, 132], "identified": [68], "XRD.": [70], "It": [71, 174], "observed":
+        [73], "crystal": [76], "size": [77], "from": [84, 117, 157], "16": [85], "nm":
+        [86, 89, 119, 122, 141], "22": [88], "surface": [95], "roughness": [96, 115],
+        "found": [102, 144, 176], "have": [104], "changed": [105], "as": [106], "revealed":
+        [107], "Atomic": [109], "Force": [110], "Microscopy": [111], "(AFM)": [112],
+        "measurements.": [113], "7.72": [118], "11.92": [121], "increasing": [124,
+        149], "optical": [127], "transmittance": [128], "investigated": [135], "in":
+        [136], "wavelength": [138], "range": [139], "200-900": [140], "increase":
+        [146], "slightly": [147], "Metal-Oxide-Semiconductor": [152], "(MOS)": [153],
+        "devices": [154], "fabricated": [156], "these": [158, 186], "materials": [160],
+        "for": [161], "characterization.": [163], "Ag/YSZ/n-Si": [169], "MOS": [170],
+        "structure": [171], "investigated.": [173], "capacitance,": [179], "conductivity":
+        [180], "other": [182], "parameters": [184], "structures": [187], "are": [188],
+        "strongly": [189], "frequency": [190], "dependent.": [191]}, "primary_location":
+        {"id": "doi:10.33484/sinopfbd.1369460", "doi": "https://doi.org/10.33484/sinopfbd.1369460",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.33484/sinopfbd.1369460",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4210192950", "display_name":
+        "Sinop \u00dcniversitesi Fen Bilimleri Dergisi", "issn_l": "2536-4383", "issn":
+        ["2536-4383", "2564-7873"], "is_oa": true, "is_in_doaj": false, "is_core":
+        false, "listed_in": ["tr-dizin"], "host_organization": null, "host_organization_name":
+        null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "journal"}, "license": "cc-by-nc", "license_id": "https://openalex.org/licenses/cc-by-nc",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Sinop \u00dcniversitesi Fen Bilimleri Dergisi", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W2917204883", "doi": "https://doi.org/10.1088/2053-1591/ab0a4c",
+        "title": "Structure dependent dielectric response of spray coated nanostructured
+        zirconia thin films", "publication_year": 2019, "abstract_inverted_index":
+        {"In": [0], "this": [1], "work": [2], "the": [3, 66, 104, 120, 135, 169, 184,
+        201], "structural": [4], "dependent": [5], "dielectric": [6, 109, 166, 198],
+        "property": [7], "of": [8, 32, 54, 57, 95, 137, 147, 156, 165, 171, 179, 187,
+        192, 197, 204], "ZrO": [9, 207], "2": [10, 208], "nanoparticles": [11, 17,
+        26, 58], "and": [12, 22, 47, 129, 159], "films": [13, 61, 82, 90, 182, 209],
+        "prepared": [14], "using": [15], "these": [16], "is": [18, 151], "studied.":
+        [19], "The": [20, 42, 77, 144, 195], "tetragonal": [21, 79, 101, 142, 180,
+        205], "monoclinic": [23, 89, 148, 193], "dominant": [24, 80, 149, 181, 206],
+        "zirconia": [25, 37, 81], "were": [27], "obtained": [28], "through": [29],
+        "thermal": [30], "treatment": [31], "PVP/CTAB": [33], "capped": [34], "hydrous":
+        [35], "amorphous": [36], "(HAZ)": [38], "at": [39, 100, 111, 124], "500":
+        [40], "\u00b0C.": [41], "grain": [43, 48], "(R": [44, 50], "g": [45], ")":
+        [46, 52, 128, 133], "boundary": [49], "gb": [51, 146], "resistances": [53],
+        "both": [55], "types": [56], "along": [59], "with": [60, 72], "are": [62,
+        83], "estimated": [63], "by": [64, 153], "fitting": [65], "respective": [67],
+        "complex": [68], "impedance": [69], "(Nyquist)": [70], "plots": [71], "an":
+        [73, 154], "equivalent": [74], "electrical": [75], "circuit.": [76], "nanostructured":
+        [78], "highly": [84], "conductive": [85], "as": [86, 190], "compared": [87],
+        "to": [88, 92, 116, 175], "due": [91, 115], "large": [93], "amount": [94],
+        "Zr": [96, 139], "3+": [97, 140], "ions": [98, 141], "present": [99], "sites.":
+        [102], "Consequently": [103], "film": [105, 150], "exhibits": [106], "a":
+        [107], "high": [108], "constant": [110], "lower": [112], "frequency": [113,
+        177], "range": [114], "Maxwell-Wagner": [117], "polarization.": [118], "Moreover":
+        [119], "EPR": [121], "signals": [122], "observed": [123], "1.946": [125],
+        "(g": [126, 131], "\u2223\u2223": [127], "1.967": [130], "\u22a5": [132],
+        "reveals": [134], "presence": [136], "greater": [138], "films.": [143, 194],
+        "R": [145], "increased": [152], "order": [155], "10": [157], "3": [158], "consequently":
+        [160], "results": [161], "in": [162], "significant": [163], "reduction": [164],
+        "constant.": [167], "Further": [168], "shift": [170], "loss": [172], "tangent":
+        [173], "peak": [174], "higher": [176, 185], "side": [178], "endorses": [183],
+        "mobility": [186], "charge": [188], "carriers": [189], "that": [191], "enhancement":
+        [196], "properties": [199], "shows": [200], "potential": [202], "application":
+        [203], "for": [210], "future": [211], "electronic": [212], "devices.": [213]},
+        "primary_location": {"id": "doi:10.1088/2053-1591/ab0a4c", "doi": "https://doi.org/10.1088/2053-1591/ab0a4c",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1088/2053-1591/ab0a4c",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4210216311", "display_name":
+        "Materials Research Express", "issn_l": "2053-1591", "issn": ["2053-1591"],
+        "is_oa": false, "is_in_doaj": true, "is_core": true, "listed_in": ["cwts-core",
+        "doaj", "dongbi-d", "jufo-1", "ki-jl-1", "norway-1", "oarl", "poland-70",
+        "russia-white-list-2", "vabb-shw"], "host_organization": "https://openalex.org/P4310320083",
+        "host_organization_name": "IOP Publishing", "host_organization_lineage": ["https://openalex.org/P4310320083",
+        "https://openalex.org/P4310311669"], "host_organization_lineage_names": ["IOP
+        Publishing", "Institute of Physics"], "type": "journal"}, "license": null,
+        "license_id": null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Materials Research Express", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W1964885241", "doi": "https://doi.org/10.1116/1.2827492",
+        "title": "Crystallographic texture, morphology, optical, and microwave dielectric
+        properties of dc magnetron sputtered nanostructured zirconia thin films",
+        "publication_year": 2008, "abstract_inverted_index": {"Nanocrystalline": [0],
+        "zirconia": [1], "thin": [2], "films": [3, 31, 59, 106, 166], "have": [4,
+        114], "been": [5, 115], "deposited": [6, 60, 76], "at": [7, 63, 99, 134, 167],
+        "ambient": [8], "temperature": [9], "by": [10], "dc": [11], "magnetron": [12],
+        "sputtering": [13, 45, 72, 104], "on": [14, 40, 61, 77, 158], "glass": [15,
+        62], "and": [16, 35, 37, 52, 66, 141, 173], "quartz": [17, 78], "substrates.":
+        [18], "The": [19, 123, 138, 161], "crystallite": [20], "size": [21], "as":
+        [22], "calculated": [23], "from": [24, 118], "the": [25, 30, 44, 48, 58, 71,
+        81, 94, 103, 110, 119, 129, 165], "x-ray": [26], "diffraction": [27], "patterns":
+        [28], "in": [29, 43, 70, 89, 93, 102, 151], "varies": [32], "between": [33,
+        171], "10": [34], "25nm": [36], "is": [38, 55], "dependent": [39], "oxygen":
+        [41, 69, 92, 101], "percentage": [42, 90], "gas.": [46, 96], "Interestingly,":
+        [47], "presence": [49], "of": [50, 68, 91, 107, 109, 112, 164], "monoclinic":
+        [51, 82], "cubic": [53], "phase": [54], "observed": [56], "for": [57], "40%,":
+        [64], "60%,": [65], "80%": [67], "gas,": [73, 105], "while": [74], "those":
+        [75], "showed": [79, 144], "only": [80], "phase.": [83], "Refractive": [84],
+        "index": [85], "decreased": [86], "with": [87, 149], "increase": [88, 150],
+        "sputter": [95], "Significantly,": [97], "even": [98], "100%": [100], "thickness":
+        [108], "order": [111], "500nm": [113], "grown": [116], "starting": [117],
+        "metallic": [120], "Zr": [121], "target.": [122], "dielectric": [124, 139,
+        162], "constants": [125, 163], "were": [126], "measured": [127], "using":
+        [128], "extended": [130], "cavity": [131], "perturbation": [132], "technique":
+        [133], "X-band": [135], "frequency": [136, 152], "(8\u201312GHz).": [137],
+        "constant": [140], "loss": [142], "tangent": [143], "a": [145, 155], "very":
+        [146], "small": [147], "decrease": [148], "but": [153], "exhibited": [154],
+        "stronger": [156], "dependence": [157], "processing": [159], "parameters.":
+        [160], "microwave": [168], "frequencies": [169], "ranged": [170], "12.16":
+        [172], "22.3.": [174]}, "primary_location": {"id": "doi:10.1116/1.2827492",
+        "doi": "https://doi.org/10.1116/1.2827492", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1116/1.2827492", "pdf_url": null, "source": {"id": "https://openalex.org/S4210190837",
+        "display_name": "Journal of Vacuum Science & Technology A Vacuum Surfaces
+        and Films", "issn_l": "0734-2101", "issn": ["0734-2101", "1520-8559"], "is_oa":
+        false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core", "dongbi-c",
+        "jufo-1", "ki-jl-1", "norway-1", "poland-70", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Vacuum Science &amp; Technology A: Vacuum, Surfaces, and Films", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W2941429614", "doi": "https://doi.org/10.1002/sia.6648",
+        "title": "Prediction of the terminations and Miller planes of the tetragonal
+        zirconia thin films as a gate dielectric layer in integrated\u2010circuit
+        industry", "publication_year": 2019, "abstract_inverted_index": {"In": [0],
+        "this": [1], "paper,": [2], "we": [3], "investigate": [4], "the": [5, 11,
+        24, 43, 47, 52, 60, 90, 96, 107, 112, 136, 148, 173, 179, 186], "structures":
+        [6], "and": [7, 29, 65, 95, 155, 190], "insulating": [8, 137, 174], "characters":
+        [9], "of": [10, 46, 51, 56, 79, 92, 111, 116, 131, 147, 152, 169, 185], "tetragonal":
+        [12], "zirconia": [13], "(t\u2010ZrO": [14], "2": [15, 58, 118, 154, 181],
+        ")": [16], "thin": [17, 49, 109, 145, 183], "films": [18, 50, 110, 146, 184],
+        "with": [19], "various": [20], "possible": [21], "terminations": [22], "within":
+        [23], "lower\u2010index": [25], "Miller": [26, 54, 114, 150, 188], "planes":
+        [27], "(001)": [28, 53, 113, 149], "(100).": [30], "It": [31], "is": [32,
+        157, 176, 192], "found": [33], "that,": [34], "firstly,": [35], "a": [36,
+        70, 83, 123, 161, 195], "shift": [37], "towards": [38], "higher": [39], "energy":
+        [40], "region": [41], "makes": [42], "valence": [44], "band": [45], "OO\u2010terminated":
+        [48, 144], "plane": [55, 115, 151, 189], "t\u2010ZrO": [57, 117, 153], "cross":
+        [59], "Fermi": [61, 97], "level": [62, 98], "E": [63, 99], "F": [64, 100],
+        "thus": [66, 156, 191], "are": [67, 119], "unusable": [68, 121, 159], "as":
+        [69, 122, 160, 194], "gate": [71, 124, 162, 196], "dielectric": [72, 125,
+        163, 197], "oxide": [73, 126, 164, 198], "in": [74, 127, 165, 199], "integrated\u2010circuit":
+        [75], "(IC)": [76], "industry": [77, 129, 167], "because": [78, 130, 168],
+        "large\u2010leakage": [80], "current.": [81, 134], "Secondly,": [82], "new":
+        [84], "splitting": [85], "state": [86], "presented": [87], "just": [88], "below":
+        [89], "bottom": [91], "conduction": [93], "band,": [94], "drops": [101], "between":
+        [102], "them,": [103], "which": [104], "imply": [105], "that": [106], "Zr\u2010terminated":
+        [108], "also": [120, 158], "IC": [128, 166, 200], "large": [132], "leakage":
+        [133], "Thirdly,": [135], "character": [138, 175], "disappears": [139], "completely":
+        [140], "for": [141, 178], "Zr": [142], "+": [143], "metal": [170], "character.":
+        [171], "Fourthly,": [172], "maintained": [177], "ZrO": [180], "\u2010terminated":
+        [182], "(100)": [187], "usable": [193], "industry.": [201]}, "primary_location":
+        {"id": "doi:10.1002/sia.6648", "doi": "https://doi.org/10.1002/sia.6648",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1002/sia.6648", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S114406758", "display_name":
+        "Surface and Interface Analysis", "issn_l": "0142-2421", "issn": ["0142-2421",
+        "1096-9918"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-c", "jufo-1", "norway-1", "poland-40",
+        "russia-white-list-3", "vabb-shw"], "host_organization": "https://openalex.org/P4310320595",
+        "host_organization_name": "Wiley", "host_organization_lineage": ["https://openalex.org/P4310320595"],
+        "host_organization_lineage_names": ["Wiley"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Surface and Interface Analysis",
+        "raw_type": "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a534af0f384b5e0c-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '17211'
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 18:22:12 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=7Ecy27EXY9Vj9L1ylEFSuoJCw%2Fc0odDxhL9urB4L%2FUk%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793470932"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=7Ecy27EXY9Vj9L1ylEFSuoJCw%2Fc0odDxhL9urB4L%2FUk%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793470932"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9940'
+      x-ratelimit-remaining-usd:
+      - '0.994'
+      x-ratelimit-reset:
+      - '20268'
+    status:
+      code: 200
+      message: OK
+version: 1

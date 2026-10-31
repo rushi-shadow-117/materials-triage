@@ -4,17 +4,40 @@ import json
 import re
 from pathlib import Path
 
+import yaml
+
 FIXTURES = Path(__file__).resolve().parents[1] / "fixtures"
 
-# Header names vcrpy is configured to strip, plus the query parameters that carry keys.
-FORBIDDEN = re.compile(r"(x-api-key|authorization|api_key=|mailto=)", re.IGNORECASE)
+# Request header names that carry credentials, compared case-insensitively.
+CREDENTIAL_HEADERS = {"x-api-key", "authorization"}
+# Query parameters that carry credentials or contact details.
+CREDENTIAL_PARAMS = re.compile(r"[?&](api_key|mailto)=", re.IGNORECASE)
 
 
-def test_no_credentials_in_cassettes() -> None:
-    offenders = []
+def _requests() -> list[tuple[str, dict]]:
+    out = []
     for path in FIXTURES.rglob("*.yaml"):
-        if FORBIDDEN.search(path.read_text()):
-            offenders.append(str(path.relative_to(FIXTURES)))
+        cassette = yaml.safe_load(path.read_text())
+        for interaction in cassette.get("interactions", []):
+            out.append((str(path.relative_to(FIXTURES)), interaction["request"]))
+    assert out
+    return out
+
+
+def test_no_credential_request_headers() -> None:
+    offenders = [
+        (path, name)
+        for path, req in _requests()
+        for name in (req.get("headers") or {})
+        if name.lower() in CREDENTIAL_HEADERS
+    ]
+    assert offenders == []
+
+
+def test_no_credential_query_parameters() -> None:
+    offenders = [
+        (path, req["uri"]) for path, req in _requests() if CREDENTIAL_PARAMS.search(req["uri"])
+    ]
     assert offenders == []
 
 
