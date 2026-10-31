@@ -1,0 +1,64 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - www.crystallography.net
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://www.crystallography.net/cod/optimade/v1/structures?filter=elements+HAS+ALL+%22O%22%2C%22Th%22+AND+nelements%3D2&page_limit=10
+  response:
+    body:
+      string: '{"data":[{"attributes":{"_cod_Z":"4","_cod_Zprime":0.0208333,"_cod_a":5.596,"_cod_alpha":90,"_cod_authors":"Chiotti,
+        P.; White, R.W.","_cod_b":5.596,"_cod_beta":90,"_cod_c":5.596,"_cod_calcformula":"-
+        O2 Th -","_cod_cellformula":"- O8 Th4 -","_cod_chemname":"Th O2","_cod_date":"2020-10-21","_cod_file":"1537721","_cod_firstpage":"37","_cod_flags":"has
+        coordinates","_cod_formula":"- O2 Th -","_cod_gamma":90,"_cod_journal":"Journal
+        of Nuclear Materials","_cod_lastpage":"44","_cod_nel":"2","_cod_sg":"F m -3
+        m","_cod_sgHall":"-F 4 2 3","_cod_sgNumber":"225","_cod_svnrevision":"176429","_cod_text":"Chiotti,
+        P.; White, R.W.\nMiscibility gap in the Th-ThC system from high-temperature
+        X-ray data\nJournal of Nuclear Materials\n23\n(1967)\n37-44","_cod_time":"18:00:00","_cod_title":"Miscibility
+        gap in the Th-ThC system from high-temperature X-ray data","_cod_vol":175.24,"_cod_volume":"23","_cod_year":"1967","chemical_formula_anonymous":"A2B","chemical_formula_descriptive":"O2Th","chemical_formula_hill":"O2Th","chemical_formula_reduced":"O2Th","dimension_types":[1,1,1],"elements":["O","Th"],"elements_ratios":[0.666666666666667,0.333333333333333],"last_modified":"2020-10-21T18:00:00Z","lattice_vectors":[[5.596,0,0],[0,5.596,0],[0,0,5.596]],"nelements":2,"nperiodic_dimensions":3},"id":"1537721","links":{"self":"https://www.crystallography.net/cod/optimade/v1.1.0/structures/1537721"},"relationships":{"references":{"data":[{"id":"1537721","type":"references"}]}},"type":"structures"},{"attributes":{"_cod_Z":"4","_cod_Zprime":0.0208333,"_cod_a":5.592,"_cod_alpha":90,"_cod_authors":"Hund,
+        F.; Duerrwaechter, W.","_cod_b":5.592,"_cod_beta":90,"_cod_c":5.592,"_cod_calcformula":"-
+        O2 Th -","_cod_cellformula":"- O8 Th4 -","_cod_chemname":"Th O2","_cod_date":"2020-10-21","_cod_file":"1541590","_cod_firstpage":"67","_cod_flags":"has
+        coordinates","_cod_formula":"- O2 Th -","_cod_gamma":90,"_cod_journal":"Zeitschrift
+        fuer Anorganische und Allgemeine Chemie","_cod_lastpage":"72","_cod_nel":"2","_cod_sg":"F
+        m -3 m","_cod_sgHall":"-F 4 2 3","_cod_sgNumber":"225","_cod_svnrevision":"176429","_cod_text":"Hund,
+        F.; Duerrwaechter, W.\nAnomale Mischkristalle im System Th O2 - La2 O3\nZeitschrift
+        fuer Anorganische und Allgemeine Chemie\n265\n(1951)\n67-72","_cod_time":"18:00:00","_cod_title":"Anomale
+        Mischkristalle im System Th O2 - La2 O3","_cod_vol":174.864,"_cod_volume":"265","_cod_year":"1951","chemical_formula_anonymous":"A2B","chemical_formula_descriptive":"O2Th","chemical_formula_hill":"O2Th","chemical_formula_reduced":"O2Th","dimension_types":[1,1,1],"elements":["O","Th"],"elements_ratios":[0.666666666666667,0.333333333333333],"last_modified":"2020-10-21T18:00:00Z","lattice_vectors":[[5.592,0,0],[0,5.592,0],[0,0,5.592]],"nelements":2,"nperiodic_dimensions":3},"id":"1541590","links":{"self":"https://www.crystallography.net/cod/optimade/v1.1.0/structures/1541590"},"relationships":{"references":{"data":[{"id":"1541590","type":"references"}]}},"type":"structures"},{"attributes":{"_cod_Z":"4","_cod_Zprime":0.0208333,"_cod_a":5.5997,"_cod_alpha":90,"_cod_authors":"Wyckoff,
+        R. W. G.","_cod_b":5.5997,"_cod_beta":90,"_cod_c":5.5997,"_cod_calcformula":"-
+        O2 Th -","_cod_cellformula":"- O8 Th4 -","_cod_date":"2024-05-06","_cod_file":"9009046","_cod_firstpage":"239","_cod_flags":"has
+        coordinates","_cod_formula":"- O2 Th -","_cod_gamma":90,"_cod_journal":"Crystal
+        Structures","_cod_lastpage":"444","_cod_mineral":"Thorianite","_cod_nel":"2","_cod_sg":"F
+        m -3 m","_cod_sgHall":"-F 4 2 3","_cod_sgNumber":"225","_cod_smiles":"[Th+4].[O-2].[O-2]","_cod_svnrevision":"291735","_cod_text":"Wyckoff,
+        R. W. G.\nSecond edition. Interscience Publishers, New York, New York Fluorite
+        structure\nCrystal Structures\n1\n(1963)\n239-444","_cod_time":"08:06:30","_cod_title":"Second
+        edition. Interscience Publishers, New York, New York Fluorite structure","_cod_vol":175.588,"_cod_volume":"1","_cod_year":"1963","chemical_formula_anonymous":"A2B","chemical_formula_descriptive":"O2Th","chemical_formula_hill":"O2Th","chemical_formula_reduced":"O2Th","dimension_types":[1,1,1],"elements":["O","Th"],"elements_ratios":[0.666666666666667,0.333333333333333],"last_modified":"2024-05-06T08:06:30Z","lattice_vectors":[[5.5997,0,0],[0,5.5997,0],[0,0,5.5997]],"nelements":2,"nperiodic_dimensions":3},"id":"9009046","links":{"self":"https://www.crystallography.net/cod/optimade/v1.1.0/structures/9009046"},"relationships":{"references":{"data":[{"id":"9009046","type":"references"}]}},"type":"structures"}],"links":{"base_url":"https://www.crystallography.net/cod/optimade/v1.1.0/"},"meta":{"api_version":"1.1.0","data_available":535187,"data_returned":3,"implementation":{"issue_tracker":{"href":"https://projects.ibt.lt/repositories/projects/cod-optimade/issues"},"maintainer":{"email":"cod-bugs@ibt.lt"},"name":"Crystallography
+        Open Database","source_url":"svn://www.crystallography.net/cod/tags/v0.14.0/cgi-bin/optimade.pl@304057","version":"v0.14.0"},"last_id":"9009046","more_data_available":false,"provider":{"description":"Crystallography
+        Open Database","name":"Crystallography Open Database","prefix":"cod"},"query":{"representation":"/structures?filter=elements+HAS+ALL+%22O%22%2C%22Th%22+AND+nelements%3D2&page_limit=10"},"schema":"https://schemas.optimade.org/openapi/v1.1.0/optimade.json","time_stamp":"2026-10-31T20:49:42Z"}}
+
+        '
+    headers:
+      connection:
+      - Keep-Alive
+      content-type:
+      - application/vnd.api+json; charset=utf-8
+      date:
+      - Sat, 31 Oct 2026 20:49:40 GMT
+      keep-alive:
+      - timeout=5, max=100
+      server:
+      - Apache/2.4.68 (Debian)
+      transfer-encoding:
+      - chunked
+    status:
+      code: 200
+      message: OK
+version: 1

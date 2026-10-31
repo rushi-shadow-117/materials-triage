@@ -58,7 +58,11 @@ def test_non_200_body_is_an_error_not_a_parse() -> None:
 
 def test_cod_plan_shapes() -> None:
     call = optimade.plan_structures("cod", "TiO2")
-    assert call.params["filter"] == 'chemical_formula_reduced="O2Ti"'
+    assert call.params["filter"] == 'elements HAS ALL "O","Ti" AND nelements=2'
+    assert (
+        optimade.plan_structures("oqmd", "TiO2").params["filter"]
+        == 'chemical_formula_reduced="O2Ti"'
+    )
     assert optimade.plan_info("cod").url.endswith("/info/structures")
     # COD was unreachable throughout Phase 0; a live failure is a TransportFailedError that the
     # runner records as an availability event (tests/adapters/test_runner.py).

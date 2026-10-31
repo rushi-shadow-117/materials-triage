@@ -205,11 +205,28 @@ Recorded 2026-10-31 with a free key. Cassettes in `fixtures/wire/openalex/`; the
 ## COD (OPTIMADE)
 
 - Base URL confirmed from the OPTIMADE providers index: `https://www.crystallography.net/cod/optimade`.
-- Unreachable throughout 2026-10-31 from this network (see Availability events). Nothing
-  recorded. `fixtures/wire/cod/meta.json` holds the errors. Retry daily during Phase 1; decide at
-  the end of Phase 1 whether COD stays a core source or becomes optional behind MP's
-  `theoretical` flag. The outage is the working example for the health page and for results
-  labeled partial.
+  Unreachable for the whole of 2026-10-31 until about 20:43 UTC (see Availability events);
+  recorded from then on in `fixtures/adapters/cod/`, with connection resets and timeouts
+  between successful calls.
+- `GET /v1/info/structures`: OPTIMADE 1.1.0, 92 properties. Beside the standard fields COD
+  exposes `_cod_*` fields, among them `_cod_sgnumber` (space group number), `_cod_sg`,
+  `_cod_doi`, `_cod_journal`, `_cod_year`, `_cod_method`, `_cod_status`, `_cod_duplicateof`,
+  `_cod_formula`, `_cod_chemname`. There is no `space_group_it_number`. On the recorded ThO2
+  entries `_cod_sgnumber` is null while `_cod_sg` holds the symbol ("F m -3 m"), so the
+  adapter derives the number from the symbol with pymatgen's space group table and records
+  `space_group_source` as `derived_from_symbol`.
+- ThO2 by elements: 3 entries, all O2Th, all Fm-3m. TiO2 by elements: more than 10 entries
+  with `more_data_available`, including other Ti-O stoichiometries that the client-side
+  formula match removes.
+- Filtering on `chemical_formula_reduced` returns HTTP 501: "queries are not supported for
+  'chemical_formula_reduced'". `elements HAS ALL "Th","O" AND nelements=2` returns 200. So the
+  grammar is standard but the queryable fields are not; the COD provider is queried by
+  elements plus element count and the reduced formula is matched client-side on the
+  `chemical_formula_reduced` attribute, which COD does return. This is the concrete case
+  behind the overview's "OPTIMADE standardizes query grammar, not property fields".
+- Consequence for the experimental-existence signal: a COD hit for a composition is evidence
+  that a structure was deposited, nothing more; `_cod_status` and `_cod_duplicateof` are kept
+  for later interpretation by the owner, not interpreted here.
 
 ## OQMD (OPTIMADE)
 
@@ -282,3 +299,4 @@ Phase 0 cassettes stay as evidence of the client's request shapes.
 | 2026-10-31 17:53 | COD | Same, one retry. | Same. Retry daily. |
 | 2026-10-31 17:30 | OQMD | Read timeout after 60 s on the SiO2 query (204 entries). | Succeeded on retry with a 120 s read timeout. |
 | 2026-10-31 20:30 to 20:38 | OQMD | HTTP 502 Bad Gateway on every structures query (HfO2, SiO2), including a plain curl probe. | Nothing recorded in Phase 1. OQMD is a documented extension, not a source. |
+| 2026-10-31 20:43 | COD | `/info` answered HTTP 200 in 7.5 s, first success of the day. | Adapter cassettes recorded; `chemical_formula_reduced` filter met HTTP 501; connection resets seen between calls. |

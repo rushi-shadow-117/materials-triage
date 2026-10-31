@@ -293,6 +293,7 @@ def assemble(
             excluded.append(Exclusion(mp_id, "deprecated", "summary.deprecated=true"))
             continue
         prov = s.provenance
+        provs = [prov]
         hull: dict[str, Value[float]] = {
             MIXED_HULL: _val(doc.get("energy_above_hull"), "eV/atom", MIXED_HULL, prov)
         }
@@ -300,6 +301,8 @@ def assemble(
         if isinstance(doc.get("is_stable"), bool):
             stable[MIXED_HULL] = doc["is_stable"]
         for t in thermo_by_id.get(mp_id, []):
+            if t.provenance not in provs:
+                provs.append(t.provenance)
             ttype = str(t.payload["thermo_type"])
             hull[ttype] = _val(t.payload.get("energy_above_hull"), "eV/atom", ttype, t.provenance)
             if isinstance(t.payload.get("is_stable"), bool):
@@ -309,6 +312,7 @@ def assemble(
         diel: dict[str, Value[float]] = {}
         d = diel_by_id.get(mp_id)
         if d is not None:
+            provs.append(d.provenance)
             for key in ("e_total", "e_ionic", "e_electronic"):
                 diel[key] = _val(d.payload.get(key), "1", "mp_dfpt", d.provenance)
         else:
@@ -344,7 +348,7 @@ def assemble(
                 theoretical=doc.get("theoretical"),
                 deprecated=bool(doc.get("deprecated", False)),
                 license=lic,
-                provenance=[prov],
+                provenance=provs,
             )
         )
     return Assembly(polymorphs=polys, excluded=excluded)
