@@ -45,8 +45,15 @@ MATERIALS: list[str] = [
     "Ta2O5",
 ]
 
+# Hazard-policy probes: not candidates, recorded for PubChem GHS only (owner request 2026-10-31).
+HAZARD_PROBES: list[str] = ["HgO", "Tl2O3", "PbO", "BaO"]
+
 # Common names for PubChem name lookup. Public, conventional names only.
 COMMON_NAMES: dict[str, str] = {
+    "HgO": "mercury(II) oxide",
+    "Tl2O3": "thallium(III) oxide",
+    "PbO": "lead(II) oxide",
+    "BaO": "barium oxide",
     "HfO2": "hafnium dioxide",
     "Al2O3": "aluminum oxide",
     "ZrO2": "zirconium dioxide",
@@ -441,7 +448,8 @@ def run_source(name: str, mode: str) -> dict[str, Any]:
 
     for label, fn in SINGLE.get(name, []):
         one(label, fn)
-    for formula in MATERIALS:
+    formulas = MATERIALS + (HAZARD_PROBES if name == "pubchem" else [])
+    for formula in formulas:
         one(formula, lambda c, f=formula: PER_MATERIAL[name](c, f))
 
     (src_dir / "meta.json").write_text(json.dumps(meta, indent=2, default=str) + "\n")

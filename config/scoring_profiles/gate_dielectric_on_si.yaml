@@ -7,21 +7,21 @@ description: "Oxide dielectric candidates for thin-film experiments on silicon."
 criteria:
   stability:
     kind: energy_above_hull_ev_per_atom
-    shape: "soft ramp from 0 to the cutoff, hard exclusion above the cutoff"
-    cutoff_ev_per_atom: null
-    status: open
-    evidence:
-      - statement: "Across all known inorganic crystalline materials in the Materials Project, the DFT-calculated median metastability is 15 +/- 0.5 meV/atom and the 90th percentile is 67 +/- 2 meV/atom. The 90th percentile varies by chemistry (Fig. 1C); the oxide-specific value is read from that figure, not from the text."
-        source:
-          citation: "W. Sun et al., The thermodynamic scale of inorganic crystalline metastability, Sci. Adv. 2, e1600225 (2016), CC BY-NC 4.0"
-          url: https://europepmc.org/article/PMC/PMC5262468
-          access: open
-      - statement: "Formation energies from adjacent stable compounds in phase space can be calculated to within 24 meV/atom."
-        source:
-          citation: "Same paper, citing its reference 29"
-          url: https://europepmc.org/article/PMC/PMC5262468
-          access: open
-    note: "Owner to read the oxide-specific 90th percentile from Fig. 1C and set cutoff_ev_per_atom; the overall 67 meV/atom is the documented fallback candidate pending that reading."
+    hull: mixed_GGA_GGA+U_R2SCAN
+    shape: "linear ramp: score 1 at 0 meV/atom, 0 at cutoff; hard exclusion above cutoff"
+    cutoff_mev_per_atom: 94
+    near_cutoff_band_mev_per_atom: 24
+    near_cutoff_flag: "near cutoff"
+    thermo_enrichment: "fetch per-functional thermo documents for polymorphs within the near-cutoff band and flag hull-status disagreement"
+    status: entered
+    source:
+      citation: "W. Sun et al., The thermodynamic scale of inorganic crystalline metastability, Sci. Adv. 2, e1600225 (2016), CC BY-NC 4.0"
+      url: https://europepmc.org/article/PMC/PMC5262468
+      access: open
+      quote: "the 90th percentile for binary oxides occurring at 94 meV/atom"
+      quote_2: "formation energies from adjacent stable compounds in phase space can be accurately calculated to within 24 meV/atom"
+    caveat: "The 94 meV/atom percentile was computed on Materials Project GGA/GGA+U (PBE) energies for ICSD-observed binary oxide polymorphs. It is applied here to MP's mixed GGA_GGA+U_R2SCAN hull, which did not exist when the paper was written. Known limitation; shown in the audit view."
+    note: "Both numbers configurable. The all-chemistries 90th percentile (67 +/- 2 meV/atom) and median (15 +/- 0.5) are in the same paper."
     entered_by: owner
     entered_on: 2026-10-31
 
@@ -30,7 +30,9 @@ criteria:
     policy: best_available
     source_order: [experimental, tbmbj, pbe]
     soft_preference_start_ev: 5.0
-    status: pending_verification
+    status: entered
+    approval: "Owner approved 2026-10-31 as the application choice for this profile."
+    rationale_source_status: pending_verification
     rationale: "Owner's reading of Robertson (2004): oxides on Si need band offsets above about 1 eV for both carriers; Ta2O5 and SrTiO3 have small or vanishing conduction band offsets while La2O3, Y2O3, Gd2O3, ZrO2, HfO2, Al2O3 and silicates exceed 1.4 eV for both. Gap alone cannot guarantee offsets, so the gap is a soft preference and the standing caveat applies."
     standing_caveat: "Band offsets to the substrate are not checked by this screen."
     source:
@@ -38,7 +40,7 @@ criteria:
       doi: 10.1051/epjap:2004206
       url: https://doi.org/10.1051/epjap:2004206
       access: unknown
-    note: "Primary article not fetchable by tools (HTTP 403, 2026-10-31); owner to verify the offset statements. The 5 eV start is the owner's recommendation, application-dependent."
+    note: "The 5 eV start is the owner's approved choice. The Robertson offset statements in the rationale await a check against the primary PDF, which no tool fetch could retrieve (HTTP 403); owner supplies a local copy."
     aggregate_when_several_experimental_values: median
     aggregate_options: [median, minimum]
     conflict_tolerance_ev: null

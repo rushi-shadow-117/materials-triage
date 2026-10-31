@@ -188,6 +188,15 @@ Recorded 2026-10-31 with a free key. Cassettes in `fixtures/wire/openalex/`; the
 - GHS says nothing about radioactivity: ThO2's record lists toxicity codes only. The
   element-level policy stays primary; GHS is a secondary, per-compound signal.
 - Rate limit held at about 4 requests per second with a 0.25 s pause; no 503 seen.
+- Hazard-policy probes recorded 2026-10-31 for the acute toxicity rule (not candidates):
+  HgO (CID 30856) 14 codes including H300, H310, H330, H360; PbO (CID 14827) 12 codes including
+  H302, H332, H360, with 832 of 841 notifications carrying hazard statements; BaO (CID 62392)
+  14 codes including H301, H302, H332, with 354 of 359 notifications; Tl2O3 (CID 3579754) and
+  BaTiO3 (CID 159419) each return a single "Not Classified" string with no notifier counts and
+  no hazard codes. The HgO record carries codes without the "N of M" count strings, so the
+  count parser must tolerate records with codes but no aggregate line. The Tl2O3 result shows
+  that a compound-level GHS rule alone cannot catch every acutely toxic element; the owner
+  decides whether thallium gets an element-level entry from another source.
 - Synonyms: `GET /rest/pug/compound/cid/{cid}/synonyms/JSON` returns `InformationList >
   Information[0] > Synonym`, a list of 28 (ThO2) to 1,288 (TiO2) strings mixing trivial names,
   CAS numbers, trade names, and systematic names. Recorded for all eleven. The FDE curates the

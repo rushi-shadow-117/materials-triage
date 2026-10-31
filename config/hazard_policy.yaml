@@ -35,9 +35,10 @@ tiers:
         entered_on: 2026-10-31
       - element: Ni
         reason: "IARC Group 1: nickel compounds, evaluated as a group"
-        status: pending_signoff
+        status: entered
+        approval: "Owner approved 2026-10-31."
         admin_may_downgrade_to: flag
-        note: "IARC states that some group evaluations apply to the group of compounds as a whole and not necessarily to every individual compound. Owner's default is exclude; a site admin may downgrade to flag."
+        note: "IARC states that some group evaluations apply to the group of compounds as a whole and not necessarily to every individual compound. Default is exclude; a site admin may downgrade to flag."
         source:
           citation: "IARC Monographs Volume 100C (2012)"
           url: https://publications.iarc.who.int/120
@@ -63,11 +64,13 @@ tiers:
     description: "Elements with no stable isotope. Admin-locked, default on."
     status: entered
     elements: [Tc, Pm, Po, At, Rn, Fr, Ra, Ac, Th, Pa, U, Np, Pu, Am, Cm, Bk, Cf, Es, Fm, Md, No, Lr, Rf, Db, Sg, Bh, Hs, Mt, Ds, Rg, Cn, Nh, Fl, Mc, Lv, Ts, Og]
-    note: "Technetium, promethium, and polonium onward, per the owner's rule. Bismuth is not listed (its one natural isotope has a half-life far longer than the age of the universe); the owner can add it."
+    rule: "Elements with no stable isotope: Tc, Pm, and Z >= 84."
+    documented_exception: "Bi (Z = 83) has no stable isotope in the strict sense (Bi-209 alpha-decays with a half-life of about 2e19 years) but is treated as stable here because that half-life is far beyond practical relevance. Owner decision 2026-10-31."
     source:
-      citation: "NNDC NuDat 3 chart of nuclides, Brookhaven National Laboratory"
+      citation: "NNDC NuDat 3, National Nuclear Data Center, Brookhaven National Laboratory (ground-state half-lives per nuclide)"
       url: https://www.nndc.bnl.gov/nudat3/
       access: open
+      url_checked: 2026-10-31
     additional_sources:
       - element: Th
         citation: "IARC Group 1: thorium-232 and its decay products (as colloidal thorium dioxide), IARC Monographs Volume 78 (2001), carried into Volume 100D (2012)"
@@ -78,10 +81,21 @@ tiers:
     entered_on: 2026-10-31
 
   acute_toxicity:
-    description: "Elements whose common compounds carry GHS acute toxicity classifications. Candidate elements named by the owner; the tier and sources are filled from PubChem GHS recordings of representative compounds in Phase 1."
-    status: open
-    candidate_elements: [Hg, Tl, Pb, Ba]
-    note: "Soluble barium compounds only for Ba; BaTiO3 handling is decided once GHS data for representative compounds is recorded."
+    description: "Compound-level rule from PubChem GHS hazard statements. Decides a tier per compound, not per element."
+    rule:
+      exclude_if_any: [H300, H310, H330, H360]
+      flag_if_any: [H301, H302, H311, H312, H331, H332]
+      note: "H300/H310/H330 are GHS acute toxicity category 1-2 statements (oral, dermal, inhalation); H360 is reproductive toxicity category 1, included in the exclude set by the owner. H301/H302, H311/H312, H331/H332 are acute toxicity categories 3-4. A compound with any hazard code in any notification is never shown as unclassified; no notifications at all is 'unknown' and lands in the flag tier."
+    status: pending_signoff
+    source:
+      citation: "United Nations, Globally Harmonized System of Classification and Labelling of Chemicals (GHS), Rev. 10 (2023), Annex 3, hazard statement codes"
+      url: https://unece.org/transport/dangerous-goods/ghs-rev10-2023
+      access: open
+      url_checked: "unece.org returned HTTP 403 to automated checks on 2026-10-31; URL not confirmed by tool"
+    probe_recordings:
+      recorded_on: 2026-10-31
+      cassettes: fixtures/wire/pubchem/{HgO,Tl2O3,PbO,BaO,BaTiO3}.yaml
+      note: "Resulting tiers reported to the owner; element or compound entries are written only after the owner confirms."
     entered_by: owner
     entered_on: 2026-10-31
 

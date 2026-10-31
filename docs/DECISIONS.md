@@ -246,3 +246,37 @@ Decision: `api.materialsproject.org` paths `/materials/summary/`, `/materials/di
 contacted during recording, confirmed by an offline replay with no unrecorded request.
 Reason: the overview requires the allowlist to be built from observed hosts, not documentation.
 Alternative: allow the two hosts wholesale.
+
+## 2026-10-31 Stability threshold: 94 meV/atom from observed binary oxide polymorphs
+Decision (owner): the stability score ramps linearly from 1 at 0 meV/atom above the hull to 0
+at 94 meV/atom and candidates above 94 meV/atom are excluded; both numbers are configurable.
+Rows within 24 meV/atom of the cutoff carry a "near cutoff" flag, and that band is also where
+per-functional thermo documents are fetched to check for hull-status disagreement (Phase 1
+decision 5 as the owner resolved it).
+Reason: Sun et al., Sci. Adv. 2, e1600225 (2016), CC BY-NC 4.0, state that for observed
+(ICSD) binary oxide polymorphs "the 90th percentile for binary oxides occurring at 94
+meV/atom", and that DFT formation energies relative to adjacent stable compounds are accurate
+to about 24 meV/atom. Caveat recorded with the entry: that percentile was computed on
+Materials Project GGA/GGA+U (PBE) energies, before the r2SCAN mixed hull that MP's summary
+endpoint now reports; the cutoff is applied to the mixed hull as the policy default and the
+discrepancy is a known limitation.
+Alternative: the all-chemistries 90th percentile of 67 meV/atom.
+
+## 2026-10-31 Acute toxicity rule is compound-level GHS; tiers reported before entry
+Decision (owner): GHS hazard statements from PubChem decide the acute toxicity tier of a
+compound. H300, H310, H330, or H360 present in any notification: exclude. Any other acute
+toxicity statement (H301, H302, H311, H312, H331, H332): flag. Code meanings cite the UN GHS.
+Probe compounds HgO, Tl2O3, PbO, BaO, BaTiO3 were recorded on 2026-10-31 and the resulting
+tiers reported to the owner; no acute tier entry is written until the owner confirms.
+Reason: IARC covers carcinogenicity only; acute poisoning hazards need GHS. Compound-level
+data lets BaTiO3 be judged separately from soluble barium compounds.
+Alternative: element-level acute toxicity list.
+
+## 2026-10-31 Owner approvals: nickel exclusion and the 5 eV soft gap preference
+Decision (owner): nickel defaults to exclude (IARC Group 1, nickel compounds as a group) with
+admin downgrade to flag; status entered. The gate-dielectric profile's soft band gap
+preference starting at 5 eV, with the standing caveat that band offsets to the substrate are
+not checked, is approved as the owner's application choice; status entered. The Robertson
+(2004) statements cited in its rationale remain pending verification against the primary PDF,
+which no tool-driven fetch could retrieve (HTTP 403 from the publisher; a browser-impersonating
+fetch was declined on principle). The owner supplies a local copy for the check.

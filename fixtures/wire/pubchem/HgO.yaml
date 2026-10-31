@@ -1,0 +1,874 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/fastformula/HgO/cids/JSON
+  response:
+    body:
+      string: "{\n  \"IdentifierList\": {\n    \"CID\": [\n      30856,\n      9837314\n
+        \   ]\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '76'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 20:03:26 GMT
+      expires:
+      - Sat, 31 Oct 2026 21:03:27 GMT
+      ncbi-phid:
+      - 95B7ECBDAE6498E10000000000000001.m_3
+      ncbi-sid:
+      - 95B7ECBDAE6498E1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=95B7ECBDAE6498E1_0000SID; domain=.nih.gov; path=/; expires=Sun, 31
+        Oct 2027 20:03:26 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (0%), Request Time status: Green (0%), Service
+        status: Green (27%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=95B7ECBDAE6498E1_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/mercury(II)%20oxide/cids/JSON
+  response:
+    body:
+      string: "{\n  \"IdentifierList\": {\n    \"CID\": [\n      30856\n    ]\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '61'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 20:03:27 GMT
+      expires:
+      - Sat, 31 Oct 2026 21:03:27 GMT
+      ncbi-phid:
+      - 95B7ED51AE6498F10000000000000001.m_1
+      ncbi-sid:
+      - 95B7ECBDAE6498E1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=95B7ECBDAE6498E1_0000SID; domain=.nih.gov; path=/; expires=Sun, 31
+        Oct 2027 20:03:27 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (0%), Request Time status: Green (0%), Service
+        status: Green (27%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=95B7ECBDAE6498E1_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug_view/data/compound/30856/JSON?heading=GHS+Classification
+  response:
+    body:
+      string: "{\n  \"Record\": {\n    \"RecordType\": \"CID\",\n    \"RecordNumber\":
+        30856,\n    \"RecordTitle\": \"Mercuric oxide\",\n    \"Section\": [\n      {\n
+        \       \"TOCHeading\": \"Safety and Hazards\",\n        \"Description\":
+        \"Information on safety and hazards for this compound, including safety/hazards
+        properties, reactivity, incompatibilities, management techniques, first aid
+        treatments, and more.  For toxicity and related information, please see the
+        Toxicity section.\",\n        \"Section\": [\n          {\n            \"TOCHeading\":
+        \"Hazards Identification\",\n            \"Description\": \"This section identifies
+        the hazards of the chemical presented on the safety data sheet (SDS) and the
+        appropriate warning information associated with those hazards.  The information
+        in this section includes, but are not limited to, the hazard classification
+        of the chemical, signal word, pictograms, hazard statements and precautionary
+        statements.\",\n            \"URL\": \"https://www.osha.gov/sites/default/files/publications/OSHA3514.pdf\",\n
+        \           \"Section\": [\n              {\n                \"TOCHeading\":
+        \"GHS Classification\",\n                \"Description\": \"GHS (Globally
+        Harmonized System of Classification and Labelling of Chemicals) is a United
+        Nations system to identify hazardous chemicals and to inform users about these
+        hazards. GHS has been adopted by many countries around the world and is now
+        also used as the basis for international and national transport regulations
+        for dangerous goods. The GHS hazard statements, class categories, pictograms,
+        signal words, and the precautionary statements can be found on the PubChem
+        GHS page.\",\n                \"URL\": \"https://pubchem.ncbi.nlm.nih.gov/ghs/\",\n
+        \               \"DisplayControls\": {\n                  \"CreateTable\":
+        {\n                    \"FromInformationIn\": \"ThisSection\",\n                    \"NumberOfColumns\":
+        2,\n                    \"ColumnContents\": [\n                      \"Name\",\n
+        \                     \"Value\"\n                    ]\n                  },\n
+        \                 \"ShowAtMost\": 1\n                },\n                \"Information\":
+        [\n                  {\n                    \"ReferenceNumber\": 14,\n                    \"Name\":
+        \"Pictogram(s)\",\n                    \"Value\": {\n                      \"StringWithMarkup\":
+        [\n                        {\n                          \"String\": \"          \",\n
+        \                         \"Markup\": [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 1,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/images/ghs/GHS06.svg\",\n                              \"Type\":
+        \"Icon\",\n                              \"Extra\": \"Acute Toxic\"\n                            },\n
+        \                           {\n                              \"Start\": 1,\n
+        \                             \"Length\": 1,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/images/ghs/GHS08.svg\",\n                              \"Type\":
+        \"Icon\",\n                              \"Extra\": \"Health Hazard\"\n                            },\n
+        \                           {\n                              \"Start\": 2,\n
+        \                             \"Length\": 1,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/images/ghs/GHS09.svg\",\n                              \"Type\":
+        \"Icon\",\n                              \"Extra\": \"Environmental Hazard\"\n
+        \                           }\n                          ]\n                        }\n
+        \                     ]\n                    }\n                  },\n                  {\n
+        \                   \"ReferenceNumber\": 14,\n                    \"Name\":
+        \"Signal\",\n                    \"Value\": {\n                      \"StringWithMarkup\":
+        [\n                        {\n                          \"String\": \"Danger\",\n
+        \                         \"Markup\": [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 6,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSDanger\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        14,\n                    \"Name\": \"GHS Hazard Statements\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"H300 (100%): Fatal if swallowed [Danger
+        Acute toxicity, oral]\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 0,\n                              \"Length\":
+        4,\n                              \"URL\": \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H300\"\n
+        \                           },\n                            {\n                              \"Start\":
+        33,\n                              \"Length\": 6,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSDanger\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"H310 (98.7%): Fatal in contact with
+        skin [Danger Acute toxicity, dermal]\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H310\"\n                            },\n
+        \                           {\n                              \"Start\": 42,\n
+        \                             \"Length\": 6,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSDanger\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"H330 (100%): Fatal if inhaled [Danger
+        Acute toxicity, inhalation]\",\n                          \"Markup\": [\n
+        \                           {\n                              \"Start\": 0,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H330\"\n                            },\n
+        \                           {\n                              \"Start\": 31,\n
+        \                             \"Length\": 6,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSDanger\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"H373 (100%): May causes damage to
+        organs through prolonged or repeated exposure [Warning Specific target organ
+        toxicity, repeated exposure]\",\n                          \"Markup\": [\n
+        \                           {\n                              \"Start\": 0,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H373\"\n                            },\n
+        \                           {\n                              \"Start\": 81,\n
+        \                             \"Length\": 7,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSWarning\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"H400 (98.7%): Very toxic to aquatic
+        life [Warning Hazardous to the aquatic environment, acute hazard]\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H400\"\n                            },\n
+        \                           {\n                              \"Start\": 42,\n
+        \                             \"Length\": 7,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSWarning\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"H410 (100%): Very toxic to aquatic
+        life with long lasting effects [Warning Hazardous to the aquatic environment,
+        long-term hazard]\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 0,\n                              \"Length\":
+        4,\n                              \"URL\": \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H410\"\n
+        \                           },\n                            {\n                              \"Start\":
+        67,\n                              \"Length\": 7,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSWarning\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        14,\n                    \"Name\": \"Precautionary Statement Codes\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"P260, P262, P264, P270, P271, P273,
+        P280, P284, P301+P316, P302+P352, P304+P340, P316, P319, P320, P321, P330,
+        P361+P364, P391, P403+P233, P405, and P501 (click each P-code to see the statement)\",\n
+        \                         \"Markup\": [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P260\"\n                            },\n
+        \                           {\n                              \"Start\": 6,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P262\"\n                            },\n
+        \                           {\n                              \"Start\": 12,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P264\"\n                            },\n
+        \                           {\n                              \"Start\": 18,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P270\"\n                            },\n
+        \                           {\n                              \"Start\": 24,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P271\"\n                            },\n
+        \                           {\n                              \"Start\": 30,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P273\"\n                            },\n
+        \                           {\n                              \"Start\": 36,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P280\"\n                            },\n
+        \                           {\n                              \"Start\": 42,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P284\"\n                            },\n
+        \                           {\n                              \"Start\": 48,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P301+P316\"\n                            },\n
+        \                           {\n                              \"Start\": 59,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P302+P352\"\n                            },\n
+        \                           {\n                              \"Start\": 70,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P304+P340\"\n                            },\n
+        \                           {\n                              \"Start\": 81,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P316\"\n                            },\n
+        \                           {\n                              \"Start\": 87,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P319\"\n                            },\n
+        \                           {\n                              \"Start\": 93,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P320\"\n                            },\n
+        \                           {\n                              \"Start\": 99,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P321\"\n                            },\n
+        \                           {\n                              \"Start\": 105,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P330\"\n                            },\n
+        \                           {\n                              \"Start\": 111,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P361+P364\"\n                            },\n
+        \                           {\n                              \"Start\": 122,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P391\"\n                            },\n
+        \                           {\n                              \"Start\": 128,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P403+P233\"\n                            },\n
+        \                           {\n                              \"Start\": 139,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P405\"\n                            },\n
+        \                           {\n                              \"Start\": 149,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P501\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        14,\n                    \"Name\": \"ECHA C&L Notifications Summary\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"Aggregated GHS information provided
+        per 78 reports by companies from 12 notifications to the ECHA C&L Inventory.
+        Each notification may be associated with multiple companies.\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 177,\n                              \"Type\":
+        \"Italics\"\n                            }\n                          ]\n
+        \                       },\n                        {\n                          \"String\":
+        \"Information may vary between notifications depending on impurities, additives,
+        and other factors. The percentage value in parenthesis indicates the notified
+        classification ratio from companies that provide hazard codes. Only hazard
+        codes with percentage values above 10% are shown. For more detailed information,
+        please visit  ECHA C&L website.\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        327,\n                              \"Length\": 20,\n                              \"URL\":
+        \"https://chem.echa.europa.eu/substance-search?searchText=244-654-7\"\n                            },\n
+        \                           {\n                              \"Start\": 0,\n
+        \                             \"Length\": 348,\n                              \"Type\":
+        \"Italics\"\n                            }\n                          ]\n
+        \                       }\n                      ]\n                    }\n
+        \                 },\n                  {\n                    \"ReferenceNumber\":
+        23,\n                    \"Name\": \"Pictogram(s)\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"          \",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 1,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/images/ghs/GHS06.svg\",\n                              \"Type\":
+        \"Icon\",\n                              \"Extra\": \"Acute Toxic\"\n                            },\n
+        \                           {\n                              \"Start\": 1,\n
+        \                             \"Length\": 1,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/images/ghs/GHS07.svg\",\n                              \"Type\":
+        \"Icon\",\n                              \"Extra\": \"Irritant\"\n                            },\n
+        \                           {\n                              \"Start\": 2,\n
+        \                             \"Length\": 1,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/images/ghs/GHS08.svg\",\n                              \"Type\":
+        \"Icon\",\n                              \"Extra\": \"Health Hazard\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        23,\n                    \"Name\": \"Signal\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"Danger\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 6,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSDanger\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        23,\n                    \"Name\": \"GHS Hazard Statements\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"H300: Fatal if swallowed [Danger Acute
+        toxicity, oral]\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 0,\n                              \"Length\":
+        4,\n                              \"URL\": \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H300\"\n
+        \                           },\n                            {\n                              \"Start\":
+        26,\n                              \"Length\": 6,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSDanger\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"H311: Toxic in contact with skin [Danger
+        Acute toxicity, dermal]\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 0,\n                              \"Length\":
+        4,\n                              \"URL\": \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H311\"\n
+        \                           },\n                            {\n                              \"Start\":
+        34,\n                              \"Length\": 6,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSDanger\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"H315: Causes skin irritation [Warning
+        Skin corrosion/irritation]\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 0,\n                              \"Length\":
+        4,\n                              \"URL\": \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H315\"\n
+        \                           },\n                            {\n                              \"Start\":
+        30,\n                              \"Length\": 7,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSWarning\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"H317: May cause an allergic skin reaction
+        [Warning Sensitization, Skin]\",\n                          \"Markup\": [\n
+        \                           {\n                              \"Start\": 0,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H317\"\n                            },\n
+        \                           {\n                              \"Start\": 43,\n
+        \                             \"Length\": 7,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSWarning\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"H319: Causes serious eye irritation
+        [Warning Serious eye damage/eye irritation]\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H319\"\n                            },\n
+        \                           {\n                              \"Start\": 37,\n
+        \                             \"Length\": 7,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSWarning\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"H360: May damage fertility or the
+        unborn child [Danger Reproductive toxicity]\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H360\"\n                            },\n
+        \                           {\n                              \"Start\": 48,\n
+        \                             \"Length\": 6,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSDanger\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"H370: Causes damage to organs [Danger
+        Specific target organ toxicity, single exposure]\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H370\"\n                            },\n
+        \                           {\n                              \"Start\": 31,\n
+        \                             \"Length\": 6,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSDanger\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"H372: Causes damage to organs through
+        prolonged or repeated exposure [Danger Specific target organ toxicity, repeated
+        exposure]\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 0,\n                              \"Length\":
+        4,\n                              \"URL\": \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H372\"\n
+        \                           },\n                            {\n                              \"Start\":
+        70,\n                              \"Length\": 6,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSDanger\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        23,\n                    \"Name\": \"Precautionary Statement Codes\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"P203, P260, P261, P262, P264, P264+P265,
+        P270, P272, P280, P301+P316, P302+P352, P305+P351+P338, P308+P316, P316, P318,
+        P319, P321, P330, P332+P317, P333+P317, P337+P317, P361+P364, P362+P364, P405,
+        and P501 (click each P-code to see the statement)\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P203\"\n                            },\n
+        \                           {\n                              \"Start\": 6,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P260\"\n                            },\n
+        \                           {\n                              \"Start\": 12,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P261\"\n                            },\n
+        \                           {\n                              \"Start\": 18,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P262\"\n                            },\n
+        \                           {\n                              \"Start\": 24,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P264\"\n                            },\n
+        \                           {\n                              \"Start\": 30,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P264+P265\"\n                            },\n
+        \                           {\n                              \"Start\": 41,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P270\"\n                            },\n
+        \                           {\n                              \"Start\": 47,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P272\"\n                            },\n
+        \                           {\n                              \"Start\": 53,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P280\"\n                            },\n
+        \                           {\n                              \"Start\": 59,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P301+P316\"\n                            },\n
+        \                           {\n                              \"Start\": 70,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P302+P352\"\n                            },\n
+        \                           {\n                              \"Start\": 81,\n
+        \                             \"Length\": 14,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P305+P351+P338\"\n                            },\n
+        \                           {\n                              \"Start\": 97,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P308+P316\"\n                            },\n
+        \                           {\n                              \"Start\": 108,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P316\"\n                            },\n
+        \                           {\n                              \"Start\": 114,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P318\"\n                            },\n
+        \                           {\n                              \"Start\": 120,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P319\"\n                            },\n
+        \                           {\n                              \"Start\": 126,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P321\"\n                            },\n
+        \                           {\n                              \"Start\": 132,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P330\"\n                            },\n
+        \                           {\n                              \"Start\": 138,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P332+P317\"\n                            },\n
+        \                           {\n                              \"Start\": 149,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P333+P317\"\n                            },\n
+        \                           {\n                              \"Start\": 160,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P337+P317\"\n                            },\n
+        \                           {\n                              \"Start\": 171,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P361+P364\"\n                            },\n
+        \                           {\n                              \"Start\": 182,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P362+P364\"\n                            },\n
+        \                           {\n                              \"Start\": 193,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P405\"\n                            },\n
+        \                           {\n                              \"Start\": 203,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P501\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        22,\n                    \"Name\": \"Pictogram(s)\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"          \",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 1,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/images/ghs/GHS07.svg\",\n                              \"Type\":
+        \"Icon\",\n                              \"Extra\": \"Irritant\"\n                            },\n
+        \                           {\n                              \"Start\": 1,\n
+        \                             \"Length\": 1,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/images/ghs/GHS08.svg\",\n                              \"Type\":
+        \"Icon\",\n                              \"Extra\": \"Health Hazard\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        22,\n                    \"Name\": \"Signal\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"Danger\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 6,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSDanger\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        22,\n                    \"Name\": \"GHS Hazard Statements\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"H315: Causes skin irritation [Warning
+        Skin corrosion/irritation]\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 0,\n                              \"Length\":
+        4,\n                              \"URL\": \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H315\"\n
+        \                           },\n                            {\n                              \"Start\":
+        30,\n                              \"Length\": 7,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSWarning\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"H317: May cause an allergic skin reaction
+        [Warning Sensitization, Skin]\",\n                          \"Markup\": [\n
+        \                           {\n                              \"Start\": 0,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H317\"\n                            },\n
+        \                           {\n                              \"Start\": 43,\n
+        \                             \"Length\": 7,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSWarning\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"H319: Causes serious eye irritation
+        [Warning Serious eye damage/eye irritation]\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H319\"\n                            },\n
+        \                           {\n                              \"Start\": 37,\n
+        \                             \"Length\": 7,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSWarning\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"H335: May cause respiratory irritation
+        [Warning Specific target organ toxicity, single exposure; Respiratory tract
+        irritation]\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 0,\n                              \"Length\":
+        4,\n                              \"URL\": \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H335\"\n
+        \                           },\n                            {\n                              \"Start\":
+        40,\n                              \"Length\": 7,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSWarning\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"H360: May damage fertility or the
+        unborn child [Danger Reproductive toxicity]\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H360\"\n                            },\n
+        \                           {\n                              \"Start\": 48,\n
+        \                             \"Length\": 6,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSDanger\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"H370: Causes damage to organs [Danger
+        Specific target organ toxicity, single exposure]\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H370\"\n                            },\n
+        \                           {\n                              \"Start\": 31,\n
+        \                             \"Length\": 6,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSDanger\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        22,\n                    \"Name\": \"Precautionary Statement Codes\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"P203, P260, P261, P264, P264+P265,
+        P270, P271, P272, P280, P302+P352, P304+P340, P305+P351+P338, P308+P316, P318,
+        P319, P321, P332+P317, P333+P317, P337+P317, P362+P364, P403+P233, P405, and
+        P501 (click each P-code to see the statement)\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P203\"\n                            },\n
+        \                           {\n                              \"Start\": 6,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P260\"\n                            },\n
+        \                           {\n                              \"Start\": 12,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P261\"\n                            },\n
+        \                           {\n                              \"Start\": 18,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P264\"\n                            },\n
+        \                           {\n                              \"Start\": 24,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P264+P265\"\n                            },\n
+        \                           {\n                              \"Start\": 35,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P270\"\n                            },\n
+        \                           {\n                              \"Start\": 41,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P271\"\n                            },\n
+        \                           {\n                              \"Start\": 47,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P272\"\n                            },\n
+        \                           {\n                              \"Start\": 53,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P280\"\n                            },\n
+        \                           {\n                              \"Start\": 59,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P302+P352\"\n                            },\n
+        \                           {\n                              \"Start\": 70,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P304+P340\"\n                            },\n
+        \                           {\n                              \"Start\": 81,\n
+        \                             \"Length\": 14,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P305+P351+P338\"\n                            },\n
+        \                           {\n                              \"Start\": 97,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P308+P316\"\n                            },\n
+        \                           {\n                              \"Start\": 108,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P318\"\n                            },\n
+        \                           {\n                              \"Start\": 114,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P319\"\n                            },\n
+        \                           {\n                              \"Start\": 120,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P321\"\n                            },\n
+        \                           {\n                              \"Start\": 126,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P332+P317\"\n                            },\n
+        \                           {\n                              \"Start\": 137,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P333+P317\"\n                            },\n
+        \                           {\n                              \"Start\": 148,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P337+P317\"\n                            },\n
+        \                           {\n                              \"Start\": 159,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P362+P364\"\n                            },\n
+        \                           {\n                              \"Start\": 170,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P403+P233\"\n                            },\n
+        \                           {\n                              \"Start\": 181,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P405\"\n                            },\n
+        \                           {\n                              \"Start\": 191,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P501\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  }\n                ]\n              }\n
+        \           ]\n          }\n        ]\n      }\n    ],\n    \"Reference\":
+        [\n      {\n        \"ReferenceNumber\": 14,\n        \"SourceName\": \"European
+        Chemicals Agency (ECHA)\",\n        \"SourceID\": \"124113\",\n        \"Name\":
+        \"Mercury monoxide (EC: 244-654-7)\",\n        \"Description\": \"The information
+        provided here is aggregated from the \\\"Notified classification and labelling\\\"
+        from ECHA's C&L Inventory. Read more: https://echa.europa.eu/information-on-chemicals/cl-inventory-database\",\n
+        \       \"URL\": \"https://chem.echa.europa.eu/substance-search?searchText=244-654-7\",\n
+        \       \"LicenseNote\": \"Use of the information, documents and data from
+        the ECHA website is subject to the terms and conditions of this Legal Notice,
+        and subject to other binding limitations provided for under applicable law,
+        the information, documents and data made available on the ECHA website may
+        be reproduced, distributed and/or used, totally or in part, for non-commercial
+        purposes provided that ECHA is acknowledged as the source: \\\"Source: European
+        Chemicals Agency, http://echa.europa.eu/\\\". Such acknowledgement must be
+        included in each copy of the material. ECHA permits and encourages organisations
+        and individuals to create links to the ECHA website under the following cumulative
+        conditions: Links can only be made to webpages that provide a link to the
+        Legal Notice page.\",\n        \"LicenseURL\": \"https://echa.europa.eu/web/guest/legal-notice\",\n
+        \       \"ANID\": 1887590,\n        \"SortOrder\": 3078\n      },\n      {\n
+        \       \"ReferenceNumber\": 23,\n        \"SourceName\": \"NITE-CMC\",\n
+        \       \"SourceID\": \"H26_B_124__\",\n        \"Name\": \"Mercury(II) oxide
+        - FY2014 (Revised classification)\",\n        \"Description\": \"The chemical
+        classification in this section was conducted by the Chemical Management Center
+        (CMC) of Japan National Institute of Technology and Evaluation (NITE) in accordance
+        with GHS Classification Guidance for the Japanese Government, and is intended
+        to provide a reference for preparing GHS labelling and SDS for users.\",\n
+        \       \"URL\": \"https://www.chem-info.nite.go.jp/chem/english/ghs/14-mhlw-2124e.html\",\n
+        \       \"LicenseURL\": \"https://www.chem-info.nite.go.jp/en/chem/chrip/chrip_search/html/condUse.html\",\n
+        \       \"ANID\": 39313182,\n        \"SortOrder\": 2014\n      },\n      {\n
+        \       \"ReferenceNumber\": 22,\n        \"SourceName\": \"NITE-CMC\",\n
+        \       \"SourceID\": \"286\",\n        \"Name\": \"Mercury monoxide - FY2006
+        (New/original classication)\",\n        \"Description\": \"The chemical classification
+        in this section was conducted by the Chemical Management Center (CMC) of Japan
+        National Institute of Technology and Evaluation (NITE) in accordance with
+        GHS Classification Guidance for the Japanese Government, and is intended to
+        provide a reference for preparing GHS labelling and SDS for users.\",\n        \"URL\":
+        \"https://www.chem-info.nite.go.jp/chem/english/ghs/06-imcg-0279e.html\",\n
+        \       \"LicenseURL\": \"https://www.chem-info.nite.go.jp/en/chem/chrip/chrip_search/html/condUse.html\",\n
+        \       \"ANID\": 8788062,\n        \"SortOrder\": 2006\n      }\n    ]\n
+        \ }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '45818'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Sat, 31 Oct 2026 20:03:28 GMT
+      expires:
+      - Sun, 01 Nov 2026 04:03:28 GMT
+      ncbi-phid:
+      - 95B7ED81AE6499010000000000000001.m_1
+      ncbi-sid:
+      - 95B7ECBDAE6498E1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=95B7ECBDAE6498E1_0000SID; domain=.nih.gov; path=/; expires=Sun, 31
+        Oct 2027 20:03:28 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (0%), Request Time status: Green (0%), Service
+        status: Green (6%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=95B7ECBDAE6498E1_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/30856/synonyms/JSON
+  response:
+    body:
+      string: "{\n  \"InformationList\": {\n    \"Information\": [\n      {\n        \"CID\":
+        30856,\n        \"Synonym\": [\n          \"MERCURIC OXIDE\",\n          \"Mercury(II)
+        oxide\",\n          \"oxomercury\",\n          \"21908-53-2\",\n          \"Mercuric
+        oxide, red\",\n          \"Santar\",\n          \"Red Precipitate\",\n          \"Red
+        mercuric oxide\",\n          \"Mercury oxide (HgO)\",\n          \"Mercuric
+        oxide, yellow\",\n          \"Santar M\",\n          \"Yellow precipitate\",\n
+        \         \"Mercuric oxide red\",\n          \"Natural montroydite\",\n          \"Mercury(2+)
+        oxide\",\n          \"Red oxide of mercury\",\n          \"Gelbes quecksilberoxyd\",\n
+        \         \"Hydrargyrum oxid flav\",\n          \"Yellow mercuric oxide\",\n
+        \         \"Mercuric oxide (red)\",\n          \"Oxide mercurique jaune\",\n
+        \         \"Mercuric oxide (HgO)\",\n          \"Caswell No. 544A\",\n          \"Yellow
+        oxide of mercury\",\n          \"Oxido amarillo de mercurio\",\n          \"Oxyde
+        de mercure\",\n          \"DTXSID4042125\",\n          \"EPA Pesticide Chemical
+        Code 052102\",\n          \"CI 77760\",\n          \"C.I. 77760\",\n          \"IY191986AO\",\n
+        \         \"Mercurius praecipitatus ruber\",\n          \"RefChem:6001\",\n
+        \         \"DTXCID2022125\",\n          \"244-654-7\",\n          \"mercury(II)oxide\",\n
+        \         \"Mercuric oxide yellow\",\n          \"Oxyde mercurique\",\n          \"Mercury(II)
+        oxide yellow\",\n          \"Mercuric(II) oxide red\",\n          \"12653-71-3\",\n
+        \         \"Mercury(II) oxide red\",\n          \"EINECS 244-654-7\",\n          \"Hydrargyrum
+        oxydatum rubrum\",\n          \"Oxyde de mercure [French]\",\n          \"Quecksilberoxyd\",\n
+        \         \"UNII-IY191986AO\",\n          \"Oxyde mercurique [ISO-French]\",\n
+        \         \"(Oxido)mercury\",\n          \"HSDB 1265\",\n          \"oxido
+        de mercurio\",\n          \"ossido di mercurio\",\n          \"mercury (II)oxide\",\n
+        \         \"UN1641\",\n          \"mercury (II) oxide\",\n          \"mercury-(II)-oxide\",\n
+        \         \"Mercury (ll) oxide red\",\n          \"AI3-02738\",\n          \"mercury
+        (II) oxide red\",\n          \"Mercury(II) oxide, red\",\n          \"Mercury
+        (II) oxide yellow\",\n          \"Mercury(II) oxide, yellow\",\n          \"Mercury(II)
+        oxide, 98%\",\n          \"SCHEMBL60790\",\n          \"Mercuric oxide, yellow
+        [NF]\",\n          \"Mercury(II) oxide red, ACS reagent\",\n          \"AKOS015903278\",\n
+        \         \"Mercury oxide [UN1641]  [Poison]\",\n          \"BP-30081\",\n
+        \         \"Mercuric(II) oxide yellow, A.C.S. reagent\",\n          \"Mercury(II)
+        oxide red, ACS reagent, >=99.0%\",\n          \"Mercury(II) oxide, 99.999%
+        trace metals basis\",\n          \"Mercury(II) oxide, p.a., ACS reagent, 99.0%\",\n
+        \         \"Q174727\",\n          \"Mercury(II) oxide yellow, ACS reagent,
+        >=99.0%\",\n          \"Mercury(II) oxide yellow, p.a., ACS reagent, 99.0%\"\n
+        \       ]\n      }\n    ]\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '2707'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 20:03:28 GMT
+      expires:
+      - Sat, 31 Oct 2026 21:03:28 GMT
+      ncbi-phid:
+      - 95B7EDA2AE6499010000000000000001.m_1
+      ncbi-sid:
+      - 95B7ECBDAE6498E1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=95B7ECBDAE6498E1_0000SID; domain=.nih.gov; path=/; expires=Sun, 31
+        Oct 2027 20:03:28 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (1%), Request Time status: Green (0%), Service
+        status: Green (30%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1
