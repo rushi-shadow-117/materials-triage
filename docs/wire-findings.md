@@ -197,6 +197,17 @@ Recorded 2026-10-31 with a free key. Cassettes in `fixtures/wire/openalex/`; the
   count parser must tolerate records with codes but no aggregate line. The Tl2O3 result shows
   that a compound-level GHS rule alone cannot catch every acutely toxic element; the owner
   decides whether thallium gets an element-level entry from another source.
+- Thallium follow-up (owner request, recorded 2026-10-31): thallium metal (CID 5359464, 41
+  GHS strings) carries H300, H310, H330, H340, H360 among 12 codes; thallium(I) sulfate
+  (CID 24833) carries H300, H311 among 10. Both meet the owner's exclude set, so thallium is
+  excluded at element level citing those records (`config/hazard_policy.yaml`).
+- Source URL checks the same day: the NSF PAR record 10427156 given for the ALD SiO2
+  8.7 eV value resolves to an unrelated Chem. Mater. 2022 paper; the UNL repository record
+  for ThO2 photoemission states "6 eV to 7 eV, from UPS and IPES" and is entered; the arXiv
+  1705.00315 body text states "yields a bandgap of 6.6±0.2 eV" for a 10 nm amorphous Al2O3
+  film (XPS energy-loss onset), so that entry is entered; the Hindawi DOI for the deposition-methods list
+  returned HTTP 403 to tools; the NIOSH Current Intelligence Bulletin 63 page on cdc.gov
+  resolves and is cited.
 - Synonyms: `GET /rest/pug/compound/cid/{cid}/synonyms/JSON` returns `InformationList >
   Information[0] > Synonym`, a list of 28 (ThO2) to 1,288 (TiO2) strings mixing trivial names,
   CAS numbers, trade names, and systematic names. Recorded for all eleven. The FDE curates the

@@ -46,7 +46,7 @@ MATERIALS: list[str] = [
 ]
 
 # Hazard-policy probes: not candidates, recorded for PubChem GHS only (owner request 2026-10-31).
-HAZARD_PROBES: list[str] = ["HgO", "Tl2O3", "PbO", "BaO"]
+HAZARD_PROBES: list[str] = ["HgO", "Tl2O3", "PbO", "BaO", "Tl", "Tl2SO4"]
 
 # Common names for PubChem name lookup. Public, conventional names only.
 COMMON_NAMES: dict[str, str] = {
@@ -54,6 +54,8 @@ COMMON_NAMES: dict[str, str] = {
     "Tl2O3": "thallium(III) oxide",
     "PbO": "lead(II) oxide",
     "BaO": "barium oxide",
+    "Tl": "thallium",
+    "Tl2SO4": "thallium(I) sulfate",
     "HfO2": "hafnium dioxide",
     "Al2O3": "aluminum oxide",
     "ZrO2": "zirconium dioxide",

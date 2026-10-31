@@ -25,10 +25,10 @@ entries:
     form: amorphous_film
     status: pending_verification
     source:
-      citation: "ALD SiO2 film band gap measurement (owner to supply citation)"
-      url: null
-      access: unknown
-    note: "Value supplied by the owner; source not yet provided."
+      citation: "Owner-supplied NSF PAR record 10427156. Checked 2026-10-31: that record is an unrelated paper (Eu5Al3Sb6, Chem. Mater. 2022). The same PAR page lists Xia et al., ECS J. Solid State Sci. Technol. (2021), DOI 10.1149/2162-8777/ac39a8, whose abstract says 'Given the bandgap of the SiO2 was 8.7 eV', an input to a band-offset analysis rather than a film measurement."
+      url: https://par.nsf.gov/biblio/10427156
+      access: open
+    note: "Owner to confirm the intended record. Not usable until the citation matches the value."
     entered_by: owner
     entered_on: 2026-10-31
 
@@ -68,40 +68,14 @@ entries:
     value: 6.6
     uncertainty: 0.2
     form: amorphous_film
-    status: pending_verification
+    status: entered
     source:
-      citation: "Open-access arXiv study of ALD Al2O3 reporting 6.6 +/- 0.2 eV (owner to supply the arXiv identifier)"
-      url: null
+      citation: "D. Cohen-Azarzar, M. Baskin, L. Kornblum, Band offsets at amorphous-crystalline Al2O3-SrTiO3 oxide interfaces, arXiv:1705.00315"
+      url: https://arxiv.org/abs/1705.00315
       access: open
-    entered_by: owner
-    entered_on: 2026-10-31
-
-  - id: al2o3_gap_amorphous_7p0
-    composition: Al2O3
-    property: band_gap_ev
-    value: 7.0
-    uncertainty: 0.1
-    form: amorphous_film
-    status: pending_verification
-    source:
-      citation: "Study reporting 7.0 +/- 0.1 eV amorphous and 7.6 +/- 0.1 eV gamma-Al2O3 (owner to supply)"
-      url: null
-      access: unknown
-    entered_by: owner
-    entered_on: 2026-10-31
-
-  - id: al2o3_gap_gamma_7p6
-    composition: Al2O3
-    property: band_gap_ev
-    value: 7.6
-    uncertainty: 0.1
-    form: crystalline_bulk
-    phase: gamma
-    status: pending_verification
-    source:
-      citation: "Same study as al2o3_gap_amorphous_7p0 (owner to supply)"
-      url: null
-      access: unknown
+      quote: "The distance of the onset of the energy loss tail from the major O 1s (Al2O3) peak yields a bandgap of 6.6±0.2 eV"
+      quote_2: "This value is in agreement with previous reports for amorphous Al2O3."
+    note: "Measured by XPS O 1s energy-loss onset on a 10 nm amorphous Al2O3 film on (001) SrTiO3; growth method as stated in the paper, not asserted here. Confirmed in the body text 2026-10-31."
     entered_by: owner
     entered_on: 2026-10-31
 
@@ -126,10 +100,11 @@ entries:
     form: crystalline_bulk
     status: entered
     source:
-      citation: "A. Mock et al., Band-to-band transitions, selection rules, effective mass, and excitonic contributions in monoclinic beta-Ga2O3 ... [title to confirm]; NSF PAR record: spectroscopic ellipsometry of UO2 and ThO2 single crystals, band gaps 2.1 eV and 5.4 eV (Appl. Phys. Lett. 2019)"
+      citation: "A. Mock et al., Appl. Phys. Lett. (2019), DOI 10.1063/1.5087059; NSF PAR record: spectroscopic ellipsometry of UO2 and ThO2 single crystals, band gaps 2.1 eV and 5.4 eV"
+      doi: 10.1063/1.5087059
       url: https://par.nsf.gov/servlets/purl/10095694
       access: open
-    note: "Title to be corrected from the PAR record during the next pass; the value and record are confirmed from the abstract."
+    note: "DOI supplied by the owner 2026-10-31; value confirmed from the abstract."
     entered_by: owner
     entered_on: 2026-10-31
 
@@ -138,11 +113,13 @@ entries:
     property: band_gap_ev
     value_range: [6.0, 7.0]
     form: crystalline_bulk
-    status: pending_verification
+    status: entered
     source:
-      citation: "Photoemission study of hydrothermally grown ThO2 single crystals (owner to supply)"
-      url: null
-      access: unknown
+      citation: "T. D. Kelly, J. C. Petrosky, D. Turner, J. W. McClory, J. M. Mann, J. W. Kolis, X. Zhang, P. A. Dowben, The unoccupied electronic structure characterization of hydrothermally grown ThO2 single crystals, Phys. Status Solidi RRL 8 (2014)"
+      url: https://digitalcommons.unl.edu/physicsdowben/265
+      access: open
+      quote: "The experimental band gap for large single crystals has been determined to be 6 eV to 7 eV, from UPS and IPES"
+    note: "The same abstract reports an optical gap near 4.8 eV attributed to edge states; recorded here as the source's own caveat, not interpreted."
     entered_by: owner
     entered_on: 2026-10-31
 
@@ -152,12 +129,12 @@ entries:
     value: 8.7
     form: crystalline_bulk
     phase: alpha
-    status: pending_signoff
+    status: entered
     source:
       citation: "O. A. Dicks et al., arXiv:1811.00610 (review statement within the paper)"
       url: https://arxiv.org/abs/1811.00610
       access: open
       quote: "alpha-Al2O3 having a band gap of 8.7 eV"
-    note: "Found in the owner-named source while confirming the amorphous range; not entered by the owner. Differs from the owner's Robertson-table value of 8.8 eV. Owner to decide which crystalline entry to keep."
-    entered_by: claude-code
+    note: "Owner decision 2026-10-31: keep both crystalline values (8.7 here, 8.8 from Robertson 2004 once verified); the row shows the range and the count of sources."
+    entered_by: owner
     entered_on: 2026-10-31

@@ -62,7 +62,10 @@ class HttpxTransport:
         for attempt in range(1, MAX_ATTEMPTS + 1):
             self._buckets[call.source].wait(self._sleep)
             try:
-                response = self._client.get(call.url, params=params, headers=headers)
+                # Explicit on every request: a client built without TIMEOUT cannot bypass it.
+                response = self._client.get(
+                    call.url, params=params, headers=headers, timeout=TIMEOUT
+                )
             except (httpx.TimeoutException, httpx.TransportError) as e:
                 last_error = e
                 self._backoff(attempt)

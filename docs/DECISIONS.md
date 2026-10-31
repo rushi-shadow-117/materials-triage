@@ -356,3 +356,31 @@ lists `access_controlled_batch_ids: ["gnome_r2scan_statics"]`, and every summary
 account received carries `builder_meta.license = "BY-C"`. The adapter's `BY-NC` exclusion is
 tested on a synthetic document because no real one can be fetched by an account that has not
 accepted the GNoME license, which is the deployment rule.
+
+## 2026-10-31 Acute toxicity tiers entered; thallium excluded at element level
+Decision (owner): from the recorded PubChem probes, HgO and PbO are excluded, BaO is flagged,
+BaTiO3 is unknown and ends up flagged through the element-level barium flag. Thallium gets an
+element-level exclude because thallium metal (CID 5359464) carries H300, H310, H330 and
+thallium(I) sulfate (CID 24833) carries H300, while Tl2O3 itself has no GHS data. Hg and Pb
+are also excluded at element level from the same records.
+Reason: the compound-level rule alone misses elements whose common oxides have no GHS
+record; a representative compound with fatal acute toxicity codes is the owner's test.
+Alternative: keep thallium at flag with "no record".
+
+## 2026-10-31 Several experimental values per composition are kept, never reconciled by hand
+Decision (owner): when two good sources differ slightly (Al2O3 crystalline, 8.7 eV in one and
+8.8 eV in another), both are entered with their citations and the row shows the range and the
+source count. The aggregate rule (median shown with range) applies to reference values exactly
+as it does to the compendium.
+Reason: picking one would be an unsourced judgment; the spread is real information.
+Alternative: pick the more recent or the more cited value.
+
+## 2026-10-31 Source URL corrections from verification
+Decision: entries are flipped to entered only when the page at the URL states the value. The
+ThO2 photoemission source (Kelly et al., Phys. Status Solidi RRL 2014) states "6 eV to 7 eV,
+from UPS and IPES" and is entered. The owner's NSF PAR record 10427156 for the ALD SiO2 8.7 eV
+value resolves to an unrelated paper; the 8.7 eV statement on that page belongs to a 2021
+band-offset paper that uses it as an input, so the entry stays pending until the owner confirms
+the intended record. The 7.0 and 7.6 eV Al2O3 values are dropped (no primary source). The
+arXiv 1705.00315 abstract does not state 6.6 eV; the body text is checked before entry.
+Reason: a citation that does not contain the value is not a source.

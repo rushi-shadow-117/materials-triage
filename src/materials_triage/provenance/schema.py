@@ -63,6 +63,7 @@ fetch_events = Table(
     Column("transport_mode", Text, nullable=False),  # live | replay | refresh | seed
     Column("source_version", Text),
     Index("ix_fetch_source_key_time", "source", "cache_key", "fetched_at"),
+    Index("ix_fetch_raw_response_id", "raw_response_id"),
 )
 
 records = Table(
@@ -80,6 +81,7 @@ records = Table(
     Column("supersedes", Uuid),
     Index("ix_records_source_kind_id", "source", "kind", "source_record_id"),
     Index("ix_records_composition", "composition"),
+    Index("ix_records_raw_response_id", "raw_response_id"),
 )
 
 snapshots = Table(

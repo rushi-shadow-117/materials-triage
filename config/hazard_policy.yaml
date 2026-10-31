@@ -81,21 +81,84 @@ tiers:
     entered_on: 2026-10-31
 
   acute_toxicity:
-    description: "Compound-level rule from PubChem GHS hazard statements. Decides a tier per compound, not per element."
+    description: "Compound-level rule from PubChem GHS hazard statements, plus element-level entries where a representative compound meets the exclude set."
     rule:
       exclude_if_any: [H300, H310, H330, H360]
       flag_if_any: [H301, H302, H311, H312, H331, H332]
       note: "H300/H310/H330 are GHS acute toxicity category 1-2 statements (oral, dermal, inhalation); H360 is reproductive toxicity category 1, included in the exclude set by the owner. H301/H302, H311/H312, H331/H332 are acute toxicity categories 3-4. A compound with any hazard code in any notification is never shown as unclassified; no notifications at all is 'unknown' and lands in the flag tier."
-    status: pending_signoff
+    status: entered
+    approval: "Owner confirmed the probe tiers 2026-10-31."
     source:
       citation: "United Nations, Globally Harmonized System of Classification and Labelling of Chemicals (GHS), Rev. 10 (2023), Annex 3, hazard statement codes"
       url: https://unece.org/transport/dangerous-goods/ghs-rev10-2023
       access: open
       url_checked: "unece.org returned HTTP 403 to automated checks on 2026-10-31; URL not confirmed by tool"
+    compound_tiers:
+      - composition: HgO
+        cid: 30856
+        tier: exclude
+        codes_matched: [H300, H310, H330, H360]
+        status: entered
+        source: {citation: "PubChem CID 30856, GHS Classification section, recorded 2026-10-31", url: "https://pubchem.ncbi.nlm.nih.gov/compound/30856", access: open}
+        entered_by: owner
+        entered_on: 2026-10-31
+      - composition: PbO
+        cid: 14827
+        tier: exclude
+        codes_matched: [H360]
+        status: entered
+        source: {citation: "PubChem CID 14827, GHS Classification section, recorded 2026-10-31", url: "https://pubchem.ncbi.nlm.nih.gov/compound/14827", access: open}
+        entered_by: owner
+        entered_on: 2026-10-31
+      - composition: BaO
+        cid: 62392
+        tier: flag
+        codes_matched: [H301, H302, H332]
+        status: entered
+        source: {citation: "PubChem CID 62392, GHS Classification section, recorded 2026-10-31", url: "https://pubchem.ncbi.nlm.nih.gov/compound/62392", access: open}
+        entered_by: owner
+        entered_on: 2026-10-31
+      - composition: BaTiO3
+        cid: 159419
+        tier: unknown
+        codes_matched: []
+        status: entered
+        note: "No GHS notifications in PubChem. The element-level barium flag below still applies, so the row ends up flagged."
+        source: {citation: "PubChem CID 159419, GHS Classification section ('Not Classified'), recorded 2026-10-31", url: "https://pubchem.ncbi.nlm.nih.gov/compound/159419", access: open}
+        entered_by: owner
+        entered_on: 2026-10-31
+    element_tiers:
+      - element: Tl
+        tier: exclude
+        reason: "Representative thallium compounds meet the exclude set: thallium metal (CID 5359464) carries H300, H310, H330; thallium(I) sulfate (CID 24833) carries H300. Tl2O3 itself has no PubChem GHS data."
+        status: entered
+        source: {citation: "PubChem CIDs 5359464 and 24833, GHS Classification sections, recorded 2026-10-31", url: "https://pubchem.ncbi.nlm.nih.gov/compound/5359464", access: open}
+        entered_by: owner
+        entered_on: 2026-10-31
+      - element: Ba
+        tier: flag
+        reason: "Soluble barium compounds carry acute toxicity codes (BaO: H301, H302, H332); insoluble barium compounds such as BaTiO3 have no GHS data. Flag, not exclude."
+        status: entered
+        source: {citation: "PubChem CID 62392 (BaO), GHS Classification section, recorded 2026-10-31", url: "https://pubchem.ncbi.nlm.nih.gov/compound/62392", access: open}
+        entered_by: owner
+        entered_on: 2026-10-31
+      - element: Hg
+        tier: exclude
+        reason: "HgO (CID 30856) meets the exclude set."
+        status: entered
+        source: {citation: "PubChem CID 30856, recorded 2026-10-31", url: "https://pubchem.ncbi.nlm.nih.gov/compound/30856", access: open}
+        entered_by: owner
+        entered_on: 2026-10-31
+      - element: Pb
+        tier: exclude
+        reason: "PbO (CID 14827) meets the exclude set (H360)."
+        status: entered
+        source: {citation: "PubChem CID 14827, recorded 2026-10-31", url: "https://pubchem.ncbi.nlm.nih.gov/compound/14827", access: open}
+        entered_by: owner
+        entered_on: 2026-10-31
     probe_recordings:
       recorded_on: 2026-10-31
-      cassettes: fixtures/wire/pubchem/{HgO,Tl2O3,PbO,BaO,BaTiO3}.yaml
-      note: "Resulting tiers reported to the owner; element or compound entries are written only after the owner confirms."
+      cassettes: fixtures/wire/pubchem/{HgO,Tl2O3,PbO,BaO,BaTiO3,Tl,Tl2SO4}.yaml
     entered_by: owner
     entered_on: 2026-10-31
 
@@ -131,10 +194,14 @@ tiers:
           - citation: "Court of Justice of the European Union, press release No 99/25, 1 August 2025, Joined Cases C-71/23 P and C-82/23 P"
             url: https://curia.europa.eu/jcms/upload/docs/application/pdf/2025-08/cp250099en.pdf
             access: open
-          - citation: "NIOSH: titanium dioxide as a potential occupational carcinogen (owner to supply the NIOSH document URL)"
-            url: null
+          - citation: "NIOSH Current Intelligence Bulletin 63: Occupational Exposure to Titanium Dioxide, DHHS (NIOSH) Publication 2011-160"
+            url: https://www.cdc.gov/niosh/docs/2011-160/
             access: open
-            status: pending_verification
+            status: entered
+          - citation: "AIHA news summary, 21 August 2025: European court upholds ruling on classification of titanium dioxide"
+            url: https://www.aiha.org/news/250821-european-court-upholds-ruling-on-classification-of-titanium-dioxide
+            access: open
+            status: entered
         entered_by: owner
         entered_on: 2026-10-31
 
