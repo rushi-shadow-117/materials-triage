@@ -88,3 +88,12 @@ Only commands that work are listed.
   OpenAlex read their keys from `.env`.
 - `uv run python scripts/fetch_snapshots.py` downloads the JARVIS and matbench files into
   `.data-cache/` and writes slices plus `fixtures/snapshots/MANIFEST.json`.
+- `docker compose up -d` maps Postgres to host port 5433. First start creates the three roles
+  from `src/materials_triage/provenance/roles.sql`; for an existing volume pipe that file into
+  `docker compose exec -T postgres psql -U triage -d triage`.
+- `uv run alembic upgrade head` migrates as the migration role (URL from `.env`).
+- `uv run pytest -q` runs everything; store and runner tests skip when Postgres is unreachable.
+  `WIRE_RECORD=once uv run pytest -q tests/adapters` records missing adapter cassettes with the
+  real keys in `.env`; the default replays and fails on any unrecorded request.
+- `uv run python scripts/seed_store_from_cassettes.py` loads `fixtures/adapters/` into the store
+  so a run can use `FETCH_MODE=replay` with no network.

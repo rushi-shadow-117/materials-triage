@@ -1,0 +1,122 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.materialsproject.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cformula_pretty%2Ccomposition_reduced%2Cnelements%2Cenergy_above_hull%2Cis_stable%2Cband_gap%2Ctheoretical%2Cdeprecated%2Csymmetry%2Cdatabase_IDs%2Clast_updated%2Cbuilder_meta&_limit=1000&formula=Ta2O5
+  response:
+    body:
+      string: '{"data":[{"theoretical":true,"database_IDs":{},"band_gap":2.7649,"energy_above_hull":0.013605430714287436,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"production-r2scan","database_version":"2026.09.28","build_date":"2026-09-25T19:10:00.964000","license":"BY-C"},"nelements":2,"composition_reduced":{"Ta":2.0,"O":5.0},"formula_pretty":"Ta2O5","symmetry":{"crystal_system":"Orthorhombic","symbol":"Pmmn","hall":"P
+        2 2ab -1ab","number":59,"point_group":"mmm","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaadjpcn","deprecated":false,"last_updated":"2023-10-07T11:52:21.776000"},{"theoretical":true,"database_IDs":{},"band_gap":3.734,"energy_above_hull":0.15588251357142902,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"production-r2scan","database_version":"2026.09.28","build_date":"2026-09-25T19:10:00.988000","license":"BY-C"},"nelements":2,"composition_reduced":{"Ta":2.0,"O":5.0},"formula_pretty":"Ta2O5","symmetry":{"crystal_system":"Monoclinic","symbol":"C2/m","hall":"-C
+        2y","number":12,"point_group":"2/m","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaaeijet","deprecated":false,"last_updated":"2021-03-06T02:38:50.969000"},{"theoretical":true,"database_IDs":{},"band_gap":3.4715999999999996,"energy_above_hull":0.11646023714285647,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"production-r2scan","database_version":"2026.09.28","build_date":"2026-09-25T19:10:00.988000","license":"BY-C"},"nelements":2,"composition_reduced":{"Ta":2.0,"O":5.0},"formula_pretty":"Ta2O5","symmetry":{"crystal_system":"Orthorhombic","symbol":"Pbam","hall":"-P
+        2 2ab","number":55,"point_group":"mmm","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaaeijfi","deprecated":false,"last_updated":"2021-03-06T05:03:36.112000"},{"theoretical":true,"database_IDs":{},"band_gap":3.0164999999999997,"energy_above_hull":0.057661953095237806,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"production-r2scan","database_version":"2026.09.28","build_date":"2026-09-25T19:10:20.258000","license":"BY-C"},"nelements":2,"composition_reduced":{"Ta":2.0,"O":5.0},"formula_pretty":"Ta2O5","symmetry":{"crystal_system":"Monoclinic","symbol":"Cm","hall":"C
+        -2y","number":8,"point_group":"m","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaabskzs","deprecated":false,"last_updated":"2021-03-06T04:53:21.336000"},{"theoretical":true,"database_IDs":{},"band_gap":3.8972,"energy_above_hull":0.22704038714285701,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"vasp6-statics","database_version":"2026.09.28","build_date":"2026-09-25T19:10:00.954000","license":"BY-C"},"nelements":2,"composition_reduced":{"Ta":2.0,"O":5.0},"formula_pretty":"Ta2O5","symmetry":{"crystal_system":"Orthorhombic","symbol":"Cmcm","hall":"-C
+        2c 2","number":63,"point_group":"mmm","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaachjli","deprecated":false,"last_updated":"2021-03-08T08:17:03.695000"},{"theoretical":true,"database_IDs":{},"band_gap":2.0252,"energy_above_hull":0.05809587714285769,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"vasp6-statics-jan2021","database_version":"2026.09.28","build_date":"2026-09-25T19:10:20.258000","license":"BY-C"},"nelements":2,"composition_reduced":{"Ta":2.0,"O":5.0},"formula_pretty":"Ta2O5","symmetry":{"crystal_system":"Orthorhombic","symbol":"Pmma","hall":"-P
+        2a 2a","number":51,"point_group":"mmm","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaackwjt","deprecated":false,"last_updated":"2021-02-04T09:58:15.732000"},{"theoretical":true,"database_IDs":{},"band_gap":3.3026999999999997,"energy_above_hull":0.10495908428571354,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"vasp6-statics","database_version":"2026.09.28","build_date":"2026-09-25T19:10:00.988000","license":"BY-C"},"nelements":2,"composition_reduced":{"Ta":2.0,"O":5.0},"formula_pretty":"Ta2O5","symmetry":{"crystal_system":"Monoclinic","symbol":"C2","hall":"C
+        2y","number":5,"point_group":"2","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaacpceo","deprecated":false,"last_updated":"2022-06-10T08:25:43.393000"},{"theoretical":true,"database_IDs":{},"band_gap":1.6696,"energy_above_hull":0.12368325428571225,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"vasp6-statics","database_version":"2026.09.28","build_date":"2026-09-25T19:10:00.990000","license":"BY-C"},"nelements":2,"composition_reduced":{"Ta":2.0,"O":5.0},"formula_pretty":"Ta2O5","symmetry":{"crystal_system":"Tetragonal","symbol":"I4/mmm","hall":"-I
+        4 2","number":139,"point_group":"4/mmm","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaacrhuf","deprecated":false,"last_updated":"2022-06-09T05:25:47.890000"},{"theoretical":true,"database_IDs":{},"band_gap":2.5913000000000004,"energy_above_hull":0.1552107171428574,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"vasp6-statics-jan2021","database_version":"2026.09.28","build_date":"2026-09-25T19:10:00.990000","license":"BY-C"},"nelements":2,"composition_reduced":{"Ta":2.0,"O":5.0},"formula_pretty":"Ta2O5","symmetry":{"crystal_system":"Triclinic","symbol":"P1","hall":"P
+        1","number":1,"point_group":"1","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaacrhzp","deprecated":false,"last_updated":"2021-02-06T18:13:24.667000"},{"theoretical":true,"database_IDs":{},"band_gap":0.0,"energy_above_hull":0.17327177571428543,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"jmunro_static_calculations","database_version":"2026.09.28","build_date":"2026-09-25T19:10:00.991000","license":"BY-C"},"nelements":2,"composition_reduced":{"Ta":2.0,"O":5.0},"formula_pretty":"Ta2O5","symmetry":{"crystal_system":"Monoclinic","symbol":"C2/m","hall":"-C
+        2y","number":12,"point_group":"2/m","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaacriai","deprecated":false,"last_updated":"2020-05-02T18:09:36.061000"},{"theoretical":true,"database_IDs":{},"band_gap":1.3281999999999998,"energy_above_hull":0.06162584999999865,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"vasp6-statics-jan2021","database_version":"2026.09.28","build_date":"2026-09-25T19:10:00.990000","license":"BY-C"},"nelements":2,"composition_reduced":{"Ta":2.0,"O":5.0},"formula_pretty":"Ta2O5","symmetry":{"crystal_system":"Monoclinic","symbol":"C2","hall":"C
+        2y","number":5,"point_group":"2","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaacribq","deprecated":false,"last_updated":"2021-02-04T09:10:29.831000"},{"theoretical":true,"database_IDs":{},"band_gap":1.4952,"energy_above_hull":0.052022642727273194,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"jmunro_static_calculations","database_version":"2026.09.28","build_date":"2026-09-25T19:10:00.990000","license":"BY-C"},"nelements":2,"composition_reduced":{"Ta":2.0,"O":5.0},"formula_pretty":"Ta2O5","symmetry":{"crystal_system":"Monoclinic","symbol":"Pm","hall":"P
+        -2y","number":6,"point_group":"m","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaacrige","deprecated":false,"last_updated":"2021-02-05T19:33:12.302000"},{"theoretical":true,"database_IDs":{},"band_gap":2.341,"energy_above_hull":0.01392719357142802,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"production-r2scan","database_version":"2026.09.28","build_date":"2026-09-25T19:10:00.988000","license":"BY-C"},"nelements":2,"composition_reduced":{"Ta":2.0,"O":5.0},"formula_pretty":"Ta2O5","symmetry":{"crystal_system":"Monoclinic","symbol":"P2/m","hall":"-P
+        2y","number":10,"point_group":"2/m","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaacsmuj","deprecated":false,"last_updated":"2022-06-09T14:52:19.485000"},{"theoretical":true,"database_IDs":{},"band_gap":2.5694,"energy_above_hull":0.20117252190476087,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"mp_2019","database_version":"2026.09.28","build_date":"2026-09-25T19:10:00.991000","license":"BY-C"},"nelements":2,"composition_reduced":{"Ta":2.0,"O":5.0},"formula_pretty":"Ta2O5","symmetry":{"crystal_system":"Triclinic","symbol":"P1","hall":"P
+        1","number":1,"point_group":"1","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaacswcu","deprecated":false,"last_updated":"2019-07-02T00:42:56.693000"},{"theoretical":true,"database_IDs":{},"band_gap":2.9624,"energy_above_hull":0.17927416961904719,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"mp_2019","database_version":"2026.09.28","build_date":"2026-09-25T19:10:00.991000","license":"BY-C"},"nelements":2,"composition_reduced":{"Ta":2.0,"O":5.0},"formula_pretty":"Ta2O5","symmetry":{"crystal_system":"Triclinic","symbol":"P1","hall":"P
+        1","number":1,"point_group":"1","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaacswdp","deprecated":false,"last_updated":"2019-07-02T00:43:58.493000"},{"theoretical":true,"database_IDs":{},"band_gap":3.1458999999999997,"energy_above_hull":0.18276826047618933,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"mp_2019","database_version":"2026.09.28","build_date":"2026-09-25T19:10:00.991000","license":"BY-C"},"nelements":2,"composition_reduced":{"Ta":2.0,"O":5.0},"formula_pretty":"Ta2O5","symmetry":{"crystal_system":"Triclinic","symbol":"P1","hall":"P
+        1","number":1,"point_group":"1","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaacswed","deprecated":false,"last_updated":"2019-07-02T00:44:40.329000"},{"theoretical":true,"database_IDs":{},"band_gap":0.0,"energy_above_hull":2.9672127261904766,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"jmunro_static_calculations","database_version":"2026.09.28","build_date":"2026-09-25T19:10:00.991000","license":"BY-C"},"nelements":2,"composition_reduced":{"Ta":2.0,"O":5.0},"formula_pretty":"Ta2O5","symmetry":{"crystal_system":"Triclinic","symbol":"P1","hall":"P
+        1","number":1,"point_group":"1","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaadacbx","deprecated":false,"last_updated":"2020-07-14T21:27:34.529000"},{"theoretical":true,"database_IDs":{},"band_gap":2.3882336821681736,"energy_above_hull":0.01471408214285752,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"production-scan-reparse-apr2021","database_version":"2026.09.28","build_date":"2026-09-25T19:10:00.990000","license":"BY-C"},"nelements":2,"composition_reduced":{"Ta":2.0,"O":5.0},"formula_pretty":"Ta2O5","symmetry":{"crystal_system":"Orthorhombic","symbol":"Pmmn","hall":"P
+        2 2ab -1ab","number":59,"point_group":"mmm","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaadbftj","deprecated":false,"last_updated":"2021-05-21T20:36:54.020000"},{"theoretical":true,"database_IDs":{},"band_gap":2.788501784759442,"energy_above_hull":0.09110151285714352,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"jmunro_static_calculations","database_version":"2026.09.28","build_date":"2026-09-25T19:10:00.990000","license":"BY-C"},"nelements":2,"composition_reduced":{"Ta":2.0,"O":5.0},"formula_pretty":"Ta2O5","symmetry":{"crystal_system":"Orthorhombic","symbol":"Pbam","hall":"-P
+        2 2ab","number":55,"point_group":"mmm","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaadbzcj","deprecated":false,"last_updated":"2021-03-06T05:12:49.132000"},{"theoretical":false,"database_IDs":{"icsd":["icsd-280396","icsd-188462","icsd-188463"]},"band_gap":3.0667999999999997,"energy_above_hull":0.0,"is_stable":true,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"production-r2scan","database_version":"2026.09.28","build_date":"2026-09-25T19:10:20.169000","license":"BY-C"},"nelements":2,"composition_reduced":{"Ta":2.0,"O":5.0},"formula_pretty":"Ta2O5","symmetry":{"crystal_system":"Monoclinic","symbol":"C2/c","hall":"-C
+        2yc","number":15,"point_group":"2/m","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaaaapjq","deprecated":false,"last_updated":"2023-10-08T00:02:39.989000"},{"theoretical":false,"database_IDs":{"icsd":["icsd-236386","icsd-95462"]},"band_gap":0.26370000000000005,"energy_above_hull":0.33225909142857013,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"jmunro_static_calculations","database_version":"2026.09.28","build_date":"2026-09-25T19:10:20.258000","license":"BY-C"},"nelements":2,"composition_reduced":{"Ta":2.0,"O":5.0},"formula_pretty":"Ta2O5","symmetry":{"crystal_system":"Orthorhombic","symbol":"Pmmm","hall":"-P
+        2 2","number":47,"point_group":"mmm","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaabfovb","deprecated":false,"last_updated":"2022-06-10T12:27:08.200000"},{"theoretical":false,"database_IDs":{"icsd":["icsd-280397"]},"band_gap":2.4734000000000003,"energy_above_hull":0.41728983428571276,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"mkhorton-hse-2022","database_version":"2026.09.28","build_date":"2026-09-25T19:10:20.258000","license":"BY-C"},"nelements":2,"composition_reduced":{"Ta":2.0,"O":5.0},"formula_pretty":"Ta2O5","symmetry":{"crystal_system":"Monoclinic","symbol":"C2","hall":"C
+        2y","number":5,"point_group":"2","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaabjocm","deprecated":false,"last_updated":"2022-06-10T19:50:20.644000"},{"theoretical":true,"database_IDs":{},"band_gap":3.2123000000000004,"energy_above_hull":0.32404830999999845,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"vasp6-statics-jan2021","database_version":"2026.09.28","build_date":"2026-09-25T19:10:00.953000","license":"BY-C"},"nelements":2,"composition_reduced":{"Ta":2.0,"O":5.0},"formula_pretty":"Ta2O5","symmetry":{"crystal_system":"Monoclinic","symbol":"Cm","hall":"C
+        -2y","number":8,"point_group":"m","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaabmmqg","deprecated":false,"last_updated":"2022-06-09T09:45:11.092000"},{"theoretical":true,"database_IDs":{},"band_gap":3.0761999999999996,"energy_above_hull":0.07915488999999987,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"vasp6-statics-jan2021","database_version":"2026.09.28","build_date":"2026-09-25T19:10:00.989000","license":"BY-C"},"nelements":2,"composition_reduced":{"Ta":2.0,"O":5.0},"formula_pretty":"Ta2O5","symmetry":{"crystal_system":"Triclinic","symbol":"P1","hall":"P
+        1","number":1,"point_group":"1","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaabmzef","deprecated":false,"last_updated":"2021-03-06T03:35:53.495000"}],"meta":{"api_version":"0.88.1","time_stamp":"2026-10-31T20:36:39.132958+00:00","total_doc":24,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+    headers:
+      access-control-expose-headers:
+      - X-Api-Key
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a53573ff89eba2a1-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '17021'
+      content-security-policy-report-only:
+      - script-src 'unsafe-inline' 'unsafe-eval'; report-uri https://csp-reporting.cloudflare.com/cdn-cgi/script_monitor/report?m=vWS.EgYJkslcVUNURcH6xc6Vzpj7YXouI5hgrGSYhP8-1793478998.9666781-1.0.1.1-Fl17GIJfZ9MYfKLWkUdNJ1aCPGDMOy8CajjLDnMtAb2TnlEBag_HJdb_wjHCaYBjlTn_mNnvgpeIBpe9TCo.JFCK4fc8NDd.ijETaJbxj_ALxfozG0FQZqscNIF.GR7C7pHEqL9H6FW1vLnyRCYsdiruDz0jddmipxLcNl5wg7PBT5uvNtZ0TbgabJUm7Nv3;
+        report-to cf-csp-endpoint
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 20:36:39 GMT
+      ratelimit-limit:
+      - '25'
+      ratelimit-remaining:
+      - '24'
+      ratelimit-reset:
+      - '1'
+      report-to:
+      - '{"group":"cf-csp-endpoint","max_age":86400,"endpoints":[{"url":"https://csp-reporting.cloudflare.com/cdn-cgi/script_monitor/report?m=vWS.EgYJkslcVUNURcH6xc6Vzpj7YXouI5hgrGSYhP8-1793478998.9666781-1.0.1.1-Fl17GIJfZ9MYfKLWkUdNJ1aCPGDMOy8CajjLDnMtAb2TnlEBag_HJdb_wjHCaYBjlTn_mNnvgpeIBpe9TCo.JFCK4fc8NDd.ijETaJbxj_ALxfozG0FQZqscNIF.GR7C7pHEqL9H6FW1vLnyRCYsdiruDz0jddmipxLcNl5wg7PBT5uvNtZ0TbgabJUm7Nv3"}]}'
+      reporting-endpoints:
+      - cf-csp-endpoint="https://csp-reporting.cloudflare.com/cdn-cgi/script_monitor/report?m=vWS.EgYJkslcVUNURcH6xc6Vzpj7YXouI5hgrGSYhP8-1793478998.9666781-1.0.1.1-Fl17GIJfZ9MYfKLWkUdNJ1aCPGDMOy8CajjLDnMtAb2TnlEBag_HJdb_wjHCaYBjlTn_mNnvgpeIBpe9TCo.JFCK4fc8NDd.ijETaJbxj_ALxfozG0FQZqscNIF.GR7C7pHEqL9H6FW1vLnyRCYsdiruDz0jddmipxLcNl5wg7PBT5uvNtZ0TbgabJUm7Nv3"
+      server:
+      - cloudflare
+      set-cookie:
+      - _csrf_token=anonymous; Domain=.materialsproject.org; Path=/; SameSite=Strict
+      - mp-session=tWdGuSYcBtwKT9fVveU9Fw|1794688599|dSAFT28AT-Yx0QkzLbH5Irl_Eoo;
+        Expires=Sat, 14 Nov 2026 20:36:39 GMT; Max-Age=1209600; Domain=materialsproject.org;
+        Path=/; SameSite=Lax; Secure; HttpOnly
+      - __cf_bm=IUDx5JCvIlfgSoLZKv.fh1KHNY2u9pIYz4HO2lfjqa4-1793478998.9666781-1.0.1.1-B4F8VoD2WkYgRnDdfOWzPKQhYb9bsn37t4xS05IXHIAldnUrDSBn0k3kssqmdkWKZ6rnkiJ3_YiV9jbhGf3gWsogwLNeqae5myD4Yh5YOFP_JkFzTzSDEtoExPhsxXLd;
+        HttpOnly; SameSite=None; Secure; Path=/; Domain=materialsproject.org; Expires=Sat,
+        31 Oct 2026 21:06:39 GMT
+      vary:
+      - Accept-Encoding
+      - Origin
+      via:
+      - kong/2.8.4
+      x-consumer-id:
+      - 58e0b4c2-4c2d-439b-ba0a-648cd568a0fa
+      x-kong-proxy-latency:
+      - '7'
+      x-kong-upstream-latency:
+      - '43'
+      x-ratelimit-limit-day:
+      - '640000'
+      x-ratelimit-limit-hour:
+      - '40000'
+      x-ratelimit-limit-minute:
+      - '1000'
+      x-ratelimit-limit-month:
+      - '12800000'
+      x-ratelimit-limit-second:
+      - '25'
+      x-ratelimit-limit-year:
+      - '100000000'
+      x-ratelimit-remaining-day:
+      - '639958'
+      x-ratelimit-remaining-hour:
+      - '39994'
+      x-ratelimit-remaining-minute:
+      - '996'
+      x-ratelimit-remaining-month:
+      - '12799958'
+      x-ratelimit-remaining-second:
+      - '24'
+      x-ratelimit-remaining-year:
+      - '99999958'
+    status:
+      code: 200
+      message: OK
+version: 1

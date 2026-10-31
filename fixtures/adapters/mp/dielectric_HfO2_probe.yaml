@@ -1,0 +1,89 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - _csrf_token=anonymous; mp-session=UVS2E9DkhWTT73SN24TCtg|1794688598|XYoKuOBd-7cGMzFz7NfFCgdFxcM;
+        __cf_bm=tjvbvjgJnUC7g7_6Wia8J5aprQC0YjH7oWgHtVtEZKc-1793478998.4197965-1.0.1.1-g8pFSG_DnJxmq.S7GexyPNP.DrX38WrmjnZ.4LJ.WUcjw9TcveLv64XU1d3rE4CcVhUz5XgjgWWXuS_Sgan0F.sS8YUdgd_HG9I8EdWqSsjhqyn6SW8PZYHiEa6wTZ_h
+      host:
+      - api.materialsproject.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.materialsproject.org/materials/dielectric/?_fields=material_id%2Cformula_pretty%2Ce_total%2Ce_ionic%2Ce_electronic%2Cn%2Cdeprecated%2Cbuilder_meta&_limit=1000&material_ids=mp-352%2Cmp-775757
+  response:
+    body:
+      string: '{"data":[{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:16.576000","license":null},"formula_pretty":"HfO2","material_id":"mp-aaaaaano","deprecated":false,"e_total":18.7477708,"e_ionic":13.93699507,"e_electronic":4.81077573,"n":2.1933480640336134}],"meta":{"api_version":"0.88.1","time_stamp":"2026-10-31T20:36:39.452899+00:00","total_doc":1,"facet":null,"max_limit":1000,"default_fields":["material_id","last_updated"]}}'
+    headers:
+      access-control-expose-headers:
+      - X-Api-Key
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5357401d8ab10c6-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '576'
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 20:36:39 GMT
+      ratelimit-limit:
+      - '25'
+      ratelimit-remaining:
+      - '22'
+      ratelimit-reset:
+      - '1'
+      server:
+      - cloudflare
+      set-cookie:
+      - _csrf_token=authenticated; Domain=.materialsproject.org; Path=/; SameSite=Strict
+      transfer-encoding:
+      - chunked
+      vary:
+      - Origin
+      via:
+      - kong/2.8.4
+      x-consumer-id:
+      - 58e0b4c2-4c2d-439b-ba0a-648cd568a0fa
+      x-kong-proxy-latency:
+      - '10'
+      x-kong-upstream-latency:
+      - '7'
+      x-ratelimit-limit-day:
+      - '640000'
+      x-ratelimit-limit-hour:
+      - '40000'
+      x-ratelimit-limit-minute:
+      - '1000'
+      x-ratelimit-limit-month:
+      - '12800000'
+      x-ratelimit-limit-second:
+      - '25'
+      x-ratelimit-limit-year:
+      - '100000000'
+      x-ratelimit-remaining-day:
+      - '639956'
+      x-ratelimit-remaining-hour:
+      - '39992'
+      x-ratelimit-remaining-minute:
+      - '994'
+      x-ratelimit-remaining-month:
+      - '12799956'
+      x-ratelimit-remaining-second:
+      - '22'
+      x-ratelimit-remaining-year:
+      - '99999956'
+    status:
+      code: 200
+      message: OK
+version: 1

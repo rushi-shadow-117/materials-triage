@@ -8,7 +8,7 @@ from sqlalchemy.exc import ProgrammingError
 from materials_triage.adapters.base import Call, RawResponse, Source
 from materials_triage.provenance.store import MaintenanceStore, Store
 from materials_triage.records import Provenance, SourceRecord
-from tests.provenance.conftest import requires_db
+from tests.conftest import requires_db
 
 pytestmark = requires_db
 

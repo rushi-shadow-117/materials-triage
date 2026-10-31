@@ -1,0 +1,93 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.materialsproject.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cformula_pretty%2Ccomposition_reduced%2Cnelements%2Cenergy_above_hull%2Cis_stable%2Cband_gap%2Ctheoretical%2Cdeprecated%2Csymmetry%2Cdatabase_IDs%2Clast_updated%2Cbuilder_meta&_limit=1000&formula=ThO2
+  response:
+    body:
+      string: '{"data":[{"theoretical":false,"database_IDs":{"icsd":["icsd-246705"]},"band_gap":3.520225307937106,"energy_above_hull":0.1497007274999973,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"mkhorton-hse-2022","database_version":"2026.09.28","build_date":"2026-09-25T19:10:20.258000","license":"BY-C"},"nelements":2,"composition_reduced":{"Th":1.0,"O":2.0},"formula_pretty":"ThO2","symmetry":{"crystal_system":"Orthorhombic","symbol":"Pnma","hall":"-P
+        2ac 2n","number":62,"point_group":"mmm","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaacktan","deprecated":false,"last_updated":"2022-06-07T00:21:18.372000"},{"theoretical":false,"database_IDs":{"icsd":["icsd-61586","icsd-236586","icsd-61585","icsd-28685","icsd-647527","icsd-246706","icsd-647531","icsd-77691","icsd-647525","icsd-105550","icsd-647530","icsd-647528","icsd-28778","icsd-77690","icsd-647524","icsd-647523","icsd-647529","icsd-601173","icsd-53999"]},"band_gap":4.417999999999999,"energy_above_hull":0.0,"is_stable":true,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"production-r2scan","database_version":"2026.09.28","build_date":"2026-09-25T19:10:20.199000","license":"BY-C"},"nelements":2,"composition_reduced":{"Th":1.0,"O":2.0},"formula_pretty":"ThO2","symmetry":{"crystal_system":"Cubic","symbol":"Fm-3m","hall":"-F
+        4 2 3","number":225,"point_group":"m-3m","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaaaaayt","deprecated":false,"last_updated":"2023-10-07T08:38:02.295000"}],"meta":{"api_version":"0.88.1","time_stamp":"2026-10-31T20:36:37.944936+00:00","total_doc":2,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+    headers:
+      access-control-expose-headers:
+      - X-Api-Key
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a53573f7dfabc5c5-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '1851'
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 20:36:37 GMT
+      ratelimit-limit:
+      - '25'
+      ratelimit-remaining:
+      - '24'
+      ratelimit-reset:
+      - '1'
+      server:
+      - cloudflare
+      set-cookie:
+      - _csrf_token=anonymous; Domain=.materialsproject.org; Path=/; SameSite=Strict
+      - mp-session=D6CxMRzs_AnmoKVJ2zbT2A|1794688597|UwqU8V4OK2FICdT9uo-Pr4QBxKQ;
+        Expires=Sat, 14 Nov 2026 20:36:37 GMT; Max-Age=1209600; Domain=materialsproject.org;
+        Path=/; SameSite=Lax; Secure; HttpOnly
+      - __cf_bm=2cUjdkV0L8KMBeH35Ol2f1v9APDtRwIuRMVUcDmtowo-1793478997.7389925-1.0.1.1-16k_AVWPm_k6BRYbNYu7W1g.UMlIvt.8FzkGIXppAZFn54rKjD2NZ1P3H6Icap_o_e6stktOv9srLWiABD0oSTqA1Nu3dIhF6R3euxg1YhpYcm83XiQ3iyC0AJEHFILv;
+        HttpOnly; SameSite=None; Secure; Path=/; Domain=materialsproject.org; Expires=Sat,
+        31 Oct 2026 21:06:37 GMT
+      vary:
+      - Accept-Encoding
+      - Origin
+      via:
+      - kong/2.8.4
+      x-consumer-id:
+      - 58e0b4c2-4c2d-439b-ba0a-648cd568a0fa
+      x-kong-proxy-latency:
+      - '8'
+      x-kong-upstream-latency:
+      - '86'
+      x-ratelimit-limit-day:
+      - '640000'
+      x-ratelimit-limit-hour:
+      - '40000'
+      x-ratelimit-limit-minute:
+      - '1000'
+      x-ratelimit-limit-month:
+      - '12800000'
+      x-ratelimit-limit-second:
+      - '25'
+      x-ratelimit-limit-year:
+      - '100000000'
+      x-ratelimit-remaining-day:
+      - '639961'
+      x-ratelimit-remaining-hour:
+      - '39997'
+      x-ratelimit-remaining-minute:
+      - '999'
+      x-ratelimit-remaining-month:
+      - '12799961'
+      x-ratelimit-remaining-second:
+      - '24'
+      x-ratelimit-remaining-year:
+      - '99999961'
+    status:
+      code: 200
+      message: OK
+version: 1

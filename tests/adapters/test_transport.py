@@ -120,3 +120,9 @@ def test_cache_key_ignores_param_order() -> None:
 
 def test_explicit_timeouts_are_set() -> None:
     assert TIMEOUT.connect == 15.0 and TIMEOUT.read == 120.0
+
+
+def test_cache_key_ignores_percent_encoding_differences() -> None:
+    a = Call(source=Source.PUBCHEM, endpoint="e", url="https://x/name/hafnium dioxide/cids")
+    b = Call(source=Source.PUBCHEM, endpoint="e", url="https://x/name/hafnium%20dioxide/cids")
+    assert a.cache_key == b.cache_key

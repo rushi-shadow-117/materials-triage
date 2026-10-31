@@ -1,0 +1,382 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/hafnium%20dioxide/cids/JSON
+  response:
+    body:
+      string: "{\n  \"IdentifierList\": {\n    \"CID\": [\n      292779\n    ]\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '62'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 20:36:44 GMT
+      expires:
+      - Sat, 31 Oct 2026 21:36:44 GMT
+      ncbi-phid:
+      - 95B731A7AE6515C10000000000000001.m_1
+      ncbi-sid:
+      - 95B731A7AE6515C1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=95B731A7AE6515C1_0000SID; domain=.nih.gov; path=/; expires=Sun, 31
+        Oct 2027 20:36:44 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (0%), Request Time status: Green (0%), Service
+        status: Red (80%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=95B731A7AE6515C1_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/fastformula/HfO2/cids/JSON
+  response:
+    body:
+      string: "{\n  \"IdentifierList\": {\n    \"CID\": [\n      292779,\n      159422\n
+        \   ]\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '76'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 20:36:44 GMT
+      expires:
+      - Sat, 31 Oct 2026 21:36:47 GMT
+      ncbi-phid:
+      - 90C649FEAE6515C10000000000000001.m_3
+      ncbi-sid:
+      - 95B731A7AE6515C1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=95B731A7AE6515C1_0000SID; domain=.nih.gov; path=/; expires=Sun, 31
+        Oct 2027 20:36:44 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (0%), Request Time status: Green (0%), Service
+        status: Green (43%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=95B731A7AE6515C1_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug_view/data/compound/292779/JSON?heading=GHS+Classification
+  response:
+    body:
+      string: "{\n  \"Record\": {\n    \"RecordType\": \"CID\",\n    \"RecordNumber\":
+        292779,\n    \"RecordTitle\": \"Hafnium oxide\",\n    \"Section\": [\n      {\n
+        \       \"TOCHeading\": \"Safety and Hazards\",\n        \"Description\":
+        \"Information on safety and hazards for this compound, including safety/hazards
+        properties, reactivity, incompatibilities, management techniques, first aid
+        treatments, and more.  For toxicity and related information, please see the
+        Toxicity section.\",\n        \"Section\": [\n          {\n            \"TOCHeading\":
+        \"Hazards Identification\",\n            \"Description\": \"This section identifies
+        the hazards of the chemical presented on the safety data sheet (SDS) and the
+        appropriate warning information associated with those hazards.  The information
+        in this section includes, but are not limited to, the hazard classification
+        of the chemical, signal word, pictograms, hazard statements and precautionary
+        statements.\",\n            \"URL\": \"https://www.osha.gov/sites/default/files/publications/OSHA3514.pdf\",\n
+        \           \"Section\": [\n              {\n                \"TOCHeading\":
+        \"GHS Classification\",\n                \"Description\": \"GHS (Globally
+        Harmonized System of Classification and Labelling of Chemicals) is a United
+        Nations system to identify hazardous chemicals and to inform users about these
+        hazards. GHS has been adopted by many countries around the world and is now
+        also used as the basis for international and national transport regulations
+        for dangerous goods. The GHS hazard statements, class categories, pictograms,
+        signal words, and the precautionary statements can be found on the PubChem
+        GHS page.\",\n                \"URL\": \"https://pubchem.ncbi.nlm.nih.gov/ghs/\",\n
+        \               \"DisplayControls\": {\n                  \"CreateTable\":
+        {\n                    \"FromInformationIn\": \"ThisSection\",\n                    \"NumberOfColumns\":
+        2,\n                    \"ColumnContents\": [\n                      \"Name\",\n
+        \                     \"Value\"\n                    ]\n                  },\n
+        \                 \"ShowAtMost\": 1\n                },\n                \"Information\":
+        [\n                  {\n                    \"ReferenceNumber\": 12,\n                    \"Name\":
+        \"Note\",\n                    \"Value\": {\n                      \"StringWithMarkup\":
+        [\n                        {\n                          \"String\": \"This
+        chemical does not meet GHS hazard criteria for 98% (337 of 344) of all reports.\",\n
+        \                         \"Markup\": [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 84,\n                              \"Type\":
+        \"Italics\"\n                            }\n                          ]\n
+        \                       }\n                      ]\n                    }\n
+        \                 },\n                  {\n                    \"ReferenceNumber\":
+        12,\n                    \"Name\": \"GHS Hazard Statements\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"Not Classified\"\n                        },\n
+        \                       {\n                          \"String\": \"Reported
+        as not meeting GHS hazard criteria by 337 of 344 companies (only 2% companies
+        provided GHS information). For more detailed information, please visit  ECHA
+        C&L website.\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 159,\n                              \"Length\":
+        20,\n                              \"URL\": \"https://chem.echa.europa.eu/substance-search?searchText=235-013-2\"\n
+        \                           }\n                          ]\n                        }\n
+        \                     ]\n                    }\n                  },\n                  {\n
+        \                   \"ReferenceNumber\": 12,\n                    \"Name\":
+        \"ECHA C&L Notifications Summary\",\n                    \"Value\": {\n                      \"StringWithMarkup\":
+        [\n                        {\n                          \"String\": \"Aggregated
+        GHS information provided per 344 reports by companies from 5 notifications
+        to the ECHA C&L Inventory.\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 0,\n                              \"Length\":
+        116,\n                              \"Type\": \"Italics\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"Reported as not meeting GHS hazard
+        criteria per 337 of 344 reports by companies.\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 80,\n                              \"Type\":
+        \"Italics\"\n                            }\n                          ]\n
+        \                       },\n                        {\n                          \"String\":
+        \"There are 4 notifications provided by 7 of 344 reports by companies with
+        hazard statement code(s).\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 0,\n                              \"Length\":
+        98,\n                              \"Type\": \"Italics\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"Information may vary between notifications
+        depending on impurities, additives, and other factors. The percentage value
+        in parenthesis indicates the notified classification ratio from companies
+        that provide hazard codes. Only hazard codes with percentage values above
+        10% are shown. For more detailed information, please visit  ECHA C&L website.\",\n
+        \                         \"Markup\": [\n                            {\n                              \"Start\":
+        327,\n                              \"Length\": 20,\n                              \"URL\":
+        \"https://chem.echa.europa.eu/substance-search?searchText=235-013-2\"\n                            },\n
+        \                           {\n                              \"Start\": 0,\n
+        \                             \"Length\": 348,\n                              \"Type\":
+        \"Italics\"\n                            }\n                          ]\n
+        \                       }\n                      ]\n                    }\n
+        \                 }\n                ]\n              }\n            ]\n          }\n
+        \       ]\n      }\n    ],\n    \"Reference\": [\n      {\n        \"ReferenceNumber\":
+        12,\n        \"SourceName\": \"European Chemicals Agency (ECHA)\",\n        \"SourceID\":
+        \"49254\",\n        \"Name\": \"Hafnium dioxide (EC: 235-013-2)\",\n        \"Description\":
+        \"The information provided here is aggregated from the \\\"Notified classification
+        and labelling\\\" from ECHA's C&L Inventory. Read more: https://echa.europa.eu/information-on-chemicals/cl-inventory-database\",\n
+        \       \"URL\": \"https://chem.echa.europa.eu/substance-search?searchText=235-013-2\",\n
+        \       \"LicenseNote\": \"Use of the information, documents and data from
+        the ECHA website is subject to the terms and conditions of this Legal Notice,
+        and subject to other binding limitations provided for under applicable law,
+        the information, documents and data made available on the ECHA website may
+        be reproduced, distributed and/or used, totally or in part, for non-commercial
+        purposes provided that ECHA is acknowledged as the source: \\\"Source: European
+        Chemicals Agency, http://echa.europa.eu/\\\". Such acknowledgement must be
+        included in each copy of the material. ECHA permits and encourages organisations
+        and individuals to create links to the ECHA website under the following cumulative
+        conditions: Links can only be made to webpages that provide a link to the
+        Legal Notice page.\",\n        \"LicenseURL\": \"https://echa.europa.eu/web/guest/legal-notice\",\n
+        \       \"ANID\": 1865502,\n        \"SortOrder\": 3344\n      }\n    ]\n
+        \ }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '7794'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Sat, 31 Oct 2026 20:36:47 GMT
+      expires:
+      - Sun, 01 Nov 2026 04:36:47 GMT
+      ncbi-phid:
+      - 95B7332EAE6515F10000000000000001.m_1
+      ncbi-sid:
+      - 95B731A7AE6515C1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=95B731A7AE6515C1_0000SID; domain=.nih.gov; path=/; expires=Sun, 31
+        Oct 2027 20:36:47 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (0%), Request Time status: Green (0%), Service
+        status: Green (1%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=95B731A7AE6515C1_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/292779/synonyms/JSON
+  response:
+    body:
+      string: "{\n  \"InformationList\": {\n    \"Information\": [\n      {\n        \"CID\":
+        292779,\n        \"Synonym\": [\n          \"12055-23-1\",\n          \"Hafnium
+        dioxide\",\n          \"Hafnia\",\n          \"Hafnium oxide (HfO2)\",\n          \"Hafnotrast\",\n
+        \         \"37230-85-6\",\n          \"NBTXR3\",\n          \"3C4Z4KG52T\",\n
+        \         \"DTXSID70893204\",\n          \"NSC-158931\",\n          \"RefChem:145003\",\n
+        \         \"DTXCID40113209\",\n          \"DTXSID901015562\",\n          \"235-013-2\",\n
+        \         \"Hafnium oxide\",\n          \"Hafnium(IV) oxide\",\n          \"dioxohafnium\",\n
+        \         \"Bis(oxido)hafnium\",\n          \"Hafnia (HfO2)\",\n          \"Hafnium
+        dioxide (HfO2)\",\n          \"Hafnium Oxide Nanoparticle Dispersion\",\n
+        \         \"MFCD00003565\",\n          \"NSC 158931\",\n          \"Hafnium
+        (IV) Oxide\",\n          \"Hf 05 (oxide)\",\n          \"UNII-3C4Z4KG52T\",\n
+        \         \"SCHEMBL24169\",\n          \"Hf 05\",\n          \"Hafnium(IV)
+        oxide, powder, 98%\",\n          \"EINECS 235-013-2\",\n          \"Hafnium(IV)
+        oxide, >=99.95%\",\n          \"NSC158931\",\n          \"AKOS015903694\",\n
+        \         \"Hafnium oxide nanopowder  (~100 nm)\",\n          \"Hafnium(IV)
+        oxide, Spectrographic Grade\",\n          \"CS-0198879\",\n          \"NS00130065\",\n
+        \         \"D95076\",\n          \"EC 235-013-2\",\n          \"Q418740\",\n
+        \         \"Hafnium(IV) oxide, pellets, diam. x thickness 13 mm x 5 mm\",\n
+        \         \"Hafnium(IV) oxide, pellets, diam. x thickness 9 mm x 4.2 mm\",\n
+        \         \"Hafnium oxide powder, - 325 mesh approx 99.9% purity (metals basis)
+        Zr < 0.5%\"\n        ]\n      }\n    ]\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '1516'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 20:36:47 GMT
+      expires:
+      - Sat, 31 Oct 2026 21:36:47 GMT
+      ncbi-phid:
+      - 90C64B47AE6515F10000000000000001.m_1
+      ncbi-sid:
+      - 95B731A7AE6515C1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=95B731A7AE6515C1_0000SID; domain=.nih.gov; path=/; expires=Sun, 31
+        Oct 2027 20:36:47 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (0%), Request Time status: Green (1%), Service
+        status: Yellow (50%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

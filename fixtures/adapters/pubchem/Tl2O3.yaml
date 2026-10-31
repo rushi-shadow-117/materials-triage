@@ -1,0 +1,316 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/thallium(III)%20oxide/cids/JSON
+  response:
+    body:
+      string: "{\n  \"IdentifierList\": {\n    \"CID\": [\n      3579754\n    ]\n
+        \ }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '63'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 20:36:51 GMT
+      expires:
+      - Sat, 31 Oct 2026 21:36:51 GMT
+      ncbi-phid:
+      - 95B73679AE6516310000000000000001.m_1
+      ncbi-sid:
+      - 95B73679AE651631_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=95B73679AE651631_0000SID; domain=.nih.gov; path=/; expires=Sun, 31
+        Oct 2027 20:36:51 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (1%), Request Time status: Green (0%), Service
+        status: Yellow (57%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=95B73679AE651631_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/fastformula/Tl2O3/cids/JSON
+  response:
+    body:
+      string: "{\n  \"IdentifierList\": {\n    \"CID\": [\n      3579754,\n      9804116\n
+        \   ]\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '78'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 20:36:51 GMT
+      expires:
+      - Sat, 31 Oct 2026 21:36:52 GMT
+      ncbi-phid:
+      - 90C64EBCAE6516310000000000000001.m_3
+      ncbi-sid:
+      - 95B73679AE651631_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=95B73679AE651631_0000SID; domain=.nih.gov; path=/; expires=Sun, 31
+        Oct 2027 20:36:51 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (2%), Request Time status: Green (2%), Service
+        status: Green (47%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=95B73679AE651631_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug_view/data/compound/3579754/JSON?heading=GHS+Classification
+  response:
+    body:
+      string: "{\n  \"Record\": {\n    \"RecordType\": \"CID\",\n    \"RecordNumber\":
+        3579754,\n    \"RecordTitle\": \"Thallium(III) oxide\",\n    \"Section\":
+        [\n      {\n        \"TOCHeading\": \"Safety and Hazards\",\n        \"Description\":
+        \"Information on safety and hazards for this compound, including safety/hazards
+        properties, reactivity, incompatibilities, management techniques, first aid
+        treatments, and more.  For toxicity and related information, please see the
+        Toxicity section.\",\n        \"Section\": [\n          {\n            \"TOCHeading\":
+        \"Hazards Identification\",\n            \"Description\": \"This section identifies
+        the hazards of the chemical presented on the safety data sheet (SDS) and the
+        appropriate warning information associated with those hazards.  The information
+        in this section includes, but are not limited to, the hazard classification
+        of the chemical, signal word, pictograms, hazard statements and precautionary
+        statements.\",\n            \"URL\": \"https://www.osha.gov/sites/default/files/publications/OSHA3514.pdf\",\n
+        \           \"Section\": [\n              {\n                \"TOCHeading\":
+        \"GHS Classification\",\n                \"Description\": \"GHS (Globally
+        Harmonized System of Classification and Labelling of Chemicals) is a United
+        Nations system to identify hazardous chemicals and to inform users about these
+        hazards. GHS has been adopted by many countries around the world and is now
+        also used as the basis for international and national transport regulations
+        for dangerous goods. The GHS hazard statements, class categories, pictograms,
+        signal words, and the precautionary statements can be found on the PubChem
+        GHS page.\",\n                \"URL\": \"https://pubchem.ncbi.nlm.nih.gov/ghs/\",\n
+        \               \"DisplayControls\": {\n                  \"CreateTable\":
+        {\n                    \"FromInformationIn\": \"ThisSection\",\n                    \"NumberOfColumns\":
+        2,\n                    \"ColumnContents\": [\n                      \"Name\",\n
+        \                     \"Value\"\n                    ]\n                  },\n
+        \                 \"ShowAtMost\": 1\n                },\n                \"Information\":
+        [\n                  {\n                    \"ReferenceNumber\": 7,\n                    \"Name\":
+        \"GHS Hazard Statements\",\n                    \"Value\": {\n                      \"StringWithMarkup\":
+        [\n                        {\n                          \"String\": \"Not
+        Classified\"\n                        }\n                      ]\n                    }\n
+        \                 }\n                ]\n              }\n            ]\n          }\n
+        \       ]\n      }\n    ],\n    \"Reference\": [\n      {\n        \"ReferenceNumber\":
+        7,\n        \"SourceName\": \"NITE-CMC\",\n        \"SourceID\": \"R03_C_162A_MOE\",\n
+        \       \"Name\": \"Thallium(III) oxide - FY2021 (New/original classication)\",\n
+        \       \"Description\": \"The chemical classification in this section was
+        conducted by the Chemical Management Center (CMC) of Japan National Institute
+        of Technology and Evaluation (NITE) in accordance with GHS Classification
+        Guidance for the Japanese Government, and is intended to provide a reference
+        for preparing GHS labelling and SDS for users.\",\n        \"URL\": \"https://www.chem-info.nite.go.jp/chem/english/ghs/21-moe-0162e.html\",\n
+        \       \"LicenseURL\": \"https://www.chem-info.nite.go.jp/en/chem/chrip/chrip_search/html/condUse.html\",\n
+        \       \"ANID\": 39312557,\n        \"SortOrder\": 2021\n      }\n    ]\n
+        \ }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '3342'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Sat, 31 Oct 2026 20:36:52 GMT
+      expires:
+      - Sun, 01 Nov 2026 04:36:52 GMT
+      ncbi-phid:
+      - 95B73808AE6516410000000000000001.m_1
+      ncbi-sid:
+      - 95B73679AE651631_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=95B73679AE651631_0000SID; domain=.nih.gov; path=/; expires=Sun, 31
+        Oct 2027 20:36:52 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (0%), Request Time status: Green (0%), Service
+        status: Green (2%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=95B73679AE651631_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/3579754/synonyms/JSON
+  response:
+    body:
+      string: "{\n  \"InformationList\": {\n    \"Information\": [\n      {\n        \"CID\":
+        3579754,\n        \"Synonym\": [\n          \"Thallium(III) oxide\",\n          \"1314-32-5\",\n
+        \         \"oxo(oxothallanyloxy)thallane\",\n          \"Dithalloxane-1,3-dione\",\n
+        \         \"Tl2O3\",\n          \"Thallium Oxide Nanoparticle Dispersion\",\n
+        \         \"Thallium (III) oxide\",\n          \"Thallium(III) oxide, 96%\",\n
+        \         \"Thallium(III) oxide, 99%\",\n          \"DTXSID1024330\",\n          \"FT34851\",\n
+        \         \"THALLIUM OXIDE (IC), 99.2%\",\n          \"NS00081643\",\n          \"Q419381\",\n
+        \         \"Thallium(III) oxide, 99.99% trace metals basis\"\n        ]\n
+        \     }\n    ]\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '636'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 20:36:52 GMT
+      expires:
+      - Sat, 31 Oct 2026 21:36:52 GMT
+      ncbi-phid:
+      - 95B73812AE6516410000000000000001.m_1
+      ncbi-sid:
+      - 95B73679AE651631_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=95B73679AE651631_0000SID; domain=.nih.gov; path=/; expires=Sun, 31
+        Oct 2027 20:36:52 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (1%), Request Time status: Green (0%), Service
+        status: Green (40%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

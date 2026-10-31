@@ -244,6 +244,36 @@ Recorded 2026-10-31 with a free key. Cassettes in `fixtures/wire/openalex/`; the
 - The httpx default timeout did not stop a hung connection to COD inside the first run; an
   explicit `httpx.Timeout(connect=15, read=120)` did. Adapters must set explicit timeouts.
 
+## Phase 1 adapter recordings (2026-10-31, `fixtures/adapters/`)
+
+The adapters call the REST endpoints directly over httpx and record their own cassettes; the
+Phase 0 cassettes stay as evidence of the client's request shapes.
+
+- Materials Project `/heartbeat` returns `db_version` (2026.09.28 today) and also
+  `access_controlled_batch_ids: ["gnome_r2scan_statics"]`, which is the wire-side confirmation
+  that GNoME data is gated per account. Every summary document this account received carries
+  `builder_meta.license = "BY-C"`; no `BY-NC` document appeared, consistent with the gating.
+  The adapter still excludes `BY-NC` by rule (tested on a synthetic document).
+- Full discovery (oxides, 2 to 3 elements, band gap at least 3 eV, hull at most 0.05 eV/atom):
+  `total_doc` 3,229, four pages of up to 1,000, 3,229 documents returned, no truncation. The
+  cassette is about 1.3 MB with the slim discovery field list.
+- Thermo documents for an explicit id list return three `thermo_type` rows per material.
+  Ta2O5 mp-1539317 is stable in `GGA_GGA+U` and not in `r2SCAN` or the mixed hull; mp-10390 is
+  the reverse. Both carry `hull_status_conflict`.
+- Dielectric for an id list with `_fields` works; HfO2 mp-352 `e_total` 18.7477708, mp-775757
+  has no dielectric document and is recorded as not computed.
+- OpenAlex scoped search for "HfO2 dielectric thin film": 1,411 works match in title or
+  abstract, 1,022 of them have an abstract, against 6,816 in full text (Phase 0). The response
+  `x_query.oql` confirms the scope: "in the title or abstract". Cost 0.001 USD per call.
+- PubChem GHS aggregate lines take at least two forms: "Reported as not meeting GHS hazard
+  criteria per N of M reports" (HfO2) and "Aggregated GHS information provided per N reports by
+  companies from K notifications to the ECHA C&L Inventory" (BeO, several blocks). The HgO
+  record carries codes with no aggregate line at all. The parser handles all three and never
+  invents a count. `Record.Reference[].SourceName` names the data sources; "European
+  Chemicals Agency (ECHA)" appears on BeO and SiO2, which sets the ECHA attribution flag.
+- OQMD answered HTTP 502 to every structures query during the Phase 1 recording pass (logged
+  below). OQMD is cut as a source; its Phase 0 cassette serves the parser test.
+
 ## Availability events
 
 | Date (UTC) | Source | Symptom | Outcome |
@@ -251,3 +281,4 @@ Recorded 2026-10-31 with a free key. Cassettes in `fixtures/wire/openalex/`; the
 | 2026-10-31 17:25 to 17:45 | COD | TCP connect timeout on every request to www.crystallography.net (OPTIMADE, homepage, http and https). DNS resolved to 158.129.170.82. | Nothing recorded. Cause unknown (COD outage or network block on this side). |
 | 2026-10-31 17:53 | COD | Same, one retry. | Same. Retry daily. |
 | 2026-10-31 17:30 | OQMD | Read timeout after 60 s on the SiO2 query (204 entries). | Succeeded on retry with a 120 s read timeout. |
+| 2026-10-31 20:30 to 20:38 | OQMD | HTTP 502 Bad Gateway on every structures query (HfO2, SiO2), including a plain curl probe. | Nothing recorded in Phase 1. OQMD is a documented extension, not a source. |

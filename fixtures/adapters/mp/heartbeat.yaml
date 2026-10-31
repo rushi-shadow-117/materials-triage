@@ -1,0 +1,57 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.materialsproject.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.materialsproject.org/heartbeat
+  response:
+    body:
+      string: '{"status":"OK","time":"2026-10-31T20:36:38.301414","version":"0.88.1","pymatgen":"2026.10.16","db_version":"2026.09.28","suffix":"green","access_controlled_batch_ids":["gnome_r2scan_statics"]}'
+    headers:
+      access-control-expose-headers:
+      - X-Api-Key
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a53573faaa5eeaec-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '192'
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 20:36:38 GMT
+      server:
+      - cloudflare
+      set-cookie:
+      - _csrf_token=anonymous; Domain=.materialsproject.org; Path=/; SameSite=Strict
+      - __cf_bm=TirYGVrFV0BvjuvRYePst58QZU9wjLOQQ0BL26Va.tE-1793478998.1941404-1.0.1.1-V_exDOFzLkmMMJb6Jb626sdhbFoKvTeuAYDmdJanGGr5BEupWw1PH69X7lw0H2KLTFu.qMN9ZNDDhYayhXO9fbJyKkCPLlTmr5DINeJqVWD62czr_SiGO91LtTcpx23p;
+        HttpOnly; SameSite=None; Secure; Path=/; Domain=materialsproject.org; Expires=Sat,
+        31 Oct 2026 21:06:38 GMT
+      transfer-encoding:
+      - chunked
+      vary:
+      - Origin
+      via:
+      - kong/2.8.4
+      x-kong-proxy-latency:
+      - '1'
+      x-kong-upstream-latency:
+      - '5'
+    status:
+      code: 200
+      message: OK
+version: 1

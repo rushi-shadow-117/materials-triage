@@ -349,3 +349,10 @@ Decision (owner, applied to the Phase 1 plan):
 8. Three Postgres roles from day one: `triage_app` (INSERT, SELECT), `triage_migrate` (DDL,
    Alembic), `triage_maint` (DELETE for retention via a logged admin job).
 Reason: each is recorded with its trade-off in internal/PHASE1_PLAN.md.
+
+## 2026-10-31 GNoME gating confirmed on the wire
+Decision: no change; the licensing decision stands with evidence. The `/heartbeat` response
+lists `access_controlled_batch_ids: ["gnome_r2scan_statics"]`, and every summary document this
+account received carries `builder_meta.license = "BY-C"`. The adapter's `BY-NC` exclusion is
+tested on a synthetic document because no real one can be fetched by an account that has not
+accepted the GNoME license, which is the deployment rule.

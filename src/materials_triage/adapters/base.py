@@ -11,6 +11,7 @@ import json
 from datetime import UTC, datetime
 from enum import StrEnum
 from typing import Any, Protocol
+from urllib.parse import quote, unquote, urlsplit, urlunsplit
 
 from pydantic import BaseModel, ConfigDict, Field
 
@@ -46,9 +47,16 @@ class Call(BaseModel):
     auth: Auth = Auth.NONE
 
     @property
+    def canonical_url(self) -> str:
+        """Scheme and host lowercased, path percent-encoded once, no query."""
+        parts = urlsplit(self.url)
+        path = quote(unquote(parts.path), safe="/:@!$&'()*+,;=-._~")
+        return urlunsplit((parts.scheme.lower(), parts.netloc.lower(), path, "", ""))
+
+    @property
     def cache_key(self) -> str:
         canonical = json.dumps(
-            {"url": self.url, "params": dict(sorted(self.params.items()))},
+            {"url": self.canonical_url, "params": dict(sorted(self.params.items()))},
             sort_keys=True,
             separators=(",", ":"),
         )
