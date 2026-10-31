@@ -1,0 +1,241 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/fastformula/BaTiO3/cids/JSON
+  response:
+    body:
+      string: "{\n  \"IdentifierList\": {\n    \"CID\": [\n      159419,\n      6101006,\n
+        \     4437004,\n      141596631\n    ]\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '109'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 17:25:47 GMT
+      expires:
+      - Sat, 31 Oct 2026 18:25:48 GMT
+      ncbi-phid:
+      - 90C6AF7CAE6249B10000000000000001.m_3
+      ncbi-sid:
+      - 90C6AF7CAE6249B1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=90C6AF7CAE6249B1_0000SID; domain=.nih.gov; path=/; expires=Sun, 31
+        Oct 2027 17:25:47 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (3%), Request Time status: Green (1%), Service
+        status: Green (13%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=90C6AF7CAE6249B1_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/barium%20titanate/cids/JSON
+  response:
+    body:
+      string: "{\n  \"IdentifierList\": {\n    \"CID\": [\n      159419\n    ]\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '62'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 17:25:48 GMT
+      expires:
+      - Sat, 31 Oct 2026 18:25:48 GMT
+      ncbi-phid:
+      - 95B7A4B0AE6249C10000000000000001.m_1
+      ncbi-sid:
+      - 90C6AF7CAE6249B1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=90C6AF7CAE6249B1_0000SID; domain=.nih.gov; path=/; expires=Sun, 31
+        Oct 2027 17:25:48 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (1%), Request Time status: Green (1%), Service
+        status: Green (17%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=90C6AF7CAE6249B1_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug_view/data/compound/159419/JSON?heading=GHS+Classification
+  response:
+    body:
+      string: "{\n  \"Record\": {\n    \"RecordType\": \"CID\",\n    \"RecordNumber\":
+        159419,\n    \"RecordTitle\": \"Barium titanate\",\n    \"Section\": [\n      {\n
+        \       \"TOCHeading\": \"Safety and Hazards\",\n        \"Description\":
+        \"Information on safety and hazards for this compound, including safety/hazards
+        properties, reactivity, incompatibilities, management techniques, first aid
+        treatments, and more.  For toxicity and related information, please see the
+        Toxicity section.\",\n        \"Section\": [\n          {\n            \"TOCHeading\":
+        \"Hazards Identification\",\n            \"Description\": \"This section identifies
+        the hazards of the chemical presented on the safety data sheet (SDS) and the
+        appropriate warning information associated with those hazards.  The information
+        in this section includes, but are not limited to, the hazard classification
+        of the chemical, signal word, pictograms, hazard statements and precautionary
+        statements.\",\n            \"URL\": \"https://www.osha.gov/sites/default/files/publications/OSHA3514.pdf\",\n
+        \           \"Section\": [\n              {\n                \"TOCHeading\":
+        \"GHS Classification\",\n                \"Description\": \"GHS (Globally
+        Harmonized System of Classification and Labelling of Chemicals) is a United
+        Nations system to identify hazardous chemicals and to inform users about these
+        hazards. GHS has been adopted by many countries around the world and is now
+        also used as the basis for international and national transport regulations
+        for dangerous goods. The GHS hazard statements, class categories, pictograms,
+        signal words, and the precautionary statements can be found on the PubChem
+        GHS page.\",\n                \"URL\": \"https://pubchem.ncbi.nlm.nih.gov/ghs/\",\n
+        \               \"DisplayControls\": {\n                  \"CreateTable\":
+        {\n                    \"FromInformationIn\": \"ThisSection\",\n                    \"NumberOfColumns\":
+        2,\n                    \"ColumnContents\": [\n                      \"Name\",\n
+        \                     \"Value\"\n                    ]\n                  },\n
+        \                 \"ShowAtMost\": 1\n                },\n                \"Information\":
+        [\n                  {\n                    \"ReferenceNumber\": 13,\n                    \"Name\":
+        \"GHS Hazard Statements\",\n                    \"Value\": {\n                      \"StringWithMarkup\":
+        [\n                        {\n                          \"String\": \"Not
+        Classified\"\n                        }\n                      ]\n                    }\n
+        \                 }\n                ]\n              }\n            ]\n          }\n
+        \       ]\n      }\n    ],\n    \"Reference\": [\n      {\n        \"ReferenceNumber\":
+        13,\n        \"SourceName\": \"NITE-CMC\",\n        \"SourceID\": \"H30_B_012_MHLW,MOE\",\n
+        \       \"Name\": \"Barium titanate - FY2018 (Revised classification)\",\n
+        \       \"Description\": \"The chemical classification in this section was
+        conducted by the Chemical Management Center (CMC) of Japan National Institute
+        of Technology and Evaluation (NITE) in accordance with GHS Classification
+        Guidance for the Japanese Government, and is intended to provide a reference
+        for preparing GHS labelling and SDS for users.\",\n        \"URL\": \"https://www.chem-info.nite.go.jp/chem/english/ghs/18-mhlw-2012e.html\",\n
+        \       \"LicenseURL\": \"https://www.chem-info.nite.go.jp/en/chem/chrip/chrip_search/html/condUse.html\",\n
+        \       \"ANID\": 39313037,\n        \"SortOrder\": 2018\n      }\n    ]\n
+        \ }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '3337'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Sat, 31 Oct 2026 17:25:48 GMT
+      expires:
+      - Sun, 01 Nov 2026 01:25:48 GMT
+      ncbi-phid:
+      - 95B7A505AE6249C10000000000000001.m_1
+      ncbi-sid:
+      - 90C6AF7CAE6249B1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=90C6AF7CAE6249B1_0000SID; domain=.nih.gov; path=/; expires=Sun, 31
+        Oct 2027 17:25:48 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (1%), Request Time status: Green (0%), Service
+        status: Green (1%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,0 +1,1135 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/fastformula/TiO2/cids/JSON
+  response:
+    body:
+      string: "{\n  \"IdentifierList\": {\n    \"CID\": [\n      26042,\n      162651,\n
+        \     154734330,\n      159147760,\n      160142709,\n      173116398,\n      42636441\n
+        \   ]\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '159'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 17:25:39 GMT
+      expires:
+      - Sat, 31 Oct 2026 18:25:41 GMT
+      ncbi-phid:
+      - 95B79E6CAE6249310000000000000001.m_3
+      ncbi-sid:
+      - 95B79E6CAE624931_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=95B79E6CAE624931_0000SID; domain=.nih.gov; path=/; expires=Sun, 31
+        Oct 2027 17:25:39 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (1%), Request Time status: Green (0%), Service
+        status: Green (40%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=95B79E6CAE624931_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/titanium%20dioxide/cids/JSON
+  response:
+    body:
+      string: "{\n  \"IdentifierList\": {\n    \"CID\": [\n      26042\n    ]\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '61'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 17:25:42 GMT
+      expires:
+      - Sat, 31 Oct 2026 18:25:42 GMT
+      ncbi-phid:
+      - 90C6AC02AE6249610000000000000001.m_1
+      ncbi-sid:
+      - 95B79E6CAE624931_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=95B79E6CAE624931_0000SID; domain=.nih.gov; path=/; expires=Sun, 31
+        Oct 2027 17:25:42 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (2%), Request Time status: Green (1%), Service
+        status: Green (23%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=95B79E6CAE624931_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug_view/data/compound/26042/JSON?heading=GHS+Classification
+  response:
+    body:
+      string: "{\n  \"Record\": {\n    \"RecordType\": \"CID\",\n    \"RecordNumber\":
+        26042,\n    \"RecordTitle\": \"Titanium dioxide\",\n    \"Section\": [\n      {\n
+        \       \"TOCHeading\": \"Safety and Hazards\",\n        \"Description\":
+        \"Information on safety and hazards for this compound, including safety/hazards
+        properties, reactivity, incompatibilities, management techniques, first aid
+        treatments, and more.  For toxicity and related information, please see the
+        Toxicity section.\",\n        \"Section\": [\n          {\n            \"TOCHeading\":
+        \"Hazards Identification\",\n            \"Description\": \"This section identifies
+        the hazards of the chemical presented on the safety data sheet (SDS) and the
+        appropriate warning information associated with those hazards.  The information
+        in this section includes, but are not limited to, the hazard classification
+        of the chemical, signal word, pictograms, hazard statements and precautionary
+        statements.\",\n            \"URL\": \"https://www.osha.gov/sites/default/files/publications/OSHA3514.pdf\",\n
+        \           \"Section\": [\n              {\n                \"TOCHeading\":
+        \"GHS Classification\",\n                \"Description\": \"GHS (Globally
+        Harmonized System of Classification and Labelling of Chemicals) is a United
+        Nations system to identify hazardous chemicals and to inform users about these
+        hazards. GHS has been adopted by many countries around the world and is now
+        also used as the basis for international and national transport regulations
+        for dangerous goods. The GHS hazard statements, class categories, pictograms,
+        signal words, and the precautionary statements can be found on the PubChem
+        GHS page.\",\n                \"URL\": \"https://pubchem.ncbi.nlm.nih.gov/ghs/\",\n
+        \               \"DisplayControls\": {\n                  \"CreateTable\":
+        {\n                    \"FromInformationIn\": \"ThisSection\",\n                    \"NumberOfColumns\":
+        2,\n                    \"ColumnContents\": [\n                      \"Name\",\n
+        \                     \"Value\"\n                    ]\n                  },\n
+        \                 \"ShowAtMost\": 1\n                },\n                \"Information\":
+        [\n                  {\n                    \"ReferenceNumber\": 110,\n                    \"Name\":
+        \"Pictogram(s)\",\n                    \"Value\": {\n                      \"StringWithMarkup\":
+        [\n                        {\n                          \"String\": \"          \",\n
+        \                         \"Markup\": [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 1,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/images/ghs/GHS08.svg\",\n                              \"Type\":
+        \"Icon\",\n                              \"Extra\": \"Health Hazard\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        110,\n                    \"Name\": \"Signal\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"Warning\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 7,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSWarning\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        110,\n                    \"Name\": \"GHS Hazard Statements\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"H351: Suspected of causing cancer
+        [Warning Carcinogenicity]\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 0,\n                              \"Length\":
+        4,\n                              \"URL\": \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H351\"\n
+        \                           },\n                            {\n                              \"Start\":
+        35,\n                              \"Length\": 7,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSWarning\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        110,\n                    \"Name\": \"Precautionary Statement Codes\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"P203, P280, P318, P405, and P501 (click
+        each P-code to see the statement)\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P203\"\n                            },\n
+        \                           {\n                              \"Start\": 6,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P280\"\n                            },\n
+        \                           {\n                              \"Start\": 12,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P318\"\n                            },\n
+        \                           {\n                              \"Start\": 18,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P405\"\n                            },\n
+        \                           {\n                              \"Start\": 28,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P501\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        61,\n                    \"Name\": \"Note\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"This chemical does not meet GHS hazard
+        criteria for 62.8% (7032 of 11189) of all reports.\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 89,\n                              \"Type\":
+        \"Italics\"\n                            }\n                          ]\n
+        \                       }\n                      ]\n                    }\n
+        \                 },\n                  {\n                    \"ReferenceNumber\":
+        61,\n                    \"Name\": \"Pictogram(s)\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"          \",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 1,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/images/ghs/GHS08.svg\",\n                              \"Type\":
+        \"Icon\",\n                              \"Extra\": \"Health Hazard\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        61,\n                    \"Name\": \"Signal\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"Warning\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 7,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSWarning\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        61,\n                    \"Name\": \"GHS Hazard Statements\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"H351 (36.1%): Suspected of causing
+        cancer [Warning Carcinogenicity]\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H351\"\n                            },\n
+        \                           {\n                              \"Start\": 43,\n
+        \                             \"Length\": 7,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSWarning\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        61,\n                    \"Name\": \"Precautionary Statement Codes\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"P203, P280, P318, P405, and P501 (click
+        each P-code to see the statement)\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P203\"\n                            },\n
+        \                           {\n                              \"Start\": 6,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P280\"\n                            },\n
+        \                           {\n                              \"Start\": 12,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P318\"\n                            },\n
+        \                           {\n                              \"Start\": 18,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P405\"\n                            },\n
+        \                           {\n                              \"Start\": 28,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P501\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        61,\n                    \"Name\": \"ECHA C&L Notifications Summary\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"Aggregated GHS information provided
+        per 11189 reports by companies from 56 notifications to the ECHA C&L Inventory.\",\n
+        \                         \"Markup\": [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 119,\n                              \"Type\":
+        \"Italics\"\n                            }\n                          ]\n
+        \                       },\n                        {\n                          \"String\":
+        \"Reported as not meeting GHS hazard criteria per 7032 of 11189 reports by
+        companies.\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 0,\n                              \"Length\":
+        83,\n                              \"Type\": \"Italics\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"There are 53 notifications provided
+        by 4157 of 11189 reports by companies with hazard statement code(s).\",\n
+        \                         \"Markup\": [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 104,\n                              \"Type\":
+        \"Italics\"\n                            }\n                          ]\n
+        \                       },\n                        {\n                          \"String\":
+        \"Information may vary between notifications depending on impurities, additives,
+        and other factors. The percentage value in parenthesis indicates the notified
+        classification ratio from companies that provide hazard codes. Only hazard
+        codes with percentage values above 10% are shown. For more detailed information,
+        please visit  ECHA C&L website.\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        327,\n                              \"Length\": 20,\n                              \"URL\":
+        \"https://chem.echa.europa.eu/substance-search?searchText=236-675-5\"\n                            },\n
+        \                           {\n                              \"Start\": 0,\n
+        \                             \"Length\": 348,\n                              \"Type\":
+        \"Italics\"\n                            }\n                          ]\n
+        \                       }\n                      ]\n                    }\n
+        \                 },\n                  {\n                    \"ReferenceNumber\":
+        60,\n                    \"Name\": \"Note\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"This chemical does not meet GHS hazard
+        criteria for 87.1% (664 of 762) of all reports.\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 86,\n                              \"Type\":
+        \"Italics\"\n                            }\n                          ]\n
+        \                       }\n                      ]\n                    }\n
+        \                 },\n                  {\n                    \"ReferenceNumber\":
+        60,\n                    \"Name\": \"Pictogram(s)\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"          \",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 1,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/images/ghs/GHS08.svg\",\n                              \"Type\":
+        \"Icon\",\n                              \"Extra\": \"Health Hazard\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        60,\n                    \"Name\": \"Signal\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"Warning\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 7,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSWarning\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        60,\n                    \"Name\": \"GHS Hazard Statements\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"H351 (12.6%): Suspected of causing
+        cancer [Warning Carcinogenicity]\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H351\"\n                            },\n
+        \                           {\n                              \"Start\": 43,\n
+        \                             \"Length\": 7,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSWarning\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        60,\n                    \"Name\": \"Precautionary Statement Codes\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"P203, P280, P318, P405, and P501 (click
+        each P-code to see the statement)\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P203\"\n                            },\n
+        \                           {\n                              \"Start\": 6,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P280\"\n                            },\n
+        \                           {\n                              \"Start\": 12,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P318\"\n                            },\n
+        \                           {\n                              \"Start\": 18,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P405\"\n                            },\n
+        \                           {\n                              \"Start\": 28,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P501\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        60,\n                    \"Name\": \"ECHA C&L Notifications Summary\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"Aggregated GHS information provided
+        per 762 reports by companies from 8 notifications to the ECHA C&L Inventory.\",\n
+        \                         \"Markup\": [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 116,\n                              \"Type\":
+        \"Italics\"\n                            }\n                          ]\n
+        \                       },\n                        {\n                          \"String\":
+        \"Reported as not meeting GHS hazard criteria per 664 of 762 reports by companies.\",\n
+        \                         \"Markup\": [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 80,\n                              \"Type\":
+        \"Italics\"\n                            }\n                          ]\n
+        \                       },\n                        {\n                          \"String\":
+        \"There are 7 notifications provided by 98 of 762 reports by companies with
+        hazard statement code(s).\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 0,\n                              \"Length\":
+        99,\n                              \"Type\": \"Italics\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"Information may vary between notifications
+        depending on impurities, additives, and other factors. The percentage value
+        in parenthesis indicates the notified classification ratio from companies
+        that provide hazard codes. Only hazard codes with percentage values above
+        10% are shown. For more detailed information, please visit  ECHA C&L website.\",\n
+        \                         \"Markup\": [\n                            {\n                              \"Start\":
+        327,\n                              \"Length\": 20,\n                              \"URL\":
+        \"https://chem.echa.europa.eu/substance-search?searchText=215-282-2\"\n                            },\n
+        \                           {\n                              \"Start\": 0,\n
+        \                             \"Length\": 348,\n                              \"Type\":
+        \"Italics\"\n                            }\n                          ]\n
+        \                       }\n                      ]\n                    }\n
+        \                 },\n                  {\n                    \"ReferenceNumber\":
+        59,\n                    \"Name\": \"Note\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"This chemical does not meet GHS hazard
+        criteria for 90.1% (274 of 304) of all reports.\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 86,\n                              \"Type\":
+        \"Italics\"\n                            }\n                          ]\n
+        \                       }\n                      ]\n                    }\n
+        \                 },\n                  {\n                    \"ReferenceNumber\":
+        59,\n                    \"Name\": \"GHS Hazard Statements\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"Not Classified\"\n                        },\n
+        \                       {\n                          \"String\": \"Reported
+        as not meeting GHS hazard criteria by 274 of 304 companies (only 9.9% companies
+        provided GHS information). For more detailed information, please visit  ECHA
+        C&L website.\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 161,\n                              \"Length\":
+        20,\n                              \"URL\": \"https://chem.echa.europa.eu/substance-search?searchText=215-280-1\"\n
+        \                           }\n                          ]\n                        }\n
+        \                     ]\n                    }\n                  },\n                  {\n
+        \                   \"ReferenceNumber\": 59,\n                    \"Name\":
+        \"ECHA C&L Notifications Summary\",\n                    \"Value\": {\n                      \"StringWithMarkup\":
+        [\n                        {\n                          \"String\": \"Aggregated
+        GHS information provided per 304 reports by companies from 7 notifications
+        to the ECHA C&L Inventory.\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 0,\n                              \"Length\":
+        116,\n                              \"Type\": \"Italics\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"Reported as not meeting GHS hazard
+        criteria per 274 of 304 reports by companies.\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 80,\n                              \"Type\":
+        \"Italics\"\n                            }\n                          ]\n
+        \                       },\n                        {\n                          \"String\":
+        \"There are 5 notifications provided by 30 of 304 reports by companies with
+        hazard statement code(s).\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 0,\n                              \"Length\":
+        99,\n                              \"Type\": \"Italics\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"Information may vary between notifications
+        depending on impurities, additives, and other factors. The percentage value
+        in parenthesis indicates the notified classification ratio from companies
+        that provide hazard codes. Only hazard codes with percentage values above
+        10% are shown. For more detailed information, please visit  ECHA C&L website.\",\n
+        \                         \"Markup\": [\n                            {\n                              \"Start\":
+        327,\n                              \"Length\": 20,\n                              \"URL\":
+        \"https://chem.echa.europa.eu/substance-search?searchText=215-280-1\"\n                            },\n
+        \                           {\n                              \"Start\": 0,\n
+        \                             \"Length\": 348,\n                              \"Type\":
+        \"Italics\"\n                            }\n                          ]\n
+        \                       }\n                      ]\n                    }\n
+        \                 },\n                  {\n                    \"ReferenceNumber\":
+        62,\n                    \"Name\": \"Pictogram(s)\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"          \",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 1,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/images/ghs/GHS07.svg\",\n                              \"Type\":
+        \"Icon\",\n                              \"Extra\": \"Irritant\"\n                            },\n
+        \                           {\n                              \"Start\": 1,\n
+        \                             \"Length\": 1,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/images/ghs/GHS08.svg\",\n                              \"Type\":
+        \"Icon\",\n                              \"Extra\": \"Health Hazard\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        62,\n                    \"Name\": \"Signal\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"Danger\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 6,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSDanger\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        62,\n                    \"Name\": \"GHS Hazard Statements\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"H319 (100%): Causes serious eye irritation
+        [Warning Serious eye damage/eye irritation]\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H319\"\n                            },\n
+        \                           {\n                              \"Start\": 44,\n
+        \                             \"Length\": 7,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSWarning\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"H335 (100%): May cause respiratory
+        irritation [Warning Specific target organ toxicity, single exposure; Respiratory
+        tract irritation]\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 0,\n                              \"Length\":
+        4,\n                              \"URL\": \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H335\"\n
+        \                           },\n                            {\n                              \"Start\":
+        47,\n                              \"Length\": 7,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSWarning\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"H372 (100%): Causes damage to organs
+        through prolonged or repeated exposure [Danger Specific target organ toxicity,
+        repeated exposure]\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 0,\n                              \"Length\":
+        4,\n                              \"URL\": \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H372\"\n
+        \                           },\n                            {\n                              \"Start\":
+        77,\n                              \"Length\": 6,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSDanger\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"H413 (100%): May cause long lasting
+        harmful effects to aquatic life [Hazardous to the aquatic environment, long-term
+        hazard]\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 0,\n                              \"Length\":
+        4,\n                              \"URL\": \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H413\"\n
+        \                           }\n                          ]\n                        }\n
+        \                     ]\n                    }\n                  },\n                  {\n
+        \                   \"ReferenceNumber\": 62,\n                    \"Name\":
+        \"Precautionary Statement Codes\",\n                    \"Value\": {\n                      \"StringWithMarkup\":
+        [\n                        {\n                          \"String\": \"P260,
+        P261, P264, P264+P265, P270, P271, P273, P280, P304+P340, P305+P351+P338,
+        P319, P337+P317, P403+P233, P405, and P501 (click each P-code to see the statement)\",\n
+        \                         \"Markup\": [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P260\"\n                            },\n
+        \                           {\n                              \"Start\": 6,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P261\"\n                            },\n
+        \                           {\n                              \"Start\": 12,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P264\"\n                            },\n
+        \                           {\n                              \"Start\": 18,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P264+P265\"\n                            },\n
+        \                           {\n                              \"Start\": 29,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P270\"\n                            },\n
+        \                           {\n                              \"Start\": 35,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P271\"\n                            },\n
+        \                           {\n                              \"Start\": 41,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P273\"\n                            },\n
+        \                           {\n                              \"Start\": 47,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P280\"\n                            },\n
+        \                           {\n                              \"Start\": 53,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P304+P340\"\n                            },\n
+        \                           {\n                              \"Start\": 64,\n
+        \                             \"Length\": 14,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P305+P351+P338\"\n                            },\n
+        \                           {\n                              \"Start\": 80,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P319\"\n                            },\n
+        \                           {\n                              \"Start\": 86,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P337+P317\"\n                            },\n
+        \                           {\n                              \"Start\": 97,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P403+P233\"\n                            },\n
+        \                           {\n                              \"Start\": 108,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P405\"\n                            },\n
+        \                           {\n                              \"Start\": 118,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P501\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        62,\n                    \"Name\": \"ECHA C&L Notifications Summary\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"Aggregated GHS information provided
+        per 7 reports by companies from 1 notifications to the ECHA C&L Inventory.
+        Each notification may be associated with multiple companies.\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 175,\n                              \"Type\":
+        \"Italics\"\n                            }\n                          ]\n
+        \                       },\n                        {\n                          \"String\":
+        \"Information may vary between notifications depending on impurities, additives,
+        and other factors. The percentage value in parenthesis indicates the notified
+        classification ratio from companies that provide hazard codes. Only hazard
+        codes with percentage values above 10% are shown. For more detailed information,
+        please visit  ECHA C&L website.\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        327,\n                              \"Length\": 20,\n                              \"URL\":
+        \"https://chem.echa.europa.eu/substance-search?searchText=933-915-7\"\n                            },\n
+        \                           {\n                              \"Start\": 0,\n
+        \                             \"Length\": 348,\n                              \"Type\":
+        \"Italics\"\n                            }\n                          ]\n
+        \                       }\n                      ]\n                    }\n
+        \                 },\n                  {\n                    \"ReferenceNumber\":
+        69,\n                    \"Name\": \"GHS Hazard Statements\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"Not Classified\"\n                        },\n
+        \                       {\n                          \"String\": \"Reported
+        as not meeting GHS hazard criteria by 1 of 1 companies. For more detailed
+        information, please visit  ECHA C&L website.\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        110,\n                              \"Length\": 20,\n                              \"URL\":
+        \"https://chem.echa.europa.eu/substance-search?searchText=619-318-1\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        70,\n                    \"Name\": \"GHS Hazard Statements\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"Not Classified\"\n                        },\n
+        \                       {\n                          \"String\": \"Reported
+        as not meeting GHS hazard criteria by 1 of 1 companies. For more detailed
+        information, please visit  ECHA C&L website.\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        110,\n                              \"Length\": 20,\n                              \"URL\":
+        \"https://chem.echa.europa.eu/substance-search?searchText=643-044-1\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        102,\n                    \"Name\": \"Pictogram(s)\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"          \",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 1,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/images/ghs/GHS08.svg\",\n                              \"Type\":
+        \"Icon\",\n                              \"Extra\": \"Health Hazard\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        102,\n                    \"Name\": \"Signal\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"Danger\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 6,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSDanger\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        102,\n                    \"Name\": \"GHS Hazard Statements\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"H351: Suspected of causing cancer
+        [Warning Carcinogenicity]\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 0,\n                              \"Length\":
+        4,\n                              \"URL\": \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H351\"\n
+        \                           },\n                            {\n                              \"Start\":
+        35,\n                              \"Length\": 7,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSWarning\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"H372: Causes damage to organs through
+        prolonged or repeated exposure [Danger Specific target organ toxicity, repeated
+        exposure]\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 0,\n                              \"Length\":
+        4,\n                              \"URL\": \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H372\"\n
+        \                           },\n                            {\n                              \"Start\":
+        70,\n                              \"Length\": 6,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSDanger\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        102,\n                    \"Name\": \"Precautionary Statement Codes\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"P203, P260, P264, P270, P280, P318,
+        P319, P405, and P501 (click each P-code to see the statement)\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P203\"\n                            },\n
+        \                           {\n                              \"Start\": 6,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P260\"\n                            },\n
+        \                           {\n                              \"Start\": 12,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P264\"\n                            },\n
+        \                           {\n                              \"Start\": 18,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P270\"\n                            },\n
+        \                           {\n                              \"Start\": 24,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P280\"\n                            },\n
+        \                           {\n                              \"Start\": 30,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P318\"\n                            },\n
+        \                           {\n                              \"Start\": 36,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P319\"\n                            },\n
+        \                           {\n                              \"Start\": 42,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P405\"\n                            },\n
+        \                           {\n                              \"Start\": 52,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P501\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        103,\n                    \"Name\": \"Pictogram(s)\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"          \",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 1,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/images/ghs/GHS08.svg\",\n                              \"Type\":
+        \"Icon\",\n                              \"Extra\": \"Health Hazard\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        103,\n                    \"Name\": \"Signal\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"Danger\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 6,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSDanger\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        103,\n                    \"Name\": \"GHS Hazard Statements\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"H351: Suspected of causing cancer
+        [Warning Carcinogenicity]\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 0,\n                              \"Length\":
+        4,\n                              \"URL\": \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H351\"\n
+        \                           },\n                            {\n                              \"Start\":
+        35,\n                              \"Length\": 7,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSWarning\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"H372: Causes damage to organs through
+        prolonged or repeated exposure [Danger Specific target organ toxicity, repeated
+        exposure]\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 0,\n                              \"Length\":
+        4,\n                              \"URL\": \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H372\"\n
+        \                           },\n                            {\n                              \"Start\":
+        70,\n                              \"Length\": 6,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSDanger\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"H413: May cause long lasting harmful
+        effects to aquatic life [Hazardous to the aquatic environment, long-term hazard]\",\n
+        \                         \"Markup\": [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H413\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        103,\n                    \"Name\": \"Precautionary Statement Codes\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"P203, P260, P264, P270, P273, P280,
+        P318, P319, P405, and P501 (click each P-code to see the statement)\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P203\"\n                            },\n
+        \                           {\n                              \"Start\": 6,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P260\"\n                            },\n
+        \                           {\n                              \"Start\": 12,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P264\"\n                            },\n
+        \                           {\n                              \"Start\": 18,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P270\"\n                            },\n
+        \                           {\n                              \"Start\": 24,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P273\"\n                            },\n
+        \                           {\n                              \"Start\": 30,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P280\"\n                            },\n
+        \                           {\n                              \"Start\": 36,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P318\"\n                            },\n
+        \                           {\n                              \"Start\": 42,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P319\"\n                            },\n
+        \                           {\n                              \"Start\": 48,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P405\"\n                            },\n
+        \                           {\n                              \"Start\": 58,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P501\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        100,\n                    \"Name\": \"Pictogram(s)\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"          \",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 1,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/images/ghs/GHS08.svg\",\n                              \"Type\":
+        \"Icon\",\n                              \"Extra\": \"Health Hazard\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        100,\n                    \"Name\": \"Signal\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"Warning\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 7,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSWarning\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        100,\n                    \"Name\": \"GHS Hazard Statements\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"H320: Causes eye irritation [Warning
+        Serious eye damage/eye irritation]\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H320\"\n                            },\n
+        \                           {\n                              \"Start\": 29,\n
+        \                             \"Length\": 7,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSWarning\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"H351: Suspected of causing cancer
+        [Warning Carcinogenicity]\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 0,\n                              \"Length\":
+        4,\n                              \"URL\": \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H351\"\n
+        \                           },\n                            {\n                              \"Start\":
+        35,\n                              \"Length\": 7,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSWarning\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        100,\n                    \"Name\": \"Precautionary Statement Codes\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"P203, P264+P265, P280, P305+P351+P338,
+        P318, P337+P317, P405, and P501 (click each P-code to see the statement)\",\n
+        \                         \"Markup\": [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P203\"\n                            },\n
+        \                           {\n                              \"Start\": 6,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P264+P265\"\n                            },\n
+        \                           {\n                              \"Start\": 17,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P280\"\n                            },\n
+        \                           {\n                              \"Start\": 23,\n
+        \                             \"Length\": 14,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P305+P351+P338\"\n                            },\n
+        \                           {\n                              \"Start\": 39,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P318\"\n                            },\n
+        \                           {\n                              \"Start\": 45,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P337+P317\"\n                            },\n
+        \                           {\n                              \"Start\": 56,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P405\"\n                            },\n
+        \                           {\n                              \"Start\": 66,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P501\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        101,\n                    \"Name\": \"Pictogram(s)\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"          \",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 1,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/images/ghs/GHS07.svg\",\n                              \"Type\":
+        \"Icon\",\n                              \"Extra\": \"Irritant\"\n                            },\n
+        \                           {\n                              \"Start\": 1,\n
+        \                             \"Length\": 1,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/images/ghs/GHS08.svg\",\n                              \"Type\":
+        \"Icon\",\n                              \"Extra\": \"Health Hazard\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        101,\n                    \"Name\": \"Signal\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"Danger\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 6,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSDanger\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        101,\n                    \"Name\": \"GHS Hazard Statements\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"H320: Causes eye irritation [Warning
+        Serious eye damage/eye irritation]\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H320\"\n                            },\n
+        \                           {\n                              \"Start\": 29,\n
+        \                             \"Length\": 7,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSWarning\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"H335: May cause respiratory irritation
+        [Warning Specific target organ toxicity, single exposure; Respiratory tract
+        irritation]\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 0,\n                              \"Length\":
+        4,\n                              \"URL\": \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H335\"\n
+        \                           },\n                            {\n                              \"Start\":
+        40,\n                              \"Length\": 7,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSWarning\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"H372: Causes damage to organs through
+        prolonged or repeated exposure [Danger Specific target organ toxicity, repeated
+        exposure]\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 0,\n                              \"Length\":
+        4,\n                              \"URL\": \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H372\"\n
+        \                           },\n                            {\n                              \"Start\":
+        70,\n                              \"Length\": 6,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSDanger\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        101,\n                    \"Name\": \"Precautionary Statement Codes\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"P260, P261, P264, P264+P265, P270,
+        P271, P304+P340, P305+P351+P338, P319, P337+P317, P403+P233, P405, and P501
+        (click each P-code to see the statement)\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P260\"\n                            },\n
+        \                           {\n                              \"Start\": 6,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P261\"\n                            },\n
+        \                           {\n                              \"Start\": 12,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P264\"\n                            },\n
+        \                           {\n                              \"Start\": 18,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P264+P265\"\n                            },\n
+        \                           {\n                              \"Start\": 29,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P270\"\n                            },\n
+        \                           {\n                              \"Start\": 35,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P271\"\n                            },\n
+        \                           {\n                              \"Start\": 41,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P304+P340\"\n                            },\n
+        \                           {\n                              \"Start\": 52,\n
+        \                             \"Length\": 14,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P305+P351+P338\"\n                            },\n
+        \                           {\n                              \"Start\": 68,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P319\"\n                            },\n
+        \                           {\n                              \"Start\": 74,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P337+P317\"\n                            },\n
+        \                           {\n                              \"Start\": 85,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P403+P233\"\n                            },\n
+        \                           {\n                              \"Start\": 96,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P405\"\n                            },\n
+        \                           {\n                              \"Start\": 106,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P501\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  }\n                ]\n              }\n
+        \           ]\n          }\n        ]\n      }\n    ],\n    \"Reference\":
+        [\n      {\n        \"ReferenceNumber\": 110,\n        \"SourceName\": \"Regulation
+        (EC) No 1272/2008 of the European Parliament and of the Council\",\n        \"SourceID\":
+        \"022-006-00-2\",\n        \"Name\": \"titanium dioxide; [in powder form containing
+        1 % or more of particles with...\",\n        \"Description\": \"Regulation
+        (EC) No 1272/2008 of the European Parliament and of the Council of 16 December
+        2008 on classification, labelling and packaging of substances and mixtures.\",\n
+        \       \"URL\": \"https://eur-lex.europa.eu/eli/reg/2008/1272/oj\",\n        \"LicenseNote\":
+        \"The copyright for the editorial content of this source, the summaries of
+        EU legislation and the consolidated texts, which is owned by the EU, is licensed
+        under the Creative Commons Attribution 4.0 International licence.\",\n        \"LicenseURL\":
+        \"https://eur-lex.europa.eu/content/legal-notice/legal-notice.html\",\n        \"ANID\":
+        15070126,\n        \"SortOrder\": 100000\n      },\n      {\n        \"ReferenceNumber\":
+        61,\n        \"SourceName\": \"European Chemicals Agency (ECHA)\",\n        \"SourceID\":
+        \"100661\",\n        \"Name\": \"Titanium dioxide (EC: 236-675-5)\",\n        \"Description\":
+        \"The information provided here is aggregated from the \\\"Notified classification
+        and labelling\\\" from ECHA's C&L Inventory. Read more: https://echa.europa.eu/information-on-chemicals/cl-inventory-database\",\n
+        \       \"URL\": \"https://chem.echa.europa.eu/substance-search?searchText=236-675-5\",\n
+        \       \"LicenseNote\": \"Use of the information, documents and data from
+        the ECHA website is subject to the terms and conditions of this Legal Notice,
+        and subject to other binding limitations provided for under applicable law,
+        the information, documents and data made available on the ECHA website may
+        be reproduced, distributed and/or used, totally or in part, for non-commercial
+        purposes provided that ECHA is acknowledged as the source: \\\"Source: European
+        Chemicals Agency, http://echa.europa.eu/\\\". Such acknowledgement must be
+        included in each copy of the material. ECHA permits and encourages organisations
+        and individuals to create links to the ECHA website under the following cumulative
+        conditions: Links can only be made to webpages that provide a link to the
+        Legal Notice page.\",\n        \"LicenseURL\": \"https://echa.europa.eu/web/guest/legal-notice\",\n
+        \       \"ANID\": 1880710,\n        \"SortOrder\": 14189\n      },\n      {\n
+        \       \"ReferenceNumber\": 60,\n        \"SourceName\": \"European Chemicals
+        Agency (ECHA)\",\n        \"SourceID\": \"37618\",\n        \"Name\": \"Rutile
+        (TiO2) (EC: 215-282-2)\",\n        \"Description\": \"The information provided
+        here is aggregated from the \\\"Notified classification and labelling\\\"
+        from ECHA's C&L Inventory. Read more: https://echa.europa.eu/information-on-chemicals/cl-inventory-database\",\n
+        \       \"URL\": \"https://chem.echa.europa.eu/substance-search?searchText=215-282-2\",\n
+        \       \"LicenseNote\": \"Use of the information, documents and data from
+        the ECHA website is subject to the terms and conditions of this Legal Notice,
+        and subject to other binding limitations provided for under applicable law,
+        the information, documents and data made available on the ECHA website may
+        be reproduced, distributed and/or used, totally or in part, for non-commercial
+        purposes provided that ECHA is acknowledged as the source: \\\"Source: European
+        Chemicals Agency, http://echa.europa.eu/\\\". Such acknowledgement must be
+        included in each copy of the material. ECHA permits and encourages organisations
+        and individuals to create links to the ECHA website under the following cumulative
+        conditions: Links can only be made to webpages that provide a link to the
+        Legal Notice page.\",\n        \"LicenseURL\": \"https://echa.europa.eu/web/guest/legal-notice\",\n
+        \       \"ANID\": 1862067,\n        \"SortOrder\": 3762\n      },\n      {\n
+        \       \"ReferenceNumber\": 59,\n        \"SourceName\": \"European Chemicals
+        Agency (ECHA)\",\n        \"SourceID\": \"36971\",\n        \"Name\": \"Anatase
+        (TiO2) (EC: 215-280-1)\",\n        \"Description\": \"The information provided
+        here is aggregated from the \\\"Notified classification and labelling\\\"
+        from ECHA's C&L Inventory. Read more: https://echa.europa.eu/information-on-chemicals/cl-inventory-database\",\n
+        \       \"URL\": \"https://chem.echa.europa.eu/substance-search?searchText=215-280-1\",\n
+        \       \"LicenseNote\": \"Use of the information, documents and data from
+        the ECHA website is subject to the terms and conditions of this Legal Notice,
+        and subject to other binding limitations provided for under applicable law,
+        the information, documents and data made available on the ECHA website may
+        be reproduced, distributed and/or used, totally or in part, for non-commercial
+        purposes provided that ECHA is acknowledged as the source: \\\"Source: European
+        Chemicals Agency, http://echa.europa.eu/\\\". Such acknowledgement must be
+        included in each copy of the material. ECHA permits and encourages organisations
+        and individuals to create links to the ECHA website under the following cumulative
+        conditions: Links can only be made to webpages that provide a link to the
+        Legal Notice page.\",\n        \"LicenseURL\": \"https://echa.europa.eu/web/guest/legal-notice\",\n
+        \       \"ANID\": 1861863,\n        \"SortOrder\": 3304\n      },\n      {\n
+        \       \"ReferenceNumber\": 62,\n        \"SourceName\": \"European Chemicals
+        Agency (ECHA)\",\n        \"SourceID\": \"215574\",\n        \"Name\": \"Titanium
+        oxide (EC: 933-915-7)\",\n        \"Description\": \"The information provided
+        here is aggregated from the \\\"Notified classification and labelling\\\"
+        from ECHA's C&L Inventory. Read more: https://echa.europa.eu/information-on-chemicals/cl-inventory-database\",\n
+        \       \"URL\": \"https://chem.echa.europa.eu/substance-search?searchText=933-915-7\",\n
+        \       \"LicenseNote\": \"Use of the information, documents and data from
+        the ECHA website is subject to the terms and conditions of this Legal Notice,
+        and subject to other binding limitations provided for under applicable law,
+        the information, documents and data made available on the ECHA website may
+        be reproduced, distributed and/or used, totally or in part, for non-commercial
+        purposes provided that ECHA is acknowledged as the source: \\\"Source: European
+        Chemicals Agency, http://echa.europa.eu/\\\". Such acknowledgement must be
+        included in each copy of the material. ECHA permits and encourages organisations
+        and individuals to create links to the ECHA website under the following cumulative
+        conditions: Links can only be made to webpages that provide a link to the
+        Legal Notice page.\",\n        \"LicenseURL\": \"https://echa.europa.eu/web/guest/legal-notice\",\n
+        \       \"ANID\": 1946444,\n        \"SortOrder\": 3007\n      },\n      {\n
+        \       \"ReferenceNumber\": 69,\n        \"SourceName\": \"European Chemicals
+        Agency (ECHA)\",\n        \"SourceID\": \"43126\",\n        \"Name\": \"dioxotitanium
+        (EC: 619-318-1)\",\n        \"Description\": \"The information provided here
+        is aggregated from the \\\"Notified classification and labelling\\\" from
+        ECHA's C&L Inventory. Read more: https://echa.europa.eu/information-on-chemicals/cl-inventory-database\",\n
+        \       \"URL\": \"https://chem.echa.europa.eu/substance-search?searchText=619-318-1\",\n
+        \       \"LicenseNote\": \"Use of the information, documents and data from
+        the ECHA website is subject to the terms and conditions of this Legal Notice,
+        and subject to other binding limitations provided for under applicable law,
+        the information, documents and data made available on the ECHA website may
+        be reproduced, distributed and/or used, totally or in part, for non-commercial
+        purposes provided that ECHA is acknowledged as the source: \\\"Source: European
+        Chemicals Agency, http://echa.europa.eu/\\\". Such acknowledgement must be
+        included in each copy of the material. ECHA permits and encourages organisations
+        and individuals to create links to the ECHA website under the following cumulative
+        conditions: Links can only be made to webpages that provide a link to the
+        Legal Notice page.\",\n        \"LicenseURL\": \"https://echa.europa.eu/web/guest/legal-notice\",\n
+        \       \"ANID\": 37168754,\n        \"SortOrder\": 3001\n      },\n      {\n
+        \       \"ReferenceNumber\": 70,\n        \"SourceName\": \"European Chemicals
+        Agency (ECHA)\",\n        \"SourceID\": \"175977\",\n        \"Name\": \"Titanium
+        dioxide (EC: 643-044-1)\",\n        \"Description\": \"The information provided
+        here is aggregated from the \\\"Notified classification and labelling\\\"
+        from ECHA's C&L Inventory. Read more: https://echa.europa.eu/information-on-chemicals/cl-inventory-database\",\n
+        \       \"URL\": \"https://chem.echa.europa.eu/substance-search?searchText=643-044-1\",\n
+        \       \"LicenseNote\": \"Use of the information, documents and data from
+        the ECHA website is subject to the terms and conditions of this Legal Notice,
+        and subject to other binding limitations provided for under applicable law,
+        the information, documents and data made available on the ECHA website may
+        be reproduced, distributed and/or used, totally or in part, for non-commercial
+        purposes provided that ECHA is acknowledged as the source: \\\"Source: European
+        Chemicals Agency, http://echa.europa.eu/\\\". Such acknowledgement must be
+        included in each copy of the material. ECHA permits and encourages organisations
+        and individuals to create links to the ECHA website under the following cumulative
+        conditions: Links can only be made to webpages that provide a link to the
+        Legal Notice page.\",\n        \"LicenseURL\": \"https://echa.europa.eu/web/guest/legal-notice\",\n
+        \       \"ANID\": 37172413,\n        \"SortOrder\": 3001\n      },\n      {\n
+        \       \"ReferenceNumber\": 102,\n        \"SourceName\": \"NITE-CMC\",\n
+        \       \"SourceID\": \"H28_B_019,C_027B\",\n        \"Name\": \"Titanium
+        dioxide (nanoparticle) - FY2016 (Revised classification)\",\n        \"Description\":
+        \"The chemical classification in this section was conducted by the Chemical
+        Management Center (CMC) of Japan National Institute of Technology and Evaluation
+        (NITE) in accordance with GHS Classification Guidance for the Japanese Government,
+        and is intended to provide a reference for preparing GHS labelling and SDS
+        for users.\",\n        \"URL\": \"https://www.chem-info.nite.go.jp/chem/english/ghs/16-mhlw-0098e.html\",\n
+        \       \"LicenseURL\": \"https://www.chem-info.nite.go.jp/en/chem/chrip/chrip_search/html/condUse.html\",\n
+        \       \"ANID\": 39313084,\n        \"SortOrder\": 2016\n      },\n      {\n
+        \       \"ReferenceNumber\": 103,\n        \"SourceName\": \"NITE-CMC\",\n
+        \       \"SourceID\": \"H28_B_020,C_028B\",\n        \"Name\": \"Titanium
+        dioxide (excluding nanoparticle) - FY2016 (Revised classification)\",\n        \"Description\":
+        \"The chemical classification in this section was conducted by the Chemical
+        Management Center (CMC) of Japan National Institute of Technology and Evaluation
+        (NITE) in accordance with GHS Classification Guidance for the Japanese Government,
+        and is intended to provide a reference for preparing GHS labelling and SDS
+        for users.\",\n        \"URL\": \"https://www.chem-info.nite.go.jp/chem/english/ghs/16-mhlw-0099e.html\",\n
+        \       \"LicenseURL\": \"https://www.chem-info.nite.go.jp/en/chem/chrip/chrip_search/html/condUse.html\",\n
+        \       \"ANID\": 39313085,\n        \"SortOrder\": 2016\n      },\n      {\n
+        \       \"ReferenceNumber\": 100,\n        \"SourceName\": \"NITE-CMC\",\n
+        \       \"SourceID\": \"21B3034\",\n        \"Name\": \"Titanium (IV) oxide
+        - FY2009 (Revised classification)\",\n        \"Description\": \"The chemical
+        classification in this section was conducted by the Chemical Management Center
+        (CMC) of Japan National Institute of Technology and Evaluation (NITE) in accordance
+        with GHS Classification Guidance for the Japanese Government, and is intended
+        to provide a reference for preparing GHS labelling and SDS for users.\",\n
+        \       \"URL\": \"https://www.chem-info.nite.go.jp/chem/english/ghs/09-mhlw-2030e.html\",\n
+        \       \"LicenseURL\": \"https://www.chem-info.nite.go.jp/en/chem/chrip/chrip_search/html/condUse.html\",\n
+        \       \"ANID\": 8788014,\n        \"SortOrder\": 2009\n      },\n      {\n
+        \       \"ReferenceNumber\": 101,\n        \"SourceName\": \"NITE-CMC\",\n
+        \       \"SourceID\": \"740\",\n        \"Name\": \"Titanium dioxide - FY2006
+        (New/original classication)\",\n        \"Description\": \"The chemical classification
+        in this section was conducted by the Chemical Management Center (CMC) of Japan
+        National Institute of Technology and Evaluation (NITE) in accordance with
+        GHS Classification Guidance for the Japanese Government, and is intended to
+        provide a reference for preparing GHS labelling and SDS for users.\",\n        \"URL\":
+        \"https://www.chem-info.nite.go.jp/chem/english/ghs/06-imcg-0732e.html\",\n
+        \       \"LicenseURL\": \"https://www.chem-info.nite.go.jp/en/chem/chrip/chrip_search/html/condUse.html\",\n
+        \       \"ANID\": 8788015,\n        \"SortOrder\": 2006\n      }\n    ]\n
+        \ }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '75208'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Sat, 31 Oct 2026 17:25:42 GMT
+      expires:
+      - Sun, 01 Nov 2026 01:25:42 GMT
+      ncbi-phid:
+      - 95B7A05DAE6249610000000000000001.m_1
+      ncbi-sid:
+      - 95B79E6CAE624931_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=95B79E6CAE624931_0000SID; domain=.nih.gov; path=/; expires=Sun, 31
+        Oct 2027 17:25:42 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (1%), Request Time status: Green (0%), Service
+        status: Green (1%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

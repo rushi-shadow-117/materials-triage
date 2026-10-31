@@ -1,0 +1,123 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - oqmd.org
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://oqmd.org/optimade/v1/info
+  response:
+    body:
+      string: '{"meta":{"api_version":"1.2.0","query":{"representation":"/info"},"more_data_available":false,"schema":"https://schemas.optimade.org/json-schema/v1.2.0/optimade.json","time_stamp":"2026-10-31T17:38:05Z","provider":{"name":"OQMD","description":"The
+        Open Quantum Materials Database","prefix":"oqmd","homepage":"https://oqmd.org"},"implementation":{"name":"qmpy","version":"1.6.0","source_url":"https://github.com/wolverton-research-group/qmpy","issue_tracker":"https://github.com/wolverton-research-group/qmpy/issues"}},"data":{"type":"info","id":"/","attributes":{"api_version":"1.2.0","available_api_versions":[{"url":"http://oqmd.org/optimade/v1/","version":"1.2.0"}],"formats":["json"],"entry_types_by_format":{"json":["structures"]},"available_endpoints":["structures","info","links"],"is_index":false}}}'
+    headers:
+      allow:
+      - OPTIONS, GET
+      alt-svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      content-length:
+      - '807'
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 17:38:05 GMT
+      server:
+      - gunicorn
+      vary:
+      - Cookie
+      via:
+      - 1.1 google
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - oqmd.org
+      user-agent:
+      - materials-triage/0.0.1 (phase-0 wire recording)
+    method: GET
+    uri: https://oqmd.org/optimade/v1/info/structures
+  response:
+    body:
+      string: '{"meta":{"api_version":"1.2.0","query":{"representation":"/info/structures"},"more_data_available":false,"schema":"https://schemas.optimade.org/json-schema/v1.2.0/optimade.json","time_stamp":"2026-10-31T17:38:05Z","provider":{"name":"OQMD","description":"The
+        Open Quantum Materials Database","prefix":"oqmd","homepage":"https://oqmd.org"},"implementation":{"name":"qmpy","version":"1.6.0","source_url":"https://github.com/wolverton-research-group/qmpy","issue_tracker":"https://github.com/wolverton-research-group/qmpy/issues"}},"data":{"type":"info","id":"structures","description":"OQMD
+        crystal structures and their calculated properties.","properties":{"id":{"description":"String
+        identifier of the OQMD formation-energy record.","unit":null,"sortable":false,"type":"string"},"type":{"description":"The
+        OPTIMADE entry type; always structures.","unit":null,"sortable":false,"type":"string"},"last_modified":{"description":"Last
+        modification timestamp, currently unknown in OQMD.","unit":null,"sortable":false,"type":"timestamp"},"chemical_formula_reduced":{"description":"Reduced
+        chemical formula","unit":null,"sortable":false,"type":"string"},"chemical_formula_anonymous":{"description":"Generic
+        chemical formula","unit":null,"sortable":false,"type":"string"},"nelements":{"description":"Number
+        of different elements in the structure","unit":null,"sortable":false,"type":"integer"},"elements":{"description":"List
+        of unique elements in the structure","unit":null,"sortable":false,"type":"list"},"nsites":{"description":"Number
+        of atomic sites in the structure","unit":null,"sortable":false,"type":"integer"},"lattice_vectors":{"description":"Lattice
+        vectors","unit":"Ao","sortable":false,"type":"list"},"species_at_sites":{"description":"Ordered
+        list of atomic species that occupies each site in the structure","unit":null,"sortable":false,"type":"list"},"dimension_types":{"description":"To
+        specify whether each of the three dimensions are periodic(1) or not (0)","unit":null,"sortable":false,"type":"list"},"nperiodic_dimensions":{"description":"Number
+        of periodic dimensions. It is always 3 for all structures in OQMD as of Dec,
+        2020","unit":null,"sortable":false,"type":"integer"},"elements_ratios":{"description":"Ratios
+        of elements in the structure. Currently not supported in OQMD","unit":null,"sortable":false,"type":"list"},"structure_features":{"description":"set
+        of special features accociated with the structure. Currently not used in OQMD
+        DB","unit":null,"sortable":false,"type":"list"},"chemical_formula_descriptive":{"description":"Descriptive
+        checmical formula. Currently not used in OQMD DB","unit":null,"sortable":false,"type":"string"},"species":{"description":"Details
+        of species occupying sites. Currently OQMD DB does not have partial occupancy.
+        All relevant infomation is provided via the property species_at_sites","unit":null,"sortable":false,"type":"list"},"cartesian_site_positions":{"description":"Ordered
+        list of site-positions in cartesian coordinates, occupied by atoms given in
+        the property species_at_sites","unit":"Ao","sortable":false,"type":"list"},"_oqmd_entry_id":{"description":"ID
+        of the OQMD Entry object. Can be used to see further details at oqmd.org/materials/entry/OQMDEntryID
+        (Replace OQMDEntryID with the ID value)","unit":null,"sortable":false,"type":"integer"},"_oqmd_calculation_id":{"description":"ID
+        of the OQMD Calculation object. Can be used to see further details at oqmd.org/analysis/calculation/OQMDCalcID
+        (Replace OQMDCalcID with the ID value)","unit":null,"sortable":false,"type":"integer"},"_oqmd_icsd_id":{"description":"ICSD
+        ID of the structure - if it a structure obtained from the Inorganic Crystal
+        Structure Database (ICSD)","unit":null,"sortable":false,"type":"integer"},"_oqmd_band_gap":{"description":"Electronic
+        bandgap value of the structure","unit":"eV","sortable":false,"type":"float"},"_oqmd_delta_e":{"description":"Formation
+        energy of the structure","unit":"eV/atom","sortable":true,"type":"float"},"_oqmd_volume":{"description":"Volume
+        of the structure","unit":"Ao^3","sortable":false,"type":"float"},"_oqmd_stability":{"description":"Stability
+        data from formation energy value. The structure is predicted to be computationally
+        stable if the value is zero.","unit":"eV/atom","sortable":true,"type":"float"},"_oqmd_prototype":{"description":"Structural
+        prototype used in the OQMD to generate this structure","unit":null,"sortable":false,"type":"string"},"_oqmd_spacegroup":{"description":"Spacegroup
+        of the structure","unit":null,"sortable":false,"type":"string"},"immutable_id":{"description":"Optional
+        immutable identifier; unavailable in OQMD.","unit":null,"sortable":false,"type":"string"},"chemical_formula_hill":{"description":"Chemical
+        formula in Hill notation; unavailable in OQMD.","unit":null,"sortable":false,"type":"string"},"space_group_symmetry_operations_xyz":{"description":"Crystallographic
+        symmetry operations; unavailable in OQMD.","unit":null,"sortable":false,"type":"list"},"space_group_it_number":{"description":"International
+        Tables for Crystallography space-group number.","unit":null,"sortable":false,"type":"integer"},"space_group_symbol_hall":{"description":"Hall
+        space-group symbol.","unit":null,"sortable":false,"type":"string"},"space_group_symbol_hermann_mauguin":{"description":"Hermann-Mauguin
+        space-group symbol.","unit":null,"sortable":false,"type":"string"},"space_group_symbol_hermann_mauguin_extended":{"description":"Extended
+        Hermann-Mauguin space-group symbol; unavailable in OQMD.","unit":null,"sortable":false,"type":"string"},"assemblies":{"description":"Correlated
+        site assemblies; unavailable in OQMD.","unit":null,"sortable":false,"type":"list"}},"formats":["json"],"output_fields_by_format":{"json":["id","type","last_modified","chemical_formula_reduced","chemical_formula_anonymous","nelements","elements","nsites","lattice_vectors","species_at_sites","dimension_types","nperiodic_dimensions","elements_ratios","structure_features","chemical_formula_descriptive","species","cartesian_site_positions","_oqmd_entry_id","_oqmd_calculation_id","_oqmd_icsd_id","_oqmd_band_gap","_oqmd_delta_e","_oqmd_volume","_oqmd_stability","_oqmd_prototype","_oqmd_spacegroup","immutable_id","chemical_formula_hill","space_group_symmetry_operations_xyz","space_group_it_number","space_group_symbol_hall","space_group_symbol_hermann_mauguin","space_group_symbol_hermann_mauguin_extended","assemblies"]}}}'
+    headers:
+      allow:
+      - OPTIONS, GET
+      alt-svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      content-length:
+      - '6411'
+      content-type:
+      - application/json
+      date:
+      - Sat, 31 Oct 2026 17:38:05 GMT
+      server:
+      - gunicorn
+      vary:
+      - Cookie
+      via:
+      - 1.1 google
+    status:
+      code: 200
+      message: OK
+version: 1

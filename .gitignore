@@ -1,0 +1,28 @@
+# planning, iteration notes, grader findings
+internal/
+
+# secrets
+.env
+.env.*
+!.env.example
+
+# python
+.venv/
+__pycache__/
+*.pyc
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+dist/
+
+# large upstream snapshots live outside the repo; only slices and checksums are committed
+.data-cache/
+
+# node (Phase 4)
+web/node_modules/
+web/dist/
+
+# editors / os
+.DS_Store
+.idea/
+.vscode/
