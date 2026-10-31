@@ -6,9 +6,12 @@ services:
       POSTGRES_PASSWORD: triage
       POSTGRES_DB: triage
     ports:
-      - "5432:5432"
+      - "5433:5432"  # 5433 on the host: many machines already run Postgres on 5432
     volumes:
       - pgdata:/var/lib/postgresql/data
+      # Creates the three roles on first start. For an existing volume run:
+      #   docker compose exec -T postgres psql -U triage -d triage < src/materials_triage/provenance/roles.sql
+      - ./src/materials_triage/provenance/roles.sql:/docker-entrypoint-initdb.d/10-roles.sql:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U triage -d triage"]
       interval: 5s

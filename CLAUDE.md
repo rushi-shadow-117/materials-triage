@@ -49,6 +49,11 @@ Caveat text, thresholds, and hazard tiers come from config files whose entries c
 a public source. If a caveat needs a fact, leave a TODO naming the fact to be
 sourced, and tell the owner.
 
+Scope test for any chemistry item: it belongs only if it changes a rank, an exclusion, a
+caveat, or a missing-data marker the brief asks for. Chemistry sourcing is closed; remaining
+queue items are verification. Do not add criteria, error fields, or profiles for scientific
+completeness.
+
 ## Stack
 
 - Backend: Python 3.11+, FastAPI, Pydantic, SQLAlchemy, Postgres, pymatgen.

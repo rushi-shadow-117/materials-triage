@@ -1,0 +1,701 @@
+schema_version: 0
+description: 'External ground truth for the validation eval: dielectric candidates named by an independent
+  high-throughput screen. Positives are every row of Tables 1 to 3; the numbers are the paper''s, reproduced
+  as data, not asserted by this project.'
+status: entered
+source:
+  citation: K. Yim, Y. Yong, J. Lee, K. Lee, H.-H. Nahm, J. Yoo, C. Lee, C. S. Hwang, S. Han, Novel high-k
+    dielectrics for next-generation electronic devices screened by automated ab initio calculations, NPG
+    Asia Materials 7, e190 (2015)
+  doi: 10.1038/am.2015.57
+  url: https://doi.org/10.1038/am.2015.57
+  license: CC BY 4.0 (stated on the article page, read 2026-10-31)
+  access: open
+entered_by: owner
+entered_on: '2026-10-31'
+captions:
+  '1': Table 1 New candidate materials suitable for high-κ dielectrics selected from Figure 3
+  '2': Table 2 All high-κ candidate materials for DRAM and CPU from the present property database, which
+    satisfy f FOM >210, and E g >3 eV (for DRAM) or E g >4 eV (for CPU)
+  '3': Table 3 All high-κ candidate materials for flash memory application from the present property database,
+    which satisfy f FOM >80 and E g >6 eV
+metric: Spearman rank correlation of the scorer's ranking against the positives, after removing any composition
+  that the hazard policy excludes; every negative must be excluded or flagged with its rule shown.
+negatives:
+  note: Owner-named compounds that appear in the tables as computed candidates but must be excluded or
+    flagged by the hazard policy (Be, Cd, Pb).
+  compositions:
+  - BeO
+  - CdTiO3
+  - Cd2Ta2O7
+  - PbHfO3
+  - PbZrO3
+  entered_by: owner
+  entered_on: '2026-10-31'
+positives:
+- name_as_printed: c-BeO
+  formula: BeO
+  phase_prefix: c
+  icsd: '163825'
+  spacegroup_number: null
+  kappa: '274.8'
+  band_gap_ev: '10.11'
+  f_fom: '2780'
+  table: 1
+- name_as_printed: NbOCl 3
+  formula: NbOCl3
+  phase_prefix: null
+  icsd: '26471'
+  spacegroup_number: null
+  kappa: '343.4'
+  band_gap_ev: '3.43'
+  f_fom: '1176'
+  table: 1
+- name_as_printed: NbOCl 3
+  formula: NbOCl3
+  phase_prefix: null
+  icsd: '412071'
+  spacegroup_number: null
+  kappa: '208.8'
+  band_gap_ev: '3.90'
+  f_fom: '815'
+  table: 1
+- name_as_printed: δ-AlO(OH)
+  formula: AlO(OH)
+  phase_prefix: δ
+  icsd: '166337'
+  spacegroup_number: null
+  kappa: '32.78'
+  band_gap_ev: '8.09'
+  f_fom: '265'
+  table: 1
+- name_as_printed: NaIO 3
+  formula: NaIO3
+  phase_prefix: null
+  icsd: '202679'
+  spacegroup_number: null
+  kappa: '48.84'
+  band_gap_ev: '4.94'
+  f_fom: '241'
+  table: 1
+- name_as_printed: δ-AlO(OH)
+  formula: AlO(OH)
+  phase_prefix: δ
+  icsd: '166331'
+  spacegroup_number: null
+  kappa: '28.82'
+  band_gap_ev: '8.03'
+  f_fom: '231'
+  table: 1
+- name_as_printed: K 2 W 2 O 7
+  formula: K2W2O7
+  phase_prefix: null
+  icsd: '67284'
+  spacegroup_number: null
+  kappa: '63.70'
+  band_gap_ev: '3.43'
+  f_fom: '219'
+  table: 1
+- name_as_printed: Na 2 SO 4
+  formula: Na2SO4
+  phase_prefix: null
+  icsd: '66554'
+  spacegroup_number: null
+  kappa: '20.70'
+  band_gap_ev: '6.89'
+  f_fom: '143'
+  table: 1
+- name_as_printed: Sr 3 (PO 4 ) 2
+  formula: Sr3(PO4)2
+  phase_prefix: null
+  icsd: '30635'
+  spacegroup_number: null
+  kappa: '17.90'
+  band_gap_ev: '7.18'
+  f_fom: '129'
+  table: 1
+- name_as_printed: CaB 4 O 7
+  formula: CaB4O7
+  phase_prefix: null
+  icsd: '412710'
+  spacegroup_number: null
+  kappa: '11.64'
+  band_gap_ev: '8.48'
+  f_fom: '99'
+  table: 1
+- name_as_printed: AlLiO 2
+  formula: AlLiO2
+  phase_prefix: null
+  icsd: '28288'
+  spacegroup_number: null
+  kappa: '10.64'
+  band_gap_ev: '8.01'
+  f_fom: '85'
+  table: 1
+- name_as_printed: Ba 3 (PO 4 ) 2
+  formula: Ba3(PO4)2
+  phase_prefix: null
+  icsd: '30634'
+  spacegroup_number: null
+  kappa: '12.02'
+  band_gap_ev: '7.03'
+  f_fom: '85'
+  table: 1
+- name_as_printed: YBO 3
+  formula: YBO3
+  phase_prefix: null
+  icsd: '100015'
+  spacegroup_number: null
+  kappa: '11.33'
+  band_gap_ev: '7.05'
+  f_fom: '80'
+  table: 1
+- name_as_printed: BeO
+  formula: BeO
+  phase_prefix: null
+  icsd: '163825'
+  spacegroup_number: '225'
+  kappa: '274.80'
+  band_gap_ev: '225'
+  f_fom: '2780'
+  table: 2
+- name_as_printed: NbOCl 3
+  formula: NbOCl3
+  phase_prefix: null
+  icsd: '26471'
+  spacegroup_number: '136'
+  kappa: '343.40'
+  band_gap_ev: '136'
+  f_fom: '1176'
+  table: 2
+- name_as_printed: SrTiO 3
+  formula: SrTiO3
+  phase_prefix: null
+  icsd: '201256'
+  spacegroup_number: '221'
+  kappa: '288.12'
+  band_gap_ev: '221'
+  f_fom: '869'
+  table: 2
+- name_as_printed: NbOCl 3
+  formula: NbOCl3
+  phase_prefix: null
+  icsd: '412071'
+  spacegroup_number: '113'
+  kappa: '208.83'
+  band_gap_ev: '113'
+  f_fom: '815'
+  table: 2
+- name_as_printed: NaNbO 3
+  formula: NaNbO3
+  phase_prefix: null
+  icsd: '247316'
+  spacegroup_number: '33'
+  kappa: '163.36'
+  band_gap_ev: '33'
+  f_fom: '643'
+  table: 2
+- name_as_printed: NaTaO 3
+  formula: NaTaO3
+  phase_prefix: null
+  icsd: '88377'
+  spacegroup_number: '127'
+  kappa: '167.76'
+  band_gap_ev: '127'
+  f_fom: '595'
+  table: 2
+- name_as_printed: AgTaO 3
+  formula: AgTaO3
+  phase_prefix: null
+  icsd: '40830'
+  spacegroup_number: '161'
+  kappa: '180.95'
+  band_gap_ev: '161'
+  f_fom: '570'
+  table: 2
+- name_as_printed: AgTaO 3
+  formula: AgTaO3
+  phase_prefix: null
+  icsd: '40831'
+  spacegroup_number: '167'
+  kappa: '177.85'
+  band_gap_ev: '167'
+  f_fom: '563'
+  table: 2
+- name_as_printed: SrTiO 3
+  formula: SrTiO3
+  phase_prefix: null
+  icsd: '182762'
+  spacegroup_number: '140'
+  kappa: '162.94'
+  band_gap_ev: '140'
+  f_fom: '504'
+  table: 2
+- name_as_printed: Li 4 CO 4
+  formula: Li4CO4
+  phase_prefix: null
+  icsd: '245400'
+  spacegroup_number: '8'
+  kappa: '62.39'
+  band_gap_ev: '8'
+  f_fom: '489'
+  table: 2
+- name_as_printed: CdTiO 3
+  formula: CdTiO3
+  phase_prefix: null
+  icsd: '62150'
+  spacegroup_number: '62'
+  kappa: '134.28'
+  band_gap_ev: '62'
+  f_fom: '464'
+  table: 2
+- name_as_printed: CdTiO 3
+  formula: CdTiO3
+  phase_prefix: null
+  icsd: '51698'
+  spacegroup_number: '26'
+  kappa: '132.24'
+  band_gap_ev: '26'
+  f_fom: '462'
+  table: 2
+- name_as_printed: CdTiO 3
+  formula: CdTiO3
+  phase_prefix: null
+  icsd: '262711'
+  spacegroup_number: '33'
+  kappa: '133.47'
+  band_gap_ev: '33'
+  f_fom: '461'
+  table: 2
+- name_as_printed: KTaO 3
+  formula: KTaO3
+  phase_prefix: null
+  icsd: '56440'
+  spacegroup_number: '221'
+  kappa: '131.87'
+  band_gap_ev: '221'
+  f_fom: '439'
+  table: 2
+- name_as_printed: Y 2 Ti 2 O 7
+  formula: Y2Ti2O7
+  phase_prefix: null
+  icsd: '15633'
+  spacegroup_number: '227'
+  kappa: '101.98'
+  band_gap_ev: '227'
+  f_fom: '410'
+  table: 2
+- name_as_printed: Cd 2 Ta 2 O 7
+  formula: Cd2Ta2O7
+  phase_prefix: null
+  icsd: '75605'
+  spacegroup_number: '227'
+  kappa: '112.80'
+  band_gap_ev: '227'
+  f_fom: '399'
+  table: 2
+- name_as_printed: NaTaO 3
+  formula: NaTaO3
+  phase_prefix: null
+  icsd: '88375'
+  spacegroup_number: '62'
+  kappa: '96.60'
+  band_gap_ev: '62'
+  f_fom: '382'
+  table: 2
+- name_as_printed: TiO 2
+  formula: TiO2
+  phase_prefix: null
+  icsd: '202241'
+  spacegroup_number: '136'
+  kappa: '122.10'
+  band_gap_ev: '136'
+  f_fom: '369'
+  table: 2
+- name_as_printed: NaTaO 3
+  formula: NaTaO3
+  phase_prefix: null
+  icsd: '980'
+  spacegroup_number: '62'
+  kappa: '92.71'
+  band_gap_ev: '62'
+  f_fom: '369'
+  table: 2
+- name_as_printed: PbHfO 3
+  formula: PbHfO3
+  phase_prefix: null
+  icsd: '89326'
+  spacegroup_number: '55'
+  kappa: '72.14'
+  band_gap_ev: '55'
+  f_fom: '273'
+  table: 2
+- name_as_printed: AlO(OH)
+  formula: AlO(OH)
+  phase_prefix: null
+  icsd: '166337'
+  spacegroup_number: '58'
+  kappa: '32.78'
+  band_gap_ev: '58'
+  f_fom: '265'
+  table: 2
+- name_as_printed: AlO(OH)
+  formula: AlO(OH)
+  phase_prefix: null
+  icsd: '166345'
+  spacegroup_number: '58'
+  kappa: '32.42'
+  band_gap_ev: '58'
+  f_fom: '264'
+  table: 2
+- name_as_printed: SrHfO 3
+  formula: SrHfO3
+  phase_prefix: null
+  icsd: '161595'
+  spacegroup_number: '127'
+  kappa: '49.92'
+  band_gap_ev: '127'
+  f_fom: '259'
+  table: 2
+- name_as_printed: Ag 2 Ta 4 O 11
+  formula: Ag2Ta4O11
+  phase_prefix: null
+  icsd: '180734'
+  spacegroup_number: '167'
+  kappa: '61.83'
+  band_gap_ev: '167'
+  f_fom: '254'
+  table: 2
+- name_as_printed: BaZrO 3
+  formula: BaZrO3
+  phase_prefix: null
+  icsd: '43136'
+  spacegroup_number: '221'
+  kappa: '54.57'
+  band_gap_ev: '221'
+  f_fom: '252'
+  table: 2
+- name_as_printed: PbZrO 3
+  formula: PbZrO3
+  phase_prefix: null
+  icsd: '31154'
+  spacegroup_number: '32'
+  kappa: '65.13'
+  band_gap_ev: '32'
+  f_fom: '249'
+  table: 2
+- name_as_printed: NaIO 3
+  formula: NaIO3
+  phase_prefix: null
+  icsd: '202679'
+  spacegroup_number: '62'
+  kappa: '48.84'
+  band_gap_ev: '62'
+  f_fom: '241'
+  table: 2
+- name_as_printed: BiTaO 4
+  formula: BiTaO4
+  phase_prefix: null
+  icsd: '97423'
+  spacegroup_number: '52'
+  kappa: '56.17'
+  band_gap_ev: '52'
+  f_fom: '238'
+  table: 2
+- name_as_printed: PbHfO 3
+  formula: PbHfO3
+  phase_prefix: null
+  icsd: '174106'
+  spacegroup_number: '55'
+  kappa: '62.69'
+  band_gap_ev: '55'
+  f_fom: '238'
+  table: 2
+- name_as_printed: PbHfO 3
+  formula: PbHfO3
+  phase_prefix: null
+  icsd: '33194'
+  spacegroup_number: '32'
+  kappa: '60.85'
+  band_gap_ev: '32'
+  f_fom: '234'
+  table: 2
+- name_as_printed: AlO(OH)
+  formula: AlO(OH)
+  phase_prefix: null
+  icsd: '166331'
+  spacegroup_number: '31'
+  kappa: '28.82'
+  band_gap_ev: '31'
+  f_fom: '231'
+  table: 2
+- name_as_printed: HfTe 3 O 8
+  formula: HfTe3O8
+  phase_prefix: null
+  icsd: '9078'
+  spacegroup_number: '206'
+  kappa: '44.14'
+  band_gap_ev: '206'
+  f_fom: '226'
+  table: 2
+- name_as_printed: ZrO 2
+  formula: ZrO2
+  phase_prefix: null
+  icsd: '93031'
+  spacegroup_number: '137'
+  kappa: '38.53'
+  band_gap_ev: '137'
+  f_fom: '220'
+  table: 2
+- name_as_printed: K 2 W 2 O 7
+  formula: K2W2O7
+  phase_prefix: null
+  icsd: '67284'
+  spacegroup_number: '14'
+  kappa: '63.70'
+  band_gap_ev: '14'
+  f_fom: '219'
+  table: 2
+- name_as_printed: Sr 2 Ta 2 O 7
+  formula: Sr2Ta2O7
+  phase_prefix: null
+  icsd: '16388'
+  spacegroup_number: '36'
+  kappa: '50.30'
+  band_gap_ev: '36'
+  f_fom: '214'
+  table: 2
+- name_as_printed: BeO
+  formula: BeO
+  phase_prefix: null
+  icsd: '163825'
+  spacegroup_number: '225'
+  kappa: '275'
+  band_gap_ev: '225'
+  f_fom: '2780'
+  table: 3
+- name_as_printed: AlO(OH)
+  formula: AlO(OH)
+  phase_prefix: null
+  icsd: '166345'
+  spacegroup_number: '58'
+  kappa: '32.4'
+  band_gap_ev: '58'
+  f_fom: '264'
+  table: 3
+- name_as_printed: AlO(OH)
+  formula: AlO(OH)
+  phase_prefix: null
+  icsd: '166331'
+  spacegroup_number: '31'
+  kappa: '28.8'
+  band_gap_ev: '31'
+  f_fom: '231'
+  table: 3
+- name_as_printed: HfO 2
+  formula: HfO2
+  phase_prefix: null
+  icsd: '173966'
+  spacegroup_number: '137'
+  kappa: '34.3'
+  band_gap_ev: '137'
+  f_fom: '210'
+  table: 3
+- name_as_printed: LaYO 3
+  formula: LaYO3
+  phase_prefix: null
+  icsd: '419666'
+  spacegroup_number: '62'
+  kappa: '25.8'
+  band_gap_ev: '62'
+  f_fom: '163'
+  table: 3
+- name_as_printed: Na 2 SO 4
+  formula: Na2SO4
+  phase_prefix: null
+  icsd: '66554'
+  spacegroup_number: '63'
+  kappa: '20.7'
+  band_gap_ev: '63'
+  f_fom: '143'
+  table: 3
+- name_as_printed: Sr 3 (PO 4 ) 2
+  formula: Sr3(PO4)2
+  phase_prefix: null
+  icsd: '30635'
+  spacegroup_number: '166'
+  kappa: '17.9'
+  band_gap_ev: '166'
+  f_fom: '129'
+  table: 3
+- name_as_printed: YAlO 3
+  formula: YAlO3
+  phase_prefix: null
+  icsd: '4115'
+  spacegroup_number: '62'
+  kappa: '16.1'
+  band_gap_ev: '62'
+  f_fom: '119'
+  table: 3
+- name_as_printed: MgSiO 3
+  formula: MgSiO3
+  phase_prefix: null
+  icsd: '171911'
+  spacegroup_number: '62'
+  kappa: '15.5'
+  band_gap_ev: '62'
+  f_fom: '116'
+  table: 3
+- name_as_printed: YOCl
+  formula: YOCl
+  phase_prefix: null
+  icsd: '60586'
+  spacegroup_number: '129'
+  kappa: '15.2'
+  band_gap_ev: '129'
+  f_fom: '99'
+  table: 3
+- name_as_printed: CaB 4 O 7
+  formula: CaB4O7
+  phase_prefix: null
+  icsd: '412710'
+  spacegroup_number: '31'
+  kappa: '11.6'
+  band_gap_ev: '31'
+  f_fom: '99'
+  table: 3
+- name_as_printed: MgAl 2 O 4
+  formula: MgAl2O4
+  phase_prefix: null
+  icsd: '157186'
+  spacegroup_number: '62'
+  kappa: '14.2'
+  band_gap_ev: '62'
+  f_fom: '96'
+  table: 3
+- name_as_printed: Ba 2 SiO 4
+  formula: Ba2SiO4
+  phase_prefix: null
+  icsd: '28476'
+  spacegroup_number: '62'
+  kappa: '15.0'
+  band_gap_ev: '62'
+  f_fom: '93'
+  table: 3
+- name_as_printed: B 2 O 3
+  formula: B2O3
+  phase_prefix: null
+  icsd: '51575'
+  spacegroup_number: '152'
+  kappa: '10.5'
+  band_gap_ev: '152'
+  f_fom: '90'
+  table: 3
+- name_as_printed: Mg 4 O 3 (OH) 2
+  formula: Mg4O3(OH)2
+  phase_prefix: null
+  icsd: '95470'
+  spacegroup_number: '164'
+  kappa: '14.2'
+  band_gap_ev: '164'
+  f_fom: '89'
+  table: 3
+- name_as_printed: Ba 3 P 4 O 13
+  formula: Ba3P4O13
+  phase_prefix: null
+  icsd: '280908'
+  spacegroup_number: '2'
+  kappa: '13.0'
+  band_gap_ev: '2'
+  f_fom: '89'
+  table: 3
+- name_as_printed: B 2 O 3
+  formula: B2O3
+  phase_prefix: null
+  icsd: '36066'
+  spacegroup_number: '144'
+  kappa: '10.4'
+  band_gap_ev: '144'
+  f_fom: '89'
+  table: 3
+- name_as_printed: Li 3 OBr
+  formula: Li3OBr
+  phase_prefix: null
+  icsd: '67265'
+  spacegroup_number: '221'
+  kappa: '11.6'
+  band_gap_ev: '221'
+  f_fom: '88'
+  table: 3
+- name_as_printed: Mg(OH) 2
+  formula: Mg(OH)2
+  phase_prefix: null
+  icsd: '79031'
+  spacegroup_number: '164'
+  kappa: '13.4'
+  band_gap_ev: '164'
+  f_fom: '88'
+  table: 3
+- name_as_printed: MgSiO 3
+  formula: MgSiO3
+  phase_prefix: null
+  icsd: '172736'
+  spacegroup_number: '63'
+  kappa: '13.1'
+  band_gap_ev: '63'
+  f_fom: '86'
+  table: 3
+- name_as_printed: Y 2 (Si 2 O 7 )
+  formula: Y2(Si2O7)
+  phase_prefix: null
+  icsd: '164148'
+  spacegroup_number: '2'
+  kappa: '13.3'
+  band_gap_ev: '2'
+  f_fom: '85'
+  table: 3
+- name_as_printed: AlLiO 2
+  formula: AlLiO2
+  phase_prefix: null
+  icsd: '28288'
+  spacegroup_number: '166'
+  kappa: '10.6'
+  band_gap_ev: '166'
+  f_fom: '85'
+  table: 3
+- name_as_printed: YOF
+  formula: YOF
+  phase_prefix: null
+  icsd: '76426'
+  spacegroup_number: '129'
+  kappa: '12.9'
+  band_gap_ev: '129'
+  f_fom: '85'
+  table: 3
+- name_as_printed: Ba 3 (PO 4 ) 2
+  formula: Ba3(PO4)2
+  phase_prefix: null
+  icsd: '30634'
+  spacegroup_number: '166'
+  kappa: '12.0'
+  band_gap_ev: '166'
+  f_fom: '85'
+  table: 3
+- name_as_printed: SrB 4 O 7
+  formula: SrB4O7
+  phase_prefix: null
+  icsd: '95300'
+  spacegroup_number: '31'
+  kappa: '9.12'
+  band_gap_ev: '31'
+  f_fom: '82'
+  table: 3
+- name_as_printed: BaSO 4
+  formula: BaSO4
+  phase_prefix: null
+  icsd: '33730'
+  spacegroup_number: '62'
+  kappa: '10.4'
+  band_gap_ev: '62'
+  f_fom: '81'
+  table: 3

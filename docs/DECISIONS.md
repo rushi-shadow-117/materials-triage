@@ -280,3 +280,72 @@ not checked, is approved as the owner's application choice; status entered. The 
 (2004) statements cited in its rationale remain pending verification against the primary PDF,
 which no tool-driven fetch could retrieve (HTTP 403 from the publisher; a browser-impersonating
 fetch was declined on principle). The owner supplies a local copy for the check.
+
+## 2026-10-31 Scope rule for chemistry; chemistry sourcing is closed
+Decision (owner): a chemistry item belongs only if it changes something the brief asks a user
+to see: a rank, an exclusion, a caveat, or a missing-data marker. Anything that only makes the
+system more scientifically complete is scope. Chemistry sourcing is closed unless a test fails
+on it; remaining queue items are verification, not new chemistry. Rejected on this rule, so
+they do not resurface: a figure-of-merit criterion (not in the brief, one more default to
+defend); a `published_error` field on every value (error figures go in caveat text once, with
+citations); a second, stricter stability profile at 20 meV/atom (one cutoff with one source);
+extracting a further literature figure for validation (Yim 2015's tables already give positives
+and negatives). None of these existed in this repo; recorded to keep them out.
+Reason: the brief does not ask for publishable scientific claims. The advantage is software
+judgment: every caveat explainable in two sentences with its source named.
+Alternative: continue adding criteria as the literature suggests them.
+
+## 2026-10-31 Validation ground truth is an external list
+Decision (owner): positives for the validation eval come from Yim et al., Novel high-k
+dielectrics for next-generation electronic devices screened by automated ab initio
+calculations, NPG Asia Materials 7, e190 (2015), DOI 10.1038/am.2015.57, CC BY 4.0, Tables 1
+to 3; negatives are c-BeO, CdTiO3, Cd2Ta2O7, PbHfO3, PbZrO3 (owner's list). Metric: Spearman
+rank correlation against the positives, plus every negative excluded or flagged with its rule
+shown. Stored in `fixtures/validation/yim2015.yaml` with the table number per row. Used in
+Phase 2.
+Reason: the eval needs a candidate list the project did not author.
+Alternative: hand-picked expectations (HfO2, Al2O3, ZrO2 near the top) only.
+
+## 2026-10-31 Licensing is enforced per source and per record
+Decision (owner): the site profile lists each source with its license and a `commercial_ok`
+flag; `exclude_non_commercial` is on by default. Materials Project GNoME-derived entries are
+CC BY-NC and are controlled in two layers: deployment accounts never accept the GNoME license
+(so the API omits them; documented in the admin README), and the adapter excludes any document
+whose `builder_meta.license` is `BY-NC`, recording the rule. Wherever PubChem GHS text derives
+from ECHA, the row carries the ECHA attribution line. Each record's provenance carries its
+license. Source license strings are entered only from the source's own terms page.
+Reason: licensing is a brief requirement and a software control, not chemistry. Confirmed from
+Materials Project documentation: GNoME entries carry `builder_meta.license = "BY-NC"` and
+`builder_meta.batch_id = "gnome_r2scan_statics"`, and are omitted for accounts that have not
+accepted the license; our probe for a GNoME ID returned no document, consistent with that.
+Alternative: allow all MP data and rely on users to check licenses.
+
+## 2026-10-31 Deployment and eval additions recorded for later phases
+Decision (owner): Phase 4 adds an Apptainer recipe beside Compose, a no-LLM mode (structured
+criteria form, evidence tier "unclassified", template-only rationale), and an OpenAI-compatible
+endpoint option for self-hosted models. Phase 3 tags each adversarial eval case with an OWASP
+LLM Top 10 (2025) category and reports task completion and attack success per case.
+Reason: deployment portability and a recognizable threat taxonomy are software judgment the
+reviewer can check.
+
+## 2026-10-31 Phase 1 decisions
+Decision (owner, applied to the Phase 1 plan):
+1. Materials Project is called directly over REST with httpx; raw IDs are decoded with the
+   base-26 AlphaID scheme from `emmet.core.mpid` (the encoding's source); every recorded
+   (raw, client) ID pair is a test. `mp-api` is a dev dependency for cross-checks only.
+2. Alembic manages the schema from the first migration.
+3. Discovery never truncates: pages of 1,000 up to a hard ceiling of 10,000; above it the
+   adapter refuses, reports the count, and the agent asks the PI to narrow.
+4. Cache TTLs: MP 7 days, OpenAlex 30, PubChem 90, OPTIMADE 30; snapshots none. MP entries are
+   invalidated on a database version change (from `/heartbeat`, once per run). Refresh is a
+   logged admin-only endpoint that appends and never overwrites.
+5. Thermo documents are fetched for an explicit, caller-supplied ID list (all polymorphs of the
+   named compositions); Phase 2 passes top-K plus compositions in the near-cutoff band.
+6. OpenAlex default scope is `search.title_and_abstract`; fulltext is an FDE option whose hits
+   are labeled unverifiable by the quote check; the unfiltered match count is recorded beside
+   the abstract-filtered results.
+7. OQMD is cut from Phase 1 and listed as a documented extension; its cassettes remain as
+   fixtures for the provider-agnostic OPTIMADE parser. COD is the only wired OPTIMADE provider.
+8. Three Postgres roles from day one: `triage_app` (INSERT, SELECT), `triage_migrate` (DDL,
+   Alembic), `triage_maint` (DELETE for retention via a logged admin job).
+Reason: each is recorded with its trade-off in internal/PHASE1_PLAN.md.

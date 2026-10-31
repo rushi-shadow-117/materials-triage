@@ -402,6 +402,39 @@ def rec_mp_deprecated_probe(client: httpx.Client) -> dict[str, Any]:
     return {"records": outcome.get("n", 0), "detail": outcome}
 
 
+GNOME_PROBE_ID = "mp-3213581"  # named as a GNoME-origin entry in a Materials Project forum answer
+
+
+def rec_mp_gnome_probe(client: httpx.Client) -> dict[str, Any]:
+    """How does MP mark GNoME-origin entries? Fetch one with every field and look."""
+    with _mprester() as mpr:
+        docs = mpr.materials.summary.search(material_ids=[GNOME_PROBE_ID], all_fields=True)
+        thermo = mpr.materials.thermo.search(
+            material_ids=[GNOME_PROBE_ID],
+            fields=["material_id", "thermo_type", "energy_above_hull"],
+        )
+    if not docs:
+        return {"records": 0, "detail": {"found": False}}
+    d = docs[0].model_dump()
+    flat = json.dumps(d, default=str).lower()
+    return {
+        "records": 1,
+        "detail": {
+            "found": True,
+            "theoretical": d.get("theoretical"),
+            "database_IDs": d.get("database_IDs"),
+            "origins": d.get("origins"),
+            "builder_meta": d.get("builder_meta"),
+            "fields_mentioning_gnome": [
+                k for k, v in d.items() if "gnome" in json.dumps(v, default=str).lower()
+            ],
+            "gnome_anywhere": "gnome" in flat,
+            "thermo_types": sorted(str(t.thermo_type) for t in thermo),
+            "top_level_keys": sorted(d.keys()),
+        },
+    }
+
+
 # ----------------------------------------------------------------------------- driver
 
 PerMaterial = Callable[[httpx.Client, str], dict[str, Any]]
@@ -417,7 +450,11 @@ PER_MATERIAL: dict[str, PerMaterial] = {
 SINGLE: dict[str, list[tuple[str, Single]]] = {
     "cod": [("_info", lambda c: rec_optimade_info(c, COD_BASE))],
     "oqmd": [("_info", lambda c: rec_optimade_info(c, OQMD_BASE))],
-    "mp": [("_discovery", rec_mp_discovery), ("_deprecated_probe", rec_mp_deprecated_probe)],
+    "mp": [
+        ("_discovery", rec_mp_discovery),
+        ("_deprecated_probe", rec_mp_deprecated_probe),
+        ("_gnome_probe", rec_mp_gnome_probe),
+    ],
 }
 
 
