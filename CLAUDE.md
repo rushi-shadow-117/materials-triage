@@ -38,6 +38,9 @@ Every guarantee lives in code. The agent has no tool that could break one.
 - If prompt changes move a failure instead of removing it, move the logic into code.
 - Ask when unsure. Do not guess at chemistry, API behavior, or requirements.
   Say "unverified" rather than state something you have not checked.
+- Missing is `None`, checked with `is None`. Never write `x or default` for a value that
+  can be zero. Every adapter test suite includes an exact-zero value, a "na" string, and
+  an absent field.
 
 ## Chemistry claims
 

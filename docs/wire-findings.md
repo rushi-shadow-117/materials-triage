@@ -50,7 +50,9 @@ Recorded 2026-10-31 with a free key through `mp-api` 0.47.0 against database ver
   documents, so there is no recorded deprecated example.
 - Discovery-shaped query (`elements=["O"]`, 2 to 3 elements, band gap at least 3 eV, hull
   energy at most 0.05 eV/atom, six fields, two chunks of 100): 200 documents in 2.9 s with no
-  rate limiting observed. Volume at full scale is unknown; the adapter pages with a cap.
+  rate limiting observed. The response `meta.total_doc` was 3,229, so the 200 was the
+  recorder's own cap; the API pages with `_limit` (max 1,000) and `_skip`. The adapter pages at
+  1,000 and records total, returned, and a truncated flag.
 - A lesson from this recording, relevant to the "missing is never zero" rule: an analysis
   helper in this session used `value or 9` as a sort key and silently treated a hull energy of
   exactly 0.0 as missing, mis-identifying the ground state for every formula until the thermo
@@ -138,6 +140,9 @@ Recorded 2026-10-31 with a free key. Cassettes in `fixtures/wire/openalex/`; the
 - `search=` is full-text search: `x_query` shows `fulltext.search`, so a hit can mention the
   term anywhere in the full text, not only in the title or abstract. The evidence classifier
   must therefore not assume the abstract mentions the composition.
+- Scope control (from the OpenAlex documentation, 2026-10-31): the scoped parameter
+  `search.title_and_abstract` restricts matching to title and abstract text; `title.search`
+  and `default.search` are deprecated. Phase 1 records cassettes in the title-and-abstract scope.
 - `select` works and keeps responses small. `abstract_inverted_index` is a word-to-positions
   dict (89 and 109 words in the two HfO2 top hits); rebuild text by sorting positions.
   `primary_location` carries `is_oa`, `license`, `pdf_url`, `landing_page_url`, and `source`.
