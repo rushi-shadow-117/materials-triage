@@ -37,8 +37,11 @@ version string, dielectric endpoint coverage for the eleven oxides, extra hosts 
   shape unverified until a key exists); fall back to reduced composition plus space group number.
 - Missing values are the string `"na"`, not null. In the slice, 42 of the 64 fields use it,
   including `mbj_bandgap`, `hse_gap`, `epsx`/`epsy`/`epsz`, `mepsx`/`mepsy`/`mepsz`, and the DFPT
-  dielectric fields. The adapter maps `"na"` to missing and never to zero. `spg_number` is a
-  string too.
+  dielectric fields. `spg_number` is a string too.
+- Adapter rules (Phase 1, each with a test): `"na"` in any field maps to missing, never 0 or a
+  default; a record with a missing gap is excluded from gap-based scoring with the reason
+  recorded; `spg_number` parses to int; `icsd` parses to a list of ints, empty string to empty
+  list, non-numeric tokens dropped and logged.
 
 ## Experimental band gaps: expt_gap compendium and matbench_expt_gap (file snapshots)
 
@@ -72,6 +75,11 @@ URLs in matminer's `dataset_metadata.json`, both with SHA256 matching the hash m
 - The compendium carries no per-row reference. matminer's maintainers describe its provenance
   as "a bunch of different studies". Values shown from it should carry that caveat, and the
   scorer's aggregate rule (median shown with range, or minimum) is an open decision for Phase 2.
+- Observed conflict between sources, recorded here without judging which is right: the
+  compendium gives ThO2 3.30 to 3.50 eV (2 values); the JARVIS slice gives the ThO2 ground state
+  JVASP-1169 (spg 225, ehull 0.0) a TBmBJ gap of 5.013 eV. The owner is sourcing a reference
+  value. The design response is the conflict rule in docs/DECISIONS.md (show both, flag
+  "sources conflict", apply the policy fallback); ThO2 is its planned test case.
 
 ## OpenAlex
 

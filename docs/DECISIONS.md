@@ -142,3 +142,40 @@ event and is the reference case for the health page and labeled partial results.
 Reason: one day of unreachability is not evidence about the source; it is evidence that the
 product needs availability handling.
 Alternative: drop COD now.
+
+## 2026-10-31 Experimental gaps are not automatically best: a conflict rule applies
+Decision: when the experimental gap and the TBmBJ gap for a composition group differ by more
+than `band_gap.conflict_tolerance_ev` (scoring profile, owner-set), the row shows both values
+with their sources and the flag "sources conflict", and the scorer uses the band gap policy's
+fallback source instead of the experimental value. A composition with only one source carries
+"single source". Whether the fallback on conflict is the next source in policy order (default)
+or the minimum of the conflicting values is an open decision for the Phase 2 round. ThO2 is the
+planned test case: the compendium slice and the JARVIS slice disagree for it, and the test
+asserts only that the flag fires and the fallback is used, under a tolerance set in the test's
+own config. No reference value for ThO2 is stated in this repo; the owner sources it.
+Reason: the compendium has no per-row references, so a conflicting row cannot be traced.
+Surfacing the conflict is honest; silently trusting either side is not.
+Alternative: trust the experimental value whenever one exists.
+
+## 2026-10-31 Reference values are config entries with citation and material form
+Decision: owner-entered experimental values (first use: SiO2 and Al2O3 band gaps, which no
+public gap table in this repo contains) live in `config/reference_values.yaml` with
+composition, property, value, `form` (`crystalline_bulk` or `amorphous_film`; extended only
+when a sourced entry needs it), `source` (citation, URL, `access: open`), notes, entered_by,
+entered_on. They pass through the provenance store like any record (source `config`, record ID
+from the entry key plus config version), so invariant 1 holds. The row shows the form beside the
+value. Built in Phase 2.
+Reason: thin-film dielectrics are often amorphous and the form can change the measured gap, so
+a value without its form is ambiguous. The brief allows citing published work.
+Alternative: a bare value per composition.
+
+## 2026-10-31 JARVIS adapter rules: "na" is missing, ICSD is a list
+Decision: in the JARVIS adapter, the string `"na"` in any field maps to missing, never to 0 or
+a default. `spg_number` parses to an int. `icsd` parses from a comma-separated string to a list
+of ints; an empty string is an empty list; a non-numeric token is dropped and logged. A record
+with a missing gap is excluded from gap-based scoring with the exclusion reason recorded.
+Tests for each rule land with the adapter in Phase 1. `parse_icsd` in
+`scripts/fetch_snapshots.py` moves into the adapter.
+Reason: 42 of 64 fields in the slice use `"na"`, including every gap and dielectric field. A
+careless cast turns a missing value into a 0 eV gap that sinks a good candidate.
+Alternative: coerce with a default.
