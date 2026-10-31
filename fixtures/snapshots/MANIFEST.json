@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-31T17:35:57+00:00",
+  "fetched_at": "2026-10-31T17:54:17+00:00",
   "snapshots": {
     "matbench_expt_gap": {
       "url": "https://ml.materialsproject.org/projects/matbench_expt_gap.json.gz",
@@ -14,9 +14,139 @@
         "composition",
         "gap expt"
       ],
+      "composition_column": "composition",
       "entries_total": 4604,
       "entries_with_zero_gap": 2450,
-      "entries_in_slice": 7
+      "entries_in_slice": 7,
+      "spread_by_composition": {
+        "BeO": {
+          "n": 1,
+          "min": 10.39,
+          "median": 10.39,
+          "max": 10.39
+        },
+        "HfO2": {
+          "n": 1,
+          "min": 5.55,
+          "median": 5.55,
+          "max": 5.55
+        },
+        "La2O3": {
+          "n": 1,
+          "min": 5.4,
+          "median": 5.4,
+          "max": 5.4
+        },
+        "Ta2O5": {
+          "n": 1,
+          "min": 4.2,
+          "median": 4.2,
+          "max": 4.2
+        },
+        "TiO2": {
+          "n": 1,
+          "min": 3.3,
+          "median": 3.3,
+          "max": 3.3
+        },
+        "Y2O3": {
+          "n": 1,
+          "min": 5.6,
+          "median": 5.6,
+          "max": 5.6
+        },
+        "ZrO2": {
+          "n": 1,
+          "min": 4.99,
+          "median": 4.99,
+          "max": 4.99
+        }
+      },
+      "target_compositions_absent": [
+        "Al2O3",
+        "BaTiO3",
+        "SiO2",
+        "ThO2"
+      ]
+    },
+    "expt_gap": {
+      "url": "https://ndownloader.figshare.com/files/13464434",
+      "expected_sha256": "2d0980e3533c1ba6ad6e392a88f08cfcf2d311d4b7fe6eb0b0c8e876211dfda3",
+      "source_of_url": "hackingmaterials/matminer matminer/datasets/dataset_metadata.json",
+      "citation": "Zhuo, Mansouri Tehrani, Brgoch, J. Phys. Chem. Lett. 9, 1668 (2018), SI",
+      "note": "Full compendium of experimental gaps; compositions repeat with differing values.",
+      "local_file": "expt_gap.json.gz",
+      "sha256": "2d0980e3533c1ba6ad6e392a88f08cfcf2d311d4b7fe6eb0b0c8e876211dfda3",
+      "bytes": 50592,
+      "sha256_matches_matminer": true,
+      "columns": [
+        "formula",
+        "gap expt"
+      ],
+      "composition_column": "formula",
+      "entries_total": 6354,
+      "entries_with_zero_gap": 2458,
+      "entries_in_slice": 14,
+      "spread_by_composition": {
+        "BaTiO3": {
+          "n": 5,
+          "min": 2.96,
+          "median": 3.06,
+          "max": 3.13
+        },
+        "BeO": {
+          "n": 1,
+          "min": 10.39,
+          "median": 10.39,
+          "max": 10.39
+        },
+        "HfO2": {
+          "n": 1,
+          "min": 5.55,
+          "median": 5.55,
+          "max": 5.55
+        },
+        "La2O3": {
+          "n": 1,
+          "min": 5.4,
+          "median": 5.4,
+          "max": 5.4
+        },
+        "Ta2O5": {
+          "n": 1,
+          "min": 4.2,
+          "median": 4.2,
+          "max": 4.2
+        },
+        "ThO2": {
+          "n": 2,
+          "min": 3.3,
+          "median": 3.4,
+          "max": 3.5
+        },
+        "TiO2": {
+          "n": 1,
+          "min": 3.3,
+          "median": 3.3,
+          "max": 3.3
+        },
+        "Y2O3": {
+          "n": 1,
+          "min": 5.6,
+          "median": 5.6,
+          "max": 5.6
+        },
+        "ZrO2": {
+          "n": 1,
+          "min": 4.99,
+          "median": 4.99,
+          "max": 4.99
+        }
+      },
+      "target_compositions_absent": [
+        "Al2O3",
+        "SiO2"
+      ]
     },
     "jarvis_dft_3d": {
       "url": "https://ndownloader.figshare.com/files/38521619",
@@ -95,7 +225,53 @@
         "typ",
         "xml_data_link"
       ],
-      "mp_id_like_keys": []
+      "mp_id_like_keys": [],
+      "icsd_field": "comma-separated string of ICSD ids, empty when none",
+      "slice_records_with_icsd": 125,
+      "na_sentinel_fields_in_slice": [
+        "Tc_supercon",
+        "avg_elec_mass",
+        "avg_hole_mass",
+        "bulk_modulus_kv",
+        "dfpt_piezo_max_dielectric",
+        "dfpt_piezo_max_dielectric_electronic",
+        "dfpt_piezo_max_dielectric_ionic",
+        "dfpt_piezo_max_dij",
+        "dfpt_piezo_max_eij",
+        "dimensionality",
+        "elastic_tensor",
+        "encut",
+        "epsx",
+        "epsy",
+        "epsz",
+        "exfoliation_energy",
+        "hse_gap",
+        "kpoint_length_unit",
+        "magmom_oszicar",
+        "magmom_outcar",
+        "max_efg",
+        "max_ir_mode",
+        "maxdiff_bz",
+        "maxdiff_mesh",
+        "mbj_bandgap",
+        "mepsx",
+        "mepsy",
+        "mepsz",
+        "min_ir_mode",
+        "modes",
+        "n-Seebeck",
+        "n-powerfact",
+        "ncond",
+        "nkappa",
+        "p-Seebeck",
+        "p-powerfact",
+        "pcond",
+        "pkappa",
+        "poisson",
+        "shear_modulus_gv",
+        "slme",
+        "spillage"
+      ]
     }
   }
 }

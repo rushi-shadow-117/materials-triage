@@ -97,3 +97,48 @@ theoretical, one no-dielectric, and one deprecated MP entry in the findings note
 Reason: BeO is the toxicity negative control; Y2O3 and Ta2O5 are known dielectrics for recall;
 each later edge case needs a recorded example; pagination and rate limits only appear in bulk.
 Alternative: eight oxides, per-formula lookups only.
+
+## 2026-10-31 The expt_gap compendium is the experimental band gap source; matbench is for validation
+Decision: the product reads matminer's full `expt_gap` compendium (6,354 rows, pinned SHA256)
+and shows the measured range and count per composition. `matbench_expt_gap` is used only to
+calibrate in validation. How several values collapse to one number for scoring (median shown
+with range, or minimum) is an open decision for the Phase 2 round.
+Reason: matbench's deduplication removed every composition whose reported gaps span more than
+0.1 eV, which dropped BaTiO3 and ThO2 from our set. The compendium has them with their spread.
+Neither table has Al2O3 or SiO2; those fall through to computed gaps and the row says so.
+Alternative: matbench alone, one value per composition.
+
+## 2026-10-31 PubChem GHS is never majority-voted to safe
+Decision: the hazard row shows "hazard codes in M of N notifications" from the PUG-View
+aggregate. A compound with any hazard code in any notification is never shown as unclassified.
+The adapter parses the "N of M" counts and stores the raw strings. Built in Phase 1.
+Reason: PubChem aggregates company notifications that disagree; most say "Not Classified" while
+a minority report codes. Collapsing that to the majority hides the signal.
+Alternative: show the majority classification.
+
+## 2026-10-31 Particulate hazard codes become a process-hazard flag
+Decision: GHS codes about respirable particulates do not exclude a material and are not
+dismissed. They raise a process-hazard flag: keep the candidate, attach a caveat whose text and
+source the owner enters in the hazard policy config. Code carries a TODO naming the fact to
+source. Built in Phase 2 with the hazard policy loader.
+Reason: whether dust codes matter for a given thin-film process is a safety judgment outside
+this codebase's authority (CLAUDE.md, Chemistry claims). Thin-film work can involve powders,
+targets, and chamber cleaning, so the flag must survive to the PI.
+Alternative: treat particulate codes as not applicable to films (rejected; an unsourced
+chemistry judgment).
+
+## 2026-10-31 JARVIS to MP matching is ICSD-first with a structural fallback
+Decision: parse JARVIS `icsd` (comma-separated string, possibly empty) to a set of IDs and match
+when it intersects the ICSD IDs in MP's `database_IDs`. Fall back to reduced composition plus
+space group number. Field shape on the MP side is confirmed once a key exists. Built in Phase 1.
+Reason: 125 of 205 slice records carry an ICSD ID, so an identifier match is available for most.
+Alternative: composition plus space group only.
+
+## 2026-10-31 COD outage handling
+Decision: COD stays planned as a core source. Retry daily during Phase 1. If still unreachable
+at the end of Phase 1, demote it to optional and rely on MP's `theoretical` flag for the
+experimental-existence signal. The outage is logged in docs/wire-findings.md as an availability
+event and is the reference case for the health page and labeled partial results.
+Reason: one day of unreachability is not evidence about the source; it is evidence that the
+product needs availability handling.
+Alternative: drop COD now.

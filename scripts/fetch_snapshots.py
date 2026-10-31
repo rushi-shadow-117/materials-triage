@@ -15,6 +15,7 @@ import hashlib
 import io
 import json
 import os
+import statistics
 import sys
 import zipfile
 from datetime import UTC, datetime
@@ -39,6 +40,13 @@ SNAPSHOTS: dict[str, dict[str, str]] = {
         "inner_name": "jdft_3d-12-12-2022.json",
         "source_of_url": "usnistgov/jarvis jarvis/db/figshare.py, key dft_3d",
         "citation": "https://www.nature.com/articles/s41524-020-00440-1",
+    },
+    "expt_gap": {
+        "url": "https://ndownloader.figshare.com/files/13464434",
+        "expected_sha256": "2d0980e3533c1ba6ad6e392a88f08cfcf2d311d4b7fe6eb0b0c8e876211dfda3",
+        "source_of_url": "hackingmaterials/matminer matminer/datasets/dataset_metadata.json",
+        "citation": "Zhuo, Mansouri Tehrani, Brgoch, J. Phys. Chem. Lett. 9, 1668 (2018), SI",
+        "note": "Full compendium of experimental gaps; compositions repeat with differing values.",
     },
     "matbench_expt_gap": {
         "url": "https://ml.materialsproject.org/projects/matbench_expt_gap.json.gz",
@@ -95,38 +103,67 @@ def slice_jarvis(raw: Path) -> dict[str, Any]:
     mp_like = [k for k in keys if "mp" in k.lower() or "materials_project" in k.lower()]
     hits = [d for d in data if reduced(d.get("formula", "")) in TARGETS]
     (OUT / "jarvis_dft_3d.slice.json").write_text(json.dumps(hits, indent=1, default=str) + "\n")
+    with_icsd = sum(1 for d in hits if parse_icsd(d.get("icsd")))
+    na_fields = sorted({k for d in hits for k, v in d.items() if v == "na"})
     print(f"  jarvis keys ({len(keys)}): {keys}")
     print(f"  jarvis keys that look like MP ids: {mp_like or 'none'}")
     print(f"  jarvis entries total={len(data)} matching={len(hits)}")
+    print(f"  jarvis slice records with >=1 ICSD id: {with_icsd} of {len(hits)}")
+    print(f"  jarvis fields using the 'na' sentinel in the slice: {na_fields}")
     return {
         "inner_file": inner,
         "entries_total": len(data),
         "entries_in_slice": len(hits),
         "record_keys": keys,
         "mp_id_like_keys": mp_like,
+        "icsd_field": "comma-separated string of ICSD ids, empty when none",
+        "slice_records_with_icsd": with_icsd,
+        "na_sentinel_fields_in_slice": na_fields,
     }
 
 
-def slice_matbench(raw: Path) -> dict[str, Any]:
+def parse_icsd(value: Any) -> set[int]:
+    """JARVIS stores ICSD ids as a comma-separated string; empty means none."""
+    if not isinstance(value, str) or not value.strip():
+        return set()
+    return {int(tok) for tok in (t.strip() for t in value.split(",")) if tok.isdigit()}
+
+
+def slice_gap_table(raw: Path, name: str) -> dict[str, Any]:
+    """Slice a matminer gap table (pandas split orient) and report spread per composition."""
     with gzip.open(raw, "rt", encoding="utf-8") as f:
         data = json.load(f)
-    # matminer stores pandas "split" orient: {"columns": [...], "index": [...], "data": [[...]]}
     cols = data["columns"]
     rows = [dict(zip(cols, r, strict=True)) for r in data["data"]]
-    ci = "composition"
+    comp_col = "composition" if "composition" in cols else "formula"
     gap_col = [c for c in cols if "gap" in c][0]
     zeros = sum(1 for r in rows if r[gap_col] == 0)
-    hits = [r for r in rows if reduced(r[ci]) in TARGETS]
-    (OUT / "matbench_expt_gap.slice.json").write_text(json.dumps(hits, indent=1) + "\n")
-    print(f"  matbench columns: {cols}")
-    print(f"  matbench rows={len(rows)} zero_gap={zeros} matching={len(hits)}")
+    hits = [r for r in rows if reduced(r[comp_col]) in TARGETS]
+    (OUT / f"{name}.slice.json").write_text(json.dumps(hits, indent=1) + "\n")
+    by_comp: dict[str, list[float]] = {}
     for r in hits:
-        print(f"    {r[ci]:10s} {r[gap_col]}")
+        key = reduced(r[comp_col]) or r[comp_col]
+        by_comp.setdefault(key, []).append(float(r[gap_col]))
+    spread: dict[str, dict[str, float | int]] = {}
+    print(f"  {name} columns: {cols}")
+    print(f"  {name} rows={len(rows)} zero_gap={zeros} matching={len(hits)}")
+    for key in sorted(by_comp):
+        vals = sorted(by_comp[key])
+        med = statistics.median(vals)
+        spread[key] = {"n": len(vals), "min": vals[0], "median": med, "max": vals[-1]}
+        print(
+            f"    {key:8s} n={len(vals):3d} min={vals[0]:.2f} median={med:.2f} max={vals[-1]:.2f}"
+        )
+    missing = sorted(TARGETS - set(by_comp))
+    print(f"  {name} compositions absent: {missing}")
     return {
         "columns": cols,
+        "composition_column": comp_col,
         "entries_total": len(rows),
         "entries_with_zero_gap": zeros,
         "entries_in_slice": len(hits),
+        "spread_by_composition": spread,
+        "target_compositions_absent": missing,
     }
 
 
@@ -140,21 +177,18 @@ def main() -> int:
         "snapshots": {},
     }
 
-    print("[matbench_expt_gap]")
-    spec = SNAPSHOTS["matbench_expt_gap"]
-    raw = cache / "matbench_expt_gap.json.gz"
-    download(spec["url"], raw)
-    digest = sha256_file(raw)
-    entry: dict[str, Any] = {
-        **spec,
-        "local_file": raw.name,
-        "sha256": digest,
-        "bytes": raw.stat().st_size,
-    }
-    entry["sha256_matches_matminer"] = digest == spec["expected_sha256"]
-    print(f"  sha256={digest} matches_matminer={entry['sha256_matches_matminer']}")
-    entry.update(slice_matbench(raw))
-    manifest["snapshots"]["matbench_expt_gap"] = entry
+    entry: dict[str, Any]
+    for name in ("matbench_expt_gap", "expt_gap"):
+        print(f"[{name}]")
+        spec = SNAPSHOTS[name]
+        raw = cache / f"{name}.json.gz"
+        download(spec["url"], raw)
+        digest = sha256_file(raw)
+        entry = {**spec, "local_file": raw.name, "sha256": digest, "bytes": raw.stat().st_size}
+        entry["sha256_matches_matminer"] = digest == spec["expected_sha256"]
+        print(f"  sha256={digest} matches_matminer={entry['sha256_matches_matminer']}")
+        entry.update(slice_gap_table(raw, name))
+        manifest["snapshots"][name] = entry
 
     print("[jarvis_dft_3d]")
     spec = SNAPSHOTS["jarvis_dft_3d"]
