@@ -25,7 +25,12 @@ from materials_triage.adapters import expt_gap, jarvis, mp, openalex, pubchem
 from materials_triage.adapters.common import reduced_formula
 from materials_triage.adapters.recording import ADAPTER_CASSETTES, ROOT, make_vcr
 from materials_triage.adapters.transport import TIMEOUT, USER_AGENT, HttpxTransport
-from materials_triage.records import CompositionGroup, ExperimentalGapAggregate, Polymorph
+from materials_triage.records import (
+    CompositionGroup,
+    ExperimentalGapAggregate,
+    LiteratureSearchResult,
+    Polymorph,
+)
 from materials_triage.records.groups import build_group, merge_matches
 from materials_triage.settings import Settings
 
@@ -186,11 +191,10 @@ def load_groups(
     return out
 
 
-def literature_state(group: CompositionGroup) -> str:
+def literature_state(lit: LiteratureSearchResult | None) -> str:
     """has_abstracts | no_abstract (works matched, none with an abstract) | no_match (no work
     matched the query at all). The last two are both evidence tier "no abstract", never
     "no support"; the sub-state is shown so the reader knows which."""
-    lit = group.literature
     if lit is None or (lit.matched_total or 0) == 0:
         return "no_match"
     if not lit.hits:
@@ -201,9 +205,9 @@ def literature_state(group: CompositionGroup) -> str:
 def no_abstract_compositions(groups: dict[str, LoadedGroup]) -> dict[str, str]:
     """Composition -> sub-state for every group without a usable abstract."""
     return {
-        k: literature_state(g.group)
+        k: literature_state(g.group.literature)
         for k, g in sorted(groups.items())
-        if literature_state(g.group) != "has_abstracts"
+        if literature_state(g.group.literature) != "has_abstracts"
     }
 
 
