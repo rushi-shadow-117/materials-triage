@@ -45,6 +45,9 @@ class CriterionResult:
 
     def to_score(self, criterion: str, weight: float) -> CriterionScore:
         contribution = 0.0 if self.normalized is None else self.normalized * weight
+        reason = self.missing_reason
+        if self.missing and reason is None and self.exclusion is not None:
+            reason = f"excluded by {self.exclusion.rule.value}"
         return CriterionScore(
             criterion=criterion,
             raw_value=self.raw_value,
@@ -54,7 +57,7 @@ class CriterionResult:
             weight=weight,
             contribution=contribution,
             missing=self.missing,
-            missing_reason=self.missing_reason if self.missing else None,
+            missing_reason=reason if self.missing else None,
             provenance=self.provenance,
             notes=list(self.notes),
         )
