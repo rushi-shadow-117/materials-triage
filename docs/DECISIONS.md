@@ -398,6 +398,48 @@ Alternative: one sequential session.
 
 ## Track A: scoring
 
+### 2026-11-02 The bundle carries a polymorph summary; the store keeps the list
+Decision (owner): `Candidate.group` and `Anchor.group` are a `CompositionSummary`: a
+`PolymorphSummary` (ground state, lowest observed, the scored polymorph, observed, theoretical
+and unknown counts, the five lowest polymorphs by mixed-hull energy, each row with its
+provenance and any polymorph-level exclusion rule) plus the composition-level experimental
+gaps, reference values, hazard record, and literature result. The full polymorph list stays in
+the provenance store and is referenced by `composition_id`, the pymatgen reduced formula that
+is the `composition` column of `triage.records`
+(`Store.records_for(source="materials_project", kind="mp_summary", composition=id)`).
+`CompositionGroup` remains the in-memory object the scorer reads. `BUNDLE_VERSION` is 2.
+Reason: the sample bundle with full groups was 3.5 MB for eleven oxides, mostly provenance
+repeated per polymorph; the user-facing views need the ground state, the observed alternative,
+and a short list. The store already holds every record.
+Alternative: full groups in the bundle (Track 0 sample), or ids only with no rows.
+
+### 2026-11-02 Exclusion rules, flags, and caveat ids are closed vocabularies
+Decision: `ExclusionRule`, `Flag`, and `CaveatId` enums in `records/bundle.py` name every
+value the scorer can emit; `Exclusion.rule`, `Candidate.flags`, and `Caveat.id` are typed on
+them, and a `Caveat` carries a `subject` (element or composition) and the config entry that
+holds its text. `CriterionScore.provenance` carries the record each scored number came from,
+since the full group is no longer in the bundle.
+Reason: Track B resolves text against these ids; a free string would let a typo become a
+silent missing caveat.
+Alternative: free strings with a shared constants module.
+
+### 2026-11-02 Default profile renamed; optional criteria added to CRITERIA
+Decision (owner): `config/scoring_profiles/oxide_dielectric_thin_film.yaml` replaces
+`gate_dielectric_on_si.yaml` (same owner-sourced entries; `default_paths()`, the API stub, and
+the CLI default repointed). `CRITERIA` in `config/schema.py` gains `deposition_method` and
+`cost`, both weight 0 by default (`OPTIONAL_CRITERIA`), so site weight bounds and query
+clamping govern them like the other criteria. The owner approved these two frozen-file edits
+on 2026-11-02 as part of the Track A contract commit.
+Reason: the profile name describes the use case the brief states; optional criteria that
+cannot be weighted through `resolve()` would need a second configuration path.
+Alternative: a separate `config/profiles/` directory; optional criteria outside `resolve()`.
+
+### 2026-11-02 Store tests skip without Postgres
+Decision: the autouse table-cleanup fixture in `tests/conftest.py` does nothing when Postgres
+is unreachable, so store and replay tests skip through `requires_db` instead of every test
+erroring in cleanup.
+Reason: parallel tracks run the suite in worktrees that may not have Compose up.
+
 ## Track B: agent, verifier, renderers, CLI
 
 ## Track C: API and web

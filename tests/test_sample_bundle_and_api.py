@@ -31,9 +31,12 @@ def test_sample_bundle_validates_and_has_the_planned_shape() -> None:
     assert len(bundle.missing_properties) == 7
     assert bundle.verifier is not None and bundle.verifier.passed is False
     for c in bundle.candidates:
-        for p in c.group.polymorphs:
-            assert all(
-                v.value is not None or v.missing_reason is not None for v in p.hull_energy.values()
+        summary = c.group.polymorphs
+        assert 0 < len(summary.top_by_hull) <= 5 and summary.total >= len(summary.top_by_hull)
+        assert summary.ground_state is not None and summary.scored is not None
+        for row in summary.top_by_hull:
+            assert row.hull_energy is None or (
+                row.hull_energy.value is not None or row.hull_energy.missing_reason is not None
             )
 
 
@@ -43,7 +46,7 @@ def test_api_stubs_serve_the_sample_bundle() -> None:
     assert runs and runs[0]["status"] == "completed"
     run_id = runs[0]["run_id"]
     body = client.get(f"/runs/{run_id}").json()
-    assert body["bundle_version"] == 1 and len(body["candidates"]) == 10
+    assert body["bundle_version"] == 2 and len(body["candidates"]) == 10
     assert client.get("/runs/sample").status_code == 200
     assert client.get("/runs/nope").status_code == 404
     events = client.get(f"/runs/{run_id}/events").text
@@ -51,7 +54,7 @@ def test_api_stubs_serve_the_sample_bundle() -> None:
     eff = client.get("/config/effective").json()
     assert eff["effective"]["weights"]["dielectric_constant"] == 0.0 and eff["clamps"] == []
     profiles = client.get("/profiles").json()
-    assert profiles[0]["name"] == "gate_dielectric_on_si"
+    assert profiles[0]["name"] == "oxide_dielectric_thin_film"
     accepted = client.post("/runs", json={"request_text": "oxide dielectrics"}).json()
     assert accepted["run_id"] == run_id
     assert (

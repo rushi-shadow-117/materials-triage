@@ -22,7 +22,9 @@ NOT_IMPLEMENTED = "not implemented (Track B)"
 @app.command()
 def query(
     request: Annotated[str, typer.Argument(help="Natural-language request from the PI")],
-    profile: Annotated[str, typer.Option(help="Scoring profile name")] = "gate_dielectric_on_si",
+    profile: Annotated[
+        str, typer.Option(help="Scoring profile name")
+    ] = "oxide_dielectric_thin_film",
     yes: Annotated[
         bool, typer.Option("--yes", help="Skip the parsed-criteria confirmation")
     ] = False,
@@ -43,7 +45,7 @@ def query(
 @app.command()
 def rank(
     formulas: Annotated[list[str], typer.Option("--formulas", help="Candidate formulas or MP ids")],
-    profile: Annotated[str, typer.Option()] = "gate_dielectric_on_si",
+    profile: Annotated[str, typer.Option()] = "oxide_dielectric_thin_film",
 ) -> None:
     """Rank a PI-supplied candidate list on the same criteria as discovery."""
     typer.echo(NOT_IMPLEMENTED)

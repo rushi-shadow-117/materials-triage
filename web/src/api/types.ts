@@ -139,9 +139,14 @@ export interface components {
     schemas: {
         /** Anchor */
         Anchor: {
+            /** Caveats */
+            caveats?: components["schemas"]["Caveat"][];
             /** Composition */
             composition: string;
-            group: components["schemas"]["CompositionGroup"];
+            excluded?: components["schemas"]["Exclusion"] | null;
+            /** Flags */
+            flags?: components["schemas"]["Flag"][];
+            group: components["schemas"]["CompositionSummary"];
             /** Out Of */
             out_of: number;
             score: components["schemas"]["ScoreBreakdown"] | null;
@@ -151,13 +156,13 @@ export interface components {
         /** Candidate */
         Candidate: {
             /** Caveats */
-            caveats?: string[];
+            caveats?: components["schemas"]["Caveat"][];
             /** Composition */
             composition: string;
             excluded: components["schemas"]["Exclusion"] | null;
             /** Flags */
-            flags?: string[];
-            group: components["schemas"]["CompositionGroup"];
+            flags?: components["schemas"]["Flag"][];
+            group: components["schemas"]["CompositionSummary"];
             /** Rank */
             rank: number | null;
             /** Rationale Slot */
@@ -165,6 +170,21 @@ export interface components {
             score: components["schemas"]["ScoreBreakdown"] | null;
             sensitivity?: components["schemas"]["RankStability"] | null;
         };
+        /** Caveat */
+        Caveat: {
+            id: components["schemas"]["CaveatId"];
+            /** Source Ref */
+            source_ref?: string | null;
+            /** Subject */
+            subject?: string | null;
+        };
+        /**
+         * CaveatId
+         * @description Caveat texts live in config; the id names the entry. `subject` carries the element or
+         *     composition the text is about.
+         * @enum {string}
+         */
+        CaveatId: "band_offsets_not_checked" | "stability_cutoff_hull_mismatch" | "experimental_gap_composition_level" | "experimental_gap_unreferenced" | "reference_value_pending" | "hazard_flag" | "hazard_unknown" | "process_hazard" | "attribution_echa" | "anion_undetermined" | "evidence_unclassified" | "enrichment_missing";
         /**
          * Clamp
          * @description A query setting moved into the site's bounds, shown to the user.
@@ -179,21 +199,16 @@ export interface components {
             /** Setting */
             setting: string;
         };
-        /** CompositionGroup */
-        CompositionGroup: {
+        /** CompositionSummary */
+        CompositionSummary: {
             /** Composition */
             composition: string;
             experimental_gaps: components["schemas"]["ExperimentalGapAggregate"] | null;
-            /** Ground State Is Theoretical */
-            ground_state_is_theoretical: boolean | null;
-            /** Ground State Mp */
-            ground_state_mp: string | null;
             hazard: components["schemas"]["HazardRecord"] | null;
             literature: components["schemas"]["LiteratureSearchResult"] | null;
-            /** Lowest Observed Mp */
-            lowest_observed_mp: string | null;
-            /** Polymorphs */
-            polymorphs: components["schemas"]["Polymorph"][];
+            polymorphs: components["schemas"]["PolymorphSummary"];
+            /** Reference Values */
+            reference_values?: components["schemas"]["ReferenceValue"][];
         };
         /**
          * ConfirmedCriteria
@@ -233,6 +248,7 @@ export interface components {
             normalized: number | null;
             /** Notes */
             notes?: string[];
+            provenance?: components["schemas"]["Provenance"] | null;
             /** Raw Unit */
             raw_unit: string | null;
             /** Raw Value */
@@ -293,11 +309,16 @@ export interface components {
         Exclusion: {
             /** Detail */
             detail: string;
-            /** Rule */
-            rule: string;
+            rule: components["schemas"]["ExclusionRule"];
             /** Source Ref */
             source_ref?: string | null;
         };
+        /**
+         * ExclusionRule
+         * @description Why a candidate (or a single polymorph) is out. Values are the strings shown to users.
+         * @enum {string}
+         */
+        ExclusionRule: "stability.cutoff" | "band_gap.hard_min" | "band_gap.hard_max" | "hazard.radioactive_exclude" | "hazard.exclude" | "hazard.acute_toxicity.element" | "hazard.acute_toxicity.compound" | "hazard.acute_toxicity.ghs" | "simplicity.max_elements" | "simplicity.anion_policy" | "evidence.tier_min" | "data.no_scorable_criteria" | "license.non_commercial" | "deprecated";
         /** ExperimentalGap */
         ExperimentalGap: {
             /** Composition */
@@ -330,6 +351,12 @@ export interface components {
          * @enum {string}
          */
         FetchMode: "live" | "replay" | "refresh";
+        /**
+         * Flag
+         * @description Row-level conditions the renderer shows beside the rank. Never change a score.
+         * @enum {string}
+         */
+        Flag: "hull_status_conflict" | "near_cutoff" | "ground_state_is_theoretical" | "polymorph_requested" | "band_gap_conflict" | "band_gap_single_source" | "band_gap_sources_uncompared" | "hazard_flag" | "hazard_unknown" | "process_hazard" | "anion_undetermined" | "evidence_unclassified" | "enrichment_missing";
         /** HTTPValidationError */
         HTTPValidationError: {
             /** Detail */
@@ -362,21 +389,6 @@ export interface components {
             references: string[];
             /** Synonyms */
             synonyms: string[];
-        };
-        /** Ids */
-        Ids: {
-            /** Cod */
-            cod?: string[];
-            /** Icsd */
-            icsd?: number[];
-            /** Jarvis Jid */
-            jarvis_jid?: string | null;
-            /** Mp */
-            mp?: string | null;
-            /** Mp Raw */
-            mp_raw?: string | null;
-            /** Oqmd */
-            oqmd?: string | null;
         };
         /** LiteratureHit */
         LiteratureHit: {
@@ -426,11 +438,6 @@ export interface components {
             scope: string;
         };
         /**
-         * MatchRule
-         * @enum {string}
-         */
-        MatchRule: "icsd_intersection" | "composition_spacegroup";
-        /**
          * MissingPropertyMarker
          * @description A property the screen never estimates, shown as missing on every row.
          */
@@ -447,57 +454,62 @@ export interface components {
          * @enum {string}
          */
         MissingReason: "absent" | "na_sentinel" | "not_computed" | "not_fetched" | "pending_verification";
+        /** PolymorphSummary */
+        PolymorphSummary: {
+            /** Composition Id */
+            composition_id: string;
+            ground_state: components["schemas"]["PolymorphSummaryRow"] | null;
+            /** Ground State Is Theoretical */
+            ground_state_is_theoretical: boolean | null;
+            lowest_observed: components["schemas"]["PolymorphSummaryRow"] | null;
+            /** Observed Count */
+            observed_count: number;
+            scored: components["schemas"]["PolymorphSummaryRow"] | null;
+            /** Theoretical Count */
+            theoretical_count: number;
+            /** Top By Hull */
+            top_by_hull?: components["schemas"]["PolymorphSummaryRow"][];
+            /** Total */
+            total: number;
+            /** Unknown Count */
+            unknown_count: number;
+        };
         /**
-         * ObservationEvidence
-         * @enum {string}
+         * PolymorphSummaryRow
+         * @description One polymorph as the bundle shows it. Values keep their provenance.
          */
-        ObservationEvidence: "mp_theoretical_false" | "mp_icsd_ids" | "jarvis_icsd_ids" | "cod_hit";
-        /** Polymorph */
-        Polymorph: {
+        PolymorphSummaryRow: {
             /** Band Gap */
             band_gap?: {
                 [key: string]: components["schemas"]["Value_float_"];
             };
-            /** Composition */
-            composition: string;
-            /**
-             * Deprecated
-             * @default false
-             */
-            deprecated: boolean;
             /** Dielectric */
             dielectric?: {
                 [key: string]: components["schemas"]["Value_float_"];
             };
-            /** Hull Energy */
-            hull_energy?: {
-                [key: string]: components["schemas"]["Value_float_"];
-            };
+            excluded_rule?: components["schemas"]["ExclusionRule"] | null;
+            hull_energy: components["schemas"]["Value_float_"] | null;
             /**
              * Hull Status Conflict
              * @default false
              */
             hull_status_conflict: boolean;
-            ids: components["schemas"]["Ids"];
             /** Is Stable */
             is_stable?: {
                 [key: string]: boolean;
             };
-            /** License */
-            license?: string | null;
-            matched_by?: components["schemas"]["MatchRule"] | null;
-            /** Observation Evidence */
-            observation_evidence?: components["schemas"]["ObservationEvidence"][];
+            /** Jarvis Jid */
+            jarvis_jid?: string | null;
+            /** Mp Id */
+            mp_id: string | null;
             /** Observed */
             observed: boolean | null;
-            /** Provenance */
-            provenance?: components["schemas"]["Provenance"][];
             /** Spacegroup Number */
             spacegroup_number: number | null;
             /** Spacegroup Symbol */
             spacegroup_symbol: string | null;
             /** Theoretical */
-            theoretical?: boolean | null;
+            theoretical: boolean | null;
         };
         /** ProfileSummary */
         ProfileSummary: {
@@ -540,7 +552,7 @@ export interface components {
             }[];
             /**
              * Bundle Version
-             * @default 1
+             * @default 2
              */
             bundle_version: number;
             /** Candidates */
@@ -623,6 +635,30 @@ export interface components {
             /** Verified */
             verified: boolean;
         };
+        /** ReferenceValue */
+        ReferenceValue: {
+            /** Citation */
+            citation: string;
+            /** Composition */
+            composition: string;
+            /** Entry Id */
+            entry_id: string;
+            /** Form */
+            form: string;
+            /** Property */
+            property: string;
+            provenance: components["schemas"]["Provenance"];
+            /** Status */
+            status: string;
+            /** Url */
+            url: string | null;
+            value: components["schemas"]["Value_float_"] | null;
+            /** Value Range */
+            value_range: [
+                number,
+                number
+            ] | null;
+        };
         /** RefreshRequest */
         RefreshRequest: {
             /** Reason */
@@ -694,7 +730,7 @@ export interface components {
             confirm: boolean;
             /**
              * Profile
-             * @default gate_dielectric_on_si
+             * @default oxide_dielectric_thin_film
              */
             profile: string;
             /** Request Text */

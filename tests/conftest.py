@@ -40,9 +40,18 @@ def maint_engine() -> Engine:
     return make_engine(SETTINGS.database_url_maint)
 
 
+DB_REACHABLE = _reachable(SETTINGS.database_url_migrate)
+
+
 @pytest.fixture(autouse=True)
-def clean_tables(migrate_engine: Engine) -> Iterator[None]:
-    """The owner role empties the tables around each test; the app role never could."""
+def clean_tables(request: pytest.FixtureRequest) -> Iterator[None]:
+    """The owner role empties the tables around each test; the app role never could.
+    Without Postgres this does nothing, so tests that need the store skip (requires_db)
+    instead of every test erroring on the cleanup."""
+    if not DB_REACHABLE:
+        yield
+        return
+    migrate_engine: Engine = request.getfixturevalue("migrate_engine")
     with migrate_engine.begin() as conn:
         for t in (
             "fetch_events",

@@ -84,7 +84,17 @@ TEMPLATE_FRAGMENTS: dict[str, dict[str, str]] = {
     "view": {v.value: f"view.{v.value}" for v in View},
 }
 
-CRITERIA = ("stability", "band_gap", "hazard", "simplicity", "evidence", "dielectric_constant")
+CRITERIA = (
+    "stability",
+    "band_gap",
+    "hazard",
+    "simplicity",
+    "evidence",
+    "dielectric_constant",
+    "deposition_method",
+    "cost",
+)
+OPTIONAL_CRITERIA = ("dielectric_constant", "deposition_method", "cost")  # weight 0 by default
 
 # ----------------------------------------------------------------------------- core (code-owned)
 
@@ -209,7 +219,7 @@ class ScoringProfile(Strict):
     name: str
     version: str = "0"
     weights: dict[str, float] = Field(
-        default_factory=lambda: {c: (0.0 if c == "dielectric_constant" else 1.0) for c in CRITERIA}
+        default_factory=lambda: {c: (0.0 if c in OPTIONAL_CRITERIA else 1.0) for c in CRITERIA}
     )
     stability: StabilitySettings
     band_gap: BandGapSettings
@@ -473,7 +483,7 @@ def site_profile_from_yaml(path: Path) -> SiteProfile:
 
 def default_paths() -> dict[str, Path]:
     return {
-        "scoring_profile": CONFIG_DIR / "scoring_profiles" / "gate_dielectric_on_si.yaml",
+        "scoring_profile": CONFIG_DIR / "scoring_profiles" / "oxide_dielectric_thin_film.yaml",
         "site_profile": CONFIG_DIR / "site_profile.default.yaml",
         "hazard_policy": CONFIG_DIR / "hazard_policy.yaml",
         "reference_values": CONFIG_DIR / "reference_values.yaml",

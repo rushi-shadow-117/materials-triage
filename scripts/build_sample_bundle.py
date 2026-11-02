@@ -31,13 +31,17 @@ from materials_triage.records import CompositionGroup, LiteratureSearchResult
 from materials_triage.records.bundle import (
     Anchor,
     Candidate,
+    Caveat,
+    CaveatId,
     ConfirmedCriteria,
     CriterionScore,
     DecisionLogEntry,
     EvidenceHit,
     EvidenceLabel,
     Exclusion,
+    ExclusionRule,
     FetchMode,
+    Flag,
     MissingPropertyMarker,
     ProvenanceBundle,
     RankStability,
@@ -48,6 +52,7 @@ from materials_triage.records.bundle import (
     VerifierReport,
 )
 from materials_triage.records.groups import build_group, merge_matches
+from materials_triage.scoring.polymorphs import summarize_group
 from materials_triage.settings import Settings
 
 OUT = ROOT / "fixtures" / "bundles" / "sample_bundle.json"
@@ -158,14 +163,14 @@ def main() -> int:
         excluded = None
         if els & radioactive:
             excluded = Exclusion(
-                rule="hazard.radioactive_exclude",
+                rule=ExclusionRule.HAZARD_RADIOACTIVE,
                 detail=f"{sorted(els & radioactive)} has no stable isotope",
                 source_ref="config/hazard_policy.yaml#tiers.radioactive_exclude",
             )
         elif els & set(exclude_elements):
             el = sorted(els & set(exclude_elements))[0]
             excluded = Exclusion(
-                rule="hazard.exclude",
+                rule=ExclusionRule.HAZARD_EXCLUDE,
                 detail=exclude_elements[el]["reason"],
                 source_ref=f"config/hazard_policy.yaml#tiers.exclude.{el}",
             )
@@ -278,26 +283,27 @@ def main() -> int:
         flags = [
             f
             for f, on in (
-                ("hull_status_conflict", conflicts[key]),
-                ("band_gap_conflict", gap_conflict),
-                ("ground_state_is_theoretical", bool(g.ground_state_is_theoretical)),
+                (Flag.HULL_STATUS_CONFLICT, conflicts[key]),
+                (Flag.BAND_GAP_CONFLICT, gap_conflict),
+                (Flag.GROUND_STATE_IS_THEORETICAL, bool(g.ground_state_is_theoretical)),
             )
             if on
         ]
+        summary = summarize_group(g, scored=gs, cutoff_mev=94.0)
         if key in profile.anchors:
             anchors.append(
-                Anchor(composition=key, group=g, score=breakdown, would_rank=None, out_of=0)
+                Anchor(composition=key, group=summary, score=breakdown, would_rank=None, out_of=0)
             )
             continue
         candidates.append(
             Candidate(
                 composition=key,
-                group=g,
+                group=summary,
                 score=breakdown,
                 rank=None,
                 excluded=excluded,
                 flags=flags,
-                caveats=["band_offsets_not_checked"],
+                caveats=[Caveat(id=CaveatId.BAND_OFFSETS_NOT_CHECKED)],
                 rationale_slot=f"candidate:{key}:one_line",
             )
         )

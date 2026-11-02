@@ -36,7 +36,7 @@ app = FastAPI(
 
 class RunRequest(BaseModel):
     request_text: str
-    profile: str = "gate_dielectric_on_si"
+    profile: str = "oxide_dielectric_thin_film"
     settings: QuerySettings | None = None
     confirm: bool = False
 
@@ -96,7 +96,7 @@ async def run_events(run_id: str) -> StreamingResponse:
 
 
 @app.get("/config/effective")
-def effective_config(profile: str = "gate_dielectric_on_si") -> dict[str, Any]:
+def effective_config(profile: str = "oxide_dielectric_thin_film") -> dict[str, Any]:
     paths = default_paths()
     prof, notes = scoring_profile_from_yaml(paths["scoring_profile"])
     site = site_profile_from_yaml(paths["site_profile"])

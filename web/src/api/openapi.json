@@ -4,12 +4,36 @@
       "Anchor": {
         "additionalProperties": false,
         "properties": {
+          "caveats": {
+            "items": {
+              "$ref": "#/components/schemas/Caveat"
+            },
+            "title": "Caveats",
+            "type": "array"
+          },
           "composition": {
             "title": "Composition",
             "type": "string"
           },
+          "excluded": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Exclusion"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "flags": {
+            "items": {
+              "$ref": "#/components/schemas/Flag"
+            },
+            "title": "Flags",
+            "type": "array"
+          },
           "group": {
-            "$ref": "#/components/schemas/CompositionGroup"
+            "$ref": "#/components/schemas/CompositionSummary"
           },
           "out_of": {
             "title": "Out Of",
@@ -52,7 +76,7 @@
         "properties": {
           "caveats": {
             "items": {
-              "type": "string"
+              "$ref": "#/components/schemas/Caveat"
             },
             "title": "Caveats",
             "type": "array"
@@ -73,13 +97,13 @@
           },
           "flags": {
             "items": {
-              "type": "string"
+              "$ref": "#/components/schemas/Flag"
             },
             "title": "Flags",
             "type": "array"
           },
           "group": {
-            "$ref": "#/components/schemas/CompositionGroup"
+            "$ref": "#/components/schemas/CompositionSummary"
           },
           "rank": {
             "anyOf": [
@@ -134,6 +158,60 @@
         "title": "Candidate",
         "type": "object"
       },
+      "Caveat": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/CaveatId"
+          },
+          "source_ref": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Ref"
+          },
+          "subject": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Subject"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "title": "Caveat",
+        "type": "object"
+      },
+      "CaveatId": {
+        "description": "Caveat texts live in config; the id names the entry. `subject` carries the element or\ncomposition the text is about.",
+        "enum": [
+          "band_offsets_not_checked",
+          "stability_cutoff_hull_mismatch",
+          "experimental_gap_composition_level",
+          "experimental_gap_unreferenced",
+          "reference_value_pending",
+          "hazard_flag",
+          "hazard_unknown",
+          "process_hazard",
+          "attribution_echa",
+          "anion_undetermined",
+          "evidence_unclassified",
+          "enrichment_missing"
+        ],
+        "title": "CaveatId",
+        "type": "string"
+      },
       "Clamp": {
         "additionalProperties": false,
         "description": "A query setting moved into the site's bounds, shown to the user.",
@@ -162,7 +240,7 @@
         "title": "Clamp",
         "type": "object"
       },
-      "CompositionGroup": {
+      "CompositionSummary": {
         "additionalProperties": false,
         "properties": {
           "composition": {
@@ -178,28 +256,6 @@
                 "type": "null"
               }
             ]
-          },
-          "ground_state_is_theoretical": {
-            "anyOf": [
-              {
-                "type": "boolean"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Ground State Is Theoretical"
-          },
-          "ground_state_mp": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Ground State Mp"
           },
           "hazard": {
             "anyOf": [
@@ -221,36 +277,25 @@
               }
             ]
           },
-          "lowest_observed_mp": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Lowest Observed Mp"
-          },
           "polymorphs": {
+            "$ref": "#/components/schemas/PolymorphSummary"
+          },
+          "reference_values": {
             "items": {
-              "$ref": "#/components/schemas/Polymorph"
+              "$ref": "#/components/schemas/ReferenceValue"
             },
-            "title": "Polymorphs",
+            "title": "Reference Values",
             "type": "array"
           }
         },
         "required": [
           "composition",
           "polymorphs",
-          "ground_state_mp",
-          "ground_state_is_theoretical",
-          "lowest_observed_mp",
           "experimental_gaps",
           "hazard",
           "literature"
         ],
-        "title": "CompositionGroup",
+        "title": "CompositionSummary",
         "type": "object"
       },
       "ConfirmedCriteria": {
@@ -361,6 +406,16 @@
             },
             "title": "Notes",
             "type": "array"
+          },
+          "provenance": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Provenance"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "raw_unit": {
             "anyOf": [
@@ -552,8 +607,7 @@
             "type": "string"
           },
           "rule": {
-            "title": "Rule",
-            "type": "string"
+            "$ref": "#/components/schemas/ExclusionRule"
           },
           "source_ref": {
             "anyOf": [
@@ -573,6 +627,27 @@
         ],
         "title": "Exclusion",
         "type": "object"
+      },
+      "ExclusionRule": {
+        "description": "Why a candidate (or a single polymorph) is out. Values are the strings shown to users.",
+        "enum": [
+          "stability.cutoff",
+          "band_gap.hard_min",
+          "band_gap.hard_max",
+          "hazard.radioactive_exclude",
+          "hazard.exclude",
+          "hazard.acute_toxicity.element",
+          "hazard.acute_toxicity.compound",
+          "hazard.acute_toxicity.ghs",
+          "simplicity.max_elements",
+          "simplicity.anion_policy",
+          "evidence.tier_min",
+          "data.no_scorable_criteria",
+          "license.non_commercial",
+          "deprecated"
+        ],
+        "title": "ExclusionRule",
+        "type": "string"
       },
       "ExperimentalGap": {
         "additionalProperties": false,
@@ -656,6 +731,26 @@
           "refresh"
         ],
         "title": "FetchMode",
+        "type": "string"
+      },
+      "Flag": {
+        "description": "Row-level conditions the renderer shows beside the rank. Never change a score.",
+        "enum": [
+          "hull_status_conflict",
+          "near_cutoff",
+          "ground_state_is_theoretical",
+          "polymorph_requested",
+          "band_gap_conflict",
+          "band_gap_single_source",
+          "band_gap_sources_uncompared",
+          "hazard_flag",
+          "hazard_unknown",
+          "process_hazard",
+          "anion_undetermined",
+          "evidence_unclassified",
+          "enrichment_missing"
+        ],
+        "title": "Flag",
         "type": "string"
       },
       "HTTPValidationError": {
@@ -781,71 +876,6 @@
           "provenance"
         ],
         "title": "HazardRecord",
-        "type": "object"
-      },
-      "Ids": {
-        "additionalProperties": false,
-        "properties": {
-          "cod": {
-            "items": {
-              "type": "string"
-            },
-            "title": "Cod",
-            "type": "array"
-          },
-          "icsd": {
-            "items": {
-              "type": "integer"
-            },
-            "title": "Icsd",
-            "type": "array"
-          },
-          "jarvis_jid": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Jarvis Jid"
-          },
-          "mp": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Mp"
-          },
-          "mp_raw": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Mp Raw"
-          },
-          "oqmd": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Oqmd"
-          }
-        },
-        "title": "Ids",
         "type": "object"
       },
       "LiteratureHit": {
@@ -1057,14 +1087,6 @@
         "title": "LiteratureSearchResult",
         "type": "object"
       },
-      "MatchRule": {
-        "enum": [
-          "icsd_intersection",
-          "composition_spacegroup"
-        ],
-        "title": "MatchRule",
-        "type": "string"
-      },
       "MissingPropertyMarker": {
         "additionalProperties": false,
         "description": "A property the screen never estimates, shown as missing on every row.",
@@ -1101,18 +1123,95 @@
         "title": "MissingReason",
         "type": "string"
       },
-      "ObservationEvidence": {
-        "enum": [
-          "mp_theoretical_false",
-          "mp_icsd_ids",
-          "jarvis_icsd_ids",
-          "cod_hit"
-        ],
-        "title": "ObservationEvidence",
-        "type": "string"
-      },
-      "Polymorph": {
+      "PolymorphSummary": {
         "additionalProperties": false,
+        "properties": {
+          "composition_id": {
+            "title": "Composition Id",
+            "type": "string"
+          },
+          "ground_state": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PolymorphSummaryRow"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "ground_state_is_theoretical": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ground State Is Theoretical"
+          },
+          "lowest_observed": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PolymorphSummaryRow"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "observed_count": {
+            "title": "Observed Count",
+            "type": "integer"
+          },
+          "scored": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PolymorphSummaryRow"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "theoretical_count": {
+            "title": "Theoretical Count",
+            "type": "integer"
+          },
+          "top_by_hull": {
+            "items": {
+              "$ref": "#/components/schemas/PolymorphSummaryRow"
+            },
+            "title": "Top By Hull",
+            "type": "array"
+          },
+          "total": {
+            "title": "Total",
+            "type": "integer"
+          },
+          "unknown_count": {
+            "title": "Unknown Count",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "composition_id",
+          "total",
+          "observed_count",
+          "theoretical_count",
+          "unknown_count",
+          "ground_state",
+          "ground_state_is_theoretical",
+          "lowest_observed",
+          "scored"
+        ],
+        "title": "PolymorphSummary",
+        "type": "object"
+      },
+      "PolymorphSummaryRow": {
+        "additionalProperties": false,
+        "description": "One polymorph as the bundle shows it. Values keep their provenance.",
         "properties": {
           "band_gap": {
             "additionalProperties": {
@@ -1121,15 +1220,6 @@
             "title": "Band Gap",
             "type": "object"
           },
-          "composition": {
-            "title": "Composition",
-            "type": "string"
-          },
-          "deprecated": {
-            "default": false,
-            "title": "Deprecated",
-            "type": "boolean"
-          },
           "dielectric": {
             "additionalProperties": {
               "$ref": "#/components/schemas/Value_float_"
@@ -1137,20 +1227,30 @@
             "title": "Dielectric",
             "type": "object"
           },
+          "excluded_rule": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ExclusionRule"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "hull_energy": {
-            "additionalProperties": {
-              "$ref": "#/components/schemas/Value_float_"
-            },
-            "title": "Hull Energy",
-            "type": "object"
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Value_float_"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "hull_status_conflict": {
             "default": false,
             "title": "Hull Status Conflict",
             "type": "boolean"
-          },
-          "ids": {
-            "$ref": "#/components/schemas/Ids"
           },
           "is_stable": {
             "additionalProperties": {
@@ -1159,7 +1259,7 @@
             "title": "Is Stable",
             "type": "object"
           },
-          "license": {
+          "jarvis_jid": {
             "anyOf": [
               {
                 "type": "string"
@@ -1168,24 +1268,18 @@
                 "type": "null"
               }
             ],
-            "title": "License"
+            "title": "Jarvis Jid"
           },
-          "matched_by": {
+          "mp_id": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/MatchRule"
+                "type": "string"
               },
               {
                 "type": "null"
               }
-            ]
-          },
-          "observation_evidence": {
-            "items": {
-              "$ref": "#/components/schemas/ObservationEvidence"
-            },
-            "title": "Observation Evidence",
-            "type": "array"
+            ],
+            "title": "Mp Id"
           },
           "observed": {
             "anyOf": [
@@ -1197,13 +1291,6 @@
               }
             ],
             "title": "Observed"
-          },
-          "provenance": {
-            "items": {
-              "$ref": "#/components/schemas/Provenance"
-            },
-            "title": "Provenance",
-            "type": "array"
           },
           "spacegroup_number": {
             "anyOf": [
@@ -1240,13 +1327,14 @@
           }
         },
         "required": [
-          "composition",
+          "mp_id",
           "spacegroup_number",
           "spacegroup_symbol",
-          "ids",
-          "observed"
+          "hull_energy",
+          "observed",
+          "theoretical"
         ],
-        "title": "Polymorph",
+        "title": "PolymorphSummaryRow",
         "type": "object"
       },
       "ProfileSummary": {
@@ -1370,7 +1458,7 @@
             "type": "array"
           },
           "bundle_version": {
-            "default": 1,
+            "default": 2,
             "title": "Bundle Version",
             "type": "integer"
           },
@@ -1624,6 +1712,94 @@
         "title": "RationaleSlot",
         "type": "object"
       },
+      "ReferenceValue": {
+        "additionalProperties": false,
+        "properties": {
+          "citation": {
+            "title": "Citation",
+            "type": "string"
+          },
+          "composition": {
+            "title": "Composition",
+            "type": "string"
+          },
+          "entry_id": {
+            "title": "Entry Id",
+            "type": "string"
+          },
+          "form": {
+            "title": "Form",
+            "type": "string"
+          },
+          "property": {
+            "title": "Property",
+            "type": "string"
+          },
+          "provenance": {
+            "$ref": "#/components/schemas/Provenance"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          },
+          "url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Url"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Value_float_"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "value_range": {
+            "anyOf": [
+              {
+                "maxItems": 2,
+                "minItems": 2,
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Value Range"
+          }
+        },
+        "required": [
+          "entry_id",
+          "composition",
+          "property",
+          "value",
+          "value_range",
+          "form",
+          "status",
+          "citation",
+          "url",
+          "provenance"
+        ],
+        "title": "ReferenceValue",
+        "type": "object"
+      },
       "RefreshRequest": {
         "properties": {
           "reason": {
@@ -1807,7 +1983,7 @@
             "type": "boolean"
           },
           "profile": {
-            "default": "gate_dielectric_on_si",
+            "default": "oxide_dielectric_thin_film",
             "title": "Profile",
             "type": "string"
           },
@@ -2144,7 +2320,7 @@
             "name": "profile",
             "required": false,
             "schema": {
-              "default": "gate_dielectric_on_si",
+              "default": "oxide_dielectric_thin_film",
               "title": "Profile",
               "type": "string"
             }

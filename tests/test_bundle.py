@@ -10,12 +10,14 @@ from materials_triage.records.bundle import (
     ConfirmedCriteria,
     CriterionScore,
     Exclusion,
+    ExclusionRule,
     FetchMode,
     ProvenanceBundle,
     RunMetadata,
     ScoreBreakdown,
 )
 from materials_triage.records.groups import build_group
+from materials_triage.scoring.polymorphs import select_scored, summarize_group
 
 
 def _prov(mp_id: str) -> Provenance:
@@ -48,7 +50,7 @@ def _run() -> RunMetadata:
         started_at=datetime.now(UTC),
         finished_at=None,
         config_sha="c" * 64,
-        profile_name="gate_dielectric_on_si",
+        profile_name="oxide_dielectric_thin_film",
         profile_version="0",
         policy_version="0",
         prompt_hash=None,
@@ -63,6 +65,8 @@ def _run() -> RunMetadata:
 def test_minimal_bundle_round_trips_and_ranks() -> None:
     hfo2 = build_group("HfO2", [_poly("mp-352", "HfO2", 0.0)])
     tho2 = build_group("ThO2", [_poly("mp-643", "ThO2", 0.0)])
+    hfo2_s = summarize_group(hfo2, scored=select_scored(hfo2), cutoff_mev=94.0)
+    tho2_s = summarize_group(tho2, scored=select_scored(tho2), cutoff_mev=94.0)
     score = ScoreBreakdown(
         total=0.8,
         criteria=[
@@ -90,14 +94,14 @@ def test_minimal_bundle_round_trips_and_ranks() -> None:
             effective_settings={},
         ),
         candidates=[
-            Candidate(composition="HfO2", group=hfo2, score=score, rank=1, excluded=None),
+            Candidate(composition="HfO2", group=hfo2_s, score=score, rank=1, excluded=None),
             Candidate(
                 composition="ThO2",
-                group=tho2,
+                group=tho2_s,
                 score=None,
                 rank=None,
                 excluded=Exclusion(
-                    rule="hazard.radioactive",
+                    rule=ExclusionRule.HAZARD_RADIOACTIVE,
                     detail="Th has no stable isotope",
                     source_ref="config/hazard_policy.yaml#radioactive_exclude",
                 ),
@@ -109,11 +113,13 @@ def test_minimal_bundle_round_trips_and_ranks() -> None:
     assert back.bundle_version == BUNDLE_VERSION
     assert [c.composition for c in back.ranked()] == ["HfO2"]
     assert [c.composition for c in back.excluded()] == ["ThO2"]
-    assert back.candidates[0].group.polymorphs[0].hull_energy["GGA_GGA+U_R2SCAN"].value == 0.0
+    gs = back.candidates[0].group.polymorphs.ground_state
+    assert gs is not None and gs.hull_energy is not None and gs.hull_energy.value == 0.0
+    assert back.candidates[0].group.polymorphs.composition_id == "HfO2"
 
 
 def test_unknown_fields_rejected_everywhere() -> None:
     with pytest.raises(ValueError):
         RunMetadata(**{**_run().model_dump(), "extra_field": 1})  # type: ignore[arg-type]
     with pytest.raises(ValueError):
-        Exclusion(rule="x", detail="y", why="z")  # type: ignore[call-arg]
+        Exclusion(rule=ExclusionRule.STABILITY_CUTOFF, detail="y", why="z")  # type: ignore[call-arg]
