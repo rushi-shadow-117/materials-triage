@@ -108,9 +108,7 @@ def test_repo_yaml_files_load_and_only_entered_values_are_usable() -> None:
     assert profile.anchors == ["SiO2"]
     assert any("dielectric" in n for n in notes)
     site = cs.site_profile_from_yaml(paths["site_profile"])
-    assert (
-        len(site.screen_cannot_tell_you) == 7 and site.deposition_methods == []
-    )  # list pending verification
+    assert len(site.screen_cannot_tell_you) == 7 and len(site.deposition_methods) == 9
     for name in ("hazard_policy", "reference_values"):
         entries = cs.entries_with_status(cs.load_yaml(paths[name]))
         assert entries and all(e.status in cs.EntryStatus for _, e in entries)
