@@ -5,7 +5,7 @@ from pathlib import Path
 
 import pytest
 from validation.calibration import calibrate
-from validation.groups import load_groups, load_snapshots
+from validation.groups import LoadedGroup, Snapshots, load_groups, load_snapshots
 from validation.report import run_validation
 from validation.stand_in import NOTE, score_stand_in
 
@@ -25,16 +25,18 @@ BASELINE = [
 
 
 @pytest.fixture(scope="module")
-def snapshots():  # type: ignore[no-untyped-def]
+def snapshots() -> Snapshots:
     return load_snapshots()
 
 
 @pytest.fixture(scope="module")
-def baseline(snapshots):  # type: ignore[no-untyped-def]
+def baseline(snapshots: Snapshots) -> dict[str, LoadedGroup]:
     return load_groups(BASELINE, snapshots=snapshots)
 
 
-def test_calibration_pairs_are_listed_with_n_and_mae(baseline, snapshots) -> None:  # type: ignore[no-untyped-def]
+def test_calibration_pairs_are_listed_with_n_and_mae(
+    baseline: dict[str, LoadedGroup], snapshots: Snapshots
+) -> None:
     rep = calibrate(baseline, snapshots)
     # Nine oxides carry an experimental median; TBmBJ exists for six of them (sample bundle).
     assert rep.pbe.n == 9 and rep.tbmbj.n == 6
@@ -43,13 +45,16 @@ def test_calibration_pairs_are_listed_with_n_and_mae(baseline, snapshots) -> Non
         assert m.mae is not None and m.mae == pytest.approx(sum(p.abs_error for p in m.pairs) / m.n)
         for p in m.pairs:
             assert p.abs_error == pytest.approx(abs(p.computed - p.experimental_median))
-    assert rep.conflict_tolerance_ev == pytest.approx(round(2 * rep.tbmbj.mae, 3))  # type: ignore[arg-type]
+    assert rep.tbmbj.mae is not None
+    assert rep.conflict_tolerance_ev == pytest.approx(round(2 * rep.tbmbj.mae, 3))
     assert len(rep.data_sha256) == 64 and set(rep.snapshot_shas) >= {"jarvis_dft_3d", "expt_gap"}
     tho2 = next(p for p in rep.tbmbj.pairs if p.composition == "ThO2")
     assert tho2.experimental_n == 2  # the owner's conflicting compendium rows stay in, shown
 
 
-def test_calibration_hash_changes_with_the_data(baseline, snapshots) -> None:  # type: ignore[no-untyped-def]
+def test_calibration_hash_changes_with_the_data(
+    baseline: dict[str, LoadedGroup], snapshots: Snapshots
+) -> None:
     full = calibrate(baseline, snapshots)
     fewer = calibrate({k: v for k, v in baseline.items() if k != "HfO2"}, snapshots)
     assert full.data_sha256 != fewer.data_sha256
