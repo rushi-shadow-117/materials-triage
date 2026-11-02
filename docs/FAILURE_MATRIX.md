@@ -30,6 +30,24 @@ rows only under its own heading. Rows name a test path; a row without a test is 
 
 | Failure | Behavior | Test |
 |---|---|---|
+| A weighted criterion rests on a config entry that is not `entered` | Loading the profile fails naming the entry | tests/scoring/test_profile_loader.py::test_weight_on_a_pending_entry_raises |
+| Hull energy is exactly 0.0 | Stability scores 1.0, never treated as missing | tests/scoring/test_criteria_properties.py::test_stability_edges, tests/scoring/test_scorer.py::test_baseline_ranking_exclusions_and_anchor |
+| Hull energy above the cutoff | Excluded with `stability.cutoff` and the config path | tests/scoring/test_criteria_properties.py::test_stability_is_monotone_non_increasing_and_bounded |
+| Band gap missing from every source | Criterion missing with a reason, contribution 0, never 0 eV | tests/scoring/test_band_gap.py::test_missing_gap_is_missing_never_zero |
+| Experimental and TBmBJ gaps disagree beyond the tolerance | `band_gap_conflict` flag; fallback source used | tests/scoring/test_band_gap.py::test_tho2_conflict_fires_under_a_test_tolerance_and_falls_to_tbmbj |
+| Conflict tolerance not configured | Both values shown, flagged uncompared, no silent choice | tests/scoring/test_band_gap.py::test_no_tolerance_means_shown_but_not_compared |
+| Query asks for a looser band gap window than the profile | Profile value kept, note on the row | tests/scoring/test_band_gap.py::test_hard_window_uses_the_stricter_of_profile_and_query |
+| Radioactive or IARC Group 1 element present | Excluded with the rule and config path | tests/scoring/test_hazard.py::test_element_rules_exclude_with_their_source |
+| Cd or Pb in a Yim 2015 positive | Excluded by the element or acute tier | tests/scoring/test_hazard.py::test_cd_and_pb_yim_entries_are_excluded |
+| PubChem has no record for the compound | Unknown tier, neutral score, never allow | tests/scoring/test_hazard.py::test_no_record_is_unknown_and_not_fetched_is_missing |
+| Hazard record never fetched (summary pass) | Missing, element rules still apply | tests/scoring/test_hazard.py::test_no_record_is_unknown_and_not_fetched_is_missing |
+| GHS codes present outside the acute sets | Flag tier, codes shown as M of N | tests/scoring/test_hazard.py::test_allow_flag_and_unknown_scores |
+| Oxyhalide under the strict oxide policy | Excluded with `simplicity.anion_policy` | tests/scoring/test_criteria_properties.py::test_simplicity_rules |
+| PI names a polymorph above the cutoff | Scored as named and excluded visibly; other rules logged | tests/scoring/test_scorer.py::test_rocksalt_beo_requested_is_excluded_by_hull_once_be_is_allowed |
+| Candidates arrive in a different order | Identical ranks, totals, and serialized rows | tests/scoring/test_scorer.py::test_ranking_is_deterministic_and_order_independent |
+| Group has only summary-level data | Scores with missing criteria, weights renormalize, `enrichment_missing` flag | tests/scoring/test_scorer.py::test_summary_level_groups_score_with_missing_enrichment |
+| Anchor would outrank candidates | Shown as would-rank N of M, never takes a slot | tests/scoring/test_scorer.py::test_baseline_ranking_exclusions_and_anchor |
+| Golden bundle drifts from code or config | Byte comparison fails naming the rebuild command | tests/scoring/test_golden_bundle.py::test_scored_bundle_is_current_and_well_formed |
 
 ## Track B: agent, verifier, renderers, CLI
 
