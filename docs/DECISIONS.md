@@ -687,3 +687,84 @@ Alternative: enrich a fixed margin (top 2K) once.
 ## Track D: deploy and docs
 
 ## Track E: eval and validation
+
+### 2026-11-02 Spearman by hand, cross-checked against scipy
+Decision: `validation/spearman.py` computes rho from average ranks (ties share the mean of
+their positions); a test compares it with `scipy.stats.spearmanr` on fixed and random inputs.
+Fewer than two pairs or a constant rank vector returns None with the reason, never a number.
+Reason: the eval adds no dependency (pyproject is frozen; scipy is only transitive through
+pymatgen), and tie handling is visible in twenty lines the reviewer can read.
+Alternative: call scipy directly.
+
+### 2026-11-02 Yim polymorph rows collapse to the best figure of merit per composition
+Decision (owner): Yim 2015 lists one row per ICSD entry; the scorer ranks composition groups.
+For each table, one entry per composition ordered by its highest f_fom in that table; ties
+get average ranks. c-BeO is the BeO group; the phase prefix stays as data. The Spearman is
+taken over the compositions the scorer ranked; every excluded composition is listed with its
+rule, and the compositions whose recorded literature search returned no abstract (ten with no
+match at all, two more with matches but no abstract) stay in the correlation and are listed
+separately under evidence tier "no abstract", never "no support".
+Reason: the paper's polymorph-level numbers cannot be matched to MP ids without a second
+sourcing pass, which the scope rule closes; the best polymorph is the paper's own reason for
+listing the composition.
+Alternative: match rows to the ground-state polymorph by ICSD id and report unmatched rows.
+
+### 2026-11-02 Yim fixture erratum: Tables 2 and 3 band gap column
+Decision (owner): every row from Tables 2 and 3 carried the space group in `band_gap_ev`
+(61 rows). The values are nulled with a `data_errata` block; a test fails if any gap equals
+its space group or if a Table 1 gap is missing. The owner re-enters the column after the
+deadline. The metric reads `f_fom` only, so no result depends on the column.
+Reason: a wrong value shown as data is worse than a null with a note.
+
+### 2026-11-02 Known-dielectric recall list is a validation fixture citing the owner
+Decision (owner): `fixtures/validation/known_dielectrics.yaml` holds HfO2, ZrO2, Al2O3, Y2O3,
+Ta2O5 and K=5, sourced to the owner's Track E prompt; Y2O3 and Ta2O5 are re-sourced to
+Robertson (2004) when the PDF is on disk. The scorer never reads this file.
+Reason: `config/reference_values.yaml` has entries for Al2O3 only among the five; a recall
+expectation is not a scoring input and does not need the config's sourcing bar.
+
+### 2026-11-02 Band gap calibration and the conflict tolerance
+Decision: `validation/calibration.py` pairs each recorded oxide's experimental median with the
+TBmBJ and PBE gaps of its scored polymorph, reports MAE with n and every pair, and derives the
+conflict tolerance as twice the TBmBJ MAE with a sha over the pairs and snapshot hashes. ThO2's
+two conflicting compendium rows stay in the pair as recorded; the owner's note about them is
+beside the value in `config/reference_values.yaml`. The number is written to the scoring
+profile in one separate, labeled commit after the rebase on Track A, since `config/` is Track
+A's directory.
+Reason: the profile itself defines the tolerance this way; the derivation and data hash make
+the number reproducible.
+Alternative: a hand-chosen tolerance.
+
+### 2026-11-02 A temporary stand-in scorer runs the validation path before Track A merges
+Decision: `validation/stand_in.py` reproduces the sample bundle's illustrative normalizations
+with Track A's vocabularies so the groups-to-report path runs end to end. Its run note says
+it is not scoring; `validation/results` from it are never committed; it is deleted when
+`scoring.scorer` is wired.
+Reason: the metrics are tested on synthetic bundles, but only a full run proves the loaders,
+the metrics, and the report agree on 61 compositions.
+
+### 2026-11-02 The judge decides two items and nothing else
+Decision: the LLM judge grades caveat presence and PI-view summary level only, from a rubric
+file, with a per-item reason; structure (ranks, exclusions, flags, refusals, config unchanged,
+verifier failures, missing markers) is decided by named checks in `evals/checks.py`. The fake
+judge is the CI default; the Anthropic judge (`evals/judge.yaml`, `claude-opus-5-5`, effort
+low, structured output) records a declined request as the verdict `judge_declined` rather than
+retrying on another model. A sample of verdicts goes to `evals/judge_sample.md` for the owner
+to grade; the report shows the agreement rate once graded.
+Reason: a judge is the one place a model's opinion enters the eval; keeping it to two
+questions with a graded sample keeps it auditable.
+Alternative: a rubric-wide LLM grade per case.
+
+### 2026-11-02 Adversarial cases report task completion and attack success from named checks
+Decision: an F case carries `task_completion` checks (all must pass) and `defenses` checks;
+the attack succeeded if any defense failed. Each case names one OWASP LLM Top 10 (2025)
+category from a closed table. A1 and F1 lead every listing.
+Reason: "attack success" has to be a definition the reader can open, not a judgment.
+
+### 2026-11-02 Pre-registration of the scoring config
+Decision: `uv run python -m evals prereg` records the effective config sha, the config file
+hashes, the fixture and cassette hashes, and the commit before validation runs; the report
+shows the pre-registered and current shas side by side when they differ and names the files
+that changed.
+Reason: a tuned config after the fact must be visible as such.
+
