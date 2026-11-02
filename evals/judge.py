@@ -11,7 +11,7 @@ from __future__ import annotations
 import os
 import re
 from pathlib import Path
-from typing import Literal, Protocol
+from typing import Any, Literal, Protocol
 
 import yaml
 from pydantic import BaseModel
@@ -150,7 +150,7 @@ def write_judge_sample(rows: list[tuple[str, int, JudgeVerdict]], path: Path = S
     path.write_text("".join(lines))
 
 
-def agreement_rate(path: Path = SAMPLE_PATH) -> dict[str, object]:
+def agreement_rate(path: Path = SAMPLE_PATH) -> dict[str, Any]:
     """Rows the owner graded, and the share where the owner's grade equals the verdict."""
     graded = agreed = total = 0
     for line in path.read_text().splitlines():
