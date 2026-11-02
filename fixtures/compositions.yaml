@@ -1,0 +1,79 @@
+# Composition set recorded by Track 0 (Nov 2). Groups are kept so evals can address them.
+# Formulas are written as the sources print them; adapters normalize with pymatgen.
+# Synonyms here are recording probes only; the FDE-owned synonym table is config.
+schema_version: 0
+groups:
+  baseline_oxides: [HfO2, ZrO2, Al2O3, SiO2, TiO2, ThO2, La2O3, BaTiO3, BeO, Y2O3, Ta2O5]
+  negatives: [BeO, CdTiO3, Cd2Ta2O7, PbHfO3, PbZrO3]
+  photocatalysts: [TiO2, WO3, BiVO4, Fe2O3, ZnO]
+  nitrides: [AlN, GaN, Si3N4, BN]
+  yim_positives:
+    source: fixtures/validation/yim2015.yaml
+    formulas: [Ag2Ta4O11, AgTaO3, AlLiO2, "AlO(OH)", B2O3, Ba2SiO4, "Ba3(PO4)2", Ba3P4O13, BaSO4,
+      BaZrO3, BeO, BiTaO4, CaB4O7, Cd2Ta2O7, CdTiO3, HfO2, HfTe3O8, K2W2O7, KTaO3, LaYO3,
+      Li3OBr, Li4CO4, "Mg(OH)2", "Mg4O3(OH)2", MgAl2O4, MgSiO3, Na2SO4, NaIO3, NaNbO3, NaTaO3,
+      NbOCl3, PbHfO3, PbZrO3, Sr2Ta2O7, "Sr3(PO4)2", SrB4O7, SrHfO3, SrTiO3, TiO2, "Y2(Si2O7)",
+      Y2Ti2O7, YAlO3, YBO3, YOCl, YOF, ZrO2]
+hazard_probes:
+  # PubChem only. Common names are conventional public names used for the name lookup.
+  Tl: thallium
+  Tl2SO4: thallium(I) sulfate
+  HgO: mercury(II) oxide
+  PbO: lead(II) oxide
+  BaO: barium oxide
+  BaTiO3: barium titanate
+common_names:
+  HfO2: hafnium dioxide
+  Al2O3: aluminum oxide
+  ZrO2: zirconium dioxide
+  SiO2: silicon dioxide
+  TiO2: titanium dioxide
+  ThO2: thorium dioxide
+  La2O3: lanthanum oxide
+  BaTiO3: barium titanate
+  BeO: beryllium oxide
+  Y2O3: yttrium oxide
+  Ta2O5: tantalum pentoxide
+  WO3: tungsten trioxide
+  ZnO: zinc oxide
+  Fe2O3: iron(III) oxide
+  AlN: aluminum nitride
+  GaN: gallium nitride
+  Si3N4: silicon nitride
+  BN: boron nitride
+synonyms:
+  HfO2: hafnia
+  Al2O3: alumina
+  ZrO2: zirconia
+  SiO2: silica
+  TiO2: titania
+  ThO2: thoria
+  La2O3: lanthana
+  BaTiO3: barium titanate
+  BeO: beryllia
+  Y2O3: yttria
+  Ta2O5: tantalum pentoxide
+  ZnO: zinc oxide
+  WO3: tungsten trioxide
+  Fe2O3: hematite
+  AlN: aluminum nitride
+  GaN: gallium nitride
+  Si3N4: silicon nitride
+  BN: boron nitride
+discovery:
+  # Fully paged MP discovery cassettes for the generality evals (owner addition, Nov 2).
+  oxides_gap_3_plus:
+    elements: [O]
+    nelements: [2, 3]
+    band_gap_min: 3.0
+    energy_above_hull_max: 0.05
+  oxides_gap_2_to_3:
+    elements: [O]
+    nelements: [2, 3]
+    band_gap_min: 2.0
+    band_gap_max: 3.0
+  nitrides_gap_4_plus:
+    elements: [N]
+    exclude_elements: [O, F, Cl, Br, I, S, Se, Te, P, As, Sb, H]
+    nelements: [2, 3]
+    band_gap_min: 4.0

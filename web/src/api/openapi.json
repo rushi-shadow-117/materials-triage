@@ -1,0 +1,2359 @@
+{
+  "components": {
+    "schemas": {
+      "Anchor": {
+        "additionalProperties": false,
+        "properties": {
+          "composition": {
+            "title": "Composition",
+            "type": "string"
+          },
+          "group": {
+            "$ref": "#/components/schemas/CompositionGroup"
+          },
+          "out_of": {
+            "title": "Out Of",
+            "type": "integer"
+          },
+          "score": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ScoreBreakdown"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "would_rank": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Would Rank"
+          }
+        },
+        "required": [
+          "composition",
+          "group",
+          "score",
+          "would_rank",
+          "out_of"
+        ],
+        "title": "Anchor",
+        "type": "object"
+      },
+      "Candidate": {
+        "additionalProperties": false,
+        "properties": {
+          "caveats": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Caveats",
+            "type": "array"
+          },
+          "composition": {
+            "title": "Composition",
+            "type": "string"
+          },
+          "excluded": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Exclusion"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "flags": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Flags",
+            "type": "array"
+          },
+          "group": {
+            "$ref": "#/components/schemas/CompositionGroup"
+          },
+          "rank": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rank"
+          },
+          "rationale_slot": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rationale Slot"
+          },
+          "score": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ScoreBreakdown"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "sensitivity": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/RankStability"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "composition",
+          "group",
+          "score",
+          "rank",
+          "excluded"
+        ],
+        "title": "Candidate",
+        "type": "object"
+      },
+      "Clamp": {
+        "additionalProperties": false,
+        "description": "A query setting moved into the site's bounds, shown to the user.",
+        "properties": {
+          "applied": {
+            "title": "Applied"
+          },
+          "bound": {
+            "title": "Bound",
+            "type": "string"
+          },
+          "requested": {
+            "title": "Requested"
+          },
+          "setting": {
+            "title": "Setting",
+            "type": "string"
+          }
+        },
+        "required": [
+          "setting",
+          "requested",
+          "applied",
+          "bound"
+        ],
+        "title": "Clamp",
+        "type": "object"
+      },
+      "CompositionGroup": {
+        "additionalProperties": false,
+        "properties": {
+          "composition": {
+            "title": "Composition",
+            "type": "string"
+          },
+          "experimental_gaps": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ExperimentalGapAggregate"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "ground_state_is_theoretical": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ground State Is Theoretical"
+          },
+          "ground_state_mp": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ground State Mp"
+          },
+          "hazard": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/HazardRecord"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "literature": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LiteratureSearchResult"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "lowest_observed_mp": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lowest Observed Mp"
+          },
+          "polymorphs": {
+            "items": {
+              "$ref": "#/components/schemas/Polymorph"
+            },
+            "title": "Polymorphs",
+            "type": "array"
+          }
+        },
+        "required": [
+          "composition",
+          "polymorphs",
+          "ground_state_mp",
+          "ground_state_is_theoretical",
+          "lowest_observed_mp",
+          "experimental_gaps",
+          "hazard",
+          "literature"
+        ],
+        "title": "CompositionGroup",
+        "type": "object"
+      },
+      "ConfirmedCriteria": {
+        "additionalProperties": false,
+        "description": "What the PI confirmed after parsing, plus the effective settings after clamping.",
+        "properties": {
+          "candidate_list": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Candidate List",
+            "type": "array"
+          },
+          "clamps": {
+            "items": {
+              "$ref": "#/components/schemas/Clamp"
+            },
+            "title": "Clamps",
+            "type": "array"
+          },
+          "confirmed_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Confirmed At"
+          },
+          "defaults_applied": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Defaults Applied",
+            "type": "array"
+          },
+          "effective_settings": {
+            "additionalProperties": true,
+            "title": "Effective Settings",
+            "type": "object"
+          },
+          "mode": {
+            "title": "Mode",
+            "type": "string"
+          },
+          "parsed_by": {
+            "title": "Parsed By",
+            "type": "string"
+          },
+          "request_text": {
+            "title": "Request Text",
+            "type": "string"
+          }
+        },
+        "required": [
+          "request_text",
+          "parsed_by",
+          "confirmed_at",
+          "mode",
+          "effective_settings"
+        ],
+        "title": "ConfirmedCriteria",
+        "type": "object"
+      },
+      "CriterionScore": {
+        "additionalProperties": false,
+        "properties": {
+          "contribution": {
+            "title": "Contribution",
+            "type": "number"
+          },
+          "criterion": {
+            "title": "Criterion",
+            "type": "string"
+          },
+          "missing": {
+            "title": "Missing",
+            "type": "boolean"
+          },
+          "missing_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Missing Reason"
+          },
+          "normalized": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Normalized"
+          },
+          "notes": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Notes",
+            "type": "array"
+          },
+          "raw_unit": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Raw Unit"
+          },
+          "raw_value": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Raw Value"
+          },
+          "source": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source"
+          },
+          "weight": {
+            "title": "Weight",
+            "type": "number"
+          }
+        },
+        "required": [
+          "criterion",
+          "raw_value",
+          "raw_unit",
+          "source",
+          "normalized",
+          "weight",
+          "contribution",
+          "missing"
+        ],
+        "title": "CriterionScore",
+        "type": "object"
+      },
+      "DecisionLogEntry": {
+        "additionalProperties": false,
+        "properties": {
+          "actor": {
+            "title": "Actor",
+            "type": "string"
+          },
+          "at": {
+            "format": "date-time",
+            "title": "At",
+            "type": "string"
+          },
+          "detail": {
+            "additionalProperties": true,
+            "title": "Detail",
+            "type": "object"
+          },
+          "step": {
+            "title": "Step",
+            "type": "string"
+          },
+          "summary": {
+            "title": "Summary",
+            "type": "string"
+          }
+        },
+        "required": [
+          "at",
+          "actor",
+          "step",
+          "summary"
+        ],
+        "title": "DecisionLogEntry",
+        "type": "object"
+      },
+      "EvidenceHit": {
+        "additionalProperties": false,
+        "properties": {
+          "classifier_cache_key": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Classifier Cache Key"
+          },
+          "composition": {
+            "title": "Composition",
+            "type": "string"
+          },
+          "deposition_method": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Deposition Method"
+          },
+          "label": {
+            "$ref": "#/components/schemas/EvidenceLabel"
+          },
+          "openalex_id": {
+            "title": "Openalex Id",
+            "type": "string"
+          },
+          "provenance": {
+            "$ref": "#/components/schemas/Provenance"
+          },
+          "quote_verifiable": {
+            "default": true,
+            "title": "Quote Verifiable",
+            "type": "boolean"
+          },
+          "supporting_sentence": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Supporting Sentence"
+          },
+          "verified": {
+            "title": "Verified",
+            "type": "boolean"
+          },
+          "verifier_note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Verifier Note"
+          }
+        },
+        "required": [
+          "composition",
+          "openalex_id",
+          "label",
+          "deposition_method",
+          "supporting_sentence",
+          "verified",
+          "provenance"
+        ],
+        "title": "EvidenceHit",
+        "type": "object"
+      },
+      "EvidenceLabel": {
+        "enum": [
+          "computed_only",
+          "bulk_synthesized",
+          "thin_film_deposited",
+          "dielectric_characterized",
+          "not_relevant",
+          "no_abstract",
+          "unclassified"
+        ],
+        "title": "EvidenceLabel",
+        "type": "string"
+      },
+      "Exclusion": {
+        "additionalProperties": false,
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "string"
+          },
+          "rule": {
+            "title": "Rule",
+            "type": "string"
+          },
+          "source_ref": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Ref"
+          }
+        },
+        "required": [
+          "rule",
+          "detail"
+        ],
+        "title": "Exclusion",
+        "type": "object"
+      },
+      "ExperimentalGap": {
+        "additionalProperties": false,
+        "properties": {
+          "composition": {
+            "title": "Composition",
+            "type": "string"
+          },
+          "role": {
+            "title": "Role",
+            "type": "string"
+          },
+          "source_formula": {
+            "title": "Source Formula",
+            "type": "string"
+          },
+          "table": {
+            "title": "Table",
+            "type": "string"
+          },
+          "value_ev": {
+            "$ref": "#/components/schemas/Value_float_"
+          }
+        },
+        "required": [
+          "composition",
+          "value_ev",
+          "table",
+          "role",
+          "source_formula"
+        ],
+        "title": "ExperimentalGap",
+        "type": "object"
+      },
+      "ExperimentalGapAggregate": {
+        "additionalProperties": false,
+        "properties": {
+          "composition": {
+            "title": "Composition",
+            "type": "string"
+          },
+          "max": {
+            "title": "Max",
+            "type": "number"
+          },
+          "median": {
+            "title": "Median",
+            "type": "number"
+          },
+          "min": {
+            "title": "Min",
+            "type": "number"
+          },
+          "n": {
+            "title": "N",
+            "type": "integer"
+          },
+          "values": {
+            "items": {
+              "$ref": "#/components/schemas/ExperimentalGap"
+            },
+            "title": "Values",
+            "type": "array"
+          }
+        },
+        "required": [
+          "composition",
+          "n",
+          "min",
+          "median",
+          "max",
+          "values"
+        ],
+        "title": "ExperimentalGapAggregate",
+        "type": "object"
+      },
+      "FetchMode": {
+        "enum": [
+          "live",
+          "replay",
+          "refresh"
+        ],
+        "title": "FetchMode",
+        "type": "string"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "title": "Detail",
+            "type": "array"
+          }
+        },
+        "title": "HTTPValidationError",
+        "type": "object"
+      },
+      "HazardRecord": {
+        "additionalProperties": false,
+        "properties": {
+          "chosen_rule": {
+            "title": "Chosen Rule",
+            "type": "string"
+          },
+          "cid": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cid"
+          },
+          "cids_by_formula": {
+            "items": {
+              "type": "integer"
+            },
+            "title": "Cids By Formula",
+            "type": "array"
+          },
+          "cids_by_name": {
+            "items": {
+              "type": "integer"
+            },
+            "title": "Cids By Name",
+            "type": "array"
+          },
+          "composition": {
+            "title": "Composition",
+            "type": "string"
+          },
+          "echa_attribution_required": {
+            "title": "Echa Attribution Required",
+            "type": "boolean"
+          },
+          "h_codes": {
+            "items": {
+              "type": "string"
+            },
+            "title": "H Codes",
+            "type": "array"
+          },
+          "notifications_not_classified": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notifications Not Classified"
+          },
+          "notifications_total": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notifications Total"
+          },
+          "provenance": {
+            "$ref": "#/components/schemas/Provenance"
+          },
+          "raw_strings": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Raw Strings",
+            "type": "array"
+          },
+          "references": {
+            "items": {
+              "type": "string"
+            },
+            "title": "References",
+            "type": "array"
+          },
+          "synonyms": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Synonyms",
+            "type": "array"
+          }
+        },
+        "required": [
+          "composition",
+          "cid",
+          "cids_by_name",
+          "cids_by_formula",
+          "chosen_rule",
+          "notifications_total",
+          "notifications_not_classified",
+          "h_codes",
+          "raw_strings",
+          "references",
+          "echa_attribution_required",
+          "synonyms",
+          "provenance"
+        ],
+        "title": "HazardRecord",
+        "type": "object"
+      },
+      "Ids": {
+        "additionalProperties": false,
+        "properties": {
+          "cod": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Cod",
+            "type": "array"
+          },
+          "icsd": {
+            "items": {
+              "type": "integer"
+            },
+            "title": "Icsd",
+            "type": "array"
+          },
+          "jarvis_jid": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Jarvis Jid"
+          },
+          "mp": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mp"
+          },
+          "mp_raw": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mp Raw"
+          },
+          "oqmd": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Oqmd"
+          }
+        },
+        "title": "Ids",
+        "type": "object"
+      },
+      "LiteratureHit": {
+        "additionalProperties": false,
+        "properties": {
+          "abstract_index_sha256": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Abstract Index Sha256"
+          },
+          "abstract_text": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Abstract Text"
+          },
+          "cost_usd": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cost Usd"
+          },
+          "doi": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Doi"
+          },
+          "is_oa": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Is Oa"
+          },
+          "landing_page_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Landing Page Url"
+          },
+          "license": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "License"
+          },
+          "openalex_id": {
+            "title": "Openalex Id",
+            "type": "string"
+          },
+          "provenance": {
+            "$ref": "#/components/schemas/Provenance"
+          },
+          "query": {
+            "title": "Query",
+            "type": "string"
+          },
+          "quote_verifiable": {
+            "title": "Quote Verifiable",
+            "type": "boolean"
+          },
+          "scope": {
+            "title": "Scope",
+            "type": "string"
+          },
+          "source_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Name"
+          },
+          "title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          },
+          "year": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Year"
+          }
+        },
+        "required": [
+          "openalex_id",
+          "doi",
+          "title",
+          "year",
+          "abstract_text",
+          "abstract_index_sha256",
+          "is_oa",
+          "license",
+          "source_name",
+          "landing_page_url",
+          "query",
+          "scope",
+          "quote_verifiable",
+          "cost_usd",
+          "provenance"
+        ],
+        "title": "LiteratureHit",
+        "type": "object"
+      },
+      "LiteratureSearchResult": {
+        "additionalProperties": false,
+        "properties": {
+          "composition": {
+            "title": "Composition",
+            "type": "string"
+          },
+          "hits": {
+            "items": {
+              "$ref": "#/components/schemas/LiteratureHit"
+            },
+            "title": "Hits",
+            "type": "array"
+          },
+          "matched_total": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Matched Total"
+          },
+          "matched_with_abstract": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Matched With Abstract"
+          },
+          "query": {
+            "title": "Query",
+            "type": "string"
+          },
+          "scope": {
+            "title": "Scope",
+            "type": "string"
+          }
+        },
+        "required": [
+          "composition",
+          "query",
+          "scope",
+          "matched_total",
+          "matched_with_abstract",
+          "hits"
+        ],
+        "title": "LiteratureSearchResult",
+        "type": "object"
+      },
+      "MatchRule": {
+        "enum": [
+          "icsd_intersection",
+          "composition_spacegroup"
+        ],
+        "title": "MatchRule",
+        "type": "string"
+      },
+      "MissingPropertyMarker": {
+        "additionalProperties": false,
+        "description": "A property the screen never estimates, shown as missing on every row.",
+        "properties": {
+          "property": {
+            "title": "Property",
+            "type": "string"
+          },
+          "source_entry": {
+            "title": "Source Entry",
+            "type": "string"
+          },
+          "text": {
+            "title": "Text",
+            "type": "string"
+          }
+        },
+        "required": [
+          "property",
+          "text",
+          "source_entry"
+        ],
+        "title": "MissingPropertyMarker",
+        "type": "object"
+      },
+      "MissingReason": {
+        "enum": [
+          "absent",
+          "na_sentinel",
+          "not_computed",
+          "not_fetched",
+          "pending_verification"
+        ],
+        "title": "MissingReason",
+        "type": "string"
+      },
+      "ObservationEvidence": {
+        "enum": [
+          "mp_theoretical_false",
+          "mp_icsd_ids",
+          "jarvis_icsd_ids",
+          "cod_hit"
+        ],
+        "title": "ObservationEvidence",
+        "type": "string"
+      },
+      "Polymorph": {
+        "additionalProperties": false,
+        "properties": {
+          "band_gap": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Value_float_"
+            },
+            "title": "Band Gap",
+            "type": "object"
+          },
+          "composition": {
+            "title": "Composition",
+            "type": "string"
+          },
+          "deprecated": {
+            "default": false,
+            "title": "Deprecated",
+            "type": "boolean"
+          },
+          "dielectric": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Value_float_"
+            },
+            "title": "Dielectric",
+            "type": "object"
+          },
+          "hull_energy": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Value_float_"
+            },
+            "title": "Hull Energy",
+            "type": "object"
+          },
+          "hull_status_conflict": {
+            "default": false,
+            "title": "Hull Status Conflict",
+            "type": "boolean"
+          },
+          "ids": {
+            "$ref": "#/components/schemas/Ids"
+          },
+          "is_stable": {
+            "additionalProperties": {
+              "type": "boolean"
+            },
+            "title": "Is Stable",
+            "type": "object"
+          },
+          "license": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "License"
+          },
+          "matched_by": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MatchRule"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "observation_evidence": {
+            "items": {
+              "$ref": "#/components/schemas/ObservationEvidence"
+            },
+            "title": "Observation Evidence",
+            "type": "array"
+          },
+          "observed": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Observed"
+          },
+          "provenance": {
+            "items": {
+              "$ref": "#/components/schemas/Provenance"
+            },
+            "title": "Provenance",
+            "type": "array"
+          },
+          "spacegroup_number": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Spacegroup Number"
+          },
+          "spacegroup_symbol": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Spacegroup Symbol"
+          },
+          "theoretical": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Theoretical"
+          }
+        },
+        "required": [
+          "composition",
+          "spacegroup_number",
+          "spacegroup_symbol",
+          "ids",
+          "observed"
+        ],
+        "title": "Polymorph",
+        "type": "object"
+      },
+      "ProfileSummary": {
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "notes": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Notes",
+            "type": "array"
+          },
+          "version": {
+            "title": "Version",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "version",
+          "notes"
+        ],
+        "title": "ProfileSummary",
+        "type": "object"
+      },
+      "Provenance": {
+        "additionalProperties": false,
+        "properties": {
+          "fetched_at": {
+            "format": "date-time",
+            "title": "Fetched At",
+            "type": "string"
+          },
+          "license": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "License"
+          },
+          "raw_response_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Raw Response Id"
+          },
+          "raw_sha256": {
+            "title": "Raw Sha256",
+            "type": "string"
+          },
+          "source": {
+            "title": "Source",
+            "type": "string"
+          },
+          "source_record_id": {
+            "title": "Source Record Id",
+            "type": "string"
+          },
+          "source_version": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Version"
+          },
+          "url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Url"
+          }
+        },
+        "required": [
+          "source",
+          "source_record_id",
+          "raw_response_id",
+          "raw_sha256",
+          "fetched_at"
+        ],
+        "title": "Provenance",
+        "type": "object"
+      },
+      "ProvenanceBundle": {
+        "additionalProperties": false,
+        "properties": {
+          "anchors": {
+            "items": {
+              "$ref": "#/components/schemas/Anchor"
+            },
+            "title": "Anchors",
+            "type": "array"
+          },
+          "availability_events": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "title": "Availability Events",
+            "type": "array"
+          },
+          "bundle_version": {
+            "default": 1,
+            "title": "Bundle Version",
+            "type": "integer"
+          },
+          "candidates": {
+            "items": {
+              "$ref": "#/components/schemas/Candidate"
+            },
+            "title": "Candidates",
+            "type": "array"
+          },
+          "criteria": {
+            "$ref": "#/components/schemas/ConfirmedCriteria"
+          },
+          "decision_log": {
+            "items": {
+              "$ref": "#/components/schemas/DecisionLogEntry"
+            },
+            "title": "Decision Log",
+            "type": "array"
+          },
+          "evidence": {
+            "items": {
+              "$ref": "#/components/schemas/EvidenceHit"
+            },
+            "title": "Evidence",
+            "type": "array"
+          },
+          "missing_properties": {
+            "items": {
+              "$ref": "#/components/schemas/MissingPropertyMarker"
+            },
+            "title": "Missing Properties",
+            "type": "array"
+          },
+          "rationale": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/RationaleSlot"
+            },
+            "title": "Rationale",
+            "type": "object"
+          },
+          "run": {
+            "$ref": "#/components/schemas/RunMetadata"
+          },
+          "verifier": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/VerifierReport"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "run",
+          "criteria",
+          "candidates"
+        ],
+        "title": "ProvenanceBundle",
+        "type": "object"
+      },
+      "QuerySettings": {
+        "additionalProperties": false,
+        "properties": {
+          "band_gap_max_ev": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Band Gap Max Ev"
+          },
+          "band_gap_min_ev": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Band Gap Min Ev"
+          },
+          "candidate_list": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Candidate List",
+            "type": "array"
+          },
+          "evidence_tier_min": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Evidence Tier Min"
+          },
+          "exclude_radioactive": {
+            "default": true,
+            "title": "Exclude Radioactive",
+            "type": "boolean"
+          },
+          "max_elements": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Elements"
+          },
+          "mode": {
+            "default": "discovery",
+            "enum": [
+              "discovery",
+              "candidate_list"
+            ],
+            "title": "Mode",
+            "type": "string"
+          },
+          "profile": {
+            "title": "Profile",
+            "type": "string"
+          },
+          "terminology": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Terminology"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "top_n": {
+            "default": 10,
+            "title": "Top N",
+            "type": "integer"
+          },
+          "units": {
+            "$ref": "#/components/schemas/Units",
+            "default": "eV"
+          },
+          "verbosity": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Verbosity"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "view": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/View"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "weights": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "title": "Weights",
+            "type": "object"
+          }
+        },
+        "required": [
+          "profile"
+        ],
+        "title": "QuerySettings",
+        "type": "object"
+      },
+      "RankStability": {
+        "additionalProperties": false,
+        "properties": {
+          "perturbations": {
+            "title": "Perturbations",
+            "type": "integer"
+          },
+          "rank_max": {
+            "title": "Rank Max",
+            "type": "integer"
+          },
+          "rank_median": {
+            "title": "Rank Median",
+            "type": "number"
+          },
+          "rank_min": {
+            "title": "Rank Min",
+            "type": "integer"
+          },
+          "stable": {
+            "title": "Stable",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "rank_min",
+          "rank_max",
+          "rank_median",
+          "perturbations",
+          "stable"
+        ],
+        "title": "RankStability",
+        "type": "object"
+      },
+      "RationaleSlot": {
+        "additionalProperties": false,
+        "properties": {
+          "removed_fragments": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Removed Fragments",
+            "type": "array"
+          },
+          "slot": {
+            "title": "Slot",
+            "type": "string"
+          },
+          "text": {
+            "title": "Text",
+            "type": "string"
+          },
+          "verified": {
+            "title": "Verified",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "slot",
+          "text",
+          "verified"
+        ],
+        "title": "RationaleSlot",
+        "type": "object"
+      },
+      "RefreshRequest": {
+        "properties": {
+          "reason": {
+            "title": "Reason",
+            "type": "string"
+          },
+          "source": {
+            "title": "Source",
+            "type": "string"
+          }
+        },
+        "required": [
+          "source",
+          "reason"
+        ],
+        "title": "RefreshRequest",
+        "type": "object"
+      },
+      "RunAccepted": {
+        "properties": {
+          "run_id": {
+            "title": "Run Id",
+            "type": "string"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "run_id",
+          "status"
+        ],
+        "title": "RunAccepted",
+        "type": "object"
+      },
+      "RunMetadata": {
+        "additionalProperties": false,
+        "properties": {
+          "budgets_limit": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "title": "Budgets Limit",
+            "type": "object"
+          },
+          "budgets_used": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "title": "Budgets Used",
+            "type": "object"
+          },
+          "config_sha": {
+            "title": "Config Sha",
+            "type": "string"
+          },
+          "fetch_mode": {
+            "$ref": "#/components/schemas/FetchMode"
+          },
+          "finished_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Finished At"
+          },
+          "model_version": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Model Version"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          },
+          "partial": {
+            "title": "Partial",
+            "type": "boolean"
+          },
+          "partial_reasons": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Partial Reasons",
+            "type": "array"
+          },
+          "policy_version": {
+            "title": "Policy Version",
+            "type": "string"
+          },
+          "profile_name": {
+            "title": "Profile Name",
+            "type": "string"
+          },
+          "profile_version": {
+            "title": "Profile Version",
+            "type": "string"
+          },
+          "prompt_hash": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prompt Hash"
+          },
+          "provider": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Provider"
+          },
+          "run_id": {
+            "format": "uuid",
+            "title": "Run Id",
+            "type": "string"
+          },
+          "source_versions": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "title": "Source Versions",
+            "type": "object"
+          },
+          "started_at": {
+            "format": "date-time",
+            "title": "Started At",
+            "type": "string"
+          }
+        },
+        "required": [
+          "run_id",
+          "started_at",
+          "finished_at",
+          "config_sha",
+          "profile_name",
+          "profile_version",
+          "policy_version",
+          "prompt_hash",
+          "model_version",
+          "provider",
+          "source_versions",
+          "fetch_mode",
+          "partial"
+        ],
+        "title": "RunMetadata",
+        "type": "object"
+      },
+      "RunRequest": {
+        "properties": {
+          "confirm": {
+            "default": false,
+            "title": "Confirm",
+            "type": "boolean"
+          },
+          "profile": {
+            "default": "gate_dielectric_on_si",
+            "title": "Profile",
+            "type": "string"
+          },
+          "request_text": {
+            "title": "Request Text",
+            "type": "string"
+          },
+          "settings": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/QuerySettings"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "request_text"
+        ],
+        "title": "RunRequest",
+        "type": "object"
+      },
+      "ScoreBreakdown": {
+        "additionalProperties": false,
+        "properties": {
+          "band_gap_conflict": {
+            "default": false,
+            "title": "Band Gap Conflict",
+            "type": "boolean"
+          },
+          "band_gap_source": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Band Gap Source"
+          },
+          "criteria": {
+            "items": {
+              "$ref": "#/components/schemas/CriterionScore"
+            },
+            "title": "Criteria",
+            "type": "array"
+          },
+          "ground_state_is_theoretical": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ground State Is Theoretical"
+          },
+          "hull_status_conflict": {
+            "default": false,
+            "title": "Hull Status Conflict",
+            "type": "boolean"
+          },
+          "near_cutoff": {
+            "default": false,
+            "title": "Near Cutoff",
+            "type": "boolean"
+          },
+          "total": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total"
+          }
+        },
+        "required": [
+          "total",
+          "criteria",
+          "band_gap_source"
+        ],
+        "title": "ScoreBreakdown",
+        "type": "object"
+      },
+      "Terminology": {
+        "enum": [
+          "general",
+          "technical"
+        ],
+        "title": "Terminology",
+        "type": "string"
+      },
+      "Units": {
+        "enum": [
+          "eV",
+          "meV"
+        ],
+        "title": "Units",
+        "type": "string"
+      },
+      "ValidationError": {
+        "properties": {
+          "ctx": {
+            "title": "Context",
+            "type": "object"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "title": "Location",
+            "type": "array"
+          },
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError",
+        "type": "object"
+      },
+      "Value_float_": {
+        "additionalProperties": false,
+        "properties": {
+          "method": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Method"
+          },
+          "missing_reason": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MissingReason"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "provenance": {
+            "$ref": "#/components/schemas/Provenance"
+          },
+          "unit": {
+            "title": "Unit",
+            "type": "string"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Value"
+          }
+        },
+        "required": [
+          "value",
+          "unit",
+          "provenance"
+        ],
+        "title": "Value[float]",
+        "type": "object"
+      },
+      "Verbosity": {
+        "enum": [
+          "concise",
+          "standard",
+          "detailed"
+        ],
+        "title": "Verbosity",
+        "type": "string"
+      },
+      "VerifierFailure": {
+        "additionalProperties": false,
+        "properties": {
+          "action": {
+            "title": "Action",
+            "type": "string"
+          },
+          "fragment": {
+            "title": "Fragment",
+            "type": "string"
+          },
+          "kind": {
+            "title": "Kind",
+            "type": "string"
+          },
+          "location": {
+            "title": "Location",
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "location",
+          "fragment",
+          "action"
+        ],
+        "title": "VerifierFailure",
+        "type": "object"
+      },
+      "VerifierReport": {
+        "additionalProperties": false,
+        "properties": {
+          "checked_evidence": {
+            "title": "Checked Evidence",
+            "type": "integer"
+          },
+          "checked_slots": {
+            "title": "Checked Slots",
+            "type": "integer"
+          },
+          "failures": {
+            "items": {
+              "$ref": "#/components/schemas/VerifierFailure"
+            },
+            "title": "Failures",
+            "type": "array"
+          },
+          "passed": {
+            "title": "Passed",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "checked_slots",
+          "checked_evidence",
+          "passed"
+        ],
+        "title": "VerifierReport",
+        "type": "object"
+      },
+      "View": {
+        "enum": [
+          "pi_summary",
+          "audit"
+        ],
+        "title": "View",
+        "type": "string"
+      }
+    }
+  },
+  "info": {
+    "description": "Triage candidate materials from public data. Every number traces to a source record.",
+    "title": "materials-triage",
+    "version": "0.0.1"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/admin/refresh": {
+      "post": {
+        "description": "Logged, admin-only cache refresh (stub: accepted, not performed).",
+        "operationId": "admin_refresh_admin_refresh_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "Response Admin Refresh Admin Refresh Post",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Admin Refresh"
+      }
+    },
+    "/config/effective": {
+      "get": {
+        "operationId": "effective_config_config_effective_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "profile",
+            "required": false,
+            "schema": {
+              "default": "gate_dielectric_on_si",
+              "title": "Profile",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "title": "Response Effective Config Config Effective Get",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Effective Config"
+      }
+    },
+    "/health": {
+      "get": {
+        "operationId": "health_health_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "title": "Response Health Health Get",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Health"
+      }
+    },
+    "/profiles": {
+      "get": {
+        "operationId": "list_profiles_profiles_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ProfileSummary"
+                  },
+                  "title": "Response List Profiles Profiles Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "List Profiles"
+      }
+    },
+    "/runs": {
+      "get": {
+        "operationId": "list_runs_runs_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/RunAccepted"
+                  },
+                  "title": "Response List Runs Runs Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "List Runs"
+      },
+      "post": {
+        "description": "Start a run (stub: returns the sample run id).",
+        "operationId": "create_run_runs_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RunRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunAccepted"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Create Run"
+      }
+    },
+    "/runs/{run_id}": {
+      "get": {
+        "operationId": "get_run_runs__run_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "run_id",
+            "required": true,
+            "schema": {
+              "title": "Run Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProvenanceBundle"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Run"
+      }
+    },
+    "/runs/{run_id}/events": {
+      "get": {
+        "description": "Server-sent progress events (stub: three fixed events then done).",
+        "operationId": "run_events_runs__run_id__events_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "run_id",
+            "required": true,
+            "schema": {
+              "title": "Run Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Run Events"
+      }
+    }
+  }
+}

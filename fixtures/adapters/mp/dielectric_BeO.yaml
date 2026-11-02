@@ -1,0 +1,95 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - _csrf_token=authenticated; mp-session=D6CxMRzs_AnmoKVJ2zbT2A|1794688597|UwqU8V4OK2FICdT9uo-Pr4QBxKQ;
+        __cf_bm=H6UGl9qHtmdvqmD720DOzbAwa4e0KbmiYNzIlO3eJx8-1793633224.245169-1.0.1.1-2Mc7L0orjBGLTAfd2i0_kZa60dtsP0Zkz7_dX8TNLr_rkm.JoJJ1ipORcMyB7HZ7ut.Ydan5WXZVicGFjW9NjGhpntDvL4Q1vzUGKRDlMjNu9U92s0qgTsPqxfY05HNA
+      host:
+      - api.materialsproject.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.materialsproject.org/materials/dielectric/?_fields=material_id%2Cformula_pretty%2Ce_total%2Ce_ionic%2Ce_electronic%2Cn%2Cdeprecated%2Cbuilder_meta&_limit=1000&material_ids=mp-1244907%2Cmp-1244919%2Cmp-1244963%2Cmp-1245060%2Cmp-1245079%2Cmp-1778%2Cmp-1794%2Cmp-2542%2Cmp-7599
+  response:
+    body:
+      string: '{"data":[{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:40.238000","license":null},"formula_pretty":"BeO","material_id":"mp-aaaaacqk","deprecated":false,"e_total":7.202904819961844,"e_ionic":4.093707903295174,"e_electronic":3.109196916666671,"n":1.7632915007640315},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:42.151000","license":null},"formula_pretty":"BeO","material_id":"mp-aaaaadtu","deprecated":false,"e_total":7.348809943363005,"e_ionic":4.246494916696338,"e_electronic":3.1023150266666666,"n":1.761338986869554}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-02T15:27:07.089447+00:00","total_doc":2,"facet":null,"max_limit":1000,"default_fields":["material_id","last_updated"]}}'
+    headers:
+      access-control-expose-headers:
+      - X-Api-Key
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429551eecdb04-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '1008'
+      content-security-policy-report-only:
+      - script-src 'unsafe-inline' 'unsafe-eval'; connect-src 'none'; report-uri https://csp-reporting.cloudflare.com/cdn-cgi/script_monitor/report?m=c1E0onwrmAA4fh2m6GnEHi7CEDMwLP9TiNpURD_FHwU-1793633227.0560465-1.0.1.1-h5HnxLyysPn_AyuPtPAPBGsw9c.323W_DopPBYyDPS5.yslMwWWUTOrfVuuSFTKtyB.mxUVz.OKo1AA_HGI10DfhSfOhSnVBVv610sa12iElqydWCQUDUCiVREscAkTI5_NSC14i64fBySLjGDJhDKgwBLOuSP6W6lghqBYkipVfp3lJ1JBKqZUugHfzBu0Y;
+        report-to cf-csp-endpoint
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:07 GMT
+      ratelimit-limit:
+      - '25'
+      ratelimit-remaining:
+      - '24'
+      ratelimit-reset:
+      - '1'
+      report-to:
+      - '{"group":"cf-csp-endpoint","max_age":86400,"endpoints":[{"url":"https://csp-reporting.cloudflare.com/cdn-cgi/script_monitor/report?m=c1E0onwrmAA4fh2m6GnEHi7CEDMwLP9TiNpURD_FHwU-1793633227.0560465-1.0.1.1-h5HnxLyysPn_AyuPtPAPBGsw9c.323W_DopPBYyDPS5.yslMwWWUTOrfVuuSFTKtyB.mxUVz.OKo1AA_HGI10DfhSfOhSnVBVv610sa12iElqydWCQUDUCiVREscAkTI5_NSC14i64fBySLjGDJhDKgwBLOuSP6W6lghqBYkipVfp3lJ1JBKqZUugHfzBu0Y"}]}'
+      reporting-endpoints:
+      - cf-csp-endpoint="https://csp-reporting.cloudflare.com/cdn-cgi/script_monitor/report?m=c1E0onwrmAA4fh2m6GnEHi7CEDMwLP9TiNpURD_FHwU-1793633227.0560465-1.0.1.1-h5HnxLyysPn_AyuPtPAPBGsw9c.323W_DopPBYyDPS5.yslMwWWUTOrfVuuSFTKtyB.mxUVz.OKo1AA_HGI10DfhSfOhSnVBVv610sa12iElqydWCQUDUCiVREscAkTI5_NSC14i64fBySLjGDJhDKgwBLOuSP6W6lghqBYkipVfp3lJ1JBKqZUugHfzBu0Y"
+      server:
+      - cloudflare
+      set-cookie:
+      - _csrf_token=authenticated; Domain=.materialsproject.org; Path=/; SameSite=Strict
+      vary:
+      - Accept-Encoding
+      - Origin
+      via:
+      - kong/2.8.4
+      x-consumer-id:
+      - 58e0b4c2-4c2d-439b-ba0a-648cd568a0fa
+      x-kong-proxy-latency:
+      - '8'
+      x-kong-upstream-latency:
+      - '8'
+      x-ratelimit-limit-day:
+      - '640000'
+      x-ratelimit-limit-hour:
+      - '40000'
+      x-ratelimit-limit-minute:
+      - '1000'
+      x-ratelimit-limit-month:
+      - '12800000'
+      x-ratelimit-limit-second:
+      - '25'
+      x-ratelimit-limit-year:
+      - '100000000'
+      x-ratelimit-remaining-day:
+      - '639974'
+      x-ratelimit-remaining-hour:
+      - '39974'
+      x-ratelimit-remaining-minute:
+      - '979'
+      x-ratelimit-remaining-month:
+      - '12799974'
+      x-ratelimit-remaining-second:
+      - '24'
+      x-ratelimit-remaining-year:
+      - '99999926'
+    status:
+      code: 200
+      message: OK
+version: 1

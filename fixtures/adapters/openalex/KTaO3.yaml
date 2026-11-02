@@ -1,0 +1,351 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=KTaO3+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 99, "db_response_time_ms": 20, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (KTaO3 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (KTaO3 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "KTaO3
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:KTaO3
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2041010376",
+        "doi": "https://doi.org/10.1063/1.3624710", "title": "Ferroelectric phase
+        transition in polycrystalline KTaO3 thin film revealed by terahertz spectroscopy",
+        "publication_year": 2011, "abstract_inverted_index": {"KTaO3": [0, 49], "single":
+        [1], "crystal": [2], "is": [3, 65, 103, 111], "an": [4], "archetypal": [5],
+        "incipient": [6], "ferroelectric": [7, 12, 32, 100, 126], "in": [8, 68, 113],
+        "which": [9, 110], "a": [10, 27, 47, 74, 107, 130], "long-range": [11], "order":
+        [13], "does": [14], "not": [15], "establish": [16], "at": [17, 77], "low":
+        [18], "temperatures": [19], "owing": [20], "to": [21, 106, 121], "quantum":
+        [22], "fluctuations.": [23], "We": [24], "report": [25], "on": [26, 52], "strong":
+        [28], "evidence": [29], "of": [30, 46, 94], "the": [31, 69, 81, 99, 114, 122,
+        125], "phase": [33, 116], "transition": [34, 127], "near": [35], "60": [36,
+        78], "K": [37], "revealed": [38], "by": [39, 57], "terahertz": [40, 70], "spectroscopy":
+        [41], "and": [42, 117], "microwave": [43, 84], "permittivity": [44, 85], "measurements":
+        [45], "polycrystalline": [48], "thin": [50], "film": [51], "(0001)": [53],
+        "sapphire": [54], "substrate": [55], "prepared": [56], "chemical": [58], "solution":
+        [59], "deposition.": [60], "The": [61, 88], "soft": [62, 101], "mode": [63,
+        102], "behavior": [64], "clearly": [66], "observed": [67], "(THz)": [71],
+        "spectra": [72, 90], "with": [73, 129], "minimum": [75], "frequency": [76],
+        "K.": [79], "At": [80], "same": [82], "temperature": [83, 128], "maximum":
+        [86], "appears.": [87], "THz": [89], "strongly": [91], "resemble": [92], "that":
+        [93], "strained": [95], "epitaxial": [96], "SrTiO3/DyScO3": [97], "films:":
+        [98], "linearly": [104], "coupled": [105, 120], "central": [108], "peak":
+        [109], "silent": [112], "paraelectric": [115], "it": [118], "becomes": [119],
+        "polarization": [123], "below": [124], "progressively": [131], "increasing":
+        [132], "bare": [133], "strength.": [134]}, "primary_location": {"id": "doi:10.1063/1.3624710",
+        "doi": "https://doi.org/10.1063/1.3624710", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.3624710", "pdf_url": null, "source": {"id": "https://openalex.org/S105243760",
+        "display_name": "Applied Physics Letters", "issn_l": "0003-6951", "issn":
+        ["0003-6951", "1077-3118", "1520-8842"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-a",
+        "jufo-3", "ki-jl-1", "norway-2", "poland-100", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Applied Physics
+        Letters", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2066457195",
+        "doi": "https://doi.org/10.1063/1.4813324", "title": "Induced polarized state
+        in intentionally grown oxygen deficient KTaO3 thin films", "publication_year":
+        2013, "abstract_inverted_index": {"Deliberately": [0], "oxygen": [1, 24, 56,
+        132, 143, 160], "deficient": [2, 57], "potassium": [3], "tantalate": [4],
+        "thin": [5, 58, 76], "films": [6, 59, 77, 140], "were": [7, 18, 66], "grown":
+        [8], "by": [9, 32], "RF": [10], "magnetron": [11], "sputtering": [12], "on":
+        [13, 26], "Si/SiO2/Ti/Pt": [14], "substrates.": [15], "Once": [16], "they":
+        [17], "structurally": [19], "characterized,": [20], "the": [21, 93, 100, 111,
+        139, 150], "effect": [22], "of": [23, 83, 95, 113], "vacancies": [25, 133,
+        161], "their": [27], "electric": [28, 38], "properties": [29], "was": [30,
+        126], "addressed": [31], "measuring": [33], "leakage": [34], "currents,":
+        [35], "dielectric": [36], "constant,": [37], "polarization,": [39, 105], "and":
+        [40, 51, 106], "thermally": [41], "stimulated": [42], "depolarization": [43,
+        107], "currents.": [44], "By": [45], "using": [46], "K2O": [47], "rich": [48],
+        "KTaO3": [49, 87], "targets": [50], "specific": [52], "deposition": [53],
+        "conditions,": [54], "KTaO3\u2212\u03b4": [55, 75], "with": [60, 157], "a":
+        [61, 80, 96, 114, 146, 158], "K/Ta": [62], "=": [63], "1": [64], "ratio":
+        [65], "obtained.": [67], "Room": [68], "temperature": [69, 147], "X-ray":
+        [70], "diffraction": [71], "patterns": [72], "show": [73], "that": [74], "are":
+        [78], "under": [79], "compressive": [81], "strain": [82], "2.3%": [84], "relative":
+        [85], "to": [86, 131], "crystals.": [88], "Leakage": [89], "current": [90,
+        108], "results": [91], "reveal": [92], "presence": [94], "conductive": [97],
+        "mechanism,": [98], "following": [99], "Poole-Frenkel": [101], "formalism.":
+        [102], "Furthermore,": [103], "dielectric,": [104], "measurements": [109],
+        "yield": [110], "existence": [112], "polarized": [115, 152], "state": [116,
+        153], "below": [117], "Tpol": [118], "\u223c": [119], "367": [120], "\u00b0C.":
+        [121], "A": [122], "Cole-Cole": [123], "dipolar": [124], "relaxation": [125],
+        "also": [127], "ascertained": [128], "apparently": [129], "due": [130], "induced":
+        [134], "dipoles.": [135], "After": [136], "thermal": [137], "annealing": [138,
+        165], "in": [141], "an": [142], "atmosphere": [144], "at": [145], "above":
+        [148], "Tpol,": [149], "aforementioned": [151], "is": [154], "suppressed,":
+        [155], "associated": [156], "drastic": [159], "reduction": [162], "emerging":
+        [163], "from": [164], "process.": [166]}, "primary_location": {"id": "doi:10.1063/1.4813324",
+        "doi": "https://doi.org/10.1063/1.4813324", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.4813324", "pdf_url": null, "source": {"id": "https://openalex.org/S187991544",
+        "display_name": "Journal of Applied Physics", "issn_l": "0021-8979", "issn":
+        ["0021-8979", "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d",
+        "jufo-1", "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2042465485",
+        "doi": "https://doi.org/10.1063/1.116263", "title": "The growth and properties
+        of epitaxial KNbO3 thin films and KNbO3/KTaO3 superlattices", "publication_year":
+        1996, "abstract_inverted_index": {"Potassium": [0], "niobate": [1], "(KNbO3)":
+        [2], "thin": [3], "films": [4, 59], "and": [5, 32, 35, 38, 47], "potassium":
+        [6], "niobate/tantalate": [7], "(KNbO3/KTaO3)": [8], "superlattices": [9],
+        "have": [10], "been": [11], "grown": [12], "on": [13, 89], "KTaO3": [14],
+        "(001)": [15], "substrates": [16], "by": [17, 26, 51, 62], "pulsed": [18],
+        "laser": [19], "deposition.": [20], "The": [21, 73], "thin-film": [22], "structures":
+        [23, 82], "were": [24, 83], "analyzed": [25], "Rutherford": [27], "backscattering/ion-channeling":
+        [28], "techniques,": [29], "x-ray": [30], "\u03b8\u20132\u03b8": [31], "\u03a6":
+        [33], "scans,": [34], "both": [36], "conventional": [37], "Z-contrast": [39],
+        "scanning": [40], "transmission": [41], "electron": [42], "microscopy.": [43],
+        "Excellent": [44], "film": [45], "flatness": [46], "crystallinity": [48],
+        "are": [49, 60], "evidenced": [50], "these": [52], "techniques.": [53], "At":
+        [54], "room": [55], "temperature,": [56], "the": [57, 76, 79], "KNbO3": [58],
+        "characterized": [61], "an": [63, 90], "orthorhombic": [64], "structure":
+        [65], "which": [66], "differs": [67], "from": [68], "that": [69], "of": [70],
+        "bulk": [71], "KNbO3.": [72], "interfaces": [74], "between": [75], "layers":
+        [77], "in": [78], "KNbO3/KTaO3": [80], "superlattice": [81], "found": [84],
+        "to": [85], "be": [86], "compositionally": [87], "sharp": [88], "atomic":
+        [91], "scale.": [92]}, "primary_location": {"id": "doi:10.1063/1.116263",
+        "doi": "https://doi.org/10.1063/1.116263", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.116263", "pdf_url": null, "source": {"id": "https://openalex.org/S105243760",
+        "display_name": "Applied Physics Letters", "issn_l": "0003-6951", "issn":
+        ["0003-6951", "1077-3118", "1520-8842"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-a",
+        "jufo-3", "ki-jl-1", "norway-2", "poland-100", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Applied Physics
+        Letters", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2032054155",
+        "doi": "https://doi.org/10.1063/1.112129", "title": "Epitaxial KNbO3 thin
+        films on KTaO3, MgAl2O4, and MgO substrates", "publication_year": 1994, "abstract_inverted_index":
+        {"Epitaxial": [0], "potassium": [1], "niobate": [2], "(KNbO3)": [3], "thin":
+        [4], "films": [5, 27, 42, 94], "have": [6, 28], "been": [7], "deposited":
+        [8], "on": [9, 32, 43, 95], "KTaO3": [10], "(100),": [11, 13], "MgAl2O4":
+        [12], "and": [14, 46, 56, 88], "MgO": [15, 47], "(100)": [16], "substrates":
+        [17], "using": [18], "ion-beam": [19], "sputter": [20], "deposition.": [21],
+        "X-ray-diffraction": [22], "results": [23], "show": [24], "that": [25], "KNbO3":
+        [26, 41], "orthorhombic": [29], "(110)": [30], "orientation": [31], "all":
+        [33], "three": [34], "substrates.": [35], "Rutherford": [36], "backscattering":
+        [37], "channeling": [38], "analysis": [39], "of": [40, 53, 68, 82], "KTaO3,":
+        [44], "MgAl2O4,": [45], "exhibits": [48], "minimum": [49], "scattering": [50],
+        "yields": [51], "(\u03c7min)": [52], "7%,": [54], "9%,": [55], "18%": [57],
+        "for": [58, 85, 90, 93], "the": [59, 66, 72], "Nb": [60], "peak,": [61], "respectively.":
+        [62], "This": [63], "illustrates": [64], "how": [65], "quality": [67], "epitaxy":
+        [69], "improves": [70], "as": [71], "lattice": [73], "mismatch": [74], "decreases.":
+        [75], "Prism-coupling": [76], "measurements": [77], "reveal": [78], "near-bulk":
+        [79], "refractive": [80], "indices": [81], "about": [83], "2.27": [84], "TE":
+        [86], "modes": [87, 92], "2.22": [89], "TM": [91], "each": [96], "substrate.":
+        [97]}, "primary_location": {"id": "doi:10.1063/1.112129", "doi": "https://doi.org/10.1063/1.112129",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.112129", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S105243760", "display_name":
+        "Applied Physics Letters", "issn_l": "0003-6951", "issn": ["0003-6951", "1077-3118",
+        "1520-8842"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Applied Physics Letters", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W1963689255", "doi": "https://doi.org/10.1063/1.101426",
+        "title": "Epitaxial superconducting thin films of YBa2Cu3O7\u2212x on KTaO3
+        single crystals", "publication_year": 1989, "abstract_inverted_index": {"We":
+        [0], "have": [1], "grown": [2], "thin": [3], "YBa2Cu3O7\u2212x": [4, 49],
+        "films": [5, 30], "on": [6], "single-crystal": [7], "(001)": [8], "KTaO3":
+        [9], "substrates": [10], "by": [11, 21], "means": [12], "of": [13, 15, 37,
+        47, 79, 98], "coevaporation": [14], "Y,": [16], "BaF2,": [17], "and": [18,
+        73], "Cu,": [19], "followed": [20], "an": [22], "ex": [23], "situ": [24],
+        "anneal": [25], "in": [26, 33, 77, 82, 103], "wet": [27], "oxygen.": [28],
+        "The": [29], "are": [31], "epitaxial": [32], "three": [34], "dimensions,":
+        [35], "consisting": [36], "grains": [38, 104], "with": [39, 57, 95, 105],
+        "either": [40], "the": [41, 44, 48, 54, 62, 92, 106, 111], "c": [42, 107],
+        "or": [43], "a": [45, 58, 96], "axis": [46, 108], "unit": [50], "cell": [51],
+        "perpendicular": [52, 109], "to": [53, 61, 110], "substrate.": [55, 112],
+        "Films": [56], "composition": [59], "close": [60], "1:2:3": [63], "cation":
+        [64], "ratio": [65], "exhibit": [66], "sharp": [67], "superconducting": [68],
+        "transitions": [69], "at": [70, 86], "90": [71], "K": [72, 100], "critical":
+        [74], "current": [75], "densities": [76], "excess": [78], "0.3": [80], "MA/cm2":
+        [81], "zero": [83], "magnetic": [84], "field": [85], "77": [87], "K.": [88],
+        "In": [89], "Cu-rich": [90], "films,": [91], "Y2Ba4Cu8O16\u2013x": [93], "phase":
+        [94], "Tc": [97], "80": [99], "is": [101], "formed": [102]}, "primary_location":
+        {"id": "doi:10.1063/1.101426", "doi": "https://doi.org/10.1063/1.101426",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.101426", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S105243760", "display_name":
+        "Applied Physics Letters", "issn_l": "0003-6951", "issn": ["0003-6951", "1077-3118",
+        "1520-8842"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Applied Physics Letters", "raw_type": "journal-article"}}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442a13aa755f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '15057'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:37 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=qHjoMWbW3N4gvCoWMZt5qtUa1ML9AmM%2F0oI0gO84yxQ%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633257"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=qHjoMWbW3N4gvCoWMZt5qtUa1ML9AmM%2F0oI0gO84yxQ%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633257"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '8890'
+      x-ratelimit-remaining-usd:
+      - '0.889'
+      x-ratelimit-reset:
+      - '30743'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=KTaO3+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 142, "db_response_time_ms": 135, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (KTaO3 thin film)
+        in the title or abstract", "x_new_oql": "get works with (KTaO3 thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "KTaO3 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:KTaO3 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W2125988743"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442a14bf585f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '616'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:37 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=qHjoMWbW3N4gvCoWMZt5qtUa1ML9AmM%2F0oI0gO84yxQ%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633257"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=qHjoMWbW3N4gvCoWMZt5qtUa1ML9AmM%2F0oI0gO84yxQ%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633257"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '8880'
+      x-ratelimit-remaining-usd:
+      - '0.888'
+      x-ratelimit-reset:
+      - '30743'
+    status:
+      code: 200
+      message: OK
+version: 1

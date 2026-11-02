@@ -97,3 +97,9 @@ Only commands that work are listed.
   real keys in `.env`; the default replays and fails on any unrecorded request.
 - `uv run python scripts/seed_store_from_cassettes.py` loads `fixtures/adapters/` into the store
   so a run can use `FETCH_MODE=replay` with no network.
+- `uv run python scripts/record_adapters.py` records adapter cassettes for every composition in
+  `fixtures/compositions.yaml` (keys in `.env`) and writes `fixtures/adapters/recording_manifest.json`.
+- `uv run python scripts/build_sample_bundle.py` regenerates `fixtures/bundles/sample_bundle.json`
+  from cassettes (no network); `uv run python scripts/export_openapi.py` writes
+  `web/src/api/openapi.json`, then `cd web && npx openapi-typescript@7 src/api/openapi.json -o src/api/types.ts`.
+- `uv run materials-triage --help` lists the CLI commands (stubs until Track B).

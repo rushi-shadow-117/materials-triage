@@ -1,0 +1,354 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=BiVO4+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 231, "db_response_time_ms": 22, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (BiVO4 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (BiVO4 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "BiVO4
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:BiVO4
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2272093352",
+        "doi": "https://doi.org/10.1002/admi.201500509", "title": "Micropatterning
+        of BiVO4 Thin Films Using Laser\u2010Induced Crystallization", "publication_year":
+        2015, "abstract_inverted_index": {"Relatively": [0], "high": [1, 37], "temperatures":
+        [2], "even": [3], "up": [4], "to": [5, 10, 188, 199], "500": [6], "\u00b0C":
+        [7], "are": [8, 81, 113, 138], "required": [9], "obtain": [11], "bismuth":
+        [12], "vanadate": [13], "(BiVO4)": [14], "films": [15, 70, 77], "with": [16,
+        47, 115], "the": [17, 24, 31, 148, 154, 168, 173, 179, 183], "scheelite":
+        [18], "monoclinic": [19], "(s\u2010m)": [20, 69], "structure": [21, 123],
+        "that": [22], "shows": [23], "highest": [25], "photocatalytic": [26], "activity.":
+        [27], "This": [28], "requirement": [29], "limits": [30], "possible": [32],
+        "choice": [33], "of": [34, 41, 67, 78, 89, 98, 124, 136, 153, 181, 186, 191],
+        "substrates.": [35, 75], "Moreover,": [36], "quality": [38, 135], "thin":
+        [39], "layers": [40], "crystalline": [42, 122], "BiVO4": [43, 68, 80, 99,
+        187], "cannot": [44], "be": [45], "prepared": [46, 82], "current": [48], "methods.":
+        [49], "In": [50], "this": [51], "study": [52], "a": [53, 61], "light\u2010induced":
+        [54], "crystallization": [55, 97, 137, 149, 185], "approach": [56], "is":
+        [57, 60, 100, 106, 126, 157, 170], "presented,": [58], "which": [59, 125],
+        "step": [62], "toward": [63], "preparation": [64], "and": [65, 134, 194],
+        "patterning": [66], "for": [71, 96], "applications": [72], "on": [73], "plastic":
+        [74], "Thin": [76], "amorphous": [79, 200], "by": [83, 128], "pulsed": [84],
+        "laser": [85, 94], "deposition.": [86], "The": [87, 102, 111, 132, 151], "possibility":
+        [88, 180], "using": [90, 108, 140, 159, 182], "green": [91], "(514.7": [92],
+        "nm)": [93], "illumination": [95], "investigated.": [101], "laser\u2010induced":
+        [103, 184], "phase": [104], "transition": [105], "tracked": [107], "Raman":
+        [109], "spectroscopy.": [110], "results": [112, 177], "compared": [114], "those":
+        [116], "obtained": [117], "from": [118], "thermally": [119], "annealed": [120],
+        "samples,": [121], "confirmed": [127], "measuring": [129], "X\u2010ray": [130],
+        "diffraction.": [131], "homogeneity": [133], "verified": [139], "micro\u2010Raman":
+        [141], "spectroscopy": [142], "imaging,": [143], "while": [144], "time\u2010dependent":
+        [145], "experiments": [146], "reveal": [147], "rate.": [150], "conductivity":
+        [152, 169, 193], "crystallized": [155], "region": [156], "investigated": [158],
+        "conductive": [160], "atomic": [161], "force": [162], "microscopy.": [163],
+        "A": [164], "strong": [165], "increase": [166], "in": [167, 172, 197], "found":
+        [171], "patterned": [174], "regions.": [175], "Experimental": [176], "demonstrate":
+        [178], "prepare": [189], "patterns": [190], "improved": [192], "semiconducting":
+        [195], "properties": [196], "comparison": [198], "surroundings.": [201]},
+        "primary_location": {"id": "doi:10.1002/admi.201500509", "doi": "https://doi.org/10.1002/admi.201500509",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1002/admi.201500509",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S2764385675", "display_name":
+        "Advanced Materials Interfaces", "issn_l": "2196-7350", "issn": ["2196-7350"],
+        "is_oa": false, "is_in_doaj": true, "is_core": true, "listed_in": ["cwts-core",
+        "doaj", "dongbi-a", "jufo-1", "ki-jl-1", "norway-1", "oarl", "poland-100",
+        "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320595",
+        "host_organization_name": "Wiley", "host_organization_lineage": ["https://openalex.org/P4310320595"],
+        "host_organization_lineage_names": ["Wiley"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Advanced Materials Interfaces",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W3047257679",
+        "doi": "https://doi.org/10.1002/smll.202001600", "title": "Revealing Nanoscale
+        Chemical Heterogeneities in Polycrystalline Mo\u2010BiVO4 Thin Films", "publication_year":
+        2020, "abstract_inverted_index": {"Abstract": [0], "The": [1], "activity":
+        [2], "of": [3, 13, 21, 28, 62, 87, 92, 121, 146, 162, 171], "polycrystalline":
+        [4, 51, 63, 172], "thin": [5, 94], "film": [6, 64], "photoelectrodes": [7],
+        "is": [8, 35, 65, 97], "impacted": [9], "by": [10, 100], "local": [11], "variations":
+        [12], "the": [14, 19, 26, 59, 69, 116, 128, 144, 147, 156, 160, 166], "material":
+        [15, 163, 167], "properties": [16], "due": [17], "to": [18, 37, 67, 75, 114],
+        "exposure": [20], "different": [22, 70], "crystal": [23], "facets": [24],
+        "and": [25, 44, 78, 104, 136, 159, 169], "presence": [27], "grain/domain":
+        [29], "boundaries.": [30, 80], "Here": [31], "a": [32], "multi\u2010modal":
+        [33], "approach": [34], "applied": [36], "correlate": [38], "nanoscale": [39,
+        48], "heterogeneities": [40, 164], "in": [41, 50, 123, 143], "chemical": [42],
+        "composition": [43], "electronic": [45], "structure": [46, 61], "with": [47],
+        "morphology": [49], "Mo\u2010BiVO4.": [52, 124], "By": [53], "using": [54],
+        "scanning": [55], "transmission": [56], "X\u2010ray": [57, 71, 101, 117],
+        "microscopy,": [58], "characteristic": [60], "used": [66], "disentangle":
+        [68], "absorption": [72, 118], "spectra": [73, 83, 139], "corresponding":
+        [74], "grain": [76, 79, 90, 134, 137], "centers": [77], "Comparing": [81],
+        "both": [82], "reveals": [84], "phase": [85], "segregation": [86], "V2O5":
+        [88, 141], "at": [89], "boundaries": [91], "Mo\u2010BiVO4": [93, 130], "films,":
+        [95], "which": [96], "further": [98], "supported": [99], "photoelectron":
+        [102], "spectroscopy": [103], "many\u2010body": [105], "density": [106], "functional":
+        [107], "theory": [108], "calculations.": [109], "Theoretical": [110], "calculations":
+        [111], "also": [112], "enable": [113], "predict": [115], "spectral": [119],
+        "fingerprint": [120], "polarons": [122], "After": [125], "photo\u2010electrochemical":
+        [126], "operation,": [127], "degraded": [129], "films": [131], "show": [132],
+        "similar": [133], "center": [135], "boundary": [138], "indicating": [140],
+        "dissolution": [142], "course": [145], "reaction.": [148], "Overall,": [149],
+        "these": [150], "findings": [151], "provide": [152], "valuable": [153], "insights":
+        [154], "into": [155], "degradation": [157], "mechanism": [158], "impact":
+        [161], "on": [165], "performance": [168], "stability": [170], "photoelectrodes.":
+        [173]}, "primary_location": {"id": "doi:10.1002/smll.202001600", "doi": "https://doi.org/10.1002/smll.202001600",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.1002/smll.202001600",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S94619837", "display_name":
+        "Small", "issn_l": "1613-6810", "issn": ["1613-6810", "1613-6829"], "is_oa":
+        false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core", "dongbi-c",
+        "jufo-3", "ki-jl-2", "medline", "norway-2", "poland-200", "russia-white-list-1",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310320595", "host_organization_name":
+        "Wiley", "host_organization_lineage": ["https://openalex.org/P4310320595"],
+        "host_organization_lineage_names": ["Wiley"], "type": "journal"}, "license":
+        "cc-by", "license_id": "https://openalex.org/licenses/cc-by", "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Small", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W4407145689", "doi": "https://doi.org/10.70189/1992-9498.1485",
+        "title": "IMPACT OF SULFURIZATION ON SPUTTERED BIVO4 THIN FILMS", "publication_year":
+        2024, "abstract_inverted_index": {"The": [0], "sulfurization": [1], "method":
+        [2], "has": [3, 31], "been": [4, 32], "used": [5], "to": [6], "decrease":
+        [7], "the": [8, 12, 16, 24, 50], "band": [9], "gap": [10], "of": [11, 18,
+        27, 36, 47, 49], "BiVO4": [13, 42, 56], "structure,": [14], "reduce": [15],
+        "recombination": [17], "electrons": [19], "and": [20, 22, 40], "holes,": [21],
+        "increase": [23], "photoelectrochemical": [25], "performance": [26], "this":
+        [28], "material.": [29], "It": [30], "observed": [33], "that": [34], "incorporation":
+        [35], "sulfur": [37], "into": [38], "stoichiometric": [39, 60], "Vrich": [41,
+        55], "is": [43], "variously": [44], "affected": [45], "changing": [46], "properties":
+        [48], "structure.": [51], "Sulfurization": [52], "can": [53], "modify": [54],
+        "structure": [57], "rather": [58], "than": [59], "BiVO4.": [61]}, "primary_location":
+        {"id": "doi:10.70189/1992-9498.1485", "doi": "https://doi.org/10.70189/1992-9498.1485",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.70189/1992-9498.1485",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4210194571", "display_name":
+        "CHEMISTRY AND CHEMICAL ENGINEERING", "issn_l": "1992-9498", "issn": ["1992-9498",
+        "2181-1121"], "is_oa": false, "is_in_doaj": false, "is_core": false, "listed_in":
+        [], "host_organization": null, "host_organization_name": null, "host_organization_lineage":
+        [], "host_organization_lineage_names": [], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "CHEMISTRY AND CHEMICAL ENGINEERING",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2792082482",
+        "doi": "https://doi.org/10.1016/j.dib.2018.01.070", "title": "Structural and
+        morphological data of RF-Sputtered BiVO4 thin films", "publication_year":
+        2018, "abstract_inverted_index": {"Structural": [0], "and": [1, 33, 39], "morphological":
+        [2], "modulation": [3], "of": [4, 28, 52, 61, 65, 75], "rf-sputtered": [5],
+        "BiVO4": [6, 14, 67, 80], "thin": [7, 63, 81], "films": [8, 82], "deposited":
+        [9], "using": [10], "mechanochemical": [11], "synthesis": [12], "prepared":
+        [13], "nano-powders": [15], "as": [16], "sintered": [17], "target": [18],
+        "are": [19, 83], "included": [20], "in": [21], "this": [22], "data": [23],
+        "article.": [24], "The": [25], "crystalline": [26, 34], "nature": [27], "as-prepared":
+        [29], "films,": [30], "namely": [31], "amorphous": [32], "was": [35], "acquired":
+        [36], "with": [37], "time": [38, 50], "temperature": [40, 44, 78], "dependent":
+        [41], "in-situ": [42], "high": [43], "X-ray": [45], "diffraction": [46], "(HT-XRD),":
+        [47], "at": [48], "a": [49], "interval": [51], "1": [53], "h.": [54], "Typical":
+        [55], "Fourier": [56], "transform": [57], "infrared": [58], "(FT-IR)": [59],
+        "spectra": [60], "annealed": [62], "film": [64], "monoclinic": [66], "structure":
+        [68], "is": [69], "given.": [70], "Furthermore,": [71], "correlation": [72],
+        "between": [73], "morphologies": [74], "various": [76], "substrate": [77],
+        "fabricated": [79], "presented.": [84]}, "primary_location": {"id": "doi:10.1016/j.dib.2018.01.070",
+        "doi": "https://doi.org/10.1016/j.dib.2018.01.070", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.1016/j.dib.2018.01.070", "pdf_url": "https://www.sciencedirect.com/science/article/pii/S2352340918300738/pdf",
+        "source": {"id": "https://openalex.org/S2481029507", "display_name": "Data
+        in Brief", "issn_l": "2352-3409", "issn": ["2352-3409"], "is_oa": true, "is_in_doaj":
+        true, "is_core": true, "listed_in": ["anvur-class-a", "anvur-scientific",
+        "cwts-core", "doaj", "jufo-1", "ki-jl-1", "norway-1", "oarl", "poland-40",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310320990", "host_organization_name":
+        "Elsevier BV", "host_organization_lineage": ["https://openalex.org/P4310320990"],
+        "host_organization_lineage_names": ["Elsevier BV"], "type": "journal"}, "license":
+        "cc-by", "license_id": "https://openalex.org/licenses/cc-by", "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Data in Brief",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W4320482767",
+        "doi": "https://doi.org/10.35848/1347-4065/acbb85", "title": "Crystalline
+        phase control of BiVO4 thin films using RF sputtering", "publication_year":
+        2023, "abstract_inverted_index": {"Abstract": [0], "A": [1], "selective":
+        [2], "fabrication": [3], "method": [4], "for": [5], "monoclinic-scheelite":
+        [6], "(m-s)": [7], "BiVO4": [8, 12, 42, 57, 67, 73, 107, 125], "and": [9,
+        46], "tetragonal-zircon": [10], "(t-z)": [11], "thin": [13], "films": [14,
+        43, 74], "using": [15, 142], "radio": [16], "fRequency": [17], "(RF)": [18],
+        "sputtering": [19, 38, 102, 114], "from": [20, 111], "a": [21, 76], "single":
+        [22], "target": [23], "was": [24, 33, 61, 96], "developed.": [25], "The":
+        [26], "kinetic": [27, 145], "energy": [28, 146], "of": [29, 54, 65, 99, 131],
+        "the": [30, 37, 51, 55, 70, 87, 100, 105, 112, 119, 128, 132, 143], "sputtered":
+        [31], "atoms": [32], "controlled": [34], "by": [35], "varying": [36], "power":
+        [39, 115], "to": [40], "obtain": [41], "with": [44], "m-s": [45, 66], "t-z":
+        [47, 56, 72, 106, 124], "crystalline": [48, 139], "phases.": [49], "Although":
+        [50], "band": [52], "gap": [53], "phase": [58, 140], "(3.0": [59], "eV)":
+        [60], "larger": [62], "than": [63], "that": [64, 126], "(2.5": [68], "eV),":
+        [69], "deposited": [71], "showed": [75], "comparable": [77], "photocurrent":
+        [78], "density": [79], "(1.5": [80], "mA": [81], "cm\u22122)": [82], "at":
+        [83], "1.23": [84], "V": [85], "versus": [86], "reversible": [88], "hydrogen":
+        [89], "electrode": [90], "(400": [91], "W": [92], "Xe": [93], "lamp).": [94],
+        "This": [95, 134], "mainly": [97], "because": [98], "reduced": [101], "damage":
+        [103], "in": [104, 123, 147], "crystal,": [108], "which": [109], "originated":
+        [110], "low": [113], "as": [116, 118], "well": [117], "deep": [120], "valence-band":
+        [121], "position": [122], "enabled": [127], "efficient": [129], "utilization":
+        [130], "photocarriers.": [133], "work": [135], "provides": [136], "insights":
+        [137], "into": [138], "control": [141], "particle": [144], "sputtering.":
+        [148]}, "primary_location": {"id": "doi:10.35848/1347-4065/acbb85", "doi":
+        "https://doi.org/10.35848/1347-4065/acbb85", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.35848/1347-4065/acbb85", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S143744711", "display_name": "Japanese Journal of Applied
+        Physics", "issn_l": "0021-4922", "issn": ["0021-4922", "1347-4065"], "is_oa":
+        false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core", "dongbi-d",
+        "jufo-1", "ki-jl-1", "norway-1", "poland-70", "russia-white-list-2", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310311669", "host_organization_name":
+        "Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310311669"],
+        "host_organization_lineage_names": ["Institute of Physics"], "type": "journal"},
+        "license": null, "license_id": null, "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "Japanese Journal of Applied
+        Physics", "raw_type": "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a544297fee295f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '15432'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:13 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=SQPoDm%2FI9100U1bknf2468cJwHh1huSX6wAGrrqW%2FFM%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633233"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=SQPoDm%2FI9100U1bknf2468cJwHh1huSX6wAGrrqW%2FFM%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633233"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9430'
+      x-ratelimit-remaining-usd:
+      - '0.943'
+      x-ratelimit-reset:
+      - '30767'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=BiVO4+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 408, "db_response_time_ms": 28, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (BiVO4 thin film)
+        in the title or abstract", "x_new_oql": "get works with (BiVO4 thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "BiVO4 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:BiVO4 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W1991990860"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442980b9ad5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '615'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:14 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=HYwd%2FFARGUQP2LqbjX7vf03i2yeV3HDBGeJhJxHjgao%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633234"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=HYwd%2FFARGUQP2LqbjX7vf03i2yeV3HDBGeJhJxHjgao%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633234"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9420'
+      x-ratelimit-remaining-usd:
+      - '0.942'
+      x-ratelimit-reset:
+      - '30766'
+    status:
+      code: 200
+      message: OK
+version: 1

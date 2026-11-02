@@ -1,0 +1,301 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=BiTaO4+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 3, "db_response_time_ms": 21, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (BiTaO4 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (BiTaO4 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "BiTaO4
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:BiTaO4
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W1655301082",
+        "doi": "https://doi.org/10.1063/1.1496499", "title": "Sub-100 nm SrBi2Ta2O9
+        film with ultrathin BiTaO4 capping layer for 3 V or lower-voltage ferroelectric
+        memory operation", "publication_year": 2002, "abstract_inverted_index": {"This":
+        [0], "letter": [1], "proposes": [2], "an": [3], "enhanced": [4], "700": [5,
+        55], "\u00b0C": [6], "process": [7, 41], "to": [8], "improve": [9], "the":
+        [10, 32, 73], "dielectric": [11, 74], "breakdown": [12, 75], "strength": [13,
+        76], "and": [14, 47], "surface": [15], "roughness": [16], "of": [17, 68, 79],
+        "sub-100": [18], "nm": [19], "SrBi2Ta2O9": [20], "(SBT)": [21], "film": [22,
+        81], "with": [23], "a": [24, 63], "thin": [25], "(<20": [26], "nm)": [27],
+        "BiTaO4": [28], "(BT)": [29], "layer": [30, 59, 65], "for": [31, 43], "3":
+        [33], "V": [34], "or": [35, 53], "lower": [36], "voltage": [37], "ferroelectric":
+        [38, 85], "memory.": [39], "The": [40, 57], "temperature": [42], "rapid":
+        [44], "thermal": [45], "annealing": [46, 49], "furnace": [48], "is": [50,
+        60], "performed": [51], "at": [52], "below": [54], "\u00b0C.": [56], "BT":
+        [58], "used": [61], "as": [62], "capping": [64], "on": [66], "top": [67],
+        "SBT": [69, 80], "film.": [70], "It": [71], "improves": [72], "(1.2": [77],
+        "MV/cm)": [78], "without": [82], "sacrificing": [83], "other": [84], "properties.":
+        [86]}, "primary_location": {"id": "doi:10.1063/1.1496499", "doi": "https://doi.org/10.1063/1.1496499",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.1496499", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S105243760", "display_name":
+        "Applied Physics Letters", "issn_l": "0003-6951", "issn": ["0003-6951", "1077-3118",
+        "1520-8842"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Applied Physics Letters", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2087419353", "doi": "https://doi.org/10.1063/1.373491",
+        "title": "Effect of lead additive on the ferroelectric properties and microstructure
+        of SrxPbyBi2zTa2O9 thin films", "publication_year": 2000, "abstract_inverted_index":
+        {"Ferroelectric": [0], "thin": [1], "films": [2, 34, 113], "of": [3, 18, 32,
+        41, 67, 78, 82, 91, 111, 127, 140, 147, 160], "bismuth-containing": [4], "layered":
+        [5], "perovskite": [6], "SrxPbyBi2zTa2O9": [7], "have": [8], "been": [9],
+        "prepared": [10, 57], "using": [11], "the": [12, 25, 47, 64, 89, 96, 128,
+        145, 157], "metalorganic": [13], "decomposition": [14], "method.": [15], "The":
+        [16, 80], "effect": [17], "both": [19, 71], "Sr": [20, 68, 148], "and": [21,
+        29, 74, 138], "Pb": [22, 83], "content": [23, 69], "on": [24, 70], "crystal":
+        [26], "structure,": [27], "microstructure,": [28], "ferroelectric": [30],
+        "properties": [31], "SrxPbyBi2.3Ta2O9": [33], "was": [35, 44, 133], "investigated.":
+        [36], "A": [37], "maximum": [38], "remanent": [39, 123], "polarization": [40,
+        124], "2Pr=19.2": [42], "\u03bcC/cm2": [43], "obtained": [45], "for": [46,
+        84, 102], "SrxPb0.2Bi2.3Ta2O9": [48], "film": [49, 162], "with": [50, 119,
+        168], "20": [51, 169], "mol": [52, 170], "%": [53, 171], "Sr-deficient": [54],
+        "composition": [55], "as": [56], "at": [58], "800": [59], "\u00b0C,": [60],
+        "which": [61, 99], "could": [62], "be": [63, 164], "compromising": [65], "effects":
+        [66], "grain": [72, 103], "growth": [73, 104], "second": [75], "phase": [76],
+        "formation": [77], "BiTaO4.": [79], "substitution": [81], "Bi": [85, 151],
+        "is": [86, 100, 154], "accompanied": [87], "by": [88, 150, 166], "occurrence":
+        [90], "oxygen": [92], "vacancies": [93, 149], "to": [94, 125, 135, 144], "compensate":
+        [95], "charge": [97], "balance,": [98], "responsible": [101], "mechanism":
+        [105], "in": [106, 122], "Sr0.8Pb0.2Bi2.3Ta2O9": [107], "films.": [108], "Fatigue":
+        [109], "endurance": [110, 159], "Sr0.8Bi2.3Ta2O9": [112, 161], "becomes":
+        [114], "problematic": [115], "after": [116], "109": [117], "cycles": [118],
+        "a": [120], "decrease": [121], "85%": [126], "original": [129], "value.":
+        [130], "This": [131], "phenomenon": [132], "related": [134], "electron": [136,
+        141], "injection": [137], "creation": [139], "traps": [142], "due": [143],
+        "occupation": [146], "cations.": [152], "It": [153], "demonstrated": [155],
+        "that": [156], "fatigue": [158], "can": [163], "improved": [165], "doping":
+        [167], "PbO.": [172]}, "primary_location": {"id": "doi:10.1063/1.373491",
+        "doi": "https://doi.org/10.1063/1.373491", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.373491", "pdf_url": null, "source": {"id": "https://openalex.org/S187991544",
+        "display_name": "Journal of Applied Physics", "issn_l": "0021-8979", "issn":
+        ["0021-8979", "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d",
+        "jufo-1", "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W1608023373",
+        "doi": null, "title": "Atomic Layer Deposition of Multicomponent Oxide Materials",
+        "publication_year": 2007, "abstract_inverted_index": {"Atomic": [0], "layer":
+        [1], "deposition": [2, 10], "(ALD)": [3], "is": [4, 48, 92, 161], "a": [5,
+        75], "method": [6], "for": [7, 16, 94, 131, 163], "thin": [8, 19, 69, 124],
+        "film": [9, 20, 101, 179, 215], "which": [11], "has": [12, 103], "been": [13],
+        "extensively": [14], "studied": [15], "binary": [17, 86, 140, 200], "oxide":
+        [18, 25, 68, 87, 165, 201], "growth.": [21, 66], "Studies": [22], "on": [23],
+        "multicomponent": [24, 110, 150, 164], "growth": [26, 102, 187, 197, 218],
+        "by": [27, 135], "ALD": [28, 88, 107], "remain": [29], "relatively": [30],
+        "few": [31], "owing": [32], "to": [33, 104, 144, 241, 250], "the": [34, 56,
+        65, 81, 100, 132, 139, 146, 173, 177, 190, 196, 199, 206, 213, 223, 243, 258,
+        263, 286], "increased": [35], "number": [36], "of": [37, 64, 108, 129, 138,
+        148, 154, 192, 198, 208, 222, 285], "factors": [38], "that": [39, 84, 172],
+        "come": [40], "into": [41], "play": [42], "when": [43], "more": [44, 248],
+        "than": [45], "one": [46], "metal": [47, 51, 265, 267], "employed.": [49],
+        "More": [50], "precursors": [52], "are": [53, 142], "required,": [54], "and":
+        [55, 121, 159, 194, 228, 274], "surface": [57], "may": [58], "change": [59],
+        "significantly": [60], "during": [61], "successive": [62], "stages": [63],
+        "Multicomponent": [67], "films": [70, 125, 225], "can": [71], "be": [72, 105,
+        170, 183], "prepared": [73, 264], "in": [74, 98, 212, 236, 262], "well-controlled":
+        [76], "way": [77], "as": [78, 80, 226], "long": [79], "same": [82], "principle":
+        [83], "makes": [85], "work": [89], "so": [90], "well": [91], "followed": [93],
+        "each": [95], "constituent": [96], "element:": [97], "short,": [99], "self-limiting.":
+        [106], "various": [109], "oxides": [111, 141], "was": [112, 202, 231], "studied.":
+        [113, 232], "SrTiO3,": [114], "BaTiO3,": [115], "Ba(1-x)SrxTiO3": [116], "(BST),":
+        [117], "SrTa2O6,": [118], "Bi4Ti3O12,": [119], "BiTaO4": [120], "SrBi2Ta2O9":
+        [122], "(SBT)": [123], "were": [126, 239, 281], "prepared,": [127], "many":
+        [128], "them": [130], "first": [133], "time": [134], "ALD.": [136], "Chemistries":
+        [137], "shown": [143], "influence": [145], "processing": [147], "their": [149],
+        "counterparts.": [151], "The": [152, 220], "compatibility": [153], "precursor":
+        [155], "volatilities,": [156], "thermal": [157], "stabilities": [158], "reactivities":
+        [160], "essential": [162], "ALD,": [166], "but": [167, 205], "it": [168],
+        "should": [169], "noted": [171], "main": [174], "reactive": [175], "species,":
+        [176], "growing": [178, 214], "itself,": [180], "must": [181], "also": [182],
+        "compatible": [184], "with": [185, 283], "self-limiting": [186, 217], "chemistry.":
+        [188], "In": [189], "cases": [191], "BaO": [193], "Bi2O3": [195], "very":
+        [203], "difficult,": [204], "presence": [207], "Ti": [209], "or": [210], "Ta":
+        [211], "made": [216], "possible.": [219], "application": [221], "deposited":
+        [224], "dielectric": [227], "ferroelectric": [229], "materials": [230, 255],
+        "Post-deposition": [233], "annealing": [234], "treatments": [235], "different":
+        [237], "atmospheres": [238], "used": [240], "achieve": [242], "desired": [244],
+        "crystalline": [245], "phase": [246], "or,": [247], "generally,": [249], "improve":
+        [251], "electrical": [252], "properties.": [253], "Electrode": [254], "strongly":
+        [256], "influenced": [257], "leakage": [259, 275], "current": [260, 276],
+        "densities": [261, 277], "insulator": [266], "(MIM)": [268], "capacitors.":
+        [269], "Film": [270], "permittivities": [271], "above": [272], "100": [273],
+        "below": [278], "1\uf0d710-7": [279], "A/cm2": [280], "achieved": [282], "several":
+        [284], "materials.": [287]}, "primary_location": {"id": "pmh:oai:helda.helsinki.fi:10138/21136",
+        "doi": null, "is_oa": true, "landing_page_url": "http://hdl.handle.net/10138/21136",
+        "pdf_url": "http://hdl.handle.net/10138/21136", "source": {"id": "https://openalex.org/S4210213322",
+        "display_name": "Ty\u00f6v\u00e4entutkimus Vuosikirja", "issn_l": "0784-1272",
+        "issn": ["0784-1272", "1459-7780"], "is_oa": true, "is_in_doaj": false, "is_core":
+        false, "listed_in": ["ddh", "jufo-1"], "host_organization": null, "host_organization_name":
+        null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "journal"}, "license": null, "license_id": null, "version": "submittedVersion",
+        "is_accepted": false, "is_published": false, "raw_source_name": null, "raw_type":
+        "doctoralThesis"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442a04a80a5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '11068'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:35 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=mhRfBnIEPXfMfK0Z9jpdTH6F47RHBN1PIzYsvbP2umw%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633255"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=mhRfBnIEPXfMfK0Z9jpdTH6F47RHBN1PIzYsvbP2umw%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633255"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '8970'
+      x-ratelimit-remaining-usd:
+      - '0.897'
+      x-ratelimit-reset:
+      - '30745'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=BiTaO4+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 4, "db_response_time_ms": 18, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (BiTaO4 thin film)
+        in the title or abstract", "x_new_oql": "get works with (BiTaO4 thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "BiTaO4 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:BiTaO4 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W1655301082"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442a057bac5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '617'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:35 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=mhRfBnIEPXfMfK0Z9jpdTH6F47RHBN1PIzYsvbP2umw%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633255"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=mhRfBnIEPXfMfK0Z9jpdTH6F47RHBN1PIzYsvbP2umw%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633255"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '8960'
+      x-ratelimit-remaining-usd:
+      - '0.896'
+      x-ratelimit-reset:
+      - '30745'
+    status:
+      code: 200
+      message: OK
+version: 1

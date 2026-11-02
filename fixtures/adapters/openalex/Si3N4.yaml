@@ -1,0 +1,688 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=Si3N4+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 1459, "db_response_time_ms": 25, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Si3N4 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (Si3N4 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "Si3N4
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:Si3N4
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W1978152895",
+        "doi": "https://doi.org/10.1063/1.357347", "title": "The effective transverse
+        thermal conductivity of amorphous Si3N4 thin films", "publication_year": 1994,
+        "abstract_inverted_index": {"The": [0, 64], "effective": [1, 21, 66, 147],
+        "transverse": [2, 67], "thermal": [3, 22, 47, 68, 86, 104, 148, 164], "conductivity":
+        [4, 23, 48, 69, 109, 149], "of": [5, 14, 25, 49, 60, 110, 129, 150, 161],
+        "Si3N4": [6, 26, 51, 135], "thin": [7, 27, 55, 152], "films": [8, 28, 56,
+        112, 153], "is": [9, 29, 41, 76, 82, 89, 125, 157], "determined": [10], "as":
+        [11, 57, 72, 121], "a": [12, 58, 85], "function": [13, 59], "film": [15, 74,
+        123], "thickness.": [16], "Results": [17], "indicate": [18], "that": [19,
+        32, 38, 88], "the": [20, 46, 73, 92, 97, 102, 107, 117, 122, 130, 134, 143,
+        146], "behavior": [24], "similar": [30], "to": [31, 84], "exhibited": [33],
+        "by": [34], "amorphous": [35, 50, 53, 93, 111, 151, 170], "SiO2": [36, 54],
+        "films;": [37], "is,": [39], "there": [40], "no": [42], "significant": [43],
+        "difference": [44], "between": [45, 133], "and": [52, 106, 137, 166], "thickness":
+        [61, 75, 80, 124, 156], "or": [62], "temperature.": [63], "average": [65],
+        "decreases": [70], "drastically": [71], "reduced.": [77, 126], "This": [78],
+        "strong": [79], "dependence": [81], "ascribed": [83], "resistance": [87, 105,
+        119, 165], "localized": [90], "at": [91], "film/Si-substrate": [94], "interface.":
+        [95], "Within": [96], "narrow": [98], "temperature": [99], "range": [100],
+        "studied,": [101], "interfacial": [103, 118, 163], "intrinsic": [108], "increase":
+        [113], "with": [114, 154], "temperature;": [115], "however,": [116], "dominates":
+        [120], "In": [127], "light": [128], "observed": [131], "similarities": [132],
+        "results": [136], "those": [138], "previously": [139], "obtained": [140],
+        "on": [141], "SiO2,": [142], "reduction": [144], "in": [145, 159, 169], "decreasing":
+        [155], "discussed": [158], "terms": [160], "both": [162], "scattering": [167],
+        "mechanisms": [168], "solids.": [171]}, "primary_location": {"id": "doi:10.1063/1.357347",
+        "doi": "https://doi.org/10.1063/1.357347", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.357347", "pdf_url": null, "source": {"id": "https://openalex.org/S187991544",
+        "display_name": "Journal of Applied Physics", "issn_l": "0021-8979", "issn":
+        ["0021-8979", "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d",
+        "jufo-1", "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2244776170",
+        "doi": "https://doi.org/10.4028/www.scientific.net/amr.89-91.91", "title":
+        "Stress Relaxation in Sandwiched Si3N4/Al/Si3N4 Thin Films", "publication_year":
+        2010, "abstract_inverted_index": {"An": [0, 87], "in-situ": [1], "investigation":
+        [2], "was": [3, 90], "performed": [4], "on": [5], "the": [6, 29, 32, 67, 72,
+        79], "stress": [7, 18, 69], "relaxation": [8], "of": [9, 31, 66, 74, 81],
+        "sandwiched": [10], "Si3N4/Al/Si3N4": [11], "thin": [12, 33], "films": [13,
+        34], "by": [14, 37], "using": [15], "multi-beam": [16], "optical": [17], "sensor":
+        [19], "(MOSS),": [20], "a": [21], "developed": [22], "technique": [23], "for":
+        [24], "substrate": [25], "curvature": [26], "measurement.": [27], "Furthermore,":
+        [28], "microstructures": [30], "were": [35], "characterized": [36], "several":
+        [38], "analyzing": [39], "techniques,": [40], "such": [41], "as": [42], "X-ray":
+        [43, 54], "Photoelectron": [44], "Spectroscopy": [45], "(XPS),": [46], "Field":
+        [47], "Emission": [48], "Scanning": [49], "Electron": [50], "Microscope":
+        [51], "(FE-SEM)": [52], "and": [53, 64], "energy": [55], "dispersive": [56],
+        "spectroscopy": [57], "(EDS).": [58], "The": [59], "results": [60], "indicated":
+        [61], "sharp": [62], "rise": [63], "drop": [65], "residual": [68], "due":
+        [70], "to": [71, 92], "cracks": [73], "Si3N4": [75], "surface": [76], "layer":
+        [77], "or": [78], "separation": [80], "Al": [82], "particles": [83], "during":
+        [84], "annealing": [85], "process.": [86], "appropriate": [88], "model": [89],
+        "suggested": [91], "interpret": [93], "this": [94], "phenomenon.": [95]},
+        "primary_location": {"id": "doi:10.4028/www.scientific.net/amr.89-91.91",
+        "doi": "https://doi.org/10.4028/www.scientific.net/amr.89-91.91", "is_oa":
+        true, "landing_page_url": "https://doi.org/10.4028/www.scientific.net/amr.89-91.91",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S67425620", "display_name":
+        "Advanced materials research", "issn_l": "1022-6680", "issn": ["1022-6680",
+        "1662-8985"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "jufo-1", "norway-1"], "host_organization": "https://openalex.org/P4310317839",
+        "host_organization_name": "Trans Tech Publications", "host_organization_lineage":
+        ["https://openalex.org/P4310317839"], "host_organization_lineage_names": ["Trans
+        Tech Publications"], "type": "journal"}, "license": "cc-by", "license_id":
+        "https://openalex.org/licenses/cc-by", "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "Advanced Materials Research",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W1971559874",
+        "doi": "https://doi.org/10.1103/physrevb.60.r2146", "title": "Crystalline
+        Si3N4 thin films on Si(111) and the 4\u00d74 reconstruction on Si3N4(0001)",
+        "publication_year": 1999, "abstract_inverted_index": {"Crystalline": [0],
+        "silicon": [1], "nitride": [2], "$({\\mathrm{Si}}_{3}{\\mathrm{N}}_{4})$":
+        [3], "thin": [4], "films": [5], "have": [6], "been": [7], "grown": [8], "on":
+        [9, 85], "Si(111)": [10], "surfaces": [11, 42], "by": [12], "exposing": [13],
+        "the": [14, 40, 68, 81], "substrate": [15], "to": [16, 80], "${\\mathrm{NH}}_{3}$":
+        [17], "at": [18], "a": [19, 33, 45, 53, 59], "temperature": [20], "of": [21,
+        39, 55, 63, 70], "\\ensuremath{\\geqslant}1075": [22], "K.": [23], "An": [24],
+        "``$8\\ifmmode\\times\\else\\texttimes\\fi{}8$''''": [25], "electron": [26],
+        "diffraction": [27], "pattern": [28], "was": [29], "observable": [30], "even":
+        [31], "for": [32], "relatively": [34], "thick": [35], "${\\mathrm{Si}}_{3}{\\mathrm{N}}_{4}$":
+        [36], "film.": [37], "Images": [38], "same": [41], "obtained": [43], "with":
+        [44, 52, 72], "scanning": [46], "tunneling": [47], "microscope": [48], "show":
+        [49], "surface": [50, 83], "superstructure": [51, 77], "period": [54], "30.7":
+        [56], "\\AA{},": [57], "and": [58], "minimum": [60], "step": [61], "height":
+        [62], "2.9": [64], "\\AA{}.": [65], "These": [66], "suggest": [67], "formation":
+        [69], "$\\ensuremath{\\beta}--{\\mathrm{Si}}_{3}{\\mathrm{N}}_{4},$": [71],
+        "${\\mathrm{Si}}_{3}{\\mathrm{N}}_{4}(0001)\\mathrm{\\ensuremath{\\parallel}}\\mathrm{Si}(111).$":
+        [73], "The": [74], "30.7-\\AA{}": [75], "periodic": [76], "is": [78], "attributed":
+        [79], "$4\\ifmmode\\times\\else\\texttimes\\fi{}4$": [82], "reconstruction":
+        [84], "${\\mathrm{Si}}_{3}{\\mathrm{N}}_{4}(0001).$": [86]}, "primary_location":
+        {"id": "doi:10.1103/physrevb.60.r2146", "doi": "https://doi.org/10.1103/physrevb.60.r2146",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1103/physrevb.60.r2146",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4210174675", "display_name":
+        "Physical review. B, Condensed matter", "issn_l": "0163-1829", "issn": ["0163-1829",
+        "1095-3795"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "ki-jl-2"], "host_organization": "https://openalex.org/P4310320261",
+        "host_organization_name": "American Physical Society", "host_organization_lineage":
+        ["https://openalex.org/P4310320261"], "host_organization_lineage_names": ["American
+        Physical Society"], "type": "journal"}, "license": null, "license_id": null,
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Physical Review B", "raw_type": "journal-article"}}, {"id":
+        "https://openalex.org/W2056747819", "doi": "https://doi.org/10.1063/1.345594",
+        "title": "Potassium-assisted, facile oxidation of Si3N4 thin films", "publication_year":
+        1990, "abstract_inverted_index": {"X-ray": [0], "photoelectron": [1], "spectroscopy":
+        [2], "(XPS)": [3], "was": [4, 120], "used": [5], "to": [6, 109, 122, 135,
+        141], "investigate": [7], "potassium-assisted,": [8], "facile": [9], "oxidation":
+        [10, 129], "of": [11, 51, 57, 96, 106, 111, 145], "silicon": [12, 97, 123],
+        "nitride": [13, 23], "(Si3": [14], "N4": [15, 43], ")": [16, 62], "thin":
+        [17], "films": [18], "on": [19, 99, 148], "Si(100)": [20, 33], "substrates.":
+        [21], "The": [22, 90, 127], "films,": [24], "0.8\u20132.5": [25], "nm": [26],
+        "thick,": [27], "were": [28], "grown": [29], "by": [30], "heating": [31],
+        "the": [32, 41, 55, 65, 75, 82, 87, 100, 103, 112, 142, 149, 152], "crystal":
+        [34], "in": [35, 48, 54], "hydrazine.": [36], "Potassium": [37], "(K)": [38],
+        "deposited": [39, 115], "onto": [40], "Si3": [42], "surface": [44, 150], "at":
+        [45, 67], "room": [46], "temperature": [47], "a": [49], "background": [50],
+        "oxygen": [52, 113, 147], "resulted": [53], "formation": [56, 95], "potassium":
+        [58], "peroxide": [59], "(K2": [60], "O2": [61, 77, 118, 154], "overlayers.":
+        [63], "Annealing": [64], "sample": [66], "975": [68], "K": [69, 80], "for":
+        [70], "only": [71], "60": [72], "s": [73], "decomposed": [74], "K2": [76,
+        117, 153], "overlayer,": [78], "desorbed": [79], "from": [81], "surface,":
+        [83], "and": [84], "efficiently": [85], "oxidized": [86], "underlying": [88],
+        "substrate.": [89], "XPS": [91], "Si(2p)": [92], "spectra": [93], "indicate":
+        [94], "oxynitride": [98, 124], "surface.": [101], "In": [102], "early": [104],
+        "stages": [105], "oxidation,": [107, 138], "up": [108], "100%": [110], "originally":
+        [114], "as": [116], ",": [119], "converted": [121], "after": [125], "annealing.":
+        [126], "enhanced": [128], "rate": [130], "under": [131], "these": [132], "conditions,":
+        [133], "relative": [134], "direct": [136], "thermal": [137], "is": [139],
+        "attributed": [140], "large": [143], "concentration": [144], "reactive": [146],
+        "when": [151], "thermally": [155], "decomposes.": [156]}, "primary_location":
+        {"id": "doi:10.1063/1.345594", "doi": "https://doi.org/10.1063/1.345594",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.345594", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S187991544", "display_name":
+        "Journal of Applied Physics", "issn_l": "0021-8979", "issn": ["0021-8979",
+        "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1",
+        "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2735770298",
+        "doi": "https://doi.org/10.1142/s0219581x17600390", "title": "Studies on Magnetron-Sputtered
+        NiO/Si3N4 Thin Films", "publication_year": 2017, "abstract_inverted_index":
+        {"The": [0, 95, 118], "present": [1], "work": [2], "deals": [3], "with": [4,
+        72, 82, 113], "NiO/Si3N4": [5], "layers": [6], "formed": [7], "by": [8, 35],
+        "depositing": [9], "nickel": [10], "oxide": [11], "(NiO)": [12], "thin": [13,
+        21], "films": [14, 24, 70, 77, 100], "over": [15], "silicon": [16], "nitrate":
+        [17], "(Si3N[Formula:": [18], "see": [19, 107, 111, 123, 131, 133, 139], "text]":
+        [20], "films.": [22], "NiO": [23, 99], "were": [25, 42], "coated": [26], "on":
+        [27, 63], "Si3N4-coated": [28], "Si": [29], "substrate": [30], "using": [31,
+        44], "magnetron": [32], "sputtering": [33], "method": [34, 56], "changing":
+        [36], "duration": [37], "of": [38, 61, 67, 98, 129], "coating": [39], "time":
+        [40], "and": [41, 53, 81], "analyzed": [43], "X-ray": [45], "diffractometer,":
+        [46], "field": [47], "emission-scanning": [48], "electron": [49], "microscopy,":
+        [50], "UV\u2013Vis": [51], "spectrophotometer": [52], "four-point": [54],
+        "probe": [55], "to": [57, 90, 103, 109], "study": [58], "the": [59, 68, 116],
+        "influence": [60], "thickness": [62], "physical": [64], "properties.": [65],
+        "Crystallinity": [66], "deposited": [69, 120], "increases": [71], "increase":
+        [73, 83], "in": [74, 84, 115], "thickness.": [75, 117], "All": [76], "exhibited":
+        [78], "spherical-like": [79], "structure,": [80], "deposition": [85], "time,":
+        [86], "grains": [87], "are": [88], "coalesced": [89], "form": [91], "smooth":
+        [92], "surface": [93], "morphology.": [94], "optical": [96], "bandgap": [97],
+        "was": [101], "found": [102], "decrease": [104], "from": [105], "3.31[Formula:":
+        [106], "text]eV": [108, 112], "3.22[Formula:": [110], "upsurge": [114], "film":
+        [119], "for": [121], "30[Formula:": [122], "text]min": [124], "exhibits":
+        [125], "temperature": [126], "coefficient": [127], "resistance": [128], "[Formula:":
+        [130], "text]1.77%/[Formula:": [132], "text]C": [134], "as": [135], "measured":
+        [136], "at": [137], "80[Formula:": [138], "text]C.": [140]}, "primary_location":
+        {"id": "doi:10.1142/s0219581x17600390", "doi": "https://doi.org/10.1142/s0219581x17600390",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1142/s0219581x17600390",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S204978898", "display_name":
+        "International Journal of Nanoscience", "issn_l": "0219-581X", "issn": ["0219-581X",
+        "1793-5350"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "dongbi-c", "jufo-1", "norway-1", "poland-20", "russia-white-list-3"],
+        "host_organization": "https://openalex.org/P4310319815", "host_organization_name":
+        "World Scientific", "host_organization_lineage": ["https://openalex.org/P4310319815"],
+        "host_organization_lineage_names": ["World Scientific"], "type": "journal"},
+        "license": null, "license_id": null, "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "International Journal of Nanoscience",
+        "raw_type": "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a544299a4fb65f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '15372'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:18 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=9IQwCA1I00xVFuMgn%2BtFmfAqt158gMvA0x4CUFrCxqQ%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633238"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=9IQwCA1I00xVFuMgn%2BtFmfAqt158gMvA0x4CUFrCxqQ%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633238"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9250'
+      x-ratelimit-remaining-usd:
+      - '0.925'
+      x-ratelimit-reset:
+      - '30762'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=Si3N4+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 2161, "db_response_time_ms": 13, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (Si3N4 thin film)
+        in the title or abstract", "x_new_oql": "get works with (Si3N4 thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "Si3N4 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:Si3N4 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W1978152895"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a544299b3b3a5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '616'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:18 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=9IQwCA1I00xVFuMgn%2BtFmfAqt158gMvA0x4CUFrCxqQ%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633238"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=9IQwCA1I00xVFuMgn%2BtFmfAqt158gMvA0x4CUFrCxqQ%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633238"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9240'
+      x-ratelimit-remaining-usd:
+      - '0.924'
+      x-ratelimit-reset:
+      - '30762'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=silicon+nitride+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 5756, "db_response_time_ms": 28, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (silicon nitride
+        thin film) in the title or abstract where it has an abstract", "x_new_oql":
+        "get works with (silicon nitride thin film) in the title or abstract where
+        it has an abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "has_abstract", "value": true}, {"column_id": "title_and_abstract.search",
+        "value": "silicon nitride thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:silicon
+        nitride thin film&per_page=5", "order": "best matches first", "order_default":
+        true}, "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W1994155422",
+        "doi": "https://doi.org/10.1063/1.92166", "title": "Amorphous silicon-silicon
+        nitride thin-film transistors", "publication_year": 1981, "abstract_inverted_index":
+        {"A": [0], "thin-film": [1], "field-effect": [2], "transistor": [3, 21], "has":
+        [4], "been": [5], "fabricated": [6], "using": [7], "glow-discharge": [8],
+        "amorphous": [9, 69, 76], "silicon": [10, 15, 70], "as": [11, 17], "the":
+        [12, 18, 24, 33, 45, 63, 75], "semiconductor": [13], "and": [14, 30, 71, 84],
+        "nitride": [16, 78], "insulator.": [19], "The": [20, 57], "operates": [22],
+        "in": [23, 44, 68], "electron": [25], "(n": [26], "type)": [27], "accumulation":
+        [28], "mode": [29], "by": [31], "changing": [32], "gate": [34], "potential":
+        [35], "from": [36], "zero": [37], "to": [38, 62], "only": [39], "3": [40],
+        "V": [41], "a": [42], "change": [43], "source-drain": [46], "conductance":
+        [47], "of": [48, 53, 65, 80], "greater": [49], "than": [50], "four": [51],
+        "orders": [52], "magnitude": [54], "is": [55], "obtained.": [56], "results":
+        [58], "imply": [59], "upper": [60], "limits": [61], "density": [64], "gap":
+        [66], "states": [67, 73], "interface": [72, 79], "at": [74], "silicon-silicon":
+        [77], "3\u00d71016": [81], "cm\u22123": [82], "eV\u22121": [83], "5\u00d71011":
+        [85], "cm\u22122": [86], "eV\u22121,": [87], "respectively.": [88]}, "primary_location":
+        {"id": "doi:10.1063/1.92166", "doi": "https://doi.org/10.1063/1.92166", "is_oa":
+        false, "landing_page_url": "https://doi.org/10.1063/1.92166", "pdf_url": null,
+        "source": {"id": "https://openalex.org/S105243760", "display_name": "Applied
+        Physics Letters", "issn_l": "0003-6951", "issn": ["0003-6951", "1077-3118",
+        "1520-8842"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Applied Physics Letters", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2025450084", "doi": "https://doi.org/10.1063/1.94399",
+        "title": "Charge trapping instabilities in amorphous silicon-silicon nitride
+        thin-film transistors", "publication_year": 1983, "abstract_inverted_index":
+        {"The": [0, 63], "most": [1], "important": [2], "instability": [3], "mechanism":
+        [4], "in": [5, 14, 46, 57], "amorphous": [6], "silicon-silicon": [7], "nitride":
+        [8, 17, 59, 97], "thin-film": [9], "transistors": [10], "is": [11, 54, 69,
+        82], "charge": [12, 48, 92], "trapping": [13], "the": [15, 30, 42, 47, 55,
+        58, 85, 95, 99], "silicon": [16, 96], "layer,": [18], "which": [19], "leads":
+        [20], "to": [21, 52, 90, 104], "a": [22], "threshold": [23, 64], "voltage":
+        [24, 35], "shift": [25, 65], "(\u0394VT).": [26], "We": [27], "have": [28],
+        "measured": [29], "time,": [31], "temperature,": [32], "and": [33, 39], "gate":
+        [34], "dependence": [36], "of": [37, 76], "\u0394VT": [38], "conclude": [40],
+        "that": [41], "rate": [43], "limiting": [44], "process,": [45], "transfer":
+        [49], "from": [50], "semiconductor": [51], "insulator,": [53], "conduction":
+        [56], "by": [60], "variable-range": [61], "hopping.": [62], "(under": [66],
+        "positive": [67], "bias)": [68], "temperature": [70], "dependent": [71], "with":
+        [72, 84], "an": [73], "activation": [74, 80], "energy": [75, 81, 88], "0.3":
+        [77], "eV.": [78], "This": [79], "identified": [83], "mean": [86], "hop":
+        [87], "required": [89], "inject": [91], "deep": [93], "into": [94], "at":
+        [98], "low": [100], "applied": [101], "fields": [102], "appropriate": [103],
+        "transistor": [105], "operation.": [106]}, "primary_location": {"id": "doi:10.1063/1.94399",
+        "doi": "https://doi.org/10.1063/1.94399", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.94399", "pdf_url": null, "source": {"id": "https://openalex.org/S105243760",
+        "display_name": "Applied Physics Letters", "issn_l": "0003-6951", "issn":
+        ["0003-6951", "1077-3118", "1520-8842"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-a",
+        "jufo-3", "ki-jl-1", "norway-2", "poland-100", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Applied Physics
+        Letters", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2084606209",
+        "doi": "https://doi.org/10.1063/1.1626799", "title": "Mechanical properties
+        of sputtered silicon nitride thin films", "publication_year": 2003, "abstract_inverted_index":
+        {"Silicon": [0], "nitride": [1], "thin": [2], "films": [3, 81], "were": [4,
+        31, 44, 63, 94, 110], "prepared": [5], "by": [6, 33], "reactive": [7], "sputtering":
+        [8, 11, 19], "from": [9], "different": [10, 71], "targets": [12], "and": [13,
+        24, 49, 60, 77, 91, 102, 104, 128, 145], "using": [14], "a": [15, 97, 113,
+        117], "range": [16], "of": [17, 28, 73, 79, 86, 99, 120, 143], "Ar/N2": [18],
+        "gas": [20], "mixtures.": [21], "The": [22, 89], "hardness": [23, 90, 144],
+        "the": [25, 29, 38, 41, 46, 80, 84, 107, 121, 126, 133, 140], "Young\u2019s":
+        [26, 92, 146], "modulus": [27, 93], "samples": [30, 67], "determined": [32,
+        95], "nanoindentation": [34], "measurements.": [35], "Depending": [36], "on":
+        [37], "preparation": [39], "parameters,": [40], "obtained": [42], "values":
+        [43], "in": [45, 132], "ranges": [47], "8\u201323": [48], "100\u2013210":
+        [50], "GPa,": [51], "respectively.": [52], "Additionally,": [53, 112], "Fourier-transform":
+        [54], "infrared": [55], "spectroscopy,": [56, 59], "Rutherford": [57], "backscattering":
+        [58], "x-ray": [61], "diffraction": [62], "used": [64], "to": [65, 70, 82,
+        125, 138], "characterize": [66], "with": [68], "respect": [69], "types": [72],
+        "bonding,": [74], "atomic": [75], "concentrations,": [76], "structure": [78,
+        103], "explain": [83, 139], "variation": [85], "mechanical": [87], "properties.":
+        [88], "as": [96], "function": [98], "film": [100, 109], "composition": [101],
+        "conditions": [105], "giving": [106], "hardest": [108], "found.": [111], "model":
+        [114], "that": [115], "assumes": [116], "series": [118], "coupling": [119],
+        "elastic": [122], "components,": [123], "corresponding": [124], "Si\u2013O":
+        [127], "Si\u2013N": [129], "bonds": [130], "present": [131], "sample": [134],
+        "has": [135], "been": [136], "proposed": [137], "observed": [141], "variations":
+        [142], "modulus.": [147]}, "primary_location": {"id": "doi:10.1063/1.1626799",
+        "doi": "https://doi.org/10.1063/1.1626799", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.1063/1.1626799", "pdf_url": "https://aip.scitation.org/doi/pdf/10.1063/1.1626799",
+        "source": {"id": "https://openalex.org/S187991544", "display_name": "Journal
+        of Applied Physics", "issn_l": "0021-8979", "issn": ["0021-8979", "1089-7550",
+        "1520-8850"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1", "norway-1", "poland-100",
+        "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Journal of Applied Physics", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2002119054", "doi": "https://doi.org/10.1063/1.1145989",
+        "title": "Thermal conductivity and diffusivity of free-standing silicon nitride
+        thin films", "publication_year": 1995, "abstract_inverted_index": {"The":
+        [0, 38], "thermal": [1, 36, 39, 63], "conductivity": [2, 114], "and": [3,
+        13, 29, 54], "diffusivity": [4, 40], "of": [5, 11, 33, 73, 85, 115], "free-standing":
+        [6], "silicon": [7], "nitride": [8], "(Si-N)": [9], "films": [10, 120], "0.6":
+        [12, 102, 125], "1.4": [14, 89, 117], "\u03bcm": [15, 90, 103, 118, 126],
+        "in": [16, 87, 100], "thickness": [17], "are": [18, 98], "measured.": [19],
+        "A": [20], "new": [21], "experimental": [22, 46], "technique,": [23], "the":
+        [24, 34, 48, 51, 55, 61, 67, 71, 74, 88, 101, 111, 116, 124], "amplitude":
+        [25, 52, 75], "method,": [26, 50, 53], "is": [27, 41], "proposed": [28], "applied":
+        [30], "to": [31, 123], "measurement": [32], "thin-film": [35], "diffusivity.":
+        [37], "determined": [42], "by": [43, 66], "three": [44, 68], "independent":
+        [45], "approaches:": [47], "phase-shift": [49], "heat-pulse": [56], "method.":
+        [57, 76], "Good": [58], "agreement": [59], "among": [60], "measured": [62,
+        112], "diffusivities": [64], "obtained": [65], "methods": [69], "indicates":
+        [70], "validity": [72], "High-resolution": [77], "electron": [78], "microscopy":
+        [79], "studies": [80], "show": [81], "a": [82], "large": [83], "quantity":
+        [84], "voids": [86, 97], "Si-N": [91, 119], "films.": [92, 104, 128], "In":
+        [93], "contrast,": [94], "very": [95], "few": [96], "found": [99], "This":
+        [105], "difference": [106], "may": [107], "be": [108], "responsible": [109],
+        "for": [110], "lower": [113], "as": [121], "compared": [122], "thin": [127]},
+        "primary_location": {"id": "doi:10.1063/1.1145989", "doi": "https://doi.org/10.1063/1.1145989",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.1145989", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S31010182", "display_name": "Review
+        of Scientific Instruments", "issn_l": "0034-6748", "issn": ["0034-6748", "1089-7623",
+        "1527-2400"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "dongbi-c", "jufo-1", "ki-jl-1", "medline", "norway-1", "poland-70",
+        "russia-white-list-2", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Review of Scientific Instruments", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2034096776", "doi": "https://doi.org/10.1149/1.2427642",
+        "title": "Silicon Nitride Thin Film Dielectric", "publication_year": 1960,
+        "abstract_inverted_index": {"Thin": [0], "adherent": [1], "nonporous": [2],
+        "films": [3], "of": [4, 60], "pure": [5], "silicon": [6], "nitride": [7, 45],
+        "have": [8], "been": [9], "deposited": [10, 47], "from": [11, 66], "the":
+        [12, 49], "vapor": [13], "phase": [14], "on": [15], "hot": [16], "molybdenum":
+        [17, 27], "substrates": [18], "by": [19, 48], "pyrolytic": [20], "deposition.":
+        [21], "Such": [22], "films,": [23], "when": [24], "incorporated": [25], "between":
+        [26], "plates": [28], "to": [29, 34, 40, 70], "form": [30], "capacitors,":
+        [31], "were": [32], "found": [33], "maintain": [35], "satisfactory": [36],
+        "dielectric": [37], "properties": [38], "up": [39, 69], "and": [41, 57, 71],
+        "above": [42, 72], "600\u00b0C.": [43], "Silicon": [44], "coatings,": [46],
+        "method": [50, 59], "herein": [51], "described,": [52], "also": [53], "offer":
+        [54], "a": [55], "convenient": [56], "effective": [58], "encapsulation": [61],
+        "for": [62], "protecting": [63], "metal": [64], "surfaces": [65], "atmospheric":
+        [67], "oxidation": [68], "1000\u00b0C.": [73]}, "primary_location": {"id":
+        "doi:10.1149/1.2427642", "doi": "https://doi.org/10.1149/1.2427642", "is_oa":
+        true, "landing_page_url": "https://doi.org/10.1149/1.2427642", "pdf_url":
+        "https://iopscience.iop.org/article/10.1149/1.2427642/pdf", "source": {"id":
+        "https://openalex.org/S138759888", "display_name": "Journal of The Electrochemical
+        Society", "issn_l": "0013-4651", "issn": ["0013-4651", "1945-7111"], "is_oa":
+        false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core", "dongbi-b",
+        "jufo-1", "ki-jl-1", "norway-2", "poland-100", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310311669", "host_organization_name":
+        "Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310311669"],
+        "host_organization_lineage_names": ["Institute of Physics"], "type": "journal"},
+        "license": null, "license_id": null, "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "Journal of The Electrochemical
+        Society", "raw_type": "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a544299bedf15f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '13796'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:18 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=9IQwCA1I00xVFuMgn%2BtFmfAqt158gMvA0x4CUFrCxqQ%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633238"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=9IQwCA1I00xVFuMgn%2BtFmfAqt158gMvA0x4CUFrCxqQ%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633238"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9230'
+      x-ratelimit-remaining-usd:
+      - '0.923'
+      x-ratelimit-reset:
+      - '30762'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=silicon+nitride+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 8232, "db_response_time_ms": 21, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (silicon nitride
+        thin film) in the title or abstract", "x_new_oql": "get works with (silicon
+        nitride thin film) in the title or abstract", "oqo": {"get_rows": "works",
+        "filter_rows": [{"column_id": "title_and_abstract.search", "value": "silicon
+        nitride thin film", "operator": "has"}]}, "url": "/works?filter=title_and_abstract.search:silicon
+        nitride thin film&per_page=1", "order": "best matches first", "order_default":
+        true}, "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W1994155422"}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a544299cc93d5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '656'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:18 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=9IQwCA1I00xVFuMgn%2BtFmfAqt158gMvA0x4CUFrCxqQ%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633238"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=9IQwCA1I00xVFuMgn%2BtFmfAqt158gMvA0x4CUFrCxqQ%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633238"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9220'
+      x-ratelimit-remaining-usd:
+      - '0.922'
+      x-ratelimit-reset:
+      - '30762'
+    status:
+      code: 200
+      message: OK
+version: 1

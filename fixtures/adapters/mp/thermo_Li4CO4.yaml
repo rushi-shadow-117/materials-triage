@@ -1,0 +1,88 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - _csrf_token=authenticated; mp-session=tWdGuSYcBtwKT9fVveU9Fw|1794688599|dSAFT28AT-Yx0QkzLbH5Irl_Eoo;
+        __cf_bm=5q7lIsEuiRLmsnr.dZSTzV5AiwJ3nStLcn2tD8VTDe8-1793633229.1934805-1.0.1.1-4aoz9x.vN9neTqe.Zw4Q1JRDDTX_YINbW.n0tLHQTlKIn3JF1C92_ht2.DM4m8CrUNv3BjDAmEYP97rSzQv2nZaCUwod2M5aGCf3Xbsj4SM2__BG7fltewc.MCQCMTL9
+      host:
+      - api.materialsproject.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.materialsproject.org/materials/thermo/?_fields=material_id%2Cthermo_type%2Cenergy_above_hull%2Cis_stable&_limit=1000&material_ids=mp-1180553%2Cmp-1180596%2Cmp-1180721%2Cmp-1238960%2Cmp-546202%2Cmp-549207%2Cmp-549389%2Cmp-549565%2Cmp-550320%2Cmp-550474%2Cmp-550498%2Cmp-550593%2Cmp-550798%2Cmp-551740%2Cmp-551848%2Cmp-555256%2Cmp-555320%2Cmp-605853%2Cmp-645317
+  response:
+    body:
+      string: '{"data":[{"material_id":"mp-aaabfbzu","thermo_type":"GGA_GGA+U","energy_above_hull":0.322402283333334,"is_stable":false},{"material_id":"mp-aaabfbzu","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.322402283333334,"is_stable":false},{"material_id":"mp-aaabfglj","thermo_type":"GGA_GGA+U","energy_above_hull":0.24743045444444522,"is_stable":false},{"material_id":"mp-aaabfglj","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.24743045444444522,"is_stable":false},{"material_id":"mp-aaabfgsj","thermo_type":"GGA_GGA+U","energy_above_hull":0.1837599811111117,"is_stable":false},{"material_id":"mp-aaabfgsj","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.1837599811111117,"is_stable":false},{"material_id":"mp-aaabfgzd","thermo_type":"GGA_GGA+U","energy_above_hull":0.31277466333333415,"is_stable":false},{"material_id":"mp-aaabfgzd","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.31277466333333415,"is_stable":false},{"material_id":"mp-aaabfice","thermo_type":"GGA_GGA+U","energy_above_hull":0.13136947555555611,"is_stable":false},{"material_id":"mp-aaabfice","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.13136947555555611,"is_stable":false},{"material_id":"mp-aaabfiic","thermo_type":"GGA_GGA+U","energy_above_hull":0.19250337333333434,"is_stable":false},{"material_id":"mp-aaabfiic","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.19250337333333434,"is_stable":false},{"material_id":"mp-aaabfija","thermo_type":"GGA_GGA+U","energy_above_hull":0.14675153777777883,"is_stable":false},{"material_id":"mp-aaabfija","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.14675153777777883,"is_stable":false},{"material_id":"mp-aaabfimr","thermo_type":"GGA_GGA+U","energy_above_hull":0.3205546911111119,"is_stable":false},{"material_id":"mp-aaabfimr","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.3205546911111119,"is_stable":false},{"material_id":"mp-aaabfiuo","thermo_type":"GGA_GGA+U","energy_above_hull":0.28047917222222285,"is_stable":false},{"material_id":"mp-aaabfiuo","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.28047917222222285,"is_stable":false},{"material_id":"mp-aaabfkeu","thermo_type":"GGA_GGA+U","energy_above_hull":0.145480455555556,"is_stable":false},{"material_id":"mp-aaabfkeu","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.145480455555556,"is_stable":false},{"material_id":"mp-aaabfkiy","thermo_type":"GGA_GGA+U","energy_above_hull":0.18475231444444518,"is_stable":false},{"material_id":"mp-aaabfkiy","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.18475231444444518,"is_stable":false},{"material_id":"mp-aaabfpka","thermo_type":"GGA_GGA+U","energy_above_hull":0.15619766777777855,"is_stable":false},{"material_id":"mp-aaabfpka","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.15619766777777855,"is_stable":false},{"material_id":"mp-aaabfpmm","thermo_type":"GGA_GGA+U","energy_above_hull":0.13301250222222283,"is_stable":false},{"material_id":"mp-aaabfpmm","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.13301250222222283,"is_stable":false},{"material_id":"mp-aaabimgb","thermo_type":"GGA_GGA+U","energy_above_hull":0.18585370555555603,"is_stable":false},{"material_id":"mp-aaabimgb","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.18585370555555603,"is_stable":false},{"material_id":"mp-aaabkspx","thermo_type":"GGA_GGA+U","energy_above_hull":0.14959000000000078,"is_stable":false},{"material_id":"mp-aaabkspx","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.14959000000000078,"is_stable":false},{"material_id":"mp-aaacpejx","thermo_type":"GGA_GGA+U","energy_above_hull":0.18447558444444567,"is_stable":false},{"material_id":"mp-aaacpejx","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.18447558444444567,"is_stable":false},{"material_id":"mp-aaacpelo","thermo_type":"GGA_GGA+U","energy_above_hull":0.18926128777777862,"is_stable":false},{"material_id":"mp-aaacpelo","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.18926128777777862,"is_stable":false},{"material_id":"mp-aaacpeqj","thermo_type":"GGA_GGA+U","energy_above_hull":0.0701955988888896,"is_stable":false},{"material_id":"mp-aaacpeqj","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.0701955988888896,"is_stable":false},{"material_id":"mp-aaacsmui","thermo_type":"GGA_GGA+U","energy_above_hull":0.1613754455555565,"is_stable":false},{"material_id":"mp-aaacsmui","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.1613754455555565,"is_stable":false}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-02T15:27:39.302021+00:00","total_doc":38,"facet":null,"max_limit":1000,"default_fields":["thermo_id","material_id","last_updated"]}}'
+    headers:
+      access-control-expose-headers:
+      - X-Api-Key
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442a1e6ed2db04-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '4644'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:39 GMT
+      ratelimit-limit:
+      - '25'
+      ratelimit-remaining:
+      - '23'
+      ratelimit-reset:
+      - '1'
+      server:
+      - cloudflare
+      set-cookie:
+      - _csrf_token=authenticated; Domain=.materialsproject.org; Path=/; SameSite=Strict
+      vary:
+      - Accept-Encoding
+      - Origin
+      via:
+      - kong/2.8.4
+      x-consumer-id:
+      - 58e0b4c2-4c2d-439b-ba0a-648cd568a0fa
+      x-kong-proxy-latency:
+      - '8'
+      x-kong-upstream-latency:
+      - '10'
+      x-ratelimit-limit-day:
+      - '640000'
+      x-ratelimit-limit-hour:
+      - '40000'
+      x-ratelimit-limit-minute:
+      - '1000'
+      x-ratelimit-limit-month:
+      - '12800000'
+      x-ratelimit-limit-second:
+      - '25'
+      x-ratelimit-limit-year:
+      - '100000000'
+      x-ratelimit-remaining-day:
+      - '639880'
+      x-ratelimit-remaining-hour:
+      - '39880'
+      x-ratelimit-remaining-minute:
+      - '885'
+      x-ratelimit-remaining-month:
+      - '12799880'
+      x-ratelimit-remaining-second:
+      - '23'
+      x-ratelimit-remaining-year:
+      - '99999832'
+    status:
+      code: 200
+      message: OK
+version: 1

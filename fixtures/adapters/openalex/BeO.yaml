@@ -1,0 +1,629 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=BeO+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 105, "db_response_time_ms": 34, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (BeO thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (BeO thin film) in the title or abstract where it has an abstract", "oqo":
+        {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract", "value":
+        true}, {"column_id": "title_and_abstract.search", "value": "BeO thin film",
+        "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:BeO
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2077430745",
+        "doi": "https://doi.org/10.1143/jjap.8.1221", "title": "Preparation and Properties
+        of BeO Thin Films", "publication_year": 1969, "abstract_inverted_index": {"BeO":
+        [0, 81, 89], "thin": [1], "films": [2, 24, 49, 63], "have": [3, 64], "been":
+        [4, 43, 65], "prepared": [5], "by": [6, 19], "hydrolysis": [7], "of": [8,
+        47, 61, 80], "BeCl2": [9], "in": [10, 67], "the": [11, 39, 68, 86], "temperature":
+        [12], "range": [13, 69], "690\u00b0C": [14], "to": [15, 27, 30, 38, 72], "1200\u00b0C,":
+        [16], "and": [17], "studied": [18, 66], "reflection": [20], "electron": [21],
+        "diffraction.": [22], "The": [23, 58], "are": [25], "found": [26], "be": [28],
+        "apt": [29], "take": [31], "a": [32, 83], "fiber": [33], "structure": [34],
+        "orientating": [35], "c-axis": [36], "vertically": [37], "substrate.": [40,
+        57], "It": [41], "has": [42], "observed": [44], "that": [45, 79], "one": [46],
+        "these": [48, 76], "was": [50], "epitaxially": [51], "grown": [52], "on":
+        [53], "single": [54], "crystal": [55], "Si": [56], "infrared": [59, 90], "spectra":
+        [60, 77, 91], "orientated": [62], "400": [70], "cm-1": [71], "4000": [73],
+        "cm-1.": [74], "Comparing": [75], "with": [78], "powder,": [82], "view": [84],
+        "about": [85], "assignment": [87], "for": [88], "is": [92], "given.": [93]},
+        "primary_location": {"id": "doi:10.1143/jjap.8.1221", "doi": "https://doi.org/10.1143/jjap.8.1221",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1143/jjap.8.1221",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S143744711", "display_name":
+        "Japanese Journal of Applied Physics", "issn_l": "0021-4922", "issn": ["0021-4922",
+        "1347-4065"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "dongbi-d", "jufo-1", "ki-jl-1", "norway-1", "poland-70", "russia-white-list-2",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310311669", "host_organization_name":
+        "Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310311669"],
+        "host_organization_lineage_names": ["Institute of Physics"], "type": "journal"},
+        "license": null, "license_id": null, "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "Japanese Journal of Applied
+        Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2406609645",
+        "doi": "https://doi.org/10.1093/oxfordjournals.rpd.a082012", "title": "Tritium
+        Detection with BeO Thin Film Dosemeters", "publication_year": 1983, "abstract_inverted_index":
+        {"The": [0], "sensitivity": [1], "of": [2, 27, 34], "BeO": [3, 51], "thin":
+        [4], "films": [5, 52], "for": [6, 12, 37], "tritium": [7, 38], "beta": [8],
+        "particles": [9], "was": [10, 56], "measured": [11], "various": [13], "distances":
+        [14], "between": [15, 48], "the": [16, 25, 53], "dosemeters": [17], "and":
+        [18, 50], "a": [19, 30], "tritiated": [20], "polymer": [21], "reference":
+        [22], "source.": [23], "From": [24], "results": [26], "these": [28], "experiments":
+        [29], "lower": [31], "detection": [32], "limit": [33], "3000": [35], "Bq.cm-3.min":
+        [36], "concentration": [39], "in": [40], "air": [41], "could": [42], "be":
+        [43], "calculated.": [44], "At": [45], "direct": [46], "contact": [47], "source":
+        [49], "exoelectron/beta": [54], "ratio": [55], "0.13.": [57]}, "primary_location":
+        {"id": "doi:10.1093/oxfordjournals.rpd.a082012", "doi": "https://doi.org/10.1093/oxfordjournals.rpd.a082012",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1093/oxfordjournals.rpd.a082012",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S201595455", "display_name":
+        "Radiation Protection Dosimetry", "issn_l": "0144-8420", "issn": ["0144-8420",
+        "1742-3406"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "dongbi-c", "doyens", "jufo-1", "ki-jl-1", "medline", "norway-1",
+        "poland-40", "russia-white-list-3", "vabb-shw"], "host_organization": "https://openalex.org/P4310311648",
+        "host_organization_name": "Oxford University Press", "host_organization_lineage":
+        ["https://openalex.org/P4310311648", "https://openalex.org/P4310311647"],
+        "host_organization_lineage_names": ["Oxford University Press", "University
+        of Oxford"], "type": "journal"}, "license": null, "license_id": null, "version":
+        "publishedVersion", "is_accepted": true, "is_published": true, "raw_source_name":
+        "Radiation Protection Dosimetry", "raw_type": "journal-article"}}, {"id":
+        "https://openalex.org/W2588206685", "doi": "https://doi.org/10.1093/oxfordjournals.rpd.a079785",
+        "title": "Skin Dose Determination with the TSEE of BeO Thin Film Detectors",
+        "publication_year": 1986, "abstract_inverted_index": {"Abstract": [0], "Exoelectron":
+        [1], "emitting": [2], "BeO": [3], "thin": [4], "film": [5], "detectors": [6],
+        "were": [7], "covered": [8], "with": [9], "polycarbonate": [10], "foils":
+        [11], "of": [12, 37], "different": [13], "thicknesses": [14], "from": [15,
+        33], "1.9-19.2": [16], "mg.cm-2": [17], "and": [18, 23], "exposed": [19],
+        "to": [20, 45], "147Pm,": [21], "204Tl": [22], "90Sr-90Y": [24], "beta": [25,
+        31], "sources.": [26], "Even": [27], "for": [28], "low": [29], "energy": [30],
+        "rays": [32], "147Pm": [34], "the": [35, 46], "dependence": [36], "their":
+        [38], "dose": [39, 48], "response": [40], "on": [41], "foil": [42], "thickness":
+        [43], "corresponded": [44], "depth": [47], "in": [49], "soft": [50], "tissue.":
+        [51]}, "primary_location": {"id": "doi:10.1093/oxfordjournals.rpd.a079785",
+        "doi": "https://doi.org/10.1093/oxfordjournals.rpd.a079785", "is_oa": false,
+        "landing_page_url": "https://doi.org/10.1093/oxfordjournals.rpd.a079785",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S201595455", "display_name":
+        "Radiation Protection Dosimetry", "issn_l": "0144-8420", "issn": ["0144-8420",
+        "1742-3406"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "dongbi-c", "doyens", "jufo-1", "ki-jl-1", "medline", "norway-1",
+        "poland-40", "russia-white-list-3", "vabb-shw"], "host_organization": "https://openalex.org/P4310311648",
+        "host_organization_name": "Oxford University Press", "host_organization_lineage":
+        ["https://openalex.org/P4310311648", "https://openalex.org/P4310311647"],
+        "host_organization_lineage_names": ["Oxford University Press", "University
+        of Oxford"], "type": "journal"}, "license": null, "license_id": null, "version":
+        "publishedVersion", "is_accepted": true, "is_published": true, "raw_source_name":
+        "Radiation Protection Dosimetry", "raw_type": "journal-article"}}, {"id":
+        "https://openalex.org/W2333069542", "doi": "https://doi.org/10.7567/jjaps.24s4.167",
+        "title": "TSEE and OSEE from Laser-Evaporated BeO Thin Films", "publication_year":
+        1985, "abstract_inverted_index": {"A": [0], "laser": [1], "evaporation": [2],
+        "technique": [3], "has": [4], "been": [5, 21, 32], "applied": [6], "to": [7,
+        34], "preparation": [8, 18], "of": [9], "BeO": [10], "thin": [11], "films,":
+        [12], "and": [13, 24, 38], "some": [14], "results": [15], "on": [16], "the":
+        [17, 27], "conditions": [19], "have": [20, 31], "obtained.": [22], "TSEE":
+        [23], "OSEE": [25], "from": [26], "films": [28], "thus": [29], "produced":
+        [30], "studied": [33], "clarify": [35], "their": [36], "emissive": [37], "dosimetric":
+        [39], "properties": [40], "(sensitivity,": [41], "dose": [42], "linearity,":
+        [43], "fading)": [44], "used": [45], "as": [46], "exodosemeters.": [47]},
+        "primary_location": {"id": "doi:10.7567/jjaps.24s4.167", "doi": "https://doi.org/10.7567/jjaps.24s4.167",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.7567/jjaps.24s4.167",
+        "pdf_url": "https://iopscience.iop.org/article/10.7567/JJAPS.24S4.167/pdf",
+        "source": {"id": "https://openalex.org/S143744711", "display_name": "Japanese
+        Journal of Applied Physics", "issn_l": "0021-4922", "issn": ["0021-4922",
+        "1347-4065"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "dongbi-d", "jufo-1", "ki-jl-1", "norway-1", "poland-70", "russia-white-list-2",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310311669", "host_organization_name":
+        "Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310311669"],
+        "host_organization_lineage_names": ["Institute of Physics"], "type": "journal"},
+        "license": null, "license_id": null, "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "Japanese Journal of Applied
+        Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2323884820",
+        "doi": "https://doi.org/10.7567/jjaps.24s4.254", "title": "TL Signals from
+        BeO Thin-Film TSEE Dosemeters", "publication_year": 1985, "abstract_inverted_index":
+        {"Radiation-induced": [0], "thermoluminescence": [1], "(TL)": [2], "was":
+        [3, 21], "observed": [4], "from": [5], "BeO": [6], "thin-film": [7], "detectors":
+        [8], "developed": [9], "recently": [10], "for": [11], "exoelectron": [12],
+        "(TSEE)": [13], "dosimetry.": [14], "For": [15], "soft": [16], "X-rays,":
+        [17], "the": [18], "low-dose": [19], "threshold": [20], "found": [22], "at":
+        [23, 51], "about": [24], "5": [25], "mGy.": [26], "The": [27], "linear": [28],
+        "dose": [29, 48], "range": [30, 46], "is": [31], "extended": [32], "over":
+        [33], "four": [34], "orders": [35], "of": [36], "magnitude": [37], "up": [38],
+        "to": [39], "50": [40], "Gy": [41], "followed": [42], "by": [43], "a": [44],
+        "supralinear": [45], "until": [47], "saturation": [49], "appears": [50], "104":
+        [52], "Gy.": [53]}, "primary_location": {"id": "doi:10.7567/jjaps.24s4.254",
+        "doi": "https://doi.org/10.7567/jjaps.24s4.254", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.7567/jjaps.24s4.254", "pdf_url": "https://iopscience.iop.org/article/10.7567/JJAPS.24S4.254/pdf",
+        "source": {"id": "https://openalex.org/S143744711", "display_name": "Japanese
+        Journal of Applied Physics", "issn_l": "0021-4922", "issn": ["0021-4922",
+        "1347-4065"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "dongbi-d", "jufo-1", "ki-jl-1", "norway-1", "poland-70", "russia-white-list-2",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310311669", "host_organization_name":
+        "Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310311669"],
+        "host_organization_lineage_names": ["Institute of Physics"], "type": "journal"},
+        "license": null, "license_id": null, "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "Japanese Journal of Applied
+        Physics", "raw_type": "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429558fe95f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '11136'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:07 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=DzlJklkV8B594vYqRnoZqL7KumlDpUdj6jHS97SaU2U%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633227"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=DzlJklkV8B594vYqRnoZqL7KumlDpUdj6jHS97SaU2U%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633227"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9670'
+      x-ratelimit-remaining-usd:
+      - '0.967'
+      x-ratelimit-reset:
+      - '30773'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=BeO+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 164, "db_response_time_ms": 24, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (BeO thin film)
+        in the title or abstract", "x_new_oql": "get works with (BeO thin film) in
+        the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "BeO thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:BeO thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W2077430745"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429565b3f5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '607'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:07 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=DzlJklkV8B594vYqRnoZqL7KumlDpUdj6jHS97SaU2U%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633227"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=DzlJklkV8B594vYqRnoZqL7KumlDpUdj6jHS97SaU2U%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633227"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9660'
+      x-ratelimit-remaining-usd:
+      - '0.966'
+      x-ratelimit-reset:
+      - '30773'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=beryllia+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 15, "db_response_time_ms": 33, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (beryllia thin
+        film) in the title or abstract where it has an abstract", "x_new_oql": "get
+        works with (beryllia thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "beryllia
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:beryllia
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W1993178048",
+        "doi": "https://doi.org/10.1063/1.4883377", "title": "Pulsed laser deposition
+        of epitaxial BeO thin films on sapphire and SrTiO3", "publication_year": 2014,
+        "abstract_inverted_index": {"Epitaxial": [0], "beryllia": [1, 113], "thin":
+        [2], "films": [3, 18, 34], "were": [4, 19, 39], "grown": [5], "by": [6, 51,
+        68], "pulsed": [7], "laser": [8], "deposition": [9], "on": [10, 21], "Al2O3(001)":
+        [11], "and": [12, 77, 84], "SrTiO3(111)": [13], "substrates.": [14], "Nearly":
+        [15], "relaxed": [16], "epitaxial": [17], "obtained": [20, 40], "both": [22],
+        "substrates": [23], "at": [24, 42, 73, 104], "growth": [25, 47, 110], "temperatures":
+        [26], "of": [27, 54, 62, 81, 112], "up": [28], "to": [29, 65], "about": [30],
+        "600": [31], "\u00b0C.": [32], "Crystalline": [33], "with": [35], "expanded":
+        [36], "lattice": [37], "parameters": [38], "even": [41], "room": [43], "temperature.":
+        [44], "The": [45, 60], "maximum": [46], "temperature": [48], "was": [49],
+        "limited": [50], "a": [52], "loss": [53], "beryllium": [55, 63], "from": [56],
+        "the": [57, 69, 74, 78, 88, 97, 109], "film": [58, 75], "surface.": [59],
+        "volatility": [61], "appeared": [64], "be": [66], "caused": [67], "slow":
+        [70], "oxidation": [71], "kinetics": [72], "surface": [76, 99], "re-sputtering":
+        [79], "effect": [80], "high-energy": [82], "Be": [83, 101], "BeO": [85], "species":
+        [86], "in": [87], "ablation": [89], "plume.": [90], "Time-of-flight": [91],
+        "plume": [92], "composition": [93], "analysis": [94], "suggested": [95], "that":
+        [96], "target": [98], "became": [100], "metal": [102], "rich": [103], "low":
+        [105], "oxygen": [106], "pressures,": [107], "reducing": [108], "rate": [111],
+        "films.": [114]}, "primary_location": {"id": "doi:10.1063/1.4883377", "doi":
+        "https://doi.org/10.1063/1.4883377", "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.4883377",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S105243760", "display_name":
+        "Applied Physics Letters", "issn_l": "0003-6951", "issn": ["0003-6951", "1077-3118",
+        "1520-8842"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Applied Physics Letters", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2394107793", "doi": null, "title": "Influences
+        of substrate pre-treatments on diamond/beryllia composite", "publication_year":
+        2010, "abstract_inverted_index": {"Diamond": [0], "thin": [1, 82], "films":
+        [2], "were": [3, 27], "deposited": [4], "on": [5, 20], "beryllia": [6], "substrates":
+        [7, 60, 70], "by": [8, 29, 45, 73, 99], "hot-filament": [9], "chemical": [10],
+        "vapor": [11], "deposition": [12], "to": [13], "study": [14], "the": [15,
+        21, 36, 53, 63, 69, 90, 94], "effect": [16], "of": [17, 39, 52, 65, 93], "substrate":
+        [18], "pre-treatment": [19], "thermal": [22, 37, 91], "properties.": [23],
+        "The": [24, 47], "surface": [25, 86], "details": [26], "investigated": [28],
+        "metallographic": [30], "microscope": [31], "and": [32, 41, 57, 79], "scanning":
+        [33], "electronic": [34], "microscope,while": [35], "conductivity": [38, 92],
+        "BeO": [40], "diamond/BeO": [42], "was": [43], "detected": [44], "laser-diathermometer.":
+        [46], "results": [48], "show": [49], "that": [50], "both": [51], "water-proof":
+        [54], "abrasive": [55], "paper": [56], "HF": [58, 74], "pre-treating": [59],
+        "can": [61, 87, 96], "improve": [62], "continuity": [64], "diamond": [66,
+        81], "films.": [67], "When": [68], "are": [71], "eroded": [72], "for": [75],
+        "10": [76], "min,the": [77], "compact": [78], "continuous": [80], "film":
+        [83], "with": [84, 103], "uniform": [85], "be": [88, 97], "obtained,and":
+        [89], "composite": [95], "improved": [98], "31.": [100], "4%": [101], "compared":
+        [102], "original": [104], "BeO.": [105]}, "primary_location": {"id": "mag:2394107793",
+        "doi": null, "is_oa": false, "landing_page_url": "http://en.cnki.com.cn/Article_en/CJFDTotal-CLKG201001007.htm",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S82336448", "display_name":
+        "Materials Science and Technology", "issn_l": "0267-0836", "issn": ["0267-0836",
+        "1743-2847"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "dongbi-d", "jufo-1", "ki-jl-1", "norway-1", "poland-70", "russia-white-list-2"],
+        "host_organization": "https://openalex.org/P4310320442", "host_organization_name":
+        "Maney Publishing", "host_organization_lineage": ["https://openalex.org/P4310320442"],
+        "host_organization_lineage_names": ["Maney Publishing"], "type": "journal"},
+        "license": null, "license_id": null, "version": null, "is_accepted": false,
+        "is_published": false, "raw_source_name": "Materials Science and Technology",
+        "raw_type": null}}, {"id": "https://openalex.org/W2078978418", "doi": "https://doi.org/10.1063/1.104964",
+        "title": "Effect of beryllia substitution and addition in a YBa2Cu3O7\u2212\u03b4
+        compound", "publication_year": 1991, "abstract_inverted_index": {"The": [0,
+        25], "effect": [1, 42], "of": [2, 11, 33, 48, 63], "BeO": [3, 34], "substitution":
+        [4, 30], "and": [5, 21], "addition": [6, 32], "in": [7, 35], "the": [8, 29,
+        44, 61], "superconducting": [9, 45, 64], "properties": [10], "YBa2Cu3O7\u2212\u03b4":
+        [12, 36], "superconductors": [13], "has": [14], "been": [15], "investigated":
+        [16], "by": [17], "temperature": [18], "resistance": [19], "measurements":
+        [20], "x-ray": [22], "diffraction": [23], "studies.": [24], "results": [26],
+        "revealed": [27], "that": [28], "or": [31], "does": [37], "not": [38], "have":
+        [39], "much": [40], "detrimental": [41], "on": [43], "properties.": [46],
+        "Because": [47], "this": [49], "nonpoisoning": [50], "behavior,": [51], "beryllia":
+        [52], "is": [53], "suggested": [54], "as": [55], "a": [56], "suitable": [57],
+        "substrate": [58], "material": [59], "for": [60], "production": [62], "thin":
+        [65], "films.": [66]}, "primary_location": {"id": "doi:10.1063/1.104964",
+        "doi": "https://doi.org/10.1063/1.104964", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.104964", "pdf_url": null, "source": {"id": "https://openalex.org/S105243760",
+        "display_name": "Applied Physics Letters", "issn_l": "0003-6951", "issn":
+        ["0003-6951", "1077-3118", "1520-8842"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-a",
+        "jufo-3", "ki-jl-1", "norway-2", "poland-100", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Applied Physics
+        Letters", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W326055670",
+        "doi": null, "title": "GaAs on Beryllia Substrates for Application to Microwave
+        Generation.", "publication_year": 1972, "abstract_inverted_index": {"The":
+        [0, 34, 70], "second": [1], "phase": [2], "of": [3, 14, 40, 46, 67, 76], "a":
+        [4], "materials": [5], "research": [6], "program": [7, 71], "to": [8], "develop":
+        [9], "techniques": [10], "for": [11, 23, 55], "the": [12, 41, 79], "growth":
+        [13], "device-quality": [15], "thin-film": [16], "heteroepitaxial": [17],
+        "GaAs": [18, 77], "on": [19], "single-crystal": [20], "BeO": [21], "substrates":
+        [22], "use": [24, 56], "in": [25, 57], "microwave": [26, 61], "generators,":
+        [27], "such": [28, 68], "as": [29], "Gunn-effect": [30], "devices,": [31,
+        62], "is": [32], "described.": [33], "primary": [35], "objectives": [36],
+        "are": [37], "(1)": [38], "optimization": [39], "structural": [42], "and":
+        [43, 63, 84], "electrical": [44], "properties": [45], "GaAs/BeO": [47], "films":
+        [48], "so": [49], "that": [50], "they": [51], "will": [52], "be": [53], "suitable":
+        [54], "preparing": [58], "good": [59], "quality": [60], "(2)": [64], "exploratory":
+        [65], "fabrication": [66], "devices.": [69], "involves": [72], "chemical":
+        [73], "vapor": [74], "deposition": [75], "by": [78], "metalorganic-hydride":
+        [80], "process": [81], "employing": [82], "trimethylgallium": [83], "arsine.":
+        [85]}, "primary_location": {"id": "pmh:AD0901302", "doi": null, "is_oa": false,
+        "landing_page_url": "http://oai.dtic.mil/oai/oai?&amp;verb=getRecord&amp;metadataPrefix=html&amp;identifier=AD0901302",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4406923043", "display_name":
+        "Defense Technical Information Center (DTIC)", "issn_l": null, "issn": null,
+        "is_oa": false, "is_in_doaj": false, "is_core": false, "listed_in": [], "host_organization":
+        null, "host_organization_name": null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "repository"}, "license": null, "license_id": null, "version":
+        "submittedVersion", "is_accepted": false, "is_published": false, "raw_source_name":
+        "DTIC AND NTIS", "raw_type": "Text"}}, {"id": "https://openalex.org/W4206377895",
+        "doi": "https://doi.org/10.3131/jvsj.4.482", "title": "Preparation of thin
+        film memories by thermal evaporation", "publication_year": 1961, "abstract_inverted_index":
+        {"Preparation": [0], "of": [1, 12, 23, 34, 73, 89, 109, 126, 135, 159, 171],
+        "80-20": [2], "permalloy": [3], "thin": [4], "films": [5, 110, 129, 136, 142],
+        "has": [6], "been": [7], "experienced": [8], "and": [9, 38, 61, 120, 140,
+        152], "some": [10], "results": [11], "the": [13, 24, 55, 86, 157], "experiment":
+        [14], "are": [15, 114, 137, 167], "discussed,": [16], "Evaporation": [17,
+        80], "was": [18, 46], "carried": [19], "out": [20], "by": [21, 54, 169], "means":
+        [22, 170], "semi-continuous": [25], "high": [26], "vacuum": [27], "evaporation":
+        [28, 43], "apparatus": [29], "reported": [30], "formerly.": [31], "The": [32],
+        "crucibles": [33], "alumina,": [35], "beryllia,": [36], "thoria,": [37], "zirconia":
+        [39], "were": [40, 68], "used": [41], "as": [42, 69], "source,": [44], "Substrate":
+        [45], "0.450.6mm": [47], "thick": [48], "slide": [49], "glass": [50], "for":
+        [51], "microscopy": [52], "cleaned": [53], "treatments": [56], "in": [57],
+        "conc.": [58], "NaOH": [59], "solution": [60], "then": [62], "chromic": [63],
+        "acid": [64], "mixture,": [65], "Experimental": [66], "conditions": [67],
+        "follows": [70], ":": [71, 75, 81, 97], "Degassing": [72], "substrate": [74,
+        87], "2hrs": [76], "at": [77, 82, 100], "250350\u00b0C": [78], ";": [79, 95,
+        148], "16004700\u00b0C,": [83], "23\u00d710-5": [84], "Torr,": [85], "temperature":
+        [88], "150400\u00b0C,": [90, 101], "magnetic": [91, 160], "field": [92, 161],
+        "250": [93, 104], "Oe,": [94, 105], "Annealing": [96], "1.52": [98], "hrs":
+        [99], "150": [102], "or": [103], "2\u00d710-6Torr,": [106], "Magnetic": [107],
+        "properties": [108], "evaporated": [111], "from.Al2O3": [112], "crucible":
+        [113], "not": [115], "stable": [116], "under": [117], "dry": [118], "heat":
+        [119, 122], "dump": [121], "ambients.": [123], "In": [124], "case": [125],
+        "BeO": [127], "crucible,": [128], "have": [130, 143], "fairly": [131], "good":
+        [132], "characteristics.Coersive": [133], "force": [134], "412": [138], "Oe":
+        [139], "many": [141], "two": [144], "magnetization": [145], "easy": [146],
+        "axes": [147], "one": [149], "is": [150, 154], "parallel": [151], "another":
+        [153], "perpendicular": [155], "to": [156], "dirction": [158], "applied":
+        [162], "during": [163], "evaporation.": [164], "Switching": [165], "characteristics":
+        [166], "observed": [168], "destructive": [172], "read-out": [173], "system.":
+        [174]}, "primary_location": {"id": "doi:10.3131/jvsj.4.482", "doi": "https://doi.org/10.3131/jvsj.4.482",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.3131/jvsj.4.482", "pdf_url":
+        "https://www.jstage.jst.go.jp/article/jvsj1958/4/11/4_11_482/_pdf", "source":
+        {"id": "https://openalex.org/S29101911", "display_name": "Shinku", "issn_l":
+        "0559-8516", "issn": ["0559-8516", "1880-9413"], "is_oa": false, "is_in_doaj":
+        false, "is_core": false, "listed_in": [], "host_organization": "https://openalex.org/P4320800726",
+        "host_organization_name": "The Vacuum Society of Japan", "host_organization_lineage":
+        ["https://openalex.org/P4320800726"], "host_organization_lineage_names": ["The
+        Vacuum Society of Japan"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "SHINKU", "raw_type": "journal-article"}}], "group_by":
+        []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429573eaf5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '13621'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:07 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=DzlJklkV8B594vYqRnoZqL7KumlDpUdj6jHS97SaU2U%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633227"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=DzlJklkV8B594vYqRnoZqL7KumlDpUdj6jHS97SaU2U%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633227"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9650'
+      x-ratelimit-remaining-usd:
+      - '0.965'
+      x-ratelimit-reset:
+      - '30773'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=beryllia+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 17, "db_response_time_ms": 94, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (beryllia thin
+        film) in the title or abstract", "x_new_oql": "get works with (beryllia thin
+        film) in the title or abstract", "oqo": {"get_rows": "works", "filter_rows":
+        [{"column_id": "title_and_abstract.search", "value": "beryllia thin film",
+        "operator": "has"}]}, "url": "/works?filter=title_and_abstract.search:beryllia
+        thin film&per_page=1", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2065346454"}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429581a315f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '626'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:07 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=DzlJklkV8B594vYqRnoZqL7KumlDpUdj6jHS97SaU2U%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633227"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=DzlJklkV8B594vYqRnoZqL7KumlDpUdj6jHS97SaU2U%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633227"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9640'
+      x-ratelimit-remaining-usd:
+      - '0.964'
+      x-ratelimit-reset:
+      - '30773'
+    status:
+      code: 200
+      message: OK
+version: 1

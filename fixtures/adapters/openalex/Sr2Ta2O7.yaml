@@ -1,0 +1,381 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=Sr2Ta2O7+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 4, "db_response_time_ms": 12, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Sr2Ta2O7 thin
+        film) in the title or abstract where it has an abstract", "x_new_oql": "get
+        works with (Sr2Ta2O7 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "Sr2Ta2O7
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:Sr2Ta2O7
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2100503708",
+        "doi": "https://doi.org/10.1109/ted.2008.925286", "title": "Atomic Vapor Deposition
+        of Strontium Tantalate Films for MIM Applications", "publication_year": 2008,
+        "abstract_inverted_index": {"Sr-Ta-O": [0], "thin": [1], "films": [2, 68],
+        "were": [3], "deposited": [4], "as": [5], "high-k": [6], "dielectrics": [7],
+        "for": [8, 102], "metal-insulator-metal": [9], "applications": [10], "on":
+        [11], "200-mm": [12], "TiN/Si(100)": [13], "substrates": [14], "from": [15],
+        "a": [16, 43, 51, 58, 75, 86], "single-source": [17], "Sr[Ta(OEt)5(methoxyethoxide)]2precursor":
+        [18], "using": [19], "atomic": [20], "vapor": [21], "deposition": [22], "technique.":
+        [23], "The": [24, 66], "variation": [25], "of": [26, 41, 46, 55, 61, 71, 79,
+        89, 97], "process": [27], "pressure": [28], "affects": [29], "the": [30, 34,
+        95, 98], "Sr/Ta": [31], "ratio": [32], "in": [33], "films.": [35], "Dielectric":
+        [36], "layers": [37], "with": [38, 50, 69], "optimized": [39, 67], "composition":
+        [40], "Sr2Ta2O7-deltapossess": [42], "capacitance": [44], "density": [45,
+        78], "5.5": [47], "fF/mum2in": [48], "combination": [49], "voltage": [52],
+        "linearity": [53], "coefficient": [54], "80": [56], "ppm/V2and": [57], "quality":
+        [59], "factor": [60], "52": [62], "at": [63], "10": [64], "kHz.": [65], "thickness":
+        [70], "30": [72], "nm": [73], "exhibit": [74], "leakage": [76], "current":
+        [77, 99], "7": [80], "ldr": [81], "10-9A/cm2at": [82], "2": [83], "V": [84],
+        "and": [85], "breakdown": [87], "strength": [88], "3.2": [90], "MV/cm,": [91],
+        "and,": [92], "therefore,": [93], "meet": [94], "requirements": [96], "International":
+        [100], "Roadmap": [101], "Semiconductors.": [103]}, "primary_location": {"id":
+        "doi:10.1109/ted.2008.925286", "doi": "https://doi.org/10.1109/ted.2008.925286",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1109/ted.2008.925286",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S162355128", "display_name":
+        "IEEE Transactions on Electron Devices", "issn_l": "0018-9383", "issn": ["0018-9383",
+        "1557-9646"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "dongbi-b", "jufo-3", "norway-2", "poland-100", "russia-white-list-1"],
+        "host_organization": "https://openalex.org/P4310319808", "host_organization_name":
+        "Institute of Electrical and Electronics Engineers", "host_organization_lineage":
+        ["https://openalex.org/P4310319808"], "host_organization_lineage_names": ["Institute
+        of Electrical and Electronics Engineers"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "IEEE Transactions on Electron Devices",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W4392487057",
+        "doi": null, "title": "New ferroelectric perovskite materials : ceramics and
+        thin films from the solid solution (Sr\u2082Ta\u2082O\u2087)\u2081\u2080\u2080\u208b\u2093(La\u2082Ti\u2082O\u2087)\u2093",
+        "publication_year": 2018, "abstract_inverted_index": {"Ce": [0], "travail":
+        [1], "de": [2, 11, 14, 38, 42, 46, 118, 122, 151, 165, 197, 209, 262, 300,
+        313], "recherche": [3], "porte": [4], "sur": [5, 142], "l''\u00e9tude": [6,
+        299], "d''un": [7], "nouveau": [8], "mat\u00e9riau": [9, 66], "issu": [10],
+        "la": [12, 23, 36, 40, 113, 120, 123, 170, 219, 311], "combinaison": [13],
+        "deux": [15], "oxydes": [16], "perovskites": [17], "ferro\u00e9lectriques":
+        [18], "Sr2Ta2O7": [19], "et": [20, 49, 57, 75, 154, 294], "La2Ti2O7": [21],
+        ";": [22], "solution": [24, 124], "solide": [25, 125], "r\u00e9sultante":
+        [26], "est": [27, 67], "formul\u00e9e": [28], "selon": [29], "(Sr2Ta2O7)100":
+        [30], "x(La2Ti2O7)x": [31], "(STLTO).": [32], "Notre": [33], "\u00e9tude":
+        [34], "comprend": [35], "synth\u00e8se": [37], "poudres,": [39], "r\u00e9alisation":
+        [41], "c\u00e9ramiques,": [43], "le": [44], "d\u00e9p\u00f4t": [45, 196, 261],
+        "films": [47, 198, 216, 234, 263, 301], "minces": [48, 199, 264], "leur":
+        [50], "caract\u00e9risation": [51], "structurale,": [52], "morphologique,":
+        [53], "\u00e9l\u00e9mentaire,": [54], "optique,": [55], "di\u00e9lectrique":
+        [56], "ferro\u00e9lectrique.": [58], "L''objectif": [59], "vis\u00e9": [60],
+        "\u00e0": [61, 136, 158, 162, 205, 218, 230, 253, 256, 275], "moyen": [62],
+        "terme": [63], "pour": [64, 126, 169, 241, 310], "ce": [65, 222], "son": [68],
+        "int\u00e9gration": [69], "dans": [70], "des": [71, 81, 99, 107, 116, 148,
+        163, 215, 236, 242, 276, 280, 288], "dispositifs": [72], "hyperfr\u00e9quences":
+        [73], "miniatures": [74], "reconfigurables.": [76], "Pour": [77], "cela,":
+        [78], "sont": [79, 185, 308], "recherch\u00e9es": [80], "permittivit\u00e9s":
+        [82, 237, 281], "\u00e9lev\u00e9es,": [83], "variables": [84], "sous": [85,
+        315], "champ": [86], "\u00e9lectrique,": [87], "afin": [88], "d''atteindre":
+        [89], "une": [90, 95, 225, 247], "accordabilit\u00e9": [91, 248], "du": [92],
+        "mat\u00e9riau,": [93], "puis": [94], "reconfigurabilit\u00e9": [96], "en":
+        [97, 177, 186, 192, 227, 268], "fr\u00e9quence": [98], "antennes,": [100],
+        "par": [101, 105, 112, 200], "exemple.": [102], "L''analyse": [103], "structurale":
+        [104], "diffraction": [106], "rayons": [108], "X": [109], "a": [110, 303],
+        "confirm\u00e9,": [111], "variation": [114], "lin\u00e9aire": [115], "param\u00e8tres":
+        [117], "maille,": [119], "formation": [121], "les": [127, 143, 189, 233],
+        "compositions": [128], "x": [129, 172, 211], "\u220a": [130], "[0-5].": [131],
+        "Les": [132, 175], "analyses": [133], "di\u00e9lectriques": [134], "men\u00e9es":
+        [135], "basses": [137, 193, 231], "fr\u00e9quences": [138, 179], "(1": [139],
+        "100": [140], "kHz)": [141], "c\u00e9ramiques": [144], "STLTO": [145], "ont":
+        [146], "montr\u00e9": [147, 304], "valeurs": [149], "maximales": [150], "permittivit\u00e9":
+        [152], "(375)": [153], "d''accordabilit\u00e9": [155], "(55": [156], "%":
+        [157], "3": [159], "kV/mm),": [160], "associ\u00e9es": [161], "tangentes":
+        [164], "pertes": [166, 243, 289], "faibles": [167, 244], "(0,01),": [168],
+        "composition": [171, 210], "=": [173, 212, 251], "1,65.": [174], "mesures":
+        [176], "hautes": [178], "(200": [180], "MHz": [181], "\u2013": [182], "18":
+        [183], "GHz)": [184], "accord": [187], "avec": [188, 246, 287], "r\u00e9sultats":
+        [190], "obtenus": [191], "fr\u00e9quences.": [194], "Le": [195, 260], "pulv\u00e9risation":
+        [201], "cathodique": [202], "r\u00e9active,": [203], "r\u00e9alis\u00e9":
+        [204, 267], "partir": [206], "d''une": [207], "cible": [208], "1,65,": [213],
+        "produit": [214], "s''apparentant": [217], "phase": [220], "Sr2,83Ta5O15,":
+        [221], "qui": [223], "d\u00e9note": [224], "perte": [226], "strontium.": [228],
+        "Cependant,": [229], "fr\u00e9quences,": [232], "pr\u00e9sentent": [235],
+        "relativement": [238], "\u00e9lev\u00e9es": [239, 282, 291], "(130)": [240],
+        "(0,01)": [245], "mod\u00e9r\u00e9e": [249], "(A": [250], "14,5%": [252],
+        "340": [254], "kV/cm": [255], "f": [257], "=100": [258], "kHz).": [259], "oxynitrures":
+        [265], "(Sr,La)(Ta,Ti)O2N,": [266], "atmosph\u00e8re": [269], "r\u00e9active":
+        [270], "Ar": [271], "+": [272], "N2,": [273], "m\u00e8nent": [274], "\u00e9chantillons":
+        [277], "color\u00e9s": [278], "ayant": [279], "(jusqu''\u00e0": [283, 292],
+        "3000": [284], "environ),": [285], "mais": [286], "\u00e9galement": [290],
+        "2)": [293], "sans": [295], "accordabilit\u00e9.": [296], "Par": [297], "ailleurs,":
+        [298], "SrTaO2N": [302], "que": [305], "ces": [306], "compos\u00e9s": [307],
+        "adapt\u00e9s": [309], "d\u00e9composition": [312], "l''eau": [314], "lumi\u00e8re":
+        [316], "visible.": [317]}, "primary_location": {"id": "pmh:2018REN1S024",
+        "doi": null, "is_oa": true, "landing_page_url": "http://www.theses.fr/2018REN1S024/document",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4406923047", "display_name":
+        "theses.fr (ABES)", "issn_l": null, "issn": null, "is_oa": false, "is_in_doaj":
+        false, "is_core": false, "listed_in": [], "host_organization": null, "host_organization_name":
+        null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "repository"}, "license": "other-oa", "license_id": "https://openalex.org/licenses/other-oa",
+        "version": "submittedVersion", "is_accepted": false, "is_published": false,
+        "raw_source_name": null, "raw_type": "Electronic Thesis or Dissertation"}},
+        {"id": "https://openalex.org/W2614511220", "doi": null, "title": "Structural
+        and dielectric characterization of (Sr,La)-(Ta,Ti)-O-N oxide and oxynitride
+        thin films grown by RF reactive magnetron sputtering", "publication_year":
+        2014, "abstract_inverted_index": {"In": [0, 37], "the": [1, 9, 26, 34, 41,
+        49, 54, 59, 72, 157], "field": [2], "of": [3, 28, 58, 74, 98, 167], "microwaves,":
+        [4], "high-performance": [5], "materials": [6, 32, 78], "needs": [7], "drive":
+        [8], "research": [10], "on": [11, 136, 156], "perovskite": [12], "compounds":
+        [13], "which": [14], "present": [15], "attractive": [16], "dielectric": [17,
+        50, 165], "and": [18, 30, 138, 162, 178, 181], "ferroelectric": [19, 60],
+        "properties.": [20], "Our": [21], "contribution": [22], "is": [23], "related":
+        [24], "to": [25, 47, 68, 174], "development": [27], "oxide": [29, 117], "oxynitride":
+        [31, 147], "within": [33], "(Sr,La)-(Ta,Ti)-O-N": [35], "system.": [36], "this":
+        [38], "composition": [39], "range,": [40], "oxygen/nitrogen": [42], "substitution":
+        [43], "can": [44, 133], "be": [45, 65, 134, 170], "used": [46], "monitor":
+        [48], "properties": [51, 166], "[1];": [52], "furthermore,": [53], "Curie":
+        [55], "temperature": [56, 70], "(TC)": [57], "solid": [61, 103], "solution":
+        [62], "(Sr1-xLax)(Ta1-xTix)-O-N": [63], "could": [64], "adjusted": [66], "close":
+        [67], "room": [69], "by": [71, 81, 95, 101], "variation": [73], "x": [75],
+        "[2].": [76], "The": [77], "were": [79, 119, 153], "deposited": [80], "reactive":
+        [82, 111, 143], "magnetron": [83], "radio": [84], "frequency": [85, 164],
+        "sputtering": [86, 115], "using": [87, 107, 142], "a": [88, 129, 150], "(Sr0.99La0.01)2(Ta0.99Ti0.01)2O7":
+        [89], "target.": [90], "This": [91], "target": [92], "was": [93], "shaped":
+        [94], "uniaxial": [96], "compaction": [97], "powder": [99], "synthesized":
+        [100], "conventional": [102], "state": [104], "route.": [105], "By": [106,
+        141], "pure": [108], "argon": [109], "or": [110], "Ar": [112], "+": [113],
+        "O2": [114], "plasmas,": [116, 145], "films": [118, 127, 148, 168], "produced.":
+        [120], "X-ray": [121], "Diffraction": [122], "(XRD)": [123], "reveals": [124],
+        "that": [125], "Sr2Ta2O7-type": [126], "with": [128, 149], "preferred": [130],
+        "(011)": [131], "orientation": [132, 152], "grown": [135, 155], "MgO(001)":
+        [137], "Nb-SrTiO3(001)": [139], "substrates.": [140, 160], "nitrogen": [144],
+        "SrTaO2N-type": [146], "(001)": [151], "epitaxially": [154], "above": [158],
+        "mentioned": [159], "Low": [161], "high": [163], "will": [169], "discussed":
+        [171], "in": [172], "relation": [173], "their": [175], "deposition": [176],
+        "conditions": [177], "morphological,": [179], "optical": [180], "structural":
+        [182], "characteristics.[1]": [183], "Y.": [184], "Lu,": [185], "C.": [186,
+        205], "Le": [187, 195], "Paven,": [188], "H.": [189], "V.": [190], "Nguyen,":
+        [191], "R.": [192], "Benzerga,": [193], "L.": [194], "Gendre,": [196], "S.":
+        [197, 215], "Rioual,": [198], "F.": [199, 201], "Tessier,": [200], "Chevir\u00e9,":
+        [202], "A.": [203], "Sharaiha,": [204], "Delaveaud,": [206], "X.": [207],
+        "Castel,": [208], "Crys.": [209], "Growth": [210], "Design": [211], "13":
+        [212], "(2013)": [213], "4852-4858.[2]": [214], "Nanamatsu,": [216], "M.":
+        [217], "Kimura,": [218], "K.": [219], "Doi,": [220], "S.Matsushita,": [221],
+        "N.": [222], "Yamada,": [223], "Ferroelectrics": [224], "8": [225], "(1974)":
+        [226], "511-513.": [227]}, "primary_location": {"id": "pmh:oai:HAL:hal-01109296v1",
+        "doi": null, "is_oa": false, "landing_page_url": "https://hal.science/hal-01109296",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4306402512", "display_name":
+        "HAL", "issn_l": null, "issn": null, "is_oa": false, "is_in_doaj": false,
+        "is_core": false, "listed_in": [], "host_organization": "https://openalex.org/I4405252976",
+        "host_organization_name": "Centre pour la Communication Scientifique Directe",
+        "host_organization_lineage": ["https://openalex.org/I4405252976"], "host_organization_lineage_names":
+        [], "type": "repository"}, "license": null, "license_id": null, "version":
+        "submittedVersion", "is_accepted": false, "is_published": false, "raw_source_name":
+        "The 4th NIMS-UR1 Workshop 2014, NIMS, Oct 2014, Tsukuba, Japan", "raw_type":
+        "info:eu-repo/semantics/conferenceObject"}}, {"id": "https://openalex.org/W7046722615",
+        "doi": "https://doi.org/10.70675/9ef7d822z5d5cz4e8bz9dc9zb6ad91773d2d", "title":
+        "Development of lead-free dielectric or ferroelectric materials for compact
+        microwave antennas", "publication_year": 2024, "abstract_inverted_index":
+        {"This": [0], "thesis": [1], "first": [2], "investigates": [3], "the": [4,
+        100, 107], "synthesis": [5], "and": [6, 32, 46, 82, 131, 146, 156, 187, 190],
+        "fabrication": [7], "of": [8, 72, 141, 144], "SrTa2O6": [9, 41, 59], "oxide":
+        [10], "ceramics": [11, 42], "for": [12, 22, 80, 87], "potential": [13], "use":
+        [14], "in": [15, 182], "miniature": [16], "dielectric": [17, 48, 102], "resonator":
+        [18], "antennas": [19], "(DRAs)": [20], "designed": [21], "mid-band": [23],
+        "5G": [24], "applications.": [25], "Two": [26], "polymorphs": [27], "were":
+        [28], "synthesized:": [29], "orthorhombic": [30], "\u03b2-phase": [31], "tetragonal":
+        [33], "tungsten": [34], "bronze": [35], "\u03b2\u2019-phase.": [36], "At":
+        [37], "~5": [38], "GHz,": [39], "\u03b2-": [40], "showed": [43], "lower":
+        [44], "permittivity": [45, 140, 189], "higher": [47, 164], "losses": [49,
+        143], "(eeff": [50, 63], "\u2248": [51, 54, 64, 67], "22,": [52], "tand":
+        [53, 66], "1x10-2)": [55], "compared": [56], "to": [57, 84, 149, 176], "\u03b2\u2019-":
+        [58], "at": [60, 151, 163], "2.8": [61], "GHz": [62], "79,": [65], "5x10-3).":
+        [68], "The": [69], "temperature": [70], "coefficient": [71], "resonant": [73],
+        "frequency": [74], "\u2018tf\u2019": [75], "was": [76, 161], "around": [77],
+        "+260": [78], "ppm/\u00b0C": [79, 86], "\u03b2,": [81], "up": [83, 148], "+319":
+        [85], "\u03b2\u2019.": [88], "A": [89, 170], "prototype": [90], "DRA": [91],
+        "using": [92], "\u03b2\u2019-SrTa2O6": [93], "demonstrated": [94], "excellent":
+        [95], "agreement": [96], "with": [97, 128, 192], "simulations,": [98], "confirming":
+        [99], "material''s": [101], "properties.The": [103], "second": [104, 171],
+        "study": [105], "involves": [106], "thin": [108], "film": [109], "deposition":
+        [110], "from": [111], "a": [112, 139], "stoichiometric": [113], "STLTO,":
+        [114], "(Sr2Ta2O7)0.98(La2Ti2O7)0.02": [115], "target.": [116], "RF-sputtering":
+        [117], "produced": [118], "Sr-deficient": [119], "films": [120], "identified":
+        [121], "as": [122], "SrTa2O6,": [123], "exhibiting": [124], "tunability":
+        [125, 147, 160], "that": [126], "increased": [127], "RF": [129], "power":
+        [130], "substrate": [132], "temperature.": [133, 158], "Films": [134], "on":
+        [135], "Nb:SrTiO3": [136], "substrates": [137], "had": [138], "~100,": [142],
+        "~0.005,": [145], "12%": [150], "~400": [152], "kV/cm,": [153], "100": [154],
+        "kHz": [155], "room": [157], "No": [159], "observed": [162], "frequencies":
+        [165], "(1": [166], "\u2013": [167], "40": [168], "GHz).": [169], "Sr-rich":
+        [172], "STLTO": [173], "target,(Sr1.4Ta0.6O2.9)0.9835(La2Ti2O7)0.0165,": [174],
+        "failed": [175], "achieved": [177], "single": [178], "phase": [179], "component,":
+        [180], "resulting": [181], "variable": [183], "Sr/Ta": [184], "ratios": [185],
+        "(0.9-1.2)": [186], "inconsistent": [188], "losses,": [191], "no": [193],
+        "tunability.": [194]}, "primary_location": {"id": "pmh:oai:HAL:tel-04923040v1",
+        "doi": "https://doi.org/10.70675/9ef7d822z5d5cz4e8bz9dc9zb6ad91773d2d", "is_oa":
+        true, "landing_page_url": "https://theses.hal.science/tel-04923040", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S4306402512", "display_name":
+        "HAL", "issn_l": null, "issn": null, "is_oa": false, "is_in_doaj": false,
+        "is_core": false, "listed_in": [], "host_organization": "https://openalex.org/I4405252976",
+        "host_organization_name": "Centre pour la Communication Scientifique Directe",
+        "host_organization_lineage": ["https://openalex.org/I4405252976"], "host_organization_lineage_names":
+        [], "type": "repository"}, "license": "other-oa", "license_id": "https://openalex.org/licenses/other-oa",
+        "version": "submittedVersion", "is_accepted": false, "is_published": false,
+        "raw_source_name": "Electronics. Universit\u00e9 de Rennes, 2024. English.
+        &#x27E8;NNT : 2024URENS060&#x27E9;", "raw_type": "info:eu-repo/semantics/doctoralThesis"}}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442a45dcdc5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '17315'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:45 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=s%2B1QPX%2FBRoxYcTo5Xj%2B39G6%2FyH0GxM0Y0nSV8vRIbPM%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633265"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=s%2B1QPX%2FBRoxYcTo5Xj%2B39G6%2FyH0GxM0Y0nSV8vRIbPM%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633265"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '8630'
+      x-ratelimit-remaining-usd:
+      - '0.863'
+      x-ratelimit-reset:
+      - '30735'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=Sr2Ta2O7+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 15, "db_response_time_ms": 11, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (Sr2Ta2O7 thin
+        film) in the title or abstract", "x_new_oql": "get works with (Sr2Ta2O7 thin
+        film) in the title or abstract", "oqo": {"get_rows": "works", "filter_rows":
+        [{"column_id": "title_and_abstract.search", "value": "Sr2Ta2O7 thin film",
+        "operator": "has"}]}, "url": "/works?filter=title_and_abstract.search:Sr2Ta2O7
+        thin film&per_page=1", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W231039240"}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442a469fda5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '625'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:45 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=s%2B1QPX%2FBRoxYcTo5Xj%2B39G6%2FyH0GxM0Y0nSV8vRIbPM%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633265"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=s%2B1QPX%2FBRoxYcTo5Xj%2B39G6%2FyH0GxM0Y0nSV8vRIbPM%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633265"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '8620'
+      x-ratelimit-remaining-usd:
+      - '0.862'
+      x-ratelimit-reset:
+      - '30735'
+    status:
+      code: 200
+      message: OK
+version: 1

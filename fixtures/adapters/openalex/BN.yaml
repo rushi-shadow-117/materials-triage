@@ -1,0 +1,800 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=BN+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 1239, "db_response_time_ms": 28, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (BN thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (BN thin film) in the title or abstract where it has an abstract", "oqo":
+        {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract", "value":
+        true}, {"column_id": "title_and_abstract.search", "value": "BN thin film",
+        "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:BN
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W1993063962",
+        "doi": "https://doi.org/10.1179/174328005x67160", "title": "Review of synthesis
+        and properties of cubic boron nitride (c-BN) thin films", "publication_year":
+        2005, "abstract_inverted_index": {"Cubic": [0], "boron": [1], "nitride": [2],
+        "(c-BN)": [3], "thin": [4, 77, 102], "films": [5, 78, 118, 171, 183, 213],
+        "are": [6, 119, 136, 172, 203, 214], "of": [7, 11, 48, 73, 91, 100, 115, 128,
+        140, 169, 180, 211], "significant": [8], "interest": [9], "because": [10],
+        "their": [12], "diamond": [13], "like": [14], "structure": [15], "and": [16,
+        35, 65, 97, 106, 125, 131, 152, 157, 167, 198, 208], "properties.": [17],
+        "c-BN": [18, 49, 76, 101, 117, 129, 170, 182], "shows": [19], "high": [20,
+        30, 67], "thermal": [21], "conductivity,": [22], "chemical": [23, 107, 149],
+        "inertness": [24], "against": [25], "ferrous": [26], "metals": [27], "even":
+        [28], "at": [29], "temperatures,": [31, 148], "wide": [32, 40], "band": [33],
+        "gap,": [34], "good": [36], "transmittance": [37], "over": [38], "a": [39],
+        "spectral": [41], "range": [42], "from": [43], "UV": [44, 61], "to": [45,
+        80], "visible.": [46], "Applications": [47], "include": [50], "hard": [51],
+        "protective": [52], "coatings": [53], "for": [54, 112], "cutting": [55], "tools,":
+        [56], "in": [57, 66, 177], "optical": [58, 98, 206], "instruments": [59],
+        "as": [60, 63, 144], "detectors,": [62], "emitters,": [64], "temperature":
+        [68], "electronic": [69], "devices.": [70], "However,": [71], "synthesis":
+        [72], "phase": [74], "pure": [75], "continues": [79], "be": [81], "very":
+        [82], "challenging.": [83], "The": [84, 138, 174, 205], "present": [85], "study":
+        [86], "reviews": [87], "the": [88, 92, 113, 116, 155, 181], "current": [89],
+        "status": [90], "synthesis,": [93], "characterisation,": [94], "mechanical,":
+        [95], "electrical,": [96], "properties": [99, 162, 179, 207], "films.": [103],
+        "Both": [104], "physical": [105], "vapour": [108], "deposition": [109], "methods":
+        [110], "used": [111], "preparation": [114], "covered.": [120], "In": [121],
+        "addition,": [122], "different": [123, 134], "nucleation": [124, 156], "growth":
+        [126, 132, 147, 158], "models": [127], "formation": [130], "on": [133, 154,
+        185], "substrates": [135], "described.": [137], "influence": [139], "process":
+        [141], "parameters": [142], "such": [143], "ion": [145], "energy,": [146],
+        "precursors,": [150], "bias,": [151], "impurities": [153], "is": [159], "reviewed.":
+        [160], "Mechanical": [161], "including": [163], "hardness,": [164], "elastic":
+        [165], "modulus,": [166], "stiffness": [168], "discussed.": [173, 216], "latest":
+        [175], "developments": [176], "electrical": [178], "based": [184], "metal\u2013insulator\u2013semiconductor":
+        [186], "(MIS)": [187], "hetero-structures,": [188], "interface": [189], "states,":
+        [190, 192], "impurity": [191], "conduction": [193], "mechanism,": [194], "field":
+        [195], "emission": [196], "properties,": [197], "negative": [199], "electron":
+        [200], "affinity": [201], "(NEA)": [202], "presented.": [204], "cathodoluminescence":
+        [209], "characteristics": [210], "BN": [212], "also": [215]}, "primary_location":
+        {"id": "doi:10.1179/174328005x67160", "doi": "https://doi.org/10.1179/174328005x67160",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1179/174328005x67160",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S69687699", "display_name":
+        "International Materials Reviews", "issn_l": "0950-6608", "issn": ["0950-6608",
+        "1743-2804"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "dongbi-b", "jufo-2", "norway-2", "poland-200", "russia-white-list-1"],
+        "host_organization": "https://openalex.org/P4310320547", "host_organization_name":
+        "Taylor & Francis", "host_organization_lineage": ["https://openalex.org/P4310320547",
+        "https://openalex.org/P4310320449"], "host_organization_lineage_names": ["Taylor
+        & Francis", "Informa"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "International Materials Reviews", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2159994983", "doi": "https://doi.org/10.1002/sia.740160191",
+        "title": "XPS study of BN thin films deposited by CVD on SiC plane substrates",
+        "publication_year": 1990, "abstract_inverted_index": {"Abstract": [0], "BN":
+        [1, 66, 119], "films": [2, 26], "deposited": [3], "from": [4], "a": [5, 63],
+        "BF": [6], "3": [7, 9], "\uf8ffNH": [8], "precursor,": [10], "under": [11],
+        "chemical": [12], "vapour": [13], "infiltration": [14], "conditions,": [15],
+        "on": [16, 102], "plane": [17], "sintered": [18], "\u03b1\u2010SiC": [19],
+        "substrates": [20], "were": [21], "analysed": [22], "by": [23], "XPS.": [24],
+        "The": [25], "are": [27, 71], "non\u2010stoichiometric": [28], "with": [29,
+        106], "an": [30, 99], "N/B": [31], "atomic": [32], "ratio": [33], "of": [34,
+        41, 86, 98, 117], "<1.": [35], "They": [36], "also": [37], "contain": [38],
+        "significant": [39], "amounts": [40], "oxygen": [42, 79], "atoms,": [43],
+        "homogeneously": [44], "distributed": [45], "in": [46, 57], "the": [47, 54,
+        58, 75, 78, 84, 96, 103, 107, 114, 118], "film": [48], "and": [49], "thought":
+        [50, 93], "to": [51, 83, 94], "replace": [52], "partly": [53], "nitrogen":
+        [55], "atoms": [56], "turbostratic": [59], "hexagonal": [60], "network.":
+        [61], "As": [62], "result,": [64], "ternary": [65, 87], "x": [67, 89], "O":
+        [68, 90], "y": [69, 91], "species": [70], "formed": [72], "locally.": [73],
+        "Near": [74], "BN/SiC": [76], "interface,": [77], "concentration": [80], "increases":
+        [81], "owing": [82], "occurrence": [85], "SiN": [88], "species,": [92], "be":
+        [95], "result": [97], "oxinitriding": [100], "reaction": [101], "substrate":
+        [104], "surface": [105], "gas": [108], "phase": [109], "containing": [110],
+        "residual": [111], "oxygen,": [112], "at": [113], "very": [115], "beginning":
+        [116], "deposition": [120], "process.": [121]}, "primary_location": {"id":
+        "doi:10.1002/sia.740160191", "doi": "https://doi.org/10.1002/sia.740160191",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1002/sia.740160191",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S114406758", "display_name":
+        "Surface and Interface Analysis", "issn_l": "0142-2421", "issn": ["0142-2421",
+        "1096-9918"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-c", "jufo-1", "norway-1", "poland-40",
+        "russia-white-list-3", "vabb-shw"], "host_organization": "https://openalex.org/P4310320595",
+        "host_organization_name": "Wiley", "host_organization_lineage": ["https://openalex.org/P4310320595"],
+        "host_organization_lineage_names": ["Wiley"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Surface and Interface Analysis",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2358650211",
+        "doi": null, "title": "Field Emission Characteristics of BN Thin Films", "publication_year":
+        2002, "abstract_inverted_index": {"The": [0, 24, 47, 66], "dependences": [1],
+        "of": [2, 7, 19, 33, 56, 62, 70, 90, 104], "the": [3, 12, 17, 20, 86, 97,
+        102, 105], "field": [4, 67, 87], "emission": [5, 68, 88], "characteristics":
+        [6, 69, 89], "BN": [8, 25, 72, 91], "thin": [9, 71, 92], "films": [10, 21,
+        26, 73, 93], "on": [11, 96], "different": [13, 98], "substrates": [14, 99],
+        "bias": [15, 100], "and": [16, 58, 101], "thickness": [18, 103], "are": [22],
+        "presented.": [23], "were": [27, 74], "deposited": [28], "by": [29], "reactive":
+        [30], "magnetron": [31], "sputtering": [32, 45, 48], "a": [34, 43, 53, 59,
+        77], "h-BN": [35], "targets": [36], "in": [37, 42, 76], "an": [38], "Ar+N":
+        [39], "2": [40, 64], "mixture": [41], "conventional": [44], "reactor.": [46],
+        "was": [49], "carried": [50], "out": [51], "at": [52], "substrate": [54],
+        "temperature": [55], "470\u2103": [57], "total": [60], "pressure": [61], "1.":
+        [63], "Pa.": [65], "measured": [75], "super": [78], "high": [79], "vacuum":
+        [80], "system.": [81], "It": [82], "is": [83], "found": [84], "that": [85],
+        "depend": [94], "greatly": [95], "films.": [106]}, "primary_location": {"id":
+        "mag:2358650211", "doi": null, "is_oa": false, "landing_page_url": "https://en.cnki.com.cn/Article_en/CJFDTOTAL-YJYS200201007.htm",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S2764785651", "display_name":
+        "Chinese Journal of Liquid Crystals and Displays", "issn_l": "1007-2780",
+        "issn": ["1007-2780"], "is_oa": false, "is_in_doaj": false, "is_core": false,
+        "listed_in": ["poland-20", "russia-white-list-3"], "host_organization": "https://openalex.org/P4310319982",
+        "host_organization_name": "Science Press", "host_organization_lineage": ["https://openalex.org/P4310319982"],
+        "host_organization_lineage_names": ["Science Press"], "type": "journal"},
+        "license": null, "license_id": null, "version": null, "is_accepted": false,
+        "is_published": false, "raw_source_name": "Chinese Journal of Liquid Crystals
+        and Displays", "raw_type": null}}, {"id": "https://openalex.org/W2391718727",
+        "doi": null, "title": "INFLUENCE OF SUBSTRATES ON THE FORMATION OF c-BN THIN
+        FILMS", "publication_year": 2001, "abstract_inverted_index": {"The": [0],
+        "influence": [1], "of": [2, 7, 105, 128, 143, 209], "substrates": [3, 22,
+        74], "on": [4, 20, 65, 97, 112, 149], "the": [5, 30, 52, 69, 73, 76, 91, 98,
+        103, 106, 115, 175, 185, 196, 207], "formation": [6], "cubic": [8, 53, 80,
+        144, 176], "boron": [9, 126, 154], "nitride(c\\|BN)": [10], "thin": [11, 16,
+        58, 108, 137, 156, 211], "films": [12, 17, 59, 109, 157], "was": [13, 60,
+        68, 120, 131, 146], "reported.The": [14], "c\\|BN": [15, 57, 107, 136, 190,
+        201, 210], "were": [18, 39, 47, 158], "deposited": [19, 148], "different":
+        [21], "with": [23, 139], "hot\\|filament\\|assisted": [24], "plasma": [25],
+        "CVD": [26, 31, 77, 92, 173], "and": [27, 36, 44, 123, 165, 179, 191, 202],
+        "RF": [28], "sputter.In": [29], "method,NH": [32], "3,B": [33], "2H": [34],
+        "6": [35], "H": [37], "2": [38, 122], "reacting": [40], "gases,and": [41],
+        "Si,Ni,Co,stainless": [42], "steel": [43], "other": [45], "materials": [46,
+        204], "substrates.The": [48, 63], "experiments": [49], "showed": [50], "that":
+        [51, 89, 171], "phase": [54, 81, 145, 177], "content": [55, 82, 142, 178],
+        "in": [56, 75, 90], "affected": [61, 183], "by": [62, 160, 184], "film": [64,
+        138], "Ni": [66, 95], "substrate": [67, 100, 192, 203], "best": [70], "among":
+        [71], "all": [72], "method,and": [78], "its": [79], "reached": [83], "over":
+        [84, 140], "80%.Our": [85], "study": [86], "also": [87], "found": [88], "method":
+        [93, 174, 195], "a": [94], "interlayer": [96], "Si": [99, 113, 150], "can":
+        [101], "improve": [102], "quality": [104, 208], "than": [110], "directly":
+        [111], "substrate.In": [114, 151], "sputter": [116, 194], "method,the": [117],
+        "working": [118], "gas": [119], "N": [121], "Ar,hot\\|pressed": [124], "hexagonal":
+        [125], "nitride(h\\|BN)": [127], "4N": [129], "purity": [130], "used": [132],
+        "as": [133], "sputtering": [134], "target,the": [135], "90%": [141], "successively":
+        [147], "our": [152], "research,the": [153], "nitride": [155], "characterized":
+        [159], "Fourier": [161], "Transform": [162], "Infrared(FTIR)": [163], "Spectra":
+        [164], "X\\|ray": [166], "diffraction.": [167], "Finally": [168], "we": [169],
+        "concluded": [170], "for": [172], "adhesion": [180], "are": [181], "highly":
+        [182], "crystal": [186, 197], "lattice": [187, 198], "mismatch": [188, 199],
+        "between": [189, 200], "materials;however,for": [193], "little": [205], "affects":
+        [206], "films.": [212]}, "primary_location": {"id": "mag:2391718727", "doi":
+        null, "is_oa": false, "landing_page_url": "http://en.cnki.com.cn/Article_en/CJFDTOTAL-WLXB200101015.htm",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S950076683", "display_name":
+        "Acta Physica Sinica", "issn_l": "1000-3290", "issn": ["1000-3290"], "is_oa":
+        false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core", "jufo-1",
+        "ki-jl-1", "norway-1", "poland-20", "russia-white-list-3"], "host_organization":
+        "https://openalex.org/P4310319982", "host_organization_name": "Science Press",
+        "host_organization_lineage": ["https://openalex.org/P4310319982"], "host_organization_lineage_names":
+        ["Science Press"], "type": "journal"}, "license": null, "license_id": null,
+        "version": null, "is_accepted": false, "is_published": false, "raw_source_name":
+        "Acta Physica Sinica", "raw_type": null}}, {"id": "https://openalex.org/W273404953",
+        "doi": null, "title": "Laser-Assisted ALD of BN Thin Films", "publication_year":
+        2003, "abstract_inverted_index": {"Smaller": [0], "cellular": [1], "telephones":
+        [2], "and": [3, 37, 42, 64, 107, 128, 148, 159, 165, 186, 219, 221, 227],
+        "more": [4, 75], "energy-efficient": [5], "windows": [6], "are": [7, 98, 112],
+        "just": [8], "two": [9], "examples": [10], "of": [11, 28, 35, 90, 145, 168,
+        192, 217, 225, 240, 246], "technological": [12], "advances": [13], "which":
+        [14, 33, 94], "call": [15], "for": [16, 77, 122, 174, 214], "new": [17, 24],
+        "materials.": [18], "Materials": [19], "chemists": [20], "seek": [21], "to":
+        [22, 31, 45, 254], "develop": [23], "materials,": [25, 47, 116], "both": [26,
+        117], "out": [27], "pure": [29], "curiosity": [30], "see": [32], "combination":
+        [34], "elements": [36], "structures": [38], "can": [39, 60], "be": [40, 62,
+        180], "obtained": [41], "in": [43, 66, 93, 222], "efforts": [44], "produce":
+        [46], "with": [48, 118, 135], "specific": [49], "properties.": [50], "The":
+        [51, 162, 177, 249], "starting": [52], "materials": [53], "(in": [54], "solid,":
+        [55], "liquid": [56], "or": [57], "gaseous": [58, 152], "form)": [59], "then":
+        [61], "combined": [63], "prepared": [65], "various": [67, 188], "ways.": [68],
+        "A": [69], "chemical": [70, 163], "method": [71], "that": [72], "is": [73,
+        80, 86, 140, 172], "gaining": [74], "attention": [76], "thin-film": [78],
+        "growth": [79, 216, 262], "Atomic": [81], "Layer": [82], "Deposition": [83],
+        "(ALD).": [84], "This": [85], "a": [87, 119, 141, 169], "sophisticated": [88],
+        "type": [89], "vapor": [91, 175, 215], "deposition": [92], "the": [95, 102,
+        125, 202], "precursor": [96], "gases": [97], "introduced": [99], "separately":
+        [100], "into": [101, 230], "reaction": [103], "chamber.Silicon": [104], "carbide":
+        [105], "(SiC)": [106], "cubic": [108], "boron": [109, 132], "nitride": [110,
+        133], "(c-BN)": [111], "extremely": [113], "hard": [114], "diamond-like":
+        [115], "high": [120], "potential": [121], "application": [123], "within":
+        [124], "modern": [126], "microelectronics": [127], "tool": [129], "industry.":
+        [130], "Hexagonal": [131], "(h-BN),": [134], "its": [136], "graphite-like":
+        [137], "layered": [138], "structure,": [139], "promising": [142], "ceramics":
+        [143], "material.Deposition": [144], "thin": [146, 238], "SiC": [147, 218],
+        "BN": [149, 241], "films": [150, 239], "from": [151, 201], "precursors": [153],
+        "has": [154, 252], "been": [155, 253], "studied": [156, 207], "by": [157,
+        183, 244, 260], "theoretical": [158], "experimental": [160, 258], "methods.":
+        [161], "composition": [164], "atomic": [166], "arrangement": [167], "growing":
+        [170], "surface": [171, 178], "important": [173], "growth.": [176], "may":
+        [179], "terminated": [181], "(e.g.,": [182], "hydrogen": [184], "atoms)":
+        [185], "adopt": [187], "geometrical": [189], "structures.": [190], "Reconstruction":
+        [191], "unterminated": [193], "SiC(0001)": [194], "surfaces,": [195, 205],
+        "as": [196, 198], "well": [197], "H": [199], "abstraction": [200], "corresponding":
+        [203], "H-terminated": [204], "were": [206, 233, 242], "using": [208], "quantum":
+        [209], "mechanical": [210], "calculations.": [211], "Elementary": [212], "reactions":
+        [213], "BN,": [220], "situ": [223], "incorporation": [224], "dopant": [226],
+        "contaminant": [228], "species": [229], "these": [231], "surfaces": [232],
+        "also": [234], "investigated": [235], "theoretically.": [236], "Moreover,":
+        [237], "deposited": [243], "means": [245], "laser-assisted": [247], "ALD.":
+        [248], "general": [250], "goal": [251], "predict": [255], "and/or": [256],
+        "explain": [257], "results": [259], "investigating": [261], "mechanisms.":
+        [263]}, "primary_location": {"id": "mag:273404953", "doi": null, "is_oa":
+        false, "landing_page_url": "http://uu.diva-portal.org/smash/record.jsf?pid=diva2:1173180",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S84339699", "display_name":
+        "Thin Solid Films", "issn_l": "0040-6090", "issn": ["0040-6090", "1879-2731"],
+        "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in": ["anvur-scientific",
+        "cwts-core", "dongbi-b", "jufo-1", "norway-1", "poland-70", "russia-white-list-1"],
+        "host_organization": "https://openalex.org/P4310320990", "host_organization_name":
+        "Elsevier BV", "host_organization_lineage": ["https://openalex.org/P4310320990"],
+        "host_organization_lineage_names": ["Elsevier BV"], "type": "journal"}, "license":
+        null, "license_id": null, "version": null, "is_accepted": false, "is_published":
+        false, "raw_source_name": "Thin Solid Films", "raw_type": null}}], "group_by":
+        []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a544299f9c435f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '17727'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:19 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=l%2BE2VYkgQzUvzJ1S7pOwIyJySh%2B4IMkTsfIGD70uSkE%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633239"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=l%2BE2VYkgQzUvzJ1S7pOwIyJySh%2B4IMkTsfIGD70uSkE%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633239"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9210'
+      x-ratelimit-remaining-usd:
+      - '0.921'
+      x-ratelimit-reset:
+      - '30761'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=BN+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 1861, "db_response_time_ms": 31, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (BN thin film)
+        in the title or abstract", "x_new_oql": "get works with (BN thin film) in
+        the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "BN thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:BN thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W1978399033"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429a0d9c45f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '604'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:19 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=l%2BE2VYkgQzUvzJ1S7pOwIyJySh%2B4IMkTsfIGD70uSkE%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633239"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=l%2BE2VYkgQzUvzJ1S7pOwIyJySh%2B4IMkTsfIGD70uSkE%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633239"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9200'
+      x-ratelimit-remaining-usd:
+      - '0.92'
+      x-ratelimit-reset:
+      - '30761'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=boron+nitride+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 1686, "db_response_time_ms": 23, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (boron nitride
+        thin film) in the title or abstract where it has an abstract", "x_new_oql":
+        "get works with (boron nitride thin film) in the title or abstract where it
+        has an abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "has_abstract", "value": true}, {"column_id": "title_and_abstract.search",
+        "value": "boron nitride thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:boron
+        nitride thin film&per_page=5", "order": "best matches first", "order_default":
+        true}, "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W1998070237",
+        "doi": "https://doi.org/10.1063/1.351881", "title": "Phase control of cubic
+        boron nitride thin films", "publication_year": 1992, "abstract_inverted_index":
+        {"Ion": [0], "beam": [1, 281], "assisted": [2, 282], "evaporation": [3], "was":
+        [4, 16, 20, 35, 55, 144, 148, 172, 190, 217, 221], "used": [5], "to": [6,
+        118, 163, 174, 192, 223, 226, 271, 319], "deposit": [7], "cubic": [8, 194,
+        229, 328], "and": [9, 18, 23, 37, 43, 46, 100, 127, 219, 240, 262, 290], "hexagonal":
+        [10, 99, 165], "boron": [11, 83, 169, 195, 329], "nitride": [12, 170, 196,
+        330], "thin": [13, 71, 331], "films.": [14], "Boron": [15], "evaporated":
+        [17], "bombardment": [19, 54, 304], "by": [21, 302], "argon": [22, 131], "nitrogen":
+        [24, 199, 208], "ions.": [25], "The": [26, 212, 235, 265, 315], "effect":
+        [27, 213], "of": [28, 92, 130, 157, 179, 204, 214, 242, 258, 267, 279], "preparation":
+        [29], "conditions": [30], "on": [31], "the": [32, 38, 41, 44, 50, 65, 69,
+        75, 79, 133, 158, 164, 202, 243, 277, 305, 309, 312, 324], "resulting": [33,
+        70], "phase": [34, 42, 73, 166, 230, 241, 254], "studied,": [36, 218], "relationship":
+        [39, 236], "between": [40, 182, 237], "energy": [45], "momentum": [47, 76,
+        321], "transferred": [48, 77, 307], "into": [49, 78, 273, 308], "film": [51,
+        72, 80, 253, 310, 332], "through": [52], "ion": [53, 280, 286, 288, 291, 303],
+        "examined.": [56], "It": [57, 293], "is": [58, 74, 116, 209, 245, 250, 269,
+        294, 311], "shown": [59, 270, 318], "that": [60], "for": [61, 207, 299], "a":
+        [62, 88, 177, 256, 274], "given": [63], "temperature,": [64, 261], "controlling":
+        [66, 313], "factor": [67], "in": [68, 176, 297, 327], "per": [81], "depositing":
+        [82], "atom.": [84], "At": [85], "300\u2013400": [86, 233], "\u00b0C": [87,
+        108], "sharp": [89], "threshold": [90, 110, 143], "value": [91, 276], "momentum-per-atom":
+        [93, 139, 180, 205, 268, 306], "exists": [94], "below": [95, 232], "which":
+        [96, 102, 115, 147, 153], "films": [97, 231, 244], "are": [98, 104, 317],
+        "above": [101, 152], "they": [103], "cubic.": [105], "For": [106], "400":
+        [107], "this": [109, 138, 187], "occurred": [111], "at": [112], "200": [113],
+        "(eV\u00d7amu)1/2": [114], "equal": [117], "3.3\u00d710\u221221": [119], "m":
+        [120], "kg": [121], "s\u22121.": [122], "Depositions": [123], "performed":
+        [124], "using": [125, 197], "krypton": [126], "xenon": [128], "instead": [129],
+        "as": [132, 255, 323], "second": [134, 142], "bombarding": [135, 149], "gas":
+        [136], "confirmed": [137], "value.": [140], "A": [141, 248], "also": [145,
+        246], "observed,": [146], "species": [150], "dependent,": [151], "either":
+        [154], "complete": [155], "resputtering": [156], "deposited": [159], "material":
+        [160], "or": [161], "reversion": [162], "occurred.": [167], "Cubic": [168],
+        "deposition": [171, 284], "seen": [173], "occur": [175], "window": [178, 203],
+        "values": [181, 206], "these": [183], "two": [184], "thresholds.": [185],
+        "Using": [186], "information": [188], "it": [189, 220], "possible": [191],
+        "grow": [193, 227], "only": [198], "bombardment,": [200, 259], "although":
+        [201], "very": [210], "narrow.": [211], "substrate": [215, 260], "temperature":
+        [216], "found": [222], "be": [224], "difficult": [225], "predominantly": [228],
+        "\u00b0C.": [234], "intrinsic": [238], "stress": [239], "discussed.": [247],
+        "diagram": [249], "presented": [251], "showing": [252], "function": [257],
+        "system": [263], "chemistry.": [264], "parameter": [266], "combine": [272],
+        "single": [275], "variables": [278], "deposition:": [283], "rate,": [285],
+        "energy,": [287], "flux,": [289], "species.": [292], "suggested": [295], "that,":
+        [296], "general,": [298], "properties": [300], "affected": [301], "factor.":
+        [314], "results": [316], "support": [320], "transfer": [322], "dominant":
+        [325], "process": [326], "formation.": [333]}, "primary_location": {"id":
+        "doi:10.1063/1.351881", "doi": "https://doi.org/10.1063/1.351881", "is_oa":
+        false, "landing_page_url": "https://doi.org/10.1063/1.351881", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S187991544", "display_name":
+        "Journal of Applied Physics", "issn_l": "0021-8979", "issn": ["0021-8979",
+        "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1",
+        "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2074393011",
+        "doi": "https://doi.org/10.1116/1.578938", "title": "Growth and characterization
+        of cubic boron nitride thin films", "publication_year": 1994, "abstract_inverted_index":
+        {"Boron": [0], "nitride": [1], "(BN)": [2], "thin": [3], "films": [4, 52,
+        132, 148], "have": [5], "been": [6], "grown": [7], "on": [8, 53, 211, 217],
+        "[100]": [9], "oriented": [10], "single": [11, 174], "crystal": [12], "Si,":
+        [13], "diamond,": [14], "Cu": [15, 218], "and": [16, 36, 44, 55, 62, 141,
+        171, 207], "Ni": [17], "substrates": [18], "by": [19, 34, 40, 67, 123, 177],
+        "ion": [20, 109, 152], "beam": [21, 26], "assisted": [22], "deposition": [23],
+        "using": [24], "electron": [25, 47], "evaporation": [27], "of": [28, 58, 70,
+        100, 115, 126, 173, 205], "boron": [29], "together": [30], "with": [31, 85],
+        "simultaneous": [32], "bombardment": [33], "nitrogen": [35], "argon": [37],
+        "ions.": [38], "Characterization": [39], "Fourier-transform": [41], "infrared":
+        [42], "spectroscopy": [43], "high-resolution": [45], "transmission": [46],
+        "microscopy": [48], "showed": [49], "that": [50, 183], "the": [51, 68, 90,
+        98, 124, 127, 131, 147, 184, 197, 201], "Si": [54], "diamond": [56], "consisted":
+        [57], "initial": [59], "noncubic": [60], "(amorphous": [61], "hexagonal":
+        [63], "BN)": [64], "layers,": [65], "followed": [66], "growth": [69, 75, 114,
+        172], "cubic": [71], "BN": [72], "(c-BN).": [73], "This": [74], "sequence":
+        [76], "was": [77, 209, 215], "attributed": [78], "primarily": [79, 194], "to":
+        [80, 97, 137, 142, 157], "increasing": [81], "compressive": [82], "intrinsic":
+        [83, 128, 144], "stress": [84, 129, 145, 198], "increased": [86, 108, 138,
+        143, 151], "film": [87, 105], "thickness.": [88], "Increasing": [89], "substrate":
+        [91, 163], "temperature": [92, 164], "above": [93], "400": [94], "\u00b0C":
+        [95], "led": [96, 156], "onset": [99], "c-BN": [101, 176, 208], "at": [102,
+        133], "a": [103], "greater": [104], "thickness": [106], "while": [107], "flux":
+        [110], "resulted": [111], "in": [112, 130, 146, 188, 200], "earlier": [113],
+        "this": [116, 178], "phase.": [117], "These": [118], "results": [119], "may":
+        [120], "be": [121], "explained": [122], "relaxation": [125], "higher": [134],
+        "temperatures": [135, 155], "due": [136], "adatom": [139], "mobility": [140],
+        "resulting": [149], "from": [150], "bombardment.": [153], "Lower": [154],
+        "mixed": [158], "phase": [159, 175], "growth.": [160], "A": [161, 203], "minimum":
+        [162], "(200\u2013300": [165], "\u00b0C)": [166], "is": [167, 181, 193], "required":
+        [168], "for": [169, 196], "nucleation": [170], "technique.": [179], "It":
+        [180], "believed": [182], "interstitial": [185], "Ar": [186], "observed":
+        [187], "Rutherford": [189], "backscattering": [190], "spectrometry": [191],
+        "studies": [192], "responsible": [195], "generation": [199], "films.": [202],
+        "combination": [204], "h-BN": [206, 214], "deposited": [210], "Ni;": [212],
+        "only": [213], "obtained": [216], "substrates.": [219]}, "primary_location":
+        {"id": "doi:10.1116/1.578938", "doi": "https://doi.org/10.1116/1.578938",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1116/1.578938", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S4210190837", "display_name":
+        "Journal of Vacuum Science & Technology A Vacuum Surfaces and Films", "issn_l":
+        "0734-2101", "issn": ["0734-2101", "1520-8559"], "is_oa": false, "is_in_doaj":
+        false, "is_core": true, "listed_in": ["cwts-core", "dongbi-c", "jufo-1", "ki-jl-1",
+        "norway-1", "poland-70", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Vacuum Science &amp; Technology A: Vacuum, Surfaces, and Films", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W2145686973", "doi": "https://doi.org/10.1021/nl1023707",
+        "title": "Synthesis of Few-Layer Hexagonal Boron Nitride Thin Film by Chemical
+        Vapor Deposition", "publication_year": 2010, "abstract_inverted_index": {"In":
+        [0], "this": [1, 122], "contribution": [2], "we": [3], "demonstrate": [4],
+        "a": [5, 9], "method": [6], "of": [7, 33, 75, 121], "synthesizing": [8], "hexagonal":
+        [10, 82], "boron": [11], "nitride": [12], "(h-BN)": [13], "thin": [14], "film":
+        [15, 37, 124], "by": [16, 72, 86], "ambient": [17], "pressure": [18], "chemical":
+        [19], "vapor": [20], "deposition": [21], "on": [22, 27, 48], "polycrystalline":
+        [23], "Ni": [24, 51, 77], "films.": [25], "Depending": [26], "the": [28, 31,
+        34, 49, 54, 73, 76, 96, 113, 118], "growth": [29], "conditions,": [30], "thickness":
+        [32, 58], "obtained": [35, 111], "h-BN": [36, 45, 123], "is": [38, 69], "between":
+        [39], "\u223c5": [40], "and": [41, 53, 89], "50": [42], "nm.": [43], "The":
+        [44, 81], "grows": [46], "continuously": [47], "entire": [50], "surface":
+        [52], "region": [55], "with": [56], "uniform": [57], "can": [59], "be": [60,
+        101], "up": [61], "to": [62, 100], "20": [63], "\u03bcm": [64], "in": [65,
+        125], "lateral": [66], "size": [67, 74], "which": [68, 116], "only": [70],
+        "limited": [71], "single": [78], "crystal": [79], "grains.": [80], "structure":
+        [83], "was": [84, 110], "confirmed": [85], "both": [87], "electron": [88],
+        "X-ray": [90, 92], "diffraction.": [91], "photoelectron": [93], "spectroscopy":
+        [94], "shows": [95], "B/N": [97], "atomic": [98], "ratio": [99], "1:1.12.":
+        [102], "A": [103], "large": [104], "optical": [105], "band": [106], "gap":
+        [107], "(5.92": [108], "eV)": [109], "from": [112], "photoabsorption": [114],
+        "spectra": [115], "suggest": [117], "potential": [119], "usage": [120], "optoelectronic":
+        [126], "devices.": [127]}, "primary_location": {"id": "doi:10.1021/nl1023707",
+        "doi": "https://doi.org/10.1021/nl1023707", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1021/nl1023707", "pdf_url": null, "source": {"id": "https://openalex.org/S143846845",
+        "display_name": "Nano Letters", "issn_l": "1530-6984", "issn": ["1530-6984",
+        "1530-6992"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "dongbi-a", "jufo-3", "ki-jl-2", "medline", "norway-2", "poland-200",
+        "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320006",
+        "host_organization_name": "American Chemical Society", "host_organization_lineage":
+        ["https://openalex.org/P4310320006"], "host_organization_lineage_names": ["American
+        Chemical Society"], "type": "journal"}, "license": null, "license_id": null,
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Nano Letters", "raw_type": "journal-article"}}, {"id":
+        "https://openalex.org/W2329168594", "doi": "https://doi.org/10.1002/adfm.201504771",
+        "title": "Hexagonal Boron Nitride Thin Film for Flexible Resistive Memory
+        Applications", "publication_year": 2016, "abstract_inverted_index": {"Hexagonal":
+        [0], "boron": [1], "nitride": [2], "(hBN),": [3], "which": [4], "is": [5,
+        58, 75, 107], "a": [6], "2D": [7, 141], "layered": [8], "dielectric": [9],
+        "material,": [10], "sometimes": [11], "referred": [12], "as": [13], "\u201cwhite":
+        [14], "graphene\u201d": [15], "due": [16, 27], "to": [17, 28, 47, 91, 98,
+        109, 116], "its": [18, 29, 111], "structural": [19], "similarity": [20], "with":
+        [21], "graphene,": [22], "has": [23], "attracted": [24], "much": [25], "attention":
+        [26], "fascinating": [30], "physical": [31], "properties.": [32], "Here,":
+        [33], "for": [34, 124], "the": [35, 38, 61, 89, 99, 104, 114, 128, 131, 140,
+        145], "first": [36], "time": [37], "use": [39], "of": [40], "chemical": [41],
+        "vapor": [42], "deposition": [43], "\u2010grown": [44], "hBN": [45], "films":
+        [46], "fabricate": [48], "ultrathin": [49], "(\u22483": [50], "nm)": [51],
+        "flexible": [52], "hBN\u2010based": [53, 78], "resistive": [54, 79, 136, 146],
+        "switching": [55, 62, 83, 132], "memory": [56, 80, 147], "device": [57], "reported,":
+        [59], "and": [60, 69, 88, 126, 138], "mechanism": [63, 133], "through": [64],
+        "conductive": [65, 105], "atomic": [66], "force": [67], "microscopy": [68,
+        74], "ex": [70], "situ": [71], "transmission": [72], "electron": [73], "studied.":
+        [76], "The": [77], "exhibits": [81], "reproducible": [82], "endurance,": [84],
+        "long": [85], "retention": [86], "time,": [87], "capability": [90], "operate":
+        [92], "under": [93], "extreme": [94], "bending": [95], "conditions.": [96],
+        "Contrary": [97], "conventional": [100], "electrochemical": [101], "metallization":
+        [102], "theory,": [103], "filament": [106], "found": [108], "commence": [110],
+        "growth": [112], "from": [113], "anode": [115], "cathode.": [117], "This":
+        [118], "work": [119], "provides": [120], "an": [121], "important": [122],
+        "step": [123], "broadening": [125], "deepening": [127], "understanding": [129],
+        "on": [130], "in": [134, 144, 148], "filament\u2010based": [135], "memories":
+        [137], "propels": [139], "material": [142], "application": [143], "future":
+        [149], "computing": [150], "systems.": [151]}, "primary_location": {"id":
+        "doi:10.1002/adfm.201504771", "doi": "https://doi.org/10.1002/adfm.201504771",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1002/adfm.201504771",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S135204980", "display_name":
+        "Advanced Functional Materials", "issn_l": "1616-301X", "issn": ["1616-301X",
+        "1616-3028"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "dongbi-b", "jufo-3", "ki-jl-3", "norway-2", "poland-200", "russia-white-list-1",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310320595", "host_organization_name":
+        "Wiley", "host_organization_lineage": ["https://openalex.org/P4310320595"],
+        "host_organization_lineage_names": ["Wiley"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Advanced Functional Materials",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2056098506",
+        "doi": "https://doi.org/10.1063/1.1392957", "title": "Cubic boron nitride
+        thin film heteroepitaxy", "publication_year": 2001, "abstract_inverted_index":
+        {"In": [0, 88], "this": [1], "study": [2], "we": [3], "investigate": [4],
+        "the": [5, 21, 37, 63, 68, 81, 118, 130, 142, 155, 161, 173, 207, 218, 221,
+        224], "possibility": [6], "of": [7, 40, 83, 117, 172, 180, 214, 220, 223],
+        "nucleating": [8], "nanocrystalline": [9], "cubic": [10], "boron": [11], "nitride":
+        [12], "(c-BN)": [13], "thin": [14], "films": [15, 42], "directly": [16], "onto":
+        [17], "suitable": [18], "substrates": [19, 54], "without": [20], "soft": [22],
+        "turbostratic": [23], "BN": [24, 143, 152], "(t-BN)": [25], "interlayer":
+        [26, 226], "that": [27, 61, 129], "is": [28, 44, 77, 95, 133], "usually":
+        [29], "observed.": [30], "This": [31], "would": [32], "open": [33], "a": [34,
+        59, 84, 100], "path": [35], "to": [36, 57, 141], "epitaxial": [38], "growth":
+        [39, 107, 196], "c-BN": [41, 64, 73, 105, 193, 228], "which": [43], "essential":
+        [45], "particularly": [46], "for": [47, 72, 103, 217], "practicable": [48],
+        "applications": [49], "in": [50, 166, 227], "electronic": [51], "devices.":
+        [52], "Appropriate": [53], "are": [55, 164, 198, 231], "required": [56], "exhibit":
+        [58, 201], "lattice": [60], "matches": [62], "crystallite": [65], "structure,":
+        [66], "survives": [67], "ion": [69, 111], "bombardment": [70], "imperative":
+        [71], "film": [74, 106, 144, 229], "formation,": [75], "and": [76, 97, 194,
+        200], "not": [78], "disturbed": [79], "by": [80, 122], "development": [82],
+        "heterogeneous": [85], "interface": [86, 120, 190], "layer.": [87, 191], "accordance":
+        [89], "with": [90, 136, 154, 160, 169, 184, 206], "these": [91, 215], "criteria,":
+        [92], "monocrystalline": [93], "AlN": [94, 131, 175, 209], "selected": [96,
+        110], "employed": [98], "as": [99, 145], "potential": [101], "substrate":
+        [102, 210], "direct": [104, 167], "using": [108], "mass": [109], "beam": [112],
+        "deposition.": [113], "A": [114], "detailed": [115], "examination": [116],
+        "BN/AlN": [119], "microstructure": [121], "cross-sectional": [123], "high-resolution":
+        [124], "transmission": [125], "electron": [126], "microscopy": [127], "reveals":
+        [128], "crystallinity": [132], "indeed": [134], "retained,": [135], "no":
+        [137, 185], "amorphous": [138], "layer": [139], "next": [140], "commonly":
+        [146], "observed": [147], "on": [148], "Si": [149], "substrates.": [150],
+        "Nanocrystalline": [151], "grains": [153], "cubic,": [156], "and,": [157],
+        "more": [158], "frequently,": [159], "wurtzitic": [162], "structure": [163],
+        "found": [165], "contact": [168], "certain": [170], "regions": [171], "rugged":
+        [174], "substrate,": [176], "covering": [177], "about": [178], "one-third":
+        [179], "its": [181], "entire": [182], "surface": [183], "mediating": [186],
+        "t-BN": [187, 225], "or": [188], "other": [189], "The": [192, 212], "w-BN":
+        [195], "areas": [197], "textured": [199], "definite": [202], "preferential":
+        [203], "orientation": [204], "relationships": [205], "faceted": [208], "surface.":
+        [211], "consequences": [213], "findings": [216], "understanding": [219], "role":
+        [222], "nucleation": [230], "discussed.": [232]}, "primary_location": {"id":
+        "doi:10.1063/1.1392957", "doi": "https://doi.org/10.1063/1.1392957", "is_oa":
+        false, "landing_page_url": "https://doi.org/10.1063/1.1392957", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S187991544", "display_name":
+        "Journal of Applied Physics", "issn_l": "0021-8979", "issn": ["0021-8979",
+        "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1",
+        "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429a1ddd65f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '19913'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:19 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=l%2BE2VYkgQzUvzJ1S7pOwIyJySh%2B4IMkTsfIGD70uSkE%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633239"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=l%2BE2VYkgQzUvzJ1S7pOwIyJySh%2B4IMkTsfIGD70uSkE%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633239"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9190'
+      x-ratelimit-remaining-usd:
+      - '0.919'
+      x-ratelimit-reset:
+      - '30761'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=boron+nitride+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 2457, "db_response_time_ms": 29, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (boron nitride
+        thin film) in the title or abstract", "x_new_oql": "get works with (boron
+        nitride thin film) in the title or abstract", "oqo": {"get_rows": "works",
+        "filter_rows": [{"column_id": "title_and_abstract.search", "value": "boron
+        nitride thin film", "operator": "has"}]}, "url": "/works?filter=title_and_abstract.search:boron
+        nitride thin film&per_page=1", "order": "best matches first", "order_default":
+        true}, "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W1998070237"}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429a2d9c45f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '648'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:20 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=pV%2Faj9heDXgtGpWT4ei3Qd%2BlUpbkESfUFNTG%2FQ2L9gg%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633240"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=pV%2Faj9heDXgtGpWT4ei3Qd%2BlUpbkESfUFNTG%2FQ2L9gg%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633240"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9180'
+      x-ratelimit-remaining-usd:
+      - '0.918'
+      x-ratelimit-reset:
+      - '30760'
+    status:
+      code: 200
+      message: OK
+version: 1

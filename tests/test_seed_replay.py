@@ -40,3 +40,19 @@ def test_seed_then_replay_serves_every_recorded_call(app_engine: Engine) -> None
     assert pubchem.cids(haz.raw) == [292779]
     with pytest.raises(Exception, match="no stored response"):
         runner.fetch(mp.plan_summary_by_formula("NeverRecorded2"))
+
+
+def test_every_recorded_interaction_replays_from_the_store(app_engine: Engine) -> None:
+    """Plan verification 2 at full scale: after seeding, every recorded call is served with the
+    network disabled. Non-200 recordings are seeded too and replay with their status."""
+    store = Store(app_engine)
+    raws = [raw for _, raw in iter_raw(ADAPTERS)]
+    for raw in raws:
+        store.put_raw(raw, mode="seed")
+    runner = Runner(store, NoNetwork(), mode="replay")
+    served = 0
+    for raw in raws:
+        fetched = runner.fetch(raw.call)
+        assert fetched.cache_hit is True and fetched.raw.sha256 == raw.sha256
+        served += 1
+    assert served == len(raws) > 300

@@ -1,0 +1,375 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=NaNbO3+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 58, "db_response_time_ms": 21, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (NaNbO3 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (NaNbO3 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "NaNbO3
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:NaNbO3
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2661041871",
+        "doi": "https://doi.org/10.1021/ja900394x", "title": "Photocatalytic Activity
+        of NaNbO3 Thin Films", "publication_year": 2009, "abstract_inverted_index":
+        {"NaNbO(3)": [0, 44], "thin": [1], "films": [2, 29], "prepared": [3], "by":
+        [4], "the": [5, 28, 40], "sol-gel": [6], "method": [7], "had": [8, 30], "homogeneous":
+        [9], "microstructure": [10], "with": [11], "an": [12], "average": [13], "grain":
+        [14], "size": [15], "of": [16], "15-25": [17], "nm": [18], "and": [19], "exhibited":
+        [20], "photoinduced": [21, 46], "hydrophilic": [22], "conversion": [23], "under":
+        [24, 35, 48], "UV": [25, 36, 49], "irradiation.": [26, 37, 50], "However,":
+        [27], "little": [31], "photocatalytic": [32], "oxidation": [33], "activity":
+        [34], "This": [38], "is": [39], "first": [41], "observation": [42], "that":
+        [43], "undergoes": [45], "hydrophilicity": [47]}, "primary_location": {"id":
+        "doi:10.1021/ja900394x", "doi": "https://doi.org/10.1021/ja900394x", "is_oa":
+        false, "landing_page_url": "https://doi.org/10.1021/ja900394x", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S111155417", "display_name":
+        "Journal of the American Chemical Society", "issn_l": "0002-7863", "issn":
+        ["0002-7863", "1520-5126", "1943-2984"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["cwts-core", "dongbi-a", "jufo-3", "ki-jl-3",
+        "medline", "norway-2", "poland-200", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320006", "host_organization_name": "American Chemical
+        Society", "host_organization_lineage": ["https://openalex.org/P4310320006"],
+        "host_organization_lineage_names": ["American Chemical Society"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        the American Chemical Society", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W1556744345",
+        "doi": "https://doi.org/10.1143/jjap.44.6969", "title": "Pulsed-Laser Deposition
+        of Ferroelectric NaNbO3 Thin Films", "publication_year": 2005, "abstract_inverted_index":
+        {"High-quality": [0], "NaNbO3": [1], "(NN)": [2], "thin": [3], "films": [4,
+        16, 26, 52, 120], "were": [5, 22, 27, 53, 73], "epitaxially": [6, 54], "grown":
+        [7, 28, 55], "on": [8, 56], "a": [9, 18], "(100)SrTiO3": [10], "substrate":
+        [11, 32], "by": [12], "pulsed-laser": [13], "deposition.": [14], "NN": [15,
+        51, 106, 119], "with": [17], "flat": [19], "surface": [20], "morphology":
+        [21], "obtained,": [23], "when": [24], "the": [25, 50, 71, 82, 102, 108, 118],
+        "slowly": [29], "at": [30, 77, 97], "high": [31, 34], "temperatures,": [33],
+        "oxygen": [35], "partial": [36], "pressures,": [37], "and": [38, 65, 75, 110],
+        "low": [39], "laser": [40], "energy": [41], "densities.": [42], "In": [43],
+        "order": [44], "to": [45, 94, 101], "characterize": [46], "their": [47], "dielectric":
+        [48, 61, 66], "properties,": [49], "(100)SrRuO3\u2225(100)SrTiO3": [57], "substrates.":
+        [58], "The": [59, 113], "relative": [60], "constant,": [62], "\u03b5": [63,
+        86, 90], "r,": [64], "loss,": [67], "tan": [68], "\u03b4": [69], "of": [70,
+        85, 105, 117], "film": [72], "252": [74], "0.03": [76], "1": [78], "kHz,":
+        [79], "respectively.": [80], "When": [81], "temperature": [83, 104], "dependence":
+        [84], "r": [87, 91], "was": [88, 92], "measured,": [89], "found": [93], "suddenly":
+        [95], "increase": [96], "377\u00b0C,": [98], "which": [99], "corresponds":
+        [100], "transition": [103], "between": [107], "antiferroelectric": [109],
+        "paraelectric": [111], "phases.": [112], "P\u2013E": [114], "hysteresis":
+        [115], "loop": [116], "exhibited": [121], "characteristic": [122], "ferroelectric":
+        [123], "behavior.": [124]}, "primary_location": {"id": "doi:10.1143/jjap.44.6969",
+        "doi": "https://doi.org/10.1143/jjap.44.6969", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1143/jjap.44.6969", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S143744711", "display_name": "Japanese Journal of Applied
+        Physics", "issn_l": "0021-4922", "issn": ["0021-4922", "1347-4065"], "is_oa":
+        false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core", "dongbi-d",
+        "jufo-1", "ki-jl-1", "norway-1", "poland-70", "russia-white-list-2", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310311669", "host_organization_name":
+        "Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310311669"],
+        "host_organization_lineage_names": ["Institute of Physics"], "type": "journal"},
+        "license": null, "license_id": null, "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "Japanese Journal of Applied
+        Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W4296999474",
+        "doi": "https://doi.org/10.1063/5.0101739", "title": "Evidence for antipolar
+        displacements in NaNbO3 thin films", "publication_year": 2022, "abstract_inverted_index":
+        {"An": [0], "antipolar": [1, 36], "phase": [2, 55, 107], "is": [3, 134], "confirmed":
+        [4], "for": [5, 56, 109, 119, 140], "NaNbO3": [6, 141], "thin": [7, 57, 111,
+        142], "films": [8, 58, 112, 143], "grown": [9, 144], "by": [10], "pulsed":
+        [11], "laser": [12], "deposition": [13], "on": [14, 145], "SrTiO3": [15, 146],
+        "(100)": [16], "substrates.": [17], "Reciprocal": [18], "space": [19], "maps":
+        [20], "and": [21, 40, 84, 113], "transmission": [22], "electron": [23], "microscopy":
+        [24], "reveal": [25], "the": [26, 35, 46, 53, 87, 90, 105, 136], "presence":
+        [27, 47], "of": [28, 34, 38, 48, 52, 63, 86, 122, 129], "characteristic":
+        [29, 101], "1/4": [30], "superlattice": [31], "reflections,": [32], "indicative":
+        [33], "displacement": [37], "Na": [39], "Nb-ions.": [41], "Furthermore,":
+        [42], "x-ray": [43], "diffraction": [44], "unveils": [45], "two": [49], "different":
+        [50], "orientations": [51], "same": [54, 91], "beyond": [59], "a": [60, 100,
+        114, 120, 126], "critical": [61], "thickness": [62, 72, 102], "about": [64],
+        "60": [65], "nm.": [66], "This": [67], "orientation": [68], "change": [69],
+        "with": [70, 104], "increasing": [71], "can": [73], "be": [74], "explained":
+        [75], "as": [76], "an": [77], "extraordinary": [78], "strain": [79, 88], "compensation":
+        [80], "mechanism,": [81], "changing": [82], "magnitude": [83], "sign": [85],
+        "at": [89], "time.": [92], "The": [93], "polarization": [94, 128], "vs": [95],
+        "electric": [96], "field": [97, 115], "behavior": [98], "exposes": [99], "dependence,":
+        [103], "antiferroelectric": [106], "stabilized": [108], "very": [110], "induced":
+        [116], "ferroelectric": [117], "hysteresis": [118], "film": [121], "310":
+        [123], "nm": [124], "having": [125], "maximum": [127], "26.5": [130], "\u03bcC":
+        [131], "cm\u22122,": [132], "which": [133], "among": [135], "highest": [137],
+        "values": [138], "reported": [139], "(100).": [147]}, "primary_location":
+        {"id": "doi:10.1063/5.0101739", "doi": "https://doi.org/10.1063/5.0101739",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.1063/5.0101739", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S105243760", "display_name":
+        "Applied Physics Letters", "issn_l": "0003-6951", "issn": ["0003-6951", "1077-3118",
+        "1520-8842"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": "cc-by", "license_id":
+        "https://openalex.org/licenses/cc-by", "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "Applied Physics Letters",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W1655590883",
+        "doi": "https://doi.org/10.1063/1.1608470", "title": "Capacitance\u2013voltage
+        characteristics of NaNbO3 thin films", "publication_year": 2003, "abstract_inverted_index":
+        {"By": [0], "radio-frequency": [1], "magnetron": [2], "sputtering": [3], "of":
+        [4, 10, 87, 126, 168, 173, 181, 184, 187, 194, 224, 235, 239, 266], "bulk":
+        [5], "NaNbO3": [6, 11, 116, 267], "pellet": [7], "targets,": [8], "films":
+        [9, 23, 43, 52, 128, 151, 157, 268], "have": [12, 24, 32, 105, 129, 201, 246],
+        "been": [13, 25, 33, 106, 130, 202, 247], "deposited": [14, 22, 42, 53, 68,
+        90, 158], "on": [15], "silicon": [16], "substrates": [17], "at": [18, 27,
+        54, 69, 94, 159], "different": [19, 28, 49, 160], "temperatures.": [20, 29,
+        161], "Room-temperature": [21], "annealed": [26, 150], "Film": [30], "samples":
+        [31], "characterized": [34], "using": [35], "an": [36, 76], "x-ray": [37],
+        "diffraction": [38], "method.": [39], "The": [40, 227], "room-temperature":
+        [41, 89], "show": [44, 59, 75], "a": [45, 60, 64, 110, 115], "crystalline":
+        [46, 61, 210], "structure": [47, 62, 245], "with": [48, 63, 212], "orientations,":
+        [50], "and": [51, 56, 72, 92, 95, 120, 123, 137, 152, 197, 237], "225": [55],
+        "270": [57], "\u00b0C": [58, 71, 83, 98], "single-face": [65], "orientation.":
+        [66], "Films": [67], "300": [70], "higher": [73], "temperatures": [74], "amorphous":
+        [77, 101], "nature.": [78], "Annealing": [79], "up": [80], "to": [81, 132,
+        135, 222, 249, 255], "500": [82], "changes": [84], "the": [85, 88, 127, 142,
+        149, 156, 163, 166, 169, 205, 209, 218, 225, 263], "orientation": [86], "films,":
+        [91, 211], "annealing": [93, 216], "beyond": [96], "600": [97], "results":
+        [99], "in": [100, 109, 141, 148, 155], "films.": [102], "Capacitance\u2013voltage":
+        [103], "measurements": [104, 144], "carried": [107], "out": [108], "metal\u2013insulator\u2013semiconductor":
+        [111, 244], "configuration": [112], "by": [113], "sandwiching": [114], "film":
+        [117], "between": [118], "aluminum": [119], "silicon.": [121], "Structural":
+        [122], "capacitance\u2013voltage": [124, 143], "characteristics": [125], "found":
+        [131, 248], "be": [133, 250], "sensitive": [134], "sodium": [136], "oxygen":
+        [138], "stoichiometry.": [139], "Hysteresis": [140], "indicates": [145], "hole":
+        [146], "injection": [147, 154], "electron": [153], "From": [162], "observed":
+        [164], "characteristics,": [165], "capacitance": [167, 172, 193], "accumulation":
+        [170], "region,": [171, 175], "inversion": [174], "flat-band": [176, 178],
+        "capacitance,": [177], "voltage,": [179], "amount": [180], "hysteresis,":
+        [182], "density": [183, 186, 234, 238], "states,": [185, 189, 236], "interface":
+        [188, 240], "dielectric": [190, 219], "constant,": [191], "maximum": [192,
+        198], "depletion": [195, 199], "layer,": [196], "width": [200], "calculated":
+        [203], "for": [204, 242, 258, 269], "prepared": [206], "samples.": [207],
+        "In": [208], "increasing": [213], "deposition": [214], "or": [215], "temperature,":
+        [217], "constant": [220], "tends": [221], "that": [223], "bulk.": [226], "charge":
+        [228, 231], "storage": [229, 232], "capacity,": [230], "density,": [233],
+        "states": [241], "NaNbO3-assisted": [243], "quite": [251], "larger": [252],
+        "as": [253], "compared": [254], "reported": [256], "values": [257], "other":
+        [259], "materials,": [260], "which": [261], "suggests": [262], "superior":
+        [264], "potential": [265], "memory": [270], "applications.": [271]}, "primary_location":
+        {"id": "doi:10.1063/1.1608470", "doi": "https://doi.org/10.1063/1.1608470",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.1608470", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S187991544", "display_name":
+        "Journal of Applied Physics", "issn_l": "0021-8979", "issn": ["0021-8979",
+        "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1",
+        "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W4381434965",
+        "doi": "https://doi.org/10.1021/acsomega.3c01327", "title": "Impact of Strain
+        Engineering on Antiferroelectricity in NaNbO3 Thin Films", "publication_year":
+        2023, "abstract_inverted_index": {"High": [0], "Resolution": [1], "Image":
+        [2], "Download": [3], "MS": [4], "PowerPoint": [5], "Slide": [6], "Thin":
+        [7], "films": [8, 57, 110, 120, 132, 155], "of": [9, 21, 36, 66, 85, 95, 114,
+        137, 143, 200, 210, 213], "NaNbO": [10, 54], "3": [11, 55], "were": [12],
+        "grown": [13, 58, 156], "on": [14, 24, 79], "various": [15], "substrates":
+        [16], "to": [17, 41, 68, 73, 116, 145], "investigate": [18], "the": [19, 34,
+        80, 93, 96, 119, 131, 167, 177, 187, 201, 214], "effect": [20], "epitaxial":
+        [22, 37], "strain": [23, 38, 65, 113, 124, 136, 181, 205], "their": [25],
+        "structural": [26, 51], "and": [27], "electrical": [28], "properties.": [29],
+        "Reciprocal": [30], "space": [31], "maps": [32], "confirmed": [33], "presence":
+        [35], "from": [39, 62], "+0.8%": [40, 115], "\u22121.2%.": [42], "A": [43],
+        "bulk-like": [44], "antipolar": [45, 86, 188], "ground": [46, 189], "state":
+        [47, 190], "was": [48], "detected": [49], "via": [50], "characterization":
+        [52, 102], "for": [53, 108, 154, 171, 180, 207], "thin": [56, 109], "with":
+        [59, 133, 159, 194, 216], "strains": [60, 78], "ranging": [61], "a": [63,
+        104, 112, 134, 140], "compressive": [64, 135, 195], "0.8%": [67, 138], "small":
+        [69, 160], "tensile": [70, 77, 123], "strains,": [71], "up": [72, 144], "\u22120.2%.":
+        [74], "For": [75], "larger": [76, 99, 122, 165], "other": [81], "hand,": [82],
+        "no": [83, 126], "indication": [84], "displacements": [87], "can": [88], "be":
+        [89, 192], "detected,": [90], "even": [91], "beyond": [92], "relaxation":
+        [94], "film": [97], "at": [98], "thicknesses.": [100], "Electrical": [101],
+        "revealed": [103], "ferroelectric": [105], "hysteresis": [106], "loop": [107],
+        "under": [111, 121, 157], "\u22120.2%,": [117], "while": [118], "showed":
+        [125], "out-of-plane": [127], "polarization": [128, 142, 203], "component.":
+        [129], "However,": [130], "present": [139], "saturation": [141, 202], "55":
+        [146], "\u03bcC\u00b7cm": [147], "\u20132,": [148], "more": [149], "than":
+        [150, 166], "twice": [151], "as": [152, 186], "large": [153], "conditions":
+        [158], "strain,": [161], "which": [162], "is": [163], "also": [164], "highest":
+        [168], "values": [169], "reported": [170], "bulk": [172], "materials.": [173,
+        218], "Our": [174], "results": [175], "indicate": [176], "high": [178], "potential":
+        [179], "engineering": [182], "in": [183], "antiferroelectric": [184, 217],
+        "materials,": [185], "could": [191], "retained": [193], "strain.": [196],
+        "The": [197], "observed": [198], "enhancement": [199], "by": [204], "allows":
+        [206], "substantial": [208], "increase": [209], "energy": [211], "density":
+        [212], "capacitors": [215]}, "primary_location": {"id": "doi:10.1021/acsomega.3c01327",
+        "doi": "https://doi.org/10.1021/acsomega.3c01327", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.1021/acsomega.3c01327", "pdf_url": "https://pubs.acs.org/doi/pdf/10.1021/acsomega.3c01327",
+        "source": {"id": "https://openalex.org/S4210239500", "display_name": "ACS
+        Omega", "issn_l": "2470-1343", "issn": ["2470-1343"], "is_oa": true, "is_in_doaj":
+        true, "is_core": true, "listed_in": ["cwts-core", "doaj", "dongbi-c", "jufo-1",
+        "ki-jl-1", "norway-1", "oarl", "poland-70", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320006", "host_organization_name":
+        "American Chemical Society", "host_organization_lineage": ["https://openalex.org/P4310320006"],
+        "host_organization_lineage_names": ["American Chemical Society"], "type":
+        "journal"}, "license": "cc-by", "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "ACS Omega", "raw_type": "journal-article"}}], "group_by":
+        []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442a3b4c625f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '16888'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:44 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=R07d5UHvMRBYRNHS1lEdDtHGCicC6DUObxEYxHPoNtA%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633263"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=R07d5UHvMRBYRNHS1lEdDtHGCicC6DUObxEYxHPoNtA%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633263"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '8690'
+      x-ratelimit-remaining-usd:
+      - '0.869'
+      x-ratelimit-reset:
+      - '30736'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=NaNbO3+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 86, "db_response_time_ms": 15, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (NaNbO3 thin film)
+        in the title or abstract", "x_new_oql": "get works with (NaNbO3 thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "NaNbO3 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:NaNbO3 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W2661041871"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442a3c48935f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '618'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:44 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=XmKlFYiKVuahAuyEQjM3YQ%2FQVe7XkhKF43f4tOartxU%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633264"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=XmKlFYiKVuahAuyEQjM3YQ%2FQVe7XkhKF43f4tOartxU%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633264"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '8680'
+      x-ratelimit-remaining-usd:
+      - '0.868'
+      x-ratelimit-reset:
+      - '30736'
+    status:
+      code: 200
+      message: OK
+version: 1

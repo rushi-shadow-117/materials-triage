@@ -15,9 +15,9 @@ from pathlib import Path
 
 import httpx
 import pytest
-import vcr
 
 from materials_triage.adapters.base import Call, RawResponse, Source
+from materials_triage.adapters.recording import make_vcr
 from materials_triage.adapters.transport import TIMEOUT, USER_AGENT, HttpxTransport
 from materials_triage.settings import Settings
 
@@ -27,13 +27,7 @@ SNAPSHOTS = ROOT / "fixtures" / "snapshots"
 SYNTHETIC = ROOT / "fixtures" / "synthetic"
 RECORD_MODE = os.environ.get("WIRE_RECORD", "none")
 
-VCR = vcr.VCR(
-    record_mode=RECORD_MODE,
-    filter_headers=["X-API-KEY", "x-api-key", "X-Api-Key", "Authorization", "authorization"],
-    filter_query_parameters=["api_key", "mailto"],
-    match_on=["method", "scheme", "host", "port", "path", "query"],
-    decode_compressed_response=True,
-)
+VCR = make_vcr(RECORD_MODE)
 
 
 @pytest.fixture(scope="session")

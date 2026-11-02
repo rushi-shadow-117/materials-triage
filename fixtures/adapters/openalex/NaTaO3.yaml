@@ -1,0 +1,346 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=NaTaO3+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 15, "db_response_time_ms": 31, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (NaTaO3 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (NaTaO3 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "NaTaO3
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:NaTaO3
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2077644200",
+        "doi": "https://doi.org/10.1039/c2ra20203d", "title": "Nanocrystalline NaTaO3
+        thin film materials with ordered 3D mesoporous and nanopillar-like structures
+        through PIB-b-PEO polymer templating: towards high-performance UV-light photocatalysts",
+        "publication_year": 2012, "abstract_inverted_index": {"Ordered": [0], "mesoporous":
+        [1], "NaTaO3": [2], "thin": [3], "films": [4], "with": [5], "both": [6], "3D":
+        [7], "honeycomb": [8], "and": [9], "nanopillar-like": [10], "structures":
+        [11], "were": [12], "successfully": [13], "produced": [14], "through": [15],
+        "sol\u2013gel": [16], "templating": [17], "using": [18], "a": [19], "novel":
+        [20], "amphiphilic": [21], "diblock": [22], "copolymer,": [23], "PIB53-b-PEO45,":
+        [24], "as": [25], "the": [26], "structure-directing": [27], "agent.": [28],
+        "These": [29], "nanocrystalline": [30], "materials": [31], "not": [32], "only":
+        [33], "exhibit": [34], "enhanced": [35], "UV-light": [36], "photocatalytic":
+        [37], "activity": [38], "but": [39], "are": [40], "also": [41], "able": [42],
+        "to": [43], "maintain": [44], "stable": [45], "performance.": [46]}, "primary_location":
+        {"id": "doi:10.1039/c2ra20203d", "doi": "https://doi.org/10.1039/c2ra20203d",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1039/c2ra20203d",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S2481244646", "display_name":
+        "RSC Advances", "issn_l": "2046-2069", "issn": ["2046-2069"], "is_oa": false,
+        "is_in_doaj": true, "is_core": true, "listed_in": ["cwts-core", "doaj", "dongbi-c",
+        "jufo-1", "ki-jl-1", "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320556", "host_organization_name":
+        "Royal Society of Chemistry", "host_organization_lineage": ["https://openalex.org/P4310320556"],
+        "host_organization_lineage_names": ["Royal Society of Chemistry"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "RSC Advances",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W3127788205",
+        "doi": "https://doi.org/10.1088/2632-959x/abe01d", "title": "2DEG and 2DHG
+        in NaTaO3 polar thin films: thickness and strain dependency", "publication_year":
+        2021, "abstract_inverted_index": {"Abstract": [0], "Two-dimensional": [1],
+        "(2D)": [2], "carrier": [3], "gases": [4, 37, 84, 115], "in": [5, 41, 85,
+        116, 130], "perovskite": [6], "surfaces": [7], "and": [8, 23, 54, 72, 82,
+        88, 98, 123, 139, 157], "interfaces": [9], "have": [10], "been": [11], "intensely":
+        [12], "studied": [13], "since": [14], "their": [15], "properties": [16], "are":
+        [17, 126], "attractive": [18], "to": [19, 101, 111], "many": [20], "functional":
+        [21], "devices": [22], "applications.": [24], "Here,": [25], "we": [26, 46],
+        "demonstrate": [27], "through": [28, 128], "ab": [29], "initio": [30], "DFT":
+        [31], "calculations": [32], "that": [33], "surface": [34, 97, 119], "2D":
+        [35, 80, 113], "carries": [36], "can": [38, 57], "be": [39, 58], "found":
+        [40], "NaTaO3": [42], "ultrathin": [43], "films.": [44], "Furthermore,": [45],
+        "show": [47], "the": [48, 70, 76, 86, 94, 104, 117, 131, 136], "thickness":
+        [49], "dependence": [50], "of": [51, 75, 93], "such": [52], "phenomenon":
+        [53], "how": [55], "it": [56], "tuned": [59], "when": [60], "biaxial": [61,
+        107], "in-plane": [62], "strain": [63, 99], "is": [64, 109, 160], "applied.":
+        [65], "Tensile": [66], "does": [67], "not": [68, 147], "alter": [69], "valence":
+        [71], "conduction": [73], "character": [74], "films": [77], "but": [78, 150],
+        "promotes": [79], "electron": [81], "hole": [83, 114], "(TaO2)+": [87, 118],
+        "(NaO)\u2212": [89], "surfaces,": [90], "respectively.": [91], "Because":
+        [92], "competition": [95], "between": [96], "effects": [100], "deal": [102],
+        "with": [103], "cleavage-induced": [105], "polarity,": [106], "compression":
+        [108], "able": [110], "generate": [112], "instead.": [120], "Such": [121],
+        "carrier-type": [122], "layer": [124], "switching": [125], "explained": [127],
+        "changes": [129], "electrostatic": [132], "potential": [133], "balancing":
+        [134], "along": [135], "[001]": [137], "direction": [138], "(Na,Ta)": [140],
+        "cations": [141], "displacements.": [142], "The": [143], "presented": [144],
+        "results": [145], "concern": [146], "only": [148], "nanoelectronics": [149],
+        "also": [151], "catalytic": [152], "applications": [153], "where": [154],
+        "modulating": [155], "bandgap": [156], "valence/conduction": [158], "states":
+        [159], "desired.": [161]}, "primary_location": {"id": "doi:10.1088/2632-959x/abe01d",
+        "doi": "https://doi.org/10.1088/2632-959x/abe01d", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.1088/2632-959x/abe01d", "pdf_url": "https://iopscience.iop.org/article/10.1088/2632-959X/abe01d/pdf",
+        "source": {"id": "https://openalex.org/S4210215939", "display_name": "Nano
+        Express", "issn_l": "2632-959X", "issn": ["2632-959X"], "is_oa": true, "is_in_doaj":
+        true, "is_core": true, "listed_in": ["cwts-core", "doaj", "dongbi-d", "jufo-1",
+        "oarl", "poland-20", "russia-white-list-2"], "host_organization": "https://openalex.org/P4310320083",
+        "host_organization_name": "IOP Publishing", "host_organization_lineage": ["https://openalex.org/P4310320083",
+        "https://openalex.org/P4310311669"], "host_organization_lineage_names": ["IOP
+        Publishing", "Institute of Physics"], "type": "journal"}, "license": "cc-by",
+        "license_id": "https://openalex.org/licenses/cc-by", "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Nano Express",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W4295851918",
+        "doi": "https://doi.org/10.1002/adfm.202206641", "title": "Shape\u2010Controlled
+        NaTaO3 by Flux\u2010Mediated Synthesis", "publication_year": 2022, "abstract_inverted_index":
+        {"Abstract": [0], "NaTaO3": [1, 23, 48, 109], "is": [2, 20, 40, 110], "a":
+        [3, 16, 101, 130], "stable": [4], "and": [5, 61, 73, 89, 93], "wide": [6],
+        "bandgap": [7], "n\u2010type": [8], "semiconductor": [9], "material": [10,
+        88], "with": [11], "many": [12], "different": [13, 97], "applications.": [14,
+        98, 142], "Here,": [15], "flux\u2010mediated": [17], "synthesis": [18], "method":
+        [19], "presented": [21], "for": [22, 96, 133, 139], "resulting": [24, 47,
+        121], "in": [25, 122], "highly": [26], "distinctive,": [27], "substrate":
+        [28], "covering": [29], "shapes": [30, 60], "via": [31], "precursor": [32],
+        "chemistry": [33], "variation": [34], "at": [35], "comparatively": [36], "low":
+        [37], "temperatures.": [38], "It": [39], "found": [41], "that": [42], "the":
+        [43, 46, 87, 117], "microstructure": [44], "of": [45, 103, 105, 125], "films":
+        [49, 138], "can": [50, 64], "be": [51, 65], "varied": [52], "from": [53],
+        "nanocubes": [54], "to": [55, 85, 112], "smooth": [56], "thin": [57, 137],
+        "films.": [58], "These": [59], "surface": [62, 74, 94], "chemistries": [63],
+        "correlated": [66], "by": [67], "employing": [68], "density": [69], "functional":
+        [70], "theory": [71], "calculations": [72], "sensitive": [75], "X\u2010ray":
+        [76], "photoemission": [77], "spectroscopy.": [78], "This": [79, 127], "study":
+        [80, 128], "provides": [81, 129], "guidance": [82], "on": [83], "how": [84],
+        "synthesize": [86], "tailor": [90], "its": [91], "shape": [92], "termination":
+        [95], "Finally,": [99], "as": [100, 116], "proof": [102], "concept": [104],
+        "one": [106], "possible": [107], "application,": [108], "applied": [111],
+        "perovskite": [113], "solar": [114], "cells": [115], "electron": [118], "transport":
+        [119], "layer,": [120], "conversion": [123], "efficiencies": [124], ">19%.":
+        [126], "new": [131], "strategy": [132], "designing": [134], "ternary": [135],
+        "oxide": [136], "renewable": [140], "energy": [141]}, "primary_location":
+        {"id": "doi:10.1002/adfm.202206641", "doi": "https://doi.org/10.1002/adfm.202206641",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1002/adfm.202206641",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S135204980", "display_name":
+        "Advanced Functional Materials", "issn_l": "1616-301X", "issn": ["1616-301X",
+        "1616-3028"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "dongbi-b", "jufo-3", "ki-jl-3", "norway-2", "poland-200", "russia-white-list-1",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310320595", "host_organization_name":
+        "Wiley", "host_organization_lineage": ["https://openalex.org/P4310320595"],
+        "host_organization_lineage_names": ["Wiley"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Advanced Functional Materials",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2052671581",
+        "doi": "https://doi.org/10.1063/1.4846761", "title": "Modeling the electrode
+        geometry of co-planar capacitors for the microwave dielectric characterization
+        of ceramic thin films", "publication_year": 2013, "abstract_inverted_index":
+        {"This": [0], "paper": [1], "describes": [2], "the": [3, 10, 42, 50, 56, 65,
+        68, 71, 76, 84], "influence": [4, 82], "of": [5, 13, 17, 34, 44, 58, 70, 75,
+        86], "co-planar": [6, 24, 77], "electrode": [7, 47, 73], "geometry": [8],
+        "on": [9, 83], "measurement": [11], "accuracy": [12, 85], "microwave": [14],
+        "dielectric": [15], "properties": [16], "sol-gel-derived": [18], "Na0.5Bi0.5TiO3-NaTaO3":
+        [19], "thin": [20], "films.": [21], "The": [22], "interdigital,": [23], "capacitor":
+        [25, 78], "configurations": [26], "were": [27], "prepared": [28], "with":
+        [29], "E-beam": [30], "lithography.": [31], "A": [32], "combination": [33],
+        "analytical": [35], "and": [36], "numerical": [37], "modelling": [38], "was":
+        [39], "used": [40], "for": [41, 49], "optimization": [43], "co-planar,": [45],
+        "interdigital": [46, 72], "structures": [48], "thin-film": [51], "characterization.":
+        [52], "We": [53], "observed": [54], "that": [55], "number": [57], "fingers,":
+        [59], "their": [60], "length,": [61], "as": [62, 64], "well": [63], "gap":
+        [66], "between": [67], "fingers": [69], "structure": [74], "have": [79], "a":
+        [80], "pronounced": [81], "measurements.": [87]}, "primary_location": {"id":
+        "doi:10.1063/1.4846761", "doi": "https://doi.org/10.1063/1.4846761", "is_oa":
+        false, "landing_page_url": "https://doi.org/10.1063/1.4846761", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S187991544", "display_name":
+        "Journal of Applied Physics", "issn_l": "0021-8979", "issn": ["0021-8979",
+        "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1",
+        "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2412107487",
+        "doi": "https://doi.org/10.1116/1.4953406", "title": "Atomic layer deposition
+        of (K,Na)(Nb,Ta)O3 thin films", "publication_year": 2016, "abstract_inverted_index":
+        {"Thin": [0], "films": [1, 60], "of": [2, 14, 23, 46, 64, 76, 99], "complex":
+        [3], "alkali": [4], "oxides": [5], "are": [6, 18, 49], "frequently": [7],
+        "investigated": [8], "due": [9], "to": [10], "the": [11, 79, 82], "large":
+        [12], "range": [13], "electric": [15], "effects": [16], "that": [17, 56],
+        "found": [19], "in": [20, 38, 78, 101], "this": [21], "class": [22], "materials.":
+        [24], "Their": [25], "piezo-": [26], "and": [27, 66, 89, 105], "ferroelectric":
+        [28], "properties": [29], "also": [30], "place": [31], "them": [32], "as":
+        [33], "sustainable": [34], "lead": [35], "free": [36], "alternatives": [37],
+        "optoelectronic": [39], "devices.": [40], "Fully": [41], "gas-based": [42],
+        "routes": [43], "for": [44, 51, 74], "deposition": [45, 75, 94], "such": [47,
+        102], "compounds": [48], "required": [50], "integration": [52], "into": [53],
+        "microelectronic": [54], "devices": [55], "need": [57], "conformal": [58],
+        "thin": [59], "with": [61, 95], "high": [62], "control": [63, 98], "thickness-":
+        [65], "composition.": [67], "The": [68], "authors": [69], "here": [70], "present":
+        [71], "a": [72], "route": [73], "materials": [77], "(K,Na)(Nb,Ta)O3-system,":
+        [80], "including": [81], "four": [83], "end": [84], "members": [85], "NaNbO3,":
+        [86], "KNbO3,": [87], "NaTaO3,": [88], "KTaO3,": [90], "using": [91], "atomic":
+        [92], "layer": [93], "emphasis": [96], "on": [97], "stoichiometry": [100],
+        "mixed": [103], "quaternary": [104], "quinary": [106], "compunds.": [107]},
+        "primary_location": {"id": "doi:10.1116/1.4953406", "doi": "https://doi.org/10.1116/1.4953406",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1116/1.4953406", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S4210190837", "display_name":
+        "Journal of Vacuum Science & Technology A Vacuum Surfaces and Films", "issn_l":
+        "0734-2101", "issn": ["0734-2101", "1520-8559"], "is_oa": false, "is_in_doaj":
+        false, "is_core": true, "listed_in": ["cwts-core", "dongbi-c", "jufo-1", "ki-jl-1",
+        "norway-1", "poland-70", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Vacuum Science &amp; Technology A: Vacuum, Surfaces, and Films", "raw_type":
+        "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442a3f0d6b5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '14582'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:44 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=XmKlFYiKVuahAuyEQjM3YQ%2FQVe7XkhKF43f4tOartxU%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633264"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=XmKlFYiKVuahAuyEQjM3YQ%2FQVe7XkhKF43f4tOartxU%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633264"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '8670'
+      x-ratelimit-remaining-usd:
+      - '0.867'
+      x-ratelimit-reset:
+      - '30736'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=NaTaO3+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 28, "db_response_time_ms": 16, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (NaTaO3 thin film)
+        in the title or abstract", "x_new_oql": "get works with (NaTaO3 thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "NaTaO3 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:NaTaO3 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W2288903784"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442a3ff9b65f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '618'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:44 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=XmKlFYiKVuahAuyEQjM3YQ%2FQVe7XkhKF43f4tOartxU%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633264"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=XmKlFYiKVuahAuyEQjM3YQ%2FQVe7XkhKF43f4tOartxU%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633264"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '8660'
+      x-ratelimit-remaining-usd:
+      - '0.866'
+      x-ratelimit-reset:
+      - '30736'
+    status:
+      code: 200
+      message: OK
+version: 1

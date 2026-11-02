@@ -1,0 +1,88 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - _csrf_token=authenticated; mp-session=tWdGuSYcBtwKT9fVveU9Fw|1794688599|dSAFT28AT-Yx0QkzLbH5Irl_Eoo;
+        __cf_bm=5q7lIsEuiRLmsnr.dZSTzV5AiwJ3nStLcn2tD8VTDe8-1793633229.1934805-1.0.1.1-4aoz9x.vN9neTqe.Zw4Q1JRDDTX_YINbW.n0tLHQTlKIn3JF1C92_ht2.DM4m8CrUNv3BjDAmEYP97rSzQv2nZaCUwod2M5aGCf3Xbsj4SM2__BG7fltewc.MCQCMTL9
+      host:
+      - api.materialsproject.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.materialsproject.org/materials/dielectric/?_fields=material_id%2Cformula_pretty%2Ce_total%2Ce_ionic%2Ce_electronic%2Cn%2Cdeprecated%2Cbuilder_meta&_limit=1000&material_ids=mp-1172828%2Cmp-1191364%2Cmp-1197857%2Cmp-1244906%2Cmp-1244929%2Cmp-1245182%2Cmp-1245267%2Cmp-1245268%2Cmp-1330336%2Cmp-1386422%2Cmp-1396391%2Cmp-1408708%2Cmp-18773%2Cmp-19033%2Cmp-19342%2Cmp-19390%2Cmp-19443%2Cmp-2235359%2Cmp-2285488%2Cmp-2383052%2Cmp-2383161%2Cmp-2486616%2Cmp-2526683%2Cmp-2928451%2Cmp-32662%2Cmp-32777%2Cmp-510417%2Cmp-545665%2Cmp-553964%2Cmp-559122%2Cmp-566278%2Cmp-619461%2Cmp-636148%2Cmp-636284%2Cmp-675211%2Cmp-690346%2Cmp-715923%2Cmp-733506%2Cmp-756478%2Cmp-825726%2Cmp-826026
+  response:
+    body:
+      string: '{"data":[{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:47.021000","license":null},"formula_pretty":"WO3","material_id":"mp-aaaabceb","deprecated":false,"e_total":135.35003566333333,"e_ionic":128.63319476666666,"e_electronic":6.716840896666667,"n":2.59168688245063},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:45.544000","license":null},"formula_pretty":"WO3","material_id":"mp-aaaabcru","deprecated":false,"e_total":14.651973836666656,"e_ionic":7.290274893333328,"e_electronic":7.3616989433333275,"n":2.7132450945930646},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:45.667000","license":null},"formula_pretty":"WO3","material_id":"mp-aaaabctv","deprecated":false,"e_total":1182.4646097366667,"e_ionic":1175.4973595066667,"e_electronic":6.96725023,"n":2.6395549302865438},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:00.284000","license":null},"formula_pretty":"WO3","material_id":"mp-aaaabwig","deprecated":false,"e_total":69.26009138334557,"e_ionic":63.468086823345566,"e_electronic":5.79200456,"n":2.406658380410481},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:53.086000","license":null},"formula_pretty":"WO3","material_id":"mp-aaabfbfd","deprecated":false,"e_total":1273.229422752551,"e_ionic":1266.841422629202,"e_electronic":6.388000123349106,"n":2.5274493315097546},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:55.464000","license":null},"formula_pretty":"WO3","material_id":"mp-aaabfvcs","deprecated":false,"e_total":101.25968051396735,"e_ionic":94.78144657014315,"e_electronic":6.478233943824215,"n":2.545237502439451},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:02.554000","license":null},"formula_pretty":"WO3","material_id":"mp-aaabrbbi","deprecated":false,"e_total":15.725570531268525,"e_ionic":8.277308290329822,"e_electronic":7.448262240938703,"n":2.729150461396129},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:17.699000","license":null},"formula_pretty":"WO3","material_id":"mp-aaadblrj","deprecated":false,"e_total":287.51898916763054,"e_ionic":280.88553907828344,"e_electronic":6.633450089347105,"n":2.575548502619802}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-02T15:27:12.863839+00:00","total_doc":8,"facet":null,"max_limit":1000,"default_fields":["material_id","last_updated"]}}'
+    headers:
+      access-control-expose-headers:
+      - X-Api-Key
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429792967db04-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '3477'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:12 GMT
+      ratelimit-limit:
+      - '25'
+      ratelimit-remaining:
+      - '21'
+      ratelimit-reset:
+      - '1'
+      server:
+      - cloudflare
+      set-cookie:
+      - _csrf_token=authenticated; Domain=.materialsproject.org; Path=/; SameSite=Strict
+      vary:
+      - Accept-Encoding
+      - Origin
+      via:
+      - kong/2.8.4
+      x-consumer-id:
+      - 58e0b4c2-4c2d-439b-ba0a-648cd568a0fa
+      x-kong-proxy-latency:
+      - '8'
+      x-kong-upstream-latency:
+      - '11'
+      x-ratelimit-limit-day:
+      - '640000'
+      x-ratelimit-limit-hour:
+      - '40000'
+      x-ratelimit-limit-minute:
+      - '1000'
+      x-ratelimit-limit-month:
+      - '12800000'
+      x-ratelimit-limit-second:
+      - '25'
+      x-ratelimit-limit-year:
+      - '100000000'
+      x-ratelimit-remaining-day:
+      - '639954'
+      x-ratelimit-remaining-hour:
+      - '39954'
+      x-ratelimit-remaining-minute:
+      - '959'
+      x-ratelimit-remaining-month:
+      - '12799954'
+      x-ratelimit-remaining-second:
+      - '21'
+      x-ratelimit-remaining-year:
+      - '99999906'
+    status:
+      code: 200
+      message: OK
+version: 1

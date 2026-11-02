@@ -1,0 +1,88 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - _csrf_token=authenticated; mp-session=tWdGuSYcBtwKT9fVveU9Fw|1794688599|dSAFT28AT-Yx0QkzLbH5Irl_Eoo;
+        __cf_bm=5q7lIsEuiRLmsnr.dZSTzV5AiwJ3nStLcn2tD8VTDe8-1793633229.1934805-1.0.1.1-4aoz9x.vN9neTqe.Zw4Q1JRDDTX_YINbW.n0tLHQTlKIn3JF1C92_ht2.DM4m8CrUNv3BjDAmEYP97rSzQv2nZaCUwod2M5aGCf3Xbsj4SM2__BG7fltewc.MCQCMTL9
+      host:
+      - api.materialsproject.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.materialsproject.org/materials/thermo/?_fields=material_id%2Cthermo_type%2Cenergy_above_hull%2Cis_stable&_limit=1000&material_ids=mp-1172828%2Cmp-1191364%2Cmp-1197857%2Cmp-1244906%2Cmp-1244929%2Cmp-1245182%2Cmp-1245267%2Cmp-1245268%2Cmp-1330336%2Cmp-1386422%2Cmp-1396391%2Cmp-1408708%2Cmp-18773%2Cmp-19033%2Cmp-19342%2Cmp-19390%2Cmp-19443%2Cmp-2235359%2Cmp-2285488%2Cmp-2383052%2Cmp-2383161%2Cmp-2486616%2Cmp-2526683%2Cmp-2928451%2Cmp-32662%2Cmp-32777%2Cmp-510417%2Cmp-545665%2Cmp-553964%2Cmp-559122%2Cmp-566278%2Cmp-619461%2Cmp-636148%2Cmp-636284%2Cmp-675211%2Cmp-690346%2Cmp-715923%2Cmp-733506%2Cmp-756478%2Cmp-825726%2Cmp-826026
+  response:
+    body:
+      string: '{"data":[{"material_id":"mp-aaaabbub","thermo_type":"r2SCAN","energy_above_hull":0.004809670625000706,"is_stable":false},{"material_id":"mp-aaaabbub","thermo_type":"GGA_GGA+U","energy_above_hull":0.006001734687499649,"is_stable":false},{"material_id":"mp-aaaabbub","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.006001734687499649,"is_stable":false},{"material_id":"mp-aaaabceb","thermo_type":"r2SCAN","energy_above_hull":0.0,"is_stable":true},{"material_id":"mp-aaaabceb","thermo_type":"GGA_GGA+U","energy_above_hull":0.007246704062499276,"is_stable":false},{"material_id":"mp-aaaabceb","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.007246704062499276,"is_stable":false},{"material_id":"mp-aaaabcpy","thermo_type":"GGA_GGA+U","energy_above_hull":0.006192068437499643,"is_stable":false},{"material_id":"mp-aaaabcpy","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.006192068437499643,"is_stable":false},{"material_id":"mp-aaaabcru","thermo_type":"r2SCAN","energy_above_hull":0.03549434625000103,"is_stable":false},{"material_id":"mp-aaaabcru","thermo_type":"GGA_GGA+U","energy_above_hull":0.007691435312500161,"is_stable":false},{"material_id":"mp-aaaabcru","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.007691435312500161,"is_stable":false},{"material_id":"mp-aaaabctv","thermo_type":"r2SCAN","energy_above_hull":0.008998233749998974,"is_stable":false},{"material_id":"mp-aaaabctv","thermo_type":"GGA_GGA+U","energy_above_hull":0.005913767812499415,"is_stable":false},{"material_id":"mp-aaaabctv","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.005913767812499415,"is_stable":false},{"material_id":"mp-aaaabwig","thermo_type":"GGA_GGA+U","energy_above_hull":0.00977072531249945,"is_stable":false},{"material_id":"mp-aaaabwig","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.00977072531249945,"is_stable":false},{"material_id":"mp-aaaabwmr","thermo_type":"GGA_GGA+U","energy_above_hull":0.010422926562499768,"is_stable":false},{"material_id":"mp-aaaabwmr","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.010422926562499768,"is_stable":false},{"material_id":"mp-aaabdbbl","thermo_type":"GGA_GGA+U","energy_above_hull":0.007021600937500594,"is_stable":false},{"material_id":"mp-aaabdbbl","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.007021600937500594,"is_stable":false},{"material_id":"mp-aaabfbfd","thermo_type":"r2SCAN","energy_above_hull":0.03722705624999989,"is_stable":false},{"material_id":"mp-aaabfbfd","thermo_type":"GGA_GGA+U","energy_above_hull":0.010920498645832666,"is_stable":false},{"material_id":"mp-aaabfbfd","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.01092049864583089,"is_stable":false},{"material_id":"mp-aaabfnmi","thermo_type":"r2SCAN","energy_above_hull":0.0044421456249992275,"is_stable":false},{"material_id":"mp-aaabfnmi","thermo_type":"GGA_GGA+U","energy_above_hull":0.007485819687499173,"is_stable":false},{"material_id":"mp-aaabfnmi","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.007485819687499173,"is_stable":false},{"material_id":"mp-aaabfvcs","thermo_type":"r2SCAN","energy_above_hull":0.0048329693749984415,"is_stable":false},{"material_id":"mp-aaabfvcs","thermo_type":"GGA_GGA+U","energy_above_hull":0.006626723437499038,"is_stable":false},{"material_id":"mp-aaabfvcs","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.006626723437499038,"is_stable":false},{"material_id":"mp-aaabgfry","thermo_type":"GGA_GGA+U","energy_above_hull":0.006230879062499639,"is_stable":false},{"material_id":"mp-aaabgfry","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.006230879062499639,"is_stable":false},{"material_id":"mp-aaabjgjl","thermo_type":"GGA_GGA+U","energy_above_hull":0.007099640937500595,"is_stable":false},{"material_id":"mp-aaabjgjl","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.007099640937500595,"is_stable":false},{"material_id":"mp-aaabkfbg","thermo_type":"GGA_GGA+U","energy_above_hull":0.030668768437498883,"is_stable":false},{"material_id":"mp-aaabkfbg","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.030668768437498883,"is_stable":false},{"material_id":"mp-aaabkfgm","thermo_type":"r2SCAN","energy_above_hull":0.005658289374999015,"is_stable":false},{"material_id":"mp-aaabkfgm","thermo_type":"GGA_GGA+U","energy_above_hull":0.008046851562498958,"is_stable":false},{"material_id":"mp-aaabkfgm","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.008046851562498958,"is_stable":false},{"material_id":"mp-aaabmkvr","thermo_type":"GGA_GGA+U","energy_above_hull":0.13028915709821476,"is_stable":false},{"material_id":"mp-aaabmkvr","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.13028915709821476,"is_stable":false},{"material_id":"mp-aaabnhfu","thermo_type":"r2SCAN","energy_above_hull":0.011006992083334666,"is_stable":false},{"material_id":"mp-aaabnhfu","thermo_type":"GGA_GGA+U","energy_above_hull":0.01014024989583362,"is_stable":false},{"material_id":"mp-aaabnhfu","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.01014024989583362,"is_stable":false},{"material_id":"mp-aaabotbn","thermo_type":"GGA_GGA+U","energy_above_hull":0.007820964062499769,"is_stable":false},{"material_id":"mp-aaabotbn","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.007820964062499769,"is_stable":false},{"material_id":"mp-aaabptbu","thermo_type":"r2SCAN","energy_above_hull":0.009287757999999258,"is_stable":false},{"material_id":"mp-aaabptbu","thermo_type":"GGA_GGA+U","energy_above_hull":0.009774916812499868,"is_stable":false},{"material_id":"mp-aaabptbu","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.009774916812501644,"is_stable":false},{"material_id":"mp-aaabrbbi","thermo_type":"r2SCAN","energy_above_hull":0.030589684999998923,"is_stable":false},{"material_id":"mp-aaabrbbi","thermo_type":"GGA_GGA+U","energy_above_hull":0.010663485937499217,"is_stable":false},{"material_id":"mp-aaabrbbi","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.010663485937499217,"is_stable":false},{"material_id":"mp-aaabuzms","thermo_type":"r2SCAN","energy_above_hull":0.000046993125000227565,"is_stable":false},{"material_id":"mp-aaabuzms","thermo_type":"GGA_GGA+U","energy_above_hull":0.009396323437499632,"is_stable":false},{"material_id":"mp-aaabuzms","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.009396323437499632,"is_stable":false},{"material_id":"mp-aaabuzyg","thermo_type":"GGA_GGA+U","energy_above_hull":0.00721648093749927,"is_stable":false},{"material_id":"mp-aaabuzyg","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.00721648093749927,"is_stable":false},{"material_id":"mp-aaacosyu","thermo_type":"r2SCAN","energy_above_hull":0.0008667249999980697,"is_stable":false},{"material_id":"mp-aaacosyu","thermo_type":"GGA_GGA+U","energy_above_hull":0.007600772187499771,"is_stable":false},{"material_id":"mp-aaacosyu","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.007600772187499771,"is_stable":false},{"material_id":"mp-aaacpujs","thermo_type":"r2SCAN","energy_above_hull":0.014700007916665925,"is_stable":false},{"material_id":"mp-aaacpujs","thermo_type":"GGA_GGA+U","energy_above_hull":0.010682538229167093,"is_stable":false},{"material_id":"mp-aaacpujs","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.010682538229167093,"is_stable":false},{"material_id":"mp-aaacqdzl","thermo_type":"r2SCAN","energy_above_hull":0.00055466687500072,"is_stable":false},{"material_id":"mp-aaacqdzl","thermo_type":"GGA_GGA+U","energy_above_hull":0.009820515312499722,"is_stable":false},{"material_id":"mp-aaacqdzl","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.009820515312499722,"is_stable":false},{"material_id":"mp-aaacsvpa","thermo_type":"GGA_GGA+U","energy_above_hull":0.39455539221250113,"is_stable":false},{"material_id":"mp-aaacsvpa","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.39455539221250113,"is_stable":false},{"material_id":"mp-aaacsvpx","thermo_type":"GGA_GGA+U","energy_above_hull":0.23176082691250066,"is_stable":false},{"material_id":"mp-aaacsvpx","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.23176082691250066,"is_stable":false},{"material_id":"mp-aaacsvzq","thermo_type":"GGA_GGA+U","energy_above_hull":0.24375980131249975,"is_stable":false},{"material_id":"mp-aaacsvzq","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.24375980131249975,"is_stable":false},{"material_id":"mp-aaacswcx","thermo_type":"GGA_GGA+U","energy_above_hull":0.24445758811249974,"is_stable":false},{"material_id":"mp-aaacswcx","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.24445758811249974,"is_stable":false},{"material_id":"mp-aaacswcy","thermo_type":"GGA_GGA+U","energy_above_hull":0.2464414073124992,"is_stable":false},{"material_id":"mp-aaacswcy","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.2464414073124992,"is_stable":false},{"material_id":"mp-aaacxryu","thermo_type":"GGA_GGA+U","energy_above_hull":1.2182564532291673,"is_stable":false},{"material_id":"mp-aaacxryu","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":1.2182564532291673,"is_stable":false},{"material_id":"mp-aaadawxy","thermo_type":"GGA_GGA+U","energy_above_hull":1.2287365140625006,"is_stable":false},{"material_id":"mp-aaadawxy","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":1.2287365140625006,"is_stable":false},{"material_id":"mp-aaadblrj","thermo_type":"r2SCAN","energy_above_hull":0.00026767312499842433,"is_stable":false},{"material_id":"mp-aaadblrj","thermo_type":"GGA_GGA+U","energy_above_hull":0.009208933437498956,"is_stable":false},{"material_id":"mp-aaadblrj","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.009208933437498956,"is_stable":false},{"material_id":"mp-aaadcdxc","thermo_type":"r2SCAN","energy_above_hull":0.030242218125000164,"is_stable":false},{"material_id":"mp-aaadcdxc","thermo_type":"GGA_GGA+U","energy_above_hull":0.010904968437499107,"is_stable":false},{"material_id":"mp-aaadcdxc","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.010904968437499107,"is_stable":false},{"material_id":"mp-aaaexetj","thermo_type":"GGA_GGA+U","energy_above_hull":0.006369437187499827,"is_stable":false},{"material_id":"mp-aaaexetj","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.006369437187499827,"is_stable":false},{"material_id":"mp-aaafaaxk","thermo_type":"r2SCAN","energy_above_hull":0.013308316250000729,"is_stable":false},{"material_id":"mp-aaafaaxk","thermo_type":"GGA_GGA+U","energy_above_hull":0.009204010312499733,"is_stable":false},{"material_id":"mp-aaafaaxk","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.009204010312499733,"is_stable":false},{"material_id":"mp-aaaffpfw","thermo_type":"GGA_GGA+U","energy_above_hull":0.0005129140624990924,"is_stable":false},{"material_id":"mp-aaaffpfw","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.0005129140624990924,"is_stable":false},{"material_id":"mp-aaaffpkb","thermo_type":"GGA_GGA+U","energy_above_hull":0.0,"is_stable":true},{"material_id":"mp-aaaffpkb","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.0,"is_stable":true},{"material_id":"mp-aaaflmlc","thermo_type":"GGA_GGA+U","energy_above_hull":0.00014255843749921837,"is_stable":false},{"material_id":"mp-aaaflmlc","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.00014255843749921837,"is_stable":false},{"material_id":"mp-aaafntsd","thermo_type":"GGA_GGA+U","energy_above_hull":0.04266914316964332,"is_stable":false},{"material_id":"mp-aaafntsd","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.04266914316964332,"is_stable":false},{"material_id":"mp-aaagkqat","thermo_type":"GGA_GGA+U","energy_above_hull":0.00030034999999983825,"is_stable":false},{"material_id":"mp-aaagkqat","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.00030034999999983825,"is_stable":false}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-02T15:27:12.762680+00:00","total_doc":100,"facet":null,"max_limit":1000,"default_fields":["thermo_id","material_id","last_updated"]}}'
+    headers:
+      access-control-expose-headers:
+      - X-Api-Key
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429787f96db04-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '11859'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:12 GMT
+      ratelimit-limit:
+      - '25'
+      ratelimit-remaining:
+      - '22'
+      ratelimit-reset:
+      - '1'
+      server:
+      - cloudflare
+      set-cookie:
+      - _csrf_token=authenticated; Domain=.materialsproject.org; Path=/; SameSite=Strict
+      vary:
+      - Accept-Encoding
+      - Origin
+      via:
+      - kong/2.8.4
+      x-consumer-id:
+      - 58e0b4c2-4c2d-439b-ba0a-648cd568a0fa
+      x-kong-proxy-latency:
+      - '8'
+      x-kong-upstream-latency:
+      - '16'
+      x-ratelimit-limit-day:
+      - '640000'
+      x-ratelimit-limit-hour:
+      - '40000'
+      x-ratelimit-limit-minute:
+      - '1000'
+      x-ratelimit-limit-month:
+      - '12800000'
+      x-ratelimit-limit-second:
+      - '25'
+      x-ratelimit-limit-year:
+      - '100000000'
+      x-ratelimit-remaining-day:
+      - '639955'
+      x-ratelimit-remaining-hour:
+      - '39955'
+      x-ratelimit-remaining-minute:
+      - '960'
+      x-ratelimit-remaining-month:
+      - '12799955'
+      x-ratelimit-remaining-second:
+      - '22'
+      x-ratelimit-remaining-year:
+      - '99999907'
+    status:
+      code: 200
+      message: OK
+version: 1

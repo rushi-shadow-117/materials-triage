@@ -1,0 +1,408 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=PbHfO3+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 10, "db_response_time_ms": 11, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (PbHfO3 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (PbHfO3 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "PbHfO3
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:PbHfO3
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W3139049166",
+        "doi": "https://doi.org/10.1016/j.matdes.2021.109666", "title": "Tailoring
+        energy-storage performance in antiferroelectric PbHfO3 thin films", "publication_year":
+        2021, "abstract_inverted_index": {"Among": [0], "all": [1], "dielectrics,":
+        [2], "antiferroelectric": [3], "(AFE)": [4], "materials": [5], "have": [6],
+        "attracted": [7], "wide": [8], "attention": [9], "due": [10], "to": [11, 57],
+        "the": [12, 26, 30, 51, 58, 97], "excellent": [13, 84], "energy-storage":
+        [14, 35, 77, 99], "performance.": [15], "In": [16], "this": [17], "paper,":
+        [18], "PbHfO3": [19], "(PHO)": [20], "AFE": [21, 32, 67], "films": [22, 68,
+        92], "were": [23, 37], "prepared": [24], "for": [25, 125], "first": [27],
+        "time": [28], "and": [29, 34, 53, 63, 79, 87, 101, 112], "microstructure,":
+        [31], "property": [33], "performance": [36], "studied.": [38], "X-ray": [39],
+        "diffraction": [40], "analysis": [41], "indicated": [42], "that": [43, 118],
+        "annealing": [44, 107], "temperature": [45], "played": [46], "a": [47, 122],
+        "key": [48], "role": [49], "in": [50, 104, 127], "crystallinity": [52], "phase":
+        [54], "composition.": [55], "Due": [56], "coexistent": [59], "of": [60], "fine":
+        [61], "grains": [62], "amorphous": [64], "phase,": [65], "PHO": [66, 119],
+        "annealed": [69, 93], "at": [70, 94], "650": [71, 105], "\u00b0C": [72, 106],
+        "displayed": [73], "not": [74], "only": [75], "optimal": [76], "density":
+        [78, 100], "energy": [80, 102], "efficiency,": [81], "but": [82], "also":
+        [83], "thermal": [85], "stability": [86], "fatigue": [88], "endurance.": [89],
+        "Compared": [90], "with": [91], "750": [95], "\u00b0C,": [96], "recoverable":
+        [98], "efficiency": [103], "samples": [108], "increased": [109], "by": [110],
+        "50%": [111], "100%,": [113], "respectively.": [114], "These": [115], "results":
+        [116], "demonstrate": [117], "film": [120], "is": [121], "promising": [123],
+        "candidate": [124], "applications": [126], "power": [128], "electronics":
+        [129], "systems.": [130]}, "primary_location": {"id": "doi:10.1016/j.matdes.2021.109666",
+        "doi": "https://doi.org/10.1016/j.matdes.2021.109666", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.1016/j.matdes.2021.109666", "pdf_url": "https://www.sciencedirect.com/science/article/pii/S0264127521002197/pdf",
+        "source": {"id": "https://openalex.org/S8792693", "display_name": "Materials
+        & Design", "issn_l": "0264-1275", "issn": ["0264-1275", "1873-4197"], "is_oa":
+        true, "is_in_doaj": true, "is_core": true, "listed_in": ["anvur-scientific",
+        "cwts-core", "doaj", "dongbi-b", "jufo-3", "ki-jl-1", "norway-1", "oarl",
+        "poland-140", "vabb-shw"], "host_organization": "https://openalex.org/P4310320990",
+        "host_organization_name": "Elsevier BV", "host_organization_lineage": ["https://openalex.org/P4310320990"],
+        "host_organization_lineage_names": ["Elsevier BV"], "type": "journal"}, "license":
+        "cc-by-nc-nd", "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Materials &amp; Design", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W3126220445", "doi": "https://doi.org/10.1063/5.0035730",
+        "title": "The other model antiferroelectric: PbHfO3 thin films from ALD precursors",
+        "publication_year": 2021, "abstract_inverted_index": {"Antiferroelectric":
+        [0], "PbHfO3": [1, 58], "is": [2, 135], "grown": [3], "from": [4, 22, 114],
+        "atomic": [5], "layer": [6], "deposition": [7], "precursors": [8], "lead":
+        [9], "bis(dimethylaminomethylpropanolate)": [10], "and": [11, 17, 75, 88],
+        "tetrakis": [12], "dimethylamino": [13], "hafnium": [14], "with": [15, 68],
+        "H2O": [16], "O3": [18], "oxidizers": [19], "in": [20], "thicknesses": [21],
+        "20": [23], "nm": [24, 27], "to": [25, 52, 100], "200": [26], "at": [28, 95,
+        127], "a": [29, 54, 92], "substrate": [30], "temperature": [31], "of": [32,
+        71, 78, 133, 150], "250": [33], "\u00b0C.": [34], "X-ray": [35], "analysis":
+        [36], "shows": [37], "an": [38, 46], "as-grown": [39], "crystalline": [40],
+        "PbO": [41], "phase": [42, 93, 112], "that": [43], "diffuses": [44], "into":
+        [45], "amorphous": [47], "HfO2": [48], "matrix": [49], "upon": [50], "annealing":
+        [51], "form": [53], "randomly": [55], "oriented,": [56], "orthorhombic": [57],
+        "thin": [59, 154], "film.": [60, 143], "Electrical": [61], "characterization":
+        [62], "reveals": [63], "characteristic": [64], "double": [65], "hysteresis":
+        [66], "loops": [67], "maximum": [69], "polarizations": [70], "around": [72],
+        "30": [73], "\u00b5C/cm2": [74], "transition": [76, 94], "fields": [77], "350":
+        [79], "kV/cm\u2013500": [80], "kV/cm": [81], "depending": [82], "on": [83],
+        "the": [84, 101, 110, 122, 141, 147], "thickness.": [85], "Temperature-dependent":
+        [86], "permittivity": [87], "polarization": [89], "testing": [90], "show":
+        [91], "185": [96], "\u00b0C,": [97], "most": [98], "probably": [99], "paraelectric":
+        [102], "phase,": [103], "but": [104], "give": [105], "no": [106], "clear":
+        [107], "evidence": [108], "for": [109, 121, 140, 153], "intermediate": [111],
+        "known": [113], "bulk": [115], "PbHfO3.": [116], "The": [117], "energy": [118],
+        "storage": [119], "density": [120], "films": [123], "reaches": [124], "16":
+        [125], "J/cm3": [126], "2": [128], "MV/cm.": [129], "A": [130], "dielectric":
+        [131], "tunability": [132], "221%": [134], "available": [136, 152], "within":
+        [137], "1": [138], "V": [139], "thinnest": [142], "These": [144], "results":
+        [145], "highlight": [146], "unique": [148], "spectrum": [149], "properties":
+        [151], "film": [155], "perovskite": [156], "antiferroelectrics.": [157]},
+        "primary_location": {"id": "doi:10.1063/5.0035730", "doi": "https://doi.org/10.1063/5.0035730",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.1063/5.0035730", "pdf_url":
+        "https://aip.scitation.org/doi/pdf/10.1063/5.0035730", "source": {"id": "https://openalex.org/S150722692",
+        "display_name": "APL Materials", "issn_l": "2166-532X", "issn": ["2166-532X"],
+        "is_oa": true, "is_in_doaj": true, "is_core": true, "listed_in": ["cwts-core",
+        "doaj", "dongbi-b", "jufo-2", "norway-1", "oarl", "poland-100", "russia-white-list-1"],
+        "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": "cc-by", "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "APL Materials", "raw_type": "journal-article"}}, {"id":
+        "https://openalex.org/W4400091723", "doi": "https://doi.org/10.1063/5.0206234",
+        "title": "Temperature-dependent antiferroelectric properties in La3+ doped
+        PbHfO3 thin films with enhanced energy storage density and stability", "publication_year":
+        2024, "abstract_inverted_index": {"Antiferroelectric": [0], "thin": [1, 21],
+        "films": [2, 22, 150], "have": [3], "attracted": [4], "blooming": [5], "interest":
+        [6], "due": [7], "to": [8, 56, 163], "their": [9], "potential": [10], "application":
+        [11], "in": [12, 60, 86], "energy": [13, 122, 145, 170], "storage": [14, 123,
+        146, 171], "areas.": [15], "Pb(1\u22123x/2)LaxHfO3": [16], "(PLHO-x,": [17],
+        "x": [18], "=": [19], "0\u20130.05)": [20], "were": [23], "fabricated": [24],
+        "on": [25], "Pt(111)/TiO2/SiO2/Si": [26], "substrates": [27], "via": [28],
+        "the": [29, 45, 61, 71, 76, 87, 92, 144, 155, 165], "chemical": [30], "solution":
+        [31], "deposition": [32], "method.": [33], "The": [34], "x-ray": [35], "diffraction":
+        [36], "and": [37, 64, 78, 113, 137], "high-resolution": [38], "transmission":
+        [39], "electron": [40], "microscopy": [41], "results": [42, 141], "show":
+        [43], "that": [44, 82, 143], "doping": [46], "of": [47, 148], "La3+,": [48],
+        "which": [49, 68], "has": [50], "a": [51, 57, 105, 160], "smaller": [52],
+        "ion": [53], "radius,": [54], "leads": [55], "slight": [58], "decrease": [59],
+        "lattice": [62, 72], "constant": [63], "unit": [65], "cell": [66], "volume,":
+        [67], "can": [69, 97, 151], "induce": [70], "distortion.": [73], "In": [74],
+        "addition,": [75], "dielectric": [77], "polarization": [79, 116], "properties":
+        [80], "indicate": [81], "with": [83, 109], "an": [84, 100], "increase": [85],
+        "temperature": [88], "or": [89], "La3+": [90], "content,": [91], "antiferroelectric":
+        [93], "(AFE)": [94], "I": [95], "phase": [96, 156], "transform": [98], "into":
+        [99], "AFE": [101], "II": [102], "phase,": [103], "exhibiting": [104], "slimmer":
+        [106], "P\u2013E": [107], "loop": [108], "enhanced": [110, 153], "switching":
+        [111], "field": [112], "more": [114], "pronounced": [115], "dispersion.":
+        [117], "Notably,": [118], "PLHO-0.04": [119], "showcases": [120], "excellent":
+        [121], "performance": [124, 147], "(55": [125], "J/cm3,": [126], "at": [127],
+        "2.8": [128], "MV/cm).": [129], "This": [130], "material": [131], "also":
+        [132], "exhibits": [133], "good": [134], "thermal,": [135], "frequency,":
+        [136], "fatigue": [138], "stability.": [139], "These": [140], "suggest": [142],
+        "PbHfO3-based": [149], "be": [152], "through": [154], "structure": [157],
+        "design,": [158], "presenting": [159], "valuable": [161], "approach": [162],
+        "fulfill": [164], "growing": [166], "demand": [167], "for": [168], "advanced":
+        [169], "devices.": [172]}, "primary_location": {"id": "doi:10.1063/5.0206234",
+        "doi": "https://doi.org/10.1063/5.0206234", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.1063/5.0206234", "pdf_url": null, "source": {"id": "https://openalex.org/S187991544",
+        "display_name": "Journal of Applied Physics", "issn_l": "0021-8979", "issn":
+        ["0021-8979", "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d",
+        "jufo-1", "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": "cc-by-nc-nd", "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Journal of Applied Physics", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W4313447214", "doi": "https://doi.org/10.1021/acsaem.2c02584",
+        "title": "Enhancement of Energy Storage Density and Efficiency of PbHfO3 Doped
+        with La Antiferroelectric Thin Films", "publication_year": 2022, "abstract_inverted_index":
+        {"Antiferroelectric": [0], "materials": [1], "are": [2], "widely": [3], "used":
+        [4], "in": [5], "industry": [6], "owing": [7], "to": [8], "their": [9, 45],
+        "outstanding": [10, 134], "energy": [11, 49, 92, 98, 110, 157], "storage":
+        [12, 50, 93, 111, 158], "properties,": [13], "excellent": [14, 152], "fatigue":
+        [15, 135, 160], "resistance,": [16], "and": [17, 44, 48, 63, 82, 108, 123,
+        129, 137, 151, 159], "satisfactory": [18], "stability.": [19, 154], "In":
+        [20], "this": [21], "study,": [22], "Pb": [23], "1\u20133": [24], "x": [25,
+        28, 34, 56, 164, 182], "/2": [26], "La": [27, 66, 170], "HfO": [29], "3":
+        [30, 107], "(abbreviated": [31], "as": [32], "PLH-": [33, 55, 163, 181], ")":
+        [35, 103], "antiferroelectric": [36], "nanofilms": [37], "were": [38, 52,
+        166], "fabricated": [39], "using": [40, 179], "the": [41, 69, 73, 90, 133,
+        140, 144, 156, 176, 180], "sol\u2013gel": [42], "method,": [43], "microstructure,":
+        [46], "antiferroelectric,": [47], "properties": [51], "investigated.": [53],
+        "The": [54, 86], "films": [57, 165, 183], "exhibited": [58, 147], "an": [59,
+        109], "orthogonal": [60], "perovskite": [61], "structure": [62], "good": [64,
+        148], "crystallinity.": [65], "doping": [67], "altered": [68], "long-range":
+        [70], "ordering": [71], "of": [72, 104, 114, 139, 162, 178], "film\u2019s":
+        [74], "lattice": [75], "structure,": [76], "generating": [77], "higher": [78],
+        "breakdown": [79], "field": [80], "strengths": [81], "finer": [83], "hysteresis":
+        [84], "lines.": [85], "PLH-0.01": [87, 141, 145], "film": [88, 146], "showed":
+        [89], "best": [91], "performance": [94], "with": [95], "a": [96], "recoverable":
+        [97], "density": [99], "(": [100], "W": [101, 121], "rec": [102, 122], "26.74":
+        [105], "J/cm": [106], "efficiency": [112], "(\u03b7)": [113], "68.35%.": [115],
+        "After": [116], "10": [117], "8": [118], "test": [119], "cycles,": [120],
+        "\u03b7": [124], "decreased": [125], "by": [126], "only": [127], "3.6": [128],
+        "2.3%,": [130], "respectively,": [131], "demonstrating": [132], "resistance":
+        [136], "stability": [138, 150], "film.": [142], "Moreover,": [143], "temperature":
+        [149], "frequency": [153], "Thus,": [155], "characteristics": [161], "considerably":
+        [167], "improved": [168], "through": [169], "doping.": [171], "These": [172],
+        "remarkable": [173], "improvements": [174], "confirm": [175], "potential":
+        [177], "for": [184], "preparing": [185], "dielectric": [186], "capacitors.":
+        [187]}, "primary_location": {"id": "doi:10.1021/acsaem.2c02584", "doi": "https://doi.org/10.1021/acsaem.2c02584",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1021/acsaem.2c02584",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4210188958", "display_name":
+        "ACS Applied Energy Materials", "issn_l": "2574-0962", "issn": ["2574-0962"],
+        "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core",
+        "dongbi-b", "jufo-1", "ki-jl-1", "norway-1", "poland-20", "russia-white-list-1"],
+        "host_organization": "https://openalex.org/P4310320006", "host_organization_name":
+        "American Chemical Society", "host_organization_lineage": ["https://openalex.org/P4310320006"],
+        "host_organization_lineage_names": ["American Chemical Society"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "ACS Applied
+        Energy Materials", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W7128212028",
+        "doi": "https://doi.org/10.18127/j00338486-202503-12", "title": "RF cathode
+        sputtering in an oxygen environment: prospects for the synthesis of lead-containing
+        perovskite films for the radio engineering component base", "publication_year":
+        2025, "abstract_inverted_index": {"Antiferroelectric": [0], "(AFE)": [1],
+        "materials": [2], "are": [3, 18, 25, 301], "gaining": [4], "increasing": [5],
+        "popularity": [6], "in": [7, 110, 188, 193, 290, 296], "the": [8, 44, 62,
+        75, 89, 93, 96, 102, 133, 153, 176, 186, 189, 244, 247, 250, 260, 267, 271,
+        282, 297], "field": [9], "of": [10, 19, 58, 64, 77, 91, 95, 104, 107, 132,
+        167, 175, 178, 206, 243, 249, 262, 270, 276, 284], "microelectronics.": [11,
+        304], "Modern": [12], "works": [13], "show": [14, 37, 225], "that": [15, 152,
+        185, 197, 216, 226], "thin-film": [16, 79, 291], "AFEs": [17], "particular":
+        [20], "interest.": [21], "Currently,": [22], "such": [23, 30], "structures":
+        [24, 135], "synthesized": [26], "by": [27], "laboratory": [28], "methods,":
+        [29], "as": [31, 255, 287], "PLD,": [32], "MBE,": [33], "etc.": [34], "Such":
+        [35], "methods": [36], "good": [38], "results": [39, 90, 242], "for": [40,
+        53, 74, 101, 199, 238, 259, 303], "scientific": [41, 278], "research,": [42],
+        "but": [43], "high-frequency": [45, 97, 251], "cathode": [46, 98, 252], "sputtering":
+        [47, 99, 253], "method": [48, 60, 100, 154, 254], "is": [49, 61, 222, 275],
+        "much": [50], "more": [51], "suitable": [52], "industrial": [54], "production.":
+        [55], "The": [56, 86, 241], "disadvantage": [57], "this": [59, 227], "impossibility":
+        [63], "creating": [65], "stoichiometrically": [66], "complex": [67, 83, 263],
+        "compounds,": [68], "which": [69, 211, 232, 300], "can": [70], "become": [71],
+        "a": [72, 81, 116, 171, 217, 235, 288], "problem": [73], "synthesis": [76,
+        103, 261], "AFE": [78], "with": [80, 115, 170], "very": [82], "perovskite":
+        [84, 201], "structure.": [85], "article": [87], "presents": [88], "assessing":
+        [92], "applicability": [94], "thin": [105, 165], "films": [106, 169], "lead-containing":
+        [108], "perovskites": [109], "an": [111, 256], "oxygen": [112], "environment.":
+        [113], "Films": [114], "chemical": [117], "composition": [118], "corresponding":
+        [119], "to": [120, 157, 214, 281], "PbHfO3": [121, 202, 295], "were": [122],
+        "grown": [123], "on": [124, 294], "Si(001)": [125], "and": [126, 162, 203,
+        208, 266], "SrRuO3/SrTiO3/MgO(001)": [127], "substrates.": [128], "A": [129],
+        "detailed": [130], "characterization": [131], "obtained": [134], "was": [136,
+        150, 182], "performed": [137], "using": [138], "single-crystal": [139, 163,
+        190], "X-ray": [140, 143], "diffraction,": [141], "energy-dispersive": [142],
+        "fluorescence": [144], "analysis,": [145], "scanning": [146], "electron":
+        [147], "microscopy.": [148], "It": [149, 181], "shown": [151], "allows": [155,
+        212], "one": [156], "successfully": [158], "synthesize": [159], "both": [160,
+        200], "polycrystalline": [161], "epitaxial": [164], "(tens": [166], "nanometers)":
+        [168], "smooth": [172], "surface": [173], "(protrusions": [174], "order":
+        [177], "10-20": [179], "nm).": [180], "also": [183], "found": [184], "ordering":
+        [187], "film": [191], "differs": [192], "lattice": [194], "parameters": [195],
+        "from": [196], "possible": [198], "all": [204], "configurations": [205], "lead":
+        [207], "hafnium": [209], "oxides,": [210], "us": [213], "conclude": [215],
+        "new,": [218], "previously": [219], "unobserved": [220], "phase": [221, 228,
+        274], "formed.": [223], "We": [224], "exhibits": [229], "unusual": [230],
+        "properties,": [231], "makes": [233], "it": [234], "promising": [236, 302],
+        "object": [237], "further": [239], "research.": [240], "work": [245], "emphasize":
+        [246], "potential": [248], "alternative": [257], "approach": [258], "oxide":
+        [264], "films,": [265], "subsequent": [268], "study": [269], "discovered":
+        [272], "new": [273], "great": [277], "interest": [279], "due": [280], "possibility":
+        [283], "its": [285], "application": [286], "component": [289], "heterostructures":
+        [292], "based": [293], "antiferroelectric": [298], "phase,": [299]}, "primary_location":
+        {"id": "doi:10.18127/j00338486-202503-12", "doi": "https://doi.org/10.18127/j00338486-202503-12",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.18127/j00338486-202503-12",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4210197785", "display_name":
+        "Radioengineering", "issn_l": "0033-8486", "issn": ["0033-8486"], "is_oa":
+        false, "is_in_doaj": false, "is_core": false, "listed_in": ["russia-white-list-1"],
+        "host_organization": null, "host_organization_name": null, "host_organization_lineage":
+        [], "host_organization_lineage_names": [], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Radioengineering", "raw_type": "journal-article"}}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442970bab15f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '19610'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:11 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=e0pBtJ85126g1SCmvxXR0FKrT%2F94T4jAQGEXA0H%2FxKg%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633231"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=e0pBtJ85126g1SCmvxXR0FKrT%2F94T4jAQGEXA0H%2FxKg%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633231"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9510'
+      x-ratelimit-remaining-usd:
+      - '0.951'
+      x-ratelimit-reset:
+      - '30769'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=PbHfO3+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 12, "db_response_time_ms": 10, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (PbHfO3 thin film)
+        in the title or abstract", "x_new_oql": "get works with (PbHfO3 thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "PbHfO3 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:PbHfO3 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W3139049166"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429718df65f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '618'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:11 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=e0pBtJ85126g1SCmvxXR0FKrT%2F94T4jAQGEXA0H%2FxKg%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633231"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=e0pBtJ85126g1SCmvxXR0FKrT%2F94T4jAQGEXA0H%2FxKg%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633231"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9500'
+      x-ratelimit-remaining-usd:
+      - '0.95'
+      x-ratelimit-reset:
+      - '30769'
+    status:
+      code: 200
+      message: OK
+version: 1

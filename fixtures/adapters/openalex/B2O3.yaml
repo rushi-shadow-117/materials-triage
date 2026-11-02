@@ -1,0 +1,370 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=B2O3+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 144, "db_response_time_ms": 1658, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (B2O3 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (B2O3 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "B2O3
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:B2O3
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W1626342986",
+        "doi": "https://doi.org/10.1103/physrevb.77.094114", "title": "Mechanism of
+        c -axis orientation of L10 FePt in nanostructured FePt\u2215B2O3 thin films",
+        "publication_year": 2008, "abstract_inverted_index": {"In": [0, 27], "oder":
+        [1], "to": [2, 18, 23, 99, 129, 134, 144, 148, 165], "obtain": [3], "a": [4,
+        116, 126], "high-density": [5], "magnetic": [6], "recording": [7], "medium":
+        [8], "using": [9], "an": [10], "$L{1}_{0}$": [11, 40], "ferromagnetic": [12],
+        "ordered": [13, 158], "alloy,": [14], "it": [15], "is": [16, 51, 113, 169,
+        189], "imperative": [17], "make": [19, 130], "its": [20, 48], "$c$-axis":
+        [21, 35, 76, 111, 132, 163], "perpendicular": [22, 133, 164], "the": [24,
+        34, 39, 54, 57, 80, 83, 89, 92, 104, 108, 122, 131, 135, 149, 154, 162, 166,
+        180], "thin": [25, 45, 81, 194], "film.": [26], "this": [28, 187], "work,":
+        [29], "we": [30, 65], "have": [31, 66], "investigated": [32], "experimentally":
+        [33, 96], "orientation": [36, 49, 77, 86, 112], "process": [37], "of": [38,
+        56, 110, 179, 186], "FePt": [41, 159], "in": [42, 79, 177], "nanostructured":
+        [43], "$\\mathrm{Fe}\\mathrm{Pt}\u2215{\\mathrm{B}}_{2}{\\mathrm{O}}_{3}$":
+        [44], "films,": [46], "and": [47, 107, 157], "mechanism": [50, 188], "proposed":
+        [52], "on": [53], "basis": [55], "micromechanics": [58], "concept.": [59],
+        "From": [60], "our": [61], "present": [62], "experimental": [63], "results,":
+        [64], "found": [67], "that": [68, 120], "there": [69], "are": [70, 142], "three":
+        [71], "characteristic": [72], "features": [73], "when": [74], "such": [75,
+        173], "occurs": [78, 87], "films:": [82], "marked": [84], "crystallographic":
+        [85], "during": [88], "cooling": [90], "process,": [91], "axial": [93], "ratio":
+        [94], "$c\u2215a$": [95], "observed": [97], "tends": [98], "be": [100, 145],
+        "considerably": [101, 170], "lower": [102], "than": [103], "equilibrium":
+        [105], "value,": [106], "degree": [109], "lowered": [114], "for": [115, 192],
+        "relatively": [117], "thick": [118], "film,": [119], "is,": [121], "plane-stress":
+        [123], "state": [124], "plays": [125], "key": [127], "role": [128], "film":
+        [136, 167], "surface.": [137], "In-plane": [138], "(biaxial)": [139], "tensile":
+        [140, 175], "stresses": [141, 176], "considered": [143], "yielded": [146],
+        "due": [147], "thermal": [150], "shrinking": [151], "difference": [152], "between":
+        [153], "two": [155], "materials,": [156], "particles": [160], "with": [161],
+        "surface": [168], "stabilized": [171], "under": [172], "in-plane": [174],
+        "terms": [178], "mechanical": [181], "interaction": [182], "energy.": [183],
+        "The": [184], "validity": [185], "also": [190], "confirmed": [191], "$\\mathrm{Co}\\mathrm{Pt}\u2215{\\mathrm{B}}_{2}{\\mathrm{O}}_{3}$":
+        [193], "films.": [195]}, "primary_location": {"id": "doi:10.1103/physrevb.77.094114",
+        "doi": "https://doi.org/10.1103/physrevb.77.094114", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1103/physrevb.77.094114", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S6791298", "display_name": "Physical Review B", "issn_l":
+        "1098-0121", "issn": ["1098-0121", "1538-4489", "1550-235X"], "is_oa": false,
+        "is_in_doaj": false, "is_core": true, "listed_in": ["anvur-scientific", "cwts-core",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310320261", "host_organization_name":
+        "American Physical Society", "host_organization_lineage": ["https://openalex.org/P4310320261"],
+        "host_organization_lineage_names": ["American Physical Society"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Physical Review
+        B", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2511587344",
+        "doi": "https://doi.org/10.3379/jmsjmag.28.401", "title": "Nano-structure
+        and Electromagnetic Noise Suppression Effects of (Ni80Fe20)-(B2O3) Thin Films
+        Produced by Co-evaporation", "publication_year": 2004, "abstract_inverted_index":
+        {"It": [0], "has": [1], "been": [2], "verified": [3], "that": [4, 35, 49,
+        65, 80, 103, 112], "high": [5, 70], "permeability": [6], "granular": [7],
+        "films": [8, 51, 94], "work": [9], "as": [10, 99], "RF": [11, 26, 37, 100],
+        "electromagnetic": [12], "noise": [13, 38, 101, 109], "absorbers": [14, 102],
+        "when": [15], "they": [16], "are": [17, 104, 113], "placed": [18], "in": [19,
+        89], "the": [20, 41, 86, 90, 107, 118], "vicinity": [21], "of": [22, 55, 77],
+        "electronic": [23], "devices": [24], "radiating": [25], "noise.": [27], "However":
+        [28], "their": [29], "limited": [30], "resistivity": [31], "induces": [32],
+        "eddy": [33], "current": [34], "re-radiates": [36], "back": [39], "to": [40,
+        67, 106], "source.": [42], "In": [43], "this": [44], "paper": [45], "it":
+        [46], "is": [47, 74], "reported": [48], "thin": [50, 62, 78], "produced":
+        [52], "by": [53], "co-evaporation": [54], "Ni80Fe20": [56], "and": [57], "B2O3":
+        [58], "have": [59, 81], "a": [60, 68, 82, 96], "very": [61, 69], "columnar":
+        [63], "structure": [64], "leads": [66], "resistivity.": [71], "The": [72,
+        93], "nano-structure": [73], "an": [75], "assembly": [76], "columns": [79],
+        "perpendicular": [83], "anisotropy": [84], "with": [85], "hard": [87], "axis":
+        [88], "in-plane": [91], "direction.": [92], "exhibit": [95], "remarkable":
+        [97], "feature": [98], "equivalent": [105], "conventional": [108], "absorbing":
+        [110], "sheets": [111], "50": [114], "times": [115], "thicker": [116], "than":
+        [117], "films.": [119]}, "primary_location": {"id": "doi:10.3379/jmsjmag.28.401",
+        "doi": "https://doi.org/10.3379/jmsjmag.28.401", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.3379/jmsjmag.28.401", "pdf_url": "https://www.jstage.jst.go.jp/article/jmsjmag/28/3/28_3_401/_pdf",
+        "source": {"id": "https://openalex.org/S4210240279", "display_name": "Journal
+        of the Magnetics Society of Japan", "issn_l": "0285-0192", "issn": ["0285-0192",
+        "1880-4004", "1882-2924", "1882-2932", "2432-0250"], "is_oa": true, "is_in_doaj":
+        false, "is_core": true, "listed_in": ["cwts-core", "poland-20", "russia-white-list-3"],
+        "host_organization": null, "host_organization_name": null, "host_organization_lineage":
+        [], "host_organization_lineage_names": [], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Journal of the Magnetics Society
+        of Japan", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2020377640",
+        "doi": "https://doi.org/10.1039/c4tc00648h", "title": "Atomic layer deposition
+        of B2O3/SiO2 thin films and their application in an efficient diffusion doping
+        process", "publication_year": 2014, "abstract_inverted_index": {"We": [0],
+        "investigated": [1], "atomic": [2], "layer": [3, 64], "deposition": [4], "(ALD)":
+        [5], "of": [6, 59, 84, 91], "B2O3": [7, 60, 70, 123], "and": [8, 15, 23, 33,
+        42, 50, 93, 106, 124, 132, 143], "SiO2": [9, 63, 92, 95, 111, 125, 166], "thin":
+        [10], "films": [11, 96, 112], "using": [12, 31], "trimethylborate": [13],
+        "(TMB)": [14], "bis-(diethylamino)silane": [16], "(SAM-24)": [17], "precursors,":
+        [18], "focusing": [19], "on": [20, 139], "growth": [21, 40, 44, 126], "characteristics":
+        [22], "film": [24], "properties.": [25], "For": [26], "both": [27, 140], "cases,":
+        [28], "ALD": [29], "processes": [30], "O3": [32], "O2": [34], "plasma": [35],
+        "as": [36], "reactants": [37], "exhibited": [38], "well-defined": [39], "saturation":
+        [41], "linear": [43], "behavior": [45], "without": [46], "any": [47], "incubation":
+        [48], "cycles,": [49, 127], "produced": [51], "highly": [52], "pure,": [53],
+        "stoichiometric": [54], "films.": [55, 167], "In": [56], "the": [57, 69, 82,
+        87, 101, 151, 164], "case": [58], "films,": [61], "however,": [62], "passivation":
+        [65], "is": [66, 155], "required": [67], "onto": [68], "due": [71], "to":
+        [72], "a": [73, 133], "spontaneous": [74], "decomposition": [75], "caused":
+        [76], "by": [77, 121, 129], "moisture": [78], "in": [79, 163], "air.": [80],
+        "On": [81], "basis": [83], "electrical": [85], "characterization,": [86],
+        "detailed": [88], "dielectric": [89], "properties": [90], "B2O3/passivation":
+        [94], "were": [97, 119], "extensively": [98], "discussed": [99], "including":
+        [100], "k-value,": [102], "flat": [103], "band": [104], "voltage,": [105],
+        "leakage": [107], "currents.": [108], "Then,": [109], "boron-doped": [110],
+        "with": [113, 158], "different": [114], "B/(B": [115], "+": [116], "Si)":
+        [117], "compositions": [118], "prepared": [120], "controlling": [122], "followed":
+        [128], "drive-in": [130], "annealing": [131], "subsequent": [134], "wet":
+        [135], "removal": [136], "process.": [137], "Based": [138], "theoretical":
+        [141], "estimation": [142], "SIMS": [144], "depth": [145], "profile": [146],
+        "results,": [147], "we": [148], "demonstrated": [149], "that": [150], "surface":
+        [152], "doping": [153, 161], "concentration": [154], "effectively": [156],
+        "modulated": [157], "controllable": [159], "B": [160], "contents": [162],
+        "B-doped": [165]}, "primary_location": {"id": "doi:10.1039/c4tc00648h", "doi":
+        "https://doi.org/10.1039/c4tc00648h", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1039/c4tc00648h", "pdf_url": null, "source": {"id": "https://openalex.org/S2500738039",
+        "display_name": "Journal of Materials Chemistry C", "issn_l": "2050-7526",
+        "issn": ["2050-7526", "2050-7534"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["cwts-core", "dongbi-c", "jufo-1", "ki-jl-1", "norway-1",
+        "poland-140", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320556",
+        "host_organization_name": "Royal Society of Chemistry", "host_organization_lineage":
+        ["https://openalex.org/P4310320556"], "host_organization_lineage_names": ["Royal
+        Society of Chemistry"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Journal of Materials Chemistry C", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W1619409645", "doi": "https://doi.org/10.1063/1.1708076",
+        "title": "Vacuum-Deposited Magnetic Thin Films of Fe3O4\u2013B2O3 Mixtures",
+        "publication_year": 1966, "abstract_inverted_index": {"Films": [0], "of":
+        [1, 7, 29, 54, 83, 98, 128, 166], "Fe3O4\u2013B2O3,": [2], "varying": [3],
+        "in": [4, 71, 102], "starting": [5], "compositions": [6], "100%": [8], "to":
+        [9, 15, 74, 76, 92, 105, 162], "90%": [10], "Fe3O4": [11], "mixed": [12],
+        "with": [13, 109], "0%": [14], "10%": [16], "B2O3": [17, 38], "proportionally":
+        [18], "by": [19], "weight,": [20], "were": [21, 78, 147, 160], "deposited":
+        [22, 45, 64, 115, 148], "from": [23, 46, 65], "tungsten": [24], "boats": [25],
+        "at": [26, 88, 116, 151], "a": [27, 122], "pressure": [28], "2\u00d710\u22125":
+        [30], "Torr.": [31], "It": [32], "was": [33, 40, 86, 131, 137], "found": [34],
+        "that": [35, 62, 146], "the": [36, 47, 66, 72, 99, 103, 110, 140, 157], "minimum":
+        [37], "content": [39], "5%": [41], "for": [42, 139], "which": [43], "films":
+        [44, 63, 101, 114, 145], "mixture": [48, 68], "exhibited": [49], "properties":
+        [50], "identifiable": [51], "as": [52], "those": [53], "magnetite.": [55],
+        "X-ray": [56], "and": [57, 69], "electron-beam": [58], "diffraction": [59],
+        "studies": [60], "showed": [61], "95\u20135": [67], "annealed": [70, 100,
+        150], "vacuum": [73], "temperatures": [75, 91, 118, 153], "520\u00b0C": [77],
+        "amorphous,": [79], "but": [80], "magnetite": [81], "structure": [82], "increasing":
+        [84], "crystallinity": [85], "observed": [87, 138, 161], "higher": [89], "annealing":
+        [90], "750\u00b0C.": [93], "The": [94, 169], "optical": [95], "reflection":
+        [96], "spectra": [97], "300-": [104], "650-m\u03bc": [106], "region": [107],
+        "agree": [108], "bulk": [111], "spectra.": [112], "For": [113, 144], "substrate":
+        [117, 152], "less": [119], "than": [120, 155], "300\u00b0C,": [121, 156],
+        "low-coercive": [123], "magnetic": [124, 135, 170], "switching": [125], "dB/dt":
+        [126], "peak": [127], "2.7": [129], "Oe": [130], "observed.": [132], "A":
+        [133], "complex": [134], "anisotropy": [136], "low": [141], "coercive": [142,
+        158], "films.": [143], "and/or": [149], "greater": [154], "fields": [159],
+        "be": [163], "several": [164], "orders": [165], "magnitude": [167], "larger.":
+        [168], "high": [171], "coercivity": [172], "has": [173], "not": [174], "been":
+        [175], "fully": [176], "investigated.": [177]}, "primary_location": {"id":
+        "doi:10.1063/1.1708076", "doi": "https://doi.org/10.1063/1.1708076", "is_oa":
+        false, "landing_page_url": "https://doi.org/10.1063/1.1708076", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S187991544", "display_name":
+        "Journal of Applied Physics", "issn_l": "0021-8979", "issn": ["0021-8979",
+        "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1",
+        "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2052923554",
+        "doi": "https://doi.org/10.1063/1.1708599", "title": "Electrical Properties
+        of Thin-Film Capacitors of the Dy2O3-B2O3-SiO2 System", "publication_year":
+        1966, "abstract_inverted_index": {"Thin": [0], "dielectric": [1, 41], "films":
+        [2], "formed": [3], "by": [4], "evaporating": [5], "a": [6, 10, 59], "Dy2O3-SiO2-B2O3":
+        [7], "mixture": [8, 32], "of": [9, 13, 63], "weight": [11], "ratio": [12],
+        "80:10:10": [14], "exhibit": [15, 98], "excellent": [16], "electrical,": [17],
+        "atmospheric,": [18], "and": [19, 46, 74], "mechanical": [20, 99], "stability":
+        [21], "in": [22, 67, 87], "the": [23, 47, 88], "temperature": [24, 57, 90],
+        "range": [25], "from": [26, 37, 51, 83], "room": [27, 56], "ambient": [28],
+        "to": [29, 53, 85], "500\u00b0C.": [30, 78, 102], "The": [31, 40, 65, 79,
+        92], "can": [33], "be": [34], "readily": [35], "deposited": [36], "tantalum":
+        [38], "boats.": [39], "constant": [42], "is": [43, 69], "about": [44, 70,
+        75], "4.5": [45], "dissipation": [48, 80], "factor": [49, 81], "varies": [50],
+        "0.003": [52, 84], "0.006": [54], "at": [55, 72, 77, 101], "with": [58], "breakdown":
+        [60], "field": [61], "strength": [62], "4.0\u00d7106V/cm.": [64], "change":
+        [66], "capacitance": [68], "5%": [71], "470\u00b0C": [73], "20%": [76], "changes":
+        [82], "0.20": [86], "same": [89], "range.": [91], "film": [93], "does": [94],
+        "not": [95], "fracture": [96], "or": [97], "deformation": [100]}, "primary_location":
+        {"id": "doi:10.1063/1.1708599", "doi": "https://doi.org/10.1063/1.1708599",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.1708599", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S187991544", "display_name":
+        "Journal of Applied Physics", "issn_l": "0021-8979", "issn": ["0021-8979",
+        "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1",
+        "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429cdbb535f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '16507'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:28 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=54aWYad56f3vWdk1EOMD9RtrByDz2CmT3IpsLvJd%2FoQ%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633246"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=54aWYad56f3vWdk1EOMD9RtrByDz2CmT3IpsLvJd%2FoQ%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633246"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9090'
+      x-ratelimit-remaining-usd:
+      - '0.909'
+      x-ratelimit-reset:
+      - '30752'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=B2O3+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 251, "db_response_time_ms": 998, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (B2O3 thin film)
+        in the title or abstract", "x_new_oql": "get works with (B2O3 thin film) in
+        the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "B2O3 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:B2O3 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W2054550195"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429d92c645f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '612'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:29 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=XqYM922rP0xIaAECJsJ3VlXwehO7XbetIOt8B2qsfjE%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633248"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=XqYM922rP0xIaAECJsJ3VlXwehO7XbetIOt8B2qsfjE%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633248"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9080'
+      x-ratelimit-remaining-usd:
+      - '0.908'
+      x-ratelimit-reset:
+      - '30751'
+    status:
+      code: 200
+      message: OK
+version: 1

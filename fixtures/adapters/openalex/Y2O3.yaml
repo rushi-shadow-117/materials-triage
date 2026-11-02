@@ -1,0 +1,691 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=Y2O3+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 839, "db_response_time_ms": 148, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Y2O3 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (Y2O3 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "Y2O3
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:Y2O3
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2063944426",
+        "doi": "https://doi.org/10.1063/1.346804", "title": "Dielectric properties
+        of rf-sputtered Y2O3 thin films", "publication_year": 1990, "abstract_inverted_index":
+        {"Yttrium": [0], "oxide": [1], "(Y2O3)": [2], "thin": [3], "films": [4, 32,
+        78, 107, 119], "were": [5, 33], "deposited": [6, 79, 108, 120], "on": [7],
+        "indium-tin-oxide(ITO)-coated": [8], "glass": [9], "substrates": [10], "by":
+        [11], "the": [12, 25, 30, 55, 58, 76, 87, 95, 106, 113, 117, 127, 132], "radio-frequency-sputtering":
+        [13], "method": [14], "using": [15], "an": [16], "Y2O3-sintered": [17], "target.":
+        [18], "The": [19, 70], "relative": [20], "dielectric": [21, 26, 114], "constant":
+        [22], "\u03b5r": [23, 39], "and": [24, 40, 46, 90, 137], "strength": [27],
+        "EBD": [28, 41], "of": [29, 57, 116], "Y2O3": [31, 77, 118], "studied.": [34],
+        "It": [35], "was": [36], "found": [37], "that": [38, 75], "have": [42], "a":
+        [43, 47], "maximum": [44], "value": [45], "minimum": [48], "value,": [49],
+        "respectively,": [50], "at": [51, 80, 109, 121], "1.3": [52, 81, 110, 122],
+        "Pa": [53, 82, 123], "when": [54], "pressure": [56], "sputtering": [59], "gas,":
+        [60], "Ar+10%": [61], "O2,": [62], "is": [63, 94], "varied": [64], "from":
+        [65, 103], "0.67": [66], "to": [67, 126], "9.3": [68], "Pa.": [69, 111], "x-ray":
+        [71], "diffraction": [72], "study": [73], "showed": [74, 100], "are": [83,
+        124], "predominantly": [84], "oriented": [85], "along": [86], "\u3008332\u3009":
+        [88, 133], "direction": [89], "their": [91], "grain": [92, 135], "size": [93],
+        "smallest.": [96], "Ion": [97], "mass": [98], "analysis": [99], "impurity":
+        [101, 138], "diffusion": [102], "ITO": [104], "in": [105], "Furthermore,":
+        [112], "properties": [115], "related": [125], "structural": [128], "properties,":
+        [129], "such": [130], "as": [131], "orientation,": [134], "size,": [136],
+        "diffusion.": [139]}, "primary_location": {"id": "doi:10.1063/1.346804", "doi":
+        "https://doi.org/10.1063/1.346804", "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.346804",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S187991544", "display_name":
+        "Journal of Applied Physics", "issn_l": "0021-8979", "issn": ["0021-8979",
+        "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1",
+        "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W1975011187",
+        "doi": "https://doi.org/10.1039/a904710g", "title": "Growth by laser ablation
+        of Y2O3 and Tm\u2236Y2O3 thin films for optical applications", "publication_year":
+        2000, "abstract_inverted_index": {"Crystalline": [0], "undoped": [1], "and":
+        [2, 43, 59, 68, 74, 117, 138, 149], "thulium": [3, 99, 119], "doped": [4,
+        101], "yttrium": [5], "oxide": [6], "(Y2O3)": [7], "thin": [8, 53, 103], "films":
+        [9, 38, 73, 148], "have": [10], "been": [11], "grown": [12], "by": [13, 56,
+        60, 77], "the": [14, 34, 37, 41, 45, 69, 87, 93, 98, 108, 111, 115, 147],
+        "pulsed": [15], "laser": [16], "deposition": [17], "(PLD)": [18], "technique":
+        [19], "on": [20, 40, 44, 86, 129], "various": [21], "single-crystal": [22],
+        "substrates": [23], "heated": [24], "at": [25], "700": [26], "\u00b0C.": [27],
+        "X-Ray": [28], "diffraction": [29], "(XRD)": [30], "analysis": [31], "showed":
+        [32], "that": [33], "orientations": [35, 71], "of": [36, 51, 92, 97, 110,
+        114, 136], "depended": [39], "substrate": [42], "oxygen": [46], "pressure.":
+        [47], "The": [48, 90], "crystalline": [49], "quality": [50], "Y2O3": [52,
+        102], "films,": [54, 104], "studied": [55], "rocking-curve": [57], "measurements":
+        [58, 109], "Rutherford": [61], "backscattering": [62], "spectroscopy": [63],
+        "(RBS)": [64], "in": [65, 134], "channeling": [66], "geometry,": [67], "in-plane":
+        [70], "between": [72], "substrates,": [75], "determined": [76], "X-ray": [78],
+        "asymmetric": [79], "diffraction,": [80], "were": [81, 140], "also": [82],
+        "found": [83, 141], "to": [84, 126, 142, 150], "depend": [85], "same": [88],
+        "parameters.": [89], "recording": [91], "visible": [94, 154], "fluorescence":
+        [95, 112, 155], "spectra": [96], "(Tm)": [100], "as": [105, 107], "well":
+        [106], "lifetimes": [113], "1D2": [116], "1G4": [118], "emitting": [120],
+        "levels,": [121], "gave": [122], "results": [123], "very": [124], "similar":
+        [125], "those": [127], "obtained": [128], "bulk": [130], "crystals.": [131],
+        "Doping": [132], "rates": [133], "Tm": [135], "0.5": [137], "1%": [139], "limit":
+        [143], "Tm\u2013Tm": [144], "interactions": [145], "inside": [146], "give":
+        [151], "relatively": [152], "high": [153], "intensities.": [156]}, "primary_location":
+        {"id": "doi:10.1039/a904710g", "doi": "https://doi.org/10.1039/a904710g",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1039/a904710g", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S45305740", "display_name": "Journal
+        of Materials Chemistry", "issn_l": "0959-9428", "issn": ["0959-9428", "1364-5501"],
+        "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core"],
+        "host_organization": "https://openalex.org/P4310320556", "host_organization_name":
+        "Royal Society of Chemistry", "host_organization_lineage": ["https://openalex.org/P4310320556"],
+        "host_organization_lineage_names": ["Royal Society of Chemistry"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Materials Chemistry", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W1624346732",
+        "doi": "https://doi.org/10.1143/jjap.9.735", "title": "Dielectric Properties
+        of Y2O3 Thin Films Prepared by Vacuum Evaporation", "publication_year": 1970,
+        "abstract_inverted_index": {"The": [0, 49, 72], "dielectric": [1, 27, 50],
+        "films": [2], "formed": [3], "by": [4, 14], "evaporating": [5], "Y2O3": [6,
+        76], "in": [7, 33, 41], "vacuum": [8], "have": [9], "been": [10], "identified":
+        [11], "with": [12, 45, 64], "sesquioxide": [13], "infrared": [15], "transmission,":
+        [16], "electron": [17, 46], "and": [18, 36, 54], "X-ray": [19], "diffraction":
+        [20], "studies.": [21], "Thin": [22], "film": [23, 77], "capacitors": [24],
+        "using": [25], "this": [26], "material": [28], "exhibit": [29], "excellent":
+        [30], "electric": [31], "stability": [32], "high": [34], "termperature": [35],
+        "can": [37], "be": [38], "reproduced": [39], "easily": [40], "a": [42, 65],
+        "closed-cycle": [43], "process": [44], "beam": [47], "equipment.": [48], "constant":
+        [51], "is": [52, 59, 79], "13": [53], "dissipation": [55], "factor,": [56],
+        "tan": [57], "\u03b4,": [58], "0.003": [60], "at": [61], "room": [62], "temperature":
+        [63, 73], "breakdown": [66], "field": [67], "strength": [68], "of": [69, 75],
+        "3\u00d7106": [70], "V/cm.": [71], "coefficient": [74], "capacitor": [78],
+        "about": [80], "300": [81], "ppm/\u00b0C.": [82]}, "primary_location": {"id":
+        "doi:10.1143/jjap.9.735", "doi": "https://doi.org/10.1143/jjap.9.735", "is_oa":
+        false, "landing_page_url": "https://doi.org/10.1143/jjap.9.735", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S143744711", "display_name":
+        "Japanese Journal of Applied Physics", "issn_l": "0021-4922", "issn": ["0021-4922",
+        "1347-4065"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "dongbi-d", "jufo-1", "ki-jl-1", "norway-1", "poland-70", "russia-white-list-2",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310311669", "host_organization_name":
+        "Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310311669"],
+        "host_organization_lineage_names": ["Institute of Physics"], "type": "journal"},
+        "license": null, "license_id": null, "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "Japanese Journal of Applied
+        Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W1650938131",
+        "doi": "https://doi.org/10.1063/1.1558971", "title": "Buckling phenomena in
+        Y2O3 thin films on GaAs substrates", "publication_year": 2003, "abstract_inverted_index":
+        {"Worm-like": [0], "buckling": [1, 39], "structures": [2], "have": [3, 41,
+        62], "been": [4, 42, 64], "investigated": [5], "by": [6, 24], "atomic": [7],
+        "force": [8], "microscopy": [9], "to": [10, 44, 55], "estimate": [11], "the":
+        [12, 16, 37, 57], "relevant": [13], "parameters": [14], "for": [15], "mechanical":
+        [17], "stability": [18], "of": [19], "Y2O3": [20], "thin": [21], "films":
+        [22], "deposited": [23], "ion": [25], "beam": [26], "sputtering": [27], "technique":
+        [28], "on": [29], "GaAs": [30], "substrates.": [31], "The": [32, 51], "internal":
+        [33], "stresses": [34], "involving": [35], "in": [36, 49], "observed": [38],
+        "phenomena": [40], "estimated": [43], "be": [45], "around": [46], "8.5": [47],
+        "GPa": [48], "compression.": [50], "critical": [52], "thicknesses": [53],
+        "up": [54], "which": [56], "various": [58], "damaging": [59], "mechanisms":
+        [60], "occur": [61], "also": [63], "determined.": [65]}, "primary_location":
+        {"id": "doi:10.1063/1.1558971", "doi": "https://doi.org/10.1063/1.1558971",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.1558971", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S105243760", "display_name":
+        "Applied Physics Letters", "issn_l": "0003-6951", "issn": ["0003-6951", "1077-3118",
+        "1520-8842"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Applied Physics Letters", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2057611717", "doi": "https://doi.org/10.1002/1521-3862(200101)7:1<44::aid-cvde44>3.0.co;2-q",
+        "title": "Low-Temperature ALE Deposition of Y2O3 Thin Films from \u03b2-Diketonate
+        Precursors", "publication_year": 2001, "abstract_inverted_index": {"Yttrium":
+        [0], "oxide": [1], "thin": [2], "film": [3], "deposition": [4, 61, 85, 196],
+        "by": [5, 38, 111], "atomic": [6, 116], "layer": [7], "epitaxy": [8], "(ALE)":
+        [9], "was": [10, 67, 98], "studied": [11], "at": [12, 69, 83, 102], "200\u2013425":
+        [13], "\u00b0C": [14, 71, 104, 184], "using": [15, 105], "Y(thd)3,": [16],
+        "Y(thd)3(bipyridyl),": [17], "or": [18], "Y(thd)3(1,10-phenanthroline)": [19],
+        "(thd": [20], "=": [21], "2,2,6,6-tetramethyl-3,5-heptanedione)": [22], "as":
+        [23, 29, 54, 94], "an": [24, 30], "yttrium": [25, 34], "precursor,": [26],
+        "and": [27, 43, 50, 79, 115, 125, 131, 141, 225], "ozone": [28], "oxygen":
+        [31], "source.": [32], "All": [33], "precursors": [35], "were": [36, 52, 109,
+        136, 147, 163, 167, 185, 198], "analyzed": [37], "thermogravimetry/differential":
+        [39], "thermal": [40], "analysis": [41, 130], "(TG-DTA)": [42], "mass": [44],
+        "spectrometry": [45], "(MS).": [46], "Soda": [47], "lime": [48], "glass":
+        [49], "Si(100)": [51], "used": [53, 137], "substrates.": [55], "With": [56],
+        "all": [57], "precursors,": [58], "a": [59, 76, 159, 209], "constant": [60],
+        "rate": [62], "of": [63, 90, 153, 176, 212, 222, 230, 242], "0.22\u20130.23":
+        [64], "\u00c5": [65], "(cycle)\u20131": [66], "observed": [68], "250\u2013350":
+        [70], "on": [72], "both": [73], "substrates,": [74], "indicating": [75], "surface-controlled":
+        [77], "growth": [78, 91, 226, 241], "similar": [80], "surface": [81, 126],
+        "species": [82], "the": [84, 151, 171, 202, 219, 223, 228, 239], "temperatures":
+        [86, 197], "used.": [87], "The": [88], "effect": [89], "parameters,": [92],
+        "such": [93], "reactant": [95], "pulsing": [96], "times,": [97], "investigated":
+        [99], "in": [100, 120, 238], "detail": [101], "350": [103], "Y(thd)3.": [106],
+        "Deposited": [107], "films": [108, 157, 180, 224], "characterized": [110],
+        "X-ray": [112, 132], "diffraction": [113], "(XRD)": [114], "force": [117],
+        "microscopy": [118], "(AFM)": [119], "order": [121], "to": [122, 138, 149,
+        193, 205], "determine": [123, 150], "crystallinity": [124], "morphology,":
+        [127], "while": [128], "ion-beam": [129], "photoelectron": [133], "spectroscopy":
+        [134], "(XPS)": [135], "analyze": [139], "stoichiometry": [140], "impurity":
+        [142, 220], "levels.": [143], "Infrared": [144], "(IR)": [145], "measurements":
+        [146], "performed": [148], "type": [152], "carbon": [154], "impurity.": [155],
+        "Crystalline": [156], "with": [158], "(400)": [160, 192], "dominant": [161],
+        "orientation": [162, 189], "obtained": [164], "when": [165, 195], "depositions":
+        [166], "carried": [168], "out": [169], "within": [170], "ALE": [172, 203,
+        240], "window": [173, 204], "(temperature": [174], "range": [175], "250\u2013375":
+        [177], "\u00b0C),": [178], "but": [179], "deposited": [181], "below": [182],
+        "250": [183], "nearly": [186], "amorphous.": [187], "Preferential": [188],
+        "changed": [190], "from": [191, 218], "(222)": [194], "raised": [199], "slightly":
+        [200], "above": [201], "375": [206], "\u00b0C,": [207], "where": [208], "partial":
+        [210], "decomposition": [211], "Y(thd)3": [213, 231], "probably": [214], "takes":
+        [215], "place.": [216], "Judging": [217], "levels": [221], "rates,": [227],
+        "adducting": [229], "does": [232], "not": [233], "bring": [234], "about":
+        [235], "any": [236], "advantages": [237], "Y2O3.": [243]}, "primary_location":
+        {"id": "doi:10.1002/1521-3862(200101)7:1<44::aid-cvde44>3.0.co;2-q", "doi":
+        "https://doi.org/10.1002/1521-3862(200101)7:1<44::aid-cvde44>3.0.co;2-q",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1002/1521-3862(200101)7:1<44::aid-cvde44>3.0.co;2-q",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S165206586", "display_name":
+        "Chemical Vapor Deposition", "issn_l": "0948-1907", "issn": ["0948-1907",
+        "1521-3862"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "norway-1"], "host_organization": "https://openalex.org/P4310320595",
+        "host_organization_name": "Wiley", "host_organization_lineage": ["https://openalex.org/P4310320595"],
+        "host_organization_lineage_names": ["Wiley"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Chemical Vapor Deposition", "raw_type":
+        "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a544295b4e0b5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '15663'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:08 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=Jq1GCqAd8fC%2FW94B5vk%2BSbvWtEQhX%2BKEMieEwWOhFHw%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633228"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=Jq1GCqAd8fC%2FW94B5vk%2BSbvWtEQhX%2BKEMieEwWOhFHw%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633228"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9630'
+      x-ratelimit-remaining-usd:
+      - '0.963'
+      x-ratelimit-reset:
+      - '30772'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=Y2O3+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 1480, "db_response_time_ms": 197, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (Y2O3 thin film)
+        in the title or abstract", "x_new_oql": "get works with (Y2O3 thin film) in
+        the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "Y2O3 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:Y2O3 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W2062156894"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a544295d0c945f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '613'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:08 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=Jq1GCqAd8fC%2FW94B5vk%2BSbvWtEQhX%2BKEMieEwWOhFHw%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633228"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=Jq1GCqAd8fC%2FW94B5vk%2BSbvWtEQhX%2BKEMieEwWOhFHw%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633228"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9620'
+      x-ratelimit-remaining-usd:
+      - '0.962'
+      x-ratelimit-reset:
+      - '30772'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=yttria+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 1592, "db_response_time_ms": 197, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (yttria thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (yttria thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "yttria
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:yttria
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W4240583509",
+        "doi": "https://doi.org/10.1117/12.47184", "title": "Effect of oxygen on optical
+        properties of yttria thin films", "publication_year": 1991, "abstract_inverted_index":
+        {"A": [0, 18], "series": [1], "of": [2, 35, 53], "yttria": [3, 72], "optical":
+        [4, 71], "thin": [5, 73], "films": [6, 48, 55, 74], "was": [7, 24], "prepared":
+        [8], "under": [9], "different": [10], "oxygen": [11, 60], "partial": [12],
+        "pressures": [13], "by": [14, 59], "electron": [15], "beam": [16], "evaporation.":
+        [17], "multiparameter": [19], "nonlinear": [20], "curve": [21], "fit": [22],
+        "method": [23], "used": [25], "to": [26, 69], "determine": [27], "the": [28,
+        42, 47, 51, 54, 66], "refractive": [29], "index,": [30], "absorption": [31,
+        77], "coefficient,": [32], "and": [33], "thickness": [34], "these": [36],
+        "films.": [37], "The": [38], "experimental": [39], "result": [40], "indicates":
+        [41], "partially": [43], "oxidized": [44, 58], "materials": [45], "inside":
+        [46], "that": [49], "reduce": [50], "transmittance": [52], "could": [56],
+        "be": [57], "backfilled": [61], "into": [62], "deposition": [63], "chamber":
+        [64], "during": [65], "evaporation": [67], "process": [68], "produce": [70],
+        "with": [75], "low": [76], "coefficient.": [78]}, "primary_location": {"id":
+        "doi:10.1117/12.47184", "doi": "https://doi.org/10.1117/12.47184", "is_oa":
+        false, "landing_page_url": "https://doi.org/10.1117/12.47184", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S183492911", "display_name":
+        "Proceedings of SPIE, the International Society for Optical Engineering/Proceedings
+        of SPIE", "issn_l": "0277-786X", "issn": ["0277-786X", "1996-756X"], "is_oa":
+        false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core", "norway-1"],
+        "host_organization": "https://openalex.org/P4310315543", "host_organization_name":
+        "SPIE", "host_organization_lineage": ["https://openalex.org/P4310315543"],
+        "host_organization_lineage_names": ["SPIE"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "SPIE Proceedings", "raw_type": "proceedings-article"}},
+        {"id": "https://openalex.org/W2055161051", "doi": "https://doi.org/10.1051/jp4:20011153",
+        "title": "Erbium doped yttria thin films deposited by injection CVD", "publication_year":
+        2001, "abstract_inverted_index": {"The": [0, 48, 102, 113, 122, 132], "deposition":
+        [1, 64, 130], "of": [2, 71, 90, 99, 124, 134, 150], "Er": [3, 19, 77, 103],
+        "doped": [4], "Y2O3": [5, 21], "thin": [6], "films": [7, 22, 93], "by": [8],
+        "a": [9, 24, 37], "pulsed": [10], "injection": [11], "assisted": [12], "MO-CVD":
+        [13], "process": [14], "is": [15], "studied.": [16], "Well": [17], "crystallised":
+        [18], ":": [20], "with": [23, 42, 128, 139], "columnar": [25], "growth": [26],
+        "structure": [27], "were": [28, 120], "deposited": [29, 92, 111], "between":
+        [30], "600\u00b0C": [31], "and": [32, 66, 78, 115], "900\u00b0C.": [33], "In":
+        [34], "some": [35], "cases": [36], "monoclinic": [38], "phase": [39, 55],
+        "was": [40, 105, 157], "obtained": [41, 106, 158], "the": [43, 53, 63, 68,
+        72, 76, 88, 91, 97, 100, 109, 129, 135, 140, 154], "classical": [44], "yttria":
+        [45], "cubic": [46, 54], "phase.": [47], "preferential": [49], "crystalline":
+        [50], "orientation": [51], "for": [52, 107], "(": [56], "[111]": [57], "or":
+        [58, 85], "[100]": [59], ")": [60], "depended": [61], "on": [62, 67], "temperature":
+        [65], "oxygen": [69], "content": [70, 142], "carrier": [73], "gas.": [74],
+        "Because": [75], "Y": [79, 86], "precursors": [80], "are": [81, 94], "chemically":
+        [82], "similar": [83], "(Er": [84], "tetramethylheptanedionate),": [87], "composition":
+        [89, 98], "closed": [95, 152], "to": [96, 144, 153], "solution.": [101], "luminescence":
+        [104], "all": [108], "as": [110], "samples.": [112], "green": [114], "Infrared4I13/2":
+        [116], "\u2192": [117], "4I15/2": [118], "transition": [119], "observed.":
+        [121], "lifetime": [123, 133, 149], "4I13/2": [125, 136], "level": [126, 137],
+        "increased": [127], "temperature.": [131], "decreased": [138], "erbium": [141,
+        161], "due": [143], "up": [145], "conversion": [146], "effect.": [147], "A":
+        [148], "7.5ms,": [151], "bulk": [155], "value,": [156], "at": [159], "low":
+        [160], "concentration.": [162]}, "primary_location": {"id": "doi:10.1051/jp4:20011153",
+        "doi": "https://doi.org/10.1051/jp4:20011153", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1051/jp4:20011153", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S4210173038", "display_name": "Journal de Physique IV
+        (Proceedings)", "issn_l": "1155-4339", "issn": ["1155-4339", "1764-7177"],
+        "is_oa": false, "is_in_doaj": false, "is_core": false, "listed_in": ["norway-1"],
+        "host_organization": "https://openalex.org/P4310319900", "host_organization_name":
+        "Springer Science+Business Media", "host_organization_lineage": ["https://openalex.org/P4310319900",
+        "https://openalex.org/P4310319965"], "host_organization_lineage_names": ["Springer
+        Science+Business Media", "Springer Nature"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Le Journal de Physique IV", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W2036245508", "doi": "https://doi.org/10.1051/jp4:1999873",
+        "title": "Er, Yb, and Er, Yb (CO-)doped yttria thin films, deposited by an
+        aerosol assisted MO-CVD process", "publication_year": 1999, "abstract_inverted_index":
+        {"Er,": [0], "Yb": [1], "and": [2, 41, 51, 61, 74], "Er,Yb": [3], ":": [4],
+        "Y2O3": [5], "thin": [6], "films": [7, 33, 47], "were": [8, 34], "deposited":
+        [9], "by": [10], "an": [11, 29], "aerosol": [12], "assisted": [13], "MO-CVD":
+        [14], "atmospheric": [15], "process.": [16], "The": [17, 32, 67], "source":
+        [18], "solution": [19], "(rare": [20], "earth": [21], "2,4-pentanedionates":
+        [22], "dissolved": [23], "in": [24, 72], "butanol)": [25], "is": [26], "sprayed":
+        [27], "using": [28], "ultrasonic": [30], "system.": [31], "obtained": [35],
+        "for": [36, 64, 102], "deposition": [37], "temperatures": [38], "between":
+        [39], "280\u00b0C": [40], "540\u00b0C.": [42], "At": [43], "high": [44], "temperature,":
+        [45], "the": [46, 77, 90], "are": [48, 86], "transparent,": [49], "polycrystalline":
+        [50], "smooth.": [52], "We": [53], "have": [54, 81], "used": [55], "SEM,":
+        [56], "X-ray": [57], "diffraction,": [58], "EPMA,": [59], "ellipsometry,":
+        [60], "IR": [62, 73], "spectroscopy,": [63], "film": [65], "characterisation.":
+        [66], "Er3+": [68], "Luminescence": [69], "was": [70, 100], "studied": [71],
+        "visible,": [75], "where": [76], "classical": [78], "green": [79], "transitions":
+        [80], "been": [82], "observed.": [83], "More,": [84], "there": [85], "numerous":
+        [87], "evidence": [88], "of": [89, 92, 97, 109], "existence": [91], "up-conversion":
+        [93], "phenornena.": [94], "A4l13/2": [95], "lifetime": [96], "2.2": [98],
+        "ms": [99], "found": [101], "a": [103], "sample": [104], "containing": [105],
+        "0.6": [106], "at.": [107], "%": [108], "Er.": [110]}, "primary_location":
+        {"id": "doi:10.1051/jp4:1999873", "doi": "https://doi.org/10.1051/jp4:1999873",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1051/jp4:1999873",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4210173038", "display_name":
+        "Journal de Physique IV (Proceedings)", "issn_l": "1155-4339", "issn": ["1155-4339",
+        "1764-7177"], "is_oa": false, "is_in_doaj": false, "is_core": false, "listed_in":
+        ["norway-1"], "host_organization": "https://openalex.org/P4310319900", "host_organization_name":
+        "Springer Science+Business Media", "host_organization_lineage": ["https://openalex.org/P4310319900",
+        "https://openalex.org/P4310319965"], "host_organization_lineage_names": ["Springer
+        Science+Business Media", "Springer Nature"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Le Journal de Physique IV", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W2017714634", "doi": "https://doi.org/10.1063/1.4801649",
+        "title": "Improved ionic conductivity in strained yttria-stabilized zirconia
+        thin films", "publication_year": 2013, "abstract_inverted_index": {"Yttria-stabilized":
+        [0], "zirconia": [1], "(YSZ)": [2], "thin": [3], "films": [4, 34, 45, 70],
+        "with": [5, 63], "thickness": [6], "ranging": [7], "from": [8], "6": [9],
+        "nm": [10, 13], "to": [11, 40], "100": [12], "were": [14], "prepared": [15],
+        "by": [16], "RF": [17], "sputtering": [18], "on": [19], "(0001)": [20], "Al2O3":
+        [21], "substrates": [22], "and": [23, 50, 85], "exhibited": [24, 35, 46],
+        "epitaxial": [25], "growth": [26], "along": [27], "(111)[110]": [28], "YSZ//(0001)[101\u00af0]":
+        [29], "Al2O3.": [30], "While": [31], "the": [32, 43, 64, 68, 75, 86], "thicker":
+        [33], "oxygen": [36], "ion": [37], "conductivities": [38], "similar": [39],
+        "bulk": [41], "samples,": [42], "thinnest": [44], "increased": [47], "ionic":
+        [48, 96], "conductivity": [49, 66], "a": [51], "reduced": [52], "activation":
+        [53], "energy": [54], "of": [55, 67, 88], "0.79": [56], "eV": [57], "between":
+        [58], "300": [59], "\u00b0C\u2013650": [60], "\u00b0C.": [61], "Concomitant":
+        [62], "improved": [65], "thinner": [69], "is": [71], "an": [72], "increase":
+        [73], "in": [74], "out-of-plane": [76], "lattice": [77], "parameter,": [78],
+        "matching": [79], "theoretical": [80], "expectations": [81], "regarding":
+        [82], "tensile": [83], "strain,": [84], "introduction": [87], "edge": [89],
+        "dislocations,": [90], "which": [91], "may": [92], "additionally": [93], "assist":
+        [94], "in-plane": [95], "conduction.": [97]}, "primary_location": {"id": "doi:10.1063/1.4801649",
+        "doi": "https://doi.org/10.1063/1.4801649", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.4801649", "pdf_url": null, "source": {"id": "https://openalex.org/S105243760",
+        "display_name": "Applied Physics Letters", "issn_l": "0003-6951", "issn":
+        ["0003-6951", "1077-3118", "1520-8842"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-a",
+        "jufo-3", "ki-jl-1", "norway-2", "poland-100", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Applied Physics
+        Letters", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W1978912524",
+        "doi": "https://doi.org/10.1063/1.1343852", "title": "Electrical conductivity
+        relaxation in thin-film yttria-stabilized zirconia", "publication_year": 2001,
+        "abstract_inverted_index": {"We": [0, 39], "report": [1], "on": [2, 6, 65],
+        "complex": [3, 27], "admittance": [4, 28, 55], "measurements": [5], "ZrO2:Y2O3":
+        [7], "(YSZ)": [8], "thin": [9, 19], "films": [10], "in": [11, 57, 68, 84],
+        "the": [12, 31, 60, 78], "parallel": [13], "plate": [14], "geometry.": [15],
+        "Highly": [16], "textured": [17], "YSZ": [18], "films,": [20], "grown": [21],
+        "by": [22, 49], "rf": [23], "sputtering,": [24], "allow": [25], "measuring":
+        [26], "free": [29], "of": [30, 33, 51, 59, 81], "effect": [32], "charge":
+        [34], "blocking": [35], "at": [36], "grain": [37], "boundaries.": [38], "have":
+        [40], "examined": [41], "low-temperature": [42], "(close": [43], "to": [44],
+        "room": [45], "temperature)": [46], "regime": [47], "dominated": [48], "association":
+        [50, 75], "oxygen": [52, 79], "vacancies.": [53], "Complex": [54], "analyzed":
+        [56], "terms": [58], "modulus": [61], "formalism": [62], "supplies": [63],
+        "information": [64], "correlation": [66], "effects": [67], "ion": [69], "motion":
+        [70], "and": [71], "allows": [72], "obtaining": [73], "an": [74], "energy":
+        [76], "for": [77], "vacancies": [80], "0.45": [82], "eV,": [83], "agreement":
+        [85], "with": [86], "previous": [87], "theoretical": [88], "calculations.":
+        [89]}, "primary_location": {"id": "doi:10.1063/1.1343852", "doi": "https://doi.org/10.1063/1.1343852",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.1063/1.1343852", "pdf_url":
+        "https://pubs.aip.org/aip/apl/article-pdf/78/5/610/10188604/610_1_online.pdf",
+        "source": {"id": "https://openalex.org/S105243760", "display_name": "Applied
+        Physics Letters", "issn_l": "0003-6951", "issn": ["0003-6951", "1077-3118",
+        "1520-8842"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Applied Physics Letters", "raw_type": "journal-article"}}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a544295eeb8c5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '13915'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:08 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=Jq1GCqAd8fC%2FW94B5vk%2BSbvWtEQhX%2BKEMieEwWOhFHw%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633228"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=Jq1GCqAd8fC%2FW94B5vk%2BSbvWtEQhX%2BKEMieEwWOhFHw%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633228"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9610'
+      x-ratelimit-remaining-usd:
+      - '0.961'
+      x-ratelimit-reset:
+      - '30772'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=yttria+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 2603, "db_response_time_ms": 55, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (yttria thin film)
+        in the title or abstract", "x_new_oql": "get works with (yttria thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "yttria thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:yttria thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W2039801307"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442960db4a5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '620'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:09 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=Jq1GCqAd8fC%2FW94B5vk%2BSbvWtEQhX%2BKEMieEwWOhFHw%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633228"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=Jq1GCqAd8fC%2FW94B5vk%2BSbvWtEQhX%2BKEMieEwWOhFHw%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633228"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9600'
+      x-ratelimit-remaining-usd:
+      - '0.96'
+      x-ratelimit-reset:
+      - '30771'
+    status:
+      code: 200
+      message: OK
+version: 1

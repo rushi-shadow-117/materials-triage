@@ -1,0 +1,469 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=AgTaO3+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 9, "db_response_time_ms": 43, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (AgTaO3 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (AgTaO3 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "AgTaO3
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:AgTaO3
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W140947628",
+        "doi": null, "title": "Preparation of AgTaO3 and AgNbO3 thin films by pulsed
+        laser deposition", "publication_year": 2010, "abstract_inverted_index": {"Microwave":
+        [0, 305], "materials": [1, 23, 34, 46, 77, 83, 119], "have": [2, 35, 85],
+        "been": [3, 37], "widely": [4], "used": [5, 122, 356], "in": [6, 43, 101,
+        123, 139, 385, 436, 495], "a": [7, 104, 113, 160, 167, 240], "variety": [8],
+        "of": [9, 22, 31, 62, 73, 76, 106, 116, 130, 147, 195, 211, 239, 307, 326,
+        360, 424, 493], "applications": [10], "ranging": [11], "from": [12, 389, 413,
+        440, 472, 499, 524], "communication": [13], "devices": [14], "to": [15, 112,
+        188, 273, 284, 349, 383, 391, 417, 442, 476, 501, 528], "military": [16],
+        "satellite": [17], "services,": [18], "and": [19, 28, 48, 50, 68, 89, 95,
+        135, 144, 170, 193, 208, 236, 255, 257, 301, 310, 331, 344, 365, 458, 520],
+        "the": [20, 29, 39, 56, 60, 74, 110, 140, 190, 308, 339, 358, 386, 397, 437,
+        496], "study": [21], "properties": [24, 75, 92, 207, 306], "at": [25, 79],
+        "microwave": [26, 33, 80, 173, 209, 319, 332, 387, 422, 438, 497], "frequencies":
+        [27], "development": [30, 61], "functional": [32], "always": [36], "among":
+        [38], "most": [40], "active": [41], "areas": [42], "solid-state": [44], "physics,":
+        [45], "science,": [47], "electrical": [49], "electronic": [51, 127, 148],
+        "engineering.": [52], "In": [53], "recent": [54], "years,": [55], "increasing":
+        [57], "requirements": [58], "for": [59, 126, 204, 357], "high": [63, 65, 86,
+        132, 145, 242], "speed,": [64], "frequency": [66, 447, 491], "circuits": [67,
+        175], "systems": [69], "require": [70], "complete": [71], "understanding":
+        [72], "function": [78, 105], "frequencies.": [81], "Ferroelectric": [82, 118],
+        "usually": [84], "dielectric": [87, 91, 133, 191], "constants,": [88, 134],
+        "their": [90, 131], "are": [93], "temperature": [94], "electric": [96, 107,
+        336], "field": [97, 108, 337], "dependent.": [98], "The": [99, 150, 227, 367,
+        421, 480], "change": [100], "permittivity": [102], "as": [103, 166, 218, 220],
+        "is": [109, 137, 159, 185, 324, 449, 470], "key": [111], "wide": [114], "range":
+        [115, 388, 439, 498], "applications.": [117], "can": [120, 163, 180], "be":
+        [121, 164, 181, 285], "fabrication": [124], "capacitors": [125, 371], "industry":
+        [128], "because": [129], "this": [136, 395], "important": [138, 187], "trend":
+        [141], "toward": [142], "miniaturization": [143], "functionality": [146],
+        "products.": [149], "simple": [151], "tunable": [152, 172], "passive": [153],
+        "component": [154], "based": [155], "on": [156, 268, 278, 377, 433, 487],
+        "ferroelectric": [157, 177, 196], "films": [158, 179, 228, 267, 277, 369,
+        482], "varactor": [161], "which": [162], "made": [165], "planar": [168], "structure,":
+        [169], "electrically": [171], "integrated": [174], "using": [176, 317], "thin":
+        [178, 197, 225], "developed.": [182], "Therefore,": [183], "it": [184], "very":
+        [186], "characterize": [189], "constant": [192], "tunability": [194, 364,
+        399, 453, 507], "films.": [198, 226], "This": [199], "thesis": [200], "shows":
+        [201], "experimental": [202], "results": [203], "growth,": [205], "crystalline":
+        [206], "characterization": [210], "Na0.5K0.5NbO3": [212], "(NKN),": [213],
+        "AgTa0.5Nb0.5O3": [214], "(ATN),": [215], "Ba0.5Sr0.5TiO3": [216], "(BST)":
+        [217], "well": [219], "AgTaO3": [221], "(ATO),": [222], "AgNbO3": [223], "(ANO)":
+        [224], "were": [229, 271, 282, 295, 315, 355], "grown": [230], "by": [231,
+        297], "Pulsed": [232], "Laser": [233], "Deposition": [234], "(PLD)": [235],
+        "rf-magnetron": [237], "sputtering": [238], "stoichiometric,": [241], "density,":
+        [243], "ceramic": [244], "NKN,": [245, 264], "ATN,": [246, 265], "BST": [247,
+        266, 481], "target": [248], "onto": [249], "single": [250], "crystal": [251],
+        "LaAlO3(LAO),": [252], "Al2O3": [253, 488], "(sapphire),": [254], "Nd:YAlO3,":
+        [256], "amorphous": [258], "glass": [259], "substrates.": [260], "By": [261],
+        "x-ray": [262], "diffractometry,": [263], "LAO": [269], "substrates": [270,
+        281], "found": [272, 283], "grow": [274], "epitaxially,": [275], "whereas":
+        [276], "r-cut": [279], "sapphire": [280, 434], "preferentially": [286], "(00l)":
+        [287], "oriented.": [288], "Coplanar": [289], "waveguide": [290], "interdigital":
+        [291, 370], "capacitor": [292], "(CPWIDC)": [293], "structures": [294, 314],
+        "fabricated": [296], "standard": [298], "photolithography": [299], "processing":
+        [300], "metal": [302], "lift-off": [303], "technique.": [304, 321], "NKN/Sapphire":
+        [309], "ATN/Sapphire": [311], "with": [312, 372, 428, 484], "CPW": [313],
+        "characterized": [316], "on-wafer": [318], "measurement": [320], "Measurement":
+        [322], "setup": [323], "composed": [325], "network": [327, 342], "analyzer,":
+        [328], "probe": [329], "station,": [330], "G-S-G": [333], "probes.": [334],
+        "External": [335], "through": [338], "connection": [340], "between": [341],
+        "analyzer": [343], "power": [345], "supply": [346], "was": [347, 403, 454],
+        "applied": [348], "measure": [350], "voltage": [351, 398, 452, 506], "tunability.":
+        [352], "Measured": [353], "S-parameter": [354], "calculation": [359], "capacitance,":
+        [361], "loss": [362, 406, 461, 514], "tan\u03b4,": [363], "K-factor.": [366],
+        "NKN": [368], "2": [373, 429], "\u03bcm": [374, 430], "finger": [375, 431],
+        "gap": [376, 432, 486], "Nd:YAlO3": [378], "showed": [379, 445, 490], "superior":
+        [380], "performance": [381, 423], "compared": [382], "ATN": [384, 425], "1":
+        [390, 441, 500, 509], "40": [392, 443, 502], "GHz.": [393], "Within": [394],
+        "range,": [396], "(40V,": [400], "200": [401, 459], "kV/cm)": [402], "about":
+        [404, 450, 504], "29%,": [405], "tangent": [407, 462, 515], "\u223c": [408,
+        463, 512, 516], "0.13,": [409], "K-factor": [410, 467, 521], "=": [411, 468,
+        508, 522], "tunability/tan\u03b4": [412, 469, 523], "152%": [414], "@": [415,
+        419, 456, 465, 474, 478, 518, 526, 530], "10GHz": [416, 475, 527], "46%":
+        [418], "40GHz.": [420, 479, 531], "film": [426], "CPWIDC": [427, 483], "substrate":
+        [435, 489], "GHz": [444, 503], "that": [446], "dispersion": [448, 492], "4.3%,":
+        [451], "4.7%": [455], "20GHz": [457], "kV/cm,": [460], "0.068": [464], "20GHz,":
+        [466, 519], "ranged": [471], "124%": [473], "35%": [477], "2\u03bcmfinger":
+        [485], "capacitance": [494], "17%,": [505], "-": [510], "C(40V)/C(0)": [511],
+        "22.2%,": [513], "0.137": [517], "281%": [525], "95%": [529]}, "primary_location":
+        {"id": "mag:140947628", "doi": null, "is_oa": false, "landing_page_url": "http://kth.diva-portal.org/smash/record.jsf?pid=diva2:374990",
+        "pdf_url": null, "source": null, "license": null, "license_id": null, "version":
+        null, "is_accepted": false, "is_published": false, "raw_source_name": null,
+        "raw_type": null}}, {"id": "https://openalex.org/W2073874048", "doi": "https://doi.org/10.1063/1.2403918",
+        "title": "( 00 l ) epitaxial AgTaO3 and AgNbO3 thin films on (001)SrRuO3\u2215(001)LaAlO3
+        substrates by chemical solution deposition", "publication_year": 2006, "abstract_inverted_index":
+        {"(": [0], "00": [1], "l": [2], ")": [3], "epitaxial": [4], "AgTaO3": [5,
+        33, 70, 79], "and": [6, 22, 30, 34, 36, 71], "AgNbO3": [7, 39, 92], "thin":
+        [8], "films": [9, 27], "were": [10, 28, 67], "prepared": [11], "on": [12],
+        "(001)SrRuO3\u2215(001)LaAlO3": [13], "substrates": [14], "by": [15], "chemical":
+        [16], "solution": [17], "deposition.": [18], "The": [19, 62, 75], "dielectric":
+        [20], "constants": [21], "loss": [23], "of": [24, 49, 58, 77], "\u223c300nm":
+        [25], "thick": [26], "110\u00b110": [29], "0.025\u00b10.005": [31], "for":
+        [32, 38, 55, 69, 73, 91], "550\u00b155": [35], "0.020\u00b10.005": [37], "at":
+        [40, 83, 93], "room": [41], "temperature.": [42], "In": [43], "both": [44],
+        "films,": [45], "the": [46, 59, 78], "temperature": [47], "coefficient": [48],
+        "capacitance": [50, 63], "is": [51], "smaller": [52], "than": [53], "that":
+        [54], "bulk": [56], "ceramics": [57], "same": [60], "composition.": [61],
+        "changes": [64], "from": [65], "\u221220to120\u00b0C": [66], "\u2a7d1.2%":
+        [68], "\u2a7d3.6%": [72], "AgNbO3.": [74], "tunability": [76, 88], "film":
+        [80], "was": [81, 89], "1.6%": [82], "230kV\u2215cm": [84], "field,": [85],
+        "while": [86], "21%": [87], "measured": [90], "190kV\u2215cm.": [94]}, "primary_location":
+        {"id": "doi:10.1063/1.2403918", "doi": "https://doi.org/10.1063/1.2403918",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.2403918", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S105243760", "display_name":
+        "Applied Physics Letters", "issn_l": "0003-6951", "issn": ["0003-6951", "1077-3118",
+        "1520-8842"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Applied Physics Letters", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W7214363835", "doi": "https://doi.org/10.48550/arxiv.2609.30229",
+        "title": "Molecular Beam Epitaxy of AgTaO3", "publication_year": 2026, "abstract_inverted_index":
+        {"We": [0], "report": [1], "the": [2, 56, 62, 71, 123], "first": [3], "synthesis":
+        [4, 135], "of": [5, 30], "single-crystal": [6, 138], "AgTaO3": [7, 16, 139],
+        "thin": [8, 140], "films": [9, 17, 57], "using": [10, 27], "molecular-beam":
+        [11], "epitaxy": [12], "(MBE).": [13], "High-quality": [14], "epitaxial":
+        [15], "were": [18], "grown": [19], "on": [20], "both": [21, 128], "(001)-":
+        [22], "and": [23, 33, 50, 149], "(111)-oriented": [24], "SrTiO3": [25, 63],
+        "substrates": [26, 64], "sequential": [28], "deposition": [29], "atomic":
+        [31], "silver": [32], "TaO2": [34], "layers": [35], "under": [36], "an": [37,
+        133], "ozone/oxygen": [38], "atmosphere": [39], "(80": [40], "%": [41, 45],
+        "O3": [42], "+": [43], "20": [44], "O2).": [46], "X-ray": [47, 113], "diffrac-":
+        [48], "tion": [49], "reciprocal": [51], "space": [52], "mapping": [53], "demonstrate":
+        [54], "that": [55], "are": [58], "coherently": [59], "strained": [60], "to":
+        [61, 70, 102, 145], "with": [65], "sharp": [66], "rocking": [67], "curves":
+        [68], "comparable": [69], "substrates,": [72], "indicating": [73], "high":
+        [74], "structural": [75], "perfection.": [76], "High-angle": [77], "annular":
+        [78], "dark-field": [79], "scanning": [80], "trans-": [81], "mission": [82],
+        "electron": [83], "microscopy": [84], "(HAADF-STEM)": [85], "confirms": [86],
+        "coherent,": [87], "low": [88], "defect": [89], "growth": [90, 99], "for":
+        [91, 127, 137], "(001)pc-oriented": [92], "films.": [93], "For": [94], "(111)pc-oriented":
+        [95], "films,": [96, 141], "initial": [97], "coherent": [98], "proceeds":
+        [100], "up": [101], "10": [103], "nm": [104], "before": [105], "transitioning":
+        [106], "into": [107], "a": [108, 117, 143], "Ta-rich": [109], "surface": [110],
+        "region.": [111], "Energy-dispersive": [112], "spectroscopy": [114], "(EDX)":
+        [115], "reveals": [116], "narrow": [118], "cation": [119], "intermixing":
+        [120], "region": [121], "at": [122], "sub-": [124], "strate": [125], "interface":
+        [126], "orientations.": [129], "This": [130], "work": [131], "demonstrates":
+        [132], "effective": [134], "route": [136], "providing": [142], "platform":
+        [144], "investigate": [146], "strain": [147], "engineering": [148], "emergent":
+        [150], "interfacial": [151], "properties": [152], "in": [153], "silver-based":
+        [154], "tantalates.": [155]}, "primary_location": {"id": "pmh:oai:arXiv.org:2609.30229",
+        "doi": null, "is_oa": true, "landing_page_url": "https://arxiv.org/abs/2609.30229",
+        "pdf_url": "https://arxiv.org/pdf/2609.30229", "source": {"id": "https://openalex.org/S4306400194",
+        "display_name": "arXiv (Cornell University)", "issn_l": "2331-8422", "issn":
+        ["2331-8422"], "is_oa": true, "is_in_doaj": false, "is_core": false, "listed_in":
+        [], "host_organization": "https://openalex.org/I205783295", "host_organization_name":
+        "Cornell University", "host_organization_lineage": ["https://openalex.org/I205783295"],
+        "host_organization_lineage_names": [], "type": "repository"}, "license": null,
+        "license_id": null, "version": "submittedVersion", "is_accepted": false, "is_published":
+        false, "raw_source_name": null, "raw_type": "text"}}, {"id": "https://openalex.org/W182240630",
+        "doi": null, "title": "Microwave Ba0.5Sr0.5TiO3 Thin Film Microwave Varactors",
+        "publication_year": 2010, "abstract_inverted_index": {"Microwave": [0, 305],
+        "materials": [1, 23, 34, 46, 77, 83, 119], "have": [2, 35, 85], "been": [3,
+        37], "widely": [4], "used": [5, 122, 356], "in": [6, 43, 101, 123, 139, 385,
+        436, 495], "a": [7, 104, 113, 160, 167, 240], "variety": [8], "of": [9, 22,
+        31, 62, 73, 76, 106, 116, 130, 147, 195, 211, 239, 307, 326, 360, 424, 493],
+        "applications": [10], "ranging": [11], "from": [12, 389, 413, 440, 472, 499,
+        524], "communication": [13], "devices": [14], "to": [15, 112, 188, 273, 284,
+        349, 383, 391, 417, 442, 476, 501, 528], "military": [16], "satellite": [17],
+        "services,": [18], "and": [19, 28, 48, 50, 68, 89, 95, 135, 144, 170, 193,
+        208, 236, 255, 257, 301, 310, 331, 344, 365, 458, 520], "the": [20, 29, 39,
+        56, 60, 74, 110, 140, 190, 308, 339, 358, 386, 397, 437, 496], "study": [21],
+        "properties": [24, 75, 92, 207, 306], "at": [25, 79], "microwave": [26, 33,
+        80, 173, 209, 319, 332, 387, 422, 438, 497], "frequencies": [27], "development":
+        [30, 61], "functional": [32], "always": [36], "among": [38], "most": [40],
+        "active": [41], "areas": [42], "solid-state": [44], "physics,": [45], "science,":
+        [47], "electrical": [49], "electronic": [51, 127, 148], "engineering.": [52],
+        "In": [53], "recent": [54], "years,": [55], "increasing": [57], "requirements":
+        [58], "for": [59, 126, 204, 357], "high": [63, 65, 86, 132, 145, 242], "speed,":
+        [64], "frequency": [66, 447, 491], "circuits": [67, 175], "systems": [69],
+        "require": [70], "complete": [71], "understanding": [72], "function": [78,
+        105], "frequencies.": [81], "Ferroelectric": [82, 118], "usually": [84], "dielectric":
+        [87, 91, 133, 191], "constants,": [88, 134], "their": [90, 131], "are": [93],
+        "temperature": [94], "electric": [96, 107, 336], "field": [97, 108, 337],
+        "dependent.": [98], "The": [99, 150, 227, 367, 421, 480], "change": [100],
+        "permittivity": [102], "as": [103, 166, 218, 220], "is": [109, 137, 159, 185,
+        324, 449, 470], "key": [111], "wide": [114], "range": [115, 388, 439, 498],
+        "applications.": [117], "can": [120, 163, 180], "be": [121, 164, 181, 285],
+        "fabrication": [124], "capacitors": [125, 371], "industry": [128], "because":
+        [129], "this": [136, 395], "important": [138, 187], "trend": [141], "toward":
+        [142], "miniaturization": [143], "functionality": [146], "products.": [149],
+        "simple": [151], "tunable": [152, 172], "passive": [153], "component": [154],
+        "based": [155], "on": [156, 268, 278, 377, 433, 487], "ferroelectric": [157,
+        177, 196], "films": [158, 179, 228, 267, 277, 369, 482], "varactor": [161],
+        "which": [162], "made": [165], "planar": [168], "structure,": [169], "electrically":
+        [171], "integrated": [174], "using": [176, 317], "thin": [178, 197, 225],
+        "developed.": [182], "Therefore,": [183], "it": [184], "very": [186], "characterize":
+        [189], "constant": [192], "tunability": [194, 364, 399, 453, 507], "films.":
+        [198, 226], "This": [199], "thesis": [200], "shows": [201], "experimental":
+        [202], "results": [203], "growth,": [205], "crystalline": [206], "characterization":
+        [210], "Na0.5K0.5NbO3": [212], "(NKN),": [213], "AgTa0.5Nb0.5O3": [214], "(ATN),":
+        [215], "Ba0.5Sr0.5TiO3": [216], "(BST)": [217], "well": [219], "AgTaO3": [221],
+        "(ATO),": [222], "AgNbO3": [223], "(ANO)": [224], "were": [229, 271, 282,
+        295, 315, 355], "grown": [230], "by": [231, 297], "Pulsed": [232], "Laser":
+        [233], "Deposition": [234], "(PLD)": [235], "rf-magnetron": [237], "sputtering":
+        [238], "stoichiometric,": [241], "density,": [243], "ceramic": [244], "NKN,":
+        [245, 264], "ATN,": [246, 265], "BST": [247, 266, 481], "target": [248], "onto":
+        [249], "single": [250], "crystal": [251], "LaAlO3(LAO),": [252], "Al2O3":
+        [253, 488], "(sapphire),": [254], "Nd:YAlO3,": [256], "amorphous": [258],
+        "glass": [259], "substrates.": [260], "By": [261], "x-ray": [262], "diffractometry,":
+        [263], "LAO": [269], "substrates": [270, 281], "found": [272, 283], "grow":
+        [274], "epitaxially,": [275], "whereas": [276], "r-cut": [279], "sapphire":
+        [280, 434], "preferentially": [286], "(00l)": [287], "oriented.": [288], "Coplanar":
+        [289], "waveguide": [290], "interdigital": [291, 370], "capacitor": [292],
+        "(CPWIDC)": [293], "structures": [294, 314], "fabricated": [296], "standard":
+        [298], "photolithography": [299], "processing": [300], "metal": [302], "lift-off":
+        [303], "technique.": [304, 321], "NKN/Sapphire": [309], "ATN/Sapphire": [311],
+        "with": [312, 372, 428, 484], "CPW": [313], "characterized": [316], "on-wafer":
+        [318], "measurement": [320], "Measurement": [322], "setup": [323], "composed":
+        [325], "network": [327, 342], "analyzer,": [328], "probe": [329], "station,":
+        [330], "G-S-G": [333], "probes.": [334], "External": [335], "through": [338],
+        "connection": [340], "between": [341], "analyzer": [343], "power": [345],
+        "supply": [346], "was": [347, 403, 454], "applied": [348], "measure": [350],
+        "voltage": [351, 398, 452, 506], "tunability.": [352], "Measured": [353],
+        "S-parameter": [354], "calculation": [359], "capacitance,": [361], "loss":
+        [362, 406, 461, 514], "tan\u03b4,": [363], "K-factor.": [366], "NKN": [368],
+        "2": [373, 429], "\u03bcm": [374, 430], "finger": [375, 431], "gap": [376,
+        432, 486], "Nd:YAlO3": [378], "showed": [379, 445, 490], "superior": [380],
+        "performance": [381, 423], "compared": [382], "ATN": [384, 425], "1": [390,
+        441, 500, 509], "40": [392, 443, 502], "GHz.": [393], "Within": [394], "range,":
+        [396], "(40V,": [400], "200": [401, 459], "kV/cm)": [402], "about": [404,
+        450, 504], "29%,": [405], "tangent": [407, 462, 515], "\u223c": [408, 463,
+        512, 516], "0.13,": [409], "K-factor": [410, 467, 521], "=": [411, 468, 508,
+        522], "tunability/tan\u03b4": [412, 469, 523], "152%": [414], "@": [415, 419,
+        456, 465, 474, 478, 518, 526, 530], "10GHz": [416, 475, 527], "46%": [418],
+        "40GHz.": [420, 479, 531], "film": [426], "CPWIDC": [427, 483], "substrate":
+        [435, 489], "GHz": [444, 503], "that": [446], "dispersion": [448, 492], "4.3%,":
+        [451], "4.7%": [455], "20GHz": [457], "kV/cm,": [460], "0.068": [464], "20GHz,":
+        [466, 519], "ranged": [471], "124%": [473], "35%": [477], "2\u03bcmfinger":
+        [485], "capacitance": [494], "17%,": [505], "-": [510], "C(40V)/C(0)": [511],
+        "22.2%,": [513], "0.137": [517], "281%": [525], "95%": [529]}, "primary_location":
+        {"id": "mag:182240630", "doi": null, "is_oa": false, "landing_page_url": "http://www.diva-portal.org/smash/record.jsf?pid=diva2%3A374995",
+        "pdf_url": null, "source": null, "license": null, "license_id": null, "version":
+        null, "is_accepted": false, "is_published": false, "raw_source_name": null,
+        "raw_type": null}}, {"id": "https://openalex.org/W2945442669", "doi": "https://doi.org/10.1080/01694243.2018.1549770",
+        "title": "Study the effect of thermal annealing on adhesion strength of Silver-Tantalum
+        Oxide thin film deposited by reactive magnetron sputtering", "publication_year":
+        2019, "abstract_inverted_index": {"Stainless": [0], "steel": [1], "(SS)":
+        [2], "are": [3], "extensively": [4], "used": [5], "for": [6, 236, 249], "healthcare,":
+        [7], "hygiene": [8], "and": [9, 18, 43, 65, 99, 135, 140, 167, 185, 193],
+        "surgical": [10, 56], "applications": [11], "due": [12, 32], "to": [13, 33,
+        41, 109, 148, 221], "their": [14], "excellent": [15], "corrosion": [16, 35],
+        "resistance": [17, 40], "adequate": [19], "mechanical": [20, 38], "strength.":
+        [21, 102, 254], "Among": [22], "this": [23], "class": [24], "SS": [25, 52,
+        85, 118, 160], "316": [26, 53, 86, 119, 161], "L": [27, 54, 87, 162], "is":
+        [28, 89], "employed": [29, 108], "most": [30], "widely,": [31], "highest":
+        [34], "resistance,": [36], "good": [37], "properties,": [39], "sensitization":
+        [42], "ease": [44], "of": [45, 62, 81, 91, 138, 152, 165, 195, 226], "fabrication.":
+        [46], "To": [47], "incorporate": [48], "antimicrobial": [49], "characteristic":
+        [50], "in": [51, 252], "based": [55], "tools": [57], "a": [58, 227], "nanocomposite":
+        [59, 115, 157], "layer": [60, 116, 158], "comprising": [61, 164], "Silver":
+        [63, 230], "(Ag)": [64], "Tantalum": [66], "oxide": [67, 232], "(TaxOx)":
+        [68], "has": [69, 106, 125, 144, 169], "been": [70, 107, 126, 145, 170], "deposited":
+        [71], "by": [72, 128, 172, 205], "using": [73], "Physical": [74], "Vapor":
+        [75], "Deposition": [76], "(PVD)": [77], "magnetron": [78, 104], "sputtering.":
+        [79], "Delamination": [80], "ceramic": [82], "layers": [83], "on": [84, 117,
+        159], "substrate": [88, 163], "one": [90], "the": [92, 150, 153, 191, 198,
+        207, 237, 250], "major": [93], "limitation": [94], "arising": [95], "from":
+        [96], "insufficient": [97], "crystallization": [98], "poor": [100], "adhesion":
+        [101, 123, 201, 217, 253], "PVD": [103], "sputtering": [105], "develop": [110],
+        "5.49": [111], "\u00b5m": [112], "thick": [113], "Ag-TaxOx": [114], "L.":
+        [120], "Substantially": [121], "improved": [122], "strength": [124, 202, 218],
+        "achieved": [127, 171, 204], "controlling": [129], "thermal": [130], "treatment.":
+        [131], "The": [132, 224], "microstructure,": [133], "surface": [134], "phase":
+        [136, 229], "analysis": [137], "as-sputtered": [139], "annealed": [141, 239],
+        "thin": [142], "films": [143], "carried": [146], "out": [147], "determine":
+        [149], "characteristics": [151], "developed": [154], "layer.": [155, 223],
+        "A": [156], "Ag": [166, 196], "TaxOx": [168], "releasing": [173], "O2": [174],
+        "during": [175], "deposition.": [176], "Thermal": [177], "treatment": [178],
+        "was": [179, 203, 234], "performed": [180], "at": [181, 197, 210, 240], "300,":
+        [182], "400,": [183], "500": [184], "600": [186], "\u00b0C": [187], "which":
+        [188, 213, 245], "progressively": [189], "increased": [190, 216], "crystallinity":
+        [192], "segregation": [194], "surface.": [199], "Highest": [200], "annealing":
+        [206], "coated": [208], "samples": [209, 238], "400": [211, 243], "\u00b0C,":
+        [212, 244], "exhibited": [214], "four-fold": [215], "when": [219], "compared":
+        [220], "as-deposited": [222], "precipitation": [225], "new": [228], "tantalum":
+        [231], "(AgTaO3)": [233], "observed": [235], "temperature": [241], "above":
+        [242], "may": [246], "be": [247], "responsible": [248], "decrease": [251]},
+        "primary_location": {"id": "doi:10.1080/01694243.2018.1549770", "doi": "https://doi.org/10.1080/01694243.2018.1549770",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1080/01694243.2018.1549770",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S20355562", "display_name":
+        "Journal of Adhesion Science and Technology", "issn_l": "0169-4243", "issn":
+        ["0169-4243", "1568-5616"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1",
+        "norway-1", "poland-40", "russia-white-list-2"], "host_organization": "https://openalex.org/P4310320547",
+        "host_organization_name": "Taylor & Francis", "host_organization_lineage":
+        ["https://openalex.org/P4310320547", "https://openalex.org/P4310320449"],
+        "host_organization_lineage_names": ["Taylor & Francis", "Informa"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Adhesion Science and Technology", "raw_type": "journal-article"}}], "group_by":
+        []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429ae1eff5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '24384'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:21 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=FDrvRWX7dINCENL6KfDzuPAbMkYBO5Hms9rLiUCOCaI%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633241"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=FDrvRWX7dINCENL6KfDzuPAbMkYBO5Hms9rLiUCOCaI%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633241"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9150'
+      x-ratelimit-remaining-usd:
+      - '0.915'
+      x-ratelimit-reset:
+      - '30759'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=AgTaO3+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 12, "db_response_time_ms": 21, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (AgTaO3 thin film)
+        in the title or abstract", "x_new_oql": "get works with (AgTaO3 thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "AgTaO3 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:AgTaO3 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W2088480293"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429af3b945f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '618'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:21 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=FDrvRWX7dINCENL6KfDzuPAbMkYBO5Hms9rLiUCOCaI%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633241"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=FDrvRWX7dINCENL6KfDzuPAbMkYBO5Hms9rLiUCOCaI%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633241"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9140'
+      x-ratelimit-remaining-usd:
+      - '0.914'
+      x-ratelimit-reset:
+      - '30759'
+    status:
+      code: 200
+      message: OK
+version: 1

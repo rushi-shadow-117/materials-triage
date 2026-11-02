@@ -384,3 +384,24 @@ band-offset paper that uses it as an input, so the entry stays pending until the
 the intended record. The 7.0 and 7.6 eV Al2O3 values are dropped (no primary source). The
 arXiv 1705.00315 abstract does not state 6.6 eV; the body text is checked before entry.
 Reason: a citation that does not contain the value is not a source.
+
+## 2026-11-02 Track 0: data and contracts
+Decision (owner's parallel plan): Track 0 records the full composition set, ships the bundle
+and config contracts, a generated sample bundle, CLI and API stubs with generated TypeScript
+types, and freezes dependencies. After it merges, pyproject.toml, uv.lock, CLAUDE.md,
+internal/PLAN_OVERVIEW.md, records/, provenance/, and adapters/ are frozen; a track that
+needs a change there stops and asks. Each later track appends only under its own heading
+below. Rules: internal/parallel-plan.md.
+Reason: six sessions build in parallel against one deadline; collisions cost more than the
+contracts cost.
+Alternative: one sequential session.
+
+## Track A: scoring
+
+## Track B: agent, verifier, renderers, CLI
+
+## Track C: API and web
+
+## Track D: deploy and docs
+
+## Track E: eval and validation

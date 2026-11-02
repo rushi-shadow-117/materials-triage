@@ -1,0 +1,362 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=PbZrO3+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 154, "db_response_time_ms": 18, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (PbZrO3 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (PbZrO3 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "PbZrO3
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:PbZrO3
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2046718967",
+        "doi": "https://doi.org/10.1002/pssr.200802128", "title": "Electrocaloric
+        effect in antiferroelectric PbZrO3 thin films", "publication_year": 2008,
+        "abstract_inverted_index": {"Abstract": [0], "Antiferroelectric": [1], "PbZrO3":
+        [2], "thin": [3, 60], "films": [4], "have": [5, 22, 70], "been": [6, 23, 48,
+        71], "deposited": [7], "on": [8], "Pt(111)/Ti/SiO2/Si": [9], "substrate":
+        [10], "by": [11], "polymer": [12], "modified": [13], "sol\u2013gel": [14],
+        "route.": [15], "Temperature": [16], "dependent": [17], "P": [18], "\u2013E":
+        [19], "hysteresis": [20], "loops": [21], "measured": [24], "at": [25], "51":
+        [26], "MV/m": [27], "within": [28], "a": [29], "temperature": [30, 55, 68],
+        "range": [31], "of": [32, 58], "40": [33], "\u00b0C": [34], "to": [35, 73],
+        "330": [36], "\u00b0C.": [37], "The": [38, 62], "maximum": [39], "electrocaloric":
+        [40, 63], "effect": [41, 64], "\u223c0.224": [42], "\u00d7": [43], "10\u20136":
+        [44], "K": [45], "mV\u20131": [46], "has": [47], "observed": [49], "near":
+        [50], "the": [51, 59], "dielectric": [52], "phase": [53, 76], "transition":
+        [54], "(235": [56], "\u00b0C)": [57], "films.": [61], "and": [65], "its":
+        [66], "strong": [67], "dependence": [69], "attributed": [72], "nearly": [74],
+        "first\u2010order": [75], "transition.": [77], "(\u00a9": [78], "2008": [79],
+        "WILEY\u2010VCH": [80], "Verlag": [81], "GmbH": [82], "&": [83], "Co.": [84],
+        "KGaA,": [85], "Weinheim)": [86]}, "primary_location": {"id": "doi:10.1002/pssr.200802128",
+        "doi": "https://doi.org/10.1002/pssr.200802128", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1002/pssr.200802128", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S4210198591", "display_name": "physica status solidi
+        (RRL) - Rapid Research Letters", "issn_l": "1862-6254", "issn": ["1862-6254",
+        "1862-6270"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "dongbi-c", "jufo-1", "norway-1", "poland-100", "russia-white-list-2"],
+        "host_organization": "https://openalex.org/P4310320595", "host_organization_name":
+        "Wiley", "host_organization_lineage": ["https://openalex.org/P4310320595"],
+        "host_organization_lineage_names": ["Wiley"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "physica status solidi (RRL) \u2013
+        Rapid Research Letters", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2089863804",
+        "doi": "https://doi.org/10.1063/1.113544", "title": "Antiferroelectric PbZrO3
+        thin films prepared by multi-ion-beam sputtering", "publication_year": 1995,
+        "abstract_inverted_index": {"Antiferroelectric": [0], "PbZrO3": [1, 24, 45,
+        82, 92], "thin": [2], "films": [3, 25, 46, 83, 93], "have": [4], "been": [5],
+        "fabricated": [6], "by": [7], "a": [8, 13, 29, 40, 85], "multi-ion-beam":
+        [9], "sputtering": [10], "technique": [11], "at": [12], "substrate": [14],
+        "temperature": [15, 73], "as": [16, 18], "low": [17], "415": [19], "\u00b0C.":
+        [20], "Single": [21], "crystal": [22], "perovskite": [23], "oriented": [26],
+        "along": [27], "the": [28, 75, 97], "axis": [30], "could": [31, 100], "be":
+        [32, 102], "epitaxially": [33], "grown": [34], "on": [35], "(100)MgO,": [36],
+        "(100)Pt/MgO": [37], "substrates": [38], "using": [39], "PbTiO3": [41], "buffer":
+        [42], "layer.": [43], "The": [44, 65], "achieved": [47], "high": [48], "dielectric":
+        [49], "constants": [50], "of": [51, 62, 67, 81, 87, 94], "about": [52], "400,":
+        [53], "which": [54], "are": [55], "almost": [56], "2.4": [57], "times": [58],
+        "larger": [59], "than": [60], "that": [61], "bulk": [63], "PbZrO3.": [64],
+        "measurements": [66], "D\u2013E": [68], "hysteresis": [69], "loops": [70],
+        "and": [71], "Curie": [72], "demonstrated": [74], "antiferroelectric": [76],
+        "to": [77], "ferroelectric": [78], "phase": [79, 98], "transition": [80, 99],
+        "with": [84], "thickness": [86], "1770": [88], "\u00c5,": [89], "while": [90],
+        "for": [91], "875": [95], "\u00c5": [96], "not": [101], "clearly": [103],
+        "observed.": [104]}, "primary_location": {"id": "doi:10.1063/1.113544", "doi":
+        "https://doi.org/10.1063/1.113544", "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.113544",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S105243760", "display_name":
+        "Applied Physics Letters", "issn_l": "0003-6951", "issn": ["0003-6951", "1077-3118",
+        "1520-8842"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Applied Physics Letters", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W4368371738", "doi": "https://doi.org/10.1063/5.0143892",
+        "title": "Ferroelectric phase transitions in epitaxial antiferroelectric PbZrO3
+        thin films", "publication_year": 2023, "abstract_inverted_index": {"The":
+        [0], "archetypical": [1], "antiferroelectric,": [2], "PbZrO3,": [3], "is":
+        [4, 49, 84], "currently": [5], "attracting": [6], "a": [7, 94, 97, 102, 149,
+        164], "lot": [8], "of": [9, 21, 31, 42, 47, 57, 69, 118, 134, 148, 177], "interest,":
+        [10], "but": [11], "no": [12], "consensus": [13], "can": [14], "be": [15],
+        "clearly": [16], "established": [17, 50], "on": [18, 28], "the": [19, 29,
+        39, 53, 61, 70, 81, 87, 112, 116, 123, 132, 135, 146], "nature": [20], "its":
+        [22, 35], "ground": [23, 88, 151], "state": [24, 41, 83, 99, 121, 152], "as":
+        [25, 27, 86], "well": [26], "influence": [30], "external": [32], "stimuli":
+        [33], "over": [34], "physical": [36], "properties.": [37], "Here,": [38],
+        "antiferroelectric": [40, 82, 171], "45-nm-thick": [43], "epitaxial": [44,
+        174], "thin": [45, 175], "films": [46, 176], "PbZrO3": [48, 155], "by": [51,
+        131], "observing": [52], "characteristic": [54], "structural": [55], "periodicity":
+        [56], "antiparallel": [58], "dipoles": [59], "at": [60], "atomic": [62], "scale,":
+        [63], "combined": [64], "with": [65, 158], "clear": [66], "double": [67],
+        "hysteresis": [68], "polarization-electric": [71], "field": [72], "response":
+        [73], "related": [74], "to": [75, 96], "antiferroelectric\u2013to\u2013ferroelectric":
+        [76], "phase": [77], "transitions.": [78], "Surprisingly,": [79], "while":
+        [80], "identified": [85], "state,": [89], "temperature-dependent": [90], "measurements":
+        [91], "show": [92], "that": [93], "transition": [95], "ferroelectric-like":
+        [98], "appears": [100], "in": [101, 122, 173], "large": [103], "temperature":
+        [104], "window": [105], "(100": [106], "K).": [107], "Atomistic": [108], "simulations":
+        [109], "further": [110, 144], "confirm": [111], "existence,": [113], "and":
+        [114, 170], "provides": [115], "origin,": [117], "such": [119], "ferroelectric":
+        [120, 126, 150, 169], "films.": [124, 156], "Electric-field-induced": [125],
+        "transitions": [127], "are": [128], "also": [129], "detected": [130], "divergence":
+        [133], "piezoresponse": [136], "force": [137], "microscopy": [138], "response.":
+        [139], "Using": [140], "this": [141], "technique,": [142], "we": [143], "reveal":
+        [145], "signature": [147], "for": [153], "4-nm-thick": [154], "Compared":
+        [157], "bulk": [159], "crystals,": [160], "these": [161], "results": [162],
+        "suggest": [163], "more": [165], "complex": [166], "competition": [167], "between":
+        [168], "phases": [172], "PbZrO3.": [178]}, "primary_location": {"id": "doi:10.1063/5.0143892",
+        "doi": "https://doi.org/10.1063/5.0143892", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/5.0143892", "pdf_url": null, "source": {"id": "https://openalex.org/S4210229136",
+        "display_name": "Applied Physics Reviews", "issn_l": "1931-9401", "issn":
+        ["1931-9401"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "dongbi-b", "jufo-2", "norway-1", "poland-200", "russia-white-list-1"],
+        "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Applied Physics
+        Reviews", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W4221077898",
+        "doi": "https://doi.org/10.1103/physrevb.105.125409", "title": "Field-induced
+        heterophase state in PbZrO3 thin films", "publication_year": 2022, "abstract_inverted_index":
+        {"Applications": [0], "of": [1, 11, 33, 132, 145, 160, 186, 210, 224], "epitaxial":
+        [2], "antiferroelectrics": [3], "face": [4], "scientific": [5], "challenges,":
+        [6], "such": [7, 214], "as": [8, 101, 110], "limited": [9], "understanding":
+        [10], "degraded": [12], "(in": [13], "comparison": [14], "to": [15, 22, 37,
+        78, 120, 155, 180, 203, 207], "bulk)": [16], "switching": [17], "behavior":
+        [18], "and": [19, 62, 134, 216], "its": [20], "relation": [21], "nanoscale":
+        [23], "structural": [24, 31], "organization.": [25], "We": [26, 112], "report":
+        [27], "on": [28], "an": [29], "unusual": [30, 116], "response": [32], "${\\mathrm{PbZrO}}_{3}/{\\mathrm{SrRuO}}_{3}/{\\mathrm{SrTiO}}_{3}$":
+        [34], "(001)": [35], "heterostructures": [36, 215], "precritical": [38], "(lower":
+        [39], "than": [40], "required": [41], "for": [42, 142, 220, 228], "switching)":
+        [43], "electric": [44], "fields.": [45], "In": [46], "situ": [47], "x-ray":
+        [48], "diffraction": [49], "shows": [50], "a": [51, 65, 218], "ferrielectric-like":
+        [52], "structure,": [53], "which": [54, 148], "forms": [55], "gradually":
+        [56], "upon": [57], "increasing": [58], "the": [59, 69, 79, 84, 92, 105, 115,
+        121, 129, 143, 156, 165, 174, 187, 190, 193, 204, 208, 221], "applied": [60],
+        "field": [61], "makes": [63], "up": [64], "heterophase": [66, 146], "state":
+        [67], "with": [68], "host": [70, 133], "antiferroelectric": [71, 80, 106],
+        "phase.": [72], "The": [73, 96, 200], "field-induced": [74, 176], "structure":
+        [75, 107, 177], "is": [76, 108, 149, 178, 197], "similar": [77, 126], "parent":
+        [81], "phase": [82], "in": [83, 91, 125, 151, 183, 189, 213], "octahedral-tilt":
+        [85], "pattern,": [86], "but": [87, 167], "differs": [88], "from": [89], "it":
+        [90], "lead-ion": [93], "displacement": [94], "pattern.": [95], "latter":
+        [97], "can": [98, 137], "be": [99, 138, 181], "encoded": [100, 109], "$\\ensuremath{\\uparrow}\\ensuremath{\\uparrow}\\ensuremath{\\uparrow}\\ensuremath{\\uparrow}\\phantom{\\rule{4pt}{0ex}}\\ensuremath{\\downarrow}\\ensuremath{\\uparrow}\\ensuremath{\\uparrow}\\ensuremath{\\downarrow}$":
+        [102], "provided": [103], "that": [104, 114, 173], "$\\ensuremath{\\downarrow}\\ensuremath{\\downarrow}\\ensuremath{\\uparrow}\\ensuremath{\\uparrow}$.":
+        [111], "propose": [113], "commensurateness": [117], "(as": [118], "opposed":
+        [119], "more": [122], "ubiquitous": [123], "incommensuration": [124], "materials)":
+        [127], "between": [128], "modulation": [130], "periods": [131], "guest": [135],
+        "phases": [136], "explained": [139], "by": [140], "accounting": [141], "energy":
+        [144, 170], "boundaries,": [147], "important": [150], "dense": [152], "nanostructures":
+        [153], "due": [154], "high": [157], "surface-to-bulk": [158], "ratio": [159],
+        "nanodomains.": [161], "An": [162], "analysis": [163], "using": [164], "ab-initio-correlated,":
+        [166], "empirical": [168], "(parametrized)": [169], "model": [171], "suggests":
+        [172], "observed": [175], "likely": [179], "selected": [182], "${\\mathrm{PbZrO}}_{3}$":
+        [184], "instead": [185], "others": [188], "case": [191], "when": [192], "above":
+        [194], "commensuration": [195], "effect": [196], "at": [198], "play.": [199],
+        "results": [201], "point": [202], "mechanism": [205], "leading": [206], "smearing":
+        [209], "polarization-field": [211], "loops": [212], "suggest": [217], "perspective":
+        [219], "controlled": [222], "creation": [223], "delicate": [225], "dipolar":
+        [226], "orderings": [227], "ferroic-based": [229], "memory.": [230]}, "primary_location":
+        {"id": "doi:10.1103/physrevb.105.125409", "doi": "https://doi.org/10.1103/physrevb.105.125409",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1103/physrevb.105.125409",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4210237713", "display_name":
+        "Physical review. B./Physical review. B", "issn_l": "2469-9950", "issn": ["2469-9950",
+        "2469-9969", "2469-9977"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["cwts-core", "dongbi-a", "jufo-2", "norway-2", "poland-140",
+        "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320261",
+        "host_organization_name": "American Physical Society", "host_organization_lineage":
+        ["https://openalex.org/P4310320261"], "host_organization_lineage_names": ["American
+        Physical Society"], "type": "journal"}, "license": null, "license_id": null,
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Physical Review B", "raw_type": "journal-article"}}, {"id":
+        "https://openalex.org/W2044681981", "doi": "https://doi.org/10.1063/1.2928230",
+        "title": "Enhancement of charge and energy storage in sol-gel derived pure
+        and La-modified PbZrO3 thin films", "publication_year": 2008, "abstract_inverted_index":
+        {"Antiferroelectric": [0], "lanthanum-modified": [1], "PbZrO3": [2], "thin":
+        [3], "films": [4], "with": [5], "La": [6, 62], "contents": [7], "between":
+        [8], "0": [9], "and": [10, 29, 66], "6at.%": [11], "have": [12, 34, 57, 68],
+        "been": [13, 35, 58, 69], "deposited": [14], "on": [15, 60, 75], "Pt(111)\u2215Ti\u2215SiO2\u2215Si":
+        [16], "substrate": [17], "by": [18, 38], "sol-gel": [19], "route.": [20],
+        "On": [21], "the": [22], "extent": [23], "of": [24], "La-modification,": [25],
+        "maximum": [26, 43, 52], "polarization": [27], "(Pmax)": [28], "recoverable":
+        [30], "energy": [31], "density": [32], "(W)": [33], "enhanced": [36], "followed":
+        [37], "their": [39], "subsequent": [40], "reduction.": [41], "A": [42], "Pmax":
+        [44, 65], "(\u223c0.54C\u2215m2": [45], "at": [46, 55], "\u223c60MV\u2215m)":
+        [47, 56], "as": [48, 50], "well": [49], "a": [51], "W": [53, 67], "(\u223c14.9J\u2215cc":
+        [54], "achieved": [59], "5%": [61], "modification.": [63], "Both": [64], "found":
+        [70], "to": [71], "be": [72], "strongly": [73], "dependent": [74], "La-induced":
+        [76], "crystallographic": [77], "orientations.": [78]}, "primary_location":
+        {"id": "doi:10.1063/1.2928230", "doi": "https://doi.org/10.1063/1.2928230",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.2928230", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S105243760", "display_name":
+        "Applied Physics Letters", "issn_l": "0003-6951", "issn": ["0003-6951", "1077-3118",
+        "1520-8842"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Applied Physics Letters", "raw_type": "journal-article"}}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a544297469025f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '16424'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:12 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=YuJ3QIoVuvokXcCaCs9VCc66BaOmqrSfH%2BPtUooJCcU%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633232"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=YuJ3QIoVuvokXcCaCs9VCc66BaOmqrSfH%2BPtUooJCcU%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633232"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9490'
+      x-ratelimit-remaining-usd:
+      - '0.949'
+      x-ratelimit-reset:
+      - '30768'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=PbZrO3+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 267, "db_response_time_ms": 11, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (PbZrO3 thin film)
+        in the title or abstract", "x_new_oql": "get works with (PbZrO3 thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "PbZrO3 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:PbZrO3 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W2046718967"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429753c155f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '619'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:12 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=YuJ3QIoVuvokXcCaCs9VCc66BaOmqrSfH%2BPtUooJCcU%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633232"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=YuJ3QIoVuvokXcCaCs9VCc66BaOmqrSfH%2BPtUooJCcU%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633232"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9480'
+      x-ratelimit-remaining-usd:
+      - '0.948'
+      x-ratelimit-reset:
+      - '30768'
+    status:
+      code: 200
+      message: OK
+version: 1

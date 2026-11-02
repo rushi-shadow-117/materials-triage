@@ -1,0 +1,95 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - _csrf_token=authenticated; mp-session=tWdGuSYcBtwKT9fVveU9Fw|1794688599|dSAFT28AT-Yx0QkzLbH5Irl_Eoo;
+        __cf_bm=5q7lIsEuiRLmsnr.dZSTzV5AiwJ3nStLcn2tD8VTDe8-1793633229.1934805-1.0.1.1-4aoz9x.vN9neTqe.Zw4Q1JRDDTX_YINbW.n0tLHQTlKIn3JF1C92_ht2.DM4m8CrUNv3BjDAmEYP97rSzQv2nZaCUwod2M5aGCf3Xbsj4SM2__BG7fltewc.MCQCMTL9
+      host:
+      - api.materialsproject.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cformula_pretty%2Ccomposition_reduced%2Cnelements%2Cenergy_above_hull%2Cis_stable%2Cband_gap%2Ctheoretical%2Cdeprecated%2Csymmetry%2Cdatabase_IDs%2Clast_updated%2Cbuilder_meta&_limit=1000&formula=NaTaO3
+  response:
+    body:
+      string: '{"data":[{"theoretical":false,"database_IDs":{"icsd":["icsd-980","icsd-239690","icsd-173757","icsd-23319","icsd-88375","icsd-150430"]},"band_gap":2.5925999999999996,"energy_above_hull":0.0,"is_stable":true,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"production-r2scan","database_version":"2026.09.28","build_date":"2026-09-25T19:09:37.674000","license":"BY-C"},"nelements":3,"composition_reduced":{"Na":1.0,"Ta":1.0,"O":3.0},"formula_pretty":"NaTaO3","symmetry":{"crystal_system":"Orthorhombic","symbol":"Pnma","hall":"-P
+        2ac 2n","number":62,"point_group":"mmm","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaaaafsk","deprecated":false,"last_updated":"2022-06-15T11:07:57.438000"},{"theoretical":false,"database_IDs":{"icsd":["icsd-28612","icsd-28614","icsd-239693","icsd-28619","icsd-28615","icsd-28617","icsd-28608","icsd-28611","icsd-88378","icsd-28613","icsd-28607","icsd-28609","icsd-28606","icsd-28610","icsd-28616","icsd-28618"]},"band_gap":2.2596,"energy_above_hull":0.027754129499998115,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"production-r2scan","database_version":"2026.09.28","build_date":"2026-09-25T19:09:37.658000","license":"BY-C"},"nelements":3,"composition_reduced":{"Na":1.0,"Ta":1.0,"O":3.0},"formula_pretty":"NaTaO3","symmetry":{"crystal_system":"Cubic","symbol":"Pm-3m","hall":"-P
+        4 2 3","number":221,"point_group":"m-3m","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaaaagek","deprecated":false,"last_updated":"2023-10-07T06:09:01.511000"},{"theoretical":false,"database_IDs":{"icsd":["icsd-88377","icsd-280101","icsd-23322","icsd-239692"]},"band_gap":2.2807999999999997,"energy_above_hull":0.009338893500000722,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"production-r2scan","database_version":"2026.09.28","build_date":"2026-09-25T19:09:37.658000","license":"BY-C"},"nelements":3,"composition_reduced":{"Na":1.0,"Ta":1.0,"O":3.0},"formula_pretty":"NaTaO3","symmetry":{"crystal_system":"Tetragonal","symbol":"P4/mbm","hall":"-P
+        4 2ab","number":127,"point_group":"4/mmm","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaaaagxv","deprecated":false,"last_updated":"2023-10-07T23:43:34.232000"},{"theoretical":false,"database_IDs":{"icsd":["icsd-239691","icsd-23320","icsd-23321","icsd-88376","icsd-280099"]},"band_gap":2.3891,"energy_above_hull":0.0033295580000007874,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"production-r2scan","database_version":"2026.09.28","build_date":"2026-09-25T19:09:37.658000","license":"BY-C"},"nelements":3,"composition_reduced":{"Na":1.0,"Ta":1.0,"O":3.0},"formula_pretty":"NaTaO3","symmetry":{"crystal_system":"Orthorhombic","symbol":"Cmcm","hall":"-C
+        2c 2","number":63,"point_group":"mmm","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaaaagyt","deprecated":false,"last_updated":"2023-10-07T06:20:10.108000"},{"theoretical":true,"database_IDs":{},"band_gap":3.4067,"energy_above_hull":0.09564892800000102,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"vasp6-statics-jan2021","database_version":"2026.09.28","build_date":"2026-09-25T19:09:37.683000","license":"BY-C"},"nelements":3,"composition_reduced":{"Na":1.0,"Ta":1.0,"O":3.0},"formula_pretty":"NaTaO3","symmetry":{"crystal_system":"Triclinic","symbol":"P1","hall":"P
+        1","number":1,"point_group":"1","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaabmmku","deprecated":false,"last_updated":"2021-02-08T19:06:46.972000"},{"theoretical":true,"database_IDs":{},"band_gap":0.0,"energy_above_hull":3.187677839500001,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"mp_2018","database_version":"2026.09.28","build_date":"2026-09-25T19:10:13.408000","license":"BY-C"},"nelements":3,"composition_reduced":{"Na":1.0,"Ta":1.0,"O":3.0},"formula_pretty":"NaTaO3","symmetry":{"crystal_system":"Triclinic","symbol":"P1","hall":"P
+        1","number":1,"point_group":"1","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaabpojt","deprecated":false,"last_updated":"2021-02-16T23:52:43.923000"},{"theoretical":true,"database_IDs":{},"band_gap":2.7138999999999998,"energy_above_hull":0.08675780650000142,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"vasp6-statics-jan2021","database_version":"2026.09.28","build_date":"2026-09-25T19:09:37.713000","license":"BY-C"},"nelements":3,"composition_reduced":{"Na":1.0,"Ta":1.0,"O":3.0},"formula_pretty":"NaTaO3","symmetry":{"crystal_system":"Cubic","symbol":"Fd-3m","hall":"F
+        4d 2 3 -1d","number":227,"point_group":"m-3m","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaabqypm","deprecated":false,"last_updated":"2021-02-23T16:29:44.015000"}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-02T15:27:44.274734+00:00","total_doc":7,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+    headers:
+      access-control-expose-headers:
+      - X-Api-Key
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442a3cdf99db04-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '5550'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:44 GMT
+      ratelimit-limit:
+      - '25'
+      ratelimit-remaining:
+      - '24'
+      ratelimit-reset:
+      - '1'
+      server:
+      - cloudflare
+      set-cookie:
+      - _csrf_token=authenticated; Domain=.materialsproject.org; Path=/; SameSite=Strict
+      vary:
+      - Accept-Encoding
+      - Origin
+      via:
+      - kong/2.8.4
+      x-consumer-id:
+      - 58e0b4c2-4c2d-439b-ba0a-648cd568a0fa
+      x-kong-proxy-latency:
+      - '8'
+      x-kong-upstream-latency:
+      - '111'
+      x-ratelimit-limit-day:
+      - '640000'
+      x-ratelimit-limit-hour:
+      - '40000'
+      x-ratelimit-limit-minute:
+      - '1000'
+      x-ratelimit-limit-month:
+      - '12800000'
+      x-ratelimit-limit-second:
+      - '25'
+      x-ratelimit-limit-year:
+      - '100000000'
+      x-ratelimit-remaining-day:
+      - '639857'
+      x-ratelimit-remaining-hour:
+      - '39857'
+      x-ratelimit-remaining-minute:
+      - '862'
+      x-ratelimit-remaining-month:
+      - '12799857'
+      x-ratelimit-remaining-second:
+      - '24'
+      x-ratelimit-remaining-year:
+      - '99999809'
+    status:
+      code: 200
+      message: OK
+version: 1

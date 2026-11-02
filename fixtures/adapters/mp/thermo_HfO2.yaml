@@ -1,0 +1,90 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - _csrf_token=anonymous; mp-session=UVS2E9DkhWTT73SN24TCtg|1794688598|XYoKuOBd-7cGMzFz7NfFCgdFxcM
+      host:
+      - api.materialsproject.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.materialsproject.org/materials/thermo/?_fields=material_id%2Cthermo_type%2Cenergy_above_hull%2Cis_stable&_limit=1000&material_ids=mp-1018721%2Cmp-1224381%2Cmp-1244883%2Cmp-1244885%2Cmp-1245107%2Cmp-1245112%2Cmp-1245226%2Cmp-1858%2Cmp-352%2Cmp-550893%2Cmp-685097%2Cmp-741%2Cmp-775757%2Cmp-776097%2Cmp-776532
+  response:
+    body:
+      string: '{"data":[{"material_id":"mp-aaaaaano","thermo_type":"r2SCAN","energy_above_hull":0.0,"is_stable":true},{"material_id":"mp-aaaaaano","thermo_type":"GGA_GGA+U","energy_above_hull":0.0,"is_stable":true},{"material_id":"mp-aaaaaano","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.0,"is_stable":true},{"material_id":"mp-aaaaabcn","thermo_type":"GGA_GGA+U","energy_above_hull":0.13928282166666506,"is_stable":false},{"material_id":"mp-aaaaabcn","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.13928282166666506,"is_stable":false},{"material_id":"mp-aaaaactm","thermo_type":"r2SCAN","energy_above_hull":0.016383926250000513,"is_stable":false},{"material_id":"mp-aaaaactm","thermo_type":"GGA_GGA+U","energy_above_hull":0.02412714749999978,"is_stable":false},{"material_id":"mp-aaaaactm","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.016383926250000513,"is_stable":false},{"material_id":"mp-aaabfiyf","thermo_type":"r2SCAN","energy_above_hull":0.08357950333333264,"is_stable":false},{"material_id":"mp-aaabfiyf","thermo_type":"GGA_GGA+U","energy_above_hull":0.08872817083333295,"is_stable":false},{"material_id":"mp-aaabfiyf","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.08357950333333442,"is_stable":false},{"material_id":"mp-aaabmzlx","thermo_type":"r2SCAN","energy_above_hull":0.021979467500003125,"is_stable":false},{"material_id":"mp-aaabmzlx","thermo_type":"GGA_GGA+U","energy_above_hull":0.028621285833331456,"is_stable":false},{"material_id":"mp-aaabmzlx","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.021979467500003125,"is_stable":false},{"material_id":"mp-aaabsdov","thermo_type":"r2SCAN","energy_above_hull":0.009928638750000829,"is_stable":false},{"material_id":"mp-aaabsdov","thermo_type":"GGA_GGA+U","energy_above_hull":0.0096301879166667,"is_stable":false},{"material_id":"mp-aaabsdov","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.009928638750000829,"is_stable":false},{"material_id":"mp-aaabsebx","thermo_type":"r2SCAN","energy_above_hull":0.039298047777780454,"is_stable":false},{"material_id":"mp-aaabsebx","thermo_type":"GGA_GGA+U","energy_above_hull":0.02802094111111053,"is_stable":false},{"material_id":"mp-aaabsebx","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.03929804777777868,"is_stable":false},{"material_id":"mp-aaabsesq","thermo_type":"r2SCAN","energy_above_hull":0.036980001666666595,"is_stable":false},{"material_id":"mp-aaabsesq","thermo_type":"GGA_GGA+U","energy_above_hull":0.02483621416666537,"is_stable":false},{"material_id":"mp-aaabsesq","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.036980001666666595,"is_stable":false},{"material_id":"mp-aaacfyzp","thermo_type":"r2SCAN","energy_above_hull":0.050883971666667804,"is_stable":false},{"material_id":"mp-aaacfyzp","thermo_type":"GGA_GGA+U","energy_above_hull":0.054773169166665525,"is_stable":false},{"material_id":"mp-aaacfyzp","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.050883971666667804,"is_stable":false},{"material_id":"mp-aaacrrfp","thermo_type":"r2SCAN","energy_above_hull":0.08525594083333488,"is_stable":false},{"material_id":"mp-aaacrrfp","thermo_type":"GGA_GGA+U","energy_above_hull":0.09161641916666596,"is_stable":false},{"material_id":"mp-aaacrrfp","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.08525594083333488,"is_stable":false},{"material_id":"mp-aaacsvod","thermo_type":"GGA_GGA+U","energy_above_hull":0.2293213303431365,"is_stable":false},{"material_id":"mp-aaacsvod","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.2293213303431365,"is_stable":false},{"material_id":"mp-aaacsvof","thermo_type":"GGA_GGA+U","energy_above_hull":0.2545104533823519,"is_stable":false},{"material_id":"mp-aaacsvof","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.2545104533823519,"is_stable":false},{"material_id":"mp-aaacsvwt","thermo_type":"GGA_GGA+U","energy_above_hull":0.2271169150490202,"is_stable":false},{"material_id":"mp-aaacsvwt","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.2271169150490202,"is_stable":false},{"material_id":"mp-aaacsvwy","thermo_type":"GGA_GGA+U","energy_above_hull":0.20990785651960664,"is_stable":false},{"material_id":"mp-aaacsvwy","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.20990785651960664,"is_stable":false},{"material_id":"mp-aaacswbi","thermo_type":"GGA_GGA+U","energy_above_hull":0.21677266749999902,"is_stable":false},{"material_id":"mp-aaacswbi","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.21677266749999902,"is_stable":false}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-02T15:26:58.584467+00:00","total_doc":39,"facet":null,"max_limit":1000,"default_fields":["thermo_id","material_id","last_updated"]}}'
+    headers:
+      access-control-expose-headers:
+      - X-Api-Key
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a544291f6cc8db04-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '4674'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:26:58 GMT
+      ratelimit-limit:
+      - '25'
+      ratelimit-remaining:
+      - '24'
+      ratelimit-reset:
+      - '1'
+      server:
+      - cloudflare
+      set-cookie:
+      - _csrf_token=authenticated; Domain=.materialsproject.org; Path=/; SameSite=Strict
+      - __cf_bm=8v4ZB4MhEhRexFMT3JtHwSMVQIs92OagF4zWTTlYJlQ-1793633218.465444-1.0.1.1-5gLUx3xULDq7hZ37BoDXyIm5inROdLCtg5AnixKs62WcXWYffbNIlTU4vSLBlI5eHY5EE50Y5fJR4_Pd3lRD62Z0vvyl4Co1COTnYdxVlC4BRQ3PV0zGOTqFUH97teyn;
+        HttpOnly; SameSite=None; Secure; Path=/; Domain=materialsproject.org; Expires=Mon,
+        02 Nov 2026 15:56:58 GMT
+      vary:
+      - Accept-Encoding
+      - Origin
+      via:
+      - kong/2.8.4
+      x-consumer-id:
+      - 58e0b4c2-4c2d-439b-ba0a-648cd568a0fa
+      x-kong-proxy-latency:
+      - '7'
+      x-kong-upstream-latency:
+      - '14'
+      x-ratelimit-limit-day:
+      - '640000'
+      x-ratelimit-limit-hour:
+      - '40000'
+      x-ratelimit-limit-minute:
+      - '1000'
+      x-ratelimit-limit-month:
+      - '12800000'
+      x-ratelimit-limit-second:
+      - '25'
+      x-ratelimit-limit-year:
+      - '100000000'
+      x-ratelimit-remaining-day:
+      - '639999'
+      x-ratelimit-remaining-hour:
+      - '39999'
+      x-ratelimit-remaining-minute:
+      - '999'
+      x-ratelimit-remaining-month:
+      - '12799999'
+      x-ratelimit-remaining-second:
+      - '24'
+      x-ratelimit-remaining-year:
+      - '99999951'
+    status:
+      code: 200
+      message: OK
+version: 1

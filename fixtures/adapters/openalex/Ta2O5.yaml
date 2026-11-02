@@ -1,0 +1,761 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=Ta2O5+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 1116, "db_response_time_ms": 60, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Ta2O5 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (Ta2O5 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "Ta2O5
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:Ta2O5
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W1641220938",
+        "doi": "https://doi.org/10.1063/1.365252", "title": "Leakage currents in amorphous
+        Ta2O5 thin films", "publication_year": 1997, "abstract_inverted_index": {"Tantalum":
+        [0], "oxide": [1], "(Ta2O5)": [2], "is": [3, 73, 115, 131, 164], "an": [4],
+        "important": [5], "material": [6], "for": [7], "future": [8], "dynamic": [9],
+        "random": [10], "access": [11], "memory": [12], "application": [13], "owing":
+        [14], "to": [15, 166, 181, 208], "its": [16], "high": [17, 108, 155, 177,
+        214], "dielectric": [18, 109], "constant.": [19], "This": [20], "work": [21],
+        "examines": [22], "the": [23, 52, 123, 135, 184, 209], "structural": [24],
+        "and": [25, 58, 107, 147, 173], "electrical": [26, 171, 178], "properties":
+        [27], "of": [28, 70, 127, 211], "Ta2O5": [29, 90, 129, 185, 204], "thin":
+        [30, 54, 186], "films": [31, 55, 187], "deposited": [32], "by": [33, 80, 133],
+        "plasma-enhanced": [34], "chemical": [35], "vapor": [36], "deposition": [37],
+        "using": [38, 91], "a": [39, 92, 98, 141, 154, 197], "penta": [40], "ethoxy":
+        [41], "tantalum": [42], "Ta(OC2H5)5": [43], "liquid": [44], "source.": [45],
+        "The": [46, 68, 112, 160], "x-ray": [47], "diffraction": [48], "patterns":
+        [49], "indicate": [50], "that": [51, 75], "as-deposited": [53], "are": [56],
+        "amorphous": [57, 89, 128, 203], "become": [59], "polycrystalline": [60],
+        "after": [61], "rapid": [62], "thermal": [63], "annealing": [64], "above":
+        [65], "650": [66], "\u00b0C.": [67], "level": [69], "carbon": [71], "contamination":
+        [72], "below": [74], "which": [76], "can": [77], "be": [78], "detected": [79],
+        "Auger": [81], "electron": [82], "spectroscopy": [83], "measurement.": [84],
+        "Electrical": [85], "measurements": [86], "performed": [87], "on": [88], "Au/Ta2O5/Pt/Ti/Si":
+        [93], "metal-tantalum": [94], "oxide-metal": [95], "structure": [96], "exhibit":
+        [97, 196], "low": [99, 142, 170], "leakage": [100, 113, 124, 200], "current,":
+        [101], "reasonable": [102], "breakdown": [103], "field": [104, 144, 157, 172],
+        "(5.4": [105], "MV/cm),": [106], "constant": [110], "(23\u201325).": [111],
+        "current": [114, 125, 201], "2\u00d710\u22128": [116], "A/cm2": [117], "at":
+        [118, 140, 153, 169, 176, 193], "1": [119], "MV/cm.": [120], "In": [121],
+        "addition,": [122], "mechanism": [126, 163], "capacitors": [130], "investigated":
+        [132], "plotting": [134, 148], "ln(J)": [136], "vs": [137, 150], "E1/2": [138,
+        151], "curves": [139, 152], "electric": [143, 156], "(<2": [145], "MV/cm)":
+        [146], "ln(J/E)": [149], "(>2": [158], "MV/cm).": [159], "dominant": [161],
+        "conduction": [162], "due": [165, 207], "Schottky": [167], "emission": [168,
+        175], "Poole\u2013Frenkel": [174], "field.": [179], "According": [180], "our":
+        [182], "results,": [183], "annealed": [188], "in": [189], "N2": [190], "or":
+        [191], "O2": [192], "800": [194], "\u00b0C": [195], "much": [198], "higher":
+        [199], "than": [202], ",": [205], "possibly": [206], "out-diffusion": [210],
+        "Ti": [212], "during": [213], "temperature": [215], "annealing.": [216]},
+        "primary_location": {"id": "doi:10.1063/1.365252", "doi": "https://doi.org/10.1063/1.365252",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.365252", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S187991544", "display_name":
+        "Journal of Applied Physics", "issn_l": "0021-8979", "issn": ["0021-8979",
+        "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1",
+        "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W1642793491",
+        "doi": "https://doi.org/10.1063/1.367272", "title": "Conduction mechanisms
+        in amorphous and crystalline Ta2O5 thin films", "publication_year": 1998,
+        "abstract_inverted_index": {"Electrical": [0], "properties": [1, 53], "and":
+        [2, 8, 28, 49, 63, 116, 144], "leakage": [3, 64, 74, 128], "current": [4,
+        65, 75, 129], "mechanisms": [5], "of": [6, 56, 60, 67], "amorphous": [7, 48],
+        "polycrystalline": [9], "tantalum": [10], "pentoxide": [11], "(Ta2O5)": [12],
+        "films": [13, 18, 46], "were": [14, 19, 47], "studied.": [15], "Ta2O5": [16,
+        78, 142], "thin": [17], "deposited": [20], "on": [21], "Pt/SiO2/n-Si": [22],
+        "substrate": [23], "by": [24], "reactive": [25], "magnetron": [26], "sputtering":
+        [27], "then": [29], "annealed": [30], "at": [31, 70, 92, 110, 120], "temperatures":
+        [32], "ranging": [33], "from": [34, 81, 147], "500": [35], "to": [36, 83,
+        100, 137], "800": [37], "\u00b0C": [38], "for": [39], "30": [40], "min": [41],
+        "in": [42, 54, 127, 131], "O2.": [43], "The": [44, 73, 89, 125], "as-deposited":
+        [45], "showed": [50], "good": [51], "electrical": [52], "terms": [55], "a":
+        [57], "dielectric": [58], "constant": [59], "about": [61], "31": [62], "density":
+        [66, 130], "10\u221210": [68, 82], "A/cm2": [69, 85], "100": [71], "kV/cm.":
+        [72], "flowing": [76], "through": [77], "film": [79, 134], "increases": [80],
+        "10\u22127": [84], "following": [86], "the": [87, 104, 111, 132, 141, 148],
+        "annealing.": [88], "conduction": [90], "mechanism": [91, 108], "low": [93],
+        "electric": [94], "fields": [95, 113, 122], "(100": [96], "kV/cm)": [97, 115],
+        "is": [98, 135], "due": [99, 136], "Ohmic": [101], "conduction.": [102], "On":
+        [103], "other": [105], "hand": [106], "Schottky": [107], "dominates": [109],
+        "intermediate": [112], "(100\u2013350": [114], "Poole\u2013Frenkel": [117],
+        "becomes": [118], "predominant": [119], "high": [121], "(>350": [123], "kV/cm).":
+        [124], "increase": [126], "crystallized": [133], "Si": [138], "penetrated":
+        [139], "into": [140], "grain": [143, 145], "boundary": [146], "underlying":
+        [149], "SiO2/n-Si": [150], "substrate.": [151]}, "primary_location": {"id":
+        "doi:10.1063/1.367272", "doi": "https://doi.org/10.1063/1.367272", "is_oa":
+        false, "landing_page_url": "https://doi.org/10.1063/1.367272", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S187991544", "display_name":
+        "Journal of Applied Physics", "issn_l": "0021-8979", "issn": ["0021-8979",
+        "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1",
+        "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2010624845",
+        "doi": "https://doi.org/10.1063/1.95712", "title": "New piezoelectric Ta2O5
+        thin films", "publication_year": 1985, "abstract_inverted_index": {"Crystallized":
+        [0], "Ta2O5": [1], "thin": [2, 48], "films": [3, 23], "have": [4], "been":
+        [5], "deposited": [6], "on": [7], "fused": [8], "quartz": [9], "substrates":
+        [10], "by": [11], "reactive": [12], "dc": [13], "diode": [14], "sputtering.":
+        [15], "Crystalline": [16], "structures": [17], "and": [18], "piezoelectric":
+        [19], "properties": [20], "of": [21, 31], "the": [22, 32], "were": [24], "investigated.":
+        [25], "The": [26], "electromechanical": [27], "coupling": [28], "coefficient":
+        [29], "K2": [30], "surface": [33], "acoustic": [34], "waves": [35], "was":
+        [36], "0.5%": [37], "for": [38, 46], "hk=1.0.": [39], "This": [40], "value":
+        [41], "is": [42], "comparable": [43], "to": [44], "that": [45], "ZnO": [47],
+        "films.": [49]}, "primary_location": {"id": "doi:10.1063/1.95712", "doi":
+        "https://doi.org/10.1063/1.95712", "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.95712",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S105243760", "display_name":
+        "Applied Physics Letters", "issn_l": "0003-6951", "issn": ["0003-6951", "1077-3118",
+        "1520-8842"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Applied Physics Letters", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2055220300", "doi": "https://doi.org/10.1063/1.346828",
+        "title": "Material constants of new piezoelectric Ta2O5 thin films", "publication_year":
+        1990, "abstract_inverted_index": {"The": [0, 28], "first": [1], "measurement":
+        [2], "of": [3, 7, 42], "the": [4, 23, 34, 38, 43, 47, 53], "material": [5,
+        29], "constants": [6, 30], "Ta2O5": [8, 14], "thin": [9, 15], "films": [10,
+        16], "is": [11], "described.": [12], "x-axis-oriented": [13], "were": [17,
+        31], "deposited": [18], "on": [19, 52], "fused": [20], "quartz": [21], "using":
+        [22], "dc": [24], "diode": [25], "sputtering": [26], "method.": [27], "determined":
+        [32], "from": [33], "phase": [35], "velocity": [36], "and": [37, 46], "electromechanical":
+        [39], "coupling": [40], "constant": [41], "bulk": [44], "waves": [45, 50],
+        "surface": [48], "acoustic": [49], "propagating": [51], "layered": [54], "substrate.":
+        [55]}, "primary_location": {"id": "doi:10.1063/1.346828", "doi": "https://doi.org/10.1063/1.346828",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.346828", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S187991544", "display_name":
+        "Journal of Applied Physics", "issn_l": "0021-8979", "issn": ["0021-8979",
+        "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1",
+        "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W1506975141",
+        "doi": "https://doi.org/10.1063/1.373747", "title": "Defect dominated charge
+        transport in amorphous Ta2O5 thin films", "publication_year": 2000, "abstract_inverted_index":
+        {"Ta": [0, 186], "2": [1], "O": [2], "5": [3], "is": [4, 25, 140], "a": [5,
+        87, 100, 109, 143, 162, 177, 214, 227], "candidate": [6], "for": [7, 27],
+        "use": [8], "in": [9, 13, 42, 135, 174, 188], "metal\u2013oxide\u2013metal":
+        [10], "(MOM)": [11], "capacitors": [12, 45], "several": [14], "areas": [15],
+        "of": [16, 30, 62, 81, 95, 146, 157, 166, 172, 194, 199, 208, 217, 220, 230],
+        "silicon": [17], "device": [18], "technology.": [19], "Understanding": [20],
+        "and": [21, 37, 51, 77, 98, 191, 226], "controlling": [22], "leakage": [23,
+        82], "current": [24, 83, 89], "critical": [26], "successful": [28, 206], "implementation":
+        [29], "this": [31], "material.": [32], "We": [33, 55], "have": [34, 73], "studied":
+        [35], "thermal": [36], "photoconductive": [38], "charge": [39], "transport":
+        [40, 107], "processes": [41], "Ta2O5": [43, 159, 173, 209], "MOM": [44], "fabricated":
+        [46], "by": [47, 142], "anodization,": [48], "reactive": [49, 178], "sputtering,":
+        [50], "chemical": [52], "vapor": [53], "deposition.": [54], "find": [56],
+        "that": [57, 72, 90, 205], "the": [58, 74, 92, 96, 122, 152, 192, 197, 200,
+        218, 223, 231], "results": [59, 187], "from": [60], "each": [61], "these":
+        [63], "three": [64], "methods": [65], "are": [66, 84], "similar": [67], "if":
+        [68], "one": [69], "compares": [70], "films": [71, 97, 136, 160], "same":
+        [75], "thickness": [76, 198], "electrodes.": [78], "Two": [79], "types": [80],
+        "identified:": [85], "(a)": [86], "transient": [88, 113], "charges": [91],
+        "bulk": [93], "states": [94, 120], "(b)": [99], "steady": [101, 129], "state":
+        [102, 130], "activated": [103], "process": [104, 114], "involving": [105],
+        "electron": [106], "via": [108], "defect": [110], "band.": [111], "The": [112,
+        128, 155], "involves": [115], "either": [116], "tunneling": [117], "conductivity":
+        [118], "into": [119, 210], "near": [121, 151], "Fermi": [123], "energy": [124],
+        "or": [125, 185], "ion": [126], "motion.": [127], "process,": [131], "seen":
+        [132], "most": [133], "commonly": [134], "<300": [137], "\u00c5": [138], "thick,":
+        [139], "dominated": [141], "large": [144], "number": [145, 165], "defects,":
+        [147], "\u223c1019\u20131020": [148], "cm\u22123,": [149], "located": [150],
+        "metal\u2013oxide": [153], "interfaces.": [154], "interior": [156], "thick":
+        [158], "has": [161], "substantially": [163], "reduced": [164], "defects.":
+        [167], "Modest": [168], "heating": [169], "(300\u2013400": [170], "\u00b0C)":
+        [171], "contact": [175], "with": [176], "metal": [179], "electrode": [180],
+        "such": [181], "as": [182], "Al,": [183], "Ti,": [184], "interfacial": [189],
+        "reactions": [190], "diffusion": [193], "defects": [195, 221], "across": [196],
+        "film.": [201], "These": [202], "experiments": [203], "show": [204], "integration":
+        [207], "semiconductor": [211], "processing": [212], "requires": [213], "better":
+        [215, 228], "understanding": [216], "impact": [219], "on": [222], "electrical":
+        [224], "characteristics": [225], "control": [229], "metal\u2013Ta2O5": [232],
+        "interface.": [233]}, "primary_location": {"id": "doi:10.1063/1.373747", "doi":
+        "https://doi.org/10.1063/1.373747", "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.373747",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S187991544", "display_name":
+        "Journal of Applied Physics", "issn_l": "0021-8979", "issn": ["0021-8979",
+        "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1",
+        "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429638d595f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '15879'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:09 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=YkHdarVh61xFxFARzIMJ6nZvwZLB7ztYUAoYvL6iHMA%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633229"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=YkHdarVh61xFxFARzIMJ6nZvwZLB7ztYUAoYvL6iHMA%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633229"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9590'
+      x-ratelimit-remaining-usd:
+      - '0.959'
+      x-ratelimit-reset:
+      - '30771'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=Ta2O5+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 1683, "db_response_time_ms": 21, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (Ta2O5 thin film)
+        in the title or abstract", "x_new_oql": "get works with (Ta2O5 thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "Ta2O5 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:Ta2O5 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W2038274823"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442964da6a5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '616'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:09 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=YkHdarVh61xFxFARzIMJ6nZvwZLB7ztYUAoYvL6iHMA%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633229"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=YkHdarVh61xFxFARzIMJ6nZvwZLB7ztYUAoYvL6iHMA%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633229"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9580'
+      x-ratelimit-remaining-usd:
+      - '0.958'
+      x-ratelimit-reset:
+      - '30771'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=tantalum+pentoxide+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 251, "db_response_time_ms": 54, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (tantalum pentoxide
+        thin film) in the title or abstract where it has an abstract", "x_new_oql":
+        "get works with (tantalum pentoxide thin film) in the title or abstract where
+        it has an abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "has_abstract", "value": true}, {"column_id": "title_and_abstract.search",
+        "value": "tantalum pentoxide thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:tantalum
+        pentoxide thin film&per_page=5", "order": "best matches first", "order_default":
+        true}, "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2020838581",
+        "doi": "https://doi.org/10.1063/1.332924", "title": "Some properties of crystallized
+        tantalum pentoxide thin films on silicon", "publication_year": 1984, "abstract_inverted_index":
+        {"Tantalum": [0], "pentoxide": [1], "thin": [2, 289], "films": [3, 22, 51,
+        66, 105, 174, 222], "on": [4, 67, 223, 232], "p-type": [5], "Si": [6, 68,
+        224, 233], "substrates": [7], "were": [8, 23, 69, 77], "prepared": [9], "by":
+        [10, 25], "thermal": [11], "oxidation": [12, 133, 262, 276, 307], "at": [13,
+        32, 109, 118, 141, 154, 201, 244, 267, 292], "525\u2013550": [14], "\u00b0C":
+        [15, 36, 143, 251], "of": [16, 34, 39, 62, 127, 129, 151, 158, 171, 183, 210,
+        219, 229, 254, 275, 282, 299, 306, 315], "electron-beam": [17], "deposited":
+        [18], "Ta.": [19], "Polycrystalline": [20], "Ta2O5": [21, 65, 221, 231], "formed":
+        [24], "heat": [26], "treating": [27], "the": [28, 54, 63, 122, 125, 130, 136,
+        172, 192, 293], "amorphous": [29, 50, 89, 230], "Ta2O5/Si": [30, 285, 294],
+        "structures": [31, 286], "temperatures": [33, 246, 269], "900\u20131000":
+        [35], "for": [37, 84, 98, 194, 198], "times": [38, 99], "up": [40], "to":
+        [41, 206], "2.5": [42], "h": [43], "in": [44, 79, 95, 144], "Ar": [45, 80],
+        "or": [46, 124, 187], "dry": [47, 96, 145], "O2.": [48], "The": [49, 59, 169,
+        214, 296], "crystallized": [52, 78, 220], "into": [53], "low": [55], "temperature":
+        [56, 123, 132, 310], "\u03b2-Ta2O5": [57], "modification.": [58], "electrical":
+        [60, 317], "properties": [61], "polycrystalline": [64], "studied": [70], "employing":
+        [71], "Al/Ta2O5/Si": [72], "metal-insulator-semiconductor": [73], "capacitors.":
+        [74], "Films": [75], "which": [76, 258], "show": [81], "higher": [82, 119,
+        188, 226], "leakage": [83, 108, 117, 148], "all": [85, 316], "fields": [86,
+        110], "than": [87, 101, 112, 227, 248], "comparable": [88], "films.": [90],
+        "Heat": [91], "treatments": [92], "(900\u20131000": [93], "\u00b0C)": [94],
+        "O2": [97], "greater": [100, 247], "30": [102, 139, 199], "min": [103, 140,
+        200], "produce": [104], "with": [106, 260], "similar": [107], "lower": [111],
+        "0.6": [113], "MV/cm,": [114], "but": [115], "increased": [116], "fields.":
+        [120], "Increasing": [121], "length": [126], "time": [128, 308], "high": [131,
+        238, 268], "step": [134], "reduces": [135], "leakage.": [137], "After": [138],
+        "1000": [142, 202], "O2,": [146], "a": [147, 180, 195, 207, 252, 273, 288,
+        304, 312], "current": [149, 181], "density": [150, 182], "9.6\u00d710\u22129":
+        [152], "A/cm2": [153, 186], "an": [155], "applied": [156], "field": [157,
+        209], "0.7": [159], "MV/cm": [160], "can": [161, 235], "be": [162, 236], "achieved":
+        [163], "(insulator": [164], "about": [165, 211, 249], "70": [166], "nm": [167],
+        "thick).": [168], "conductivity": [170], "dielectric": [173, 216], "increases":
+        [175, 259], "irreversibly": [176], "(dielectric": [177], "breakdown)": [178],
+        "if": [179], "1.93": [184], "\u00d710\u22124": [185], "is": [189, 225, 256],
+        "forced": [190], "through": [191], "insulator;": [193], "specimen": [196],
+        "oxidized": [197, 284], "\u00b0C,": [203], "this": [204, 300], "corresponds":
+        [205], "breakdown": [208], "1.0": [212], "MV/cm.": [213], "effective": [215],
+        "constant": [217], "\u03b5eff": [218, 255, 270], "that": [228], "and": [234,
+        309], "as": [237, 239, 272, 303], "30.": [240], "For": [241, 264], "isochronal":
+        [242], "oxidations": [243, 266], "different": [245], "900": [250], "decrease":
+        [253], "observed,": [257], "increasing": [261], "temperature.": [263], "isothermal":
+        [265], "decreases": [271], "function": [274, 305], "time.": [277], "Auger":
+        [278], "electron": [279], "sputter": [280], "profiles": [281], "high-temperature":
+        [283], "indicate": [287], "SiO2": [290, 301], "layer": [291, 302], "interface.":
+        [295], "formation": [297], "kinetics": [298], "enables": [311], "consistent":
+        [313], "explanation": [314], "measurement": [318], "results.": [319]}, "primary_location":
+        {"id": "doi:10.1063/1.332924", "doi": "https://doi.org/10.1063/1.332924",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.332924", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S187991544", "display_name":
+        "Journal of Applied Physics", "issn_l": "0021-8979", "issn": ["0021-8979",
+        "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1",
+        "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W1999774610",
+        "doi": "https://doi.org/10.1063/1.331880", "title": "Electrical properties
+        of amorphous tantalum pentoxide thin films on silicon", "publication_year":
+        1983, "abstract_inverted_index": {"The": [0, 31, 55, 69, 79], "electrical":
+        [1], "characteristics": [2], "of": [3, 24, 52, 120, 129, 134], "Al/Ta2O5/Si":
+        [4], "metal-insulator-semiconductor": [5], "(MIS)": [6], "capacitors": [7],
+        "were": [8], "studied.": [9], "Ta2O5": [10], "thin": [11], "films": [12],
+        "on": [13, 66, 117], "n-": [14], "and": [15, 61, 86, 155], "p-type": [16,
+        67], "silicon": [17], "had": [18], "been": [19], "prepared": [20], "by": [21],
+        "thermal": [22], "oxidation": [23], "sputter": [25], "or": [26, 43, 108],
+        "electron-beam": [27], "deposited": [28], "Ta": [29], "films.": [30], "direct":
+        [32], "current": [33], "leakage": [34], "was": [35], "found": [36], "to":
+        [37, 92, 101], "be": [38], "about": [39], "3\u00d7l0\u22126": [40], "(Al":
+        [41, 46, 64], "positive)": [42], "6\u00d7l0\u22125": [44], "A/cm2": [45],
+        "negative)": [47], "at": [48, 76, 95, 138], "an": [49, 88], "applied": [50],
+        "field": [51], "1": [53, 77], "MV/cm.": [54], "breakdown": [56], "strength":
+        [57], "is": [58, 72, 82], "between": [59], "3": [60], "4": [62], "MV/cm":
+        [63], "negative": [65, 110, 150], "Si).": [68], "dielectric": [70], "constant":
+        [71], "22\u201330": [73], "when": [74], "measured": [75], "MHz.": [78], "flat-band":
+        [80, 151], "voltage": [81, 152], "positive": [83, 103], "(+0.81\u00b10.09":
+        [84], "V)": [85, 107, 154], "exhibits": [87], "instability": [89], "with":
+        [90], "respect": [91], "voltage-time": [93, 122], "stresses": [94], "room":
+        [96], "temperature.": [97], "It": [98], "can": [99], "shift": [100, 105, 113],
+        "more": [102, 109], "(maximum": [104, 112], "\u223c\u22122": [106], "values":
+        [111], "\u223c-2": [114], "V),": [115], "depending": [116], "the": [118, 121,
+        127, 130, 135, 158], "conditions": [119], "stress.": [123], "A": [124], "post-metal":
+        [125], "(after": [126], "deposition": [128], "Al": [131], "electrodes)": [132],
+        "anneal": [133], "MIS": [136], "structure": [137], "400": [139], "\u00b0C":
+        [140], "for": [141], "30": [142], "min": [143], "in": [144], "90%": [145],
+        "Ar\u2013l0%": [146], "H2": [147], "yields": [148], "a": [149], "(\u22120.08\u00b10.11":
+        [153], "partly": [156], "removes": [157], "instability.": [159]}, "primary_location":
+        {"id": "doi:10.1063/1.331880", "doi": "https://doi.org/10.1063/1.331880",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.331880", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S187991544", "display_name":
+        "Journal of Applied Physics", "issn_l": "0021-8979", "issn": ["0021-8979",
+        "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1",
+        "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2126187389",
+        "doi": "https://doi.org/10.1109/ceidp.2007.4451491", "title": "Structure and
+        dielectric properties of amorphous tantalum pentoxide thin film capacitors",
+        "publication_year": 2007, "abstract_inverted_index": {"Amorphous": [0], "tantalum":
+        [1, 148], "pentoxide": [2, 18, 149], "films": [3, 20, 36, 91, 106, 123, 150],
+        "are": [4, 107], "currently": [5], "being": [6], "studied": [7, 180], "as":
+        [8, 39, 66, 82, 152, 154], "a": [9, 29, 83, 125, 158], "high-k": [10], "dielectric":
+        [11, 99, 129], "for": [12], "high": [13, 30, 59, 153], "energy-density": [14],
+        "Metal-Insulator-Metal": [15], "capacitors.": [16], "Tantalum": [17], "thin":
+        [19], "were": [21, 37], "prepared": [22], "through": [23, 46, 185, 194], "pulsed-dc":
+        [24], "reactive": [25], "magnetron": [26], "sputtering": [27, 53], "at": [28,
+        51, 87, 112, 115, 182, 189], "deposition": [31], "rate": [32], "(15": [33],
+        "\u00c5/s).": [34], "The": [35, 69, 98, 121, 177], "amorphous": [38, 122,
+        147, 222], "determined": [40], "by": [41, 74, 169, 175], "X-ray": [42], "and":
+        [43, 58, 101, 109, 188, 224], "electron": [44, 75, 202], "diffraction": [45,
+        187, 221], "Transmission": [47], "Electron": [48, 196], "Microscopy": [49,
+        197], "(TEM)": [50], "all": [52], "conditions": [54], "of": [55, 103, 118,
+        128, 132, 138, 145, 162, 216], "both": [56, 181], "low": [57], "ion": [60],
+        "bombardments": [61], "unlike": [62], "other": [63], "oxides": [64], "such":
+        [65], "zirconium": [67], "oxide.": [68], "structure": [70], "was": [71], "also":
+        [72], "confirmed": [73], "energy": [76, 160], "loss": [77, 102], "spectra":
+        [78], "using": [79], "anodized": [80], "Ta2O5films": [81], "benchmark.": [84],
+        "After": [85], "annealing": [86], "750": [88], "\u00b0C,": [89], "the": [90,
+        94, 104, 190, 213], "crystallized": [92], "to": [93, 135, 206], "\u03b2-Ta2O5phase":
+        [95], "(x-ray": [96], "analysis).": [97], "constant": [100, 130], "2\u03bcm-thick":
+        [105], "21": [108], "0.3%,": [110], "respectively,": [111], "1": [113], "kHz":
+        [114], "room": [116], "temperature": [117], "25": [119], "\u00b0C.": [120],
+        "have": [124], "Temperature": [126], "Coefficient": [127], "(TCK)": [131],
+        "2.1\u00d710\u22123\u00b0C\u22121,": [133], "similar": [134], "crystalline":
+        [136], "forms": [137], "Ta2O5namely,": [139], "\u03b1-Ta2O5and": [140], "\u03b2-Ta2O5.":
+        [141], "Electrical": [142, 165], "breakdown": [143, 166], "field": [144],
+        "these": [146], "is": [151, 167, 173, 179, 200], "400": [155], "MV/m": [156],
+        "with": [157], "corresponding": [159], "density": [161], "14": [163], "J/cm3.":
+        [164], "affected": [168], "material": [170], "crystallinity,": [171], "which":
+        [172, 199], "controlled": [174], "annealing.": [176], "crystallinity": [178],
+        "bulk": [183], "level": [184, 193], "X-Ray": [186], "local": [191], "atomic":
+        [192], "Fluctuation": [195], "(FEM),": [198], "an": [201], "microscopy": [203],
+        "technique": [204], "used": [205], "study": [207], "Medium": [208], "Range":
+        [209], "Order": [210], "(MRO)": [211], "on": [212], "length": [214], "scale":
+        [215], "1\u20133": [217], "nm": [218], "in": [219], "apparently": [220], "(TEM":
+        [223], "X-ray)": [225], "materials.": [226]}, "primary_location": {"id": "doi:10.1109/ceidp.2007.4451491",
+        "doi": "https://doi.org/10.1109/ceidp.2007.4451491", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1109/ceidp.2007.4451491", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S4363608173", "display_name": "IEEE Conference on Electrical
+        Insulation and Dielectric Phenomena (CEIDP)", "issn_l": null, "issn": null,
+        "is_oa": false, "is_in_doaj": false, "is_core": false, "listed_in": [], "host_organization":
+        null, "host_organization_name": null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "conference"}, "license": null, "license_id": null, "version":
+        "publishedVersion", "is_accepted": true, "is_published": true, "raw_source_name":
+        "2007 Annual Report - Conference on Electrical Insulation and Dielectric Phenomena",
+        "raw_type": "proceedings-article"}}, {"id": "https://openalex.org/W2063768771",
+        "doi": "https://doi.org/10.1002/ecjb.4420721208", "title": "Electroluminescence
+        from anodized tantalum pentoxide thin films", "publication_year": 1989, "abstract_inverted_index":
+        {"Abstract": [0], "To": [1], "understand": [2], "the": [3, 13, 19, 27, 31,
+        58, 62, 69, 72, 76, 81, 87, 93, 99, 105, 118, 124], "electric": [4, 20, 63,
+        88, 119], "breakdown": [5, 28, 70, 94, 120], "characteristic": [6], "of":
+        [7, 51], "anodized": [8], "tantalum": [9], "pentoxide": [10], "(Ta2O5)": [11],
+        "films,": [12], "electroluminescence": [14], "phenomenon": [15], "was": [16,
+        36, 49, 54, 65, 84, 90, 102], "investigated": [17], "in": [18], "field": [21,
+        25, 64, 89], "ranging": [22], "from": [23], "low": [24], "to": [26, 75, 92,
+        98, 123], "field.": [29], "Since": [30], "luminescence": [32, 48, 73, 96],
+        "is": [33, 121], "weak,": [34], "it": [35], "detected": [37], "by": [38],
+        "using": [39], "a": [40, 44, 109], "photomultiplier": [41], "tube": [42],
+        "and": [43], "lock\u2010in": [45], "amplifier.": [46], "The": [47], "independent":
+        [50], "temperature": [52], "but": [53], "strongly": [55], "dependent": [56],
+        "on": [57, 80], "applied": [59], "voltage.": [60], "When": [61, 86], "slightly":
+        [66], "lower": [67], "than": [68], "field,": [71], "due": [74, 97], "carrier":
+        [77], "injection": [78], "based": [79], "Schottky": [82], "effect": [83],
+        "observed.": [85], "close": [91], "voltage,": [95], "electron": [100, 125],
+        "avalanche": [101], "observed,": [103], "where": [104], "luminescent": [106],
+        "spectrum": [107], "had": [108], "peak": [110], "at": [111], "600": [112],
+        "nm.": [113], "These": [114], "observations": [115], "indicated": [116], "that":
+        [117], "related": [122], "avalanche.": [126]}, "primary_location": {"id":
+        "doi:10.1002/ecjb.4420721208", "doi": "https://doi.org/10.1002/ecjb.4420721208",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1002/ecjb.4420721208",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4210198954", "display_name":
+        "Electronics and Communications in Japan (Part II Electronics)", "issn_l":
+        "1520-6432", "issn": ["1520-6432", "8756-663X"], "is_oa": false, "is_in_doaj":
+        false, "is_core": true, "listed_in": ["cwts-core", "norway-1"], "host_organization":
+        "https://openalex.org/P4310320595", "host_organization_name": "Wiley", "host_organization_lineage":
+        ["https://openalex.org/P4310320595"], "host_organization_lineage_names": ["Wiley"],
+        "type": "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Electronics
+        and Communications in Japan (Part II: Electronics)", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2011466657", "doi": "https://doi.org/10.1116/1.2832407",
+        "title": "Ion beam deposition of tantalum pentoxide thin film at room temperature",
+        "publication_year": 2008, "abstract_inverted_index": {"Tantalum": [0], "pentoxide":
+        [1], "(Ta2O5)": [2], "thin": [3], "films": [4, 17, 64, 123], "have": [5, 18],
+        "been": [6, 19], "deposited": [7], "by": [8, 21], "reactive": [9], "ion":
+        [10], "beam": [11], "sputtering": [12], "at": [13, 97], "room": [14], "temperature.":
+        [15], "The": [16, 43], "characterized": [20], "scanning": [22], "electron":
+        [23], "microscopy,": [24, 27], "atomic": [25], "force": [26], "x-ray": [28],
+        "photoelectron": [29], "spectroscopy": [30, 35], "(XPS),": [31], "Fourier":
+        [32], "transform": [33], "infrared": [34], "(FTIR),": [36], "variable": [37],
+        "angle": [38], "ellipsometry,": [39], "and": [40], "UV-VIS": [41, 119], "spectroscopy.":
+        [42], "main": [44], "parameter": [45], "varied": [46], "was": [47], "the":
+        [48, 58, 63, 94, 101, 108, 113], "oxygen": [49], "partial": [50], "pressure.":
+        [51], "Stoichiometry": [52], "is": [53, 99, 111], "reached": [54], "for":
+        [55], "pO\u2a7e3\u00d710\u22122Pa;": [56], "within": [57], "limit": [59, 115],
+        "of": [60, 67, 77, 116], "XPS": [61], "(\u223c1%)": [62], "are": [65, 70,
+        88], "free": [66], "contaminations.": [68], "They": [69], "extremely": [71],
+        "smooth": [72], "with": [73, 134], "a": [74, 126, 130], "surface": [75], "roughness":
+        [76], "0.14nm": [78], "only.": [79], "From": [80], "FTIR,": [81], "it": [82],
+        "can": [83], "be": [84], "concluded": [85], "that": [86], "they": [87], "amorphous.":
+        [89], "For": [90], "stoichiometric": [91, 122], "Ta2O5": [92], "films,": [93],
+        "refractive": [95], "index": [96], "532nm": [98], "in": [100, 129], "range":
+        [102, 133], "from": [103], "2.05": [104], "to": [105, 124], "2.2,": [106],
+        "while": [107], "extinction": [109], "coefficient": [110], "below": [112,
+        138], "detection": [114], "our": [117], "ellipsometer.": [118], "spectra":
+        [120], "show": [121], "possess": [125], "high": [127], "transmission": [128],
+        "wide": [131], "wavelength": [132], "an": [135], "absorption": [136], "edge":
+        [137], "300nm.": [139]}, "primary_location": {"id": "doi:10.1116/1.2832407",
+        "doi": "https://doi.org/10.1116/1.2832407", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1116/1.2832407", "pdf_url": null, "source": {"id": "https://openalex.org/S4210190837",
+        "display_name": "Journal of Vacuum Science & Technology A Vacuum Surfaces
+        and Films", "issn_l": "0734-2101", "issn": ["0734-2101", "1520-8559"], "is_oa":
+        false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core", "dongbi-c",
+        "jufo-1", "ki-jl-1", "norway-1", "poland-70", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Vacuum Science &amp; Technology A: Vacuum, Surfaces, and Films", "raw_type":
+        "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429659d635f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '18922'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:09 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=YkHdarVh61xFxFARzIMJ6nZvwZLB7ztYUAoYvL6iHMA%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633229"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=YkHdarVh61xFxFARzIMJ6nZvwZLB7ztYUAoYvL6iHMA%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633229"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9570'
+      x-ratelimit-remaining-usd:
+      - '0.957'
+      x-ratelimit-reset:
+      - '30771'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=tantalum+pentoxide+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 385, "db_response_time_ms": 15, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (tantalum pentoxide
+        thin film) in the title or abstract", "x_new_oql": "get works with (tantalum
+        pentoxide thin film) in the title or abstract", "oqo": {"get_rows": "works",
+        "filter_rows": [{"column_id": "title_and_abstract.search", "value": "tantalum
+        pentoxide thin film", "operator": "has"}]}, "url": "/works?filter=title_and_abstract.search:tantalum
+        pentoxide thin film&per_page=1", "order": "best matches first", "order_default":
+        true}, "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2020838581"}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442966a98b5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '667'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:09 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=YkHdarVh61xFxFARzIMJ6nZvwZLB7ztYUAoYvL6iHMA%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633229"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=YkHdarVh61xFxFARzIMJ6nZvwZLB7ztYUAoYvL6iHMA%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633229"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9560'
+      x-ratelimit-remaining-usd:
+      - '0.956'
+      x-ratelimit-reset:
+      - '30771'
+    status:
+      code: 200
+      message: OK
+version: 1

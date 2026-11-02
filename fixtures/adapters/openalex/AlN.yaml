@@ -1,0 +1,726 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=AlN+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 4090, "db_response_time_ms": 45, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (AlN thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (AlN thin film) in the title or abstract where it has an abstract", "oqo":
+        {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract", "value":
+        true}, {"column_id": "title_and_abstract.search", "value": "AlN thin film",
+        "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:AlN
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2107811416",
+        "doi": "https://doi.org/10.1007/s11671-010-9582-5", "title": "Berkovich Nanoindentation
+        on AlN Thin Films", "publication_year": 2010, "abstract_inverted_index": {"Berkovich":
+        [0, 85], "nanoindentation-induced": [1], "mechanical": [2, 179], "deformation":
+        [3], "mechanisms": [4], "of": [5, 57, 68, 77, 99, 142, 149, 155, 186], "AlN":
+        [6, 25, 78], "thin": [7, 26, 79], "films": [8, 27, 80], "have": [9, 173],
+        "been": [10], "investigated": [11], "by": [12, 44, 55, 83, 182], "using":
+        [13, 45], "atomic": [14], "force": [15], "microscopy": [16, 22], "(AFM)":
+        [17], "and": [18, 74, 102, 107, 145], "cross-sectional": [19], "transmission":
+        [20], "electron": [21], "(XTEM)": [23], "techniques.": [24], "are": [28, 105,
+        136], "deposited": [29], "on": [30], "the": [31, 46, 66, 69, 89, 100, 116,
+        121, 126, 131, 140, 152, 183, 188], "metal-organic": [32], "chemical-vapor":
+        [33], "deposition": [34], "(MOCVD)": [35], "derived": [36], "Si-doped": [37],
+        "(2": [38], "\u00d7": [39], "1017": [40], "cm-3)": [41], "GaN": [42], "template":
+        [43], "helicon": [47], "sputtering": [48], "system.": [49], "The": [50, 72,
+        96, 111, 147], "XTEM": [51, 112], "samples": [52], "were": [53, 81], "prepared":
+        [54], "means": [56], "focused": [58], "ion": [59], "beam": [60], "(FIB)":
+        [61], "milling": [62], "to": [63, 139], "accurately": [64], "position": [65],
+        "cross-section": [67], "nanoindented": [70], "area.": [71], "hardness": [73,
+        101], "Young''s": [75, 103], "modulus": [76, 104], "measured": [82], "a":
+        [84], "nanoindenter": [86], "operated": [87], "with": [88], "continuous":
+        [90], "contact": [91], "stiffness": [92], "measurements": [93], "(CSM)": [94],
+        "option.": [95], "obtained": [97, 167], "values": [98], "22": [106], "332":
+        [108], "GPa,": [109], "respectively.": [110], "images": [113], "taken": [114],
+        "in": [115, 130, 151, 168], "vicinity": [117], "regions": [118], "just": [119],
+        "underneath": [120], "indenter": [122], "tip": [123], "revealed": [124], "that":
+        [125, 159], "multiple": [127], "\"pop-ins\"": [128], "observed": [129], "load-displacement":
+        [132, 156], "curve": [133, 157], "during": [134], "loading": [135], "due":
+        [137], "primarily": [138], "activities": [141], "dislocation": [143], "nucleation":
+        [144], "propagation.": [146], "absence": [148], "discontinuities": [150],
+        "unloading": [153], "segments": [154], "suggests": [158], "no": [160], "pressure-induced":
+        [161], "phase": [162], "transition": [163], "was": [164], "involved.": [165],
+        "Results": [166], "this": [169], "study": [170], "may": [171], "also": [172],
+        "technological": [174], "implications": [175], "for": [176], "estimating":
+        [177], "possible": [178], "damages": [180], "induced": [181], "fabrication":
+        [184], "processes": [185], "making": [187], "AlN-based": [189], "devices.":
+        [190]}, "primary_location": {"id": "doi:10.1007/s11671-010-9582-5", "doi":
+        "https://doi.org/10.1007/s11671-010-9582-5", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.1007/s11671-010-9582-5", "pdf_url": "https://link.springer.com/content/pdf/10.1007/s11671-010-9582-5.pdf",
+        "source": {"id": "https://openalex.org/S55093224", "display_name": "Nanoscale
+        Research Letters", "issn_l": "1556-276X", "issn": ["1556-276X", "1931-7573"],
+        "is_oa": true, "is_in_doaj": true, "is_core": true, "listed_in": ["anvur-scientific",
+        "cwts-core", "doaj", "ki-jl-1", "poland-20"], "host_organization": "https://openalex.org/P4310319900",
+        "host_organization_name": "Springer Science+Business Media", "host_organization_lineage":
+        ["https://openalex.org/P4310319900", "https://openalex.org/P4310319965"],
+        "host_organization_lineage_names": ["Springer Science+Business Media", "Springer
+        Nature"], "type": "journal"}, "license": "cc-by-nc", "license_id": "https://openalex.org/licenses/cc-by-nc",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Nanoscale Research Letters", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2033562417", "doi": "https://doi.org/10.1116/1.1649343",
+        "title": "Thickness dependence of the properties of highlyc-axis textured
+        AlN thin films", "publication_year": 2004, "abstract_inverted_index": {"The":
+        [0, 42, 83, 99], "influence": [1], "of": [2, 9, 25, 35, 56], "film": [3],
+        "thickness": [4, 43], "on": [5, 16], "the": [6, 57, 73, 91], "material": [7],
+        "properties": [8], "aluminum": [10], "nitride": [11], "(AlN)": [12], "thin":
+        [13], "films": [14], "deposited": [15], "Pt(111)": [17], "electrodes": [18],
+        "has": [19], "been": [20], "investigated": [21], "experimentally": [22], "by":
+        [23], "means": [24], "x-ray": [26], "diffraction,": [27], "dielectric": [28,
+        92], "response,": [29], "atomic": [30], "force": [31], "microscopy,": [32],
+        "interferometry": [33], "measurement": [34], "effective": [36, 74], "d33,":
+        [37, 75], "and": [38, 49, 109], "residual": [39], "stress": [40], "measurement.":
+        [41], "was": [44, 86], "varied": [45, 106], "between": [46, 107], "35": [47],
+        "nm": [48], "2": [50], "\u03bcm.": [51], "Full": [52], "width": [53], "at":
+        [54, 88], "mid-height": [55], "rocking": [58], "curve": [59], "decreased":
+        [60, 94], "from": [61, 68, 78, 95], "2.60": [62], "to": [63, 70, 80, 97],
+        "1.14\u00b0,": [64], "rms": [65], "roughness": [66], "increased": [67], "3.8":
+        [69], "18.6": [71], "\u00c5,": [72], "namely": [76], "d33,f,": [77], "2.75":
+        [79], "5.15": [81], "pm/V.": [82], "permittivity": [84], "\u03b5AlN": [85],
+        "stable": [87], "10.2,": [89], "whereas": [90], "losses": [93], "1%": [96],
+        "0.1%.": [98], "breakdown": [100], "electric": [101], "field": [102], "under":
+        [103], "dc": [104], "voltages": [105], "4.0": [108], "5.5": [110], "MV/cm.":
+        [111]}, "primary_location": {"id": "doi:10.1116/1.1649343", "doi": "https://doi.org/10.1116/1.1649343",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1116/1.1649343", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S4210190837", "display_name":
+        "Journal of Vacuum Science & Technology A Vacuum Surfaces and Films", "issn_l":
+        "0734-2101", "issn": ["0734-2101", "1520-8559"], "is_oa": false, "is_in_doaj":
+        false, "is_core": true, "listed_in": ["cwts-core", "dongbi-c", "jufo-1", "ki-jl-1",
+        "norway-1", "poland-70", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Vacuum Science &amp; Technology A: Vacuum, Surfaces, and Films", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W1974857600", "doi": "https://doi.org/10.1116/1.574579",
+        "title": "AlN thin films with controlled crystallographic orientations and
+        their microstructure", "publication_year": 1987, "abstract_inverted_index":
+        {"C-axis": [0], "oriented": [1], "AlN": [2, 6, 20, 84], "thin": [3, 21, 85],
+        "films,": [4], "or": [5], "\u3008001\u3009,": [7, 40], "are": [8], "normally":
+        [9], "obtained": [10], "by": [11, 31, 49], "various": [12], "reactive": [13],
+        "deposition": [14, 35], "methods.": [15], "We": [16], "have": [17], "found":
+        [18, 81], "the": [19, 55, 77, 83], "films": [22], "with": [23, 69], "orientations":
+        [24], "other": [25], "than": [26], "\u3008001\u3009": [27], "can": [28], "be":
+        [29, 100], "prepared": [30], "controlling": [32, 54], "rf": [33], "sputter":
+        [34], "conditions.": [36], "Three": [37], "different": [38], "orientations,":
+        [39], "\u3008102\u3009,": [41], "and": [42, 47, 93], "\u3008101\u3009,": [43],
+        "were": [44, 97], "independently": [45], "grown": [46, 88], "verified": [48,
+        98], "x-ray": [50], "diffraction.": [51], "A": [52, 60], "factor": [53], "growth":
+        [56], "habit": [57], "is": [58, 80, 87], "discussed.": [59], "cross-sectional":
+        [61], "transmission": [62, 65], "electron": [63, 66], "microscopy/scanning":
+        [64], "microscopy": [67], "technique": [68], "microdiffraction": [70], "was":
+        [71], "used": [72], "to": [73, 99], "study": [74], "microstructure": [75],
+        "of": [76], "film.": [78], "It": [79], "that": [82], "film": [86], "in": [89],
+        "a": [90], "columnar": [91, 95], "structure": [92], "individual": [94], "grains":
+        [96], "single": [101], "crystalline.": [102]}, "primary_location": {"id":
+        "doi:10.1116/1.574579", "doi": "https://doi.org/10.1116/1.574579", "is_oa":
+        false, "landing_page_url": "https://doi.org/10.1116/1.574579", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S4210190837", "display_name":
+        "Journal of Vacuum Science & Technology A Vacuum Surfaces and Films", "issn_l":
+        "0734-2101", "issn": ["0734-2101", "1520-8559"], "is_oa": false, "is_in_doaj":
+        false, "is_core": true, "listed_in": ["cwts-core", "dongbi-c", "jufo-1", "ki-jl-1",
+        "norway-1", "poland-70", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Vacuum Science &amp; Technology A: Vacuum, Surfaces, and Films", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W2003872633", "doi": "https://doi.org/10.1063/1.366236",
+        "title": "Characteristics of stacking faults in AlN thin films", "publication_year":
+        1997, "abstract_inverted_index": {"We": [0, 128], "have": [1], "investigated":
+        [2], "growth": [3], "characteristics": [4], "and": [5, 35, 52, 102], "atomic":
+        [6], "structure": [7], "of": [8, 27, 46, 68, 78, 110, 133, 139], "defects":
+        [9, 58, 135], "in": [10, 59, 82, 136], "AlN": [11, 30, 60], "thin": [12, 61],
+        "films": [13, 31, 62], "grown": [14, 63], "by": [15, 97, 108], "the": [16,
+        23, 37, 43, 56, 65, 83, 105, 123, 130], "metalorganic": [17], "chemical":
+        [18], "vapor": [19], "deposition": [20], "technique": [21], "on": [22, 64],
+        "(101\u03042)": [24], "r": [25, 66], "plane": [26, 67, 101], "\u03b1-Al2O3.":
+        [28], "The": [29, 112], "were": [32, 70], "single": [33, 117], "crystal":
+        [34], "exhibited": [36], "following": [38], "epitaxial": [39], "relationship:":
+        [40], "(112\u03040)AlN\u2225(101\u03042)sap": [41], "with": [42, 88], "in-plane":
+        [44], "alignment": [45], "[0001]AlN\u2225[1\u0304011]sap.": [47], "Using":
+        [48], "high-resolution": [49], "electron": [50], "microscopy": [51], "multislice":
+        [53], "image": [54], "simulation,": [55], "predominant": [57], "\u03b1-Al2O3":
+        [69], "found": [71], "to": [72], "be": [73, 95], "low-energy": [74], "intrinsic":
+        [75], "stacking": [76], "faults": [77, 113], "type": [79], "I1": [80], "lying":
+        [81], "basal": [84], "plane.": [85], "This": [86], "fault,": [87], "a": [89,
+        116], "1/6[202\u03043]": [90], "resultant": [91], "displacement": [92, 109],
+        "vector,": [93], "can": [94], "formed": [96], "removing": [98], "one": [99],
+        "(0002)": [100], "then": [103], "shearing": [104], "remaining": [106], "half-crystal":
+        [107], "1/3[101\u03040].": [111], "appear": [114], "as": [115], "face-centered-cubic":
+        [118], "stack": [119], "ABC": [120], "inserted": [121], "into": [122], "normal":
+        [124], "\u2026ABAB\u2026": [125], "hexagonal": [126], "sequence.": [127],
+        "discuss": [129], "possible": [131], "role": [132], "these": [134], "optical":
+        [137], "properties": [138], "semiconductor": [140], "devices.": [141]}, "primary_location":
+        {"id": "doi:10.1063/1.366236", "doi": "https://doi.org/10.1063/1.366236",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.366236", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S187991544", "display_name":
+        "Journal of Applied Physics", "issn_l": "0021-8979", "issn": ["0021-8979",
+        "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1",
+        "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W1626395600",
+        "doi": "https://doi.org/10.1063/1.3377908", "title": "Giant magnetoelectric
+        coefficients in (Fe90Co10)78Si12B10-AlN thin film composites", "publication_year":
+        2010, "abstract_inverted_index": {"Thin": [0], "film": [1, 62], "magnetoelectric":
+        [2], "(ME)": [3], "two\u2013two": [4], "composites": [5, 63], "consisting":
+        [6], "of": [7, 33, 48, 93], "AlN": [8], "and": [9, 43], "amorphous": [10],
+        "(Fe90Co10)78Si12B10": [11], "layers": [12], "were": [13], "fabricated": [14],
+        "by": [15, 70], "magnetron": [16], "sputtering": [17], "on": [18], "Si": [19],
+        "(100)": [20], "substrates.": [21], "Upon": [22], "magnetic": [23, 68], "field":
+        [24, 71, 97], "annealing": [25, 72], "they": [26], "show": [27], "an": [28],
+        "extremely": [29], "high": [30], "ME": [31, 58], "coefficient": [32], "737":
+        [34], "V/cm": [35, 45], "Oe": [36, 46], "at": [37, 40, 50], "mechanical":
+        [38], "resonance": [39, 49], "753": [41], "Hz": [42], "3.1": [44], "out":
+        [47], "100": [51], "Hz.": [52], "These": [53], "are": [54], "the": [55, 66,
+        74, 91], "highest": [56], "reported": [57], "coefficients": [59], "in": [60,
+        85], "thin": [61], "ever.": [64], "Furthermore,": [65], "induced": [67], "anisotropy":
+        [69], "serves": [73], "possibility": [75], "to": [76], "obtain": [77], "a":
+        [78, 82, 94], "sensor": [79], "element": [80], "with": [81], "pronounced":
+        [83], "sensitivity": [84], "only": [86], "one": [87], "dimension,": [88],
+        "which": [89], "allows": [90], "realization": [92], "three-dimensional": [95],
+        "vector": [96], "sensor.": [98]}, "primary_location": {"id": "doi:10.1063/1.3377908",
+        "doi": "https://doi.org/10.1063/1.3377908", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.3377908", "pdf_url": null, "source": {"id": "https://openalex.org/S105243760",
+        "display_name": "Applied Physics Letters", "issn_l": "0003-6951", "issn":
+        ["0003-6951", "1077-3118", "1520-8842"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-a",
+        "jufo-3", "ki-jl-1", "norway-2", "poland-100", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Applied Physics
+        Letters", "raw_type": "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a544298efb235f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '15788'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:16 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=jkjGc875ijESO7J3DUbkPYtQHj0cMofIdtLpY5G%2Fbpc%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633236"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=jkjGc875ijESO7J3DUbkPYtQHj0cMofIdtLpY5G%2Fbpc%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633236"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9330'
+      x-ratelimit-remaining-usd:
+      - '0.933'
+      x-ratelimit-reset:
+      - '30764'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=AlN+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 5790, "db_response_time_ms": 53, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (AlN thin film)
+        in the title or abstract", "x_new_oql": "get works with (AlN thin film) in
+        the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "AlN thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:AlN thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W2107811416"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a544298fef555f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '608'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:16 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=jkjGc875ijESO7J3DUbkPYtQHj0cMofIdtLpY5G%2Fbpc%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633236"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=jkjGc875ijESO7J3DUbkPYtQHj0cMofIdtLpY5G%2Fbpc%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633236"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9320'
+      x-ratelimit-remaining-usd:
+      - '0.932'
+      x-ratelimit-reset:
+      - '30764'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=aluminum+nitride+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 2405, "db_response_time_ms": 32, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (aluminum nitride
+        thin film) in the title or abstract where it has an abstract", "x_new_oql":
+        "get works with (aluminum nitride thin film) in the title or abstract where
+        it has an abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "has_abstract", "value": true}, {"column_id": "title_and_abstract.search",
+        "value": "aluminum nitride thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:aluminum
+        nitride thin film&per_page=5", "order": "best matches first", "order_default":
+        true}, "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W3158901401",
+        "doi": "https://doi.org/10.1103/physrevmaterials.5.044412", "title": "Ferroelectricity
+        in boron-substituted aluminum nitride thin films", "publication_year": 2021,
+        "abstract_inverted_index": {"This": [0], "manuscript": [1], "demonstrates":
+        [2], "ferroelectricity": [3], "in": [4, 47, 60, 63], "B-substituted": [5],
+        "AlN": [6], "thin": [7], "films": [8, 22], "and": [9, 51, 67, 120, 132, 143],
+        "a": [10, 45, 61, 68], "complementary": [11], "set": [12], "of": [13, 73,
+        95, 115], "first-principles": [14], "calculations": [15, 127], "to": [16,
+        39], "understand": [17], "their": [18], "structure-property": [19], "relationships.":
+        [20], "${\\mathrm{Al}}_{1--x}{\\mathrm{B}}_{x}\\mathrm{N}$": [21], "are":
+        [23], "grown": [24], "by": [25], "dual-cathode": [26], "reactive": [27], "magnetron":
+        [28], "sputtering": [29], "on": [30], "$(110)\\mathrm{W}/(001){\\mathrm{Al}}_{2}{\\mathrm{O}}_{3}$":
+        [31], "substrates": [32], "at": [33, 35], "300\\ifmmode^\\circ\\else\\textdegree\\fi{}C":
+        [34], "compositions": [36], "spanning": [37], "$x=0$": [38], "$x=0.20$.":
+        [40], "X-ray": [41], "diffraction": [42], "studies": [43], "indicate": [44],
+        "decrease": [46, 62], "both": [48], "the": [49, 129, 136], "$c$": [50], "$a$":
+        [52], "lattice": [53], "parameters": [54], "with": [55, 80, 85, 108], "increasing":
+        [56], "B": [57, 113], "concentration,": [58], "resulting": [59], "unit": [64],
+        "cell": [65], "volume": [66], "constant": [69], "$c$/$a$": [70], "axial":
+        [71], "ratio": [72], "1.60": [74], "over": [75], "this": [76], "composition":
+        [77], "range.": [78], "Films": [79], "$0.02\\ensuremath{\\le}x\\ensuremath{\\le}0.15$":
+        [81], "display": [82], "ferroelectric": [83, 121], "switching": [84], "remanent":
+        [86], "polarizations": [87], "exceeding": [88], "$125\\phantom{\\rule{0.16em}{0ex}}\\ensuremath{\\mu}\\mathrm{C}\\phantom{\\rule{0.16em}{0ex}}\\mathrm{c}{\\mathrm{m}}^{--2}$":
+        [89], "while": [90], "maintaining": [91], "band": [92, 99], "gap": [93, 100],
+        "energies": [94], "$>5.2\\phantom{\\rule{0.16em}{0ex}}\\mathrm{eV}$.": [96],
+        "The": [97], "large": [98], "allows": [101], "low": [102], "frequency": [103],
+        "hysteresis": [104], "measurement": [105], "(200": [106], "Hz)": [107], "modest":
+        [109], "leakage": [110], "contributions.": [111], "At": [112], "concentrations":
+        [114], "$x>0.15$,": [116], "$c$-axis": [117], "orientation": [118], "deteriorates":
+        [119], "behavior": [122], "is": [123], "degraded.": [124], "Density-functional":
+        [125], "theory": [126], "corroborate": [128], "structural": [130], "observations":
+        [131], "provide": [133], "predictions": [134], "for": [135], "wurtzite": [137],
+        "$u$": [138], "parameter,": [139], "polarization": [140], "reversal": [141],
+        "magnitudes,": [142], "composition-dependent": [144], "coercive": [145], "fields.":
+        [146]}, "primary_location": {"id": "doi:10.1103/physrevmaterials.5.044412",
+        "doi": "https://doi.org/10.1103/physrevmaterials.5.044412", "is_oa": true,
+        "landing_page_url": "https://doi.org/10.1103/physrevmaterials.5.044412", "pdf_url":
+        "http://link.aps.org/pdf/10.1103/PhysRevMaterials.5.044412", "source": {"id":
+        "https://openalex.org/S2786256796", "display_name": "Physical Review Materials",
+        "issn_l": "2475-9953", "issn": ["2475-9953", "2476-0455"], "is_oa": false,
+        "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core", "dongbi-b",
+        "jufo-2", "ki-jl-1", "norway-1", "poland-70", "russia-white-list-1"], "host_organization":
+        "https://openalex.org/P4310320261", "host_organization_name": "American Physical
+        Society", "host_organization_lineage": ["https://openalex.org/P4310320261"],
+        "host_organization_lineage_names": ["American Physical Society"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Physical Review
+        Materials", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2082067277",
+        "doi": "https://doi.org/10.1116/1.582035", "title": "Spectrophotometric analysis
+        of aluminum nitride thin films", "publication_year": 1999, "abstract_inverted_index":
+        {"The": [0, 57, 112, 145], "optical": [1, 25, 159], "functions": [2], "of":
+        [3, 42, 70, 82, 87, 97, 140, 142], "AlN": [4, 88, 143], "thin": [5], "films":
+        [6, 89], "deposited": [7], "on": [8, 108], "the": [9, 13, 34, 40, 80, 83,
+        95, 109], "quartz": [10], "substrates": [11], "by": [12], "reactive": [14],
+        "radio": [15], "frequency": [16], "magnetron": [17], "sputtering,": [18],
+        "such": [19], "as": [20], "refractive": [21], "index,": [22], "extinction":
+        [23, 113], "coefficient,": [24], "band": [26], "gap,": [27], "and": [28, 36,
+        66, 102, 118, 138], "film": [29], "thickness": [30, 154], "were": [31, 59,
+        76, 93, 115], "determined": [32], "from": [33], "transmittance": [35], "reflectance":
+        [37], "spectra": [38], "in": [39, 90, 94, 157], "range": [41, 96], "190\u2013820":
+        [43], "nm.": [44], "For": [45], "these": [46], "analyses,": [47], "an": [48],
+        "inverse": [49], "synthesis": [50], "method": [51], "was": [52], "established":
+        [53], "after": [54], "literature": [55], "survey.": [56], "results": [58],
+        "doublechecked": [60], "with": [61, 68], "a": [62, 152], "modified": [63],
+        "envelope": [64], "method,": [65], "compared": [67], "those": [69], "previous":
+        [71], "reports.": [72], "Spectroscopic": [73], "ellipsometry": [74], "analyses":
+        [75], "performed": [77], "to": [78], "confirm": [79], "accuracy": [81], "methods.":
+        [84], "Refractive": [85], "indices": [86], "this": [91], "study": [92], "1.95\u20132.05":
+        [98], "at": [99, 104, 121, 132, 148], "633": [100], "nm": [101], "2.26\u20132.38":
+        [103], "250": [105], "nm,": [106], "depending": [107], "preparation": [110],
+        "conditions.": [111], "coefficients": [114], "small": [116], "(<5\u00d710\u22124)":
+        [117], "nearly": [119], "constant": [120], "low": [122], "energy": [123, 150],
+        "region": [124], "(<2": [125], "eV),": [126], "but": [127], "exhibited": [128,
+        151], "various": [129, 158], "dispersion": [130], "features": [131], "2.2\u20133.5":
+        [133], "eV,": [134], "indicating": [135], "different": [136], "amount": [137],
+        "kinds": [139], "defects": [141], "films.": [144], "absorption": [146], "coefficient":
+        [147], "near-band-gap": [149], "strong": [153], "dependence,": [155], "resulting":
+        [156], "band-gap": [160], "energies": [161], "ranging": [162], "5.34\u20135.71":
+        [163], "eV.": [164]}, "primary_location": {"id": "doi:10.1116/1.582035", "doi":
+        "https://doi.org/10.1116/1.582035", "is_oa": false, "landing_page_url": "https://doi.org/10.1116/1.582035",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4210190837", "display_name":
+        "Journal of Vacuum Science & Technology A Vacuum Surfaces and Films", "issn_l":
+        "0734-2101", "issn": ["0734-2101", "1520-8559"], "is_oa": false, "is_in_doaj":
+        false, "is_core": true, "listed_in": ["cwts-core", "dongbi-c", "jufo-1", "ki-jl-1",
+        "norway-1", "poland-70", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Vacuum Science &amp; Technology A: Vacuum, Surfaces, and Films", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W2041690766", "doi": "https://doi.org/10.1063/1.124055",
+        "title": "Properties of aluminum nitride thin films for piezoelectric transducers
+        and microwave filter applications", "publication_year": 1999, "abstract_inverted_index":
+        {"Aluminum": [0], "nitride": [1], "thin": [2], "films": [3, 21], "have": [4,
+        74], "been": [5, 75], "grown": [6], "by": [7], "reactive": [8], "magnetron":
+        [9], "sputter": [10], "technique": [11], "using": [12], "a": [13, 59, 90,
+        95, 102], "pulsed": [14], "power": [15], "supply.": [16], "The": [17, 31,
+        45, 81, 117], "highly": [18], "(002)-textured": [19], "columnar": [20], "deposited":
+        [22], "on": [23], "platinized": [24], "silicon": [25], "substrates": [26],
+        "exhibited": [27], "quasi-single-crystal": [28], "piezoelectric": [29, 61],
+        "properties.": [30, 80], "effective": [32, 40], "d33": [33], "was": [34],
+        "measured": [35], "as": [36, 42], "3.4": [37], "pm/V,": [38], "the": [39,
+        86, 108, 121], "e31": [41], "1.0": [43], "C/m2.": [44], "pyroelectric": [46],
+        "coefficient": [47, 119], "turned": [48], "out": [49], "to": [50, 58, 77,
+        111, 126], "be": [51, 112, 124], "positive": [52], "(4.8": [53], "\u03bcC":
+        [54], "m\u22122": [55], "K\u22121)": [56], "due": [57], "dominating": [60],
+        "contribution.": [62], "Thin-film": [63], "bulk": [64], "acoustic": [65],
+        "resonators": [66], "(TFBAR)": [67], "with": [68], "fundamental": [69], "resonance":
+        [70, 88], "at": [71], "3.6": [72], "GHz": [73], "fabricated": [76], "assess":
+        [78], "resonator": [79], "material": [82], "parameters": [83], "derived":
+        [84], "from": [85], "thickness": [87], "were": [89], "coupling": [91], "factor":
+        [92, 104], "k=0.23": [93], "and": [94], "sound": [96], "velocity": [97], "vs=11":
+        [98], "400": [99], "m/s.": [100], "With": [101], "quality": [103], "Q": [105],
+        "of": [106, 120], "300,": [107], "TFBARs": [109], "proved": [110], "apt":
+        [113], "for": [114], "filter": [115], "applications.": [116], "temperature":
+        [118], "frequency": [122], "could": [123], "tuned": [125], "practically":
+        [127], "0": [128], "ppm/K.": [129]}, "primary_location": {"id": "doi:10.1063/1.124055",
+        "doi": "https://doi.org/10.1063/1.124055", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.124055", "pdf_url": null, "source": {"id": "https://openalex.org/S105243760",
+        "display_name": "Applied Physics Letters", "issn_l": "0003-6951", "issn":
+        ["0003-6951", "1077-3118", "1520-8842"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-a",
+        "jufo-3", "ki-jl-1", "norway-2", "poland-100", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Applied Physics
+        Letters", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2017939510",
+        "doi": "https://doi.org/10.1063/1.3216586", "title": "Piezoelectric nanoelectromechanical
+        resonators based on aluminum nitride thin films", "publication_year": 2009,
+        "abstract_inverted_index": {"We": [0], "demonstrate": [1], "piezoelectrically":
+        [2], "actuated,": [3], "electrically": [4], "tunable": [5], "nanomechanical":
+        [6], "resonators": [7], "based": [8], "on": [9], "multilayers": [10], "containing":
+        [11], "a": [12], "100-nm-thin": [13], "aluminum": [14], "nitride": [15], "(AlN)":
+        [16], "layer.": [17], "Efficient": [18], "piezoelectric": [19, 72], "actuation":
+        [20], "of": [21, 39, 48, 55], "very": [22], "high": [23], "frequency": [24,
+        82], "fundamental": [25], "flexural": [26], "modes": [27], "up": [28], "to":
+        [29], "\u223c80": [30], "MHz": [31], "is": [32], "demonstrated": [33], "at":
+        [34], "room": [35], "temperature.": [36], "Thermomechanical": [37], "fluctuations":
+        [38], "AlN": [40, 66, 78], "cantilevers": [41], "measured": [42], "by": [43],
+        "optical": [44], "interferometry": [45], "enable": [46], "calibration": [47],
+        "the": [49, 56, 63], "transduction": [50], "responsivity": [51], "and": [52,
+        59], "displacement": [53], "sensitivities": [54], "resonators.": [57], "Measurements":
+        [58], "analyses": [60], "show": [61], "that": [62], "100": [64], "nm": [65],
+        "layer": [67], "employed": [68], "has": [69], "an": [70], "excellent": [71],
+        "coefficient,": [73], "d31=2.4": [74], "pm/V.": [75], "Doubly": [76], "clamped":
+        [77], "beams": [79], "exhibit": [80], "significant": [81], "tuning": [83],
+        "behavior": [84], "with": [85], "applied": [86], "dc": [87], "voltage.": [88]},
+        "primary_location": {"id": "doi:10.1063/1.3216586", "doi": "https://doi.org/10.1063/1.3216586",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.3216586", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S105243760", "display_name":
+        "Applied Physics Letters", "issn_l": "0003-6951", "issn": ["0003-6951", "1077-3118",
+        "1520-8842"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Applied Physics Letters", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W3157525512", "doi": "https://doi.org/10.1021/acsnano.0c09915",
+        "title": "High In-Plane Thermal Conductivity of Aluminum Nitride Thin Films",
+        "publication_year": 2021, "abstract_inverted_index": {",": [0], "one": [1],
+        "of": [2, 13, 23, 30, 41, 59, 107], "the": [3, 19, 24, 37, 92, 102, 108],
+        "highest": [4], "reported": [5], "to": [6, 47], "date": [7], "for": [8, 121],
+        "any": [9], "thin": [10, 32, 44, 68, 110], "film": [11, 77], "material": [12],
+        "equivalent": [14], "thickness.": [15], "At": [16], "low": [17], "temperatures,":
+        [18], "in-plane": [20, 38, 104], "thermal": [21, 39, 51, 66, 81, 105], "conductivities":
+        [22], "AlN": [25, 43, 109, 116], "films": [26, 111, 117], "surpass": [27],
+        "even": [28], "those": [29], "diamond": [31], "films.": [33], "Phonon-phonon":
+        [34], "scattering": [35, 99], "drives": [36, 101], "transport": [40], "these":
+        [42, 115], "films,": [45, 69], "leading": [46], "an": [48], "increase": [49],
+        "in": [50, 63, 124], "conductivity": [52, 67, 82, 106], "as": [53], "temperature":
+        [54], "decreases.": [55], "This": [56, 87], "is": [57, 61], "opposite": [58],
+        "what": [60], "observed": [62], "traditional": [64], "high": [65, 103], "where":
+        [70], "boundaries": [71], "and": [72, 97, 112], "defects": [73], "that": [74,
+        100, 114], "arise": [75], "from": [76], "growth": [78], "cause": [79], "a":
+        [80], "reduction": [83], "with": [84], "decreasing": [85], "temperature.":
+        [86], "study": [88], "provides": [89], "insight": [90], "into": [91], "interplay":
+        [93], "among": [94], "boundary,": [95], "defect,": [96], "phonon-phonon":
+        [98], "demonstrates": [113], "are": [118], "promising": [119], "materials":
+        [120], "heat": [122], "spreaders": [123], "electronic": [125], "devices.":
+        [126]}, "primary_location": {"id": "doi:10.1021/acsnano.0c09915", "doi": "https://doi.org/10.1021/acsnano.0c09915",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.1021/acsnano.0c09915",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S145476921", "display_name":
+        "ACS Nano", "issn_l": "1936-0851", "issn": ["1936-0851", "1936-086X"], "is_oa":
+        false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core", "dongbi-a",
+        "doyens", "jufo-3", "ki-jl-3", "medline", "norway-2", "poland-200", "russia-white-list-1",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310320006", "host_organization_name":
+        "American Chemical Society", "host_organization_lineage": ["https://openalex.org/P4310320006"],
+        "host_organization_lineage_names": ["American Chemical Society"], "type":
+        "journal"}, "license": "cc-by-nc-nd", "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "ACS Nano", "raw_type": "journal-article"}}], "group_by":
+        []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442990ca7d5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '16632'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:16 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=jkjGc875ijESO7J3DUbkPYtQHj0cMofIdtLpY5G%2Fbpc%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633236"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=jkjGc875ijESO7J3DUbkPYtQHj0cMofIdtLpY5G%2Fbpc%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633236"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9310'
+      x-ratelimit-remaining-usd:
+      - '0.931'
+      x-ratelimit-reset:
+      - '30764'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=aluminum+nitride+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 3245, "db_response_time_ms": 28, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (aluminum nitride
+        thin film) in the title or abstract", "x_new_oql": "get works with (aluminum
+        nitride thin film) in the title or abstract", "oqo": {"get_rows": "works",
+        "filter_rows": [{"column_id": "title_and_abstract.search", "value": "aluminum
+        nitride thin film", "operator": "has"}]}, "url": "/works?filter=title_and_abstract.search:aluminum
+        nitride thin film&per_page=1", "order": "best matches first", "order_default":
+        true}, "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2109872583"}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442991ce2b5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '660'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:16 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=jkjGc875ijESO7J3DUbkPYtQHj0cMofIdtLpY5G%2Fbpc%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633236"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=jkjGc875ijESO7J3DUbkPYtQHj0cMofIdtLpY5G%2Fbpc%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633236"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9300'
+      x-ratelimit-remaining-usd:
+      - '0.93'
+      x-ratelimit-reset:
+      - '30764'
+    status:
+      code: 200
+      message: OK
+version: 1

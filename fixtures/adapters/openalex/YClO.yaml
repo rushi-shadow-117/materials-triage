@@ -1,0 +1,225 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=YOCl+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 1, "db_response_time_ms": 14, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (YOCl thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (YOCl thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "YOCl
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:YOCl
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W4408070124",
+        "doi": "https://doi.org/10.1002/smll.202412647", "title": "A Pre\u2010Oxidation
+        Strategy to Establish Stable Oxide Cathode/Halide Solid\u2010State Electrolyte
+        Interfaces for High Energy all Solid\u2010State Batteries", "publication_year":
+        2025, "abstract_inverted_index": {"Abstract": [0], "All\u2010solid\u2010state":
+        [1], "lithium": [2], "metal": [3, 51], "batteries": [4], "(ASSLBs)": [5],
+        "are": [6], "promising": [7], "for": [8, 33, 74, 188], "high": [9, 18], "energy":
+        [10], "and": [11, 21, 63, 153, 165, 197], "safety.": [12], "Halide\u2010based":
+        [13], "solid\u2010state": [14, 55, 78, 195, 207], "electrolytes,": [15, 79],
+        "characterized": [16], "by": [17], "ionic": [19], "conductivity": [20], "a":
+        [22, 43, 69, 132], "notably": [23], "wide": [24], "electrochemical": [25],
+        "window": [26], "exceeding": [27], "4.3": [28], "V,": [29], "hold": [30],
+        "significant": [31], "promise": [32], "compatibility": [34], "with": [35,
+        48, 112, 151], "high\u2010energy": [36], "cathodes.": [37], "However,": [38],
+        "oxygen": [39, 81, 110], "in": [40, 53, 105], "cathodes": [41], "exhibits":
+        [42], "strong": [44], "tendency": [45], "to": [46, 65, 82, 120, 175], "interact":
+        [47], "the": [49, 88, 121, 129, 148, 190, 201], "central": [50], "cation":
+        [52], "halide": [54, 77, 89, 194, 206], "electrolyte,": [56], "forming": [57],
+        "an": [58, 156], "unstable": [59], "cathode\u2010electrolyte": [60], "interface":
+        [61], "(CEI)": [62], "leading": [64], "cathodic": [66], "degradations.": [67],
+        "Herein,": [68], "pre\u2010oxidation": [70], "strategy": [71], "is": [72],
+        "proposed": [73], "Y": [75, 113], "based": [76], "leveraging": [80], "pre\u2010establish":
+        [83], "robust": [84, 102], "Y\u2500O": [85, 103], "bonds": [86, 104], "within":
+        [87], "electrolyte": [90], "structure": [91], "Li": [92], "2": [93, 145],
+        "YCl": [94], "2.5": [95], "Br": [96], "1.5": [97], "O": [98, 144], "0.5":
+        [99], "(2LO\u20100.5).": [100], "The": [101], "2LO\u20100.5": [106, 152],
+        "effectively": [107], "hinder": [108], "uncontrolled": [109], "interactions":
+        [111], "3": [114], "\u207a,": [115], "which": [116], "would": [117], "otherwise":
+        [118], "lead": [119], "formation": [122, 130], "of": [123, 131, 160, 168,
+        204], "oxidizable": [124], "YOCl.": [125], "This": [126, 183], "stabilization":
+        [127], "promotes": [128], "thin,": [133], "stable": [134, 176], "Y\u2082O\u2083\u2010based":
+        [135], "CEI": [136, 177], "against": [137], "LiNi": [138], "0.83": [139],
+        "Co": [140], "0.11": [141], "Mn": [142], "0.06": [143], "(NCM83).": [146],
+        "Therefore,": [147], "ASSLB": [149], "assembled": [150], "NCM83": [154], "demonstrates":
+        [155], "initial": [157], "discharge\u2010specific": [158], "capacity": [159,
+        170], "208": [161], "mAh": [162], "g": [163], "\u22121": [164], "retained":
+        [166], "80.6%": [167], "its": [169], "after": [171], "1000": [172], "cycles,":
+        [173], "attributed": [174], "film": [178], "derived": [179], "from": [180],
+        "pre\u2010oxidized": [181], "strategy.": [182], "work": [184], "offers": [185],
+        "new": [186], "insights": [187], "regulating": [189], "non\u2010redox": [191],
+        "reaction": [192], "between": [193], "electrolytes": [196], "oxide": [198],
+        "cathodes,": [199], "promoting": [200], "rational": [202], "design": [203],
+        "high\u2010performance": [205], "electrolytes.": [208]}, "primary_location":
+        {"id": "doi:10.1002/smll.202412647", "doi": "https://doi.org/10.1002/smll.202412647",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1002/smll.202412647",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S94619837", "display_name":
+        "Small", "issn_l": "1613-6810", "issn": ["1613-6810", "1613-6829"], "is_oa":
+        false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core", "dongbi-c",
+        "jufo-3", "ki-jl-2", "medline", "norway-2", "poland-200", "russia-white-list-1",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310320595", "host_organization_name":
+        "Wiley", "host_organization_lineage": ["https://openalex.org/P4310320595"],
+        "host_organization_lineage_names": ["Wiley"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Small", "raw_type": "journal-article"}}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442a699ae75f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '4914'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:51 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=peBF8xprD60sJthkjchN6wyEhYtA%2FhquWIQ37tuofiI%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633271"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=peBF8xprD60sJthkjchN6wyEhYtA%2FhquWIQ37tuofiI%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633271"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '8450'
+      x-ratelimit-remaining-usd:
+      - '0.845'
+      x-ratelimit-reset:
+      - '30729'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=YOCl+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 2, "db_response_time_ms": 74, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (YOCl thin film)
+        in the title or abstract", "x_new_oql": "get works with (YOCl thin film) in
+        the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "YOCl thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:YOCl thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W7160698218"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442a6a3d725f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '609'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:51 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=peBF8xprD60sJthkjchN6wyEhYtA%2FhquWIQ37tuofiI%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633271"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=peBF8xprD60sJthkjchN6wyEhYtA%2FhquWIQ37tuofiI%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633271"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '8440'
+      x-ratelimit-remaining-usd:
+      - '0.844'
+      x-ratelimit-reset:
+      - '30729'
+    status:
+      code: 200
+      message: OK
+version: 1

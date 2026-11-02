@@ -123,7 +123,9 @@ class DiscoveryFilter:
     nelements_min: int = 2
     nelements_max: int = 3
     band_gap_min: float | None = None
+    band_gap_max: float | None = None
     energy_above_hull_max: float | None = None
+    exclude_elements: tuple[str, ...] = ()  # anion-only policies, e.g. nitrides without O
 
     def params(self) -> dict[str, str]:
         p = {
@@ -131,8 +133,12 @@ class DiscoveryFilter:
             "nelements_min": str(self.nelements_min),
             "nelements_max": str(self.nelements_max),
         }
+        if self.exclude_elements:
+            p["exclude_elements"] = ",".join(self.exclude_elements)
         if self.band_gap_min is not None:
             p["band_gap_min"] = str(self.band_gap_min)
+        if self.band_gap_max is not None:
+            p["band_gap_max"] = str(self.band_gap_max)
         if self.energy_above_hull_max is not None:
             p["energy_above_hull_min"] = "0.0"
             p["energy_above_hull_max"] = str(self.energy_above_hull_max)

@@ -1,0 +1,403 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=BaSO4+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 16, "db_response_time_ms": 24, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (BaSO4 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (BaSO4 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "BaSO4
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:BaSO4
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2785226700",
+        "doi": "https://doi.org/10.1364/josaa.35.000301", "title": "On the depolarization
+        in granular thin films: a Mueller-matrix approach", "publication_year": 2018,
+        "abstract_inverted_index": {"We": [0, 75], "describe": [1], "a": [2, 24, 100,
+        132], "general": [3, 126], "method": [4, 50, 117, 124], "to": [5, 57, 131],
+        "disclose": [6], "the": [7, 36, 39, 42, 58, 78, 82, 89, 97, 104], "information":
+        [8], "hidden": [9], "in": [10, 62, 141], "Mueller": [11, 60, 90], "matrices":
+        [12, 61], "experimentally": [13], "obtained": [14, 43], "from": [15, 32],
+        "depolarizing": [16], "samples.": [17], "Although": [18], "spectroscopic":
+        [19], "Mueller-matrix": [20], "ellipsometry": [21], "allows": [22], "for":
+        [23], "model-free": [25], "characterization": [26], "of": [27, 41, 66, 81,
+        88, 109, 135], "inhomogeneous": [28, 137], "samples,": [29], "i.e.,": [30],
+        "independently": [31], "any": [33], "assumption": [34], "on": [35, 118], "sample":
+        [37], "structure,": [38], "interpretation": [40], "results": [44], "is": [45,
+        125], "often": [46], "challenging.": [47], "The": [48], "proposed": [49],
+        "combines": [51], "three": [52], "different": [53, 71], "decomposition": [54],
+        "techniques": [55], "applied": [56, 130], "measured": [59], "transmission":
+        [63], "and": [64, 73, 86, 96, 127], "reflection": [65], "granular": [67, 119],
+        "thin": [68, 121], "films": [69], "with": [70, 93, 139], "thicknesses": [72],
+        "densities.": [74], "demonstrate": [76], "that": [77], "comparative": [79],
+        "analysis": [80], "respective": [83], "differential-,": [84], "product-,":
+        [85], "sum-decomposition": [87], "matrices,": [91], "together": [92], "correlation":
+        [94], "effects": [95], "visualization": [98], "as": [99], "Poincar\u00e9":
+        [101], "sphere,": [102], "reveals": [103], "particular": [105], "underlying":
+        [106], "physical": [107], "processes": [108], "depolarization.": [110], "As":
+        [111], "an": [112], "example,": [113], "we": [114], "apply": [115], "this":
+        [116], "BaSO4": [120], "films.": [122], "This": [123], "can": [128], "be":
+        [129], "wide": [133], "variety": [134], "intrinsically": [136], "materials":
+        [138], "applications": [140], "physics,": [142], "industry,": [143], "biology,":
+        [144], "or": [145], "medicine.": [146]}, "primary_location": {"id": "doi:10.1364/josaa.35.000301",
+        "doi": "https://doi.org/10.1364/josaa.35.000301", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1364/josaa.35.000301", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S130108588", "display_name": "Journal of the Optical
+        Society of America A", "issn_l": "1084-7529", "issn": ["1084-7529", "1520-8532"],
+        "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in": ["anvur-class-a",
+        "anvur-scientific", "cwts-core", "dongbi-c", "jufo-1", "ki-jl-1", "medline",
+        "norway-1", "poland-70", "russia-white-list-2"], "host_organization": "https://openalex.org/P4310315679",
+        "host_organization_name": "Optica Publishing Group", "host_organization_lineage":
+        ["https://openalex.org/P4310315679"], "host_organization_lineage_names": ["Optica
+        Publishing Group"], "type": "journal"}, "license": null, "license_id": null,
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Journal of the Optical Society of America A", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W2947889688", "doi": "https://doi.org/10.3390/pr7050316",
+        "title": "Comparative Study of the Performances of Al(OH)3 and BaSO4 in Ultrafine
+        Powder Coatings", "publication_year": 2019, "abstract_inverted_index": {"Ultrafine":
+        [0], "powder": [1, 11, 86, 104, 136, 185, 267], "coatings": [2, 19, 71, 105],
+        "are": [3, 100, 190, 218, 248], "one": [4], "of": [5, 50, 59, 82, 109, 121,
+        135, 184, 262, 266, 274], "the": [6, 10, 57, 80, 110, 150, 162, 168, 204,
+        234, 252, 255, 260, 269], "development": [7], "directions": [8], "in": [9,
+        56, 69, 84, 102, 146, 149, 240], "coating": [12, 46, 60, 139, 275], "industry,":
+        [13], "as": [14, 259], "they": [15, 35], "can": [16, 228], "achieve": [17,
+        221], "thin": [18], "with": [20, 188, 195, 208, 238, 244], "good": [21], "leveling":
+        [22], "and": [23, 72, 78, 117, 123, 138, 156, 166, 272], "high": [24], "surface":
+        [25], "smoothness": [26], "comparable": [27], "to": [28, 32, 40, 220, 242],
+        "liquid": [29], "coatings.": [30], "Compared": [31], "regular": [33], "coatings,":
+        [34, 87], "experience": [36], "a": [37, 53, 66, 88], "higher": [38, 192],
+        "sensitivity": [39], "any": [41], "incompatibilities,": [42], "e.g.,": [43],
+        "filler": [44, 68, 155], "from": [45], "components.": [47], "The": [48, 119,
+        141, 179], "properties": [49, 125, 134], "fillers": [51, 99, 128], "play":
+        [52], "great": [54], "role": [55], "performance": [58], "films.": [61, 140,
+        276], "Aluminum": [62], "trihydrate": [63], "(Al(OH)3)": [64], "is": [65,
+        94, 172], "well-known": [67], "solvent-based": [70], "other": [73], "polymer":
+        [74, 158], "industries.": [75], "To": [76], "study": [77], "evaluate": [79],
+        "performances": [81], "Al(OH)3": [83, 147, 189, 209, 239], "ultrafine": [85,
+        103], "popular": [89], "filler,": [90], "barium": [91], "sulfate": [92], "(BaSO4)":
+        [93], "used": [95, 113], "for": [96, 231], "comparison.": [97], "Both": [98],
+        "added": [101], "based": [106], "on": [107, 132], "two": [108, 256], "most":
+        [111], "commonly": [112], "resin": [114], "systems": [115], "(polyester-epoxy":
+        [116], "polyester).": [118], "differences": [120], "physical": [122], "chemical":
+        [124], "between": [126, 153, 254], "both": [127], "have": [129], "significant":
+        [130], "influences": [131], "several": [133], "paints": [137, 186], "polar":
+        [142], "groups": [143], "(hydrogen": [144], "bond)": [145], "result": [148],
+        "strong": [151], "interaction": [152], "inorganic": [154], "organic": [157],
+        "matrix,": [159], "thus": [160], "decreasing": [161], "molecular": [163],
+        "network": [164], "mobility": [165], "influencing": [167], "chain": [169],
+        "formation,": [170], "which": [171, 197, 217], "verified": [173], "by": [174,
+        251], "differential": [175], "scanning": [176], "calorimetric": [177], "(DSC).":
+        [178], "bed": [180], "expansion": [181], "ratio": [182], "(BERs)": [183],
+        "incorporated": [187, 237], "much": [191, 211], "than": [193], "those": [194,
+        243], "BaSO4,": [196], "indicate": [198], "more": [199], "uniform": [200],
+        "gas-solid": [201], "contact": [202], "during": [203], "spraying": [205],
+        "process.": [206], "Samples": [207], "exhibit": [210], "lower": [212], "specular":
+        [213], "gloss": [214], "at": [215], "60\u00b0,": [216], "expected": [219],
+        "remarkable": [222], "matting": [223], "effects.": [224], "Superior": [225],
+        "corrosion": [226], "resistances": [227], "be": [229], "observed": [230],
+        "almost": [232], "all": [233], "coated": [235], "panels": [236], "contrast":
+        [241], "BaSO4.": [245], "Other": [246], "aspects": [247], "slightly": [249],
+        "influenced": [250], "difference": [253], "fillers,": [257], "such": [258],
+        "angle": [261], "repose": [263], "values": [264], "(AORs)": [265], "paints,":
+        [268], "impact": [270], "resistance": [271], "flexibility": [273]}, "primary_location":
+        {"id": "doi:10.3390/pr7050316", "doi": "https://doi.org/10.3390/pr7050316",
+        "is_oa": true, "landing_page_url": "http://dx.doi.org/10.3390/pr7050316",
+        "pdf_url": "https://www.mdpi.com/2227-9717/7/5/316/pdf?version=1558952968",
+        "source": {"id": "https://openalex.org/S4210201879", "display_name": "Processes",
+        "issn_l": "2227-9717", "issn": ["2227-9717"], "is_oa": true, "is_in_doaj":
+        false, "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "poland-70",
+        "russia-white-list-2", "vabb-shw"], "host_organization": "https://openalex.org/P4310310987",
+        "host_organization_name": "Multidisciplinary Digital Publishing Institute",
+        "host_organization_lineage": ["https://openalex.org/P4310310987"], "host_organization_lineage_names":
+        ["Multidisciplinary Digital Publishing Institute"], "type": "journal"}, "license":
+        "cc-by", "license_id": "https://openalex.org/licenses/cc-by", "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Processes",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W4406249226",
+        "doi": "https://doi.org/10.4314/sa.v23i4.9", "title": "Chemical bath deposition
+        of Cadmiumbarium sulphide (CdBaS) thin film and its thickness effect on bandgapenergy",
+        "publication_year": 2024, "abstract_inverted_index": {"This": [0], "study":
+        [1], "was": [2, 106], "basicallycentred": [3], "on": [4, 24, 39, 72], "the":
+        [5, 18, 25, 73, 87, 90, 132], "chemical": [6, 47], "bath": [7, 48], "deposition":
+        [8, 49, 68, 80], "technique": [9], "of": [10, 20, 28, 35, 42, 69, 78, 89,
+        96, 100, 117, 126], "CdBaS": [11, 36, 70], "(Cadmium": [12], "Barium": [13,
+        65], "sulphide),": [14], "and": [15, 64, 82, 113, 119, 138], "to": [16, 85],
+        "determine": [17], "effect": [19], "thin": [21, 33, 91], "film": [22, 92,
+        139], "thickness": [23, 140], "bandgap": [26, 133], "energy": [27, 134], "chemically":
+        [29], "deposited": [30, 38], "CdBaS.": [31], "The": [32, 115, 128], "films":
+        [34, 101], "were": [37, 54, 121], "several": [40], "samples": [41], "glass":
+        [43], "slides": [44], "using": [45, 93], "a": [46], "(CBD)": [50], "technique.":
+        [51], "Several": [52], "precursors": [53], "used": [55], "suchas": [56], "CadmiumSulphate":
+        [57], "(CdSO4": [58], "Ammonia": [59], "(NH3),": [60], "Thiourea": [61], "(T.U)":
+        [62], "CH4N2S": [63], "Sulphate": [66], "(BaSO4).The": [67], "depends": [71],
+        "parameters": [74], "such": [75], "as": [76, 136], "volume": [77], "precursors,":
+        [79], "temperature": [81, 137], "dip": [83], "time": [84], "uncover": [86],
+        "properties": [88], "spectrophotometer.": [94], "Annealing": [95, 105], "substrate":
+        [97], "involves": [98], "heating": [99], "at": [102, 108], "high": [103],
+        "temperatures.": [104], "done": [107], "1000C,": [109], "2000C,": [110], "3000C,":
+        [111], "4000C": [112], "5000C.": [114], "concentrations": [116], "NH3": [118],
+        "BaSO4": [120], "varied": [122], "in": [123], "different": [124], "sample":
+        [125], "beakers.": [127], "result": [129], "shows": [130], "that": [131],
+        "increases": [135], "increases.": [141]}, "primary_location": {"id": "doi:10.4314/sa.v23i4.9",
+        "doi": "https://doi.org/10.4314/sa.v23i4.9", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.4314/sa.v23i4.9", "pdf_url": "https://www.ajol.info/index.php/sa/article/download/284198/267754",
+        "source": {"id": "https://openalex.org/S5406946458", "display_name": "Scientia
+        Africana", "issn_l": "1118-1931", "issn": ["1118-1931"], "is_oa": false, "is_in_doaj":
+        false, "is_core": false, "listed_in": [], "host_organization": "https://openalex.org/P4310321518",
+        "host_organization_name": "African Journals OnLine", "host_organization_lineage":
+        ["https://openalex.org/P4310321518"], "host_organization_lineage_names": ["African
+        Journals OnLine"], "type": "journal"}, "license": "cc-by-nc-nd", "license_id":
+        "https://openalex.org/licenses/cc-by-nc-nd", "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Scientia Africana",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2051494119",
+        "doi": "https://doi.org/10.1117/12.2001136", "title": "BaAl2S4:Eu thin films
+        sputtered by complex target with spark plasma sintering BaS:Eu pellets", "publication_year":
+        2012, "abstract_inverted_index": {"Europium": [0], "doping": [1, 187], "barium":
+        [2, 66, 188], "thioaluminates": [3, 67, 189], "thin": [4, 36, 104, 118, 190],
+        "films": [5, 23, 105, 119], "are": [6, 24, 58, 86, 120, 157], "sputtered":
+        [7], "by": [8, 17, 26, 98], "Al": [9], "complex": [10, 29, 160, 177], "target":
+        [11, 90, 178], "embedded": [12, 87, 158], "with": [13, 28, 109], "BaS:Eu":
+        [14, 50, 84, 174], "pellets": [15, 51, 85, 111, 156, 175], "sintered": [16],
+        "spark": [18], "plasma": [19], "sintering": [20], "(SPS).": [21], "Thin":
+        [22], "deposited": [25], "RF-sputtering": [27], "target.": [30, 114, 161],
+        "BaAl2S4": [31, 69, 146], "is": [32, 52, 95, 132, 179], "found": [33], "in":
+        [34, 42, 88, 103, 113, 129, 145, 159, 176], "each": [35, 130], "film": [37],
+        "sample": [38], "while": [39, 74], "BaAl4S7": [40, 71], "appears": [41], "the":
+        [43, 47, 75, 89, 140, 171], "samples": [44], "only": [45], "if": [46, 82],
+        "amount": [48], "of": [49, 65, 77, 117, 143, 173], "more": [53, 83, 110, 155],
+        "than": [54], "3.": [55], "Oxidizing": [56], "products": [57], "BaAl2O4,":
+        [59], "BaSO4": [60], "and": [61, 70, 79, 122], "Al2O3.": [62], "The": [63,
+        100, 124, 148], "amounts": [64, 172], "including": [68], "will": [72, 106,
+        151], "increase": [73], "one": [76], "Al2O3": [78], "BaS": [80], "decrease":
+        [81], "during": [91], "sputtering.": [92], "Elements": [93], "analysis": [94],
+        "carried": [96], "out": [97], "EDS.": [99], "Al/Ba": [101], "ratio": [102],
+        "approach": [107, 152], "2.0": [108], "existing": [112], "PL": [115], "spectra":
+        [116], "measured": [121], "analyzed.": [123], "most": [125], "obvious": [126],
+        "emission": [127, 149], "peak": [128, 150], "spectrum": [131], "located":
+        [133], "at": [134], "about": [135], "470nm": [136, 153], "which": [137], "corresponds":
+        [138], "to": [139, 183], "4f65d1\u21924f7": [141], "transition": [142], "Eu2+":
+        [144], "lattice.": [147], "as": [154], "As": [162], "a": [163], "result,":
+        [164], "it": [165], "can": [166], "be": [167], "concluded": [168], "that":
+        [169], "increasing": [170], "an": [180], "efficient": [181], "way": [182],
+        "achieve": [184], "better": [185], "Eu": [186], "film.": [191]}, "primary_location":
+        {"id": "doi:10.1117/12.2001136", "doi": "https://doi.org/10.1117/12.2001136",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1117/12.2001136",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S183492911", "display_name":
+        "Proceedings of SPIE, the International Society for Optical Engineering/Proceedings
+        of SPIE", "issn_l": "0277-786X", "issn": ["0277-786X", "1996-756X"], "is_oa":
+        false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core", "norway-1"],
+        "host_organization": "https://openalex.org/P4310315543", "host_organization_name":
+        "SPIE", "host_organization_lineage": ["https://openalex.org/P4310315543"],
+        "host_organization_lineage_names": ["SPIE"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "SPIE Proceedings", "raw_type": "proceedings-article"}},
+        {"id": "https://openalex.org/W2381911858", "doi": "https://doi.org/10.1021/acs.langmuir.6b01036",
+        "title": "Heterogeneous Nucleation and Growth of Barium Sulfate at Organic\u2013Water
+        Interfaces: Interplay between Surface Hydrophobicity and Ba 2+ Adsorption",
+        "publication_year": 2016, "abstract_inverted_index": {"Barium": [0], "sulfate":
+        [1], "(BaSO4)": [2], "is": [3, 122, 191, 203], "a": [4, 93], "common": [5],
+        "scale-forming": [6], "mineral": [7], "in": [8], "natural": [9], "and": [10,
+        16, 39, 102, 115, 131, 142, 159, 210], "engineered": [11], "systems,": [12],
+        "yet": [13], "the": [14, 128, 151, 157, 172, 201], "rates": [15, 38], "mechanisms":
+        [17], "of": [18, 96, 135, 153, 165], "heterogeneous": [19, 36, 136, 139],
+        "BaSO4": [20, 69, 97, 107, 140, 161], "nucleation": [21, 37, 108, 141, 190],
+        "are": [22, 43], "not": [23], "understood.": [24], "To": [25], "address":
+        [26], "these,": [27], "we": [28], "created": [29], "idealized": [30], "interfaces":
+        [31], "on": [32, 66, 71, 99, 112], "which": [33, 41], "to": [34, 147, 208],
+        "study": [35], "mechanisms,": [40], "also": [42], "good": [44], "models":
+        [45], "for": [46, 90, 189], "organic-water": [47], "interfaces:": [48], "self-assembled":
+        [49], "thin": [50], "films": [51], "terminated": [52], "with": [53], "different":
+        [54], "functional": [55], "groups": [56], "(i.e.,": [57], "-COOH,": [58],
+        "-SH,": [59], "or": [60], "mixed": [61, 116], "-SH": [62, 114, 117], "&":
+        [63, 118], "COOH)": [64], "coated": [65, 104], "glass": [67], "slides.": [68],
+        "precipitation": [70, 175], "coatings": [72], "from": [73], "Barite-supersaturated":
+        [74], "solutions": [75], "(saturation": [76], "index,": [77], "SI,": [78],
+        "=": [79], "1.1)": [80], "was": [81, 109, 168], "investigated": [82], "using":
+        [83], "grazing-incidence": [84], "small-angle": [85], "X-ray": [86], "scattering.":
+        [87], "After": [88], "reaction": [89], "1": [91], "h,": [92], "little": [94],
+        "amount": [95, 152], "formed": [98], "hydrophilic": [100], "bare": [101],
+        "-COOH": [103], "glasses.": [105], "Meanwhile,": [106], "significantly": [110],
+        "promoted": [111], "hydrophobic": [113], "COOH": [119], "coatings.": [120],
+        "This": [121], "because": [123], "substrate": [124, 158], "hydrophobicity":
+        [125], "likely": [126], "affected": [127, 149], "interfacial": [129, 195],
+        "energy": [130], "hence": [132], "thermodynamic": [133, 187], "favorability":
+        [134, 188], "nucleation.": [137], "The": [138, 163], "growth": [143], "kinetics":
+        [144], "were": [145], "found": [146], "be": [148], "by": [150, 171, 193, 205],
+        "Ba(2+)": [154, 166], "adsorption": [155, 167], "onto": [156], "incipient":
+        [160, 211], "nuclei.": [162, 212], "importance": [164], "further": [169],
+        "corroborated": [170], "finding": [173], "that": [174, 186], "rate": [176,
+        202], "increased": [177], "under": [178], "[Ba(2+)]/[SO4(2-)]": [179], "concentration":
+        [180], "ratios": [181], ">1.": [182], "These": [183], "observations": [184],
+        "suggest": [185], "governed": [192, 204], "substrate-water": [194], "energy,":
+        [196], "while": [197], "given": [198], "favorable": [199], "thermodynamics,":
+        [200], "ion": [206], "attachment": [207], "substrates": [209]}, "primary_location":
+        {"id": "doi:10.1021/acs.langmuir.6b01036", "doi": "https://doi.org/10.1021/acs.langmuir.6b01036",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1021/acs.langmuir.6b01036",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S75741262", "display_name":
+        "Langmuir", "issn_l": "0743-7463", "issn": ["0743-7463", "1520-5827"], "is_oa":
+        false, "is_in_doaj": false, "is_core": true, "listed_in": ["anvur-scientific",
+        "cwts-core", "dongbi-d", "doyens", "jufo-2", "ki-jl-1", "medline", "norway-1",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320006",
+        "host_organization_name": "American Chemical Society", "host_organization_lineage":
+        ["https://openalex.org/P4310320006"], "host_organization_lineage_names": ["American
+        Chemical Society"], "type": "journal"}, "license": null, "license_id": null,
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Langmuir", "raw_type": "journal-article"}}], "group_by":
+        []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429fa6ee65f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '19153'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:33 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=C7DC65LrYzEM8MqcWQClR7D8y5i2st%2BESmXAw1MwVKA%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633253"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=C7DC65LrYzEM8MqcWQClR7D8y5i2st%2BESmXAw1MwVKA%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633253"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9010'
+      x-ratelimit-remaining-usd:
+      - '0.901'
+      x-ratelimit-reset:
+      - '30747'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=BaSO4+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 25, "db_response_time_ms": 88, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (BaSO4 thin film)
+        in the title or abstract", "x_new_oql": "get works with (BaSO4 thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "BaSO4 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:BaSO4 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W2785226700"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429fb9bbe5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '614'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:33 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=C7DC65LrYzEM8MqcWQClR7D8y5i2st%2BESmXAw1MwVKA%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633253"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=C7DC65LrYzEM8MqcWQClR7D8y5i2st%2BESmXAw1MwVKA%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633253"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9000'
+      x-ratelimit-remaining-usd:
+      - '0.9'
+      x-ratelimit-reset:
+      - '30747'
+    status:
+      code: 200
+      message: OK
+version: 1

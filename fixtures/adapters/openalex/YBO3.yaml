@@ -1,0 +1,328 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=YBO3+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 6, "db_response_time_ms": 35, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (YBO3 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (YBO3 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "YBO3
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:YBO3
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2347670419",
+        "doi": null, "title": "Preparation and Characterization of Flower-like YBO_3:Eu~(3+)
+        Thin Film", "publication_year": 2008, "abstract_inverted_index": {"Flower-like":
+        [0], "YBO3\u2236Eu3+": [1, 32], "thin": [2, 33, 54], "films": [3, 34], "were":
+        [4, 27, 35], "prepared": [5], "on": [6], "the": [7, 15, 48, 52, 57], "AAO":
+        [8], "template": [9], "by": [10, 37], "a": [11], "hydrothermal": [12], "method":
+        [13], "and": [14, 24, 40], "effects": [16], "of": [17, 31, 51], "some": [18],
+        "processing": [19], "variables,": [20], "such": [21], "as": [22], "temperature":
+        [23], "calcinated": [25], "time,": [26], "investigated.": [28], "The": [29,
+        43], "formation": [30], "confirmed": [36], "EDX,": [38], "XRD": [39], "PL":
+        [41, 44], "spectra.": [42], "spectra": [45], "show": [46], "that": [47], "characteristic":
+        [49], "emission": [50], "YBO3\u2236Eu3+/AAO": [53], "film": [55], "is": [56],
+        "5D0": [58], "\u21927F1": [59], "transition.": [60]}, "primary_location":
+        {"id": "mag:2347670419", "doi": null, "is_oa": false, "landing_page_url":
+        "https://en.cnki.com.cn/Article_en/CJFDTOTAL-GDXH200808009.htm", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S4306560401", "display_name":
+        "\u9ad8\u7b49\u5b66\u6821\u5316\u5b66\u5b66\u62a5", "issn_l": "0251-0790",
+        "issn": ["0251-0790"], "is_oa": false, "is_in_doaj": false, "is_core": false,
+        "listed_in": ["norway-1", "poland-40", "russia-white-list-3"], "host_organization":
+        null, "host_organization_name": null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "journal"}, "license": null, "license_id": null, "version": null,
+        "is_accepted": false, "is_published": false, "raw_source_name": "Gaodeng xuexiao
+        huaxue xuebao", "raw_type": null}}, {"id": "https://openalex.org/W2287133699",
+        "doi": null, "title": "\u82b1\u74e3\u5f62YBO3: Eu(\u4e0a\u6807 3+)\u53d1\u5149\u8584\u819c\u7684\u5236\u5907\u4e0e\u8868\u5f81",
+        "publication_year": 2008, "abstract_inverted_index": {"Flower-like": [0],
+        "YBO3:Eu(superscript": [1, 33, 55], "3+)": [2, 34], "thin": [3, 35, 57], "films":
+        [4, 36], "were": [5, 28, 37], "prepared": [6], "on": [7], "the": [8, 16, 50,
+        54, 60], "AAO": [9], "template": [10], "by": [11, 39], "a": [12], "hydrothermal":
+        [13], "method": [14], "and": [15, 25, 42], "effects": [17], "of": [18, 32,
+        53], "some": [19], "processing": [20], "variables,": [21], "such": [22], "as":
+        [23], "temperature": [24], "calcinated": [26], "time,": [27], "investigated.":
+        [29], "The": [30, 45], "formation": [31], "confirmed": [38], "EDX,": [40],
+        "XRD": [41], "PL": [43, 46], "spectra.": [44], "spectra": [47], "show": [48],
+        "that": [49], "characteristic": [51], "emission": [52], "3+)/AAO": [56], "film":
+        [58], "is": [59], "5D0\u21927F1": [61], "transition.": [62]}, "primary_location":
+        {"id": "mag:2287133699", "doi": null, "is_oa": false, "landing_page_url":
+        "https://www.airitilibrary.com/Publication/alDetailedMesh?DocID=02510790-200808-29-8-1532-1534-a",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4306560401", "display_name":
+        "\u9ad8\u7b49\u5b66\u6821\u5316\u5b66\u5b66\u62a5", "issn_l": "0251-0790",
+        "issn": ["0251-0790"], "is_oa": false, "is_in_doaj": false, "is_core": false,
+        "listed_in": ["norway-1", "poland-40", "russia-white-list-3"], "host_organization":
+        null, "host_organization_name": null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "journal"}, "license": null, "license_id": null, "version": null,
+        "is_accepted": false, "is_published": false, "raw_source_name": "\u9ad8\u7b49\u5b78\u6821\u5316\u5b78\u5b78\u5831",
+        "raw_type": null}}, {"id": "https://openalex.org/W2364384576", "doi": null,
+        "title": "Structure and Photoluminescence Properties of Eu~(3+) Doped Yttrium
+        Borate Thin Films Prepared by Sol-Gel Method", "publication_year": 2015, "abstract_inverted_index":
+        {"Using": [0], "rare-earth": [1], "nitrates": [2], "and": [3, 27, 64, 86],
+        "boric": [4], "acid": [5], "as": [6], "starting": [7], "materials,the": [8],
+        "YBO3\u2236": [9, 53, 75], "Eu3": [10, 54, 76, 102], "+thin": [11, 55], "films":
+        [12, 32, 56], "were": [13, 33], "synthesized": [14], "on": [15], "silicon":
+        [16], "substrates": [17], "by": [18, 35], "sol-gel": [19], "method": [20],
+        "through": [21], "dip-coating.": [22], "The": [23, 48], "crystal": [24], "structure,morphology,chemical":
+        [25], "composition": [26], "photoluminescence": [28], "property": [29], "of":
+        [30, 61, 101], "the": [31, 52], "explored": [34], "X-ray": [36, 40], "diffraction(":
+        [37], "XRD),Energy": [38], "dispersive": [39], "analysis(": [41], "EDX),atomic":
+        [42], "force": [43], "microscopy(": [44], "AFM),and": [45], "fluorescence":
+        [46], "spectrophotometer,respectively.": [47], "results": [49], "indicate":
+        [50], "that": [51], "with": [57], "average": [58], "grain": [59], "size":
+        [60], "100": [62], "nm": [63, 66, 85, 92], "10": [65], "root": [67], "mean":
+        [68], "square(": [69], "RMS)": [70], "roughness.": [71], "In": [72], "PL":
+        [73], "spectrum,the": [74], "+film": [77], "exhibits": [78], "strong": [79],
+        "orange": [80], "emission": [81, 88], "peak": [82, 89], "at": [83, 90], "588":
+        [84], "red": [87], "616": [91], "respectively": [93], "due": [94], "to": [95],
+        "the(5D0\u21927F1)": [96], "and(5D0\u21927F2)": [97], "energy": [98], "level":
+        [99], "transitions": [100], "+doping.": [103]}, "primary_location": {"id":
+        "mag:2364384576", "doi": null, "is_oa": false, "landing_page_url": "http://en.cnki.com.cn/Article_en/CJFDTotal-RGJT201503007.htm",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S2764550669", "display_name":
+        "Rengong jingti xuebao", "issn_l": "1000-985X", "issn": ["1000-985X"], "is_oa":
+        false, "is_in_doaj": false, "is_core": false, "listed_in": ["poland-20", "russia-white-list-4"],
+        "host_organization": "https://openalex.org/P4320800690", "host_organization_name":
+        "Chinese Ceramic Society", "host_organization_lineage": ["https://openalex.org/P4320800690"],
+        "host_organization_lineage_names": ["Chinese Ceramic Society"], "type": "journal"},
+        "license": null, "license_id": null, "version": null, "is_accepted": false,
+        "is_published": false, "raw_source_name": "Rengong jingti xuebao", "raw_type":
+        null}}, {"id": "https://openalex.org/W4256530596", "doi": "https://doi.org/10.1016/s0026-0657(99)81071-6",
+        "title": "Formation of hexagonal ammonium tungsten bronze during thermal decomposition
+        of APT", "publication_year": 1995, "abstract_inverted_index": {"Using": [0],
+        "metal": [1], "nitrates": [2], "and": [3, 9, 56, 67, 78, 98, 110, 115, 129,
+        136, 160, 162], "boric": [4], "acid": [5], "as": [6, 11, 40, 42], "starting":
+        [7], "materials": [8], "glycerol": [10], "additives,": [12], "we": [13], "prepared":
+        [14], "(Y,": [15, 85], "Gd)BO3:": [16], "Eu3+/Tb3+": [17], "thin": [18], "film":
+        [19], "phosphors": [20], "by": [21], "a": [22], "wet": [23], "chemical": [24],
+        "process.": [25], "X-ray": [26], "diffraction": [27], "(XRD),": [28], "Fourier":
+        [29], "transform": [30], "infrared": [31], "spectroscopy": [32], "(FT-IR),":
+        [33], "atomic": [34], "force": [35], "microscopy,": [36], "photoluminescence":
+        [37], "(PL)": [38], "spectra": [39], "well": [41], "lifetimes": [43, 109],
+        "were": [44, 131], "employed": [45], "to": [46, 62, 133], "characterize":
+        [47], "the": [48, 54, 59, 68, 74, 108, 121, 155, 163, 174], "resulting": [49],
+        "samples.": [50], "The": [51, 124], "results": [52], "of": [53, 73, 113, 139,
+        146, 158, 166, 171], "XRD": [55], "FT-IR": [57], "indicated": [58], "films":
+        [60, 150], "began": [61], "crystallize": [63], "at": [64], "700": [65], "\u00b0C":
+        [66], "crystallinity": [69], "increased": [70, 118], "with": [71, 119], "elevation":
+        [72], "annealing": [75, 122], "temperature.": [76, 123], "Eu3+": [77, 97,
+        114, 128, 159], "Tb3+": [79, 116, 130], "showed": [80], "their": [81], "characteristic":
+        [82], "emissions": [83], "in": [84, 141, 148, 173], "Gd)": [86], "BO3": [87],
+        "films,": [88], "i.e.,": [89], "5D0\u20137FJ": [90], "(J=0,": [91], "1,":
+        [92], "2,": [93], "3,": [94], "4)": [95], "for": [96, 104, 127, 153], "5D4\u20137FJ":
+        [99], "(J=6,": [100], "5,": [101], "4,": [102], "3)": [103], "Tb3+,": [105,
+        161], "respectively.": [106], "Both": [107], "PL": [111, 156], "intensity":
+        [112, 157], "ions": [117], "increasing": [120], "optimum": [125], "concentrations":
+        [126], "determined": [132], "be": [134], "10": [135], "12": [137], "at%":
+        [138, 170], "Y3+": [140, 172], "YBO3": [142], "films.": [143, 175], "Partial":
+        [144], "introduction": [145], "Gd3+": [147, 167], "YBO3:Eu3+/Tb3+": [149],
+        "is": [151, 168], "good": [152], "enhancing": [154], "best": [164], "concentration":
+        [165], "50": [169]}, "primary_location": {"id": "doi:10.1016/s0026-0657(99)81071-6",
+        "doi": "https://doi.org/10.1016/s0026-0657(99)81071-6", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1016/s0026-0657(99)81071-6", "pdf_url": null, "source":
+        {"id": "https://openalex.org/S8078497", "display_name": "Metal Powder Report",
+        "issn_l": "0026-0657", "issn": ["0026-0657", "1873-4065"], "is_oa": false,
+        "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core", "jufo-1",
+        "norway-1", "poland-20", "russia-white-list-2"], "host_organization": "https://openalex.org/P4310320990",
+        "host_organization_name": "Elsevier BV", "host_organization_lineage": ["https://openalex.org/P4310320990"],
+        "host_organization_lineage_names": ["Elsevier BV"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Metal Powder Report", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W4243779831", "doi": "https://doi.org/10.1016/s0026-0657(99)81069-8",
+        "title": "Computer simulation of solid volume fraction limit during liquid
+        phase sintering", "publication_year": 1995, "abstract_inverted_index": {"Using":
+        [0], "metal": [1], "nitrates": [2], "and": [3, 9, 56, 67, 78, 98, 110, 115,
+        129, 136, 160, 162], "boric": [4], "acid": [5], "as": [6, 11, 40, 42], "starting":
+        [7], "materials": [8], "glycerol": [10], "additives,": [12], "we": [13], "prepared":
+        [14], "(Y,": [15, 85], "Gd)BO3:": [16], "Eu3+/Tb3+": [17], "thin": [18], "film":
+        [19], "phosphors": [20], "by": [21], "a": [22], "wet": [23], "chemical": [24],
+        "process.": [25], "X-ray": [26], "diffraction": [27], "(XRD),": [28], "Fourier":
+        [29], "transform": [30], "infrared": [31], "spectroscopy": [32], "(FT-IR),":
+        [33], "atomic": [34], "force": [35], "microscopy,": [36], "photoluminescence":
+        [37], "(PL)": [38], "spectra": [39], "well": [41], "lifetimes": [43, 109],
+        "were": [44, 131], "employed": [45], "to": [46, 62, 133], "characterize":
+        [47], "the": [48, 54, 59, 68, 74, 108, 121, 155, 163, 174], "resulting": [49],
+        "samples.": [50], "The": [51, 124], "results": [52], "of": [53, 73, 113, 139,
+        146, 158, 166, 171], "XRD": [55], "FT-IR": [57], "indicated": [58], "films":
+        [60, 150], "began": [61], "crystallize": [63], "at": [64], "700": [65], "\u00b0C":
+        [66], "crystallinity": [69], "increased": [70, 118], "with": [71, 119], "elevation":
+        [72], "annealing": [75, 122], "temperature.": [76, 123], "Eu3+": [77, 97,
+        114, 128, 159], "Tb3+": [79, 116, 130], "showed": [80], "their": [81], "characteristic":
+        [82], "emissions": [83], "in": [84, 141, 148, 173], "Gd)": [86], "BO3": [87],
+        "films,": [88], "i.e.,": [89], "5D0\u20137FJ": [90], "(J=0,": [91], "1,":
+        [92], "2,": [93], "3,": [94], "4)": [95], "for": [96, 104, 127, 153], "5D4\u20137FJ":
+        [99], "(J=6,": [100], "5,": [101], "4,": [102], "3)": [103], "Tb3+,": [105,
+        161], "respectively.": [106], "Both": [107], "PL": [111, 156], "intensity":
+        [112, 157], "ions": [117], "increasing": [120], "optimum": [125], "concentrations":
+        [126], "determined": [132], "be": [134], "10": [135], "12": [137], "at%":
+        [138, 170], "Y3+": [140, 172], "YBO3": [142], "films.": [143, 175], "Partial":
+        [144], "introduction": [145], "Gd3+": [147, 167], "YBO3:Eu3+/Tb3+": [149],
+        "is": [151, 168], "good": [152], "enhancing": [154], "best": [164], "concentration":
+        [165], "50": [169]}, "primary_location": {"id": "doi:10.1016/s0026-0657(99)81069-8",
+        "doi": "https://doi.org/10.1016/s0026-0657(99)81069-8", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1016/s0026-0657(99)81069-8", "pdf_url": null, "source":
+        {"id": "https://openalex.org/S8078497", "display_name": "Metal Powder Report",
+        "issn_l": "0026-0657", "issn": ["0026-0657", "1873-4065"], "is_oa": false,
+        "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core", "jufo-1",
+        "norway-1", "poland-20", "russia-white-list-2"], "host_organization": "https://openalex.org/P4310320990",
+        "host_organization_name": "Elsevier BV", "host_organization_lineage": ["https://openalex.org/P4310320990"],
+        "host_organization_lineage_names": ["Elsevier BV"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Metal Powder Report", "raw_type":
+        "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442a65cca05f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '13551'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:50 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=dWGEGsNZkTJGzsuFJv6lWfe%2BXO3Lp2KyTRyyrSZT5U0%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633270"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=dWGEGsNZkTJGzsuFJv6lWfe%2BXO3Lp2KyTRyyrSZT5U0%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633270"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '8470'
+      x-ratelimit-remaining-usd:
+      - '0.847'
+      x-ratelimit-reset:
+      - '30730'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=YBO3+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 11, "db_response_time_ms": 14, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (YBO3 thin film)
+        in the title or abstract", "x_new_oql": "get works with (YBO3 thin film) in
+        the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "YBO3 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:YBO3 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W2030156058"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442a66afc75f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '610'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:50 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=dWGEGsNZkTJGzsuFJv6lWfe%2BXO3Lp2KyTRyyrSZT5U0%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633270"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=dWGEGsNZkTJGzsuFJv6lWfe%2BXO3Lp2KyTRyyrSZT5U0%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633270"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '8460'
+      x-ratelimit-remaining-usd:
+      - '0.846'
+      x-ratelimit-reset:
+      - '30730'
+    status:
+      code: 200
+      message: OK
+version: 1

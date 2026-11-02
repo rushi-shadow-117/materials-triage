@@ -1,0 +1,713 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=TiO2+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 13032, "db_response_time_ms": 63, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (TiO2 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (TiO2 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "TiO2
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:TiO2
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W1974018659",
+        "doi": "https://doi.org/10.1021/es970860o", "title": "Bactericidal and Detoxification
+        Effects of TiO2 Thin Film Photocatalysts", "publication_year": 1998, "abstract_inverted_index":
+        {"To": [0], "examine": [1], "the": [2, 6, 19, 70, 79, 89, 99, 106, 109, 119,
+        131, 140, 149, 152, 155, 158, 179], "special": [3], "features": [4], "of":
+        [5, 22, 29, 72, 139, 151, 157], "antibacterial": [7], "effect": [8, 138],
+        "for": [9, 59, 130], "a": [10, 26], "thin": [11, 143], "transparent": [12],
+        "titanium": [13, 49], "dioxide": [14], "(TiO": [15], "2": [16, 44, 101, 121,
+        142, 166], ")": [17], "film,": [18], "photocatalytic": [20], "degradation":
+        [21], "endotoxin,": [23], "which": [24, 75], "is": [25, 181], "pyrogenic":
+        [27], "constituent": [28], "Escherichia": [30], "coli": [31, 61, 94, 160],
+        "(E.": [32], "coli),": [33], "as": [34, 36], "well": [35], "its": [37], "bactericidal":
+        [38, 57, 125, 137], "activity,": [39], "was": [40, 63, 86, 111], "investigated.":
+        [41], "The": [42, 56, 83, 136], "TiO": [43, 100, 120, 141, 165], "films":
+        [45], "were": [46, 96], "prepared": [47], "from": [48, 69, 108, 146], "isopropoxide":
+        [50], "solution,": [51], "annealing": [52], "at": [53], "500": [54], "\u00b0C.":
+        [55], "activity": [58, 126, 129], "E.": [60, 93, 159], "cells": [62, 74, 95,
+        110], "estimated": [64], "by": [65, 88, 98], "survival": [66], "ratio": [67],
+        "calculated": [68], "number": [71], "viable": [73], "form": [76], "colonies":
+        [77], "on": [78], "nutrient": [80], "agar": [81], "plates.": [82], "endotoxin":
+        [84, 107, 132, 180], "concentration": [85], "determined": [87], "Limulus":
+        [90], "tests.": [91], "When": [92], "killed": [97], "photocatalyst": [102,
+        122], "under": [103], "UV": [104], "irradiation,": [105], "also": [112], "degraded":
+        [113], "efficiently.": [114], "This": [115, 162], "result": [116], "shows":
+        [117], "that": [118], "has": [123], "both": [124, 147], "and": [127, 154],
+        "decomposing": [128], "(i.e.,": [133], "detoxifying": [134], "activity).":
+        [135], "film": [144], "results": [145], "inactivating": [148], "viability":
+        [150], "bacteria": [153], "destruction": [156], "cells.": [161], "feature":
+        [163], "renders": [164], "photocatalysts": [167], "to": [168, 171, 183], "be":
+        [169], "applicable": [170], "environmental": [172], "protections,": [173],
+        "especially": [174], "in": [175], "medical": [176], "facilities": [177], "where":
+        [178], "needed": [182], "control.": [184]}, "primary_location": {"id": "doi:10.1021/es970860o",
+        "doi": "https://doi.org/10.1021/es970860o", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1021/es970860o", "pdf_url": null, "source": {"id": "https://openalex.org/S13479253",
+        "display_name": "Environmental Science & Technology", "issn_l": "0013-936X",
+        "issn": ["0013-936X", "1520-5851"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-class-a", "anvur-scientific", "cwts-core", "dongbi-a",
+        "fnege-4", "jufo-2", "ki-jl-2", "medline", "norway-2", "poland-140", "russia-white-list-1",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310320006", "host_organization_name":
+        "American Chemical Society", "host_organization_lineage": ["https://openalex.org/P4310320006"],
+        "host_organization_lineage_names": ["American Chemical Society"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Environmental
+        Science &amp; Technology", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2027299565",
+        "doi": "https://doi.org/10.1063/1.1968416", "title": "Identification of a
+        determining parameter for resistive switching of TiO2 thin films", "publication_year":
+        2005, "abstract_inverted_index": {"Electric-pulse-induced": [0], "resistive":
+        [1], "switching": [2, 53, 58, 86], "of": [3, 32, 91], "43nm": [4], "thick":
+        [5], "TiO2": [6], "thin": [7], "films": [8], "grown": [9], "by": [10, 17],
+        "metalorganic": [11], "chemical": [12], "vapor": [13], "deposition": [14],
+        "was": [15, 68, 87], "studied": [16], "current-voltage": [18], "(I-V)": [19],
+        "and": [20, 42, 63], "constant": [21], "voltage-time": [22], "measurements.":
+        [23], "The": [24, 38, 81], "resistance": [25, 64], "ratio": [26], "between":
+        [27], "the": [28, 33, 47, 57, 72, 76], "two": [29], "stable": [30], "states":
+        [31], "film": [34, 77], "constitutes": [35], "approximately": [36], "1000.":
+        [37], "allowed": [39], "current": [40], "level": [41], "voltage": [43], "step":
+        [44], "width": [45], "during": [46], "sweep": [48], "mode": [49], "I-V": [50],
+        "measurements": [51], "influenced": [52], "parameters,": [54], "such": [55],
+        "as": [56], "voltage,": [59], "time": [60], "before": [61], "switching,":
+        [62], "values.": [65], "However,": [66], "it": [67], "clearly": [69], "observed":
+        [70], "that": [71], "power": [73, 83], "imparted": [74], "to": [75], "controlled":
+        [78], "mainly": [79], "switching.": [80], "required": [82], "for": [84], "successful":
+        [85], "almost": [88], "invariant": [89], "irrespective": [90], "other": [92],
+        "measurement": [93], "variables.": [94]}, "primary_location": {"id": "doi:10.1063/1.1968416",
+        "doi": "https://doi.org/10.1063/1.1968416", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.1968416", "pdf_url": null, "source": {"id": "https://openalex.org/S105243760",
+        "display_name": "Applied Physics Letters", "issn_l": "0003-6951", "issn":
+        ["0003-6951", "1077-3118", "1520-8842"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-a",
+        "jufo-3", "ki-jl-1", "norway-2", "poland-100", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Applied Physics
+        Letters", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2012822154",
+        "doi": "https://doi.org/10.4028/www.scientific.net/jnanor.18-19.195", "title":
+        "Hardness of Nanocrystalline TiO2 Thin Films", "publication_year": 2012, "abstract_inverted_index":
+        {"In": [0, 33], "this": [1], "work": [2], "results": [3, 163], "of": [4, 7,
+        45, 82, 102, 109, 113, 126, 155, 212], "hardness": [5, 154, 176, 214, 234],
+        "investigations": [6], "nanocrystalline": [8, 136, 167], "TiO2": [9, 53, 142,
+        229], "thin": [10, 54, 143, 169, 201], "films": [11, 15, 55, 70, 157, 182,
+        193, 242], "are": [12], "presented.": [13], "Thin": [14], "were": [16, 59,
+        186], "prepared": [17], "by": [18, 51, 160, 184, 195, 244], "low": [19, 43],
+        "pressure": [20, 44], "hot": [21], "target": [22, 39], "reactive": [23, 29],
+        "sputtering": [24, 31], "(LPHTRS)": [25], "and": [26, 61, 133], "high": [27,
+        175], "energy": [28, 125], "magnetron": [30], "(HERMS).": [32], "both": [34],
+        "processes": [35], "a": [36, 100], "metallic": [37], "Ti": [38], "was": [40,
+        158], "sputtered": [41], "under": [42], "oxygen": [46], "working": [47], "gas.":
+        [48], "After": [49], "deposition": [50], "LPHTRS": [52, 104, 192, 245], "with":
+        [56, 106, 145, 233, 246], "anatase": [57, 205], "structure": [58, 148, 203,
+        231], "obtained": [60], "after": [62], "additional": [63, 196, 247], "post-process":
+        [64], "annealing": [65, 248], "at": [66, 130], "1070": [67], "K,": [68], "these":
+        [69], "recrystallized": [71, 194], "into": [72], "the": [73, 103, 107, 118,
+        123, 127, 131, 146, 156, 166, 180, 198, 228], "rutile": [74, 147, 207, 230,
+        241], "structure.": [75], "Annealing": [76], "also": [77], "resulted": [78,
+        208], "in": [79, 140, 200, 209], "an": [80, 110, 210], "increase": [81, 211],
+        "average": [83], "crystallite": [84], "size": [85], "from": [86, 204, 215],
+        "33": [87], "nm": [88, 93, 138], "(for": [89, 94], "anatase)": [90], "to":
+        [91, 149, 206, 218], "74": [92], "rutile).": [95], "The": [96, 153, 162, 222],
+        "HERMS": [97, 173, 223], "process": [98, 105, 224], "is": [99, 236], "modification":
+        [101], "addition": [108], "increased": [111], "amplitude": [112], "unipolar":
+        [114], "voltage": [115], "pulses,": [116], "powering": [117], "magnetron.":
+        [119], "This": [120], "effectively": [121], "increases": [122], "total": [124],
+        "depositing": [128], "particles": [129], "substrate": [132], "allows": [134],
+        "dense,": [135], "(8.7": [137], "crystallites": [139], "size)": [141], "film":
+        [144, 170, 202, 213], "be": [150], "formed": [151], "directly.": [152], "determined":
+        [159], "nanoindentation.": [161], "showed": [164], "that": [165, 235], "TiO2-rutile":
+        [168], "as-deposited": [171, 183], "using": [172], "had": [174], "(14.3":
+        [177], "GPa),": [178], "while": [179], "TiO2-anatase": [181], "LPHTRS,": [185],
+        "4-times": [187], "lower": [188], "(3.5": [189], "GPa).": [190], "For": [191],
+        "annealing,": [197], "change": [199], "3.5": [216], "GPa": [217], "only":
+        [219], "7.9": [220], "GPa.": [221], "can": [225], "therefore": [226], "produce":
+        [227], "directly,": [232], "2": [237], "times": [238], "greater": [239], "than":
+        [240], "produced": [243], "step.": [249]}, "primary_location": {"id": "doi:10.4028/www.scientific.net/jnanor.18-19.195",
+        "doi": "https://doi.org/10.4028/www.scientific.net/jnanor.18-19.195", "is_oa":
+        false, "landing_page_url": "https://doi.org/10.4028/www.scientific.net/jnanor.18-19.195",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S118227851", "display_name":
+        "Journal of nano research", "issn_l": "1661-9889", "issn": ["1661-9889", "1661-9897",
+        "1662-5250"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-c", "jufo-1", "norway-1", "poland-20",
+        "russia-white-list-2"], "host_organization": null, "host_organization_name":
+        null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Nano Research", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2810421202",
+        "doi": "https://doi.org/10.5772/intechopen.74244", "title": "Mesoporous TiO2
+        Thin Films: State of the Art", "publication_year": 2018, "abstract_inverted_index":
+        {"Mesoporous": [0], "TiO2": [1, 55, 70], "thin": [2], "films": [3], "(MTTFs),":
+        [4], "thanks": [5], "to": [6, 75, 88], "their": [7, 90], "particularly": [8],
+        "high": [9, 14], "surface": [10, 19], "area,": [11], "controlled": [12], "porosity,":
+        [13], "flexibility": [15], "in": [16, 24, 113], "composition,": [17], "and":
+        [18, 37, 48, 58, 92, 115], "design,": [20], "are": [21, 78], "promising":
+        [22], "candidates": [23], "different": [25], "application": [26], "fields":
+        [27], "such": [28], "as": [29, 80, 82], "sensors,": [30], "self-cleaning":
+        [31], "coatings,": [32], "lithium-ion": [33], "batteries": [34], "(LIBs),":
+        [35], "photocatalysis,": [36], "new-generation": [38], "solar": [39], "cells.":
+        [40], "This": [41], "chapter": [42], "is": [43, 103], "focused": [44, 107],
+        "on": [45, 108], "the": [46, 54, 60, 83, 98, 109], "synthetic": [47], "post-synthesis":
+        [49], "aspects": [50], "that": [51], "can": [52], "affect": [53], "mesoporous":
+        [56], "structure": [57], "consequently": [59], "MTTF": [61], "properties.":
+        [62, 94], "In": [63], "particular,": [64], "after": [65], "a": [66], "brief":
+        [67], "summary": [68], "of": [69, 97, 101, 111], "properties,": [71], "all":
+        [72], "experimental": [73], "conditions": [74], "prepare": [76], "MTTFs":
+        [77, 102, 112], "reviewed": [79], "well": [81], "main": [84, 99], "characterization":
+        [85], "techniques": [86], "employed": [87], "study": [89], "physicochemical":
+        [91], "photocatalytic": [93], "An": [95], "overview": [96], "applications":
+        [100], "also": [104], "proposed,": [105], "mainly": [106], "use": [110], "sensors":
+        [114], "LIBs.": [116]}, "primary_location": {"id": "doi:10.5772/intechopen.74244",
+        "doi": "https://doi.org/10.5772/intechopen.74244", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.5772/intechopen.74244", "pdf_url": "https://www.intechopen.com/citation-pdf-url/59572",
+        "source": {"id": "https://openalex.org/S4306463447", "display_name": "InTech
+        eBooks", "issn_l": null, "issn": null, "is_oa": false, "is_in_doaj": false,
+        "is_core": false, "listed_in": [], "host_organization": null, "host_organization_name":
+        null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "ebook platform"}, "license": "cc-by", "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Titanium Dioxide - Material for a Sustainable Environment",
+        "raw_type": "book-chapter"}}, {"id": "https://openalex.org/W2276290456", "doi":
+        "https://doi.org/10.1016/j.phpro.2015.09.128", "title": "Optical Properties
+        of TiO2 Thin Films", "publication_year": 2015, "abstract_inverted_index":
+        {"Titanium": [0], "dioxide": [1], "thin": [2, 15, 34], "films": [3, 16, 35],
+        "prepared": [4], "by": [5, 19, 39], "the": [6, 14, 20, 27, 30], "gel": [7],
+        "process": [8], "were": [9, 17, 37], "investigated.": [10], "Optical": [11],
+        "properties": [12], "of": [13, 29, 32], "studied": [18, 38], "integrated":
+        [21], "optics": [22], "method.": [23], "Structure,": [24], "morphology": [25],
+        "and": [26, 46], "nature": [28], "surface": [31], "TiO2": [33], "samples":
+        [36], "X-ray": [40], "diffraction,": [41], "electron": [42], "microscopy,":
+        [43], "Fourier": [44], "images": [45], "other": [47], "techniques.": [48],
+        "It": [49], "was": [50], "shown": [51], "that": [52], "TiO2-based": [53],
+        "film": [54], "may": [55], "have": [56], "anisotropy,": [57], "which": [58],
+        "can": [59], "be": [60], "used": [61], "in": [62], "many": [63], "applications.":
+        [64]}, "primary_location": {"id": "doi:10.1016/j.phpro.2015.09.128", "doi":
+        "https://doi.org/10.1016/j.phpro.2015.09.128", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.1016/j.phpro.2015.09.128", "pdf_url": null, "source":
+        {"id": "https://openalex.org/S132457063", "display_name": "Physics Procedia",
+        "issn_l": "1875-3892", "issn": ["1875-3892"], "is_oa": true, "is_in_doaj":
+        false, "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "jufo-1",
+        "norway-1"], "host_organization": "https://openalex.org/P4310320990", "host_organization_name":
+        "Elsevier BV", "host_organization_lineage": ["https://openalex.org/P4310320990"],
+        "host_organization_lineage_names": ["Elsevier BV"], "type": "journal"}, "license":
+        "cc-by-nc-nd", "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Physics Procedia", "raw_type": "journal-article"}}], "group_by":
+        []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a544293e1fcd5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '15458'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:03 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=1DWPsou9F7iyV%2Fd1m54T5c2DgDWvSGdn2zIISU9Aq9k%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633223"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=1DWPsou9F7iyV%2Fd1m54T5c2DgDWvSGdn2zIISU9Aq9k%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633223"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9830'
+      x-ratelimit-remaining-usd:
+      - '0.983'
+      x-ratelimit-reset:
+      - '30777'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=TiO2+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 21132, "db_response_time_ms": 33, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (TiO2 thin film)
+        in the title or abstract", "x_new_oql": "get works with (TiO2 thin film) in
+        the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "TiO2 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:TiO2 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W2156611632"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a544293fbe0c5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '613'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:03 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=1DWPsou9F7iyV%2Fd1m54T5c2DgDWvSGdn2zIISU9Aq9k%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633223"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=1DWPsou9F7iyV%2Fd1m54T5c2DgDWvSGdn2zIISU9Aq9k%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633223"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9820'
+      x-ratelimit-remaining-usd:
+      - '0.982'
+      x-ratelimit-reset:
+      - '30777'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=titania+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 1886, "db_response_time_ms": 24, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (titania thin
+        film) in the title or abstract where it has an abstract", "x_new_oql": "get
+        works with (titania thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "titania
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:titania
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2034254275",
+        "doi": "https://doi.org/10.1039/b104699n", "title": "Nanoparticle routes to
+        mesoporous titania thin films", "publication_year": 2001, "abstract_inverted_index":
+        {"Controlled": [0], "aging": [1], "of": [2], "TiO2": [3, 30], "nanoparticles":
+        [4], "blended": [5], "with": [6, 19], "diblock": [7], "copolymers": [8], "and":
+        [9, 21], "processed": [10], "into": [11, 28], "dip-coated": [12], "thin":
+        [13], "films": [14], "led": [15], "to": [16], "ordered": [17], "mesostructures":
+        [18], "cubic": [20], "hexagonal": [22], "symmetries": [23], "that": [24],
+        "can": [25], "be": [26], "transformed": [27], "mesoporous": [29], "by": [31],
+        "calcination.": [32]}, "primary_location": {"id": "doi:10.1039/b104699n",
+        "doi": "https://doi.org/10.1039/b104699n", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1039/b104699n", "pdf_url": null, "source": {"id": "https://openalex.org/S152760256",
+        "display_name": "Chemical Communications", "issn_l": "1359-7345", "issn":
+        ["1359-7345", "1364-548X"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["cwts-core", "dongbi-c", "jufo-2", "ki-jl-1", "medline",
+        "norway-2", "poland-200", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320556", "host_organization_name": "Royal Society
+        of Chemistry", "host_organization_lineage": ["https://openalex.org/P4310320556"],
+        "host_organization_lineage_names": ["Royal Society of Chemistry"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Chemical Communications",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W1975800043",
+        "doi": "https://doi.org/10.1039/c2nr11817c", "title": "Critical aspects in
+        the production of periodically ordered mesoporous titania thin films", "publication_year":
+        2012, "abstract_inverted_index": {"Periodically": [0], "ordered": [1], "mesoporous":
+        [2], "titania": [3], "thin": [4], "films": [5], "(MTTF)": [6], "present":
+        [7], "a": [8, 54, 110, 134, 153, 172], "high": [9], "surface": [10, 103],
+        "area,": [11], "controlled": [12], "porosity": [13], "in": [14, 137, 145],
+        "the": [15, 49, 63, 90, 94, 120, 125, 128, 138], "2-20": [16], "nm": [17],
+        "pore": [18, 99], "diameter": [19], "range": [20], "and": [21, 38, 44, 76,
+        85, 101, 105, 140, 148], "an": [22], "amorphous": [23], "or": [24, 80], "crystalline":
+        [25], "inorganic": [26], "framework.": [27], "These": [28], "materials": [29,
+        72, 95, 174], "are": [30, 48], "nowadays": [31], "routinely": [32], "prepared":
+        [33], "by": [34, 119], "combining": [35], "soft": [36], "chemistry": [37],
+        "supramolecular": [39], "templating.": [40], "Photocatalytic": [41], "transparent":
+        [42], "coatings": [43], "titania-based": [45], "solar": [46], "cells": [47],
+        "immediate": [50], "promising": [51], "applications.": [52], "However,": [53],
+        "wealth": [55], "of": [56, 93, 113, 131, 156, 176], "new": [57, 81], "prospective":
+        [58], "uses": [59], "have": [60], "emerged": [61], "on": [62, 74, 89], "horizon,":
+        [64], "such": [65, 97], "as": [66, 98], "advanced": [67], "catalysts,": [68],
+        "perm-selective": [69], "membranes,": [70], "optical": [71], "based": [73],
+        "plasmonics": [75], "photonics,": [77], "metamaterials,": [78], "biomaterials":
+        [79], "magnetic": [82], "nanocomposites.": [83], "Current": [84], "novel":
+        [86], "applications": [87], "rely": [88], "ultimate": [91], "control": [92,
+        112], "features": [96], "size": [100], "geometry,": [102], "functionality":
+        [104], "wall": [106], "structure.": [107], "Even": [108], "if": [109], "certain":
+        [111], "these": [114, 157, 177], "characteristics": [115], "has": [116], "been":
+        [117], "provided": [118], "methods": [121], "reported": [122], "so": [123],
+        "far,": [124], "needs": [126], "for": [127], "next": [129], "generation":
+        [130], "MTTF": [132], "require": [133], "deeper": [135], "insight": [136],
+        "physical": [139], "chemical": [141], "processes": [142], "taking": [143],
+        "place": [144], "their": [146], "preparation": [147], "processing.": [149],
+        "This": [150, 159], "article": [151], "presents": [152], "critical": [154],
+        "discussion": [155, 160], "aspects.": [158], "is": [161], "essential": [162],
+        "to": [163, 167], "evolve": [164], "from": [165], "know-how": [166], "sound":
+        [168], "knowledge,": [169], "aiming": [170], "at": [171], "rational": [173],
+        "design": [175], "fascinating": [178], "systems.": [179]}, "primary_location":
+        {"id": "doi:10.1039/c2nr11817c", "doi": "https://doi.org/10.1039/c2nr11817c",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1039/c2nr11817c",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S23181512", "display_name":
+        "Nanoscale", "issn_l": "2040-3364", "issn": ["2040-3364", "2040-3372"], "is_oa":
+        false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core", "dongbi-c",
+        "jufo-3", "ki-jl-2", "medline", "norway-2", "poland-140", "russia-white-list-1",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310320556", "host_organization_name":
+        "Royal Society of Chemistry", "host_organization_lineage": ["https://openalex.org/P4310320556"],
+        "host_organization_lineage_names": ["Royal Society of Chemistry"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Nanoscale",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2073692571",
+        "doi": "https://doi.org/10.1021/jp907901k", "title": "Enhanced Photocatalysis
+        by Doping Cerium into Mesoporous Titania Thin Films", "publication_year":
+        2009, "abstract_inverted_index": {"Mesoporous": [0], "TiO": [1, 33, 117, 143],
+        "2": [2, 34, 118, 144], "thin": [3, 145], "films": [4, 146], "doped": [5],
+        "with": [6, 61, 92, 137, 163], "varying": [7], "amounts": [8], "of": [9, 30,
+        41, 58, 80, 89, 102, 111, 113, 131, 167, 182, 189], "cerium": [10, 20, 42,
+        75, 138, 168, 175], "have": [11], "been": [12], "synthesized": [13], "via":
+        [14], "a": [15, 158, 186], "supramolecular-templated": [16], "sol\u2212gel":
+        [17], "route.": [18], "The": [19, 86, 140], "dopant": [21], "strongly": [22],
+        "affects": [23, 77], "the": [24, 31, 50, 56, 66, 72, 78, 90, 114, 128, 154,
+        164, 174, 179], "mesostructure,": [25], "photocatalytic,": [26], "and": [27],
+        "optical": [28], "properties": [29], "mesoporous": [32, 116, 142], "films.":
+        [35], "At": [36], "an": [37, 53, 62], "appropriately": [38], "low": [39],
+        "level": [40, 166], "doping": [43], "(i.e.,": [44], "Ce/Ti": [45, 93], "<":
+        [46], "10": [47], "mol": [48, 96], "%),": [49], "film": [51, 91], "showed":
+        [52], "increase": [54], "in": [55, 65, 123, 135, 161, 177], "degree": [57],
+        "mesoscopic": [59], "orderliness": [60], "obvious": [63], "degradation": [64,
+        101], "nanocrystallinity,": [67], "which": [68, 108, 170], "is": [69, 109,
+        125, 171], "related": [70], "to": [71, 127, 133, 173], "fact": [73], "that":
+        [74, 112], "adversely": [76], "growth": [79], "titania": [81], "nanocrystallites":
+        [82], "during": [83], "thermal": [84], "annealing.": [85], "photocatalytic":
+        [87], "ability": [88], "=": [94], "0.3": [95], "%": [97], "was": [98], "highest":
+        [99], "for": [100], "methylene": [103], "blue": [104], "under": [105], "UV":
+        [106], "irradiation,": [107], "3.5-fold": [110], "undoped": [115], "film.":
+        [119], "This": [120], "remarkable": [121], "enhancement": [122], "photoreactivity":
+        [124], "attributed": [126], "facilitated": [129], "transferring": [130], "electrons":
+        [132], "oxygen": [134], "association": [136], "cations.": [139], "cerium-doped":
+        [141], "also": [147], "demonstrate": [148], "photoluminescence": [149, 155],
+        "at": [150], "room": [151], "temperature,": [152], "where": [153], "band":
+        [156], "exhibits": [157], "prominent": [159], "decrease": [160], "intensity":
+        [162], "increasing": [165], "doping,": [169], "ascribed": [172], "ions": [176],
+        "restraining": [178], "radiative": [180], "recombination": [181], "excitons":
+        [183], "by": [184], "generating": [185], "considerable": [187], "amount":
+        [188], "interfacial": [190], "states.": [191]}, "primary_location": {"id":
+        "doi:10.1021/jp907901k", "doi": "https://doi.org/10.1021/jp907901k", "is_oa":
+        false, "landing_page_url": "https://doi.org/10.1021/jp907901k", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S95739953", "display_name": "The
+        Journal of Physical Chemistry C", "issn_l": "1932-7447", "issn": ["1932-7447",
+        "1932-7455"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "dongbi-c", "jufo-2", "ki-jl-1", "norway-1", "poland-140", "russia-white-list-1",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310320006", "host_organization_name":
+        "American Chemical Society", "host_organization_lineage": ["https://openalex.org/P4310320006"],
+        "host_organization_lineage_names": ["American Chemical Society"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "The Journal
+        of Physical Chemistry C", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2315510283",
+        "doi": "https://doi.org/10.1021/ja411292u", "title": "Tailoring the Morphology
+        of Mesoporous Titania Thin Films through Biotemplating with Nanocrystalline
+        Cellulose", "publication_year": 2014, "abstract_inverted_index": {"The": [0,
+        41, 110, 131], "tunable": [1], "porosity": [2], "of": [3, 36, 74, 107, 148],
+        "titania": [4, 38, 75, 133], "thin": [5, 39], "films": [6, 114, 134, 152],
+        "is": [7, 61, 100], "a": [8, 27, 81], "key": [9], "factor": [10], "for": [11,
+        103], "successful": [12], "applications": [13], "in": [14, 77, 139, 145, 159],
+        "photovoltaics,": [15], "sensing,": [16], "and": [17, 72, 86, 125, 144], "photocatalysis.":
+        [18], "Here,": [19], "we": [20], "report": [21], "on": [22, 122], "nanocrystalline":
+        [23], "cellulose": [24], "(NCC)": [25], "as": [26, 157], "novel": [28], "shape-persistent":
+        [29], "templating": [30], "agent": [31], "enabling": [32], "the": [33, 57,
+        65, 78, 104, 140, 146, 151], "straightforward": [34], "synthesis": [35], "mesoporous":
+        [37, 132], "films.": [40, 79, 109], "obtained": [42], "structures": [43],
+        "are": [44], "highly": [45], "porous": [46], "anatase": [47], "morphologies":
+        [48], "having": [49], "well-defined,": [50], "narrow": [51], "pore": [52,
+        68, 70, 96], "size": [53], "distributions.": [54], "By": [55], "varying":
+        [56], "titania-to-template": [58], "ratio,": [59], "it": [60], "possible":
+        [62], "to": [63, 94], "tune": [64], "surface": [66], "area,": [67], "size,":
+        [69], "anisotropy,": [71], "dimensions": [73], "crystallites": [76], "Moreover,":
+        [80], "post-treatment": [82], "at": [83], "high": [84, 137], "humidity": [85],
+        "subsequent": [87], "slow": [88], "template": [89], "removal": [90], "can":
+        [91, 115, 153], "be": [92, 116, 154], "used": [93], "achieve": [95], "widening;":
+        [97], "this": [98], "treatment": [99], "also": [101], "beneficial": [102],
+        "multilayer": [105], "deposition": [106], "thick": [108], "resulting": [111],
+        "homogeneous": [112], "transparent": [113, 126], "directly": [117], "spin-":
+        [118], "or": [119], "dip-": [120], "coated": [121], "glass,": [123], "silicon,":
+        [124], "conducting": [127], "oxide": [128], "(TCO)": [129], "substrates.":
+        [130], "show": [135], "very": [136], "activity": [138], "photocatalytic":
+        [141], "NO": [142], "conversion": [143], "degradation": [147], "4-chlorophenol.":
+        [149], "Furthermore,": [150], "successfully": [155], "applied": [156], "anodes":
+        [158], "dye-sensitized": [160], "solar": [161], "cells.": [162]}, "primary_location":
+        {"id": "doi:10.1021/ja411292u", "doi": "https://doi.org/10.1021/ja411292u",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1021/ja411292u", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S111155417", "display_name":
+        "Journal of the American Chemical Society", "issn_l": "0002-7863", "issn":
+        ["0002-7863", "1520-5126", "1943-2984"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["cwts-core", "dongbi-a", "jufo-3", "ki-jl-3",
+        "medline", "norway-2", "poland-200", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320006", "host_organization_name": "American Chemical
+        Society", "host_organization_lineage": ["https://openalex.org/P4310320006"],
+        "host_organization_lineage_names": ["American Chemical Society"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        the American Chemical Society", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2046822096",
+        "doi": "https://doi.org/10.1063/1.4883260", "title": "Mechanical behavior
+        of mesoporous titania thin films", "publication_year": 2014, "abstract_inverted_index":
+        {"Nanoindentation": [0], "is": [1, 66], "used": [2, 34], "to": [3, 49, 51,
+        70], "assess": [4], "mechanical": [5], "properties": [6, 25, 84], "of": [7,
+        19, 23, 44, 57], "ordered": [8], "mesoporous": [9], "titania": [10], "thin":
+        [11], "films": [12], "with": [13], "pore": [14], "sizes": [15], "in": [16,
+        35, 61, 67, 81], "the": [17, 29, 55, 62], "range": [18], "8\u201316": [20],
+        "nm.": [21], "Estimates": [22], "strut": [24], "are": [26, 47], "obtained":
+        [27], "under": [28], "standard": [30], "scaling": [31], "assumptions": [32],
+        "widely": [33], "porous": [36], "media.": [37], "The": [38], "inferred": [39],
+        "hardness": [40], "and": [41], "fracture": [42], "toughness": [43], "individual":
+        [45], "struts": [46], "found": [48], "correspond": [50], "anatase": [52],
+        "titania,": [53], "indicating": [54], "absence": [56], "obvious": [58], "size":
+        [59, 74], "effects": [60, 75], "nanostructured": [63], "ceramic.": [64], "This":
+        [65], "marked": [68], "contrast": [69], "nanoporous": [71], "metals,": [72],
+        "where": [73], "often": [76], "play": [77], "a": [78], "crucial": [79], "role":
+        [80], "determining": [82], "material": [83], "at": [85], "similar": [86],
+        "length": [87], "scales.": [88]}, "primary_location": {"id": "doi:10.1063/1.4883260",
+        "doi": "https://doi.org/10.1063/1.4883260", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.4883260", "pdf_url": null, "source": {"id": "https://openalex.org/S105243760",
+        "display_name": "Applied Physics Letters", "issn_l": "0003-6951", "issn":
+        ["0003-6951", "1077-3118", "1520-8842"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-a",
+        "jufo-3", "ki-jl-1", "norway-2", "poland-100", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Applied Physics
+        Letters", "raw_type": "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442940a9795f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '15647'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:03 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=1DWPsou9F7iyV%2Fd1m54T5c2DgDWvSGdn2zIISU9Aq9k%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633223"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=1DWPsou9F7iyV%2Fd1m54T5c2DgDWvSGdn2zIISU9Aq9k%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633223"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9810'
+      x-ratelimit-remaining-usd:
+      - '0.981'
+      x-ratelimit-reset:
+      - '30777'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=titania+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 3024, "db_response_time_ms": 14, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (titania thin
+        film) in the title or abstract", "x_new_oql": "get works with (titania thin
+        film) in the title or abstract", "oqo": {"get_rows": "works", "filter_rows":
+        [{"column_id": "title_and_abstract.search", "value": "titania thin film",
+        "operator": "has"}]}, "url": "/works?filter=title_and_abstract.search:titania
+        thin film&per_page=1", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W1985490924"}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429417cf95f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '624'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:03 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=1DWPsou9F7iyV%2Fd1m54T5c2DgDWvSGdn2zIISU9Aq9k%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633223"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=1DWPsou9F7iyV%2Fd1m54T5c2DgDWvSGdn2zIISU9Aq9k%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633223"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9800'
+      x-ratelimit-remaining-usd:
+      - '0.98'
+      x-ratelimit-reset:
+      - '30777'
+    status:
+      code: 200
+      message: OK
+version: 1

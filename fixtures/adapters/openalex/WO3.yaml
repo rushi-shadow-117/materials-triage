@@ -1,0 +1,691 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=WO3+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 1860, "db_response_time_ms": 24, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (WO3 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (WO3 thin film) in the title or abstract where it has an abstract", "oqo":
+        {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract", "value":
+        true}, {"column_id": "title_and_abstract.search", "value": "WO3 thin film",
+        "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:WO3
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W1983650151",
+        "doi": "https://doi.org/10.1039/c3tc30378k", "title": "Efficient electrochromic
+        performance of nanoparticulate WO3 thin films", "publication_year": 2013,
+        "abstract_inverted_index": {"This": [0], "report": [1], "highlights": [2],
+        "the": [3, 19, 91, 99, 104], "suitability": [4], "of": [5, 21, 26, 34, 49,
+        89], "electrodeposited": [6], "nanoparticulate-WO3": [7], "(NP-WO3)": [8],
+        "electrodes": [9, 17], "for": [10, 74, 78], "transmissive": [11], "electrochromic":
+        [12, 31, 69], "devices": [13], "(ECDs).": [14], "The": [15], "WO3": [16],
+        "in": [18, 53, 130], "form": [20], "thin": [22], "films": [23], "are": [24],
+        "composed": [25], "10\u201320": [27], "nm": [28], "nanoparticles.": [29],
+        "An": [30], "(EC)": [32], "device": [33], "dimensions": [35], "5": [36], "\u00d7":
+        [37, 64], "4": [38], "cm2": [39, 66, 85], "fabricated": [40], "using": [41],
+        "NP-WO3": [42], "showed": [43], "an": [44], "Li": [45], "insertion": [46],
+        "coefficient": [47, 62], "(x)": [48], "0.43,": [50], "which": [51], "resulted":
+        [52], "highest": [54], "photopic": [55], "transmittance": [56], "modulation":
+        [57], "(88.51%),": [58], "better": [59], "Li-ion": [60], "diffusion": [61],
+        "(\u223c3.16": [63], "10\u22129": [65], "s\u22121),": [67], "fast": [68],
+        "response": [70], "time": [71], "(5.2": [72], "s": [73], "coloration": [75,
+        82], "and": [76, 80, 117], "3.7": [77], "bleaching)": [79], "excellent": [81],
+        "efficiency": [83], "(\u223c137": [84], "C\u22121).": [86], "On": [87], "reduction":
+        [88], "WO3,": [90], "CIELAB": [92], "1931": [93], "2\u00b0": [94], "color":
+        [95], "space": [96], "coordinates": [97], "show": [98], "transition": [100],
+        "from": [101], "colorless": [102], "to": [103], "deep": [105], "blue": [106],
+        "state": [107], "(Y": [108], "=": [109, 112, 115, 119, 122, 125], "97,": [110],
+        "a*": [111, 121], "\u22121.93,": [113], "b*": [114, 124], "0.46": [116], "Y":
+        [118], "10,": [120], "1.57,": [123], "\u221241.01)": [126], "with": [127],
+        "steady": [128], "decrease": [129], "relative": [131], "luminance.": [132]},
+        "primary_location": {"id": "doi:10.1039/c3tc30378k", "doi": "https://doi.org/10.1039/c3tc30378k",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1039/c3tc30378k",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S2500738039", "display_name":
+        "Journal of Materials Chemistry C", "issn_l": "2050-7526", "issn": ["2050-7526",
+        "2050-7534"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "dongbi-c", "jufo-1", "ki-jl-1", "norway-1", "poland-140", "russia-white-list-1",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310320556", "host_organization_name":
+        "Royal Society of Chemistry", "host_organization_lineage": ["https://openalex.org/P4310320556"],
+        "host_organization_lineage_names": ["Royal Society of Chemistry"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Materials Chemistry C", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2000330203",
+        "doi": "https://doi.org/10.1063/1.347335", "title": "Mechanism of electrochromism
+        for amorphous WO3 thin films", "publication_year": 1991, "abstract_inverted_index":
+        {"The": [0, 12], "mechanism": [1], "of": [2, 52, 62, 64, 103], "electrochromism":
+        [3, 102], "for": [4], "an": [5, 110, 114, 122], "amorphous": [6, 104], "WO3":
+        [7, 105], "film": [8, 13, 74, 106], "has": [9, 24, 68, 87], "been": [10, 69,
+        88], "studied.": [11], "was": [14], "prepared": [15], "by": [16, 75], "using":
+        [17, 76], "vacuum": [18], "evaporation.": [19], "X-ray": [20], "phototelectron":
+        [21], "spectroscopy": [22, 80], "analysis": [23, 81], "revealed": [25], "that":
+        [26, 42, 90, 101], "a": [27, 37, 57, 72], "state": [28, 63], "appears": [29],
+        "below": [30], "the": [31, 43, 50, 60, 65, 91, 95, 118], "Fermi": [32, 44],
+        "level": [33, 45], "after": [34, 98], "coloration": [35, 99], "in": [36, 47,
+        59, 71, 82, 117], "LiClO4-propylene": [38], "carbonate": [39], "electrolyte":
+        [40], "and": [41, 100, 121], "increases": [46], "proportion": [48], "to":
+        [49, 109], "amount": [51], "injected": [53, 93, 116], "lithium.": [54], "In":
+        [55], "addition,": [56], "decrease": [58], "density": [61], "conduction":
+        [66, 96, 119], "band": [67, 97, 120], "observed": [70], "colored": [73], "electron":
+        [77, 84, 115], "energy": [78], "loss": [79], "transmission": [83], "microscopy.":
+        [85], "It": [86], "concluded": [89], "electrons": [92], "occupy": [94], "is":
+        [107], "due": [108], "intraband": [111], "transition": [112], "between": [113],
+        "empty": [123], "state.": [124]}, "primary_location": {"id": "doi:10.1063/1.347335",
+        "doi": "https://doi.org/10.1063/1.347335", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.347335", "pdf_url": null, "source": {"id": "https://openalex.org/S187991544",
+        "display_name": "Journal of Applied Physics", "issn_l": "0021-8979", "issn":
+        ["0021-8979", "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d",
+        "jufo-1", "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2086140383",
+        "doi": "https://doi.org/10.1063/1.2729472", "title": "The effect of thermal
+        annealing on photoelectrochemical responses of WO3 thin films", "publication_year":
+        2007, "abstract_inverted_index": {"The": [0, 46], "photoelectrochemical":
+        [1, 56, 90], "responses": [2], "of": [3, 13, 35, 109], "WO3": [4, 20, 47,
+        72], "thin": [5], "films": [6, 21], "have": [7], "been": [8], "investigated":
+        [9], "as": [10], "a": [11, 88, 122], "function": [12], "annealing": [14, 32],
+        "temperature": [15], "up": [16], "to": [17, 59, 94], "600": [18, 39, 76, 118],
+        "\u00b0C.": [19, 100], "were": [22], "deposited": [23], "on": [24], "unheated":
+        [25], "substrates": [26], "by": [27, 31], "thermal": [28], "evaporation":
+        [29], "followed": [30], "at": [33, 50, 75, 98, 117], "temperatures": [34],
+        "300,": [36], "500,": [37], "and": [38, 62, 81], "\u00b0C": [40, 52, 77, 119],
+        "for": [41, 113], "5": [42], "h": [43], "in": [44, 66, 92, 125], "air.": [45],
+        "film": [48, 73, 115, 120], "annealed": [49, 74, 97, 116], "500": [51, 99],
+        "shows": [53, 87], "the": [54, 67, 71, 95, 106, 114, 127], "best": [55], "response":
+        [57, 91], "due": [58], "improved": [60], "crystallinity": [61, 80], "enhanced":
+        [63], "light": [64, 83], "absorption": [65, 84], "long-wavelength": [68],
+        "region.": [69], "Although": [70], "exhibits": [78], "better": [79], "increased":
+        [82], "properties,": [85], "it": [86], "decreased": [89, 128], "comparison":
+        [93], "one": [96], "These": [101], "results": [102], "strongly": [103], "suggests":
+        [104], "that": [105], "reduced": [107], "amount": [108], "electrochemical":
+        [110], "reaction": [111], "sites": [112], "plays": [121], "significant": [123],
+        "role": [124], "influencing": [126], "photoresponse.": [129]}, "primary_location":
+        {"id": "doi:10.1063/1.2729472", "doi": "https://doi.org/10.1063/1.2729472",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.2729472", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S187991544", "display_name":
+        "Journal of Applied Physics", "issn_l": "0021-8979", "issn": ["0021-8979",
+        "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1",
+        "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2081858528",
+        "doi": "https://doi.org/10.1088/0022-3727/40/4/034", "title": "Hydrophilicity
+        variation of WO3 thin films with annealing temperature", "publication_year":
+        2007, "abstract_inverted_index": {"The": [0, 30], "influence": [1], "of":
+        [2, 9, 58, 63, 82, 101, 111], "annealing": [3], "temperature": [4], "on":
+        [5, 79, 104], "the": [6, 27, 53, 61, 80, 83, 96, 99, 105, 112], "hydrophilic":
+        [7], "property": [8, 45], "WO": [10, 33], "3": [11, 34], "thin": [12, 35,
+        113], "films": [13, 36], "deposited": [14], "by": [15], "thermal": [16, 31],
+        "evaporation": [17], "and": [18, 24, 48, 75, 98], "sol\u2013gel": [19], "dip-coating":
+        [20], "methods": [21], "was": [22, 108], "studied": [23], "compared": [25],
+        "for": [26], "first": [28], "time.": [29], "evaporated": [32], "annealed":
+        [37, 84], "at": [38, 66, 86], "400": [39], "\u00b0C": [40], "showed": [41],
+        "a": [42, 93], "nearly": [43], "super-hydrophilic": [44], "without": [46],
+        "UV": [47], "visible": [49], "illumination.": [50], "By": [51], "analysing":
+        [52], "O(1s)": [54], "core": [55], "level": [56], "peak": [57], "XPS": [59],
+        "spectra,": [60], "amount": [62], "oxygen": [64], "contributed": [65], "various":
+        [67], "bonds": [68], "(including": [69], "O": [70], "2\u2212": [71], ",":
+        [72], "OH": [73], "\u2212": [74], "H": [76], "2": [77], "O)": [78], "surface":
+        [81, 107], "samples": [85], "different": [87], "temperatures": [88], "were":
+        [89], "measured.": [90], "In": [91], "addition,": [92], "correlation": [94],
+        "between": [95], "hydrophilicity": [97], "concentration": [100], "chemisorbed":
+        [102], "water": [103], "film": [106, 114], "suggested,": [109], "independent":
+        [110], "deposition": [115], "method.": [116]}, "primary_location": {"id":
+        "doi:10.1088/0022-3727/40/4/034", "doi": "https://doi.org/10.1088/0022-3727/40/4/034",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.1088/0022-3727/40/4/034",
+        "pdf_url": "https://iopscience.iop.org/article/10.1088/0022-3727/40/4/034/pdf",
+        "source": {"id": "https://openalex.org/S111927887", "display_name": "Journal
+        of Physics D Applied Physics", "issn_l": "0022-3727", "issn": ["0022-3727",
+        "1361-6463"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1", "ki-jl-1", "norway-1",
+        "poland-70", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310311669",
+        "host_organization_name": "Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310311669"], "host_organization_lineage_names": ["Institute
+        of Physics"], "type": "journal"}, "license": null, "license_id": null, "version":
+        "publishedVersion", "is_accepted": true, "is_published": true, "raw_source_name":
+        "Journal of Physics D: Applied Physics", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2013841749", "doi": "https://doi.org/10.1039/b108531j",
+        "title": "Improved photochromism of WO3 thin films by addition of Au nanoparticles",
+        "publication_year": 2002, "abstract_inverted_index": {"A": [0], "WO3/Au":
+        [1, 57], "composite": [2], "thin": [3, 18, 33], "film": [4, 19], "is": [5,
+        25, 47], "prepared": [6], "by": [7], "depositing": [8], "gold": [9, 65], "nanoparticles":
+        [10], "onto": [11], "the": [12, 28, 31, 39, 51, 56, 60, 64, 82], "surface":
+        [13, 61], "of": [14, 30, 63, 81], "a": [15, 21, 77], "vacuum-evaporated":
+        [16], "WO3": [17, 32], "through": [20], "spin-coating": [22], "technique.":
+        [23], "It": [24], "found": [26], "that": [27], "photochromism": [29], "films":
+        [34], "are": [35], "enhanced": [36], "greatly": [37], "after": [38], "modification":
+        [40], "with": [41], "Au": [42], "nanoparticles.": [43, 66], "The": [44, 67],
+        "enhancement": [45], "effect": [46, 62], "explained": [48], "according": [49],
+        "to": [50], "Schottky": [52], "barrier": [53], "formed": [54], "at": [55],
+        "interface": [58], "and": [59, 75], "results": [68], "may": [69], "be": [70],
+        "helpful": [71], "in": [72], "technical": [73], "applications": [74], "provide":
+        [76], "more": [78], "detailed": [79], "understanding": [80], "photochromic":
+        [83], "mechanism.": [84]}, "primary_location": {"id": "doi:10.1039/b108531j",
+        "doi": "https://doi.org/10.1039/b108531j", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1039/b108531j", "pdf_url": null, "source": {"id": "https://openalex.org/S181332294",
+        "display_name": "Physical Chemistry Chemical Physics", "issn_l": "1463-9076",
+        "issn": ["1463-9076", "1463-9084"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-3",
+        "ki-jl-1", "medline", "norway-2", "poland-100", "russia-white-list-2", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320556", "host_organization_name":
+        "Royal Society of Chemistry", "host_organization_lineage": ["https://openalex.org/P4310320556"],
+        "host_organization_lineage_names": ["Royal Society of Chemistry"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Physical Chemistry
+        Chemical Physics", "raw_type": "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442979cdf35f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '14198'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:13 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=YuJ3QIoVuvokXcCaCs9VCc66BaOmqrSfH%2BPtUooJCcU%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633232"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=YuJ3QIoVuvokXcCaCs9VCc66BaOmqrSfH%2BPtUooJCcU%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633232"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9470'
+      x-ratelimit-remaining-usd:
+      - '0.947'
+      x-ratelimit-reset:
+      - '30767'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=WO3+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 3485, "db_response_time_ms": 18, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (WO3 thin film)
+        in the title or abstract", "x_new_oql": "get works with (WO3 thin film) in
+        the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "WO3 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:WO3 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W1982246604"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a544297ab9cb5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '608'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:13 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=SQPoDm%2FI9100U1bknf2468cJwHh1huSX6wAGrrqW%2FFM%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633233"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=SQPoDm%2FI9100U1bknf2468cJwHh1huSX6wAGrrqW%2FFM%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633233"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9460'
+      x-ratelimit-remaining-usd:
+      - '0.946'
+      x-ratelimit-reset:
+      - '30767'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=tungsten+trioxide+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 412, "db_response_time_ms": 24, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (tungsten trioxide
+        thin film) in the title or abstract where it has an abstract", "x_new_oql":
+        "get works with (tungsten trioxide thin film) in the title or abstract where
+        it has an abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "has_abstract", "value": true}, {"column_id": "title_and_abstract.search",
+        "value": "tungsten trioxide thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:tungsten
+        trioxide thin film&per_page=5", "order": "best matches first", "order_default":
+        true}, "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2064667182",
+        "doi": "https://doi.org/10.1063/1.323411", "title": "Color in \"tungsten trioxide\"
+        thin films", "publication_year": 1977, "abstract_inverted_index": {"We": [0,
+        19], "show": [1], "that": [2, 21, 41], "evaporated": [3], "tungsten": [4,
+        67], "trioxide": [5], "amorphous": [6], "layers": [7, 55], "commonly": [8],
+        "used": [9], "in": [10], "electrochromic": [11], "displays": [12], "actually":
+        [13], "have": [14], "the": [15, 37, 64], "composition": [16], "WO2.7Hy": [17],
+        "(0.2<y<0.5).": [18], "emphasize": [20], "coloration": [22], "of": [23, 32,
+        61, 66, 75], "virgin": [24, 54], "transparent": [25], "films": [26], "can":
+        [27, 51], "be": [28], "obtained": [29], "without": [30, 56], "injection":
+        [31], "any": [33, 57], "external": [34], "ion": [35], "into": [36], "layer,":
+        [38], "and": [39], "further": [40], "around": [42], "a": [43], "critical":
+        [44], "substoichiometry": [45, 62], "by": [46, 72], "sputtering,": [47], "namely,":
+        [48], "WO2.5,": [49], "one": [50], "prepare": [52], "blue": [53], "hydrogen.":
+        [58], "The": [59], "effect": [60], "on": [63], "valence": [65], "atoms": [68],
+        "has": [69], "been": [70], "followed": [71], "XPS": [73], "measurements":
+        [74], "sputtered": [76], "layers.": [77]}, "primary_location": {"id": "doi:10.1063/1.323411",
+        "doi": "https://doi.org/10.1063/1.323411", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.323411", "pdf_url": null, "source": {"id": "https://openalex.org/S187991544",
+        "display_name": "Journal of Applied Physics", "issn_l": "0021-8979", "issn":
+        ["0021-8979", "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d",
+        "jufo-1", "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W1995279582",
+        "doi": "https://doi.org/10.1149/1.2123510", "title": "Proton Diffusion in
+        Tungsten Trioxide Thin Films", "publication_year": 1982, "abstract_inverted_index":
+        {"A": [0, 196], "small": [1], "signal": [2], "a\u2010c": [3, 56], "impedance":
+        [4, 57], "method": [5], "has": [6], "been": [7], "applied": [8], "to": [9,
+        53, 73, 82, 121], "the": [10, 17, 83, 112, 142, 174], "cell": [11], "surface":
+        [12], "area": [13], "carbon,": [14], "in": [15, 47, 137, 173], "which": [16,
+        41], "carbon": [18], "electrode": [19, 186], "acts": [20], "as": [21, 65,
+        119, 153, 183, 192, 194], "a": [22, 66, 129, 135, 184], "nonpolarizable":
+        [23], "electrode.": [24], "Tungsten": [25], "trioxide": [26], "films": [27,
+        91, 146], "were": [28, 42, 45, 59], "prepared": [29], "by": [30, 85, 134,
+        148], "vacuum": [31], "evaporation": [32], "onto": [33], "tin": [34], "oxide":
+        [35], "covered": [36], "glass": [37], "substrate.": [38], "The": [39, 55,
+        77, 89, 108, 164, 177], "films,": [40], "initially": [43], "amorphous,": [44],
+        "heated": [46], "air": [48], "at": [49, 62, 99, 106], "temperatures": [50,
+        64], "from": [51, 70], "300\u00b0": [52], "400\u00b0C.": [54], "measurements":
+        [58], "carried": [60], "out": [61], "several": [63], "function": [67], "of":
+        [68, 155, 160], "frequency": [69], "10": [71, 74], "\u22122": [72, 199], "5":
+        [75], "Hz.": [76], "Randles": [78], "circuit": [79], "was": [80], "fitted":
+        [81], "data": [84, 178], "nonlinear": [86], "chi\u2010squared": [87], "minimization.":
+        [88], "amorphous": [90, 113, 143], "have": [92], "higher": [93], "diffusion":
+        [94, 159, 165], "coefficients,": [95], "i.e.": [96, 104], ",": [97, 105],
+        "about": [98, 116, 122], "20\u00b0C,": [100], "than": [101], "crystalline":
+        [102, 126, 145], "samples,": [103], "20\u00b0C.": [107], "activation": [109],
+        "energy": [110], "for": [111, 125], "sample": [114], "is": [115], "0.25":
+        [117], "eV": [118, 124], "compared": [120], "0.4": [123], "films.": [127],
+        "Such": [128], "difference": [130, 136], "might": [131], "be": [132], "explained":
+        [133], "composition": [138, 172], "and": [139, 144, 158], "density": [140,
+        191], "between": [141], "or": [147], "different": [149], "transport": [150],
+        "mechanisms": [151], "such": [152], "hopping": [154], "H": [156], "+": [157],
+        "oxygen": [161], "ion": [162], "vacancies.": [163], "coefficient": [166],
+        "does": [167], "not": [168], "change": [169], "significantly": [170], "with":
+        [171, 187], "range": [175], ".": [176, 200], "suggest": [179], "that": [180],
+        "may": [181], "act": [182], "nonblocking": [185], "an": [188], "exchange":
+        [189], "current": [190], "high": [193], "0.02": [195], "\u00b7": [197], "cm":
+        [198]}, "primary_location": {"id": "doi:10.1149/1.2123510", "doi": "https://doi.org/10.1149/1.2123510",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.1149/1.2123510", "pdf_url":
+        "https://iopscience.iop.org/article/10.1149/1.2123510/pdf", "source": {"id":
+        "https://openalex.org/S138759888", "display_name": "Journal of The Electrochemical
+        Society", "issn_l": "0013-4651", "issn": ["0013-4651", "1945-7111"], "is_oa":
+        false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core", "dongbi-b",
+        "jufo-1", "ki-jl-1", "norway-2", "poland-100", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310311669", "host_organization_name":
+        "Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310311669"],
+        "host_organization_lineage_names": ["Institute of Physics"], "type": "journal"},
+        "license": null, "license_id": null, "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "Journal of The Electrochemical
+        Society", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2056420957",
+        "doi": "https://doi.org/10.1149/1.2129668", "title": "Application of A\u2010C
+        Techniques to the Study of Lithium Diffusion in Tungsten Trioxide Thin Films",
+        "publication_year": 1980, "abstract_inverted_index": {"The": [0, 25, 76, 90],
+        "small": [1], "signal": [2], "a\u2010c": [3], "impedance": [4, 41], "of":
+        [5, 17, 39, 63, 74, 78, 97, 120], "the": [6, 32, 40, 44, 51, 55, 59, 66, 107,
+        118, 126], "cell": [7], "has": [8, 94], "been": [9, 29], "measured": [10],
+        "at": [11, 21, 98, 102, 115], "room": [12], "temperature": [13], "as": [14,
+        71], "a": [15, 72, 95], "function": [16, 73], "frequency": [18], "from": [19],
+        "to": [20, 88, 101], "various": [22], "open\u2010circuit": [23], "voltages.":
+        [24], "diffusion": [26, 53, 57, 92, 127], "equations": [27], "have": [28],
+        "solved": [30], "for": [31, 50, 70], "appropriate": [33], "finite": [34],
+        "boundary": [35], "conditions,": [36], "and": [37, 65, 84], "analysis": [38],
+        "data": [42], "by": [43, 81, 125], "complex": [45], "plane": [46], "method":
+        [47], "yields": [48], "values": [49], "chemical": [52, 91], "coefficient,":
+        [54, 58], "component": [56], "partial": [60], "ionic": [61], "conductivity":
+        [62], "lithium,": [64], "thermodynamic": [67], "enhancement": [68], "factor":
+        [69], ".": [75, 103], "films": [77], "were": [79, 85], "prepared": [80], "vacuum":
+        [82], "evaporation": [83], "largely": [86], "amorphous": [87], "x\u2010rays.":
+        [89], "coefficient": [93], "value": [96], ",": [99], "increasing": [100],
+        "At": [104], "short": [105], "times": [106, 117], "interfacial": [108], "charge":
+        [109], "transfer": [110], "reaction": [111], "is": [112, 123], "important,":
+        [113], "but": [114], "longer": [116], "rate": [119], "lithium": [121], "injection":
+        [122], "determined": [124], "kinetics.": [128]}, "primary_location": {"id":
+        "doi:10.1149/1.2129668", "doi": "https://doi.org/10.1149/1.2129668", "is_oa":
+        true, "landing_page_url": "https://doi.org/10.1149/1.2129668", "pdf_url":
+        "https://iopscience.iop.org/article/10.1149/1.2129668/pdf", "source": {"id":
+        "https://openalex.org/S138759888", "display_name": "Journal of The Electrochemical
+        Society", "issn_l": "0013-4651", "issn": ["0013-4651", "1945-7111"], "is_oa":
+        false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core", "dongbi-b",
+        "jufo-1", "ki-jl-1", "norway-2", "poland-100", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310311669", "host_organization_name":
+        "Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310311669"],
+        "host_organization_lineage_names": ["Institute of Physics"], "type": "journal"},
+        "license": null, "license_id": null, "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "Journal of The Electrochemical
+        Society", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2048048426",
+        "doi": "https://doi.org/10.1039/jm9920201141", "title": "Study of electrodeposited
+        tungsten trioxide thin films", "publication_year": 1992, "abstract_inverted_index":
+        {"WO3": [0, 30, 49, 60, 133], "films": [1, 50, 84], "have": [2, 51, 85], "been":
+        [3, 70], "electrodeposited": [4, 29, 48, 83, 99, 132], "in": [5, 39, 127],
+        "a": [6, 76], "solution": [7], "containing": [8], "dissolved": [9], "tungsten":
+        [10], "and": [11, 16, 38, 91, 128], "alcohol.": [12], "The": [13, 25, 43,
+        82], "deposition": [14, 18], "conditions": [15], "the": [17, 28, 47, 94, 98,
+        111, 131], "efficiency": [19], "on": [20, 72], "various": [21], "substrates":
+        [22], "were": [23, 32], "studied.": [24], "properties": [26], "of": [27, 57,
+        78, 97, 130], "film": [31, 100, 113, 134], "characterised": [33], "by": [34],
+        "electrochemical,": [35], "surface": [36], "analytical": [37], "situ": [40],
+        "optical": [41], "techniques.": [42], "results": [44], "indicated": [45],
+        "that": [46, 56], "similar": [52], "electrochromic": [53], "behaviour": [54],
+        "to": [55, 88], "anodically": [58], "grown": [59], "films.": [61], "A": [62],
+        "Nernst": [63], "type": [64], "response": [65], "for": [66], "H+": [67], "concentration":
+        [68], "has": [69], "demonstrated": [71], "reduced": [73], "films,": [74],
+        "with": [75], "slope": [77], "64": [79], "mV": [80], "(pH)\u20131.": [81],
+        "selective": [86], "permeability": [87], "different": [89], "ions": [90],
+        "molecules.": [92], "Since": [93], "zero-charge": [95, 120], "potential":
+        [96], "is": [101], "much": [102], "more": [103, 116], "anodic,": [104], "anions":
+        [105], "such": [106], "as": [107], "Fe(CN)63\u2013/Fe(CN)64\u2013": [108],
+        "cannot": [109], "enter": [110], "n-type": [112], "at": [114], "potentials":
+        [115], "negative": [117], "than": [118], "its": [119], "potential.": [121],
+        "However,": [122], "some": [123], "cations": [124], "can": [125], "diffuse":
+        [126], "out": [129], "reversibly.": [135]}, "primary_location": {"id": "doi:10.1039/jm9920201141",
+        "doi": "https://doi.org/10.1039/jm9920201141", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1039/jm9920201141", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S45305740", "display_name": "Journal of Materials Chemistry",
+        "issn_l": "0959-9428", "issn": ["0959-9428", "1364-5501"], "is_oa": false,
+        "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core"], "host_organization":
+        "https://openalex.org/P4310320556", "host_organization_name": "Royal Society
+        of Chemistry", "host_organization_lineage": ["https://openalex.org/P4310320556"],
+        "host_organization_lineage_names": ["Royal Society of Chemistry"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Materials Chemistry", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2073836538",
+        "doi": "https://doi.org/10.1002/pssa.2210830132", "title": "Colour centres
+        in amorphous tungsten trioxide thin films", "publication_year": 1984, "abstract_inverted_index":
+        {"Magnetic,": [0], "optical,": [1], "and": [2, 17, 21, 31, 63, 86, 104], "electrical":
+        [3], "properties": [4], "of": [5, 28, 38, 47, 73, 102], "thin": [6], "tungsten":
+        [7], "trioxide": [8], "(a-WO3,)": [9], "films": [10], "obtained": [11], "on":
+        [12], "substrates": [13], "with": [14], "different": [15], "temperatures":
+        [16], "annealed": [18], "in": [19], "air": [20], "vacuum": [22], "are": [23,
+        52, 68, 80], "investigated.": [24], "On": [25], "the": [26, 39, 69, 94, 99],
+        "basis": [27], "these": [29], "results": [30], "recent": [32], "structural":
+        [33], "investigations": [34], "a": [35, 44], "structure": [36], "model": [37],
+        "a-WO3,": [40], "film": [41], "is": [42, 90], "given:": [43], "spatial": [45],
+        "network": [46], "tightly": [48], "bounded": [49], "clusters": [50], "which":
+        [51], "built": [53], "from": [54, 84], "hydrated": [55], "WO6,": [56], "octahedra.":
+        [57], "These": [58], "octahedra": [59], "contain": [60], "terminal": [61],
+        "oxygens": [62], "being": [64], "axially": [65], "distorted": [66], "they":
+        [67], "sites": [70], "for": [71], "localization": [72], "injected": [74],
+        "electrons.": [75], "The": [76], "colour": [77], "centres": [78], "formed":
+        [79], "paramagnetic": [81], "(ESR": [82], "signal": [83], "WS+)": [85], "their":
+        [87], "optical": [88], "absorption": [89], "satisfactorily": [91], "described":
+        [92], "by": [93], "intervalence": [95], "charge": [96], "transfer": [97],
+        "between": [98], "localized": [100], "states": [101], "W5+": [103], "W6+":
+        [105], "ions.": [106]}, "primary_location": {"id": "doi:10.1002/pssa.2210830132",
+        "doi": "https://doi.org/10.1002/pssa.2210830132", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1002/pssa.2210830132", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S4210228582", "display_name": "physica status solidi
+        (a)", "issn_l": "0031-8965", "issn": ["0031-8965", "1521-396X", "1862-6300",
+        "1862-6319"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1", "ki-jl-1", "norway-1",
+        "poland-70", "russia-white-list-2", "vabb-shw"], "host_organization": "https://openalex.org/P4310320595",
+        "host_organization_name": "Wiley", "host_organization_lineage": ["https://openalex.org/P4310320595"],
+        "host_organization_lineage_names": ["Wiley"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Physica Status Solidi (a)", "raw_type":
+        "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a544297b5c6f5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '15126'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:13 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=SQPoDm%2FI9100U1bknf2468cJwHh1huSX6wAGrrqW%2FFM%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633233"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=SQPoDm%2FI9100U1bknf2468cJwHh1huSX6wAGrrqW%2FFM%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633233"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9450'
+      x-ratelimit-remaining-usd:
+      - '0.945'
+      x-ratelimit-reset:
+      - '30767'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=tungsten+trioxide+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 755, "db_response_time_ms": 27, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (tungsten trioxide
+        thin film) in the title or abstract", "x_new_oql": "get works with (tungsten
+        trioxide thin film) in the title or abstract", "oqo": {"get_rows": "works",
+        "filter_rows": [{"column_id": "title_and_abstract.search", "value": "tungsten
+        trioxide thin film", "operator": "has"}]}, "url": "/works?filter=title_and_abstract.search:tungsten
+        trioxide thin film&per_page=1", "order": "best matches first", "order_default":
+        true}, "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2064667182"}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a544297c4fee5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '663'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:13 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=SQPoDm%2FI9100U1bknf2468cJwHh1huSX6wAGrrqW%2FFM%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633233"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=SQPoDm%2FI9100U1bknf2468cJwHh1huSX6wAGrrqW%2FFM%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633233"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9440'
+      x-ratelimit-remaining-usd:
+      - '0.944'
+      x-ratelimit-reset:
+      - '30767'
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,0 +1,209 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=Ba3%28PO4%292+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 1, "db_response_time_ms": 268, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Ba3 PO4 2 thin
+        film) in the title or abstract where it has an abstract", "x_new_oql": "get
+        works with (Ba3 PO4 2 thin film) in the title or abstract where it has an
+        abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "Ba3(PO4)2
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:Ba3%28PO4%292
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W75732097", "doi":
+        null, "title": "Solid Acid Based Fuel Cells", "publication_year": 2005, "abstract_inverted_index":
+        {"High": [0], "power": [1, 30], "density": [2, 31], "fuel": [3, 16, 46], "cells":
+        [4], "based": [5], "on": [6, 50], "solid": [7], "acid": [8, 149], "electrolytes":
+        [9, 73], "have": [10, 74, 90, 128], "been": [11, 75], "demonstrated.": [12],
+        "In": [13, 41, 66, 77, 125], "particular,": [14, 78], "a": [15, 19, 29, 51,
+        146], "cell": [17, 47], "with": [18, 68], "25": [20], "micron": [21], "thick":
+        [22], "CsH2PO4": [23], "membrane": [24], "was": [25], "fabricated": [26],
+        "and": [27, 58, 61, 87], "yielded": [28], "of": [32, 82, 92, 107, 114], "425":
+        [33], "mW/cm2": [34], "at": [35, 97], "26O": [36], "C": [37], "(H2/O2)": [38],
+        "without": [39], "pressurization.": [40], "this": [42, 109], "configuration,":
+        [43], "the": [44, 59, 79, 105, 112, 137], "thin-film": [45], "is": [48, 132],
+        "supported": [49], "porous": [52], "stainless": [53], "steel": [54], "gas":
+        [55], "diffusion": [56], "layer": [57], "electrocatalyst": [60], "electrolyte":
+        [62], "layers": [63], "are": [64], "spray-deposited.": [65], "parallel": [67],
+        "these": [69], "efforts,": [70], "new,": [71], "water-insoluble": [72], "developed.":
+        [76], "new": [80], "series": [81], "compounds": [83], "Ba3-xKxHx(PO4)2": [84],
+        "were": [85], "prepared": [86], "shown": [88, 129], "to": [89, 134, 152],
+        "conductivities": [91], "3": [93], "x": [94], "10^-5": [95], "S/cm": [96],
+        "250": [98], "C.": [99], "Although": [100], "not": [101], "as": [102, 104,
+        143], "high": [103], "conductivity": [106], "CsH2PO4,": [108], "result": [110],
+        "demonstrates": [111], "feasibility": [113], "obtaining": [115], "proton":
+        [116, 156], "transport": [117], "via": [118], "dynamic": [119], "oxyanion":
+        [120], "reorientation": [121], "in": [122, 139], "insoluble": [123, 159],
+        "compounds.": [124, 160], "addition,": [126], "we": [127], "that": [130],
+        "it": [131], "possible": [133], "exchange": [135], "out": [136], "Li": [138],
+        "silicate": [140], "salts": [141], "such": [142], "LiLa9(SiO4)6O2,": [144],
+        "using": [145], "relatively": [147], "weak": [148], "(e.g.": [150], "H3PO4)":
+        [151], "once": [153], "again": [154], "produce": [155], "conducting": [157],
+        "water": [158]}, "primary_location": {"id": "pmh:ADA430084", "doi": null,
+        "is_oa": false, "landing_page_url": "http://oai.dtic.mil/oai/oai?&amp;verb=getRecord&amp;metadataPrefix=html&amp;identifier=ADA430084",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4406923043", "display_name":
+        "Defense Technical Information Center (DTIC)", "issn_l": null, "issn": null,
+        "is_oa": false, "is_in_doaj": false, "is_core": false, "listed_in": [], "host_organization":
+        null, "host_organization_name": null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "repository"}, "license": null, "license_id": null, "version":
+        "submittedVersion", "is_accepted": false, "is_published": false, "raw_source_name":
+        "DTIC AND NTIS", "raw_type": "Text"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429eee9e75f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '3718'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:32 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=SgErYOzezXpw2BbNTPgXlIpJL87RNjEsS0YTbnzO6dc%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633251"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=SgErYOzezXpw2BbNTPgXlIpJL87RNjEsS0YTbnzO6dc%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633251"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9050'
+      x-ratelimit-remaining-usd:
+      - '0.905'
+      x-ratelimit-reset:
+      - '30748'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=Ba3%28PO4%292+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 2, "db_response_time_ms": 305, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (Ba3 PO4 2 thin
+        film) in the title or abstract", "x_new_oql": "get works with (Ba3 PO4 2 thin
+        film) in the title or abstract", "oqo": {"get_rows": "works", "filter_rows":
+        [{"column_id": "title_and_abstract.search", "value": "Ba3(PO4)2 thin film",
+        "operator": "has"}]}, "url": "/works?filter=title_and_abstract.search:Ba3%28PO4%292
+        thin film&per_page=1", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2052889072"}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429f18c1e5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '634'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:32 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=O9d1KbtsFiO0WZm7Uj6SukgeERdhu8HZy74KlHQmkXA%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633252"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=O9d1KbtsFiO0WZm7Uj6SukgeERdhu8HZy74KlHQmkXA%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633252"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9040'
+      x-ratelimit-remaining-usd:
+      - '0.904'
+      x-ratelimit-reset:
+      - '30748'
+    status:
+      code: 200
+      message: OK
+version: 1

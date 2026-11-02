@@ -1,0 +1,328 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=SrTiO3+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 5415, "db_response_time_ms": 216, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (SrTiO3 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (SrTiO3 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "SrTiO3
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:SrTiO3
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2156255319",
+        "doi": "https://doi.org/10.1103/physrevlett.104.197601", "title": "Ferroelectricity
+        in Strain-Free SrTiO3 Thin Films", "publication_year": 2010, "abstract_inverted_index":
+        {"Biaxial": [0], "strain": [1, 55, 88], "is": [2, 56], "known": [3], "to":
+        [4, 57], "induce": [5], "ferroelectricity": [6], "in": [7, 74, 93], "thin":
+        [8], "films": [9, 27, 44], "of": [10, 21, 54, 61, 70, 84], "nominally": [11,
+        75], "nonferroelectric": [12], "materials": [13], "such": [14], "as": [15],
+        "SrTiO3.": [16], "By": [17], "a": [18], "direct": [19], "comparison": [20],
+        "the": [22, 52, 81], "strained": [23], "and": [24, 34, 45, 51, 89, 97], "strain-free":
+        [25], "SrTiO3": [26, 43], "using": [28], "dielectric,": [29], "ferroelectric,":
+        [30], "Raman,": [31], "nonlinear": [32], "optical": [33], "nanoscale": [35],
+        "piezoelectric": [36], "property": [37], "measurements,": [38], "we": [39],
+        "conclude": [40], "that": [41], "all": [42], "bulk": [46], "crystals": [47],
+        "are": [48], "relaxor": [49], "ferroelectrics,": [50], "role": [53, 83], "stabilize":
+        [58], "longer-range": [59], "correlation": [60], "preexisting": [62], "nanopolar":
+        [63], "regions,": [64], "likely": [65], "originating": [66], "from": [67],
+        "minute": [68], "amounts": [69], "unintentional": [71], "Sr": [72], "deficiency":
+        [73], "stoichiometric": [76], "samples.": [77], "These": [78], "findings":
+        [79], "highlight": [80], "sensitive": [82], "stoichiometry": [85], "when":
+        [86], "exploring": [87], "epitaxy-induced": [90], "electronic": [91], "phenomena":
+        [92], "oxide": [94], "films,": [95], "heterostructures,": [96], "interfaces.":
+        [98]}, "primary_location": {"id": "doi:10.1103/physrevlett.104.197601", "doi":
+        "https://doi.org/10.1103/physrevlett.104.197601", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.1103/physrevlett.104.197601", "pdf_url": "http://link.aps.org/pdf/10.1103/PhysRevLett.104.197601",
+        "source": {"id": "https://openalex.org/S24807848", "display_name": "Physical
+        Review Letters", "issn_l": "0031-9007", "issn": ["0031-9007", "1079-7114",
+        "1092-0145"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-2", "medline",
+        "norway-2", "poland-200", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320261", "host_organization_name": "American Physical
+        Society", "host_organization_lineage": ["https://openalex.org/P4310320261"],
+        "host_organization_lineage_names": ["American Physical Society"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Physical Review
+        Letters", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2148537918",
+        "doi": "https://doi.org/10.1002/pssr.200701003", "title": "Nanoscale resistive
+        switching in SrTiO3 thin films", "publication_year": 2007, "abstract_inverted_index":
+        {"Abstract": [0], "The": [1, 54], "local": [2], "conductivity": [3, 36], "of":
+        [4, 37, 57, 69, 73, 121], "SrTiO3": [5, 12, 38], "thin": [6, 39], "films":
+        [7, 40], "epitaxially": [8], "grown": [9], "on": [10, 109], "SrRuO3\u2010buffered":
+        [11], "single": [13], "crystals": [14], "has": [15], "been": [16], "investigated":
+        [17], "in": [18], "detail": [19], "with": [20, 26, 87], "an": [21, 74], "atomic":
+        [22], "force": [23], "microscope": [24], "equipped": [25], "a": [27, 110],
+        "conducting": [28], "tip": [29, 90], "(LC\u2010AFM).": [30], "These": [31],
+        "experiments": [32], "demonstrate": [33], "that": [34, 106], "the": [35, 47,
+        50, 58, 80, 88, 99, 118, 122], "originates": [41], "from": [42], "nanoscale":
+        [43], "well\u2010conducting": [44], "filaments": [45, 59, 86], "connecting":
+        [46], "surface": [48], "to": [49, 62, 98, 117], "SrRuO3": [51], "bottom":
+        [52], "electrode.": [53], "electrical": [55, 76], "conduction": [56], "is":
+        [60], "shown": [61], "be": [63, 114], "reversibly": [64], "modulated": [65],
+        "over": [66], "several": [67], "orders": [68], "magnitude": [70], "by": [71,
+        83, 94], "application": [72], "appropriate": [75], "field.": [77], "We": [78],
+        "analyze": [79], "resistive": [81, 107], "switching": [82, 108], "addressing":
+        [84], "individual": [85], "AFM": [89], "as": [91, 93], "well": [92], "scanning":
+        [95], "areas": [96], "up": [97], "\u00b5m": [100], "scale.": [101], "Temperature":
+        [102], "dependent": [103], "measurements": [104], "reveal": [105], "macroscopic":
+        [111], "scale": [112], "can": [113], "traced": [115], "down": [116], "insulator\u2010to\u2010metal":
+        [119], "transition": [120], "independently": [123], "switchable": [124], "filaments.":
+        [125], "(\u00a9": [126], "2007": [127], "WILEY\u2010VCH": [128], "Verlag":
+        [129], "GmbH": [130], "&": [131], "Co.": [132], "KGaA,": [133], "Weinheim)":
+        [134]}, "primary_location": {"id": "doi:10.1002/pssr.200701003", "doi": "https://doi.org/10.1002/pssr.200701003",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1002/pssr.200701003",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4210198591", "display_name":
+        "physica status solidi (RRL) - Rapid Research Letters", "issn_l": "1862-6254",
+        "issn": ["1862-6254", "1862-6270"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["cwts-core", "dongbi-c", "jufo-1", "norway-1", "poland-100",
+        "russia-white-list-2"], "host_organization": "https://openalex.org/P4310320595",
+        "host_organization_name": "Wiley", "host_organization_lineage": ["https://openalex.org/P4310320595"],
+        "host_organization_lineage_names": ["Wiley"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "physica status solidi (RRL) \u2013
+        Rapid Research Letters", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2053238039",
+        "doi": "https://doi.org/10.1063/1.360553", "title": "Electrode influence on
+        the charge transport through SrTiO3 thin films", "publication_year": 1995,
+        "abstract_inverted_index": {"The": [0, 47, 64], "influence": [1], "of": [2,
+        15, 37, 54], "the": [3, 6, 12, 34, 44, 57, 60, 70], "electrodes": [4], "on":
+        [5, 11, 25, 27], "dielectric": [7], "behavior": [8, 14], "and": [9], "especially":
+        [10], "leakage": [13, 45], "SrTiO3": [16, 61], "thin": [17, 28, 62], "films":
+        [18, 29], "was": [19, 40], "investigated": [20], "by": [21, 69], "impedance":
+        [22], "analysis.": [23], "Based": [24], "measurements": [26], "with": [30],
+        "different": [31], "electrode": [32], "materials": [33, 39], "work": [35],
+        "function": [36], "these": [38], "found": [41], "to": [42], "determine": [43],
+        "currents.": [46], "main": [48], "conduction": [49], "mechanism": [50], "is":
+        [51], "thermionic": [52], "emission": [53], "electrons": [55], "from": [56],
+        "cathode": [58], "into": [59], "film.": [63], "current\u2013voltage": [65],
+        "characteristics": [66], "are": [67], "influenced": [68], "Schottky": [71],
+        "effect.": [72]}, "primary_location": {"id": "doi:10.1063/1.360553", "doi":
+        "https://doi.org/10.1063/1.360553", "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.360553",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S187991544", "display_name":
+        "Journal of Applied Physics", "issn_l": "0021-8979", "issn": ["0021-8979",
+        "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1",
+        "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2055435560",
+        "doi": "https://doi.org/10.1063/1.121901", "title": "Thickness dependence
+        of dielectric loss in SrTiO3 thin films", "publication_year": 1998, "abstract_inverted_index":
+        {"We": [0], "have": [1], "measured": [2], "the": [3, 29, 39, 42, 59, 63, 71,
+        75, 79], "dielectric": [4], "loss": [5, 25, 43], "in": [6, 58, 70], "SrTiO3":
+        [7], "thin": [8], "films": [9], "grown": [10], "on": [11, 28], "SrRuO3": [12],
+        "electrode": [13], "layers": [14], "with": [15], "thickness": [16, 30, 40],
+        "ranging": [17], "from": [18], "25": [19], "nm": [20], "to": [21, 78], "2.5":
+        [22], "\u03bcm.": [23], "The": [24], "depends": [26], "strongly": [27], "but":
+        [31, 48], "differently": [32], "above": [33], "and": [34, 83], "below": [35],
+        "T\u224880": [36], "K:": [37], "as": [38], "increases,": [41], "decreases":
+        [44], "at": [45, 51], "high": [46, 60], "temperatures": [47], "becomes": [49],
+        "higher": [50], "low": [52, 72], "temperatures.": [53], "Our": [54], "result":
+        [55], "suggests": [56], "that,": [57], "temperature": [61, 73], "regime,":
+        [62, 74], "interfacial": [64], "dead": [65], "layer": [66], "effect": [67],
+        "dominates": [68], "while,": [69], "losses": [76], "related": [77], "structural":
+        [80], "phase": [81], "transition": [82], "quantum": [84], "fluctuations":
+        [85], "are": [86], "important.": [87]}, "primary_location": {"id": "doi:10.1063/1.121901",
+        "doi": "https://doi.org/10.1063/1.121901", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.121901", "pdf_url": null, "source": {"id": "https://openalex.org/S105243760",
+        "display_name": "Applied Physics Letters", "issn_l": "0003-6951", "issn":
+        ["0003-6951", "1077-3118", "1520-8842"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-a",
+        "jufo-3", "ki-jl-1", "norway-2", "poland-100", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Applied Physics
+        Letters", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2006833180",
+        "doi": "https://doi.org/10.1103/physrevlett.89.147601", "title": "Local Ferroelectricity
+        in SrTiO3 Thin Films", "publication_year": 2002, "abstract_inverted_index":
+        {"The": [0, 62], "temperature-dependent": [1], "polarization": [2], "of":
+        [3, 27, 67], "SrTiO3": [4], "thin": [5], "films": [6], "is": [7, 52], "investigated":
+        [8], "using": [9], "confocal": [10], "scanning": [11], "optical": [12], "microscopy.":
+        [13], "A": [14], "homogeneous": [15], "out-of-plane": [16], "and": [17, 34],
+        "an": [18], "inhomogeneous": [19, 73], "in-plane": [20], "ferroelectric":
+        [21], "phase": [22], "are": [23, 37], "identified": [24], "from": [25], "images":
+        [26], "the": [28, 58, 65], "linear": [29], "electro-optic": [30], "response.":
+        [31], "Both": [32], "hysteretic": [33], "nonhysteretic": [35], "behavior":
+        [36], "observed": [38, 53], "under": [39], "a": [40], "dc": [41], "bias":
+        [42], "field.": [43], "Unlike": [44], "classical": [45], "transitions": [46],
+        "in": [47, 71], "bulk": [48], "ferroelectrics,": [49], "local": [50, 68],
+        "ferroelectricity": [51], "at": [54], "temperatures": [55], "far": [56], "above":
+        [57], "dielectric": [59], "permittivity": [60], "maximum.": [61], "results":
+        [63], "demonstrate": [64], "utility": [66], "probe": [69], "experiments":
+        [70], "understanding": [72], "ferroelectrics.": [74]}, "primary_location":
+        {"id": "doi:10.1103/physrevlett.89.147601", "doi": "https://doi.org/10.1103/physrevlett.89.147601",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1103/physrevlett.89.147601",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S24807848", "display_name":
+        "Physical Review Letters", "issn_l": "0031-9007", "issn": ["0031-9007", "1079-7114",
+        "1092-0145"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-2", "medline",
+        "norway-2", "poland-200", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320261", "host_organization_name": "American Physical
+        Society", "host_organization_lineage": ["https://openalex.org/P4310320261"],
+        "host_organization_lineage_names": ["American Physical Society"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Physical Review
+        Letters", "raw_type": "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442a544e7c5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '13367'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:48 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=qV63Ff2ZIc5LhHZrphOpigSfbcOPUELGlR4%2BZ83Ujlk%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633267"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=qV63Ff2ZIc5LhHZrphOpigSfbcOPUELGlR4%2BZ83Ujlk%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633267"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '8550'
+      x-ratelimit-remaining-usd:
+      - '0.855'
+      x-ratelimit-reset:
+      - '30732'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=SrTiO3+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 7989, "db_response_time_ms": 24, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (SrTiO3 thin film)
+        in the title or abstract", "x_new_oql": "get works with (SrTiO3 thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "SrTiO3 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:SrTiO3 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W1989708981"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442a565ef35f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '620'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:48 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=MwhZkLsAFCyArT0H5BEAWPdPu7gJBXmEPMAqI9SiYLk%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633268"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=MwhZkLsAFCyArT0H5BEAWPdPu7gJBXmEPMAqI9SiYLk%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633268"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '8540'
+      x-ratelimit-remaining-usd:
+      - '0.854'
+      x-ratelimit-reset:
+      - '30732'
+    status:
+      code: 200
+      message: OK
+version: 1

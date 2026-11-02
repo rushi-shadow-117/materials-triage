@@ -302,6 +302,25 @@ Phase 0 cassettes stay as evidence of the client's request shapes.
 - OQMD answered HTTP 502 to every structures query during the Phase 1 recording pass (logged
   below). OQMD is cut as a source; its Phase 0 cassette serves the parser test.
 
+## Track 0 recordings (2026-11-02, `fixtures/adapters/`, manifest `recording_manifest.json`)
+
+- 61 compositions (Yim 2015 positives, the owner's negatives, five photocatalysts, four
+  nitrides, the eleven baseline oxides) recorded through the adapters with no failures:
+  959 Materials Project summary documents, 2,255 thermo documents (every id, all three
+  functionals), 170 dielectric documents. Every document carries `builder_meta.license = "BY-C"`.
+  23 compositions have at least one polymorph whose hull status differs by functional.
+- Three fully paged discovery cassettes, none truncated: oxides with band gap at least 3 eV
+  and hull at most 0.05 eV/atom, 3,229; oxides with band gap 2 to 3 eV, 3,016; nitrides with N
+  as the only anion and band gap above 4 eV, 68.
+- OpenAlex title-and-abstract search "<formula> thin film" for all 61 (79 queries including
+  synonyms): ten compositions return zero matches (Cd2Ta2O7, Ag2Ta4O11, AlLiO2, Ba3P4O13,
+  CaB4O7, HfTe3O8, Li3OBr, Li4CO4, Mg4O3(OH)2, Y2(Si2O7)); the evidence tier for them is
+  "no abstract", never "no support".
+- PubChem GHS for the eleven oxides and the six hazard probes; ECHA is among the references on
+  every record except BaTiO3, so the ECHA attribution line applies broadly.
+- Total cassette size 7.3 MB. Seeded into the store and replayed in full with the network
+  disabled (tests/test_seed_replay.py).
+
 ## Availability events
 
 | Date (UTC) | Source | Symptom | Outcome |

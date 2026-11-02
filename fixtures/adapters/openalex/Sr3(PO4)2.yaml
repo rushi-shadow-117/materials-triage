@@ -1,0 +1,210 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=Sr3%28PO4%292+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 1, "db_response_time_ms": 37, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Sr3 PO4 2 thin
+        film) in the title or abstract where it has an abstract", "x_new_oql": "get
+        works with (Sr3 PO4 2 thin film) in the title or abstract where it has an
+        abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "Sr3(PO4)2
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:Sr3%28PO4%292
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W1975478722",
+        "doi": "https://doi.org/10.4028/www.scientific.net/amr.93-94.231", "title":
+        "Synthesis and Characterizations of Strontium Substituted Hydroxyapatite Thin
+        Films", "publication_year": 2010, "abstract_inverted_index": {"Strontium":
+        [0], "substituted": [1], "hydroxyapatite(SrHAp)": [2], "were": [3, 46, 77],
+        "fabricated": [4], "both": [5], "in": [6, 48, 101], "the": [7, 28, 44, 72,
+        102], "form": [8], "of": [9, 30, 56, 71, 75], "powder": [10], "as": [11],
+        "reference": [12], "and": [13, 68, 105], "thin": [14], "film": [15], "by":
+        [16, 38, 80], "using": [17, 81], "inorganic": [18], "precursor": [19], "reaction.":
+        [20], "The": [21, 53, 86, 112], "sol-gel": [22], "process": [23], "has": [24],
+        "been": [25], "used": [26], "for": [27, 98], "deposition": [29], "SrHAp":
+        [31, 57, 76, 117], "layer": [32], "on": [33], "stainless": [34], "steal":
+        [35], "316L": [36], "substrate": [37], "spin": [39], "coating": [40], "technique,":
+        [41], "after": [42], "that": [43, 89, 116], "films": [45, 118], "annealed":
+        [47], "air": [49], "at": [50, 110], "various": [51], "temperatures.": [52],
+        "chemical": [54], "composition": [55], "is": [58, 63, 91], "represented":
+        [59], "(SrxCa1-x)5(PO4)3OH,": [60], "where": [61, 95], "x": [62], "equal":
+        [64], "to": [65, 124], "0,": [66], "0.5": [67], "1.0.": [69], "Investigations":
+        [70], "phase": [73], "structure": [74, 121], "carried": [78], "out": [79],
+        "X-ray": [82], "diffraction": [83], "technique": [84], "(XRD).": [85], "results":
+        [87], "showed": [88, 115], "strontium": [90], "incorporated": [92], "into":
+        [93], "hydroxyapatite": [94], "its": [96], "substitution": [97], "calcium":
+        [99], "increases": [100], "lattice": [103], "parameters,": [104], "Sr3(PO4)2":
+        [106], "can": [107], "be": [108], "detected": [109], "900\u00b0C.": [111],
+        "SEM": [113], "micrographs": [114], "exhibited": [119], "porous": [120], "before":
+        [122], "develop": [123], "a": [125], "cross-linking": [126], "structure.":
+        [127]}, "primary_location": {"id": "doi:10.4028/www.scientific.net/amr.93-94.231",
+        "doi": "https://doi.org/10.4028/www.scientific.net/amr.93-94.231", "is_oa":
+        false, "landing_page_url": "https://doi.org/10.4028/www.scientific.net/amr.93-94.231",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S67425620", "display_name":
+        "Advanced materials research", "issn_l": "1022-6680", "issn": ["1022-6680",
+        "1662-8985"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "jufo-1", "norway-1"], "host_organization": "https://openalex.org/P4310317839",
+        "host_organization_name": "Trans Tech Publications", "host_organization_lineage":
+        ["https://openalex.org/P4310317839"], "host_organization_lineage_names": ["Trans
+        Tech Publications"], "type": "journal"}, "license": null, "license_id": null,
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Advanced Materials Research", "raw_type": "journal-article"}}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442a48f9695f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '3651'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:46 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=KXWGYgU4mwvmNtj6t9g6YxI18ylIE%2Bl7F0p8%2FgfJHw8%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633266"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=KXWGYgU4mwvmNtj6t9g6YxI18ylIE%2Bl7F0p8%2FgfJHw8%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633266"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '8610'
+      x-ratelimit-remaining-usd:
+      - '0.861'
+      x-ratelimit-reset:
+      - '30734'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=Sr3%28PO4%292+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 1, "db_response_time_ms": 19, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (Sr3 PO4 2 thin
+        film) in the title or abstract", "x_new_oql": "get works with (Sr3 PO4 2 thin
+        film) in the title or abstract", "oqo": {"get_rows": "works", "filter_rows":
+        [{"column_id": "title_and_abstract.search", "value": "Sr3(PO4)2 thin film",
+        "operator": "has"}]}, "url": "/works?filter=title_and_abstract.search:Sr3%28PO4%292
+        thin film&per_page=1", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W1975478722"}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442a49bc9d5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '633'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:46 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=KXWGYgU4mwvmNtj6t9g6YxI18ylIE%2Bl7F0p8%2FgfJHw8%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633266"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=KXWGYgU4mwvmNtj6t9g6YxI18ylIE%2Bl7F0p8%2FgfJHw8%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633266"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '8600'
+      x-ratelimit-remaining-usd:
+      - '0.86'
+      x-ratelimit-reset:
+      - '30734'
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,0 +1,371 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=Na2SO4+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 395, "db_response_time_ms": 28, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Na2SO4 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (Na2SO4 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "Na2SO4
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:Na2SO4
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2952104273",
+        "doi": "https://doi.org/10.1002/chin.199013019", "title": "ChemInform Abstract:
+        Hot Corrosion of Preoxidized Ni by a Thin Fused Na2SO4 Film at 900 \u00b0C.",
+        "publication_year": 1990, "abstract_inverted_index": {"Abstract": [0], "The":
+        [1], "hot": [2], "corrosion": [3], "of": [4], "preoxidized": [5], "Ni": [6],
+        "(99%": [7], "and": [8, 32], "99.99%": [9], "purity)": [10], "covered": [11],
+        "with": [12], "a": [13, 19, 29], "thin": [14], "fused": [15], "Na2SO4": [16],
+        "film": [17], "in": [18], "SO2\u2010O2": [20], "atmosphere": [21], "is": [22],
+        "studied": [23], "by": [24], "an": [25, 33], "electrochemical": [26], "method":
+        [27], "using": [28], "sodium": [30], "sensor": [31], "oxygen": [34], "probe.":
+        [35]}, "primary_location": {"id": "doi:10.1002/chin.199013019", "doi": "https://doi.org/10.1002/chin.199013019",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1002/chin.199013019",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S41354064", "display_name":
+        "ChemInform", "issn_l": "0009-2975", "issn": ["0009-2975", "0931-7597", "1431-5890",
+        "1522-2667", "2199-2924"], "is_oa": false, "is_in_doaj": false, "is_core":
+        false, "listed_in": [], "host_organization": "https://openalex.org/P4310320595",
+        "host_organization_name": "Wiley", "host_organization_lineage": ["https://openalex.org/P4310320595"],
+        "host_organization_lineage_names": ["Wiley"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "ChemInform", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2913575331", "doi": "https://doi.org/10.1016/j.egypro.2018.11.285",
+        "title": "A New Piezo-Amperometric Sensing Method Based on Comb-like Nanostructured
+        Zinc Oxide Thin Films for the Efficient Detection of Na2SO4", "publication_year":
+        2019, "abstract_inverted_index": {"A": [0, 128], "chemical": [1], "vapor":
+        [2], "deposition": [3], "(CVD)": [4], "was": [5, 208], "employed": [6], "to":
+        [7, 55], "deposit": [8], "ZnO": [9, 29, 142, 158, 175, 198], "thin": [10,
+        30, 49, 159, 176], "films": [11, 31, 64], "on": [12, 112, 124, 136], "two":
+        [13], "different": [14], "substrates,": [15], "glass": [16, 114], "(quartz)":
+        [17], "and": [18, 43, 72, 82, 119, 144, 170, 185], "silicon.": [19], "The":
+        [20, 62, 87, 173, 194], "characterization": [21], "of": [22, 25, 140, 156,
+        197, 215], "structural": [23], "properties": [24, 139, 155], "the": [26, 57,
+        78, 100, 106, 109, 113, 125, 137, 141, 145, 149, 152, 157, 203, 213], "comb-like":
+        [27, 92], "nanostructure": [28], "were": [32, 161], "carried": [33], "out":
+        [34], "through": [35], "X-ray": [36], "diffraction": [37], "(XRD),": [38],
+        "atomic": [39], "force": [40], "microscopy": [41, 46], "(AFM)": [42], "scanning":
+        [44], "electron": [45], "(SEM).": [47], "Nanostructured": [48], "film": [50,
+        88, 107, 110, 160, 177, 199], "sensor": [51, 207], "has": [52, 96, 116, 132],
+        "been": [53, 97, 133], "fabricated": [54], "detect": [56], "Na2SO2": [58],
+        "aqueous": [59], "solution": [60], "concentrations.": [61], "obtained": [63],
+        "are": [65], "strongly": [66], "c-axis": [67], "oriented": [68], "along":
+        [69], "(100)": [70], "direction": [71], "have": [73], "other": [74], "low":
+        [75], "intensity": [76], "towards": [77], "directions": [79], "(101),": [80],
+        "(200)": [81], "(211),": [83], "indicating": [84], "polycrystalline": [85],
+        "characteristics.": [86], "exhibits": [89, 178], "high": [90], "dense": [91],
+        "nanostructured": [93, 174], "distribution": [94], "which": [95], "indicated":
+        [98], "in": [99], "SEM": [101], "images,": [102], "AFM": [103], "images":
+        [104], "depicted": [105], "porosity,": [108], "deposited": [111, 123], "substrate":
+        [115], "more": [117], "pinholes": [118], "porosity": [120], "than": [121],
+        "that": [122], "silicon": [126], "substrate.": [127], "new": [129], "sensing":
+        [130, 154], "method": [131], "established": [134], "depending": [135], "piezoelectrical":
+        [138], "material": [143], "electrochemical": [146], "interaction": [147],
+        "with": [148, 202], "salt.": [150], "Furthermore,": [151], "Na2SO4": [153],
+        "investigated": [162], "for": [163], "various": [164], "salt": [165, 204],
+        "concentrations": [166, 205], "(100,": [167], "200,": [168], "300": [169],
+        "400)": [171], "mg/L.": [172], "higher": [179], "response,": [180], "very":
+        [181], "fast": [182], "rise": [183], "time": [184, 188], "acceptable": [186],
+        "recovery": [187], "upon": [189], "working": [190], "at": [191], "room": [192],
+        "temperature.": [193], "relative": [195], "response": [196], "linearly": [200],
+        "behaves": [201], "biomedical": [206], "obtained.": [209], "In": [210], "this":
+        [211], "work,": [212], "results": [214], "detailed": [216]}, "primary_location":
+        {"id": "doi:10.1016/j.egypro.2018.11.285", "doi": "https://doi.org/10.1016/j.egypro.2018.11.285",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.1016/j.egypro.2018.11.285",
+        "pdf_url": "https://www.sciencedirect.com/science/article/pii/S187661021831258X/pdf",
+        "source": {"id": "https://openalex.org/S75069817", "display_name": "Energy
+        Procedia", "issn_l": "1876-6102", "issn": ["1876-6102"], "is_oa": true, "is_in_doaj":
+        false, "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "jufo-1"],
+        "host_organization": "https://openalex.org/P4310320990", "host_organization_name":
+        "Elsevier BV", "host_organization_lineage": ["https://openalex.org/P4310320990"],
+        "host_organization_lineage_names": ["Elsevier BV"], "type": "journal"}, "license":
+        "cc-by-nc-nd", "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Energy Procedia", "raw_type": "journal-article"}}, {"id":
+        "https://openalex.org/W1968228536", "doi": "https://doi.org/10.4028/www.scientific.net/amr.584.126",
+        "title": "Hot Corrosion Studies of GTA Welded Monel 400 Exposed to Thin Film
+        of Molten Na2so4 - 60% V2O5 at 600\u00b0C", "publication_year": 2012, "abstract_inverted_index":
+        {"In": [0], "this": [1], "research": [2], "work,": [3], "an": [4], "attempt":
+        [5], "has": [6], "been": [7], "made": [8], "to": [9, 74, 97, 126], "investigate":
+        [10], "the": [11, 30, 38, 50, 60, 64, 69, 85, 98, 121, 135], "gas": [12],
+        "tungsten": [13], "arc": [14], "welded": [15], "Monel": [16, 70, 94], "400":
+        [17, 95], "plates": [18], "using": [19, 134], "ENiCu-7": [20], "for": [21],
+        "its": [22], "mechanical": [23], "and": [24, 43, 63, 90], "corrosion": [25,
+        80, 116, 130], "properties.": [26], "Microstructure": [27], "examination":
+        [28], "reveals": [29], "coarse": [31], "grain": [32], "formation": [33], "of":
+        [34, 68, 93, 101, 105, 138], "Ni-Cu": [35], "phase": [36], "in": [37, 49],
+        "heat": [39], "affected": [40], "zone": [41, 123], "(HAZ)": [42], "well":
+        [44], "defined": [45], "dendrites": [46], "are": [47], "observed": [48], "weld":
+        [51, 61], "region.": [52], "Tensile": [53], "tests": [54], "showed": [55],
+        "that": [56, 115], "fracture": [57], "occurred": [58], "at": [59, 110], "interface":
+        [62], "ultimate": [65], "tensile": [66], "strength": [67], "weldment": [71],
+        "is": [72], "found": [73, 114], "be": [75], "515": [76], "MPa.": [77], "Furthermore":
+        [78], "hot": [79], "studies": [81], "were": [82, 132], "performed": [83],
+        "on": [84, 120], "different": [86], "zones": [87], "(Weld,": [88], "HAZ":
+        [89], "Base": [91], "metal)": [92], "exposed": [96, 125], "thin": [99], "film":
+        [100], "molten": [102], "salt": [103], "environment": [104], "Na2SO4": [106],
+        "-": [107], "60%": [108], "V2O5": [109], "600\u00b0C.": [111], "It": [112],
+        "was": [113, 117], "extremely": [118], "severe": [119], "fusion": [122], "after":
+        [124], "50": [127], "cycles.": [128], "The": [129], "products": [131], "characterized":
+        [133], "combined": [136], "techniques": [137], "optical": [139], "microscopy,":
+        [140], "XRD,": [141], "SEM/EDX": [142], "analysis": [143]}, "primary_location":
+        {"id": "doi:10.4028/www.scientific.net/amr.584.126", "doi": "https://doi.org/10.4028/www.scientific.net/amr.584.126",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.4028/www.scientific.net/amr.584.126",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S67425620", "display_name":
+        "Advanced materials research", "issn_l": "1022-6680", "issn": ["1022-6680",
+        "1662-8985"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "jufo-1", "norway-1"], "host_organization": "https://openalex.org/P4310317839",
+        "host_organization_name": "Trans Tech Publications", "host_organization_lineage":
+        ["https://openalex.org/P4310317839"], "host_organization_lineage_names": ["Trans
+        Tech Publications"], "type": "journal"}, "license": null, "license_id": null,
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Advanced Materials Research", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W1972714426", "doi": "https://doi.org/10.1007/s10008-012-1985-z",
+        "title": "Photoelectrochemical properties of MoO2 thin films", "publication_year":
+        2013, "abstract_inverted_index": {"Thin": [0], "MoO2": [1, 15, 62, 77, 88,
+        113], "films": [2, 16], "were": [3, 17, 155], "electrodeposited": [4], "on":
+        [5, 112], "a": [6, 70, 125], "selenium": [7], "pre-deposited": [8], "SnO2|glass":
+        [9], "plate.": [10], "The": [11, 76, 96, 116, 157], "photoelectrochemical":
+        [12], "properties": [13], "of": [14, 47, 55, 87], "investigated": [18], "in":
+        [19, 89], "0.1": [20, 90], "M": [21, 91], "Na2SO4": [22, 92], "solution":
+        [23, 93], "by": [24, 163], "the": [25, 44, 52, 56, 61, 65, 102, 107, 134,
+        145, 150, 164], "ultraviolet\u2013visible": [26], "spectrophotometry,": [27],
+        "linear": [28], "sweep": [29], "voltammetry,": [30], "and": [31, 149], "altering":
+        [32], "current": [33, 109, 142], "impedance": [34], "measurement": [35], "techniques.":
+        [36], "It": [37], "was": [38, 94, 127, 167], "found": [39], "that": [40],
+        "under": [41], "illumination": [42], "with": [43, 121], "incident": [45],
+        "light": [46], "\u03bb": [48], "=": [49], "366": [50], "nm,": [51], "photo":
+        [53], "response": [54], "MoO2|SnO2|glass": [57, 122], "electrode": [58], "resulted":
+        [59], "from": [60], "layer,": [63], "while": [64], "SnO2": [66], "layer":
+        [67], "served": [68], "as": [69, 124, 133], "sink": [71], "for": [72], "photogenerated":
+        [73], "charge": [74], "carriers.": [75], "film": [78, 114], "exhibited": [79,
+        162], "n-type": [80], "conductivity.": [81], "A": [82], "schematic": [83],
+        "band": [84, 98], "structure": [85], "diagram": [86], "constructed.": [95,
+        128], "flat": [97], "potential": [99], "(E": [100], "fb),": [101], "donor":
+        [103], "concentration": [104], "(N": [105], "D),": [106], "photogeneration":
+        [108], "efficiency": [110, 153, 161], "depended": [111], "thickness.": [115],
+        "[Fe(CN)6]4\u2212/3\u2212": [117], "redox": [118], "PEC": [119, 165], "cell":
+        [120, 166], "plate": [123], "photoanode": [126], "Power": [129], "output":
+        [130], "characteristics": [131], "such": [132], "open": [135], "circuit":
+        [136, 141], "voltage": [137], "(V": [138], "OC),": [139], "short": [140],
+        "(I": [143], "SC),": [144], "fill": [146], "factor": [147], "(FF),": [148],
+        "light-to-electrical": [151, 159], "conversion": [152, 160], "(\u03b7)": [154],
+        "determined.": [156], "maximum": [158], "0.94": [168], "%.": [169]}, "primary_location":
+        {"id": "doi:10.1007/s10008-012-1985-z", "doi": "https://doi.org/10.1007/s10008-012-1985-z",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.1007/s10008-012-1985-z",
+        "pdf_url": "https://link.springer.com/content/pdf/10.1007/s10008-012-1985-z.pdf",
+        "source": {"id": "https://openalex.org/S25422132", "display_name": "Journal
+        of Solid State Electrochemistry", "issn_l": "1432-8488", "issn": ["1432-8488",
+        "1433-0768"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1", "norway-1", "poland-70",
+        "russia-white-list-2", "vabb-shw"], "host_organization": "https://openalex.org/P4310319900",
+        "host_organization_name": "Springer Science+Business Media", "host_organization_lineage":
+        ["https://openalex.org/P4310319900", "https://openalex.org/P4310319965"],
+        "host_organization_lineage_names": ["Springer Science+Business Media", "Springer
+        Nature"], "type": "journal"}, "license": "cc-by", "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Journal of Solid State Electrochemistry", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W1996838930", "doi": "https://doi.org/10.1021/la050114u",
+        "title": "Electrodeposition of Manganese and Molybdenum Mixed Oxide Thin Films
+        and Their Charge Storage Properties", "publication_year": 2005, "abstract_inverted_index":
+        {"Manganese": [0], "and": [1, 24, 57, 81, 112, 143], "molybdenum": [2], "mixed":
+        [3], "oxides": [4], "in": [5, 29, 99, 133, 169], "a": [6, 14, 75, 106, 128],
+        "thin": [7], "film": [8, 42], "form": [9, 72], "were": [10], "deposited":
+        [11], "anodically": [12], "on": [13], "platinum": [15], "substrate": [16],
+        "by": [17], "cycling": [18], "the": [19, 41, 60, 65, 88, 94, 119, 137, 150,
+        163, 170], "electrode": [20, 66, 98], "potential": [21], "between": [22],
+        "0": [23], "+1.0": [25], "V": [26], "vs": [27], "Ag/AgCl": [28], "aqueous":
+        [30, 100], "manganese(II)": [31], "solutions": [32], "containing": [33], "molybdate":
+        [34], "anion": [35], "(MoO(4)2-).": [36], "A": [37], "possible": [38], "mechanism":
+        [39], "for": [40], "formation": [43], "is": [44], "as": [45, 127], "follows.":
+        [46], "First,": [47], "electrooxidation": [48], "of": [49, 93, 118, 130, 136,
+        158, 167], "Mn2+": [50], "ions": [51], "with": [52, 69, 87, 109], "H2O": [53],
+        "yields": [54], "Mn": [55, 89, 121], "oxide": [56, 96, 122], "protons.": [58],
+        "Then,": [59], "protons": [61, 160], "being": [62], "accumulated": [63], "near":
+        [64], "surface": [67], "react": [68], "MoO(4)2-": [70], "to": [71, 161], "polyoxomolybdate":
+        [73], "through": [74], "dehydrated": [76], "condensation": [77], "reaction":
+        [78], "(by": [79], "protonation": [80], "dehydration).": [82], "The": [83],
+        "condensed": [84], "product": [85], "coprecipitates": [86], "oxide.": [90],
+        "Cyclic": [91], "voltammetry": [92], "Mn/Mo": [95], "film-coated": [97], "0.5":
+        [101], "M": [102], "Na2SO4": [103], "solution": [104], "exhibited": [105],
+        "pseudocapacitive": [107, 152], "behavior": [108, 153], "higher": [110], "capacitance":
+        [111], "better": [113], "rate": [114], "capability": [115], "than": [116],
+        "that": [117, 149], "pure": [120], "prepared": [123], "similarly,": [124],
+        "most": [125], "likely": [126], "result": [129], "an": [131], "increase":
+        [132], "electrical": [134], "conductivity": [135], "film.": [138, 171], "Electrochemical":
+        [139], "quartz": [140], "crystal": [141], "microbalance": [142], "X-ray":
+        [144], "photoelectron": [145], "spectroscopy": [146], "clearly": [147], "demonstrated":
+        [148], "observed": [151], "results": [154], "from": [155], "reversible": [156],
+        "extraction/insertion": [157], "hydrated": [159], "balance": [162], "charge":
+        [164], "upon": [165], "oxidation/reduction": [166], "Mn3+/Mn4+": [168]}, "primary_location":
+        {"id": "doi:10.1021/la050114u", "doi": "https://doi.org/10.1021/la050114u",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1021/la050114u", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S75741262", "display_name": "Langmuir",
+        "issn_l": "0743-7463", "issn": ["0743-7463", "1520-5827"], "is_oa": false,
+        "is_in_doaj": false, "is_core": true, "listed_in": ["anvur-scientific", "cwts-core",
+        "dongbi-d", "doyens", "jufo-2", "ki-jl-1", "medline", "norway-1", "poland-100",
+        "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320006",
+        "host_organization_name": "American Chemical Society", "host_organization_lineage":
+        ["https://openalex.org/P4310320006"], "host_organization_lineage_names": ["American
+        Chemical Society"], "type": "journal"}, "license": null, "license_id": null,
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Langmuir", "raw_type": "journal-article"}}], "group_by":
+        []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442a33bd035f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '16753'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:42 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=feukff6dxHfhkxlInUPoSRJdmYL5PGvAE7iLzEiAUfg%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633262"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=feukff6dxHfhkxlInUPoSRJdmYL5PGvAE7iLzEiAUfg%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633262"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '8730'
+      x-ratelimit-remaining-usd:
+      - '0.873'
+      x-ratelimit-reset:
+      - '30738'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=Na2SO4+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 796, "db_response_time_ms": 27, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (Na2SO4 thin film)
+        in the title or abstract", "x_new_oql": "get works with (Na2SO4 thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "Na2SO4 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:Na2SO4 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W2952104273"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442a34b95a5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '619'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:42 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=feukff6dxHfhkxlInUPoSRJdmYL5PGvAE7iLzEiAUfg%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633262"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=feukff6dxHfhkxlInUPoSRJdmYL5PGvAE7iLzEiAUfg%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633262"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '8720'
+      x-ratelimit-remaining-usd:
+      - '0.872'
+      x-ratelimit-reset:
+      - '30738'
+    status:
+      code: 200
+      message: OK
+version: 1

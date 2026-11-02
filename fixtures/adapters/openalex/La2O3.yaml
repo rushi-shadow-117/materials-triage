@@ -1,0 +1,730 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=La2O3+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 218, "db_response_time_ms": 18, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (La2O3 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (La2O3 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "La2O3
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:La2O3
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W1994377426",
+        "doi": "https://doi.org/10.1149/1.2209271", "title": "Annealing Effect and
+        Suppression of Hydration of La2O3 Thin Films", "publication_year": 2006, "abstract_inverted_index":
+        {"Lanthanum": [0], "oxide": [1], "thin": [2], "films": [3, 15, 41, 96], "were":
+        [4, 16], "deposited": [5, 14], "using": [6], "alternate": [7], "injections":
+        [8], "of": [9, 73, 79, 89], "La(iPrCp)3": [10], "and": [11, 23, 54, 75, 103],
+        "H2O.": [12], "The": [13, 62, 87], "hydrated": [17], "easily": [18], "when":
+        [19], "exposed": [20], "to": [21, 44, 59, 108, 116], "air,": [22], "Si": [24,
+        90], "diffusion": [25], "during": [26], "PDA": [27], "in": [28, 48, 65, 98],
+        "the": [29, 39, 55, 94, 99], "La2O3": [30, 40, 95], "film": [31, 63], "was":
+        [32, 42, 114], "remarkable.": [33], "An": [34], "AlN": [35], "capping": [36],
+        "layer": [37], "on": [38], "effective": [43, 115], "prevent": [45], "hydration.":
+        [46], "Annealing": [47], "NH3": [49, 66], "gas": [50, 67], "increased": [51],
+        "thermal": [52, 118], "stability": [53], "dielectric": [56], "constant": [57],
+        "due": [58], "nitrogen": [60], "incorporation.": [61], "annealed": [64], "at":
+        [68, 84], "800oC": [69], "showed": [70], "an": [71], "EOT": [72], "2.2nm":
+        [74], "a": [76, 110], "leakage": [77], "current": [78], "1.7": [80], "x":
+        [81], "10-8": [82], "A/cm2": [83], "-1": [85], "V.": [86], "amount": [88],
+        "atoms": [91], "diffused": [92], "into": [93], "decreased": [97], "sequence;":
+        [100], "O2-annealed,": [101], "NH3-annealed": [102], "pre-nitrided": [104],
+        "samples.": [105], "A": [106], "pre-nitridation": [107], "form": [109], "SiN":
+        [111], "reaction": [112], "barrier": [113], "increase": [117], "stability.":
+        [119]}, "primary_location": {"id": "doi:10.1149/1.2209271", "doi": "https://doi.org/10.1149/1.2209271",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.1149/1.2209271", "pdf_url":
+        "https://iopscience.iop.org/article/10.1149/1.2209271/pdf", "source": {"id":
+        "https://openalex.org/S4210205149", "display_name": "ECS Transactions", "issn_l":
+        "1938-5862", "issn": ["1938-5862", "1938-6737", "2151-2051"], "is_oa": false,
+        "is_in_doaj": false, "is_core": false, "listed_in": ["norway-1", "poland-20"],
+        "host_organization": "https://openalex.org/P4310311669", "host_organization_name":
+        "Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310311669"],
+        "host_organization_lineage_names": ["Institute of Physics"], "type": "journal"},
+        "license": null, "license_id": null, "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "ECS Transactions", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W2129606582", "doi": "https://doi.org/10.1002/pssr.201308068",
+        "title": "Characteristics and mechanism of nano\u2010polycrystalline La2O3
+        thin\u2010film resistance switching memory", "publication_year": 2013, "abstract_inverted_index":
+        {"Abstract": [0], "We": [1], "investigated": [2], "the": [3, 6, 27, 65, 77,
+        91, 97, 101], "characteristics": [4], "and": [5, 33, 55, 79, 86], "mechanism":
+        [7], "of": [8, 16, 26, 64], "Pt/La2O3/Pt": [9, 37, 66, 102], "resistance":
+        [10, 52, 81, 88, 93], "switching": [11, 42, 46], "memory": [12], "with": [13,
+        70], "a": [14], "set": [15], "measurements.": [17], "The": [18, 36, 60], "La2O3":
+        [19], "films": [20], "were": [21, 68], "determined": [22], "as": [23], "nano\u2010poly\u2010crystalline":
+        [24], "(diameter": [25], "nanocrystals": [28], "5\u201310": [29], "nm)": [30],
+        "by": [31, 107], "XRD": [32], "HRTEM": [34], "analysis.": [35], "device":
+        [38, 67, 103], "exhibited": [39], "excellent": [40], "resistive": [41], "properties,":
+        [43], "including": [44], "low": [45, 78, 92], "voltage": [47], "(<2": [48],
+        "V),": [49], "large": [50], "low/high": [51], "ratio": [53], "(>108),": [54],
+        "good": [56], "cycling": [57], "endurance": [58], "property.": [59], "conduction":
+        [61], "mecha\u2010": [62], "nisms": [63], "revealed": [69], "current\u2013voltage":
+        [71], "characteristics,": [72], "which": [73], "are": [74, 104], "different":
+        [75], "in": [76, 90, 100], "high": [80], "states.": [82], "Furthermore,":
+        [83], "XPS": [84], "analysis": [85], "temperature\u2010dependent": [87], "measurement":
+        [89], "state": [94], "showed": [95], "that": [96], "conducting": [98], "filaments":
+        [99], "mainly": [105], "affected": [106], "oxygen": [108], "defects": [109],
+        "rather": [110], "than": [111], "metallic": [112], "La.": [113], "(\u00a9":
+        [114], "2013": [115], "WILEY\u2010VCH": [116], "Verlag": [117], "GmbH": [118],
+        "&": [119], "Co.": [120], "KGaA,": [121], "Weinheim)": [122]}, "primary_location":
+        {"id": "doi:10.1002/pssr.201308068", "doi": "https://doi.org/10.1002/pssr.201308068",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1002/pssr.201308068",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4210198591", "display_name":
+        "physica status solidi (RRL) - Rapid Research Letters", "issn_l": "1862-6254",
+        "issn": ["1862-6254", "1862-6270"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["cwts-core", "dongbi-c", "jufo-1", "norway-1", "poland-100",
+        "russia-white-list-2"], "host_organization": "https://openalex.org/P4310320595",
+        "host_organization_name": "Wiley", "host_organization_lineage": ["https://openalex.org/P4310320595"],
+        "host_organization_lineage_names": ["Wiley"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "physica status solidi (RRL) \u2013
+        Rapid Research Letters", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2627041507",
+        "doi": null, "title": "Effect of ambient atmosphere on the stability of CdSe-La2O3
+        thin film transistors", "publication_year": 2011, "abstract_inverted_index":
+        {"A": [0], "rare": [1], "earth": [2], "oxide": [3], "(La2O3)": [4], "has":
+        [5], "been": [6], "used": [7], "as": [8], "gate": [9], "insulator": [10],
+        "in": [11, 17], "CdSe": [12], "Thin-film": [13], "Transistors": [14], "(TFTs)":
+        [15], "fabricated": [16], "staggered": [18], "electrode": [19], "structure":
+        [20], "by": [21], "multiple": [22], "pump": [23], "down": [24], "(MPD)": [25],
+        "method": [26], "of": [27, 41, 49], "vacuum": [28], "evaporation.": [29],
+        "The": [30], "device": [31, 56], "parameters": [32], "are": [33], "evaluated":
+        [34], "from": [35], "the": [36, 39, 55], "characteristics": [37, 57], "and":
+        [38, 61], "effect": [40], "ambient": [42, 62], "atmosphere": [43], "is": [44,
+        52], "investigated": [45], "through": [46], "periodic": [47], "monitoring":
+        [48], "data.": [50], "It": [51], "observed": [53], "that": [54], "deteriorated":
+        [58], "with": [59], "time": [60], "exposure": [63], "contributed": [64], "to":
+        [65], "faster": [66], "deterioration": [67]}, "primary_location": {"id": "mag:2627041507",
+        "doi": null, "is_oa": false, "landing_page_url": "https://www.scholarsresearchlibrary.com/articles/effect-of-ambient-atmosphere-on-the-stability-of-cdsela2o3-thin-film-transistors.pdf",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S2764492034", "display_name":
+        "Archives of physics research", "issn_l": "0976-0970", "issn": ["0976-0970"],
+        "is_oa": false, "is_in_doaj": false, "is_core": false, "listed_in": [], "host_organization":
+        null, "host_organization_name": null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "journal"}, "license": null, "license_id": null, "version": null,
+        "is_accepted": false, "is_published": false, "raw_source_name": "Archives
+        of physics research", "raw_type": null}}, {"id": "https://openalex.org/W4391260551",
+        "doi": "https://doi.org/10.1002/ep.14354", "title": "Synthesis and physical
+        investigation of Al doped La2O3 thin films for wettability applications",
+        "publication_year": 2024, "abstract_inverted_index": {"Abstract": [0], "In":
+        [1], "this": [2], "work,": [3], "aluminum": [4], "doped": [5, 54, 110], "La2O3":
+        [6, 38, 84], "thin": [7], "films": [8], "deposited": [9], "by": [10, 17, 92],
+        "the": [11, 25, 76, 100, 105], "spray": [12], "pyrolysis": [13], "technique,":
+        [14], "are": [15], "investigated": [16], "many": [18], "characterization":
+        [19], "techniques.": [20], "First,": [21], "XRD": [22], "spectra": [23, 74],
+        "reveal": [24], "presence": [26], "of": [27, 79, 108], "two": [28], "phases.":
+        [29], "A": [30], "dominant": [31], "cubic": [32], "phase": [33, 46], "is":
+        [34, 50, 57], "obtained": [35], "for": [36], "pure": [37], "with": [39, 47],
+        "(220)": [40], "preferential": [41], "orientation.": [42], "The": [43], "second":
+        [44], "hexagonal": [45], "(004)": [48], "orientation": [49], "present": [51],
+        "in": [52], "all": [53, 109], "samples.": [55, 111], "It": [56], "found":
+        [58], "that": [59], "Al": [60, 93], "doping": [61, 94], "induces": [62], "a":
+        [63, 89], "perovskite": [64], "crystalline": [65], "structure": [66], "identified":
+        [67], "as": [68], "lanthanum": [69], "aluminate": [70], "(LaAlO3).": [71],
+        "Second,": [72], "FTIR": [73], "include": [75], "main": [77], "peaks": [78],
+        "La\u2010O": [80], "bonds": [81], "related": [82, 95], "to": [83, 96], "structure.":
+        [85], "Photoluminescence": [86], "(PL)": [87], "shows": [88], "good": [90],
+        "enhancement": [91], "LaAlO3": [97], "nanoparticles.": [98], "Finally,": [99],
+        "surface": [101], "wettability": [102], "measurements": [103], "corroborate":
+        [104], "hydrophobic": [106], "character": [107]}, "primary_location": {"id":
+        "doi:10.1002/ep.14354", "doi": "https://doi.org/10.1002/ep.14354", "is_oa":
+        true, "landing_page_url": "http://dx.doi.org/10.1002/ep.14354", "pdf_url":
+        "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/ep.14354", "source":
+        {"id": "https://openalex.org/S4210214890", "display_name": "Environmental
+        Progress & Sustainable Energy", "issn_l": "1944-7442", "issn": ["1944-7442",
+        "1944-7450"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "dongbi-d", "jufo-1", "norway-1", "poland-70", "russia-white-list-2",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310320595", "host_organization_name":
+        "Wiley", "host_organization_lineage": ["https://openalex.org/P4310320595"],
+        "host_organization_lineage_names": ["Wiley"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Environmental Progress &amp; Sustainable
+        Energy", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W1967338403",
+        "doi": "https://doi.org/10.1116/1.3539069", "title": "Spectroscopic ellipsometry
+        and x-ray photoelectron spectroscopy of La2O3 thin films deposited by reactive
+        magnetron sputtering", "publication_year": 2011, "abstract_inverted_index":
+        {"Lanthanum": [0], "oxide": [1], "(La2O3)": [2], "films": [3, 21], "were":
+        [4, 22, 84], "grown": [5], "by": [6, 27, 73, 108], "the": [7, 49, 58, 67],
+        "reactive": [8, 32], "dc": [9], "magnetron": [10], "sputtering": [11, 28],
+        "and": [12, 17], "studied": [13], "their": [14], "structural,": [15], "chemical":
+        [16], "optical": [18, 93], "parameters.": [19], "La2O3": [20, 53], "deposited":
+        [23], "onto": [24], "Si": [25], "substrates": [26], "La-metal": [29], "in":
+        [30], "a": [31, 37, 70], "gas": [33], "(Ar+O2)": [34], "mixture": [35], "at":
+        [36], "substrate": [38], "temperature": [39], "of": [40, 52, 57, 69, 82, 101,
+        104, 110], "200": [41], "\u00b0C.": [42], "Reflection": [43], "high-energy":
+        [44], "electron": [45], "diffraction": [46], "measurements": [47], "confirm":
+        [48], "amorphous": [50], "state": [51], "films.": [54], "Chemical": [55],
+        "analysis": [56], "top-surface": [59], "layers": [60], "evaluated": [61],
+        "with": [62, 78, 86], "x-ray": [63], "photoelectron": [64], "spectroscopy":
+        [65], "indicates": [66], "presence": [68], "layer": [71], "modified": [72],
+        "hydroxylation": [74], "due": [75], "to": [76], "interaction": [77], "atmosphere.":
+        [79], "Optical": [80], "parameters": [81, 112], "a-La2O3": [83, 105], "determined":
+        [85], "spectroscopic": [87], "ellipsometry": [88], "(SE).": [89], "There":
+        [90], "is": [91], "no": [92], "absorption": [94], "over": [95, 113], "spectral":
+        [96], "range": [97], "\u03bb=250\u20131100": [98, 114], "nm.": [99, 115],
+        "Dispersion": [100], "refractive": [102], "index": [103], "was": [106], "defined":
+        [107], "fitting": [109], "SE": [111]}, "primary_location": {"id": "doi:10.1116/1.3539069",
+        "doi": "https://doi.org/10.1116/1.3539069", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1116/1.3539069", "pdf_url": null, "source": {"id": "https://openalex.org/S4210190837",
+        "display_name": "Journal of Vacuum Science & Technology A Vacuum Surfaces
+        and Films", "issn_l": "0734-2101", "issn": ["0734-2101", "1520-8559"], "is_oa":
+        false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core", "dongbi-c",
+        "jufo-1", "ki-jl-1", "norway-1", "poland-70", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Vacuum Science &amp; Technology A: Vacuum, Surfaces, and Films", "raw_type":
+        "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429493dba5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '13987'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:05 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=fxm9twN8uoF%2BmQCMxMcgxVPdwbPeDPcTjywkdAz3oOc%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633225"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=fxm9twN8uoF%2BmQCMxMcgxVPdwbPeDPcTjywkdAz3oOc%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633225"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9750'
+      x-ratelimit-remaining-usd:
+      - '0.975'
+      x-ratelimit-reset:
+      - '30775'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=La2O3+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 383, "db_response_time_ms": 14, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (La2O3 thin film)
+        in the title or abstract", "x_new_oql": "get works with (La2O3 thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "La2O3 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:La2O3 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W1987841339"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a544294a19655f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '615'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:05 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=fxm9twN8uoF%2BmQCMxMcgxVPdwbPeDPcTjywkdAz3oOc%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633225"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=fxm9twN8uoF%2BmQCMxMcgxVPdwbPeDPcTjywkdAz3oOc%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633225"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9740'
+      x-ratelimit-remaining-usd:
+      - '0.974'
+      x-ratelimit-reset:
+      - '30775'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=lanthana+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 5, "db_response_time_ms": 12, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (lanthana thin
+        film) in the title or abstract where it has an abstract", "x_new_oql": "get
+        works with (lanthana thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "lanthana
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:lanthana
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2181657855",
+        "doi": null, "title": "Electrical conduction processes in Lanthana thin films
+        prepared by E-Beam Evaporation", "publication_year": 2004, "abstract_inverted_index":
+        {"Lanthana": [0], "(La": [1], "2": [2], "O": [3], "3": [4], ")": [5, 180],
+        "films": [6, 34, 40, 75, 93, 157, 167], "were": [7, 41, 158], "deposited":
+        [8], "by": [9], "E-beam": [10], "evaporation": [11], "on": [12, 35], "n-Si":
+        [13], "(100).": [14], "Conduction": [15], "mechanisms": [16, 98, 152], "for":
+        [17, 56], "the": [18, 28, 32, 36, 63, 79, 82, 89, 95, 101, 106, 113, 116,
+        123, 128, 154, 160, 165, 169, 172], "as-deposited": [19, 33, 64, 92, 166],
+        "film": [20], "have": [21], "been": [22], "investigated.": [23], "In": [24],
+        "order": [25], "to": [26], "study": [27], "annealing": [29], "effect": [30],
+        "of": [31, 62, 81, 91, 100, 112, 115, 153, 164, 171], "conduction": [37, 97,
+        125, 140, 151, 173], "mechanisms,": [38], "some": [39, 74], "annealed": [42,
+        156], "in": [43, 78], "an": [44], "ex-situ": [45], "way": [46], "at": [47,
+        132, 141], "different": [48], "temperatures": [49], "with": [50], "nitrogen":
+        [51, 155], "or": [52], "oxygen": [53], "gas": [54], "flow": [55], "5": [57],
+        "min.": [58], "From": [59, 105], "current-voltage": [60], "measurement": [61],
+        "films,": [65], "low": [66, 133], "gate": [67, 117], "oxide": [68, 134, 143],
+        "leakage": [69, 102], "current": [70, 103, 114, 130, 174], "was": [71], "observed":
+        [72], "while": [73], "showed": [76], "variation": [77], "scale": [80], "currents.":
+        [83], "It": [84, 146], "is": [85, 120, 127, 147], "shown": [86, 121, 149],
+        "that": [87, 122, 150], "all": [88], "currents": [90], "obey": [94], "same":
+        [96, 161], "irrelevant": [99], "scale.": [104], "electric": [107], "field":
+        [108, 135, 144], "and": [109, 137, 175], "temperature": [110], "dependences":
+        [111], "oxide,": [118], "it": [119], "main": [124], "mechanism": [126], "space-charge-limited":
+        [129], "(SCLC)": [131], "region": [136], "Fowler-Nordheim": [138], "(F-N)":
+        [139], "high": [142], "region.": [145], "also": [148], "basically": [159],
+        "as": [162], "those": [163], "although": [168], "magnitude": [170], "flat-band":
+        [176], "voltage": [177], "(V": [178], "FB": [179], "are": [181], "different.":
+        [182]}, "primary_location": {"id": "pmh:oai:t2r2.star.titech.ac.jp:00104164",
+        "doi": null, "is_oa": false, "landing_page_url": "http://t2r2.star.titech.ac.jp/cgi-bin/publicationinfo.cgi?q_publication_content_number=CTT100498702",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4377196385", "display_name":
+        "Tokyo Tech Research Repository (Tokyo Institute of Technology)", "issn_l":
+        null, "issn": null, "is_oa": false, "is_in_doaj": false, "is_core": false,
+        "listed_in": [], "host_organization": "https://openalex.org/I114531698", "host_organization_name":
+        "Tokyo Institute of Technology", "host_organization_lineage": ["https://openalex.org/I114531698"],
+        "host_organization_lineage_names": [], "type": "repository"}, "license": null,
+        "license_id": null, "version": "submittedVersion", "is_accepted": false, "is_published":
+        false, "raw_source_name": "", "raw_type": "Journal Article"}}, {"id": "https://openalex.org/W2953048799",
+        "doi": "https://doi.org/10.1016/0926-3373(95)00019-4", "title": "Nitric oxide
+        and carbon monoxide adsorption on lanthana-supported platinum and rhodium
+        catalysts", "publication_year": 1995, "abstract_inverted_index": {"We": [0],
+        "have": [1], "examined": [2], "the": [3, 22, 34, 71, 92, 101, 127, 132, 142,
+        154, 178, 183], "adsorption": [4, 116, 171], "of": [5, 24, 46, 53, 70, 86,
+        94, 100, 117, 153, 185], "carbon": [6, 30, 47, 102, 111], "monoxide": [7,
+        31, 48, 103], "and": [8, 14, 49, 66, 81, 88, 96, 131, 145, 159], "nitric":
+        [9, 50, 72, 118], "oxide": [10, 73, 119], "on": [11, 74, 105, 114, 120, 141],
+        "model": [12], "Rh/lanthana": [13, 144], "Pt/lanthana": [15, 146], "catalysts":
+        [16], "using": [17], "temperature-programmed": [18], "desorption": [19, 155],
+        "(TPD).": [20], "First,": [21], "surface": [23], "lanthana": [25, 42, 76,
+        133, 158], "can": [26], "be": [27, 149], "reduced": [28, 75, 134, 143, 157],
+        "in": [29, 56, 177], "by": [32], "forming": [33], "carbonate": [35], "which":
+        [36, 54, 173], "decomposes": [37], "above": [38], "650": [39], "K.": [40],
+        "Reduced": [41], "adsorbs": [43], "significant": [44, 98], "amounts": [45,
+        69], "oxide,": [51], "both": [52], "desorb": [55], "a": [57, 97, 150], "similar":
+        [58], "temperature": [59], "region": [60], "to": [61, 78, 148, 182], "that":
+        [62, 126, 164], "found": [63], "for": [64, 169], "rhodium": [65, 87], "platinum.":
+        [67], "Substantial": [68], "react": [77], "form": [79], "nitrogen": [80],
+        "nitrous": [82], "oxide.": [83], "The": [84, 138], "addition": [85], "platinum":
+        [89], "significantly": [90], "promotes": [91], "reduction": [93], "lanthana,":
+        [95], "fraction": [99], "adsorbed": [104], "freshly": [106], "deposited":
+        [107], "metal": [108, 122, 161, 179], "films": [109], "forms": [110], "dioxide.":
+        [112], "Based": [113], "suppressed": [115], "thin": [121], "films,": [123],
+        "it": [124], "appears": [125], "metals": [128], "are": [129], "oxidized":
+        [130], "immediately": [135], "following": [136], "deposition.": [137], "TPD":
+        [139], "curves": [140], "appear": [147], "simple": [151], "sum": [152], "from":
+        [156], "small": [160], "particles,": [162], "so": [163], "there": [165], "is":
+        [166], "no": [167], "evidence": [168], "new": [170], "states": [172], "might":
+        [174], "indicate": [175], "changes": [176], "properties": [180], "due": [181],
+        "presence": [184], "lanthana.": [186]}, "primary_location": {"id": "doi:10.1016/0926-3373(95)00019-4",
+        "doi": "https://doi.org/10.1016/0926-3373(95)00019-4", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.1016/0926-3373(95)00019-4", "pdf_url": "https://www.sciencedirect.com/science/article/pii/0926337395000194/pdf",
+        "source": {"id": "https://openalex.org/S134307298", "display_name": "Applied
+        Catalysis B: Environmental", "issn_l": "0926-3373", "issn": ["0926-3373",
+        "1873-3883"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-2", "norway-1",
+        "poland-200", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320990",
+        "host_organization_name": "Elsevier BV", "host_organization_lineage": ["https://openalex.org/P4310320990"],
+        "host_organization_lineage_names": ["Elsevier BV"], "type": "journal"}, "license":
+        "cc-by-nc-nd", "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Applied Catalysis B: Environmental", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W1979108139", "doi": "https://doi.org/10.1117/12.958146",
+        "title": "Refracting Boundaries In Thin Film Glass Lightguides", "publication_year":
+        1980, "abstract_inverted_index": {"Alumina": [0], "and": [1, 9, 75, 129, 189],
+        "lanthana": [2], "glasses": [3], "in": [4, 126, 131], "ternary": [5], "systems":
+        [6], "containing": [7], "BaO": [8], "SiO2": [10], "are": [11, 169], "useful":
+        [12], "for": [13, 41, 106], "the": [14, 38, 49, 53, 86, 88, 93, 152, 157,
+        167, 176, 190], "vacuum": [15], "deposition": [16], "of": [17, 30, 43, 55,
+        65, 80, 90, 140, 166, 180], "thin": [18, 77], "film": [19, 78], "lightguides.1":
+        [20], "Evaporated": [21], "with": [22, 82, 116], "an": [23, 44, 104], "electron":
+        [24], "gun": [25], "they": [26], "produce": [27], "low-loss": [28], "films":
+        [29], "refractive": [31], "index": [32, 83], "1.64-1.66.": [33], "These":
+        [34], "can": [35], "serve": [36], "as": [37], "interconnecting": [39], "lightguide":
+        [40, 111], "components": [42, 57], "integrated": [45], "optics": [46], "system.":
+        [47], "Understanding": [48], "refraction": [50, 66, 144], "process": [51,
+        145], "at": [52, 67], "boundaries": [54], "refracting": [56], "is": [58, 146],
+        "vital.": [59], "This": [60], "paper": [61], "describes": [62], "experimental":
+        [63], "studies": [64], "a": [68, 110, 117, 122, 138, 147], "straightline":
+        [69], "boundary": [70, 94, 168], "between": [71], "evaporated": [72, 76],
+        "glass": [73], "lightguides": [74], "overlays": [79], "Sb203": [81], "2.10.":
+        [84], "In": [85], "guide": [87], "angle": [89], "incidence": [91], "on": [92,
+        163], "was": [95, 98, 136, 173], "60\u00b0.": [96], "Refraction": [97], "measured":
+        [99], "versus": [100], "overlay": [101, 120, 134], "thickness.": [102], "As":
+        [103], "example,": [105], "lowest": [107], "order": [108], "modes,": [109],
+        "optically": [112], "2.4": [113], "quarterwaves": [114], "thick": [115], "1.8":
+        [118], "quarterwave": [119], "refracts": [121], "HeNe": [123], "beam": [124],
+        "7\u00b0": [125], "TM": [127], "polarization": [128], "11\u00b0": [130], "TE.":
+        [132], "The": [133, 143, 171, 184], "edge": [135], "tapered": [137], "width":
+        [139], "1": [141], "mm.": [142], "continuous": [148], "direction": [149],
+        "change": [150, 159], "through": [151], "taper.": [153], "Snell''s": [154],
+        "law": [155], "gives": [156], "total": [158], "if": [160], "mode": [161],
+        "indices": [162], "each": [164], "side": [165], "used.": [170], "work": [172],
+        "supported": [174], "by": [175], "Air": [177, 187], "Force": [178], "Office":
+        [179], "Scientific": [181], "Research": [182, 192], "(AFSC),": [183], "United":
+        [185, 194], "States": [186, 195], "Force,": [188], "Army": [191], "Office,":
+        [193], "Army.": [196]}, "primary_location": {"id": "doi:10.1117/12.958146",
+        "doi": "https://doi.org/10.1117/12.958146", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1117/12.958146", "pdf_url": null, "source": {"id": "https://openalex.org/S183492911",
+        "display_name": "Proceedings of SPIE, the International Society for Optical
+        Engineering/Proceedings of SPIE", "issn_l": "0277-786X", "issn": ["0277-786X",
+        "1996-756X"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "norway-1"], "host_organization": "https://openalex.org/P4310315543",
+        "host_organization_name": "SPIE", "host_organization_lineage": ["https://openalex.org/P4310315543"],
+        "host_organization_lineage_names": ["SPIE"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "SPIE Proceedings", "raw_type": "proceedings-article"}},
+        {"id": "https://openalex.org/W149573786", "doi": null, "title": "Oxygen storage
+        in reducible oxides studied by ultra-thin film growth on single-crystal oxide
+        substrates", "publication_year": 1998, "abstract_inverted_index": {"Thermal":
+        [0, 49], "desorption": [1, 50, 327], "and": [2, 37, 60, 100, 155, 209, 270,
+        304, 317], "steady-state": [3, 274], "CO": [4, 110, 146, 163, 269], "oxidation":
+        [5, 59, 111, 147], "measurements": [6, 170], "were": [7, 129, 157, 171, 211],
+        "performed": [8], "on": [9, 43, 89, 95, 140, 293], "model": [10], "catalysts":
+        [11], "to": [12, 55, 123, 131, 152, 159, 173, 192, 199, 213, 238, 261, 287,
+        321], "gain": [13], "a": [14, 82, 175, 180, 309], "better": [15], "understanding":
+        [16], "of": [17, 21, 30, 40, 51, 62, 86, 98, 104, 113, 136, 204, 217, 276,
+        285, 299, 311, 333], "the": [18, 38, 58, 64, 73, 108, 134, 145, 201, 215,
+        241, 273, 283, 297], "redox": [19, 289], "properties": [20, 203], "oxygen-storage":
+        [22, 66, 221, 254], "components": [23, 32], "in": [24, 69, 107, 126, 233,
+        268], "three-way,": [25], "automotive-emissions-control": [26], "catalysts.":
+        [27, 71], "The": [28], "interactions": [29, 42, 117], "these": [31, 169, 218],
+        "with": [33, 118, 189, 301], "group": [34], "VIII": [35], "metals,": [36],
+        "effect": [39], "those": [41], "catalytic": [44, 202], "properties,": [45],
+        "was": [46, 53, 77, 225, 306, 319, 330], "also": [47], "examined.": [48],
+        "O$\\\\sb2$": [52], "used": [54, 68, 172], "probe": [56], "directly": [57],
+        "reduction": [61, 275], "ceria,": [63, 99, 141, 200, 282], "primary": [65],
+        "component": [67], "emissions-control": [70], "For": [72], "first": [74],
+        "time,": [75], "it": [76, 224], "shown": [78], "that": [79, 101, 193, 227],
+        "there": [80], "is": [81, 121, 258, 291], "weakly": [83, 137], "bound": [84,
+        138], "form": [85, 236], "lattice": [87], "oxygen": [88, 105, 139, 300], "small":
+        [90], "ceria": [91, 125, 154], "crystallites,": [92], "not": [93], "found":
+        [94, 130, 158, 320], "inactive": [96], "forms": [97], "this": [102], "species":
+        [103], "results": [106, 242], "enhanced": [109], "activity": [112], "ceria-supported":
+        [114], "metals.": [115], "Furthermore,": [116], "zirconia,": [119], "which":
+        [120, 184], "known": [122], "promote": [124, 160, 272, 288], "commercial":
+        [127], "catalysts,": [128], "greatly": [132], "increase": [133], "fraction":
+        [135], "as": [142, 144, 220, 308], "well": [143], "activity.": [148, 165],
+        "Metal-support": [149], "interactions,": [150], "unique": [151], "single-crystalline":
+        [153], "Rh,": [156, 302], "unusually": [161], "high": [162], "dissociation":
+        [164], "Insights": [166], "gained": [167], "from": [168, 315, 328], "design":
+        [174], "novel,": [176], "ceria-based": [177, 248], "anode": [178], "for":
+        [179], "solid-oxide": [181], "fuel": [182], "cell": [183], "could": [185,
+        265, 271], "oxidize": [186], "methane": [187], "directly,": [188], "performance":
+        [190], "comparable": [191], "obtained": [194], "using": [195], "hydrogen.":
+        [196], "In": [197], "addition": [198], "other": [205], "reducible": [206],
+        "oxides,": [207], "praseodymia": [208, 228], "lanthana,": [210], "examined":
+        [212], "determine": [214], "potential": [216], "oxides": [219, 250], "components.":
+        [222, 255], "While": [223, 256], "determined": [226], "likely": [229], "cannot":
+        [230], "be": [231, 262, 266, 322], "utilized": [232], "its": [234, 294], "pure":
+        [235], "due": [237], "slow": [239], "reoxidation,": [240], "provided": [243],
+        "further": [244], "insights": [245], "into": [246], "why": [247], "mixed":
+        [249], "are": [251], "such": [252], "effective": [253], "lanthana": [257,
+        264, 286], "normally": [259], "considered": [260], "non-reducible,": [263],
+        "reduced": [267], "NO": [277], "by": [278], "CO.": [279], "However,": [280],
+        "like": [281], "ability": [284], "chemistry": [290], "dependent": [292], "structure.":
+        [295], "Finally,": [296], "interaction": [298], "Pt,": [303], "Pd": [305,
+        318], "studied": [307], "function": [310], "particle": [312, 334], "size.":
+        [313, 335], "Desorption": [314], "Pt": [316], "strongly": [323], "structure":
+        [324], "sensitive,": [325], "whereas": [326], "Rh": [329], "roughly": [331],
+        "independent": [332]}, "primary_location": {"id": "pmh:oai:repository.upenn.edu:dissertations-1665",
+        "doi": null, "is_oa": false, "landing_page_url": "https://repository.upenn.edu/dissertations/AAI9840227",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4377196331", "display_name":
+        "Scholarly Commons (University of Pennsylvania)", "issn_l": null, "issn":
+        null, "is_oa": false, "is_in_doaj": false, "is_core": false, "listed_in":
+        [], "host_organization": "https://openalex.org/I79576946", "host_organization_name":
+        "University of Pennsylvania", "host_organization_lineage": ["https://openalex.org/I79576946"],
+        "host_organization_lineage_names": [], "type": "repository"}, "license": null,
+        "license_id": null, "version": "submittedVersion", "is_accepted": false, "is_published":
+        false, "raw_source_name": "Dissertations available from ProQuest", "raw_type":
+        "text"}}, {"id": "https://openalex.org/W2025133288", "doi": "https://doi.org/10.1002/pssb.200404935",
+        "title": "Crystallization in hafnia\u2010 and zirconia\u2010based systems",
+        "publication_year": 2004, "abstract_inverted_index": {"Abstract": [0], "Crystallization":
+        [1, 29, 50], "of": [2, 31, 43, 46, 52, 111, 128], "hafnia": [3, 32, 55, 114],
+        "and": [4, 6, 11, 17, 26, 33, 54, 59, 65, 73, 79, 97, 109, 113, 130], "zirconia":
+        [5, 34, 53, 112], "their": [7, 88], "alloys": [8, 56], "with": [9, 41, 57,
+        62, 82], "silica": [10, 58, 84], "lanthana": [12, 60], "was": [13], "studied":
+        [14], "in": [15, 106], "bulk": [16, 107], "thin": [18], "film": [19], "samples":
+        [20], "by": [21, 36, 123], "thermal": [22], "analysis,": [23], "X\u2010ray":
+        [24], "diffraction": [25], "electron": [27], "microscopy.": [28], "temperatures":
+        [30, 51], "increase": [35, 42, 61], "more": [37], "than": [38], "300": [39],
+        "\u00b0C": [40, 68], "surface/interface": [44], "area": [45], "the": [47,
+        124], "amorphous": [48, 83, 131], "phase.": [49], "dopant": [63], "content":
+        [64], "exceed": [66], "900": [67], "for": [69, 76], "50": [70], "mol%": [71],
+        "SiO2": [72], "LaO1.5.": [74], "Energies": [75], "tetragonal": [77, 129],
+        "HfO2": [78], "ZrO2": [80], "interfaces": [81], "were": [85], "derived": [86],
+        "from": [87, 91, 120], "crystallization": [89, 104], "enthalpies": [90], "silicates":
+        [92], "as": [93, 118], "0.25": [94], "\u00b1": [95, 99], "0.08": [96], "0.13":
+        [98], "0.07": [100], "J/m2,": [101], "respectively.": [102], "The": [103],
+        "pathways": [105], "powders": [108], "films": [110], "can": [115], "be": [116],
+        "interpreted": [117], "resulting": [119], "thermodynamic": [121], "stabilization":
+        [122], "surface": [125], "energy": [126], "term": [127], "phases": [132],
+        "over": [133], "monoclinic.": [134], "(\u00a9": [135], "2004": [136], "WILEY\u2010VCH":
+        [137], "Verlag": [138], "GmbH": [139], "&": [140], "Co.": [141], "KGaA,":
+        [142], "Weinheim)": [143]}, "primary_location": {"id": "doi:10.1002/pssb.200404935",
+        "doi": "https://doi.org/10.1002/pssb.200404935", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1002/pssb.200404935", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S71689831", "display_name": "physica status solidi (b)",
+        "issn_l": "0370-1972", "issn": ["0370-1972", "1521-3951"], "is_oa": false,
+        "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core", "dongbi-d",
+        "jufo-1", "poland-70", "russia-white-list-2"], "host_organization": "https://openalex.org/P4310320595",
+        "host_organization_name": "Wiley", "host_organization_lineage": ["https://openalex.org/P4310320595"],
+        "host_organization_lineage_names": ["Wiley"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "physica status solidi (b)", "raw_type":
+        "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a544294acc5d5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '18823'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:05 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=fxm9twN8uoF%2BmQCMxMcgxVPdwbPeDPcTjywkdAz3oOc%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633225"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=fxm9twN8uoF%2BmQCMxMcgxVPdwbPeDPcTjywkdAz3oOc%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633225"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9730'
+      x-ratelimit-remaining-usd:
+      - '0.973'
+      x-ratelimit-reset:
+      - '30775'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=lanthana+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 17, "db_response_time_ms": 12, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (lanthana thin
+        film) in the title or abstract", "x_new_oql": "get works with (lanthana thin
+        film) in the title or abstract", "oqo": {"get_rows": "works", "filter_rows":
+        [{"column_id": "title_and_abstract.search", "value": "lanthana thin film",
+        "operator": "has"}]}, "url": "/works?filter=title_and_abstract.search:lanthana
+        thin film&per_page=1", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2076855886"}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a544294baf565f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '626'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:05 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=fxm9twN8uoF%2BmQCMxMcgxVPdwbPeDPcTjywkdAz3oOc%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633225"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=fxm9twN8uoF%2BmQCMxMcgxVPdwbPeDPcTjywkdAz3oOc%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633225"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9720'
+      x-ratelimit-remaining-usd:
+      - '0.972'
+      x-ratelimit-reset:
+      - '30775'
+    status:
+      code: 200
+      message: OK
+version: 1

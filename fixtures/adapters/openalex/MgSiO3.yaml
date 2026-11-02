@@ -1,0 +1,508 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=MgSiO3+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 17, "db_response_time_ms": 84, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (MgSiO3 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (MgSiO3 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "MgSiO3
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:MgSiO3
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2093311945",
+        "doi": "https://doi.org/10.1299/jmmp.4.1636", "title": "Development of a New
+        Biocompatible MgSiO3 Piezoelectric Thin Film", "publication_year": 2010, "abstract_inverted_index":
+        {"PbTiO3": [0], "and": [1, 9, 16, 75, 106, 120, 127, 172, 176], "Pb(Zr,Ti)O3,":
+        [2], "have": [3], "been": [4], "applied": [5], "to": [6, 12, 94], "various":
+        [7], "actuators": [8], "sensors": [10], "due": [11], "their": [13], "high":
+        [14], "piezoelectric": [15, 97, 136, 156, 178, 194], "dielectric": [17], "properties.":
+        [18], "However,": [19], "the": [20, 44, 58, 76, 83, 95, 102, 107, 125, 128,
+        141, 147, 189, 192], "usage": [21], "of": [22, 29, 52, 66, 109, 115, 191],
+        "lead-based": [23], "materials": [24], "is": [25, 41, 48, 99], "prohibited":
+        [26], "by": [27, 56, 71, 81], "Restriction": [28], "Hazardous": [30], "Substances.":
+        [31], "In": [32], "this": [33], "study,": [34], "a": [35], "new": [36], "biocompatible":
+        [37], "MgSiO3": [38, 131], "thin": [39, 67, 132], "film": [40, 68], "generated":
+        [42], "on": [43, 50], "Au/SrTiO3(110)": [45], "substrate,": [46], "which":
+        [47, 92, 185], "determined": [49, 100], "basis": [51], "our": [53], "three-scale":
+        [54], "analyses,": [55], "using": [57, 72, 82], "radio-frequency": [59], "magnetron":
+        [60], "sputtering": [61], "method.": [62], "The": [63, 113], "crystallographic":
+        [64], "orientation": [65], "was": [69, 118, 150, 163, 181, 186], "measured":
+        [70, 80], "X-ray": [73], "diffractometer": [74], "displacement-voltage": [77],
+        "curves": [78], "were": [79], "ferroelectric": [84], "character": [85], "evaluation":
+        [86], "system,": [87], "respectively.": [88], "An": [89], "optimum": [90],
+        "condition,": [91], "leads": [93], "highest": [96], "property,": [98], "through":
+        [101], "experimental": [103], "design": [104], "algorithm": [105], "analysis":
+        [108], "variance": [110], "table": [111], "schemes.": [112], "peak": [114],
+        "MgSiO3(111)": [116], "crystal": [117], "obtained": [119, 164], "its": [121,
+        177], "intensity": [122], "increased": [123], "with": [124], "substrate":
+        [126, 148], "post-annealing": [129], "temperatures.": [130], "films": [133],
+        "showed": [134], "good": [135], "properties,": [137], "because": [138], "they":
+        [139], "yielded": [140], "typical": [142], "butterfly-type": [143], "hysteresis":
+        [144], "curves.": [145], "Additionally,": [146], "temperature": [149], "significant":
+        [151], "at": [152], "1%": [153], "level": [154], "for": [155], "strain": [157,
+        179], "constant": [158, 180], "d33.": [159], "Optimum": [160], "generating":
+        [161], "condition": [162], "as": [165], "Ts=": [166], "300": [167], "\u00b0C,":
+        [168], "Ta=": [169], "650": [170], "\u00b0C": [171], "fO2=": [173], "3.0":
+        [174], "sccm,": [175], "d33=": [182], "346.7": [183], "pm/V,": [184], "higher":
+        [187], "than": [188], "values": [190], "existing": [193], "BaTiO3.": [195]},
+        "primary_location": {"id": "doi:10.1299/jmmp.4.1636", "doi": "https://doi.org/10.1299/jmmp.4.1636",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.1299/jmmp.4.1636",
+        "pdf_url": "https://www.jstage.jst.go.jp/article/jmmp/4/11/4_11_1636/_pdf",
+        "source": {"id": "https://openalex.org/S119448180", "display_name": "Journal
+        of Solid Mechanics and Materials Engineering", "issn_l": "1880-9871", "issn":
+        ["1880-9871"], "is_oa": true, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core"], "host_organization": "https://openalex.org/P4310313571", "host_organization_name":
+        "Japan Society Mechanical Engineers", "host_organization_lineage": ["https://openalex.org/P4310313571"],
+        "host_organization_lineage_names": ["Japan Society Mechanical Engineers"],
+        "type": "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Solid Mechanics and Materials Engineering", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W1510117121", "doi": "https://doi.org/10.5772/30349",
+        "title": "Three-Scale Structure Analysis Code and Thin Film Generation of
+        a New Biocompatible Piezoelectric Material MgSiO3", "publication_year": 2012,
+        "abstract_inverted_index": {"IntroductionIn": [0], "this": [1, 940, 962],
+        "study,": [2], "three": [3], "subjects": [4], "were": [5, 415, 840], "investigated":
+        [6, 906], "for": [7, 62, 441, 477, 760, 800], "a": [8, 17, 22, 27, 201, 273,
+        336, 408, 537, 577, 882, 885, 989], "new": [9, 33, 493, 547], "biocompatible":
+        [10, 34, 475, 494], "piezoelectric": [11, 35, 93, 97, 107, 156, 217, 237,
+        277, 307, 313, 341, 373, 377, 411, 421, 428, 435], "material": [12, 374, 532,
+        777, 849], "generation:": [13], "1.": [14], "Development": [15], "of": [16,
+        21, 32, 38, 90, 163, 212, 223, 231, 275, 284, 309, 345, 426, 462, 470, 662,
+        680, 700, 718, 737, 748, 764, 773, 783, 805, 846, 910, 929, 988, 997], "numerical":
+        [18, 540, 750], "analysis": [19, 25, 541, 554, 585, 613], "scheme": [20, 542,
+        555, 586], "three-scale": [23], "structure": [24, 580], "and": [26, 79, 94,
+        140, 160, 186, 219, 253, 286, 295, 299, 348, 363, 368, 404, 423, 455, 496,
+        533, 549, 576, 594, 604, 626, 698, 705, 725, 744, 776, 786, 824, 855, 872,
+        884, 893, 933, 969, 977, 984, 1000], "process": [28, 511, 517, 575, 648, 661],
+        "crystallographic": [29, 102, 161, 337], "simulation.2.": [30], "Design":
+        [31], "materials.3.": [36], "Generation": [37, 987], "MgSiO": [39], "3": [40,
+        55, 246, 248, 259, 261, 328, 331, 367, 391, 403, 720, 739, 892, 895, 912],
+        "thin": [41, 98, 157, 166, 189, 508, 590, 886, 913, 930], "film": [42, 99,
+        509, 591, 887, 914, 931], "by": [43, 174, 194, 205, 227, 291, 599, 607, 722,
+        741, 780, 850, 877, 948], "using": [44, 195], "radio-frequency": [45], "(RF)":
+        [46], "magnetron": [47], "sputtering": [48, 574], "system.Until": [49], "now,":
+        [50, 610], "lead": [51, 285], "zirconate": [52], "titanate": [53], "(Pb(Zr,Ti)O":
+        [54], ":": [56], "PZT)": [57], "has": [58, 430, 652, 687, 797, 905], "been":
+        [59, 268, 316, 432, 642, 653, 688], "used": [60, 151, 654], "widely": [61],
+        "sensors": [63], "(Hindrichsena": [64], "et": [65, 70, 76, 86, 117, 129, 137,
+        146, 178, 181, 263, 319, 322, 355, 358, 381, 384, 623, 666, 708, 711, 728,
+        731, 853, 858, 862, 865, 899], "al.,": [66, 71, 77, 87, 118, 130, 138, 147,
+        182, 264, 323, 359, 385, 712, 732, 866], "2010),": [67, 72, 88, 119, 265],
+        "actuators": [68], "(Koh": [69], "memory": [73], "devices": [74], "(Zhang":
+        [75, 357], "2009)": [78, 148, 360], "micro": [80, 479], "electro": [81], "mechanical":
+        [82], "systems": [83], "(MEMS)": [84], "(Ma": [85], "because": [89, 512],
+        "its": [91, 749, 756], "high": [92, 154, 376, 409], "dielectric": [95], "properties.The":
+        [96], "with": [100, 113, 215, 339, 375], "aligned": [101], "orientation":
+        [103, 214, 225, 338, 945], "shows": [104], "the": [105, 206, 209, 216, 220,
+        232, 280, 292, 300, 310, 372, 424, 444, 451, 456, 468, 471, 474, 478, 507,
+        521, 524, 528, 530, 534, 539, 551, 589, 600, 608, 611, 617, 627, 632, 645,
+        658, 673, 678, 681, 684, 692, 695, 715, 735, 746, 761, 771, 784, 787, 793,
+        801, 810, 814, 817, 827, 838, 843, 847, 869, 873, 878, 908, 927, 934, 938,
+        943, 949, 971], "highest": [106], "property": [108], "than": [109], "any":
+        [110], "polycrystalline": [111], "materials": [112, 288, 308, 314, 429, 436,
+        495, 548], "random": [114], "orientations.Sputtering": [115], "(Bose": [116],
+        "chemical": [120], "or": [121, 126], "physical": [122], "vapor": [123], "deposition":
+        [124, 134], "(CVD": [125], "PVD)": [127], "(Tohma": [128], "2002),": [131],
+        "pulsed": [132], "laser": [133], "(PLD)": [135], "(Kim": [136, 262], "2006)":
+        [139, 324, 733], "molecular": [141, 618], "beam": [142], "epitaxy": [143],
+        "(MBE)": [144], "(Avrutin": [145], "are": [149, 514, 597, 605], "commonly":
+        [150], "to": [152, 199, 416, 450, 491, 505, 545, 564, 644, 656, 690, 755,
+        842, 956, 959, 967], "generate": [153], "performance": [155, 410], "films.Lattice":
+        [158], "parameters": [159], "orientations": [162, 936], "epitaxially": [164],
+        "grown": [165, 808, 944], "films": [167, 190], "on": [168, 191, 302, 329,
+        557, 631, 676, 703, 809, 837, 916, 937], "various": [169, 762], "substrates":
+        [170], "can": [171, 447, 789, 819, 831], "be": [172, 439, 448, 790, 832],
+        "controlled": [173], "these": [175, 919], "procedures.K.": [176], "Nishida":
+        [177], "al.": [179, 320, 356, 382, 667, 709, 729, 854, 863, 900], "(Nishida":
+        [180], "2005)": [183, 867], "generated": [184, 325], "[001]": [185, 213],
+        "[100]-orientated": [187], "PZT": [188], "MgO(001)": [192], "substrate": [193,
+        522, 525, 578, 883], "CVD": [196], "method.They": [197], "succeeded": [198,
+        369, 405], "obtain": [200], "huge": [202], "strain": [203, 221, 342, 593],
+        "caused": [204, 226, 721, 740, 779, 876], "two": [207], "effect:": [208],
+        "synergetic": [210], "effect": [211, 222], "strain;": [218], "[100]": [224],
+        "switching": [228, 697], "under": [229], "conditions": [230], "external":
+        [233], "electric": [234, 602], "field.Additionally,": [235], "PZT-based":
+        [236, 276], "materials,": [238], "such": [239, 519, 569, 615, 889, 924], "as":
+        [240, 520, 570, 616, 890, 925], "Pb(Zn": [241], "1/3": [242, 255], "Nb": [243,
+        256], "2/3": [244, 257], ")O": [245], "-PbTiO": [247, 260], "(Geetika": [249],
+        "&": [250, 638, 669, 902], "Umarji,": [251], "2010)": [252, 386], "PbMg":
+        [254], "O": [258, 390], "have": [266, 315, 641], "also": [267], "developed.However,":
+        [269], "lead,": [270], "which": [271, 334, 446, 596], "is": [272, 279, 289,
+        460, 484, 503, 543, 560, 752, 946], "component": [274], "material,": [278,
+        422, 523], "toxic": [281, 287], "material.The": [282], "usage": [283], "prohibited":
+        [290], "waste": [293], "electrical": [294], "electronic": [296], "equipment":
+        [297], "(WEEE)": [298], "restriction": [301], "hazardous": [303], "substances":
+        [304], "(RoHS).For": [305], "alternative": [306], "PZT,": [311], "lead-free":
+        [312], "studied.J.": [317], "Zhu": [318], "(Zhu": [321], "[111]-orientated":
+        [326], "BaTiO": [327, 366, 719, 891], "LaNiO": [330], "(111)": [332], "substrate,":
+        [333], "had": [335], "maximum": [340], "www.intechopen.comModern": [343],
+        "Aspects": [344, 996], "Bulk": [346, 998], "Crystal": [347, 999], "Thin":
+        [349, 985, 1001], "Film": [350, 986, 1002], "Preparation": [351], "312": [352],
+        "constants.S.": [353], "Zhang": [354], "doped": [361, 387], "Ca": [362], "Zr":
+        [364], "in": [365, 370, 392, 406, 467, 482, 536, 907], "generating": [371,
+        407], "properties.Further,": [378], "P.": [379], "Fu": [380], "(Fu": [383],
+        "La": [388], "2": [389], "Bi-based": [393], "(Bi": [394], "0.5": [395, 397],
+        "Na": [396], ")": [398], "0.94": [399], "Ba": [400], "0.06": [401], "TiO":
+        [402], "material.However,": [412], "their": [413, 427, 434], "goals": [414],
+        "develop": [417], "an": [418, 498, 572], "environmentally": [419], "compatible":
+        [420], "biocompatibility": [425], "not": [431, 438, 769], "investigated.Therefore,":
+        [433], "could": [437, 768], "applied": [440, 449, 643, 689, 841], "Bio-MEMS":
+        [442, 483], "devices.Recently,": [443], "Bio-MEMS,": [445], "health": [452],
+        "monitoring": [453], "system": [454], "drug": [457], "delivery": [458], "system,":
+        [459], "one": [461, 736], "most": [463], "attractive": [464], "research":
+        [465], "subject": [466], "development": [469], "nano-and": [472], "bio-technology.Therefore,":
+        [473], "actuator": [476], "fluidic": [480], "pump": [481], "strongly": [485,
+        561], "required.However,": [486], "they": [487], "remain": [488], "many":
+        [489, 516, 798], "difficulties": [490], "design": [492, 546], "find": [497],
+        "optimum": [499, 573], "generation": [500, 510, 552], "process.Especially,":
+        [501], "it": [502], "difficult": [504], "optimize": [506, 550], "there": [513],
+        "so": [515], "factors,": [518], "temperature": [526, 704, 724, 743], "during":
+        [527], "sputtering,": [529], "target": [531], "pressure": [535], "chamber.Therefore,":
+        [538], "necessary": [544], "process.The": [553], "based": [556, 630, 836],
+        "continuum": [558], "theory": [559, 635], "required,": [562], "due": [563,
+        754], "time": [565], "consuming": [566], "experimental": [567, 583], "approach":
+        [568], "finding": [571], "crystal": [579, 646, 659, 701, 802], "through":
+        [581], "enormous": [582], "trials.The": [584], "should": [587], "predict":
+        [588, 770], "deformation,": [592], "stress,": [595], "affected": [598], "imposed":
+        [601], "field": [603], "constrained": [606], "substrate.Until": [609], "conventional":
+        [612, 794, 941], "schemes,": [614], "dynamics": [619], "(MD)": [620], "method":
+        [621, 651, 686, 767, 796], "(Rubio": [622], "al,": [624], "2003)": [625],
+        "first-principles": [628, 834], "calculation": [629], "density": [633], "functional":
+        [634], "(DFT)": [636], "(Lee": [637], "Chung,": [639], "2006),": [640], "growth":
+        [647, 660, 675, 803, 845, 915, 935], "simulations.The": [649], "MD": [650,
+        685, 766, 795], "mainly": [655], "analyze": [657, 691], "pure": [663], "atoms.J.":
+        [664], "Xu": [665], "(Xu": [668], "Feng,": [670], "2002)": [671], "calculated":
+        [672], "Ge": [674], "Si(111).In": [677], "cases": [679], "perovskite": [682,
+        806], "compounds,": [683], "phase": [693, 716], "transition,": [694], "polarization":
+        [696, 874], "properties": [699, 778], "depending": [702], "pressure.J.": [706],
+        "Paul": [707], "(Paul": [710], "2007)": [713], "analyzed": [714, 734], "transition":
+        [717], "rising": [723, 742], "S.": [726], "Costa": [727], "(Costa": [730],
+        "PbTiO": [738, 894], "pressure.However,": [745], "reliability": [747], "results":
+        [751], "poor": [753], "uncertain": [757], "interatomic": [758], "potentials":
+        [759, 830], "combinations": [763, 782], "atoms.The": [765], "differences":
+        [772], "poly-crystal": [774], "structures": [775], "changing": [781], "crystals":
+        [785, 932], "substrates.It": [788], "concluded": [791], "that": [792], "problems":
+        [799], "prediction": [804], "compounds": [807], "arbitrarily": [811], "selected":
+        [812], "substrates.On": [813], "other": [815], "hand,": [816], "DFT": [818,
+        839], "treat": [820], "interactions": [821], "between": [822, 881], "electrons":
+        [823], "protons,": [825], "therefore": [826], "reliable": [828], "inter-atomic":
+        [829], "obtained.The": [833], "calculations": [835], "epitaxial": [844], "ferroelectric":
+        [848], "O.": [851, 860], "Diegueaz": [852, 861], "I.": [856, 897], "Yakovkin":
+        [857, 898], "al..": [859], "(Diegueaz": [864], "evaluated": [868], "stress":
+        [870], "increase": [871], "change": [875], "lattice": [879, 952], "mismatch":
+        [880, 953], "crystal,": [888], ".Similarly,": [896], "(Yakovkin": [901], "Gutowski,":
+        [903], "2004)": [904], "case": [909], "SrTiO": [911], "Si": [917], "substrate.However,":
+        [918], "analyses": [920], "adopted": [921], "limited": [922], "assumptions,":
+        [923], "fixing": [926], "conformations": [928], "substrates.In": [939], "algorithm,":
+        [942], "determined": [947], "purely": [950], "geometrical": [951], "www.intechopen.com":
+        [954], "How": [955], "referenceIn": [957], "order": [958], "correctly": [960],
+        "reference": [961], "scholarly": [963], "work,": [964], "feel": [965], "free":
+        [966], "copy": [968], "paste": [970], "following:": [972], "Hwisim": [973],
+        "Hwang,": [974], "Yasutomo": [975], "Uetsuji": [976], "Eiji": [978], "Nakamachi":
+        [979], "(2012).Three-Scale": [980], "Structure": [981], "Analysis": [982],
+        "Code": [983], "New": [990], "Biocompatible": [991], "Piezoelectric": [992],
+        "Material": [993], "MgSiO3,": [994], "Modern": [995], "Preparation,": [1003],
+        "Dr.": [1004], "Nikolai": [1005], "Kolesnikov": [1006], "(Ed.),": [1007]},
+        "primary_location": {"id": "doi:10.5772/30349", "doi": "https://doi.org/10.5772/30349",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.5772/30349", "pdf_url":
+        "https://www.intechopen.com/citation-pdf-url/26211", "source": {"id": "https://openalex.org/S4306463447",
+        "display_name": "InTech eBooks", "issn_l": null, "issn": null, "is_oa": false,
+        "is_in_doaj": false, "is_core": false, "listed_in": [], "host_organization":
+        null, "host_organization_name": null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "ebook platform"}, "license": "cc-by", "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Modern Aspects of Bulk Crystal and Thin Film Preparation",
+        "raw_type": "book-chapter"}}, {"id": "https://openalex.org/W1992678594", "doi":
+        "https://doi.org/10.1117/12.847277", "title": "Triple-scale analysis and fabrication
+        of new biocompatible MgSiO 3 piezoelectric thin films", "publication_year":
+        2010, "abstract_inverted_index": {"Recently,": [0], "the": [1, 45, 61, 67,
+        76, 91, 106, 115, 145, 168, 196, 204, 222], "lead": [2], "free": [3], "piezoelectric":
+        [4, 41, 107, 174, 198, 211], "material,": [5], "which": [6, 149, 214], "should":
+        [7], "be": [8, 158, 216], "used": [9], "for": [10, 70], "medical": [11, 219],
+        "devices,": [12], "such": [13], "as": [14, 38, 131, 144, 187], "health": [15],
+        "monitoring": [16], "system": [17, 22], "(HMS)": [18], "and": [19, 48, 105,
+        133, 135, 189], "drug": [20], "delivery": [21], "(DDS),": [23], "is": [24],
+        "strongly": [25], "required.": [26], "In": [27], "this": [28], "study,": [29],
+        "we": [30, 202], "discovered": [31], "a": [32, 39, 120, 207], "newly": [33],
+        "designed": [34], "MgSiO3": [35, 71, 81, 125, 150, 179, 210], "thin": [36,
+        82, 110, 151, 180, 212], "film,": [37, 213], "biocompatible": [40, 209], "actuator,":
+        [42], "by": [43, 59, 74, 89, 101, 114, 166], "using": [44, 60, 75, 90, 102,
+        167], "first-principles": [46, 62], "calculation": [47], "process": [49, 77],
+        "crystallography": [50, 78], "simulation": [51], "algorithm.": [52], "At":
+        [53], "first,": [54], "crystal": [55], "structure": [56, 128], "was": [57,
+        72, 84, 99, 112, 139, 142, 162, 185, 191], "calculated": [58], "density":
+        [63], "functional": [64], "theory.": [65], "Secondly,": [66], "best": [68,
+        146], "substrate": [69], "searched": [73], "simulation.": [79], "Next,": [80],
+        "film": [83, 111, 152, 181], "generated": [85, 163, 182], "in": [86, 221],
+        "our": [87], "laboratory": [88], "RF": [92, 169], "magnetron": [93, 170],
+        "sputtering": [94, 171], "apparatus.": [95, 172], "Finally,": [96], "crystallographic":
+        [97], "orientation": [98], "obtained": [100, 130], "X-ray": [103], "diffractometer":
+        [104], "property": [108], "of": [109, 124, 178, 195, 206], "measured": [113,
+        186], "ferroelectric": [116], "measurement": [117], "system.": [118], "As":
+        [119], "result,": [121], "lattice": [122], "parameters": [123], "with": [126,
+        153], "tetragonal": [127], "were": [129], "a=b=0.3449nm": [132], "c=0.3538nm,":
+        [134], "its": [136], "aspect": [137], "ratio": [138], "1.026.": [140], "Au(111)":
+        [141], "chosen": [143], "substrate,": [147], "on": [148, 164], "minimum":
+        [154], "total": [155], "energy": [156], "could": [157], "grown.": [159], "Then,":
+        [160], "MgSiO3(111)": [161], "Au(111)/SrTiO3(110)": [165], "The": [173], "strain":
+        [175], "constant": [176], "d33": [177], "at": [183], "400\u00b0C": [184],
+        "219.8pm/V": [188], "it": [190], "higher": [192], "than": [193], "one": [194],
+        "existing": [197], "material": [199], "BaTiO3.": [200], "Consequently,": [201],
+        "succeeded": [203], "generation": [205], "new": [208], "can": [215], "applied":
+        [217], "to": [218], "devices": [220], "future.": [223]}, "primary_location":
+        {"id": "doi:10.1117/12.847277", "doi": "https://doi.org/10.1117/12.847277",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1117/12.847277", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S183492911", "display_name":
+        "Proceedings of SPIE, the International Society for Optical Engineering/Proceedings
+        of SPIE", "issn_l": "0277-786X", "issn": ["0277-786X", "1996-756X"], "is_oa":
+        false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core", "norway-1"],
+        "host_organization": "https://openalex.org/P4310315543", "host_organization_name":
+        "SPIE", "host_organization_lineage": ["https://openalex.org/P4310315543"],
+        "host_organization_lineage_names": ["SPIE"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "SPIE Proceedings", "raw_type": "proceedings-article"}},
+        {"id": "https://openalex.org/W2049941092", "doi": "https://doi.org/10.1117/1.3624515",
+        "title": "Development of a micropump for Bio-MEMS using a new biocompatible
+        piezoelectric material MgSiO3", "publication_year": 2011, "abstract_inverted_index":
+        {"A": [0], "micropump": [1, 55, 154, 186], "of": [2, 29, 35, 53, 82, 112,
+        144, 152, 175], "biomedical-microelectric": [3], "mechanical": [4], "system":
+        [5, 40, 56], "(Bio-MEMS)": [6], "for": [7, 57], "drug": [8], "delivery": [9],
+        "systems": [10, 14], "and": [11, 79, 86, 110], "health": [12], "monitoring":
+        [13], "using": [15, 41, 71, 103, 116, 122, 155], "a": [16, 36, 49, 62, 117,
+        153, 189], "new": [17], "biocompatible": [18], "piezoelectric": [19, 31, 80],
+        "thin": [20, 32, 65, 84], "film": [21, 33, 66, 85], "was": [22, 98, 138, 168],
+        "developed.": [23], "We": [24, 60, 74, 147, 178], "first": [25], "assessed":
+        [26], "the": [27, 42, 76, 83, 104, 108, 113, 123, 130, 149, 156, 164, 172],
+        "performance": [28], "our": [30, 54, 181], "pump": [34], "newly": [37, 182],
+        "designed": [38], "microfluid": [39], "finite": [43], "element": [44], "method.":
+        [45, 160], "Numerical": [46], "results": [47], "show": [48], "sufficient":
+        [50], "transportation": [51], "ability": [52], "blood": [58], "tests.": [59],
+        "generated": [61], "multilayer": [63], "MgSiO3": [64, 89, 184], "on": [67],
+        "Cu/Ti/Si": [68], "(100)": [69], "substrate": [70], "RF-magnetron": [72],
+        "sputtering.": [73], "measured": [75, 121, 148], "crystallographic": [77],
+        "orientation": [78], "property": [81], "confirmed": [87], "that": [88, 129,
+        163, 180], "(101)": [90], "crystal": [91], "grew": [92], "well.": [93], "The":
+        [94], "strain": [95], "constant": [96], "d33": [97], "calculated": [99], "as":
+        [100], "179.4": [101], "pm/V": [102], "displacement-voltage": [105], "curve.":
+        [106], "Furthermore,": [107], "deflection": [109, 131], "eigenfrequency":
+        [111], "monomorph-actuator,": [114], "fabricated": [115], "micromachining":
+        [118], "process,": [119], "were": [120], "laser": [124], "Doppler": [125],
+        "vibrometer,": [126], "which": [127], "revealed": [128], "linearly": [132],
+        "increased": [133], "with": [134, 141], "applied": [135, 142, 173], "voltage:":
+        [136], "it": [137], "82.6": [139], "nm": [140], "voltage": [143, 174], "15":
+        [145, 176], "V.": [146, 177], "flow": [150, 166], "rate": [151, 167], "luminance":
+        [157], "difference": [158], "measurement": [159], "Results": [161], "showed":
+        [162], "maximum": [165], "7.1": [169], "nl/s": [170], "at": [171], "concluded":
+        [179], "developed": [183], "monomorphic": [185], "can": [187], "be": [188],
+        "comprehensive": [190], "Bio-MEMS": [191], "device.": [192]}, "primary_location":
+        {"id": "doi:10.1117/1.3624515", "doi": "https://doi.org/10.1117/1.3624515",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1117/1.3624515", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S4210232087", "display_name":
+        "Journal of Micro/Nanopatterning Materials and Metrology", "issn_l": "2708-8340",
+        "issn": ["2708-8340"], "is_oa": false, "is_in_doaj": false, "is_core": true,
+        "listed_in": ["cwts-core", "dongbi-c", "russia-white-list-2"], "host_organization":
+        null, "host_organization_name": null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Micro/Nanopatterning, Materials, and Metrology", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2327169069", "doi": "https://doi.org/10.1299/kikaia.72.353",
+        "title": "Development of Fabrication Technique of Bio-Compatible Piezoelectric
+        Material MgSiO3 by Using Helicon Wave Plasma Sputter", "publication_year":
+        2006, "abstract_inverted_index": {"In": [0], "this": [1], "study,": [2], "an":
+        [3, 56], "eptitaxial": [4], "fabrication": [5, 119], "technique": [6], "of":
+        [7, 60, 79, 87, 100], "a": [8, 19, 65, 146], "newly": [9], "designed": [10,
+        28], "biocompatible": [11, 66], "piezoelectric": [12, 138, 147], "material":
+        [13], "MgSiO3": [14, 61, 75, 91, 130], "is": [15, 52, 150], "developed,":
+        [16], "which": [17], "has": [18, 71], "tetragonal": [20, 62, 92], "perovskite":
+        [21, 63, 93], "lattice": [22, 82], "structure.": [23], "This": [24], "crystal":
+        [25], "structure": [26], "was": [27, 94, 126, 133], "by": [29, 96], "using":
+        [30, 97], "HSAB": [31], "rule,": [32], "the": [33, 38, 44, 98, 104, 106, 111,
+        117, 137], "geometrical": [34], "compatibility": [35, 73], "assessment,":
+        [36], "and": [37, 110, 121, 136, 139], "first": [39], "principles": [40],
+        "DFT": [41], "analyses.": [42], "Here,": [43], "helicon": [45], "wave": [46],
+        "plasma": [47], "sputter": [48], "(HWPS)": [49], "deposition": [50], "method":
+        [51], "adapted": [53], "to": [54], "deposit": [55], "epitaxial": [57], "thin":
+        [58, 131], "film": [59, 132], "on": [64], "substrate": [67, 70], "Ir/Ti/Si.":
+        [68], "Ir/Ti/Si": [69], "better": [72], "with": [74], "(111)": [76], "plane,":
+        [77], "because": [78], "its": [80], "close": [81], "constant.": [83], "An":
+        [84], "optimum": [85, 123], "condition": [86, 124], "HWPS": [88], "for": [89],
+        "depositing": [90], "sought": [95], "design": [99], "experiments": [101],
+        "method.": [102], "As": [103], "result,": [105], "target": [107], "composition":
+        [108], "ratio": [109], "surface": [112], "temperature": [113], "were": [114,
+        142], "found": [115], "as": [116], "dominant": [118], "factor,": [120], "precise":
+        [122], "search": [125], "carried": [127], "out.": [128], "Finally,": [129],
+        "successfully": [134], "fabricated": [135], "ferroelectric": [140], "properties":
+        [141], "measured.": [143], "It": [144], "shows": [145], "constant": [148],
+        "d31": [149], "-1.74\u00d710-12": [151], "m/V.": [152]}, "primary_location":
+        {"id": "doi:10.1299/kikaia.72.353", "doi": "https://doi.org/10.1299/kikaia.72.353",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.1299/kikaia.72.353",
+        "pdf_url": "https://www.jstage.jst.go.jp/article/kikaia1979/72/715/72_715_353/_pdf",
+        "source": {"id": "https://openalex.org/S4210202060", "display_name": "TRANSACTIONS
+        OF THE JAPAN SOCIETY OF MECHANICAL ENGINEERS Series A", "issn_l": "0387-5008",
+        "issn": ["0387-5008", "1884-8338"], "is_oa": true, "is_in_doaj": false, "is_core":
+        false, "listed_in": [], "host_organization": "https://openalex.org/P4310313571",
+        "host_organization_name": "Japan Society Mechanical Engineers", "host_organization_lineage":
+        ["https://openalex.org/P4310313571"], "host_organization_lineage_names": ["Japan
+        Society Mechanical Engineers"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "TRANSACTIONS OF THE JAPAN SOCIETY OF MECHANICAL
+        ENGINEERS Series A", "raw_type": "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442a2f6bcb5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '27444'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:42 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=feukff6dxHfhkxlInUPoSRJdmYL5PGvAE7iLzEiAUfg%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633262"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=feukff6dxHfhkxlInUPoSRJdmYL5PGvAE7iLzEiAUfg%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633262"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '8750'
+      x-ratelimit-remaining-usd:
+      - '0.875'
+      x-ratelimit-reset:
+      - '30738'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=MgSiO3+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 23, "db_response_time_ms": 13, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (MgSiO3 thin film)
+        in the title or abstract", "x_new_oql": "get works with (MgSiO3 thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "MgSiO3 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:MgSiO3 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W2177221202"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442a30c9755f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '618'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:42 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=feukff6dxHfhkxlInUPoSRJdmYL5PGvAE7iLzEiAUfg%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633262"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=feukff6dxHfhkxlInUPoSRJdmYL5PGvAE7iLzEiAUfg%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633262"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '8740'
+      x-ratelimit-remaining-usd:
+      - '0.874'
+      x-ratelimit-reset:
+      - '30738'
+    status:
+      code: 200
+      message: OK
+version: 1

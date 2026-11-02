@@ -1,0 +1,99 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - _csrf_token=authenticated; mp-session=D6CxMRzs_AnmoKVJ2zbT2A|1794688597|UwqU8V4OK2FICdT9uo-Pr4QBxKQ;
+        __cf_bm=H6UGl9qHtmdvqmD720DOzbAwa4e0KbmiYNzIlO3eJx8-1793633224.245169-1.0.1.1-2Mc7L0orjBGLTAfd2i0_kZa60dtsP0Zkz7_dX8TNLr_rkm.JoJJ1ipORcMyB7HZ7ut.Ydan5WXZVicGFjW9NjGhpntDvL4Q1vzUGKRDlMjNu9U92s0qgTsPqxfY05HNA
+      host:
+      - api.materialsproject.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cformula_pretty%2Ccomposition_reduced%2Cnelements%2Cenergy_above_hull%2Cis_stable%2Cband_gap%2Ctheoretical%2Cdeprecated%2Csymmetry%2Cdatabase_IDs%2Clast_updated%2Cbuilder_meta&_limit=1000&formula=BaTiO3
+  response:
+    body:
+      string: '{"data":[{"theoretical":false,"database_IDs":{"icsd":["icsd-161341"]},"band_gap":0.0,"energy_above_hull":1.806655541999998,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"jmunro_static_calculations","database_version":"2026.09.28","build_date":"2026-09-25T19:10:45.078000","license":"BY-C"},"nelements":3,"composition_reduced":{"Ba":1.0,"Ti":1.0,"O":3.0},"formula_pretty":"BaTiO3","symmetry":{"crystal_system":"Orthorhombic","symbol":"Amm2","hall":"A
+        2 -2","number":38,"point_group":"mm2","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaaceqep","deprecated":false,"last_updated":"2022-06-10T10:10:46.438000"},{"theoretical":false,"database_IDs":{"icsd":["icsd-161419"]},"band_gap":0.0,"energy_above_hull":0.9790563579999993,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"jmunro_static_calculations","database_version":"2026.09.28","build_date":"2026-09-25T19:10:45.085000","license":"BY-C"},"nelements":3,"composition_reduced":{"Ba":1.0,"Ti":1.0,"O":3.0},"formula_pretty":"BaTiO3","symmetry":{"crystal_system":"Orthorhombic","symbol":"Amm2","hall":"A
+        2 -2","number":38,"point_group":"mm2","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaacjhcm","deprecated":false,"last_updated":"2022-06-10T06:13:29.646000"},{"theoretical":false,"database_IDs":{"icsd":["icsd-27968","icsd-28851","icsd-27969","icsd-27967","icsd-27973","icsd-166225","icsd-28620","icsd-29146","icsd-187292","icsd-28850","icsd-27972","icsd-154344","icsd-27977","icsd-31886","icsd-187291","icsd-31889","icsd-31885","icsd-28852","icsd-27974","icsd-67518","icsd-185374","icsd-27970","icsd-100804","icsd-29280","icsd-43125","icsd-290019","icsd-190924","icsd-28853","icsd-28849","icsd-95437","icsd-186437","icsd-67519","icsd-27971","icsd-29148","icsd-31887","icsd-31884","icsd-27966","icsd-28854","icsd-28848","icsd-29147","icsd-31888","icsd-56093","icsd-27976","icsd-99736","icsd-27975","icsd-31890","icsd-27965","icsd-252562"]},"band_gap":1.6675,"energy_above_hull":0.007466672000001395,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"production-r2scan","database_version":"2026.09.28","build_date":"2026-09-25T19:10:45.042000","license":"BY-C"},"nelements":3,"composition_reduced":{"Ba":1.0,"Ti":1.0,"O":3.0},"formula_pretty":"BaTiO3","symmetry":{"crystal_system":"Cubic","symbol":"Pm-3m","hall":"-P
+        4 2 3","number":221,"point_group":"m-3m","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaaaaeli","deprecated":false,"last_updated":"2023-10-08T09:08:24.398000"},{"theoretical":false,"database_IDs":{"icsd":["icsd-73631","icsd-186461","icsd-100463","icsd-73628","icsd-73629","icsd-73630","icsd-73635","icsd-73633","icsd-100464","icsd-73632","icsd-73634","icsd-73636","icsd-186463","icsd-6102","icsd-186462"]},"band_gap":2.5526999999999997,"energy_above_hull":0.000040989999998686244,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"production-r2scan","database_version":"2026.09.28","build_date":"2026-09-25T19:10:45.039000","license":"BY-C"},"nelements":3,"composition_reduced":{"Ba":1.0,"Ti":1.0,"O":3.0},"formula_pretty":"BaTiO3","symmetry":{"crystal_system":"Trigonal","symbol":"R3m","hall":"R
+        3 -2\"","number":160,"point_group":"3m","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaaaahlc","deprecated":false,"last_updated":"2023-10-07T16:55:04.282000"},{"theoretical":false,"database_IDs":{"icsd":["icsd-237109","icsd-73641","icsd-73639","icsd-73638","icsd-73637","icsd-31155","icsd-186460","icsd-73640","icsd-237106"]},"band_gap":2.2933999999999997,"energy_above_hull":0.0,"is_stable":true,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"production-r2scan","database_version":"2026.09.28","build_date":"2026-09-25T19:10:45.040000","license":"BY-C"},"nelements":3,"composition_reduced":{"Ba":1.0,"Ti":1.0,"O":3.0},"formula_pretty":"BaTiO3","symmetry":{"crystal_system":"Orthorhombic","symbol":"Amm2","hall":"A
+        2 -2","number":38,"point_group":"mm2","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaaaaiof","deprecated":false,"last_updated":"2023-10-07T23:51:32.847000"},{"theoretical":false,"database_IDs":{"icsd":["icsd-75240","icsd-186528","icsd-34619","icsd-164386"]},"band_gap":1.7260999999999997,"energy_above_hull":0.002619442000000305,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"recover-lost-r2scan-may2022","database_version":"2026.09.28","build_date":"2026-09-25T19:10:45.042000","license":"BY-C"},"nelements":3,"composition_reduced":{"Ba":1.0,"Ti":1.0,"O":3.0},"formula_pretty":"BaTiO3","symmetry":{"crystal_system":"Hexagonal","symbol":"P6_3/mmc","hall":"-P
+        6c 2c","number":194,"point_group":"6/mmm","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaaaaiuf","deprecated":false,"last_updated":"2023-10-07T23:28:08.711000"},{"theoretical":false,"database_IDs":{"icsd":["icsd-237105","icsd-130020","icsd-157806","icsd-73643","icsd-164387","icsd-34637","icsd-190835","icsd-30617","icsd-161340","icsd-168763","icsd-237108","icsd-154343","icsd-99737","icsd-245946","icsd-161418","icsd-237107","icsd-154345","icsd-164388","icsd-248395","icsd-186458","icsd-23758","icsd-23759","icsd-164385","icsd-67520","icsd-189381","icsd-100800","icsd-245945","icsd-186459","icsd-186457","icsd-192889","icsd-15453","icsd-100801","icsd-252558","icsd-290023","icsd-95436","icsd-73644","icsd-185407","icsd-100803","icsd-183932","icsd-73645","icsd-100802","icsd-100799","icsd-73646","icsd-31153","icsd-188644","icsd-245944","icsd-73642"]},"band_gap":1.7236999999999996,"energy_above_hull":0.0019565740000011544,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"production-r2scan","database_version":"2026.09.28","build_date":"2026-09-25T19:10:45.040000","license":"BY-C"},"nelements":3,"composition_reduced":{"Ba":1.0,"Ti":1.0,"O":3.0},"formula_pretty":"BaTiO3","symmetry":{"crystal_system":"Tetragonal","symbol":"P4mm","hall":"P
+        4 -2","number":99,"point_group":"4mm","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaaaaiwg","deprecated":false,"last_updated":"2023-10-07T23:06:38.834000"},{"theoretical":false,"database_IDs":{"icsd":["icsd-109327"]},"band_gap":0.0,"energy_above_hull":1.8074598639999984,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"jmunro_static_calculations","database_version":"2026.09.28","build_date":"2026-09-25T19:10:45.042000","license":"BY-C"},"nelements":3,"composition_reduced":{"Ba":1.0,"Ti":1.0,"O":3.0},"formula_pretty":"BaTiO3","symmetry":{"crystal_system":"Tetragonal","symbol":"P4/mmm","hall":"-P
+        4 2","number":123,"point_group":"4/mmm","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaaabdow","deprecated":false,"last_updated":"2023-10-07T08:41:15.737000"},{"theoretical":true,"database_IDs":{},"band_gap":0.0,"energy_above_hull":3.0774920879999987,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"vasp6-statics","database_version":"2026.09.28","build_date":"2026-09-25T19:10:45.042000","license":"BY-C"},"nelements":3,"composition_reduced":{"Ba":1.0,"Ti":1.0,"O":3.0},"formula_pretty":"BaTiO3","symmetry":{"crystal_system":"Cubic","symbol":"Pm-3m","hall":"-P
+        4 2 3","number":221,"point_group":"m-3m","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaabcsqd","deprecated":false,"last_updated":"2023-10-07T09:07:20.575000"},{"theoretical":false,"database_IDs":{"icsd":["icsd-55221"]},"band_gap":2.0811,"energy_above_hull":0.0012968303333327214,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"recover-lost-r2scan-may2022","database_version":"2026.09.28","build_date":"2026-09-25T19:10:45.042000","license":"BY-C"},"nelements":3,"composition_reduced":{"Ba":1.0,"Ti":1.0,"O":3.0},"formula_pretty":"BaTiO3","symmetry":{"crystal_system":"Orthorhombic","symbol":"C222_1","hall":"C
+        2c 2","number":20,"point_group":"222","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaabftqj","deprecated":false,"last_updated":"2023-10-07T17:19:23.260000"},{"theoretical":false,"database_IDs":{"icsd":["icsd-154346","icsd-161341"]},"band_gap":0.4807,"energy_above_hull":0.7142725979999991,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"jmunro_static_calculations","database_version":"2026.09.28","build_date":"2026-09-25T19:10:45.042000","license":"BY-C"},"nelements":3,"composition_reduced":{"Ba":1.0,"Ti":1.0,"O":3.0},"formula_pretty":"BaTiO3","symmetry":{"crystal_system":"Orthorhombic","symbol":"Amm2","hall":"A
+        2 -2","number":38,"point_group":"mm2","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaabkrkj","deprecated":false,"last_updated":"2023-10-07T23:46:51.543000"}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-02T15:27:05.937921+00:00","total_doc":11,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+    headers:
+      access-control-expose-headers:
+      - X-Api-Key
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a544294cce12db04-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '9824'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:05 GMT
+      ratelimit-limit:
+      - '25'
+      ratelimit-remaining:
+      - '22'
+      ratelimit-reset:
+      - '1'
+      server:
+      - cloudflare
+      set-cookie:
+      - _csrf_token=authenticated; Domain=.materialsproject.org; Path=/; SameSite=Strict
+      vary:
+      - Accept-Encoding
+      - Origin
+      via:
+      - kong/2.8.4
+      x-consumer-id:
+      - 58e0b4c2-4c2d-439b-ba0a-648cd568a0fa
+      x-kong-proxy-latency:
+      - '8'
+      x-kong-upstream-latency:
+      - '183'
+      x-ratelimit-limit-day:
+      - '640000'
+      x-ratelimit-limit-hour:
+      - '40000'
+      x-ratelimit-limit-minute:
+      - '1000'
+      x-ratelimit-limit-month:
+      - '12800000'
+      x-ratelimit-limit-second:
+      - '25'
+      x-ratelimit-limit-year:
+      - '100000000'
+      x-ratelimit-remaining-day:
+      - '639979'
+      x-ratelimit-remaining-hour:
+      - '39979'
+      x-ratelimit-remaining-minute:
+      - '984'
+      x-ratelimit-remaining-month:
+      - '12799979'
+      x-ratelimit-remaining-second:
+      - '22'
+      x-ratelimit-remaining-year:
+      - '99999931'
+    status:
+      code: 200
+      message: OK
+version: 1

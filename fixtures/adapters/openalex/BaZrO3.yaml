@@ -1,0 +1,330 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=BaZrO3+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 184, "db_response_time_ms": 220, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (BaZrO3 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (BaZrO3 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "BaZrO3
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:BaZrO3
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W3165333744",
+        "doi": null, "title": "Growth and characterization of superconducting YBa2Cu3O7-d
+        -BaZrO3 thin films", "publication_year": 2020, "abstract_inverted_index":
+        {"Treballs": [0], "Finals": [1], "de": [2, 4, 7, 10], "Grau": [3], "F\u00edsica,":
+        [5, 8], "Facultat": [6], "Universitat": [9], "Barcelona,": [11], "Curs:":
+        [12], "2020,": [13], "Tutors:": [14], "Albert": [15], "Queralt\u00f3,": [16],
+        "Teresa": [17], "Puig,": [18], "Arantxa": [19], "Fraile": [20], "Rodr\u00edguez":
+        [21]}, "primary_location": {"id": "pmh:oai:diposit.ub.edu:2445/176229", "doi":
+        null, "is_oa": true, "landing_page_url": "http://hdl.handle.net/2445/176229",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4306401653", "display_name":
+        "Dip\u00f2sit Digital de la Universitat de Barcelona (Universitat de Barcelona)",
+        "issn_l": null, "issn": null, "is_oa": false, "is_in_doaj": false, "is_core":
+        false, "listed_in": [], "host_organization": "https://openalex.org/I71999127",
+        "host_organization_name": "Universitat de Barcelona", "host_organization_lineage":
+        ["https://openalex.org/I71999127"], "host_organization_lineage_names": [],
+        "type": "repository"}, "license": "cc-by-nc-nd", "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+        "version": "submittedVersion", "is_accepted": false, "is_published": false,
+        "raw_source_name": "Treballs Finals de Grau (TFG) - F\u00edsica", "raw_type":
+        "info:eu-repo/semantics/bachelorThesis"}}, {"id": "https://openalex.org/W2276289774",
+        "doi": "https://doi.org/10.1149/1.3265877", "title": "Effect of Doping Concentration
+        on the Proton Conductivity of Y-doped BaZrO3 Thin Films", "publication_year":
+        2009, "abstract_inverted_index": {"Y-doped": [0], "BaZrO3": [1], "(BYZ)":
+        [2], "pellets": [3, 88], "and": [4, 13, 36, 53, 73, 83, 105], "thin": [5,
+        108, 125], "films": [6, 109, 126], "were": [7, 115], "fabricated": [8], "by":
+        [9, 117], "solid": [10], "state": [11], "reaction": [12], "co-sputtering":
+        [14, 118], "technique,": [15], "respectively.": [16, 86], "The": [17, 68,
+        120, 138], "conductivity": [18, 56, 64, 93, 144], "of": [19, 32, 51, 80, 99,
+        110, 122, 134, 140], "BYZ": [20, 87, 107, 124], "samples": [21], "was": [22],
+        "measured": [23], "using": [24], "electrochemical": [25], "impedance": [26],
+        "spectroscopy": [27], "technique": [28], "in": [29, 71, 77, 113], "the": [30,
+        49, 63, 78, 90, 95, 103, 123, 135, 141], "atmospheres": [31], "air,": [33],
+        "dry": [34], "H2,": [35], "wet": [37], "H2.": [38], "As": [39], "Y": [40,
+        96], "content": [41], "increases": [42], "from": [43], "6": [44], "at.%":
+        [45], "to": [46, 66], "20": [47, 100], "at.%,": [48, 62], "increase": [50],
+        "bulk": [52, 72], "grain": [54, 74], "boundary": [55, 75], "is": [57, 145],
+        "observed,": [58], "while": [59], "at": [60, 94], "30": [61], "starts": [65],
+        "degrade.": [67], "activation": [69], "energies": [70], "are": [76, 127],
+        "range": [79], "0.28-0.40": [81], "eV": [82], "0.91-0.96": [84], "eV,": [85],
+        "have": [89], "highest": [91], "proton": [92], "doping": [97], "concentration":
+        [98], "at.%.": [101], "Furthermore,": [102], "dense": [104], "uniform": [106],
+        "130-140": [111], "nm": [112], "thickness": [114], "obtained": [116], "technique.":
+        [119], "conductivities": [121], "about": [128], "10^3": [129], "-": [130],
+        "10^4": [131], "times": [132], "those": [133], "pellet": [136], "samples.":
+        [137], "reason": [139], "observed": [142], "high": [143], "still": [146],
+        "under": [147], "further": [148], "investigation.": [149]}, "primary_location":
+        {"id": "doi:10.1149/1.3265877", "doi": "https://doi.org/10.1149/1.3265877",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.1149/1.3265877", "pdf_url":
+        "https://iopscience.iop.org/article/10.1149/1.3265877/pdf", "source": {"id":
+        "https://openalex.org/S4210205149", "display_name": "ECS Transactions", "issn_l":
+        "1938-5862", "issn": ["1938-5862", "1938-6737", "2151-2051"], "is_oa": false,
+        "is_in_doaj": false, "is_core": false, "listed_in": ["norway-1", "poland-20"],
+        "host_organization": "https://openalex.org/P4310311669", "host_organization_name":
+        "Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310311669"],
+        "host_organization_lineage_names": ["Institute of Physics"], "type": "journal"},
+        "license": null, "license_id": null, "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "ECS Transactions", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W1987068026", "doi": "https://doi.org/10.1116/1.4905775",
+        "title": "Parametric study of Y-doped BaZrO3 thin film deposited via pulsed
+        laser deposition", "publication_year": 2015, "abstract_inverted_index": {"This":
+        [0], "study": [1], "investigates": [2], "the": [3, 49, 107, 120], "microstructure":
+        [4], "morphologies": [5], "of": [6, 41, 48, 77, 106], "Y-doped": [7], "barium":
+        [8], "zirconate": [9], "(BZY)": [10], "thin": [11, 21, 35, 83, 111], "films":
+        [12, 36, 84, 112], "via": [13], "a": [14, 31], "pulsed": [15], "laser": [16],
+        "deposition": [17], "(PLD)": [18], "process.": [19], "BZY": [20, 34, 82, 110],
+        "film": [22], "crystallinity": [23], "was": [24], "investigated": [25], "at":
+        [26, 62, 72, 86], "different": [27], "substrate": [28, 50, 121], "temperatures":
+        [29], "in": [30, 89], "PLD": [32], "chamber.": [33], "deposited": [37, 61,
+        85], "under": [38], "0.013": [39], "mbar": [40, 88], "oxygen": [42, 74], "pressure":
+        [43, 76], "are": [44], "highly": [45], "dense": [46, 114], "regardless": [47],
+        "temperature": [51, 64, 91, 122], "(25": [52, 93], "\u00b0C": [53, 94], "\u2264":
+        [54, 56, 66, 95, 97], "T": [55, 96], "600": [57], "\u00b0C),": [58], "while":
+        [59], "those": [60], "low": [63], "(T": [65], "200": [67], "\u00b0C)": [68,
+        99], "have": [69, 100], "porous": [70, 101], "structures": [71, 115], "an":
+        [73], "partial": [75], "0.13": [78], "mbar.": [79], "In": [80], "addition,":
+        [81], "0.26": [87], "low/intermediate": [90], "ranges": [92], "400": [98],
+        "and": [102], "columnar": [103], "structures.": [104], "Regardless": [105],
+        "chamber": [108], "pressures,": [109], "with": [113], "can": [116], "be":
+        [117], "obtained": [118], "when": [119], "exceeds": [123], "500": [124], "\u00b0C.":
+        [125]}, "primary_location": {"id": "doi:10.1116/1.4905775", "doi": "https://doi.org/10.1116/1.4905775",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1116/1.4905775", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S4210190837", "display_name":
+        "Journal of Vacuum Science & Technology A Vacuum Surfaces and Films", "issn_l":
+        "0734-2101", "issn": ["0734-2101", "1520-8559"], "is_oa": false, "is_in_doaj":
+        false, "is_core": true, "listed_in": ["cwts-core", "dongbi-c", "jufo-1", "ki-jl-1",
+        "norway-1", "poland-70", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Vacuum Science &amp; Technology A: Vacuum, Surfaces, and Films", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W2046445330", "doi": "https://doi.org/10.1109/inec.2010.5425088",
+        "title": "Fabrication of proton conducting Y2O3-doped BaZrO3 thin films by
+        electrostatic spray deposition", "publication_year": 2010, "abstract_inverted_index":
+        {"Y2O3-doped": [0], "BaZrO3(BYZ)": [1], "thin": [2, 48, 78], "films": [3,
+        34, 49], "were": [4], "deposited": [5, 46], "by": [6, 53], "electrostatic":
+        [7], "spray": [8], "deposition": [9, 27], "(ESD)": [10], "technique.": [11],
+        "The": [12, 38, 67], "effects": [13], "of": [14, 32, 44], "substrate": [15,
+        23], "temperature,": [16], "precursor": [17], "solution,": [18], "flow": [19],
+        "rate,": [20], "nozzle": [21], "to": [22], "distance,": [24], "voltage,":
+        [25], "and": [26, 41, 61, 84], "time": [28], "on": [29], "the": [30, 33, 45],
+        "quality": [31], "have": [35], "been": [36, 51], "studied.": [37], "microstructure,":
+        [39], "phase,": [40], "proton": [42], "conductivities": [43], "BYZ": [47],
+        "has": [50, 69], "characterized": [52], "scanning": [54], "electron": [55],
+        "microscopy": [56], "(SEM),": [57], "X-ray": [58], "diffraction": [59], "(XRD),":
+        [60], "electrochemical": [62, 86], "impedance": [63], "spectroscopy": [64],
+        "technique,": [65], "respectively.": [66], "result": [68], "showed": [70],
+        "that": [71], "ESD": [72], "is": [73], "an": [74], "effective": [75], "technique":
+        [76], "for": [77], "film": [79], "fabrications": [80], "in": [81], "both":
+        [82], "nano-": [83], "micro-scale": [85], "device.": [87]}, "primary_location":
+        {"id": "doi:10.1109/inec.2010.5425088", "doi": "https://doi.org/10.1109/inec.2010.5425088",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1109/inec.2010.5425088",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4306418740", "display_name":
+        "IEEE International Nanoelectronics Conference", "issn_l": null, "issn": null,
+        "is_oa": false, "is_in_doaj": false, "is_core": false, "listed_in": [], "host_organization":
+        null, "host_organization_name": null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "conference"}, "license": null, "license_id": null, "version":
+        "publishedVersion", "is_accepted": true, "is_published": true, "raw_source_name":
+        "2010 3rd International Nanoelectronics Conference (INEC)", "raw_type": "proceedings-article"}},
+        {"id": "https://openalex.org/W4324135284", "doi": "https://doi.org/10.1016/j.tsf.2023.139803",
+        "title": "Growth and thermal stability of Sc-doped BaZrO3 thin films deposited
+        on single crystal substrates", "publication_year": 2023, "abstract_inverted_index":
+        {"Thin": [0], "films": [1, 35, 44, 66, 140], "of": [2, 31, 39, 63, 84, 103,
+        144], "BaZr1-xScxO3-x/2,": [3], "(0": [4], "\u2264": [5, 7], "x": [6], "0.64),":
+        [8], "well": [9], "known": [10], "as": [11, 33], "proton": [12], "conducting":
+        [13], "solid": [14, 19], "electrolytes": [15], "for": [16, 76, 88, 97], "intermediate":
+        [17], "temperature": [18], "oxide": [20], "fuel": [21], "cell,": [22], "were":
+        [23, 45], "deposited": [24, 34, 46], "by": [25, 69], "magnetron": [26], "sputtering.":
+        [27], "X-ray": [28], "diffraction": [29], "analysis": [30], "the": [32, 37,
+        64, 85, 89, 104, 112, 117, 124, 132, 145], "reveals": [36], "presence": [38],
+        "single-phase": [40], "perovskite": [41, 86, 139], "structure.": [42], "The":
+        [43, 61, 79, 101], "on": [47], "four": [48], "different": [49], "substrates":
+        [50], "(c-Al2O3,": [51], "LaAlO3\u3008100\u3009,": [52], "LaAlO3\u3008110\u3009,":
+        [53], "LaAlO3\u3008111\u3009)": [54], "yielding": [55], "random,": [56], "(110)-":
+        [57], "or": [58], "(100)-oriented": [59], "films.": [60], "stability": [62,
+        143], "as-deposited": [65], "was": [67, 109], "assessed": [68], "annealing":
+        [70, 80, 121, 149], "in": [71, 116, 150], "air": [72, 151], "at": [73, 152],
+        "600": [74, 153], "\u00b0C": [75], "2": [77], "h.": [78], "treatment": [81,
+        108], "revealed": [82], "instabilities": [83], "structure": [87, 146], "(110)":
+        [90], "and": [91, 127], "randomly": [92], "oriented": [93, 99, 138], "films,":
+        [94], "but": [95], "not": [96], "(100)": [98, 137], "film.": [100], "instability":
+        [102], "coating": [105], "under": [106, 147], "heat": [107], "attributed":
+        [110], "to": [111], "low": [113], "oxygen": [114], "content": [115], "film":
+        [118], "(understoichiometry)": [119], "prior": [120], "combined": [122], "with":
+        [123], "surface": [125], "energy": [126], "atomic": [128], "layers": [129],
+        "stacking": [130], "along": [131], "growth": [133], "direction.": [134], "An":
+        [135], "understoichiometric": [136], "showed": [141], "higher": [142], "an":
+        [148], "\u00b0C.": [154]}, "primary_location": {"id": "doi:10.1016/j.tsf.2023.139803",
+        "doi": "https://doi.org/10.1016/j.tsf.2023.139803", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.1016/j.tsf.2023.139803", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S84339699", "display_name": "Thin Solid Films", "issn_l":
+        "0040-6090", "issn": ["0040-6090", "1879-2731"], "is_oa": false, "is_in_doaj":
+        false, "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-b",
+        "jufo-1", "norway-1", "poland-70", "russia-white-list-1"], "host_organization":
+        "https://openalex.org/P4310320990", "host_organization_name": "Elsevier BV",
+        "host_organization_lineage": ["https://openalex.org/P4310320990"], "host_organization_lineage_names":
+        ["Elsevier BV"], "type": "journal"}, "license": "cc-by", "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Thin Solid Films", "raw_type": "journal-article"}}], "group_by":
+        []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429fef9765f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '13465'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:34 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=XeNEx0eUrWLsLPgzQSX4sY8zd7G8ZkJRhYlFmK2ohyw%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633254"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=XeNEx0eUrWLsLPgzQSX4sY8zd7G8ZkJRhYlFmK2ohyw%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633254"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '8990'
+      x-ratelimit-remaining-usd:
+      - '0.899'
+      x-ratelimit-reset:
+      - '30746'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=BaZrO3+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 287, "db_response_time_ms": 56, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (BaZrO3 thin film)
+        in the title or abstract", "x_new_oql": "get works with (BaZrO3 thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "BaZrO3 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:BaZrO3 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W1990862896"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442a017b465f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '619'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:34 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=XeNEx0eUrWLsLPgzQSX4sY8zd7G8ZkJRhYlFmK2ohyw%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633254"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=XeNEx0eUrWLsLPgzQSX4sY8zd7G8ZkJRhYlFmK2ohyw%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633254"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '8980'
+      x-ratelimit-remaining-usd:
+      - '0.898'
+      x-ratelimit-reset:
+      - '30746'
+    status:
+      code: 200
+      message: OK
+version: 1

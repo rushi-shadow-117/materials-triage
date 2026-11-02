@@ -1,0 +1,174 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - _csrf_token=authenticated; mp-session=UVS2E9DkhWTT73SN24TCtg|1794688598|XYoKuOBd-7cGMzFz7NfFCgdFxcM;
+        __cf_bm=8v4ZB4MhEhRexFMT3JtHwSMVQIs92OagF4zWTTlYJlQ-1793633218.465444-1.0.1.1-5gLUx3xULDq7hZ37BoDXyIm5inROdLCtg5AnixKs62WcXWYffbNIlTU4vSLBlI5eHY5EE50Y5fJR4_Pd3lRD62Z0vvyl4Co1COTnYdxVlC4BRQ3PV0zGOTqFUH97teyn
+      host:
+      - api.materialsproject.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.materialsproject.org/materials/dielectric/?_fields=material_id%2Cformula_pretty%2Ce_total%2Ce_ionic%2Ce_electronic%2Cn%2Cdeprecated%2Cbuilder_meta&_limit=1000&material_ids=mp-10064%2Cmp-1021503%2Cmp-1071820%2Cmp-10851%2Cmp-10948%2Cmp-11684%2Cmp-1179447%2Cmp-1179454%2Cmp-1179488%2Cmp-1179508%2Cmp-1179529%2Cmp-1188220%2Cmp-1195265%2Cmp-1199998%2Cmp-1200292%2Cmp-1200685%2Cmp-1201738%2Cmp-1201887%2Cmp-1203655%2Cmp-1204026%2Cmp-1204057%2Cmp-1204070%2Cmp-1205213%2Cmp-12350%2Cmp-1244945%2Cmp-1244965%2Cmp-1244968%2Cmp-1245026%2Cmp-1248957%2Cmp-1249090%2Cmp-1249332%2Cmp-1249637%2Cmp-1249969%2Cmp-1250261%2Cmp-1250551%2Cmp-1250639%2Cmp-1256499%2Cmp-1256614%2Cmp-1257168%2Cmp-1258196%2Cmp-1265115%2Cmp-1268079%2Cmp-12787%2Cmp-1353259%2Cmp-1365799%2Cmp-1398433%2Cmp-15078%2Cmp-16964%2Cmp-17279%2Cmp-17909%2Cmp-18280%2Cmp-2374583%2Cmp-32667%2Cmp-32895%2Cmp-34150%2Cmp-530546%2Cmp-532105%2Cmp-542814%2Cmp-545488%2Cmp-545719%2Cmp-546546%2Cmp-546794%2Cmp-553881%2Cmp-553945%2Cmp-553993%2Cmp-554089%2Cmp-554151%2Cmp-554175%2Cmp-554243%2Cmp-554258%2Cmp-554267%2Cmp-554397%2Cmp-554498%2Cmp-554543%2Cmp-554573%2Cmp-554665%2Cmp-554682%2Cmp-554755%2Cmp-554946%2Cmp-555147%2Cmp-555165%2Cmp-555211%2Cmp-555235%2Cmp-555251%2Cmp-555355%2Cmp-555394%2Cmp-555411%2Cmp-555483%2Cmp-555497%2Cmp-555521%2Cmp-555544%2Cmp-555556%2Cmp-555676%2Cmp-555700%2Cmp-555740%2Cmp-555791%2Cmp-555823%2Cmp-555891%2Cmp-555960%2Cmp-556027%2Cmp-556044%2Cmp-556068%2Cmp-556088%2Cmp-556132%2Cmp-556218%2Cmp-556257%2Cmp-556262%2Cmp-556319%2Cmp-556376%2Cmp-556454%2Cmp-556464%2Cmp-556469%2Cmp-556537%2Cmp-556553%2Cmp-556564%2Cmp-556588%2Cmp-556591%2Cmp-556654%2Cmp-556662%2Cmp-556788%2Cmp-556812%2Cmp-556880%2Cmp-556882%2Cmp-556961%2Cmp-556963%2Cmp-556985%2Cmp-556994%2Cmp-557004%2Cmp-557017%2Cmp-557024%2Cmp-557076%2Cmp-557118%2Cmp-557134%2Cmp-557194%2Cmp-557211%2Cmp-557244%2Cmp-557264%2Cmp-557465%2Cmp-557591%2Cmp-557653%2Cmp-557723%2Cmp-557771%2Cmp-557814%2Cmp-557837%2Cmp-557873%2Cmp-557881%2Cmp-557894%2Cmp-557930%2Cmp-557933%2Cmp-558025%2Cmp-558115%2Cmp-558200%2Cmp-558203%2Cmp-558301%2Cmp-558326%2Cmp-558351%2Cmp-558366%2Cmp-558374%2Cmp-558564%2Cmp-558569%2Cmp-558598%2Cmp-558733%2Cmp-558891%2Cmp-558931%2Cmp-558947%2Cmp-559091%2Cmp-559273%2Cmp-559313%2Cmp-559347%2Cmp-559360%2Cmp-559389%2Cmp-559550%2Cmp-559605%2Cmp-559740%2Cmp-559829%2Cmp-559860%2Cmp-559872%2Cmp-559928%2Cmp-559962%2Cmp-560064%2Cmp-560131%2Cmp-560152%2Cmp-560155%2Cmp-560203%2Cmp-560336%2Cmp-560527%2Cmp-560708%2Cmp-560754%2Cmp-560809%2Cmp-560826%2Cmp-560836%2Cmp-560920%2Cmp-560941%2Cmp-560954%2Cmp-560973%2Cmp-560998%2Cmp-561090%2Cmp-561181%2Cmp-561291%2Cmp-561301
+  response:
+    body:
+      string: '{"data":[{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:44.077000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaaaaqbj","deprecated":false,"e_total":4.521753753333923,"e_ionic":2.1694495833339222,"e_electronic":2.3523041700000005,"n":1.533722324933689},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:44.589000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaaaazcm","deprecated":false,"e_total":3.5354453933315426,"e_ionic":1.5044869466648771,"e_electronic":2.030958446666665,"n":1.4251169940277413},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:44.872000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaaabamv","deprecated":false,"e_total":2.8898867299976416,"e_ionic":1.1118124233309747,"e_electronic":1.7780743066666667,"n":1.3334445270301523},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:53.223000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfcna","deprecated":false,"e_total":3.587685763333359,"e_ionic":1.4683582166666926,"e_electronic":2.1193275466666663,"n":1.4557910381186807},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:53.272000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfcwo","deprecated":false,"e_total":3.8824603933333335,"e_ionic":1.6973726466666672,"e_electronic":2.1850877466666665,"n":1.4782042303642169},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:53.381000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfnrd","deprecated":false,"e_total":3.9801900000000003,"e_ionic":1.7380406166666666,"e_electronic":2.2421493833333335,"n":1.4973808411133533},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:53.412000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfntn","deprecated":false,"e_total":3.7357851864000495,"e_ionic":1.5869235019123196,"e_electronic":2.14886168448773,"n":1.465899616101911},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:02.309000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfnxb","deprecated":false,"e_total":3.566901203345921,"e_ionic":1.5662685633443996,"e_electronic":2.000632640001521,"n":1.4144372167054715},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:02.421000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfoip","deprecated":false,"e_total":3.4723357233333325,"e_ionic":1.4942177599999995,"e_electronic":1.978117963333333,"n":1.406455816345943},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:02.441000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfojt","deprecated":false,"e_total":3.89622179333707,"e_ionic":1.7096679900037375,"e_electronic":2.1865538033333327,"n":1.4787000383219489},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:53.737000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfpfv","deprecated":false,"e_total":4.742104846666667,"e_ionic":2.2711205033333335,"e_electronic":2.4709843433333334,"n":1.5719364946884251},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:53.816000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfpjf","deprecated":false,"e_total":3.901121919982483,"e_ionic":1.7343183299850853,"e_electronic":2.166803589997398,"n":1.4720066541960324},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:53.819000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfpjv","deprecated":false,"e_total":3.3815507999999994,"e_ionic":1.37061043,"e_electronic":2.01094037,"n":1.4180762920238108},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:54.471000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfqil","deprecated":false,"e_total":3.8809048866666664,"e_ionic":1.765722673333333,"e_electronic":2.115182213333333,"n":1.454366602110119},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:54.665000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfqva","deprecated":false,"e_total":3.5102110100000004,"e_ionic":1.4990991966666665,"e_electronic":2.011111813333333,"n":1.4181367399984155},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:54.738000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfqyx","deprecated":false,"e_total":4.312628696666668,"e_ionic":2.0048600100000002,"e_electronic":2.3077686866666673,"n":1.5191341898155895},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:03.094000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfrhx","deprecated":false,"e_total":4.707034143333334,"e_ionic":2.2670285500000005,"e_electronic":2.4400055933333333,"n":1.5620517255626758},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:03.109000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfrjg","deprecated":false,"e_total":6.32101793,"e_ionic":3.431575693333334,"e_electronic":2.889442236666667,"n":1.6998359440447972},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:03.242000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfrqy","deprecated":false,"e_total":4.7828567500000005,"e_ionic":2.1904505133333334,"e_electronic":2.592406236666667,"n":1.6100951017460636},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:03.293000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfrum","deprecated":false,"e_total":4.24794759,"e_ionic":1.9759657966666664,"e_electronic":2.271981793333333,"n":1.507309455066654},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:03.352000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfrxp","deprecated":false,"e_total":3.888362953333333,"e_ionic":1.7458230466666667,"e_electronic":2.1425399066666664,"n":1.463741748624622},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:03.358000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfryn","deprecated":false,"e_total":3.4676806633333332,"e_ionic":1.4070777933333336,"e_electronic":2.0606028700000003,"n":1.4354800137932957},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:03.364000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfryw","deprecated":false,"e_total":3.9443542766666675,"e_ionic":1.674148106666667,"e_electronic":2.2702061700000002,"n":1.5067203356960441},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:02.830000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfsdq","deprecated":false,"e_total":4.374398770000265,"e_ionic":2.0151432366669377,"e_electronic":2.359255533333327,"n":1.535986827200457},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:02.866000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfseg","deprecated":false,"e_total":3.7499604466666674,"e_ionic":1.5133569600000003,"e_electronic":2.236603486666667,"n":1.49552782878376},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:02.916000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfsim","deprecated":false,"e_total":4.557305393333333,"e_ionic":2.0497411566666663,"e_electronic":2.507564236666667,"n":1.5835290450972686},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:03.151000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfsqz","deprecated":false,"e_total":4.517771493333334,"e_ionic":2.154849693333333,"e_electronic":2.3629218,"n":1.5371798203203164},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:54.228000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfsyf","deprecated":false,"e_total":5.351426683333334,"e_ionic":2.616273703333334,"e_electronic":2.73515298,"n":1.6538297917258595},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:54.356000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabftax","deprecated":false,"e_total":5.078722923335734,"e_ionic":2.790739360002401,"e_electronic":2.287983563333333,"n":1.5126081988847386},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:54.423000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabftfh","deprecated":false,"e_total":4.142990917307915,"e_ionic":1.8875049519964886,"e_electronic":2.2554859653114265,"n":1.5018275418007976},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:54.447000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabftgz","deprecated":false,"e_total":3.2498761633262627,"e_ionic":1.3209114433262623,"e_electronic":1.9289647200000004,"n":1.388871743538618},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:54.522000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabftiw","deprecated":false,"e_total":4.089214866666666,"e_ionic":1.8318218633333332,"e_electronic":2.2573930033333327,"n":1.5024623134486046},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:54.776000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfttg","deprecated":false,"e_total":4.2445686,"e_ionic":1.9236405266666665,"e_electronic":2.3209280733333335,"n":1.5234592457080476},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:55.193000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfutv","deprecated":false,"e_total":4.1462219632129385,"e_ionic":1.8852565198796132,"e_electronic":2.260965443333325,"n":1.5036507052282204},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:55.436000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfvbn","deprecated":false,"e_total":3.8364524566671334,"e_ionic":1.6909057000004666,"e_electronic":2.1455467566666666,"n":1.4647684993427004},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:02.805000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfvkb","deprecated":false,"e_total":3.66479522333305,"e_ionic":1.6237090699997265,"e_electronic":2.0410861533333233,"n":1.4286658648310049},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:03.106000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfwfo","deprecated":false,"e_total":4.460121126666667,"e_ionic":2.116793493333334,"e_electronic":2.3433276333333333,"n":1.5307931386485025},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:03.192000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfwhs","deprecated":false,"e_total":2.989561233334245,"e_ionic":1.1582631766675782,"e_electronic":1.831298056666667,"n":1.3532546163478132},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:03.269000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfwsh","deprecated":false,"e_total":4.841406926666667,"e_ionic":2.32505012,"e_electronic":2.516356806666667,"n":1.5863028735606157},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:04.420000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfxet","deprecated":false,"e_total":3.369903816672321,"e_ionic":1.4153462366723228,"e_electronic":1.9545575799999984,"n":1.3980549273901932},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:04.629000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfxqq","deprecated":false,"e_total":3.2182940233333333,"e_ionic":1.2449950333333333,"e_electronic":1.97329899,"n":1.4047416096919747},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:54.347000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabfyid","deprecated":false,"e_total":4.332173336666667,"e_ionic":2.05395763,"e_electronic":2.2782157066666664,"n":1.5093759328499532}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-02T15:27:02.181725+00:00","total_doc":42,"facet":null,"max_limit":1000,"default_fields":["material_id","last_updated"]}}'
+    headers:
+      access-control-expose-headers:
+      - X-Api-Key
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429366db7db04-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '17556'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:02 GMT
+      ratelimit-limit:
+      - '25'
+      ratelimit-remaining:
+      - '23'
+      ratelimit-reset:
+      - '1'
+      server:
+      - cloudflare
+      set-cookie:
+      - _csrf_token=authenticated; Domain=.materialsproject.org; Path=/; SameSite=Strict
+      vary:
+      - Accept-Encoding
+      - Origin
+      via:
+      - kong/2.8.4
+      x-consumer-id:
+      - 58e0b4c2-4c2d-439b-ba0a-648cd568a0fa
+      x-kong-proxy-latency:
+      - '7'
+      x-kong-upstream-latency:
+      - '13'
+      x-ratelimit-limit-day:
+      - '640000'
+      x-ratelimit-limit-hour:
+      - '40000'
+      x-ratelimit-limit-minute:
+      - '1000'
+      x-ratelimit-limit-month:
+      - '12800000'
+      x-ratelimit-limit-second:
+      - '25'
+      x-ratelimit-limit-year:
+      - '100000000'
+      x-ratelimit-remaining-day:
+      - '639988'
+      x-ratelimit-remaining-hour:
+      - '39988'
+      x-ratelimit-remaining-minute:
+      - '993'
+      x-ratelimit-remaining-month:
+      - '12799988'
+      x-ratelimit-remaining-second:
+      - '23'
+      x-ratelimit-remaining-year:
+      - '99999940'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - _csrf_token=authenticated; mp-session=UVS2E9DkhWTT73SN24TCtg|1794688598|XYoKuOBd-7cGMzFz7NfFCgdFxcM;
+        __cf_bm=8v4ZB4MhEhRexFMT3JtHwSMVQIs92OagF4zWTTlYJlQ-1793633218.465444-1.0.1.1-5gLUx3xULDq7hZ37BoDXyIm5inROdLCtg5AnixKs62WcXWYffbNIlTU4vSLBlI5eHY5EE50Y5fJR4_Pd3lRD62Z0vvyl4Co1COTnYdxVlC4BRQ3PV0zGOTqFUH97teyn
+      host:
+      - api.materialsproject.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.materialsproject.org/materials/dielectric/?_fields=material_id%2Cformula_pretty%2Ce_total%2Ce_ionic%2Ce_electronic%2Cn%2Cdeprecated%2Cbuilder_meta&_limit=1000&material_ids=mp-561351%2Cmp-561488%2Cmp-562490%2Cmp-572283%2Cmp-600000%2Cmp-600001%2Cmp-600002%2Cmp-600003%2Cmp-600004%2Cmp-600005%2Cmp-600006%2Cmp-600007%2Cmp-600014%2Cmp-600015%2Cmp-600016%2Cmp-600018%2Cmp-600022%2Cmp-600023%2Cmp-600024%2Cmp-600026%2Cmp-600027%2Cmp-600028%2Cmp-600029%2Cmp-600031%2Cmp-600032%2Cmp-600033%2Cmp-600037%2Cmp-600038%2Cmp-600039%2Cmp-600041%2Cmp-600045%2Cmp-600049%2Cmp-600050%2Cmp-600051%2Cmp-600052%2Cmp-600053%2Cmp-600054%2Cmp-600055%2Cmp-600057%2Cmp-600059%2Cmp-600060%2Cmp-600061%2Cmp-600063%2Cmp-600065%2Cmp-600067%2Cmp-600068%2Cmp-600070%2Cmp-600071%2Cmp-600072%2Cmp-600076%2Cmp-600078%2Cmp-600080%2Cmp-600083%2Cmp-600084%2Cmp-600085%2Cmp-600091%2Cmp-600096%2Cmp-600098%2Cmp-600109%2Cmp-600111%2Cmp-604717%2Cmp-615993%2Cmp-638033%2Cmp-638035%2Cmp-638038%2Cmp-638049%2Cmp-639463%2Cmp-639478%2Cmp-639480%2Cmp-639506%2Cmp-639511%2Cmp-639512%2Cmp-639558%2Cmp-639682%2Cmp-639695%2Cmp-639705%2Cmp-639724%2Cmp-639733%2Cmp-639734%2Cmp-639741%2Cmp-639748%2Cmp-640556%2Cmp-640917%2Cmp-644923%2Cmp-646895%2Cmp-651707%2Cmp-653763%2Cmp-662706%2Cmp-663422%2Cmp-667368%2Cmp-667371%2Cmp-667373%2Cmp-667376%2Cmp-667377%2Cmp-667383%2Cmp-667448%2Cmp-669426%2Cmp-673168%2Cmp-680204%2Cmp-680222%2Cmp-683947%2Cmp-683952%2Cmp-683953%2Cmp-683970%2Cmp-685184%2Cmp-6922%2Cmp-6930%2Cmp-6945%2Cmp-6947%2Cmp-7000%2Cmp-7029%2Cmp-7087%2Cmp-733790%2Cmp-7648%2Cmp-7905%2Cmp-8059%2Cmp-8352%2Cmp-8602%2Cmp-9258%2Cmp-972808%2Cmp-985570%2Cmp-985590
+  response:
+    body:
+      string: '{"data":[{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:42.377000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaaaakgg","deprecated":false,"e_total":4.522152466666305,"e_ionic":2.1698750366663044,"e_electronic":2.35227743,"n":1.5337136075552045},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:42.380000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaaaakgo","deprecated":false,"e_total":4.632815996666922,"e_ionic":2.1783783300002546,"e_electronic":2.4544376666666676,"n":1.5666645035446063},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:42.389000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaaaakhd","deprecated":false,"e_total":4.00544875,"e_ionic":1.7795414499999993,"e_electronic":2.2259073,"n":1.4919474856709936},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:41.983000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaaaakjg","deprecated":false,"e_total":4.586131743334117,"e_ionic":2.1634500966674506,"e_electronic":2.4226816466666663,"n":1.5564965938500046},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:42.021000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaaaakkj","deprecated":false,"e_total":4.00573991,"e_ionic":1.77949557,"e_electronic":2.22624434,"n":1.4920604344328685},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:43.828000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaaaalie","deprecated":false,"e_total":12.74467741,"e_ionic":10.526614096666664,"e_electronic":2.218063313333333,"n":1.4893163912793457},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:52.910000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaaaalxz","deprecated":false,"e_total":3.9446341166666667,"e_ionic":1.763401486666667,"e_electronic":2.18123263,"n":1.4768996682239453},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:07.323000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabidoy","deprecated":false,"e_total":3.3280602966666666,"e_ionic":1.3891149233333329,"e_electronic":1.9389453733333335,"n":1.3924601873422928},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:07.325000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabidoz","deprecated":false,"e_total":3.0048496033333336,"e_ionic":1.1598827633333333,"e_electronic":1.8449668400000003,"n":1.3582955643010841},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:07.330000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabidpa","deprecated":false,"e_total":3.3297307433333327,"e_ionic":1.3874879466666667,"e_electronic":1.9422427966666662,"n":1.3936437122402074},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:07.334000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabidpc","deprecated":false,"e_total":3.6147574699999994,"e_ionic":1.6012196566666665,"e_electronic":2.013537813333333,"n":1.4189918299036584},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:07.346000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabidqf","deprecated":false,"e_total":3.22940798333333,"e_ionic":1.3373724533333338,"e_electronic":1.8920355299999967,"n":1.3755128243676962},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:07.349000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabidqk","deprecated":false,"e_total":3.0037509799999995,"e_ionic":1.154232913333333,"e_electronic":1.8495180666666666,"n":1.3599698771173818},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:07.352000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabidrf","deprecated":false,"e_total":3.57998594,"e_ionic":1.5100445833333331,"e_electronic":2.0699413566666665,"n":1.4387290768823249},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:06.748000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabkjyt","deprecated":false,"e_total":3.5407909500000003,"e_ionic":1.5284196366666667,"e_electronic":2.012371313333333,"n":1.4185807390957108},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:06.752000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabkkhe","deprecated":false,"e_total":2.92969568,"e_ionic":1.0996196366666666,"e_electronic":1.8300760433333332,"n":1.3528030319796498},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:00.343000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaabmche","deprecated":false,"e_total":4.22409841,"e_ionic":1.8951018133333333,"e_electronic":2.328996596666667,"n":1.5261050411641615},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:05.111000","license":null},"formula_pretty":"SiO2","material_id":"mp-aaacdjbs","deprecated":false,"e_total":4.1866012,"e_ionic":1.8816334666666668,"e_electronic":2.3049677333333336,"n":1.5182120185709682}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-02T15:27:02.300148+00:00","total_doc":18,"facet":null,"max_limit":1000,"default_fields":["material_id","last_updated"]}}'
+    headers:
+      access-control-expose-headers:
+      - X-Api-Key
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429371f25db04-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '7581'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:02 GMT
+      ratelimit-limit:
+      - '25'
+      ratelimit-remaining:
+      - '22'
+      ratelimit-reset:
+      - '1'
+      server:
+      - cloudflare
+      set-cookie:
+      - _csrf_token=authenticated; Domain=.materialsproject.org; Path=/; SameSite=Strict
+      vary:
+      - Accept-Encoding
+      - Origin
+      via:
+      - kong/2.8.4
+      x-consumer-id:
+      - 58e0b4c2-4c2d-439b-ba0a-648cd568a0fa
+      x-kong-proxy-latency:
+      - '8'
+      x-kong-upstream-latency:
+      - '12'
+      x-ratelimit-limit-day:
+      - '640000'
+      x-ratelimit-limit-hour:
+      - '40000'
+      x-ratelimit-limit-minute:
+      - '1000'
+      x-ratelimit-limit-month:
+      - '12800000'
+      x-ratelimit-limit-second:
+      - '25'
+      x-ratelimit-limit-year:
+      - '100000000'
+      x-ratelimit-remaining-day:
+      - '639987'
+      x-ratelimit-remaining-hour:
+      - '39987'
+      x-ratelimit-remaining-minute:
+      - '992'
+      x-ratelimit-remaining-month:
+      - '12799987'
+      x-ratelimit-remaining-second:
+      - '22'
+      x-ratelimit-remaining-year:
+      - '99999939'
+    status:
+      code: 200
+      message: OK
+version: 1

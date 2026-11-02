@@ -1,0 +1,88 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - _csrf_token=authenticated; mp-session=tWdGuSYcBtwKT9fVveU9Fw|1794688599|dSAFT28AT-Yx0QkzLbH5Irl_Eoo;
+        __cf_bm=5q7lIsEuiRLmsnr.dZSTzV5AiwJ3nStLcn2tD8VTDe8-1793633229.1934805-1.0.1.1-4aoz9x.vN9neTqe.Zw4Q1JRDDTX_YINbW.n0tLHQTlKIn3JF1C92_ht2.DM4m8CrUNv3BjDAmEYP97rSzQv2nZaCUwod2M5aGCf3Xbsj4SM2__BG7fltewc.MCQCMTL9
+      host:
+      - api.materialsproject.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.materialsproject.org/materials/dielectric/?_fields=material_id%2Cformula_pretty%2Ce_total%2Ce_ionic%2Ce_electronic%2Cn%2Cdeprecated%2Cbuilder_meta&_limit=1000&material_ids=mp-11607%2Cmp-1244914%2Cmp-1244972%2Cmp-1245123%2Cmp-1245229%2Cmp-1245249%2Cmp-1245263%2Cmp-1245287%2Cmp-2075%2Cmp-2245%2Cmp-40793%2Cmp-568867%2Cmp-583712%2Cmp-603694%2Cmp-641539%2Cmp-988
+  response:
+    body:
+      string: '{"data":[{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:28.117000","license":null},"formula_pretty":"Si3N4","material_id":"mp-aaaaabma","deprecated":false,"e_total":8.157832289998682,"e_ionic":3.893353203330646,"e_electronic":4.264479086668037,"n":2.0650615212792176},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:42.225000","license":null},"formula_pretty":"Si3N4","material_id":"mp-aaaaadij","deprecated":false,"e_total":8.151321686666849,"e_ionic":3.8694497866668485,"e_electronic":4.2818719,"n":2.0692684456106702},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:49.304000","license":null},"formula_pretty":"Si3N4","material_id":"mp-aaaaarel","deprecated":false,"e_total":9.408913850001513,"e_ionic":4.716144600001592,"e_electronic":4.6927692499999205,"n":2.1662800488394662}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-02T15:27:18.090061+00:00","total_doc":3,"facet":null,"max_limit":1000,"default_fields":["material_id","last_updated"]}}'
+    headers:
+      access-control-expose-headers:
+      - X-Api-Key
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442999ddc2db04-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '1421'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:18 GMT
+      ratelimit-limit:
+      - '25'
+      ratelimit-remaining:
+      - '24'
+      ratelimit-reset:
+      - '1'
+      server:
+      - cloudflare
+      set-cookie:
+      - _csrf_token=authenticated; Domain=.materialsproject.org; Path=/; SameSite=Strict
+      vary:
+      - Accept-Encoding
+      - Origin
+      via:
+      - kong/2.8.4
+      x-consumer-id:
+      - 58e0b4c2-4c2d-439b-ba0a-648cd568a0fa
+      x-kong-proxy-latency:
+      - '8'
+      x-kong-upstream-latency:
+      - '8'
+      x-ratelimit-limit-day:
+      - '640000'
+      x-ratelimit-limit-hour:
+      - '40000'
+      x-ratelimit-limit-minute:
+      - '1000'
+      x-ratelimit-limit-month:
+      - '12800000'
+      x-ratelimit-limit-second:
+      - '25'
+      x-ratelimit-limit-year:
+      - '100000000'
+      x-ratelimit-remaining-day:
+      - '639936'
+      x-ratelimit-remaining-hour:
+      - '39936'
+      x-ratelimit-remaining-minute:
+      - '941'
+      x-ratelimit-remaining-month:
+      - '12799936'
+      x-ratelimit-remaining-second:
+      - '24'
+      x-ratelimit-remaining-year:
+      - '99999888'
+    status:
+      code: 200
+      message: OK
+version: 1

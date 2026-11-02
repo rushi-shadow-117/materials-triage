@@ -1,0 +1,302 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=K2W2O7+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 2, "db_response_time_ms": 37, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (K2W2O7 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (K2W2O7 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "K2W2O7
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:K2W2O7
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W7219309735",
+        "doi": null, "title": "Liquid Phase Epitaxy Growth of Tm3+ and Yb3+ Doped
+        MgWO4 Crystalline Thin-Films", "publication_year": 2025, "abstract_inverted_index":
+        {"Single-crystalline": [0], "layers": [1, 34, 159, 189], "of": [2, 39, 48,
+        73, 76, 92, 176, 213], "MgWO4": [3, 22, 187, 217], "doped": [4, 77, 190],
+        "with": [5, 41, 109, 191, 231], "Tm3+": [6], "and": [7, 37, 54, 64, 99, 118,
+        132, 138, 160, 165, 184, 200, 215], "Yb3+": [8], "were": [9, 35, 67], "successfully":
+        [10], "grown": [11], "by": [12], "the": [13, 30, 42, 55, 71, 96, 103, 146,
+        151, 158, 161, 174, 177, 198, 201, 209], "liquid": [14], "phase": [15], "epitaxy":
+        [16], "(LPE)": [17], "method": [18], "on": [19, 208], "(010)": [20], "oriented":
+        [21], "substrates": [23, 112], "using": [24], "K2W2O7": [25], "as": [26],
+        "a": [27, 46, 114, 119], "solvent,": [28], "for": [29, 95, 102, 135, 225],
+        "first": [31], "time.": [32], "These": [33, 171], "transparent": [36, 186],
+        "free": [38], "cracks,": [40], "Tm:MgWO4": [43], "layer": [44, 57, 98, 203],
+        "reaching": [45], "thickness": [47], "up": [49, 58], "to": [50, 59, 69, 167,
+        180], "300": [51], "mu": [52, 61], "m": [53], "Yb:MgWO4": [56], "90": [60],
+        "m.": [62], "Structural": [63], "morphological": [65], "characterizations":
+        [66], "performed": [68], "evaluate": [70], "quality": [72, 117], "both": [74,
+        136], "types": [75], "layers.": [78], "High-Resolution": [79], "X-ray": [80],
+        "Diffraction": [81], "(HRXRD)": [82], "rocking": [83], "curves": [84], "revealed":
+        [85], "full": [86], "width": [87], "at": [88], "half-maximum": [89], "(FWHM)":
+        [90], "values": [91], "115": [93], "arcsec": [94, 101], "Tm3+-doped": [97],
+        "140": [100], "Yb3+-doped": [104, 216], "layer,": [105], "in": [106, 227],
+        "close": [107], "agreement": [108], "their": [110], "respective": [111], "reflecting":
+        [113], "good": [115], "crystal": [116], "highly": [120], "ordered": [121],
+        "lattice": [122, 155], "structure.": [123], "Environmental": [124], "Scanning":
+        [125], "Electron": [126], "Microscopy": [127], "(ESEM)": [128], "analysis":
+        [129], "showed": [130], "well-defined": [131], "continuous": [133], "interfaces":
+        [134], "samples,": [137], "electron": [139], "probe": [140], "microanalysis":
+        [141], "(EPMA)": [142], "measurements": [143], "confirmed": [144], "that":
+        [145], "dopants": [147], "remained": [148], "confined": [149], "within": [150],
+        "epitaxial": [152, 188, 202], "regions.": [153], "The": [154, 195], "mismatch":
+        [156], "between": [157, 197], "substrate": [162, 199], "was": [163, 204],
+        "calculated": [164], "found": [166], "be": [168], "very": [169, 205], "low.":
+        [170], "results": [172], "demonstrate": [173], "capability": [175], "LPE":
+        [178], "technique": [179], "produce": [181], "relatively": [182], "thick":
+        [183], "optically": [185], "different": [192], "rare-earth": [193], "ions.":
+        [194], "interface": [196], "sharp.": [206], "Based": [207], "known": [210],
+        "spectroscopic": [211], "properties": [212], "Tm3+-": [214], "bulk": [218],
+        "crystals,": [219], "these": [220], "films": [221], "represent": [222], "promising":
+        [223], "candidates": [224], "applications": [226], "thin": [228], "disk":
+        [229], "lasers": [230], "simplified": [232], "pump": [233], "geometry.": [234]},
+        "primary_location": {"id": "pmh:oai:urv.cat:imarina:9466962", "doi": null,
+        "is_oa": true, "landing_page_url": "https://hdl.handle.net/20.500.11797/imarina9466962",
+        "pdf_url": "https://repositori.urv.cat/repositori/getDocument/imarina%3A9466962?ds=DocumentPrincipal&amp;mime=application/pdf",
+        "source": {"id": "https://openalex.org/S7407055111", "display_name": "Rovira
+        & Virgili repository", "issn_l": null, "issn": null, "is_oa": false, "is_in_doaj":
+        false, "is_core": false, "listed_in": [], "host_organization": null, "host_organization_name":
+        null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "repository"}, "license": "cc-by", "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "submittedVersion", "is_accepted": false, "is_published": false,
+        "raw_source_name": "Crystal Growth & Design. 25 (21): 9069-9077", "raw_type":
+        "info:eu-repo/semantics/publishedVersion"}}, {"id": "https://openalex.org/W1578788434",
+        "doi": "https://doi.org/10.5075/epfl-thesis-3390", "title": "Liquid-phase
+        epitaxy of doped KY(WO4)2 layers for waveguide lasers", "publication_year":
+        2005, "abstract_inverted_index": {"Rare-earth-ion": [0], "doped": [1], "KY(WO4)2":
+        [2], "(hereafter": [3], "KYW:RE)": [4], "is": [5, 83, 90, 229, 383, 390],
+        "a": [6, 84, 179, 294, 409], "promising": [7], "material": [8], "for": [9,
+        87, 262, 408], "novel": [10], "solid-state": [11], "lasers.": [12], "Its":
+        [13], "low": [14, 214], "laser": [15, 18, 326], "threshold,": [16], "high":
+        [17, 392], "efficiency,": [19], "and": [20, 32, 69, 82, 104, 149, 177, 237,
+        279, 306, 323, 364, 386], "third-order": [21], "nonlinear": [22], "effects":
+        [23], "have": [24, 316], "stimulated": [25], "research": [26], "towards":
+        [27], "miniaturized": [28], "thin-film": [29], "waveguide": [30, 411], "lasers":
+        [31], "amplifiers.": [33], "A": [34, 125], "method": [35], "of": [36, 112,
+        128, 137, 185, 206, 234, 255, 314, 325, 353, 400], "liquid-phase": [37], "epitaxy":
+        [38, 257], "(LPE)": [39], "to": [40, 95, 120, 146, 155, 160, 173, 194, 248,
+        266, 397], "produce": [41, 267], "KYW:RE": [42, 192, 274, 315], "thin": [43],
+        "layers": [44, 142, 193, 309], "with": [45, 143, 158, 202, 270, 293, 350],
+        "vertical": [46], "substrate": [47, 102, 164, 303], "dipping": [48], "has":
+        [49, 259, 369], "been": [50, 260, 317, 370], "developed.": [51], "Undoped":
+        [52], "KYW": [53, 186, 291], "crystals": [54], "having": [55], "laser-grade":
+        [56], "polished": [57], "(010)": [58], "faces": [59], "served": [60], "as":
+        [61, 213, 215, 310, 312, 319, 391, 393], "the": [62, 66, 70, 91, 99, 116,
+        134, 163, 169, 227, 232, 244, 263, 287, 302, 376, 387, 398, 403], "substrates.":
+        [63], "Two": [64], "solvents,": [65], "tungstate": [67], "K2W2O7": [68, 76,
+        288], "chloride": [71, 199], "NaCl\u2013KCl\u2013CsCl,": [72], "were": [73,
+        107], "tested.": [74], "The": [75, 101, 198, 252, 379], "solvent": [77, 86,
+        201, 289], "contains": [78], "no": [79], "impurity": [80], "ions": [81], "good":
+        [85], "KYW,": [88], "which": [89, 217, 242, 395], "only": [92, 354], "stable":
+        [93], "phase": [94], "be": [96, 189, 284], "crystallized": [97], "from": [98,
+        153, 286], "solution.": [100], "position": [103], "rotation": [105], "rate":
+        [106, 127], "optimized": [108], "by": [109, 231], "numerical": [110], "simulation":
+        [111], "liquid": [113], "flow": [114], "in": [115, 118, 140, 222, 337, 361,
+        375], "crucible": [117], "order": [119], "obtain": [121, 195], "uniform":
+        [122], "layer": [123, 246], "thickness.": [124], "crystallization": [126],
+        "1.2": [129], "mg": [130], "K-1": [131], "g-1": [132], "at": [133, 165, 211,
+        328, 333, 372], "growth": [135, 210], "temperature": [136], "900\u00b0C":
+        [138], "results": [139, 336], "high-quality": [141], "thickness": [144, 247],
+        "up": [145], "100": [147], "\u00b5m": [148, 277, 281], "RE3+": [150], "concentrations":
+        [151], "ranging": [152], "0.2": [154], "3": [156], "mol%": [157], "respect":
+        [159], "Y3+.": [161], "Dipping": [162], "0.1\u20130.3": [166], "K": [167],
+        "above": [168], "saturation": [170], "point": [171, 205], "helps": [172],
+        "eliminate": [174], "surface": [175, 363], "defects": [176], "assure": [178],
+        "defect-free": [180], "interface.": [181], "An": [182], "undoped": [183],
+        "overlay": [184], "can": [187, 218, 283], "subsequently": [188], "grown":
+        [190, 285], "on": [191, 290, 301], "buried": [196, 307, 365], "structures.":
+        [197], "NaCl\u2013KCl\u2013CsCl": [200], "its": [203], "melting": [204], "480\u00b0C":
+        [207], "allows": [208], "epitaxial": [209], "temperatures": [212], "520\u00b0C,":
+        [216], "reduce": [219], "thermal": [220], "stress": [221], "heavily": [223],
+        "RE-doped": [224], "layers.": [225], "However,": [226], "LPE": [228], "complicated":
+        [230], "formation": [233], "parasitic": [235], "phases": [236], "pronounced":
+        [238], "3D": [239], "island": [240], "nucleation,": [241], "limit": [243],
+        "maximum": [245, 380], "approx.": [249], "10": [250], "\u00b5m.": [251], "original":
+        [253], "concept": [254], "microchannel": [256], "(MCE)": [258], "applied":
+        [261], "first": [264], "time": [265], "channel": [268], "structures": [269],
+        "an": [271], "oxide": [272], "material.": [273], "ribs,": [275], "40-200":
+        [276], "wide": [278], "3-20": [280], "high,": [282], "substrates": [292],
+        "patterned": [295], "gold": [296], "or": [297, 331, 342], "platinum": [298],
+        "mask": [299], "deposited": [300], "surface.": [304], "Surface": [305], "planar":
+        [308, 367, 410], "well": [311], "channels": [313], "tested": [318], "optical":
+        [320], "waveguides.": [321], "End-coupling": [322], "propagation": [324, 351],
+        "light": [327], "633": [329], "nm": [330, 335, 374], "pumping": [332], "981":
+        [334], "excellent": [338], "passive": [339], "(633": [340], "nm)": [341],
+        "active": [343], "(e.g.": [344], "1030-nm": [345], "Yb3+": [346], "fluorescence)":
+        [347], "waveguiding": [348], "performance": [349], "losses": [352], "0.1-0.2":
+        [355], "dB": [356], "cm-1.": [357], "Continuous-wave": [358], "(CW)": [359],
+        "lasing": [360], "both": [362], "KYW:Yb": [366], "waveguides": [368], "demonstrated":
+        [371], "1025": [373], "fundamental": [377], "mode.": [378], "output": [381],
+        "power": [382], "290": [384], "mW": [385], "slope": [388], "efficiency": [389],
+        "80.4%,": [394], "is,": [396], "best": [399], "our": [401], "knowledge,":
+        [402], "highest": [404], "value": [405], "ever": [406], "reported": [407],
+        "laser.": [412]}, "primary_location": {"id": "pmh:oai:doc.rero.ch:7452", "doi":
+        null, "is_oa": false, "landing_page_url": "http://library.epfl.ch/theses/?nr=3390",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4306400148", "display_name":
+        "reroDoc Digital Library", "issn_l": null, "issn": null, "is_oa": false, "is_in_doaj":
+        false, "is_core": false, "listed_in": [], "host_organization": "https://openalex.org/I67311998",
+        "host_organization_name": "European Organization for Nuclear Research", "host_organization_lineage":
+        ["https://openalex.org/I67311998"], "host_organization_lineage_names": [],
+        "type": "repository"}, "license": null, "license_id": null, "version": "submittedVersion",
+        "is_accepted": false, "is_published": false, "raw_source_name": "", "raw_type":
+        null}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442a0fd8905f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '11033'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:37 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=U991x%2Bu5ryQPnVO3Igg1ue2aMt7r3lhJDVSSkSdxtBY%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633256"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=U991x%2Bu5ryQPnVO3Igg1ue2aMt7r3lhJDVSSkSdxtBY%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633256"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '8910'
+      x-ratelimit-remaining-usd:
+      - '0.891'
+      x-ratelimit-reset:
+      - '30743'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=K2W2O7+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 2, "db_response_time_ms": 13, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (K2W2O7 thin film)
+        in the title or abstract", "x_new_oql": "get works with (K2W2O7 thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "K2W2O7 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:K2W2O7 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W7219309735"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442a10bc8c5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '617'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:37 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=qHjoMWbW3N4gvCoWMZt5qtUa1ML9AmM%2F0oI0gO84yxQ%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633257"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=qHjoMWbW3N4gvCoWMZt5qtUa1ML9AmM%2F0oI0gO84yxQ%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633257"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '8900'
+      x-ratelimit-remaining-usd:
+      - '0.89'
+      x-ratelimit-reset:
+      - '30743'
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,0 +1,288 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=MgAl2O4+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 203, "db_response_time_ms": 17, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (MgAl2O4 thin
+        film) in the title or abstract where it has an abstract", "x_new_oql": "get
+        works with (MgAl2O4 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "MgAl2O4
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:MgAl2O4
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W7134733842",
+        "doi": null, "title": "Effect of Cation Mixing in MgAl2O4 Thin Films", "publication_year":
+        2022, "abstract_inverted_index": {"Thin-film": [0], "coatings": [1], "of":
+        [2, 9, 22, 32], "MgAl2O4": [3], "were": [4], "deposited": [5], "by": [6, 27],
+        "the": [7, 23, 30, 37, 42], "method": [8, 40], "a": [10], "magnetron": [11],
+        "sputtering": [12], "on": [13, 35], "SiO2": [14], "substrate": [15], "with":
+        [16], "thickness": [17], "2": [18], "\u03bcm.": [19], "The": [20], "structure":
+        [21], "films": [24], "is": [25], "characterized": [26], "strong": [28], "disordering,":
+        [29], "nature": [31], "which": [33], "depends": [34], "both": [36], "film":
+        [38], "deposition": [39], "and": [41], "substrate.": [43]}, "primary_location":
+        {"id": "pmh:oai:elar.urfu.ru:10995/125367", "doi": null, "is_oa": true, "landing_page_url":
+        "http://elar.urfu.ru/handle/10995/125367", "pdf_url": "https://elar.urfu.ru/bitstream/10995/125367/1/fti_2022_9_059.pdf",
+        "source": {"id": "https://openalex.org/S4406922546", "display_name": "Electronic
+        Archive of Ural Federal University (ELAR UrFU)", "issn_l": null, "issn": null,
+        "is_oa": false, "is_in_doaj": false, "is_core": false, "listed_in": [], "host_organization":
+        null, "host_organization_name": null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "repository"}, "license": null, "license_id": null, "version":
+        "submittedVersion", "is_accepted": false, "is_published": false, "raw_source_name":
+        null, "raw_type": "info:eu-repo/semantics/conferenceObject"}}, {"id": "https://openalex.org/W7139796346",
+        "doi": null, "title": "THERMOINDUSED ION DIFFUSION IN MgAl2O4 THIN FILMS",
+        "publication_year": 2021, "abstract_inverted_index": {"Thin-film": [0], "MgAl2O4":
+        [1], "coatings": [2], "with": [3], "different": [4], "thicknesses": [5], "were":
+        [6, 18], "deposited": [7], "by": [8, 20], "magnetron": [9], "sputtering":
+        [10], "on": [11], "a": [12, 28], "SiO2": [13], "substrate.": [14], "The":
+        [15], "obtained": [16], "samples": [17], "certified": [19], "XRD,": [21],
+        "optical": [22], "spectros-copy": [23], "and": [24], "Raman": [25], "spectroscopy.":
+        [26], "As": [27], "result": [29], "of": [30, 34], "the": [31], "stepwise":
+        [32], "annealing": [33], "thin-film": [35], "coatings,": [36], "their": [37],
+        "thickness": [38], "decrease.": [39]}, "primary_location": {"id": "pmh:oai:elar.urfu.ru:10995/124692",
+        "doi": null, "is_oa": true, "landing_page_url": "http://elar.urfu.ru/handle/10995/124692",
+        "pdf_url": "https://elar.urfu.ru/bitstream/10995/124692/1/978-5-8295-0769-5_2021_087.pdf",
+        "source": {"id": "https://openalex.org/S4406922546", "display_name": "Electronic
+        Archive of Ural Federal University (ELAR UrFU)", "issn_l": null, "issn": null,
+        "is_oa": false, "is_in_doaj": false, "is_core": false, "listed_in": [], "host_organization":
+        null, "host_organization_name": null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "repository"}, "license": null, "license_id": null, "version":
+        "submittedVersion", "is_accepted": false, "is_published": false, "raw_source_name":
+        null, "raw_type": "info:eu-repo/semantics/conferenceObject"}}, {"id": "https://openalex.org/W2241643942",
+        "doi": "https://doi.org/10.4028/www.scientific.net/amr.216.514", "title":
+        "Fabrication and Characterization of MgAl2O4 Thin Films by Sol-Gel Method",
+        "publication_year": 2011, "abstract_inverted_index": {"This": [0], "paper":
+        [1], "describes": [2], "microstructure": [3, 68], "characteristics": [4, 69],
+        "of": [5, 26, 48, 63], "MgAl2O4": [6], "thin": [7], "films": [8, 39], "were":
+        [9, 40, 51], "deposited": [10], "by": [11, 53], "sol-gel": [12], "method":
+        [13], "with": [14], "various": [15], "annealing": [16, 28, 71], "temperatures.":
+        [17], "Particular": [18], "attention": [19], "will": [20], "be": [21], "paid":
+        [22], "to": [23], "the": [24, 34, 64], "effects": [25], "an": [27], "treatment":
+        [29], "in": [30], "air": [31], "ambient": [32], "on": [33, 70], "physical":
+        [35], "properties.": [36], "The": [37, 45, 61], "annealed": [38, 49], "characterized":
+        [41], "using": [42], "X-ray": [43], "diffraction.": [44], "surface": [46],
+        "morphologies": [47], "film": [50], "examined": [52], "scanning": [54], "electron":
+        [55], "microscopy": [56], "and": [57, 67], "atomic": [58], "force": [59],
+        "microscopy.": [60], "dependence": [62], "dielectric": [65], "properties":
+        [66], "temperature": [72], "was": [73], "also": [74], "investigated.": [75]},
+        "primary_location": {"id": "doi:10.4028/www.scientific.net/amr.216.514", "doi":
+        "https://doi.org/10.4028/www.scientific.net/amr.216.514", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.4028/www.scientific.net/amr.216.514", "pdf_url": null,
+        "source": {"id": "https://openalex.org/S67425620", "display_name": "Advanced
+        materials research", "issn_l": "1022-6680", "issn": ["1022-6680", "1662-8985"],
+        "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core",
+        "jufo-1", "norway-1"], "host_organization": "https://openalex.org/P4310317839",
+        "host_organization_name": "Trans Tech Publications", "host_organization_lineage":
+        ["https://openalex.org/P4310317839"], "host_organization_lineage_names": ["Trans
+        Tech Publications"], "type": "journal"}, "license": "cc-by", "license_id":
+        "https://openalex.org/licenses/cc-by", "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "Advanced Materials Research",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2247408989",
+        "doi": "https://doi.org/10.4028/www.scientific.net/amm.151.314", "title":
+        "Dielectric Properties of Sol-Gel Derived MgAl2O4 Thin Films", "publication_year":
+        2012, "abstract_inverted_index": {"This": [0], "paper": [1], "describes":
+        [2], "microstructure": [3], "characteristics": [4], "of": [5, 29, 51, 68,
+        74, 87, 96], "MgAl2O4": [6, 77], "thin": [7], "films": [8, 42, 78], "were":
+        [9, 43, 54], "deposited": [10], "by": [11, 56], "sol-gel": [12], "method":
+        [13], "with": [14, 79], "various": [15], "preheating": [16, 66], "temperatures":
+        [17], "and": [18, 60, 70, 92], "annealing": [19, 72], "temperatures.": [20],
+        "Particular": [21], "attention": [22], "will": [23], "be": [24], "paid": [25],
+        "to": [26], "the": [27, 37, 76], "effects": [28], "a": [30, 65, 84, 93], "thermal":
+        [31], "treatment": [32, 52], "in": [33], "air": [34], "ambient": [35], "on":
+        [36], "physical": [38], "properties.": [39], "The": [40, 48], "annealed":
+        [41], "characterized": [44], "using": [45], "X-ray": [46], "diffraction.":
+        [47], "surface": [49], "morphologies": [50], "film": [53], "examined": [55],
+        "scanning": [57], "electron": [58], "microscopy": [59], "atomic": [61], "force":
+        [62], "microscopy.": [63], "At": [64], "temperature": [67, 73], "300oC": [69],
+        "an": [71], "700oC,": [75], "9": [80, 88], "\u03bcm": [81], "thickness": [82],
+        "possess": [83], "dielectric": [85], "constant": [86], "at": [89, 98], "1":
+        [90, 99], "kHz": [91], "dissipation": [94], "factor": [95], "0.18": [97],
+        "kHz.": [100]}, "primary_location": {"id": "doi:10.4028/www.scientific.net/amm.151.314",
+        "doi": "https://doi.org/10.4028/www.scientific.net/amm.151.314", "is_oa":
+        false, "landing_page_url": "https://doi.org/10.4028/www.scientific.net/amm.151.314",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S128754310", "display_name":
+        "Applied Mechanics and Materials", "issn_l": "1660-9336", "issn": ["1660-9336",
+        "1662-7482", "2297-8941"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["cwts-core", "jufo-1", "norway-1"], "host_organization":
+        "https://openalex.org/P4310317839", "host_organization_name": "Trans Tech
+        Publications", "host_organization_lineage": ["https://openalex.org/P4310317839"],
+        "host_organization_lineage_names": ["Trans Tech Publications"], "type": "journal"},
+        "license": null, "license_id": null, "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "Applied Mechanics and Materials",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2474323239",
+        "doi": "https://doi.org/10.7567/ssdm.2011.p-12-6", "title": "Fabrication of
+        MgAl2O4 thin films on ferromagnetic Heusler alloy Fe2CrSi by reactive magnetron
+        sputtering", "publication_year": 2011, "abstract_inverted_index": {"2011":
+        [0], "International": [1], "Conference": [2], "on": [3, 13], "Solid": [4],
+        "State": [5], "Devices": [6], "and": [7], "Materials,Fabrication": [8], "of":
+        [9], "MgAl2O4": [10], "thin": [11], "films": [12], "ferromagnetic": [14],
+        "Heusler": [15], "alloy": [16], "Fe2CrSi": [17], "by": [18], "reactive": [19],
+        "magnetron": [20], "sputtering": [21]}, "primary_location": {"id": "doi:10.7567/ssdm.2011.p-12-6",
+        "doi": "https://doi.org/10.7567/ssdm.2011.p-12-6", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.7567/ssdm.2011.p-12-6", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S4306510274", "display_name": "International Conference
+        on Solid State Devices and Materials (SSDM)", "issn_l": null, "issn": null,
+        "is_oa": false, "is_in_doaj": false, "is_core": false, "listed_in": [], "host_organization":
+        null, "host_organization_name": null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "conference"}, "license": null, "license_id": null, "version":
+        "publishedVersion", "is_accepted": true, "is_published": true, "raw_source_name":
+        "Extended Abstracts of the 2011 International Conference on Solid State Devices
+        and Materials", "raw_type": "proceedings-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442a2afa4c5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '10153'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:41 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=bFO5IbgzCdoFCmhsXKC5X5BCPEQM9MaHDO93XJY0BVs%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633261"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=bFO5IbgzCdoFCmhsXKC5X5BCPEQM9MaHDO93XJY0BVs%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633261"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '8770'
+      x-ratelimit-remaining-usd:
+      - '0.877'
+      x-ratelimit-reset:
+      - '30739'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=MgAl2O4+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 311, "db_response_time_ms": 13, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (MgAl2O4 thin
+        film) in the title or abstract", "x_new_oql": "get works with (MgAl2O4 thin
+        film) in the title or abstract", "oqo": {"get_rows": "works", "filter_rows":
+        [{"column_id": "title_and_abstract.search", "value": "MgAl2O4 thin film",
+        "operator": "has"}]}, "url": "/works?filter=title_and_abstract.search:MgAl2O4
+        thin film&per_page=1", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2129285157"}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442a2b9cb85f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '623'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:41 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=bFO5IbgzCdoFCmhsXKC5X5BCPEQM9MaHDO93XJY0BVs%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633261"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=bFO5IbgzCdoFCmhsXKC5X5BCPEQM9MaHDO93XJY0BVs%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633261"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '8760'
+      x-ratelimit-remaining-usd:
+      - '0.876'
+      x-ratelimit-reset:
+      - '30739'
+    status:
+      code: 200
+      message: OK
+version: 1

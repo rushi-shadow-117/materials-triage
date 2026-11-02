@@ -1,0 +1,739 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=Al2O3+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 7142, "db_response_time_ms": 42, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Al2O3 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (Al2O3 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "Al2O3
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:Al2O3
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W174539636",
+        "doi": "https://doi.org/10.1021/jp800944r", "title": "Adsorption of Water
+        on Cu2O and Al2O3 Thin Films", "publication_year": 2008, "abstract_inverted_index":
+        {"The": [0, 66, 81, 91], "initial": [1], "stages": [2], "of": [3, 78, 83,
+        118], "water": [4, 85], "condensation,": [5], "approximately": [6], "6": [7,
+        116], "molecular": [8, 79], "layers,": [9], "on": [10, 45, 99, 126], "two":
+        [11], "oxide": [12], "surfaces,": [13], "Cu": [14], "2": [15, 19, 62, 120,
+        128], "O": [16, 20, 56, 63, 121, 129], "and": [17, 73, 102], "Al": [18, 127],
+        "3,": [21], "have": [22, 123], "been": [23, 124], "investigated": [24], "by":
+        [25, 76, 105], "using": [26], "ambient": [27], "pressure": [28], "X-ray":
+        [29], "photoelectron": [30], "spectroscopy": [31], "at": [32, 70, 96, 109],
+        "relative": [33], "humidity": [34], "values": [35], "(RH)": [36], "from":
+        [37], "0": [38], "to": [39], ">90%.": [40], "Water": [41], "adsorbs": [42],
+        "first": [43, 92], "dissociatively": [44], "oxygen": [46], "vacancies": [47,
+        59], "producing": [48], "adsorbed": [49], "hydroxyl": [50], "groups": [51],
+        "in": [52], "a": [53, 106], "stoichiometric": [54], "reaction:": [55], "lattic":
+        [57], "+": [58, 60], "H": [61, 119], "=": [64], "2OH.": [65], "reaction":
+        [67], "is": [68, 74, 94, 103], "completed": [69, 95], "\u223c1%": [71], "RH":
+        [72, 98], "followed": [75, 104], "adsorption": [77], "water.": [80], "thickness":
+        [82], "the": [84], "film": [86, 122], "grows": [87], "with": [88], "increasing":
+        [89], "RH.": [90, 111], "monolayer": [93], "\u223c15%": [97], "both": [100],
+        "oxides": [101], "second": [107], "layer": [108], "35\u221240%": [110], "At":
+        [112], "90%": [113], "RH,": [114], "about": [115], "layers": [117], "formed":
+        [125], "3": [130], ".": [131]}, "primary_location": {"id": "doi:10.1021/jp800944r",
+        "doi": "https://doi.org/10.1021/jp800944r", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1021/jp800944r", "pdf_url": null, "source": {"id": "https://openalex.org/S95739953",
+        "display_name": "The Journal of Physical Chemistry C", "issn_l": "1932-7447",
+        "issn": ["1932-7447", "1932-7455"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["cwts-core", "dongbi-c", "jufo-2", "ki-jl-1", "norway-1",
+        "poland-140", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320006",
+        "host_organization_name": "American Chemical Society", "host_organization_lineage":
+        ["https://openalex.org/P4310320006"], "host_organization_lineage_names": ["American
+        Chemical Society"], "type": "journal"}, "license": null, "license_id": null,
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "The Journal of Physical Chemistry C", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2318888639", "doi": "https://doi.org/10.1021/cm200899k",
+        "title": "Atomic Layer Deposition of Li2O\u2013Al2O3 Thin Films", "publication_year":
+        2011, "abstract_inverted_index": {"Energy": [0], "and": [1, 61, 78, 105, 190,
+        240], "power": [2], "densities": [3], "of": [4, 32, 84, 112, 133, 162, 205,
+        226, 249], "all-solid-state": [5], "lithium": [6, 41, 103], "ion": [7], "batteries":
+        [8], "can": [9], "be": [10], "improved": [11], "by": [12, 50, 93, 98, 125,
+        152, 172], "moving": [13], "from": [14], "planar": [15], "battery": [16, 35],
+        "structures": [17], "to": [18, 229, 236], "three-dimensional": [19, 34], "structures.":
+        [20, 36], "Atomic": [21], "layer": [22, 110], "deposition": [23, 83, 250],
+        "(ALD)": [24], "is": [25, 52, 69, 116, 143, 185, 208, 218, 223], "a": [26,
+        72, 224], "very": [27], "suitable": [28], "technique": [29], "for": [30, 102],
+        "fabrication": [31], "such": [33], "The": [37, 82, 108, 159, 177, 203], "solid-state":
+        [38], "electrolyte": [39], "material": [40, 74], "lanthanum": [42], "titanate":
+        [43], "(LLT)": [44], "that": [45, 181, 191], "we": [46], "have": [47], "previously":
+        [48], "made": [49], "ALD": [51, 94, 100], "unstable": [53], "in": [54, 139],
+        "direct": [55], "contact": [56], "with": [57, 196, 246], "many": [58], "anode":
+        [59, 77], "materials,": [60], "therefore,": [62], "Li": [63, 85, 117, 144,
+        163], "2": [64, 66, 86, 88, 164, 166], "O\u2013Al": [65, 87, 165], "O": [67,
+        89, 121, 148, 167], "3": [68, 90, 142, 168], "proposed": [70], "as": [71,
+        123, 137, 150], "barrier": [73], "between": [75], "the": [76, 79, 113, 131,
+        134, 188, 192, 197, 211, 215, 230, 233, 241], "LLT": [80], "electrolyte.":
+        [81], "thin": [91], "films": [92, 115, 169, 189], "has": [95], "been": [96],
+        "accomplished": [97], "combining": [99], "processes": [101], "oxide/hydroxide":
+        [104], "aluminum": [106], "oxide.": [107], "surface": [109], "composition":
+        [111, 132], "obtained": [114], "2.2": [118], "Al": [119, 146], "1.0": [120,
+        147], "z": [122, 149], "analyzed": [124, 151], "X-ray": [126], "photoelectron":
+        [127], "spectroscopy": [128, 157], "(XPS)": [129], "while": [130], "bulk":
+        [135], "film": [136, 231, 242], "dissolved": [138], "10%": [140], "HNO": [141],
+        "1.6": [145], "inductively": [153], "coupled": [154], "plasma": [155], "mass":
+        [156], "(ICP-MS).": [158], "growth": [160, 234], "mechanisms": [161], "were":
+        [170], "studied": [171], "quartz": [173], "crystal": [174], "microbalance":
+        [175], "(QCM).": [176], "QCM": [178], "data": [179], "indicates": [180], "some":
+        [182], "absorbed": [183, 193, 206, 227], "water": [184, 194, 207, 216, 228],
+        "left": [186], "inside": [187], "reacts": [195], "metal": [198], "precursor":
+        [199], "during": [200], "subsequent": [201], "pulses.": [202], "amount": [204],
+        "reduced": [209], "when": [210], "purge": [212], "time": [213], "after": [214],
+        "pulse": [217], "increased.": [219], "Even": [220], "if": [221], "there":
+        [222], "contribution": [225], "growth,": [232], "saturates": [235], "about":
+        [237], "2.8": [238], "\u00c5/cycle": [239], "thickness": [243], "increases":
+        [244], "linearly": [245], "increasing": [247], "number": [248], "cycles.":
+        [251]}, "primary_location": {"id": "doi:10.1021/cm200899k", "doi": "https://doi.org/10.1021/cm200899k",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1021/cm200899k", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S66104727", "display_name": "Chemistry
+        of Materials", "issn_l": "0897-4756", "issn": ["0897-4756", "1520-5002"],
+        "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in": ["anvur-scientific",
+        "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2", "poland-200", "russia-white-list-1",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310320006", "host_organization_name":
+        "American Chemical Society", "host_organization_lineage": ["https://openalex.org/P4310320006"],
+        "host_organization_lineage_names": ["American Chemical Society"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Chemistry of
+        Materials", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2090873744",
+        "doi": "https://doi.org/10.1143/jjap.29.l1877", "title": "Photo-CVD of Al2O3
+        Thin Films", "publication_year": 1990, "abstract_inverted_index": {"Al2O3":
+        [0], "thin": [1], "films": [2], "have": [3], "been": [4], "prepared": [5,
+        102], "by": [6, 103, 122], "photo-CVD": [7], "under": [8], "oxygen": [9],
+        "atmosphere": [10], "for": [11], "the": [12, 32, 45, 52, 81, 89, 100, 117],
+        "first": [13], "time": [14], "using": [15], "aluminum-tri-isopropoxide": [16],
+        "as": [17, 72, 74], "a": [18, 25, 36, 39, 58, 107], "source": [19, 23], "material.":
+        [20], "The": [21, 65, 91], "light": [22, 83], "was": [24, 71, 78, 120], "low-pressure":
+        [26], "Hg": [27], "lamp.": [28], "Without": [29], "UV": [30, 50], "irradiation":
+        [31], "deposition": [33, 53, 69], "rate": [34, 54], "had": [35], "maximum":
+        [37], "at": [38, 57, 106], "particular": [40], "oxygen-flow": [41], "rate,":
+        [42], "which": [43], "suggests": [44], "Langmuir-Hinshelwood": [46], "surface-reaction":
+        [47], "mechanism.": [48], "With": [49], "irradiation,": [51], "increased":
+        [55], "largely": [56], "substrate": [59, 109], "temperature": [60, 110], "of":
+        [61, 68, 111], "less": [62, 112], "than": [63, 113], "300\u00b0C.": [64],
+        "activation": [66], "energy": [67], "reaction": [70], "small": [73], "1.5":
+        [75], "kcal/mol.": [76], "It": [77], "confirmed": [79], "that": [80, 115],
+        "185-nm": [82], "played": [84], "an": [85], "important": [86], "role": [87],
+        "in": [88, 99], "photodeposition.": [90], "dielectric": [92], "dissipation":
+        [93], "factor": [94], "(": [95], "tan": [96], "\u03b4)": [97], "decreased":
+        [98], "samples": [101], "photo-CVD,": [104], "especially": [105], "low": [108],
+        "300\u00b0C;": [114], "is,": [116], "film": [118], "quality": [119], "improved":
+        [121], "photo-CVD.": [123]}, "primary_location": {"id": "doi:10.1143/jjap.29.l1877",
+        "doi": "https://doi.org/10.1143/jjap.29.l1877", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1143/jjap.29.l1877", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S143744711", "display_name": "Japanese Journal of Applied
+        Physics", "issn_l": "0021-4922", "issn": ["0021-4922", "1347-4065"], "is_oa":
+        false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core", "dongbi-d",
+        "jufo-1", "ki-jl-1", "norway-1", "poland-70", "russia-white-list-2", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310311669", "host_organization_name":
+        "Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310311669"],
+        "host_organization_lineage_names": ["Institute of Physics"], "type": "journal"},
+        "license": null, "license_id": null, "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "Japanese Journal of Applied
+        Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W1984106015",
+        "doi": "https://doi.org/10.1002/ppap.200932301", "title": "Thermal Stability
+        and Phase Transformations of \u03b3\u2010/Amorphous\u2010Al2O3 Thin Films",
+        "publication_year": 2009, "abstract_inverted_index": {"Abstract": [0], "Magnetron\u2010sputtered":
+        [1], "Al2O3": [2, 16, 28, 95], "thin": [3], "films": [4, 17, 66, 68, 92],
+        "were": [5, 18, 97], "annealed": [6], "in": [7, 25, 45, 60, 79], "ambient":
+        [8], "air.": [9], "The": [10, 50], "phase": [11, 56, 76, 103], "compositions":
+        [12], "of": [13, 58, 82], "the": [14, 55, 61, 74, 80], "as\u2010deposited":
+        [15, 62, 91], "(i)": [19], "fully": [20, 32], "amorphous,": [21], "(ii)":
+        [22], "nanocrystalline": [23], "\u03b3\u2010Al2O3": [24, 90], "an": [26],
+        "amorphous": [27, 65], "matrix,": [29], "and": [30, 67], "(iii)": [31], "crystalline":
+        [33, 89], "\u03b3.": [34], "For": [35, 64, 87], "all": [36], "samples,": [37],
+        "annealing": [38], "to": [39, 48], "1": [40, 83], "100\u20131": [41], "150":
+        [42], "\u00b0C": [43], "resulted": [44], "a": [46, 100], "transformation":
+        [47, 51, 104], "\u03b1\u2010alumina.": [49], "paths": [52], "depend": [53],
+        "on": [54], "fraction": [57], "\u03b3": [59, 72], "films.": [63], "with":
+        [69], "low": [70], "initial": [71], "fraction,": [73], "intermediate": [75,
+        94], "\u03b8\u2010Al2O3": [77], "appeared": [78], "range": [81], "000\u20131":
+        [84], "100": [85, 107], "\u00b0C.": [86, 108], "predominantly": [88], "no":
+        [93], "phases": [96], "observed,": [98], "indicating": [99], "direct": [101],
+        "\u03b3\u2010to\u2010\u03b1": [102], "at": [105], "\u223c1": [106]}, "primary_location":
+        {"id": "doi:10.1002/ppap.200932301", "doi": "https://doi.org/10.1002/ppap.200932301",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1002/ppap.200932301",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S17577527", "display_name":
+        "Plasma Processes and Polymers", "issn_l": "1612-8850", "issn": ["1612-8850",
+        "1612-8869"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-c", "jufo-1", "norway-1", "poland-70",
+        "russia-white-list-1"], "host_organization": "https://openalex.org/P4310320595",
+        "host_organization_name": "Wiley", "host_organization_lineage": ["https://openalex.org/P4310320595"],
+        "host_organization_lineage_names": ["Wiley"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Plasma Processes and Polymers",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W1135790177",
+        "doi": "https://doi.org/10.1016/j.egypro.2015.07.080", "title": "Characterization
+        of Al2O3 Thin Films Prepared by Thermal ALD", "publication_year": 2015, "abstract_inverted_index":
+        {"Thermal": [0], "Atomic": [1], "Layer": [2], "Deposition": [3], "was": [4,
+        49], "used": [5, 29], "to": [6, 15, 30, 75], "deposit": [7], "Al2O3": [8],
+        "layers": [9, 40, 60], "with": [10], "thickness": [11, 54], "ranging": [12],
+        "from": [13], "2": [14, 47], "100": [16], "nm": [17, 57], "for": [18, 51,
+        58, 77], "surface": [19], "passivation": [20], "of": [21, 38, 55], "silicon":
+        [22, 65], "solar": [23], "cells.": [24], "Various": [25], "characterization":
+        [26], "techniques": [27], "were": [28], "evaluate": [31], "the": [32, 39,
+        78], "chemical,": [33], "physical": [34], "and": [35, 41], "optical": [36],
+        "properties": [37], "interfaces.": [42], "Minority": [43], "carrier": [44],
+        "lifetime": [45, 73], "around": [46], "ms": [48], "measured": [50], "an":
+        [52], "optimal": [53], "15": [56], "as-deposited": [59], "on": [61], "high":
+        [62], "resistivity": [63], "n-type": [64], "substrate.": [66], "An": [67],
+        "annealing": [68], "step": [69], "at": [70], "400": [71], "\u00b0Cincreases":
+        [72], "up": [74], "5.7ms": [76], "same": [79], "structure.": [80]}, "primary_location":
+        {"id": "doi:10.1016/j.egypro.2015.07.080", "doi": "https://doi.org/10.1016/j.egypro.2015.07.080",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.1016/j.egypro.2015.07.080",
+        "pdf_url": "https://www.sciencedirect.com/science/article/pii/S1876610215008486/pdf",
+        "source": {"id": "https://openalex.org/S75069817", "display_name": "Energy
+        Procedia", "issn_l": "1876-6102", "issn": ["1876-6102"], "is_oa": true, "is_in_doaj":
+        false, "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "jufo-1"],
+        "host_organization": "https://openalex.org/P4310320990", "host_organization_name":
+        "Elsevier BV", "host_organization_lineage": ["https://openalex.org/P4310320990"],
+        "host_organization_lineage_names": ["Elsevier BV"], "type": "journal"}, "license":
+        "cc-by-nc-nd", "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Energy Procedia", "raw_type": "journal-article"}}], "group_by":
+        []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a544292f9f995f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '15206'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:01 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=2eG4BVrYkKA9sXL313sTuVqr0HrIaBwgUTxQpYuk4lA%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633221"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=2eG4BVrYkKA9sXL313sTuVqr0HrIaBwgUTxQpYuk4lA%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633221"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9910'
+      x-ratelimit-remaining-usd:
+      - '0.991'
+      x-ratelimit-reset:
+      - '30779'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=Al2O3+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 10698, "db_response_time_ms": 20, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (Al2O3 thin film)
+        in the title or abstract", "x_new_oql": "get works with (Al2O3 thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "Al2O3 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:Al2O3 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W174539636"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429309b645f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '616'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:01 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=2eG4BVrYkKA9sXL313sTuVqr0HrIaBwgUTxQpYuk4lA%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633221"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=2eG4BVrYkKA9sXL313sTuVqr0HrIaBwgUTxQpYuk4lA%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633221"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9900'
+      x-ratelimit-remaining-usd:
+      - '0.99'
+      x-ratelimit-reset:
+      - '30779'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=alumina+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 4240, "db_response_time_ms": 52, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (alumina thin
+        film) in the title or abstract where it has an abstract", "x_new_oql": "get
+        works with (alumina thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "alumina
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:alumina
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2001065550",
+        "doi": "https://doi.org/10.1063/1.1448389", "title": "Role of hydrogen for
+        the elastic properties of alumina thin films", "publication_year": 2002, "abstract_inverted_index":
+        {"We": [0], "describe": [1], "the": [2, 5, 10, 50, 59, 86, 90], "role": [3],
+        "of": [4, 7, 13, 89, 93], "presence": [6], "hydrogen": [8, 51, 103], "on":
+        [9], "elastic": [11, 61, 71, 91], "properties": [12, 92], "AlxOyHz": [14],
+        "(0.32\u2a7dx\u2a7d0.4;": [15], "0.54\u2a7dy\u2a7d0.6;": [16], "3\u00d710\u22124\u2a7dz\u2a7d0.14)":
+        [17], "films.": [18], "The": [19, 69, 82], "films": [20, 97], "were": [21,
+        32], "deposited": [22], "by": [23, 34, 66, 102], "reactive": [24], "magnetron":
+        [25], "sputtering": [26], "in": [27, 74, 85], "an": [28], "Ar/O2/H2O": [29],
+        "discharge": [30], "and": [31], "studied": [33], "Rutherford": [35], "backscattering":
+        [36], "spectrometry,": [37], "nuclear": [38], "resonance": [39], "analysis,":
+        [40], "selected": [41], "area": [42], "electron": [43], "diffraction,": [44],
+        "as": [45, 47], "well": [46], "nanoindentation.": [48], "As": [49], "concentration":
+        [52], "is": [53, 64, 73], "increased": [54], "from": [55], "0.03%": [56],
+        "to": [57], "13.9%": [58], "measured": [60, 70], "modulus": [62, 72], "value":
+        [63], "reduced": [65], "approximately": [67], "53%.": [68], "excellent": [75],
+        "agreement": [76], "with": [77], "our": [78], "electronic": [79], "structure":
+        [80], "calculations.": [81], "large": [83], "scattering": [84], "reported":
+        [87], "values": [88], "amorphous": [94], "alumina": [95], "thin": [96], "can":
+        [98], "readily": [99], "be": [100], "understood": [101], "incorporation":
+        [104], "during": [105], "synthesis.": [106]}, "primary_location": {"id": "doi:10.1063/1.1448389",
+        "doi": "https://doi.org/10.1063/1.1448389", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.1448389", "pdf_url": null, "source": {"id": "https://openalex.org/S105243760",
+        "display_name": "Applied Physics Letters", "issn_l": "0003-6951", "issn":
+        ["0003-6951", "1077-3118", "1520-8842"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-a",
+        "jufo-3", "ki-jl-1", "norway-2", "poland-100", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Applied Physics
+        Letters", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W1991221892",
+        "doi": "https://doi.org/10.1002/jbm.a.31732", "title": "Biocompatibility of
+        atomic layer\u2010deposited alumina thin films", "publication_year": 2007,
+        "abstract_inverted_index": {"Presented": [0], "in": [1, 46, 119, 203], "this":
+        [2], "paper": [3], "is": [4, 147, 155], "a": [5, 35, 49, 65, 114, 122, 168],
+        "study": [6], "of": [7, 10, 39, 52, 69, 116, 187], "the": [8, 56, 60, 94,
+        130, 134, 143, 152, 161, 184], "biocompatibility": [9, 112], "an": [11, 20],
+        "atomic": [12], "layer-deposited": [13], "(ALD)": [14], "alumina": [15, 32,
+        96, 145], "(Al2O3)": [16], "thin": [17], "film": [18], "and": [19, 97, 150,
+        172, 193, 206], "ALD": [21, 31, 95, 144, 188], "hydrophobic": [22, 61, 98,
+        153, 173], "coating": [23, 33, 62, 146, 154], "on": [24, 55, 81, 92, 105],
+        "standard": [25], "glass": [26], "cover": [27], "slips.": [28], "The": [29],
+        "pure": [30], "exhibited": [34], "water": [36, 66], "contact": [37, 67], "angle":
+        [38, 68], "55": [40], "degrees": [41, 44, 71], "+/-": [42, 72], "5": [43],
+        "attributed,": [45], "part,": [47], "to": [48, 102, 126, 140, 160], "high":
+        [50], "concentration": [51], "-OH": [53], "groups": [54, 174], "surface.":
+        [57], "In": [58], "contrast,": [59], "(tridecafluoro-1,1,2,2-tetrahydro-octyl-methyl-bis(dimethylamino)silane)":
+        [63], "had": [64], "108": [70], "2": [73], "degrees.": [74], "Observations":
+        [75], "using": [76], "differential": [77], "interference": [78], "contrast":
+        [79], "microscopy": [80], "human": [82], "coronary": [83], "artery": [84],
+        "smooth": [85], "muscle": [86], "cells": [87, 103], "showed": [88], "normal":
+        [89], "cell": [90, 128, 177], "proliferation": [91], "both": [93], "coatings":
+        [99], "when": [100, 158], "compared": [101, 159], "grown": [104], "control":
+        [106, 176], "substrates.": [107], "These": [108, 163], "observations": [109],
+        "suggested": [110], "good": [111], "over": [113], "period": [115], "7": [117],
+        "days": [118], "vitro.": [120], "Using": [121], "colorimetric": [123], "assay":
+        [124], "technique": [125], "assess": [127], "viability,": [129], "cellular":
+        [131], "response": [132], "between": [133], "three": [135], "substrates":
+        [136], "can": [137, 175, 181], "be": [138], "differentiated": [139], "show":
+        [141], "that": [142, 151, 166], "more": [148], "biocompatible": [149, 157],
+        "less": [156], "control.": [162], "results": [164], "suggest": [165], "patterning":
+        [167, 180], "substrate": [169], "with": [170], "hydrophilic": [171], "growth.":
+        [178], "This": [179], "further": [182], "enhance": [183], "known": [185],
+        "advantages": [186], "alumina,": [189], "such": [190], "as": [191], "conformality":
+        [192], "excellent": [194], "dielectric": [195], "properties": [196], "for":
+        [197], "bio-micro": [198], "electro": [199], "mechanical": [200], "systems":
+        [201], "(Bio-MEMS)": [202], "sensors,": [204], "actuators,": [205], "microfluidics":
+        [207], "devices.": [208]}, "primary_location": {"id": "doi:10.1002/jbm.a.31732",
+        "doi": "https://doi.org/10.1002/jbm.a.31732", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1002/jbm.a.31732", "pdf_url": null, "source": {"id": "https://openalex.org/S184573928",
+        "display_name": "Journal of Biomedical Materials Research Part A", "issn_l":
+        "1549-3296", "issn": ["1549-3296", "1552-4965"], "is_oa": false, "is_in_doaj":
+        false, "is_core": true, "listed_in": ["cwts-core", "dongbi-b", "jufo-1", "ki-jl-1",
+        "medline", "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320595", "host_organization_name": "Wiley", "host_organization_lineage":
+        ["https://openalex.org/P4310320595"], "host_organization_lineage_names": ["Wiley"],
+        "type": "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Biomedical Materials Research Part A", "raw_type": "journal-article"}}, {"id":
+        "https://openalex.org/W20756012", "doi": "https://doi.org/10.14264/347190",
+        "title": "Nanoindentation of Alumina Thin Film", "publication_year": 2006,
+        "abstract_inverted_index": {"An": [0], "important": [1], "issue": [2], "in":
+        [3, 144, 157], "the": [4, 9, 27, 33, 41, 50, 58, 72, 95, 110, 117, 121, 131,
+        148, 158, 166, 170, 176, 186, 200, 204, 272, 277, 295, 316, 322, 326, 334,
+        347, 353], "alumina": [5, 17, 74, 152], "refining": [6], "industry": [7],
+        "is": [8, 18, 32, 97, 153, 236, 245, 260, 267, 333], "wear": [10, 31], "of":
+        [11, 29, 35, 44, 52, 60, 65, 80, 88, 120, 147, 161, 169, 178, 203, 213, 251,
+        255, 258, 281, 285, 297, 325, 346], "mild": [12], "steel": [13], "piping":
+        [14], "through": [15], "which": [16], "transported": [19], "via": [20], "dense":
+        [21], "phase": [22], "pneumatic": [23], "conveying.": [24], "Significantly":
+        [25], "influencing": [26], "rate": [28], "this": [30, 61, 220, 332], "presence":
+        [34], "a": [36, 53, 66, 78, 134, 198, 243, 248, 256], "thin": [37, 75, 286],
+        "transfer": [38], "film": [39, 62, 76, 96, 132, 149, 348, 354], "on": [40],
+        "inside": [42], "surface": [43, 298], "these": [45, 162], "pipes.": [46],
+        "This": [47, 129, 172], "report": [48, 304], "presents": [49], "findings":
+        [51], "study": [54, 69, 232], "conducted": [55], "to": [56, 125, 137, 155,
+        194, 247, 264, 290, 320, 349, 356], "investigate": [57], "properties": [59,
+        146, 160], "with": [63, 150, 175, 276, 308, 315], "use": [64], "nanoindentation":
+        [67, 189, 235], "technique.The": [68], "found": [70], "that": [71, 94, 223,
+        234, 306, 313], "discussed": [73], "has": [77, 133], "hardness": [79, 112],
+        "approximately": [81], "9": [82], "GPa": [83], "and": [84, 113, 241], "an":
+        [85, 237], "elastic": [86, 114], "modulus": [87, 115], "170": [89], "GPa.":
+        [90, 128], "These": [91], "values": [92], "imply": [93], "slightly": [98],
+        "harder": [99], "than": [100, 227, 312], "but": [101], "not": [102, 193, 207],
+        "as": [103, 105, 139, 242, 289], "brittle": [104], "pure": [106], "solid":
+        [107, 140, 151], "alumina.": [108, 141], "Using": [109], "acquired": [111],
+        "values,": [116], "yield": [118], "stress": [119], "material": [122, 145,
+        205], "was": [123, 165, 173, 215, 229], "estimated": [124], "be": [126, 208,
+        318, 350, 357], "6": [127], "means": [130], "similar": [135], "resistance":
+        [136], "penetration": [138, 282], "The": [142, 231, 269], "variation": [143],
+        "attributed": [154], "differences": [156], "structural": [159], "materials.Also":
+        [163], "investigated": [164], "fracture": [167, 201, 323], "behaviour": [168],
+        "film.": [171, 327], "achieved": [174, 314], "aid": [177], "scanning": [179],
+        "electron": [180], "microscopy": [181], "(SEM).": [182], "Indents": [183],
+        "performed": [184, 319], "at": [185, 219, 339], "maximum": [187], "achievable":
+        [188], "load": [190, 221], "were": [191], "observed": [192], "induce": [195],
+        "fracture.": [196], "As": [197], "result": [199, 244], "toughness": [202,
+        324], "could": [206], "determined.": [209, 358], "A": [210, 328], "small":
+        [211], "amount": [212], "pileup": [214], "evident": [216], "for": [217, 274,
+        283, 331], "indents": [218], "indicating": [222], "plastic": [224], "deformation,":
+        [225], "rather": [226], "compression": [228], "occurring.": [230], "concluded":
+        [233], "extremely": [238], "sensitive": [239], "technique": [240], "subject":
+        [246], "substantial": [249], "number": [250, 257], "influences.": [252], "Therefore":
+        [253], "application": [254], "corrections": [259], "required.": [261], "Repeated":
+        [262], "testing": [263], "ensure": [265], "accuracy": [266], "essential.":
+        [268], "results": [270], "highlighted": [271], "need": [273], "compliance":
+        [275], "ten": [278], "percent": [279], "rule": [280], "indentation": [284,
+        301, 307, 336], "films": [287], "so": [288], "avoid": [291], "substrate":
+        [292], "influence.": [293], "Additionally": [294], "effects": [296], "work":
+        [299], "during": [300], "are": [302], "prevalent.The": [303], "recommends":
+        [305], "applied": [309], "loads": [310], "greater": [311], "nanoindenter":
+        [317], "calculate": [321], "possible": [329], "method": [330], "microhardness":
+        [335], "test.": [337], "Indentation": [338], "higher": [340], "loading": [341],
+        "may": [342], "also": [343], "allow": [344], "delaminating": [345], "induced,":
+        [351], "enabling": [352], "adhesion": [355]}, "primary_location": {"id": "doi:10.14264/347190",
+        "doi": "https://doi.org/10.14264/347190", "is_oa": false, "landing_page_url":
+        "http://dx.doi.org/10.14264/347190", "pdf_url": null, "source": {"id": "https://openalex.org/S7407053192",
+        "display_name": "The University of Queensland", "issn_l": null, "issn": null,
+        "is_oa": false, "is_in_doaj": false, "is_core": false, "listed_in": [], "host_organization":
+        "https://openalex.org/I165143802", "host_organization_name": "The University
+        of Queensland", "host_organization_lineage": ["https://openalex.org/I165143802"],
+        "host_organization_lineage_names": [], "type": "repository"}, "license": null,
+        "license_id": null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "The University of Queensland", "raw_type": "dissertation"}},
+        {"id": "https://openalex.org/W2019110713", "doi": "https://doi.org/10.1116/1.573733",
+        "title": "Stabilized zirconia\u2013alumina thin films", "publication_year":
+        1986, "abstract_inverted_index": {"Thin": [0], "films": [1, 60], "of": [2,
+        4, 30, 46, 57], "zirconia\u2013alumina": [3], "1": [5], "to": [6, 22], "2":
+        [7], "\u03bcm": [8], "in": [9], "thickness": [10], "have": [11], "been": [12],
+        "produced": [13], "by": [14], "reactive": [15], "magnetron": [16], "sputtering.":
+        [17], "Mixtures": [18], "from": [19], "pure": [20, 23], "Al2O3": [21], "ZrO2":
+        [24], "were": [25, 33], "produced.": [26], "The": [27], "crystal": [28], "structures":
+        [29], "annealed": [31], "specimens": [32], "determined": [34, 62], "with":
+        [35, 53, 63], "x\u2010ray": [36], "diffraction": [37], "and": [38, 66], "the":
+        [39, 43, 58], "results": [40], "indicate": [41], "that": [42], "tetragonal":
+        [44], "phase": [45], "zirconia": [47], "was": [48, 61], "stabilized": [49],
+        "at": [50], "room": [51], "temperature": [52], "alumina.": [54], "Chemical":
+        [55], "analysis": [56], "deposited": [59], "Rutherford": [64], "backscattering":
+        [65], "proton": [67], "scattering.": [68]}, "primary_location": {"id": "doi:10.1116/1.573733",
+        "doi": "https://doi.org/10.1116/1.573733", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1116/1.573733", "pdf_url": null, "source": {"id": "https://openalex.org/S4210190837",
+        "display_name": "Journal of Vacuum Science & Technology A Vacuum Surfaces
+        and Films", "issn_l": "0734-2101", "issn": ["0734-2101", "1520-8559"], "is_oa":
+        false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core", "dongbi-c",
+        "jufo-1", "ki-jl-1", "norway-1", "poland-70", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Vacuum Science &amp; Technology A: Vacuum, Surfaces, and Films", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W2066614399", "doi": "https://doi.org/10.1111/j.1151-2916.1995.tb07974.x",
+        "title": "Alumina Thin Films as Optical Waveguides", "publication_year": 1995,
+        "abstract_inverted_index": {"Amorphous": [0], "AI": [1], "2": [2, 38, 67,
+        86, 94, 143, 159], "O": [3, 37, 66, 87, 95, 142, 158], "3": [4, 88, 96], ",":
+        [5], "fabricated": [6], "by": [7, 174], "reactive": [8], "rf": [9], "magnetron":
+        [10], "sputtering,": [11], "has": [12], "been": [13], "evaluated": [14], "as":
+        [15, 30, 123, 125, 154], "a": [16, 31, 62, 155, 163], "planar": [17, 26],
+        "waveguide": [18], "material.": [19], "The": [20, 99, 131, 146], "microstructure":
+        [21], "and": [22, 41, 45, 60, 91, 120, 152], "optical": [23], "properties":
+        [24], "of": [25, 33, 65, 118, 141, 157], "waveguides": [27], "were": [28,
+        52, 172], "examined": [29], "function": [32, 156], "deposition": [34], "(substrate":
+        [35], "temperature,": [36, 137], "flow": [39, 68, 144, 160], "rate)": [40],
+        "annealing": [42], "conditions.": [43], "X\u2010ray": [44], "electron": [46],
+        "diffraction": [47], "verified": [48], "that": [49, 105], "as\u2010deposited":
+        [50], "films": [51, 101, 171], "amorphous": [53, 71, 100, 168], "for": [54,
+        61], "substrate": [55, 136, 150], "temperatures": [56], "up": [57, 77], "to":
+        [58, 78, 82, 92, 110], "500\u00b0C": [59], "wide": [63], "range": [64], "rates.":
+        [69], "This": [70], "phase": [72], "was": [73, 139, 177], "stable": [74],
+        "through": [75], "anneals": [76], "800\u00b0C,": [79], "but": [80, 138], "crystallized":
+        [81], "\u201c": [83], "y": [84], "\u2010Al": [85], "at": [89, 97, 128], "1000\u00b0C":
+        [90], "\u03b1\u2010Al": [93], "1200\u00b0C.": [98], "had": [102], "transmission":
+        [103], "windows": [104], "extended": [106], "from": [107], "200": [108], "nm":
+        [109], "7": [111], "(Am": [112], "with": [113, 135, 149], "an": [114], "average":
+        [115], "refractive": [116, 132], "index": [117, 133], "1.65": [119], "reproducible":
+        [121], "losses": [122, 147], "low": [124], "\u223c1": [126], "dB/cm": [127],
+        "632.8": [129], "nm.": [130], "increased": [134, 153], "independent": [140],
+        "rate.": [145, 161], "decreased": [148], "temperature": [151], "As": [162],
+        "final": [164], "check": [165], "on": [166], "the": [167], "structure,": [169],
+        "Cr\u2010doped": [170], "prepared": [173], "codeposition.": [175], "Fluoresence":
+        [176], "detected": [178], "only": [179], "in": [180], "annealed": [181], "crystalline":
+        [182], "films.": [183]}, "primary_location": {"id": "doi:10.1111/j.1151-2916.1995.tb07974.x",
+        "doi": "https://doi.org/10.1111/j.1151-2916.1995.tb07974.x", "is_oa": false,
+        "landing_page_url": "https://doi.org/10.1111/j.1151-2916.1995.tb07974.x",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S53162366", "display_name":
+        "Journal of the American Ceramic Society", "issn_l": "0002-7820", "issn":
+        ["0002-7820", "1551-2916"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["cwts-core", "dongbi-b", "jufo-2", "norway-2", "poland-100",
+        "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320595",
+        "host_organization_name": "Wiley", "host_organization_lineage": ["https://openalex.org/P4310320595"],
+        "host_organization_lineage_names": ["Wiley"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Journal of the American Ceramic
+        Society", "raw_type": "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429315e7a5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '18065'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:01 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=2eG4BVrYkKA9sXL313sTuVqr0HrIaBwgUTxQpYuk4lA%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633221"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=2eG4BVrYkKA9sXL313sTuVqr0HrIaBwgUTxQpYuk4lA%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633221"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9890'
+      x-ratelimit-remaining-usd:
+      - '0.989'
+      x-ratelimit-reset:
+      - '30779'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=alumina+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 6675, "db_response_time_ms": 29, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (alumina thin
+        film) in the title or abstract", "x_new_oql": "get works with (alumina thin
+        film) in the title or abstract", "oqo": {"get_rows": "works", "filter_rows":
+        [{"column_id": "title_and_abstract.search", "value": "alumina thin film",
+        "operator": "has"}]}, "url": "/works?filter=title_and_abstract.search:alumina
+        thin film&per_page=1", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W1905723138"}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429328b385f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '624'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:01 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=2eG4BVrYkKA9sXL313sTuVqr0HrIaBwgUTxQpYuk4lA%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633221"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=2eG4BVrYkKA9sXL313sTuVqr0HrIaBwgUTxQpYuk4lA%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633221"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9880'
+      x-ratelimit-remaining-usd:
+      - '0.988'
+      x-ratelimit-reset:
+      - '30779'
+    status:
+      code: 200
+      message: OK
+version: 1

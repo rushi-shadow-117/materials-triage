@@ -1,0 +1,369 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=Y2Ti2O7+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 11, "db_response_time_ms": 16, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Y2Ti2O7 thin
+        film) in the title or abstract where it has an abstract", "x_new_oql": "get
+        works with (Y2Ti2O7 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "Y2Ti2O7
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:Y2Ti2O7
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2618334984",
+        "doi": "https://doi.org/10.3740/mrsk.2017.27.5.289", "title": "Fabrication
+        and Characterization of Y2Ti2O7 Powder and Thick Film by Chemical Processing",
+        "publication_year": 2017, "abstract_inverted_index": {"Y2Ti2O7": [0, 52, 59,
+        76, 113], "nanoparticles": [1, 60], "(0.3": [2], "mol%)": [3], "have": [4],
+        "been": [5], "successfully": [6], "synthesized": [7, 51], "by": [8, 54, 67],
+        "the": [9, 47, 50, 56, 80, 101, 112, 118], "co-precipitation": [10], "process.":
+        [11], "The": [12, 58, 75, 98], "samples,": [13], "adjusted": [14], "to": [15,
+        33, 45], "pH7": [16], "with": [17, 31, 72], "ammonia": [18], "solution": [19,
+        77], "as": [20], "catalyst": [21], "and": [22, 36], "calcined": [23], "at":
+        [24], "700~900": [25], "\u00b0C,": [26], "exhibit": [27], "very": [28], "fine":
+        [29], "particles": [30, 53], "close": [32], "spherical": [34], "shape": [35],
+        "average": [37], "size": [38, 48], "of": [39, 49, 86, 96, 100, 109], "10-30":
+        [40], "nm.": [41], "It": [42], "was": [43, 104], "possible": [44], "control":
+        [46], "manipulating": [55], "conditions.": [57], "were": [61, 121], "coated":
+        [62, 78], "on": [63, 79, 111], "a": [64, 68], "glass": [65, 81], "substrate":
+        [66, 82], "dipping": [69], "coating": [70], "process": [71], "inorganic":
+        [73], "binder.": [74], "had": [83], "excellent": [84, 94], "adhesion": [85],
+        "5B;": [87], "pencil": [88], "hardness": [89, 95], "test": [90], "results":
+        [91], "indicated": [92], "an": [93], "6H.": [97], "thickness": [99], "thick":
+        [102], "film": [103, 115], "about": [105], "30": [106], "\u03bcm.": [107],
+        "Decomposition": [108], "MB": [110], "thin": [114], "shows": [116], "that":
+        [117], "photocatalytic": [119], "properties": [120], "excellent.": [122]},
+        "primary_location": {"id": "doi:10.3740/mrsk.2017.27.5.289", "doi": "https://doi.org/10.3740/mrsk.2017.27.5.289",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.3740/mrsk.2017.27.5.289",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S184664704", "display_name":
+        "Korean Journal of Materials Research", "issn_l": "1225-0562", "issn": ["1225-0562",
+        "2287-7258"], "is_oa": false, "is_in_doaj": false, "is_core": false, "listed_in":
+        ["dongbi-c", "kci-registered", "poland-20", "russia-white-list-4"], "host_organization":
+        "https://openalex.org/P4323283927", "host_organization_name": "Materials Research
+        Society of Korea", "host_organization_lineage": ["https://openalex.org/P4323283927"],
+        "host_organization_lineage_names": ["Materials Research Society of Korea"],
+        "type": "journal"}, "license": "cc-by-nc", "license_id": "https://openalex.org/licenses/cc-by-nc",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Korean Journal of Materials Research", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2909065047", "doi": "https://doi.org/10.1080/10584587.2019.1674953",
+        "title": "Electrical and Optical Properties of Yttrium Titanate Thin Films
+        Synthesized by Sol-Gel Technique", "publication_year": 2019, "abstract_inverted_index":
+        {"Yttrium": [0], "titanate": [1], "(Y2Ti2O7)": [2], "thin": [3, 29, 51, 62,
+        86], "films,": [4], "having": [5], "pyrochlore-type": [6], "structure,": [7],
+        "were": [8], "synthesized": [9], "in": [10, 44, 50, 93], "single": [11], "phase":
+        [12], "by": [13, 21, 33, 55], "sol-gel": [14], "synthesis": [15], "technique.":
+        [16], "Single-phase": [17], "formation": [18], "was": [19, 31, 40, 53, 64,
+        77], "confirmed": [20, 54], "X-ray": [22], "diffraction": [23], "(XRD)": [24],
+        "study.": [25], "Surface": [26], "morphology": [27], "of": [28, 48, 60, 69,
+        85], "films": [30, 52, 63, 87], "studied": [32, 65, 90], "using": [34], "FESEM":
+        [35], "and": [36, 72, 91], "average": [37], "grain": [38], "size": [39], "found":
+        [41, 78], "to": [42, 79], "be": [43, 80], "nanometer": [45], "range.": [46],
+        "Retention": [47], "stoichiometry": [49], "EDX": [56], "analysis.": [57],
+        "Optical": [58], "property": [59], "Y2Ti2O7": [61], "with": [66], "the": [67,
+        73], "help": [68], "UV-Vis": [70], "spectrometer": [71], "energy": [74], "band":
+        [75], "gap": [76], "\u223c3.5": [81], "eV.": [82], "Dielectric": [83], "properties":
+        [84], "are": [88], "also": [89], "discussed": [92], "details.": [94]}, "primary_location":
+        {"id": "doi:10.1080/10584587.2019.1674953", "doi": "https://doi.org/10.1080/10584587.2019.1674953",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1080/10584587.2019.1674953",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S194927175", "display_name":
+        "Integrated ferroelectrics", "issn_l": "1026-7530", "issn": ["1026-7530",
+        "1058-4587", "1607-8489"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["cwts-core", "dongbi-c", "jufo-1", "norway-1", "poland-20",
+        "russia-white-list-3"], "host_organization": "https://openalex.org/P4310320547",
+        "host_organization_name": "Taylor & Francis", "host_organization_lineage":
+        ["https://openalex.org/P4310320547", "https://openalex.org/P4310320449"],
+        "host_organization_lineage_names": ["Taylor & Francis", "Informa"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Integrated
+        Ferroelectrics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W7167775958",
+        "doi": null, "title": "Synthesis and characterization of frustrated magnets
+        as thin films", "publication_year": 2025, "abstract_inverted_index": {"Magnetic":
+        [0], "frustration,": [1], "caused": [2], "by": [3], "contradictory": [4],
+        "competing": [5], "interactions,": [6], "leads": [7], "to": [8, 21, 55, 66,
+        76, 168, 176, 206], "exotic": [9], "emergent": [10], "behavior": [11], "in":
+        [12, 161, 163, 193, 210], "materials.": [13], "The": [14], "concept": [15],
+        "of": [16, 36, 110, 145, 151, 171, 203, 216, 226, 232, 243, 253, 260], "frustrated":
+        [17, 37, 62, 90, 119], "magnetism": [18, 120], "is": [19], "connected": [20],
+        "quantum": [22, 111, 183], "spin": [23, 112, 135, 184], "liquids,": [24],
+        "high-temperature": [25], "superconductivity,": [26], "anyon": [27], "quasiparticles,":
+        [28], "topological": [29], "transport,": [30], "and": [31, 51, 72, 80, 102,
+        121, 130, 155, 198], "more.": [32], "Though": [33], "most": [34], "investigations":
+        [35], "magnets": [38, 63, 91], "focus": [39], "on": [40, 234], "bulk": [41,
+        128], "crystals,": [42], "thin": [43, 93, 108, 149, 164, 214, 230, 245], "films":
+        [44, 94, 109, 150, 215, 231], "are": [45, 124], "more": [46], "practical":
+        [47], "for": [48], "device": [49], "fabrication": [50], "provide": [52], "unique":
+        [53], "pathways": [54], "tune": [56], "or": [57], "enhance": [58], "behavior.":
+        [59], "Thin": [60], "film": [61, 165], "allow": [64], "us": [65], "probe":
+        [67], "fundamental": [68], "interactions": [69], "within": [70, 180], "materials":
+        [71], "have": [73], "the": [74, 106, 138, 143, 146, 169, 178, 181, 207, 211,
+        223, 251], "potential": [75], "transform": [77], "next-generation": [78],
+        "computing": [79], "information": [81], "transport.": [82, 136], "Using":
+        [83], "reactive-oxide": [84], "molecular": [85, 254], "beam": [86, 255], "epitaxy,":
+        [87], "I": [88, 141, 220, 248], "explore": [89, 117, 249], "as": [92, 200],
+        "through": [95], "two": [96], "different": [97], "material": [98], "systems:":
+        [99], "hexagonal": [100], "ABO3": [101], "pyrochlore": [103, 139, 182, 244,
+        261], "A2B2O7.": [104], "With": [105], "first": [107, 212], "liquid": [113,
+        185], "candidate": [114], "TbInO3,": [115], "we": [116, 188], "how": [118,
+        250], "improper": [122], "ferroelectricity": [123], "modified": [125], "from":
+        [126], "their": [127], "behaviors": [129], "measure": [131], "anomalous":
+        [132], "high": [133, 227], "temperature": [134], "From": [137], "titanates,":
+        [140], "synthesize": [142], "some": [144], "earliest": [147], "reported":
+        [148, 213], "Y2Ti2O7,": [152], "Tb2Ti2O7,": [153], "Yb2Ti2O7,": [154], "Gd2Ti2O7.":
+        [156], "We": [157], "find": [158], "that": [159], "changes": [160], "stoichiometry":
+        [162], "Tb2Ti2O7": [166], "lead": [167], "formation": [170], "distinct": [172],
+        "defects": [173], "which": [174, 237], "serve": [175], "reduce": [177], "frustration":
+        [179], "candidate.": [186], "Further,": [187], "examine": [189], "a": [190,
+        201], "coincident": [191], "change": [192], "magnetic": [194], "anisotropy,":
+        [195], "ferromagnetic": [196, 217], "hysteresis,": [197], "strain": [199],
+        "function": [202], "thickness": [204], "down": [205], "ultrathin": [208],
+        "limit": [209], "insulator": [218], "Y2V2O7.": [219], "also": [221], "discuss":
+        [222], "surprising": [224], "growth": [225], "quality": [228], "epitaxial":
+        [229], "Y2Ti2O7": [233], "quartz": [235], "substrates,": [236], "may": [238],
+        "enable": [239], "topotactic": [240], "chemical": [241], "modification": [242],
+        "films.": [246], "Finally,": [247], "precision": [252], "epitaxy": [256],
+        "allows": [257], "an": [258], "exploration": [259], "properties": [262], "at":
+        [263], "sub-unit-cell": [264], "thicknesses": [265], "with": [266], "superlattices.":
+        [267]}, "primary_location": {"id": "pmh:oai:dash.harvard.edu:1/42744051",
+        "doi": null, "is_oa": true, "landing_page_url": "https://dash.harvard.edu/bitstreams/c384c691-4963-44f7-8dd7-22a899266748/download",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4306401540", "display_name":
+        "Digital Access to Scholarship at Harvard (DASH) (Harvard University)", "issn_l":
+        null, "issn": null, "is_oa": false, "is_in_doaj": false, "is_core": false,
+        "listed_in": [], "host_organization": "https://openalex.org/I136199984", "host_organization_name":
+        "Harvard University", "host_organization_lineage": ["https://openalex.org/I136199984"],
+        "host_organization_lineage_names": [], "type": "repository"}, "license": "cc-by",
+        "license_id": "https://openalex.org/licenses/cc-by", "version": "submittedVersion",
+        "is_accepted": false, "is_published": false, "raw_source_name": null, "raw_type":
+        "Thesis or Dissertation"}}, {"id": "https://openalex.org/W7212278772", "doi":
+        "https://doi.org/10.1117/12.3118166", "title": "Y\u2082Ti\u2082O\u2087 pyrochlore
+        thin films fabricated by sol-gel process", "publication_year": 2026, "abstract_inverted_index":
+        {"Ultrathin": [0], "Y2Ti2O7": [1, 34, 111], "pyrochlore": [2, 50, 112], "thin":
+        [3, 113], "films": [4, 90, 114], "are": [5], "successfully": [6], "fabricated":
+        [7], "by": [8, 55, 83], "the": [9, 16, 27, 56], "sol-gel": [10], "process.":
+        [11], "The": [12, 86], "research": [13], "systematically": [14], "investigates":
+        [15], "impact": [17], "of": [18, 33, 58], "annealing": [19], "temperatures,":
+        [20], "ranging": [21], "from": [22, 42, 76], "650\u00b0C": [23], "to": [24,
+        46, 80, 99, 109], "950\u00b0C,": [25, 53], "on": [26], "phase": [28, 51],
+        "evolution": [29], "and": [30, 62, 95], "surface": [31, 79, 93], "morphology":
+        [32], "films.": [35, 103], "X-ray": [36], "diffraction": [37], "analysis":
+        [38], "confirms": [39], "a": [40, 47, 77, 107], "transition": [41], "an":
+        [43], "amorphous": [44], "state": [45], "wellcrystallized,": [48], "pure":
+        [49], "at": [52], "evidenced": [54], "intensification": [57], "characteristic":
+        [59], "(222),": [60], "(400),": [61], "(440)": [63], "peaks.": [64], "Morphological":
+        [65], "characterizations": [66], "reveal": [67], "that": [68], "increasing":
+        [69], "thermal": [70], "energy": [71], "drives": [72], "grain": [73], "growth,":
+        [74], "evolving": [75], "featureless": [78], "one": [81], "dominated": [82],
+        "well-defined": [84], "grains.": [85], "resulting": [87], "73": [88], "nm":
+        [89], "exhibit": [91], "superior": [92], "quality": [94], "stoichiometric":
+        [96], "accuracy": [97], "compared": [98], "previously": [100], "reported":
+        [101], "thicker": [102], "These": [104], "findings": [105], "pave": [106],
+        "way": [108], "apply": [110], "into": [115], "microelectronic": [116], "or":
+        [117], "optoelectronic": [118], "fields.": [119]}, "primary_location": {"id":
+        "doi:10.1117/12.3118166", "doi": "https://doi.org/10.1117/12.3118166", "is_oa":
+        false, "landing_page_url": "https://doi.org/10.1117/12.3118166", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S4363608528", "display_name":
+        "International Conference on Optoelectronic Information and Functional Materials
+        (OIFM)", "issn_l": null, "issn": null, "is_oa": false, "is_in_doaj": false,
+        "is_core": false, "listed_in": [], "host_organization": null, "host_organization_name":
+        null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "conference"}, "license": null, "license_id": null, "version":
+        "publishedVersion", "is_accepted": true, "is_published": true, "raw_source_name":
+        "International Conference on Optoelectronic Information and Functional Materials
+        (OIFM 2026)", "raw_type": "proceedings-article"}}, {"id": "https://openalex.org/W7134241940",
+        "doi": "https://doi.org/10.48550/arxiv.2603.05717", "title": "The Evolution
+        of Magnetism in a Thin Film Pyrochlore Ferromagnetic Insulator", "publication_year":
+        2026, "abstract_inverted_index": {"The": [0], "pyrochlore": [1, 71], "vanadates":
+        [2], "are": [3, 13, 21, 30, 92], "compelling": [4], "candidates": [5], "for":
+        [6], "next-generation": [7], "dissipationless": [8, 38], "devices.": [9, 54],
+        "Lu2V2O7": [10], "and": [11, 29, 77, 138, 156], "Y2V2O7": [12, 72], "ferromagnetic":
+        [14], "insulators": [15], "(Tc": [16, 104], "~": [17, 105], "70": [18], "K)":
+        [19, 107], "that": [20, 108], "believed": [22], "to": [23, 32, 45, 86, 100,
+        113, 126, 160], "exhibit": [24, 119], "the": [25, 60, 66, 79, 87, 101, 132,
+        149, 158], "magnon": [26, 39, 162], "Hall": [27], "effect": [28], "expected":
+        [31], "host": [33], "topological": [34], "magnons.": [35], "Their": [36],
+        "completely": [37], "edge": [40], "states": [41], "could": [42], "be": [43],
+        "harnessed": [44], "realize": [46], "low-power": [47], "information": [48],
+        "transport": [49], "in": [50, 59, 122, 142], "spintronic": [51], "or": [52],
+        "magnonic": [53], "As": [55], "a": [56, 120], "crucial": [57], "step": [58],
+        "realization": [61], "of": [62, 70, 81, 98, 134, 151], "devices,": [63], "we":
+        [64], "synthesize": [65], "first": [67], "thin": [68], "films": [69, 91, 117],
+        "on": [73, 153], "isostructural": [74], "Y2Ti2O7": [75], "substrates": [76],
+        "explore": [78], "evolution": [80, 147], "their": [82], "magnetic": [83, 140,
+        154], "properties": [84], "down": [85], "ultrathin": [88], "limit.": [89],
+        "All": [90], "insulating": [93], "ferromagnets": [94], "with": [95, 110, 131],
+        "transition": [96], "temperatures": [97], "up": [99], "bulk": [102], "value":
+        [103], "68": [106], "decrease": [109], "thickness": [111], "according": [112],
+        "finite-size": [114], "effects.": [115], "Our": [116], "also": [118], "change":
+        [121], "anisotropy": [123, 155], "from": [124], "in-plane": [125], "out-of-plane":
+        [127], "easy": [128], "axis": [129], "coincident": [130], "development": [133],
+        "partial": [135], "strain": [136, 152], "relaxation": [137], "nonzero": [139],
+        "hysteresis": [141], "an": [143], "applied": [144], "field.": [145], "This":
+        [146], "demonstrates": [148], "impact": [150], "paves": [157], "way": [159],
+        "tunable": [161], "topology.": [163]}, "primary_location": {"id": "pmh:oai:arXiv.org:2603.05717",
+        "doi": null, "is_oa": true, "landing_page_url": "http://arxiv.org/abs/2603.05717",
+        "pdf_url": "https://arxiv.org/pdf/2603.05717", "source": {"id": "https://openalex.org/S4306400194",
+        "display_name": "arXiv (Cornell University)", "issn_l": "2331-8422", "issn":
+        ["2331-8422"], "is_oa": true, "is_in_doaj": false, "is_core": false, "listed_in":
+        [], "host_organization": "https://openalex.org/I205783295", "host_organization_name":
+        "Cornell University", "host_organization_lineage": ["https://openalex.org/I205783295"],
+        "host_organization_lineage_names": [], "type": "repository"}, "license": null,
+        "license_id": null, "version": "submittedVersion", "is_accepted": false, "is_published":
+        false, "raw_source_name": null, "raw_type": "text"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442a5ca8eb5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '16515'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:49 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=D%2FG50pXE1tpybw7QJaRbORcSkiUpIn9sxzFHgdpkXxY%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633269"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=D%2FG50pXE1tpybw7QJaRbORcSkiUpIn9sxzFHgdpkXxY%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633269"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '8510'
+      x-ratelimit-remaining-usd:
+      - '0.851'
+      x-ratelimit-reset:
+      - '30731'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=Y2Ti2O7+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 17, "db_response_time_ms": 11, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (Y2Ti2O7 thin
+        film) in the title or abstract", "x_new_oql": "get works with (Y2Ti2O7 thin
+        film) in the title or abstract", "oqo": {"get_rows": "works", "filter_rows":
+        [{"column_id": "title_and_abstract.search", "value": "Y2Ti2O7 thin film",
+        "operator": "has"}]}, "url": "/works?filter=title_and_abstract.search:Y2Ti2O7
+        thin film&per_page=1", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2002820700"}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442a5d7c575f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '622'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:49 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=D%2FG50pXE1tpybw7QJaRbORcSkiUpIn9sxzFHgdpkXxY%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633269"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=D%2FG50pXE1tpybw7QJaRbORcSkiUpIn9sxzFHgdpkXxY%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633269"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '8500'
+      x-ratelimit-remaining-usd:
+      - '0.85'
+      x-ratelimit-reset:
+      - '30731'
+    status:
+      code: 200
+      message: OK
+version: 1

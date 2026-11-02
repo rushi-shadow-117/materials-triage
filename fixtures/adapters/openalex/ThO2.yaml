@@ -1,0 +1,792 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=ThO2+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 20, "db_response_time_ms": 19, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (ThO2 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (ThO2 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "ThO2
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:ThO2
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W7118596696",
+        "doi": "https://doi.org/10.1016/j.matlet.2026.140061", "title": "Air-stable
+        single-source CVD of ThO2 thin films", "publication_year": 2026, "abstract_inverted_index":
+        {"Thorium": [0], "dioxide": [1], "(ThO": [2], "2": [3, 33, 64], ")": [4],
+        "is": [5], "gaining": [6], "increasing": [7], "technological": [8], "relevance":
+        [9], "for": [10, 26], "next-generation": [11], "nuclear": [12], "and": [13,
+        23, 29, 42, 70, 85], "advanced": [14], "functional": [15], "material": [16],
+        "applications.": [17], "These": [18], "fields": [19], "demand": [20], "simple,":
+        [21], "safe": [22], "cost-effective": [24], "methods": [25], "producing":
+        [27], "high-quality": [28], "compositionally": [30], "uniform": [31, 75],
+        "ThO": [32, 63], "coatings.": [34], "In": [35], "this": [36], "work,": [37],
+        "we": [38], "present": [39], "a": [40, 58, 83, 93], "practical": [41], "user-friendly":
+        [43], "chemical": [44], "vapor": [45], "deposition": [46], "(CVD)": [47],
+        "process": [48], "that": [49], "utilizes": [50], "air-stable": [51], "thorium":
+        [52], "acetylacetonate": [53], "[Th(acac)": [54], "4": [55], "]": [56], "as":
+        [57, 72, 74], "single-source": [59], "precursor.": [60], "The": [61], "resulting":
+        [62], "films": [65], "exhibit": [66], "excellent": [67], "phase": [68], "purity":
+        [69], "crystallinity,": [71], "well": [73], "substrate": [76], "coverage":
+        [77], "after": [78], "calcination.": [79], "This": [80], "approach": [81],
+        "offers": [82], "safer": [84], "simplified": [86], "alternative": [87], "to":
+        [88], "previously": [89], "reported": [90], "routes,": [91], "making": [92],
+        "significant": [94], "step": [95], "toward": [96], "scalable": [97], "processing":
+        [98], "of": [99], "actinide-based": [100], "thin": [101], "films.": [102]},
+        "primary_location": {"id": "doi:10.1016/j.matlet.2026.140061", "doi": "https://doi.org/10.1016/j.matlet.2026.140061",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.1016/j.matlet.2026.140061",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S55626769", "display_name":
+        "Materials Letters", "issn_l": "0167-577X", "issn": ["0167-577X", "1873-4979"],
+        "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core",
+        "dongbi-b", "jufo-1", "ki-jl-1", "norway-1", "poland-70", "russia-white-list-1",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310320990", "host_organization_name":
+        "Elsevier BV", "host_organization_lineage": ["https://openalex.org/P4310320990"],
+        "host_organization_lineage_names": ["Elsevier BV"], "type": "journal"}, "license":
+        "cc-by", "license_id": "https://openalex.org/licenses/cc-by", "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Materials Letters",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W4407389889",
+        "doi": "https://doi.org/10.1021/acsanm.4c06148", "title": "ThO2 and Th1\u2013xUxO2
+        Nanoscale Materials and Thin Films for Nuclear Science Applications", "publication_year":
+        2025, "abstract_inverted_index": {"This": [0], "study": [1], "investigates":
+        [2], "the": [3, 13, 94, 98, 106, 127, 146, 150, 161, 172, 184, 249], "dynamics":
+        [4], "and": [5, 19, 34, 42, 78, 90, 109, 135, 145, 158, 171, 199, 233, 246,
+        255], "mechanisms": [6], "of": [7, 15, 97, 149, 156, 174, 187, 217, 225, 252],
+        "solution": [8, 170], "combustion": [9, 111, 143], "synthesis": [10], "(SCS)":
+        [11], "for": [12, 183, 190, 240], "preparation": [14], "nanoscale": [16, 175],
+        "ThO": [17, 197], "2": [18, 25, 36, 40, 49, 62, 168, 198, 206], "Th": [20,
+        157, 162, 200], "1\u2013x": [21], "U": [22, 159, 165, 203], "x": [23, 164,
+        166, 202, 204], "O": [24, 48, 61, 167, 205], "materials,": [26], "utilizing":
+        [27], "metal": [28], "nitrates": [29], "(Th(NO": [30], "3": [31, 38, 58],
+        ")": [32, 39, 41, 50, 63], "4": [33], "UO": [35], "(NO": [37], "acetylacetone":
+        [43, 88, 116, 136], "(C": [44, 57], "5": [45], "H": [46, 59], "8": [47, 60],
+        "as": [51, 126, 138], "reactants": [52], "dissolved": [53], "in": [54, 87,
+        122, 160], "a": [55, 139, 222], "2-methoxyethanol": [56], "solvent.": [64],
+        "By": [65], "combining": [66], "thermodynamic": [67], "calculations,": [68],
+        "dynamic": [69], "time\u2013temperature": [70, 102], "profile": [71], "measurements":
+        [72, 103], "with": [73, 177], "differential": [74], "scanning": [75], "calorimetry":
+        [76], "(DSC)": [77], "thermogravimetric": [79], "analysis": [80], "(TGA),":
+        [81], "this": [82], "research": [83], "reveals": [84], "how": [85], "variations":
+        [86], "concentration": [89], "uranium": [91, 128], "content": [92, 129], "influence":
+        [93], "structural": [95, 147, 232], "parameters": [96, 144], "synthesized":
+        [99, 213], "oxides.": [100, 257], "The": [101, 131, 153], "show": [104], "that":
+        [105], "heating": [107], "rate": [108], "maximum": [110], "temperatures":
+        [112, 125], "are": [113, 180, 211], "sensitive": [114], "to": [115], "concentration.":
+        [117], "DSC-TGA": [118], "results": [119], "indicate": [120], "shifts": [121],
+        "exothermic": [123], "peak": [124], "changes.": [130], "complexation": [132],
+        "between": [133], "thorium": [134], "emerges": [137], "critical": [140], "factor,":
+        [141], "impacting": [142], "characteristics": [148], "final": [151], "products.":
+        [152], "uniform": [154], "distribution": [155], "1\u2013": [163, 201], "solid":
+        [169], "formation": [173], "particles": [176], "strained": [178], "crystallites":
+        [179], "considered": [181], "essential": [182], "low-temperature": [185],
+        "densification": [186], "these": [188], "materials": [189], "nuclear": [191,
+        241], "fuel": [192], "pellet": [193], "applications.": [194], "Additionally,":
+        [195], "high-quality": [196], "thin": [207], "(100\u2013150": [208], "nm)":
+        [209], "films": [210, 229], "successfully": [212], "via": [214], "electrospray":
+        [215], "deposition": [216], "combustible": [218], "solutions": [219], "followed":
+        [220], "by": [221], "brief": [223], "period": [224], "heat": [226], "treatment.":
+        [227], "These": [228], "exhibit": [230], "excellent": [231], "morphological":
+        [234], "uniformity,": [235], "making": [236], "them": [237], "ideal": [238],
+        "candidates": [239], "measurements,": [242], "irradiation": [243], "damage":
+        [244], "studies,": [245], "investigations": [247], "into": [248], "physical":
+        [250], "properties": [251], "both": [253], "pure": [254], "mixed": [256]},
+        "primary_location": {"id": "doi:10.1021/acsanm.4c06148", "doi": "https://doi.org/10.1021/acsanm.4c06148",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1021/acsanm.4c06148",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4210191493", "display_name":
+        "ACS Applied Nano Materials", "issn_l": "2574-0970", "issn": ["2574-0970"],
+        "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core",
+        "dongbi-c", "jufo-1", "ki-jl-1", "norway-1", "poland-20", "russia-white-list-1",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310320006", "host_organization_name":
+        "American Chemical Society", "host_organization_lineage": ["https://openalex.org/P4310320006"],
+        "host_organization_lineage_names": ["American Chemical Society"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "ACS Applied
+        Nano Materials", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W4390591150",
+        "doi": "https://doi.org/10.1016/j.tsf.2023.140194", "title": "Epitaxial light
+        actinide oxide thin films", "publication_year": 2024, "abstract_inverted_index":
+        {"Epitaxial": [0], "thin": [1], "films": [2, 186], "of": [3, 31, 127, 193,
+        207], "ThO2": [4, 29, 116, 130, 148, 179], "and": [5, 24, 38, 53, 72, 124,
+        131, 202], "(UxTh1\u2212x)O2": [6, 84], "mixed": [7, 102, 197], "oxides":
+        [8, 103], "(MOX)": [9], "have": [10, 35, 86, 96, 134], "been": [11, 36, 87,
+        136], "synthesised": [12, 37], "by": [13, 40, 138], "DC": [14], "magnetron":
+        [15], "sputtering.": [16], "The": [17, 44, 101, 141, 168], "samples": [18,
+        30, 45, 85, 93, 133, 149], "were": [19, 104, 150], "characterised": [20],
+        "using": [21], "x-ray": [22, 41], "diffraction": [23, 42], "spectroscopic":
+        [25, 139], "ellipsometry.": [26, 140], "Three": [27], "epitaxial": [28, 83,
+        129], "different": [32], "crystallographic": [33], "orientations": [34], "confirmed":
+        [39], "analysis.": [43], "are": [46], "[1": [47, 50], "1": [48, 51], "1],":
+        [49], "0]": [52], "[0": [54, 79], "0": [55, 80], "1]": [56, 81], "oriented,":
+        [57], "with": [58, 91, 110, 115, 178], "lattice": [59, 111], "parameters":
+        [60], "determined": [61, 137, 144], "to": [62, 95, 106, 164, 174], "be": [63,
+        188], "5.714": [64], "\u00b1": [65, 69, 74], "0.001": [66, 70, 75], "\u00c5,":
+        [67], "5.707": [68], "\u00c5": [71, 76], "5.624": [73], "respectively.": [77],
+        "Four": [78], "oriented": [82], "fabricated,": [88], "across": [89, 181],
+        "0\u2264x\u22641,": [90], "all": [92], "found": [94, 105, 173], "a": [97,
+        160], "unique": [98], "specular": [99], "direction.": [100], "obey": [107],
+        "Vegard\u2019s": [108], "law,": [109], "parameter": [112], "varying": [113],
+        "linearly": [114, 177], "content.": [117], "Values": [118], "for": [119, 145],
+        "the": [120, 128, 146, 152, 182, 191, 203], "optical": [121, 125, 169], "band":
+        [122, 142, 170], "gap": [123, 143, 171], "constants": [126], "MOX": [132],
+        "also": [135], "three": [147], "in": [151, 190], "3.9": [153], "-": [154],
+        "4.6": [155], "eV": [156], "range,": [157], "which": [158], "is": [159], "slight":
+        [161], "underestimate": [162], "compared": [163], "other": [165], "experimental":
+        [166], "values.": [167], "was": [172], "vary": [175], "approximately": [176],
+        "content,": [180], "sample": [183], "series.": [184], "These": [185], "can":
+        [187], "implemented": [189], "research": [192], "thorium-based": [194], "nuclear":
+        [195, 200, 208], "fuels,": [196], "actinide": [198], "oxide": [199], "fuel":
+        [201], "long": [204], "term": [205], "storage": [206], "waste": [209], "forms.":
+        [210]}, "primary_location": {"id": "doi:10.1016/j.tsf.2023.140194", "doi":
+        "https://doi.org/10.1016/j.tsf.2023.140194", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.1016/j.tsf.2023.140194", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S84339699", "display_name": "Thin Solid Films", "issn_l":
+        "0040-6090", "issn": ["0040-6090", "1879-2731"], "is_oa": false, "is_in_doaj":
+        false, "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-b",
+        "jufo-1", "norway-1", "poland-70", "russia-white-list-1"], "host_organization":
+        "https://openalex.org/P4310320990", "host_organization_name": "Elsevier BV",
+        "host_organization_lineage": ["https://openalex.org/P4310320990"], "host_organization_lineage_names":
+        ["Elsevier BV"], "type": "journal"}, "license": "cc-by", "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Thin Solid Films", "raw_type": "journal-article"}}, {"id":
+        "https://openalex.org/W1639673015", "doi": "https://doi.org/10.13182/nse59-a25572",
+        "title": "Zeta Potentials of ThO2 and of Stainless Steel as Related to Aggregation
+        and Caking", "publication_year": 1959, "abstract_inverted_index": {"The":
+        [0, 23], "streaming": [1], "potential": [2], "technique": [3], "has": [4],
+        "been": [5], "used": [6], "to": [7, 51], "obtain": [8], "the": [9, 53, 56,
+        60, 63, 67, 78], "zeta": [10, 57], "potentials": [11, 58], "of": [12, 20,
+        55, 59, 69, 75], "ThO2": [13, 34, 61, 76], "in": [14, 66], "HCl,": [15], "HI,":
+        [16], "HNO3,": [17], "and": [18, 31, 62, 72], "H2SO4": [19], "various": [21],
+        "concentrations.": [22], "data": [24], "are": [25], "correlated": [26], "with":
+        [27], "observed": [28], "settling": [29], "rates": [30], "tendency": [32],
+        "toward": [33], "colloid": [35], "formation.": [36], "Streaming": [37], "current":
+        [38], "measurements": [39], "were": [40], "made": [41], "on": [42, 77], "type":
+        [43], "304": [44], "stainless": [45, 64, 79], "steel": [46, 65], "samples.":
+        [47], "Evidence": [48], "is": [49], "presented": [50], "demonstrate": [52],
+        "significance": [54], "formation": [68], "thin": [70], "films": [71], "thick":
+        [73], "cakes": [74], "steel.": [80]}, "primary_location": {"id": "doi:10.13182/nse59-a25572",
+        "doi": "https://doi.org/10.13182/nse59-a25572", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.13182/nse59-a25572", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S117777261", "display_name": "Nuclear Science and Engineering",
+        "issn_l": "0029-5639", "issn": ["0029-5639", "1943-748X"], "is_oa": false,
+        "is_in_doaj": false, "is_core": true, "listed_in": ["anvur-scientific", "cwts-core",
+        "dongbi-d", "jufo-1", "norway-1", "poland-100", "russia-white-list-2"], "host_organization":
+        "https://openalex.org/P4310320547", "host_organization_name": "Taylor & Francis",
+        "host_organization_lineage": ["https://openalex.org/P4310320547", "https://openalex.org/P4310320449"],
+        "host_organization_lineage_names": ["Taylor & Francis", "Informa"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Nuclear Science
+        and Engineering", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W4403822811",
+        "doi": "https://doi.org/10.1134/s0036024424701772", "title": "Temperature
+        and Enthalpy of Fusion of Nanooxides UO2 and ThO2 of Different Morphologies",
+        "publication_year": 2024, "abstract_inverted_index": {"The": [0, 29, 61, 89,
+        102, 118], "dependence": [1], "of": [2, 8, 16, 19, 31, 40, 45, 70, 76, 120,
+        134], "the": [3, 11, 26, 32, 38, 67, 124, 132, 145], "melting": [4, 43, 62],
+        "temperature": [5, 44], "and": [6, 14, 21, 35, 42, 47, 73, 78, 85, 110, 140],
+        "enthalpy": [7, 39], "fusion": [9, 41], "on": [10, 37], "characteristic":
+        [12, 33, 54, 68], "size": [13, 34, 55, 69, 90, 103], "morphology": [15, 36],
+        "nanoobjects": [17, 49], "consisting": [18], "UO2": [20, 46, 77, 109], "ThO2":
+        [22, 48, 79, 111], "was": [23], "studied": [24], "by": [25, 137], "thermodynamic":
+        [27], "method.": [28], "influence": [30], "becomes": [50], "noticeable": [51],
+        "when": [52, 66, 107], "their": [53], "is": [56, 80], "less": [57, 81], "than":
+        [58, 82], "20": [59], "nm.": [60], "point": [63], "abruptly": [64], "decreases":
+        [65, 92, 106], "nanoparticles,": [71], "nanowires,": [72], "thin": [74], "films":
+        [75, 98], "5,": [83], "4,": [84], "3": [86], "nm,": [87], "respectively.":
+        [88], "effect": [91, 104], "in": [93, 99, 123, 128, 144], "a": [94], "sequence:":
+        [95], "spherical": [96], "nanoparticles\u2013nanowires\u2013thin": [97], "all":
+        [100], "cases.": [101], "also": [105], "individual": [108], "nanoparticles":
+        [112], "are": [113, 127], "combined": [114], "into": [115], "nanostructured":
+        [116], "nanoobjects.": [117], "results": [119, 133], "calculations": [121,
+        135], "obtained": [122, 136], "present": [125], "study": [126], "good": [129],
+        "agreement": [130], "with": [131], "molecular": [138], "dynamics": [139],
+        "experimental": [141], "data": [142], "available": [143], "literature.": [146]},
+        "primary_location": {"id": "doi:10.1134/s0036024424701772", "doi": "https://doi.org/10.1134/s0036024424701772",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1134/s0036024424701772",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S15526297", "display_name":
+        "Russian Journal of Physical Chemistry A", "issn_l": "0036-0244", "issn":
+        ["0036-0244", "1531-863X"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["cwts-core", "dongbi-d", "norway-1", "poland-20", "russia-white-list-3"],
+        "host_organization": "https://openalex.org/P4310320267", "host_organization_name":
+        "Pleiades Publishing", "host_organization_lineage": ["https://openalex.org/P4310320267",
+        "https://openalex.org/P4310319965"], "host_organization_lineage_names": ["Pleiades
+        Publishing", "Springer Nature"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Russian Journal of Physical Chemistry A", "raw_type":
+        "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429440fb35f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '16668'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:04 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=17HtlCCV1CyoWxmzrGryZNE4g4Q1BzSYU31q9HujqA8%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633224"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=17HtlCCV1CyoWxmzrGryZNE4g4Q1BzSYU31q9HujqA8%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633224"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9790'
+      x-ratelimit-remaining-usd:
+      - '0.979'
+      x-ratelimit-reset:
+      - '30776'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=ThO2+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 31, "db_response_time_ms": 18, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (ThO2 thin film)
+        in the title or abstract", "x_new_oql": "get works with (ThO2 thin film) in
+        the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "ThO2 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:ThO2 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W1989170355"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442944eb7b5f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '610'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:04 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=17HtlCCV1CyoWxmzrGryZNE4g4Q1BzSYU31q9HujqA8%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633224"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=17HtlCCV1CyoWxmzrGryZNE4g4Q1BzSYU31q9HujqA8%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633224"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9780'
+      x-ratelimit-remaining-usd:
+      - '0.978'
+      x-ratelimit-reset:
+      - '30776'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=thoria+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 11, "db_response_time_ms": 21, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (thoria thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (thoria thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "thoria
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:thoria
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2913642223",
+        "doi": "https://doi.org/10.15669/pnst.5.136", "title": "Direct mass analysis
+        of water absorption onto thoria thin films", "publication_year": 2018, "abstract_inverted_index":
+        {"Plutonium": [0], "oxide": [1], "(PuO": [2], "2": [3, 48, 68, 105, 116, 138,
+        191, 222], ")": [4], "is": [5, 209], "one": [6], "of": [7, 13, 36, 58, 78,
+        95, 98, 101, 133, 185, 187, 206, 218, 231], "the": [8, 14, 26, 34, 46, 50,
+        56, 75, 96, 112, 136, 175, 183, 204, 211, 215, 229], "most": [9], "highly":
+        [10], "radioactive": [11], "products": [12], "nuclear": [15], "fuel": [16],
+        "cycle": [17], "and": [18, 33, 167], "its": [19, 31, 79], "storage": [20,
+        84], "poses": [21], "particular": [22], "challenges": [23], "due": [24, 161],
+        "to": [25, 73, 162, 170, 192], "high": [27, 53], "temperatures": [28], "produced":
+        [29], "by": [30], "decay": [32], "production": [35], "gases": [37], "from,":
+        [38], "inter": [39], "alia,": [40], "surface": [41], "adsorbed": [42], "water":
+        [43, 82, 102, 134, 188, 219, 232], "entrained": [44], "with": [45, 81, 109],
+        "PuO": [47, 221], "during": [49], "packaging": [51], "process.Its": [52],
+        "radiotoxicity": [54], "necessitates": [55], "use": [57], "actinide": [59],
+        "oxides": [60], "in": [61, 111, 147, 157], "similar": [62], "oxidation": [63],
+        "states,": [64], "such": [65], "as": [66, 70], "ThO": [67, 104, 115, 137,
+        190], ",": [69, 223], "model": [71], "systems": [72], "allow": [74], "comprehensive":
+        [76], "study": [77], "interaction": [80], "under": [83], "conditions.We":
+        [85], "have": [86, 181], "developed": [87], "a": [88, 121, 148], "method":
+        [89, 226], "which": [90], "enables": [91], "direct": [92], "gravimetric":
+        [93], "measurement": [94], "adsorption": [97], "microgram": [99, 113, 237],
+        "amounts": [100], "onto": [103, 126, 135, 189, 220, 234], "thin": [106, 127],
+        "films,": [107], "also": [108], "masses": [110], "range.Porous": [114], "films":
+        [117], "were": [118], "deposited": [119], "from": [120], "surfactant": [122],
+        "based": [123], "precursor": [124], "solution": [125], "GaPO": [128], "4":
+        [129], "crystal": [130, 152, 158, 176], "substrates.The": [131], "absorption":
+        [132, 186, 217, 233], "coating": [139], "at": [140, 174, 197], "different":
+        [141], "relative": [142], "humidities": [143], "was": [144], "then": [145],
+        "studied": [146], "closed": [149], "reactor": [150], "using": [151, 236],
+        "nano-balance": [153], "gravimetry,": [154], "wherein": [155], "changes":
+        [156, 172], "resonant": [159], "frequency": [160], "absorbed": [163], "mass":
+        [164, 171], "are": [165], "directly": [166], "linearly": [168], "related":
+        [169], "occurring": [173], "surface.Using": [177], "this": [178, 225], "method,":
+        [179], "we": [180], "determined": [182], "enthalpy": [184, 205, 208], "be":
+        [193], "54.6": [194], "kJmol": [195, 200], "-1": [196, 201], "75\u00b0C,":
+        [198], "13": [199], "greater": [202], "than": [203], "evaporation.This": [207],
+        "within": [210], "range": [212], "predicted": [213], "for": [214, 228], "reversible":
+        [216], "indicating": [224], "allows": [227], "investigation": [230], "plutonia":
+        [235], "samples.": [238]}, "primary_location": {"id": "doi:10.15669/pnst.5.136",
+        "doi": "https://doi.org/10.15669/pnst.5.136", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.15669/pnst.5.136", "pdf_url": "https://doi.org/10.15669/pnst.5.136",
+        "source": {"id": "https://openalex.org/S2765055978", "display_name": "Progress
+        in Nuclear Science and Technology", "issn_l": "2185-4823", "issn": ["2185-4823"],
+        "is_oa": true, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core",
+        "jufo-1"], "host_organization": null, "host_organization_name": null, "host_organization_lineage":
+        [], "host_organization_lineage_names": [], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Progress in Nuclear Science and
+        Technology", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W3166268496",
+        "doi": null, "title": "Analysis of water absorption onto ceria and thoria
+        thin films by direst mass and contact angle measurements:14th International
+        Nuclear Fuel Cycle Conference, GLOBAL 2019 and Light Water Reactor Fuel Performance
+        Conference, TOP FUEL 2019", "publication_year": 2019, "abstract_inverted_index":
+        {"Plutonium": [0], "oxide": [1, 140], "(PuO2)": [2], "is": [3], "one": [4],
+        "of": [5, 11, 34, 56, 76, 94, 97, 100, 119, 135, 138, 166, 220, 222, 247,
+        263, 288, 305, 316, 328, 350], "the": [6, 12, 24, 32, 44, 47, 54, 73, 95,
+        112, 124, 136, 139, 169, 209, 218, 245, 254, 277, 286, 298, 302, 314, 336,
+        357], "most": [7], "highly": [8], "radioactive": [9], "products": [10], "nuclear":
+        [13], "fuel": [14], "cycle": [15], "and": [16, 31, 66, 104, 146, 161, 201,
+        230, 240, 261, 265, 335, 375], "its": [17, 29, 77], "storage": [18, 82], "poses":
+        [19], "particular": [20], "challenges": [21], "due": [22, 195], "to": [23,
+        71, 130, 196, 204, 226, 233], "high": [25, 51, 345], "temperatures": [26],
+        "produced": [27], "by": [28], "decay": [30], "production": [33], "gases":
+        [35], "from,": [36], "inter": [37], "alia,": [38], "surface": [39, 141, 279],
+        "adsorbed": [40], "water": [41, 80, 101, 120, 167, 223, 271, 289, 306, 317,
+        329, 339], "entrained": [42], "with": [43, 79, 109, 142, 285], "PuO2": [45,
+        363], "during": [46], "packaging": [48], "process.": [49], "Its": [50], "radiotoxicity":
+        [52], "necessitates": [53], "use": [55], "actinide": [57], "oxides": [58],
+        "in": [59, 111, 181, 191, 347], "similar": [60], "oxidation": [61], "states,":
+        [62], "such": [63], "as": [64, 68], "CeO2": [65, 103, 145, 170, 225, 260],
+        "ThO2,": [67], "model": [69], "systems": [70], "allow": [72], "comprehensive":
+        [74], "study": [75], "interaction": [78], "under": [81], "conditions.": [83],
+        "We": [84], "have": [85, 127, 216], "developed": [86], "a": [87, 132, 152,
+        182, 273, 344], "method": [88, 311], "which": [89], "enables": [90], "direct":
+        [91], "gravimetric": [92], "measurement": [93], "adsorption": [96, 290], "microgram":
+        [98, 113, 322], "amounts": [99], "onto": [102, 123, 157, 168, 224, 231, 307,
+        319], "ThO2": [105, 147, 172, 232, 262, 278], "thin": [106, 158], "films,":
+        [107], "also": [108], "masses": [110], "range.": [114], "Additionally": [115],
+        "sessile": [116], "contact": [117, 250, 341], "angles": [118, 342], "droplets":
+        [121], "deposited": [122, 150], "same": [125, 255], "films": [126, 148, 256],
+        "been": [128], "measured": [129], "provide": [131, 257], "correlating": [133],
+        "measure": [134], "affinity": [137, 275], "water.": [143], "Porous": [144],
+        "were": [149], "from": [151], "surfactant": [153], "based": [154], "precursor":
+        [155], "solution": [156], "GaPO4": [159], "crystal": [160, 186, 192, 210],
+        "glass": [162], "substrates.": [163], "The": [164, 324], "absorption": [165,
+        221, 304, 318, 330], "or": [171], "coating": [173], "at": [174, 208, 237],
+        "different": [175], "relative": [176], "humidities": [177], "was": [178],
+        "then": [179], "studied": [180], "closed": [183], "reactor": [184], "using":
+        [185, 321], "nanobalance": [187], "gravimetry,": [188], "wherein": [189],
+        "changes": [190, 206], "resonant": [193], "frequency": [194], "absorbed":
+        [197], "mass": [198, 205], "are": [199, 296], "directly": [200], "linearly":
+        [202], "related": [203], "occurring": [207], "surface.": [211], "Using": [212],
+        "this": [213, 310], "method,": [214], "we": [215], "determined": [217], "enthalpy":
+        [219, 246, 327], "be": [227, 234], "49.7": [228], "kJmol-1": [229, 236, 242],
+        "54.6": [235], "75\u00b0C,": [238], "11": [239], "15": [241], "greater": [243,
+        274], "than": [244, 280], "evaporation.": [248], "Sessile": [249], "angle":
+        [251], "measurements": [252], "on": [253, 361], "values": [258], "for": [259,
+        276, 301, 313, 331, 359], "56\u00b0": [264], "27\u00b0": [266], "respectively":
+        [267], "-": [268, 369, 379], "indicating": [269], "that": [270], "shows":
+        [272], "CeO2,": [281], "an": [282], "observation": [283], "consistent": [284],
+        "hierarchy": [287], "enthalpies": [291, 295], "derived": [292], "here": [293],
+        "These": [294], "within": [297], "range": [299], "predicted": [300], "reversible":
+        [303], "PuO2,": [308], "confirming": [309], "allows": [312], "investigation":
+        [315], "plutonia": [320, 353], "samples.": [323, 364], "significantly": [325],
+        "higher": [326], "thoria": [332], "over": [333], "ceria,": [334], "correspondingly":
+        [337], "smaller": [338], "droplet": [340], "indicates": [343], "variation":
+        [346], "water-absorbing": [348], "properties": [349], "commonly": [351], "used":
+        [352], "analogues,": [354], "further": [355], "emphasizing": [356], "need":
+        [358], "studies": [360], "active": [362], "Copyright": [365], "\u00a9": [366],
+        "GLOBAL": [367], "2019": [368, 378], "International": [370], "Nuclear": [371],
+        "Fuel": [372, 383], "Cycle": [373], "Conference": [374], "TOP": [376], "FUEL":
+        [377], "Light": [380], "Water": [381], "Reactor": [382], "Performance": [384],
+        "Conference.All": [385], "rights": [386], "reserved.": [387]}, "primary_location":
+        {"id": "pmh:oai:eprints.lancs.ac.uk:142569", "doi": null, "is_oa": false,
+        "landing_page_url": "https://eprints.lancs.ac.uk/id/eprint/142569/", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S4306401916", "display_name":
+        "Lancaster EPrints (Lancaster University)", "issn_l": null, "issn": null,
+        "is_oa": false, "is_in_doaj": false, "is_core": false, "listed_in": [], "host_organization":
+        "https://openalex.org/I67415387", "host_organization_name": "Lancaster University",
+        "host_organization_lineage": ["https://openalex.org/I67415387"], "host_organization_lineage_names":
+        [], "type": "repository"}, "license": null, "license_id": null, "version":
+        "submittedVersion", "is_accepted": false, "is_published": false, "raw_source_name":
+        null, "raw_type": "Contribution to Conference"}}, {"id": "https://openalex.org/W3036701399",
+        "doi": "https://doi.org/10.1017/s0424820100101712", "title": "Annealing Effects
+        in Ten Films of Thoria", "publication_year": 1968, "abstract_inverted_index":
+        {"Thin": [0], "films": [1], "of": [2, 27, 51, 54, 57, 73, 83, 118, 120], "thoria,":
+        [3], "either": [4], "cleaved": [5, 45, 122], "from": [6, 64], "air-fired":
+        [7], "material": [8], "or": [9, 139], "vacuum": [10], "deposited": [11], "on":
+        [12], "polished": [13], "copper": [14], "substrates,": [15], "were": [16,
+        29, 41, 47, 75, 124, 134], "examined": [17], "by": [18, 49], "transmission":
+        [19], "electron": [20, 38, 96, 105], "microscopy.": [21], "As": [22], "prepared,":
+        [23], "the": [24, 37, 79, 94, 98, 101, 108, 121], "two": [25], "types": [26],
+        "samples": [28, 46], "considerably": [30], "different,": [31], "but": [32],
+        "after": [33], "being": [34], "heated": [35], "in": [36, 70, 112], "microscope":
+        [39], "they": [40], "closely": [42], "similar.": [43], "The": [44, 60, 116,
+        132], "obtained": [48], "means": [50], "extraction": [52], "replication":
+        [53], "fracture": [55], "surfaces": [56], "polycrystalline": [58], "thoria.":
+        [59], "thin": [61], "flakes": [62], "ranged": [63], "about": [65], "0.1":
+        [66], "to": [67, 137], "20": [68], "\u03bcm": [69], "diameter.": [71], "Most":
+        [72], "them": [74], "single": [76], "crystals": [77, 102, 123], "exhibiting":
+        [78], "diffraction": [80], "effects": [81], "expected": [82], "crystalline":
+        [84], "materials": [85], "and": [86, 107, 130], "containing": [87], "many":
+        [88], "long": [89], "dislocations.": [90], "Upon": [91], "heating": [92],
+        "with": [93], "unapertured": [95], "beam": [97], "dislocations": [99], "disappeared,":
+        [100], "became": [103], "more": [104], "transparent,": [106], "striated":
+        [109], "microstructure": [110], "shown": [111], "Fig.": [113], "1": [114],
+        "developed.": [115], "orientations": [117], "most": [119], "equally": [125],
+        "divided": [126], "among": [127], "\ufe5b110\ufe5c,": [128], "\ufe5b111\ufe5c,":
+        [129], "\ufe5b112\ufe5c.": [131], "striae": [133], "usually": [135], "parallel":
+        [136], "<110>": [138], "<135>.": [140]}, "primary_location": {"id": "doi:10.1017/s0424820100101712",
+        "doi": "https://doi.org/10.1017/s0424820100101712", "is_oa": false, "landing_page_url":
+        "http://doi.org/10.1017/s0424820100101712", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S4210239783", "display_name": "Proceedings annual meeting
+        Electron Microscopy Society of America", "issn_l": "0424-8201", "issn": ["0424-8201",
+        "2690-1315"], "is_oa": false, "is_in_doaj": false, "is_core": false, "listed_in":
+        [], "host_organization": "https://openalex.org/P4310311721", "host_organization_name":
+        "Cambridge University Press", "host_organization_lineage": ["https://openalex.org/P4310311721",
+        "https://openalex.org/P4310311702"], "host_organization_lineage_names": ["Cambridge
+        University Press", "University of Cambridge"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Proceedings, annual meeting, Electron
+        Microscopy Society of America", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2116865521",
+        "doi": "https://doi.org/10.1093/oxfordjournals.jmicro.a049552", "title": "Aging
+        of Hydrous Thoria Gels", "publication_year": 1967, "abstract_inverted_index":
+        {"An": [0], "electron": [1, 4, 148, 191], "microscopic": [2], "and": [3, 13,
+        51, 79, 120, 192, 215, 269, 281], "diffraction": [5, 194], "examination":
+        [6], "has": [7], "been": [8], "made": [9], "of": [10, 28, 41, 47, 55, 93,
+        123, 136, 160, 176, 178, 227, 235, 276, 287, 315], "freshly": [11], "precipitated":
+        [12], "aged": [14], "hydrous": [15], "thoria": [16, 64, 198, 229, 289], "gels":
+        [17, 65], "prepared": [18], "by": [19, 26, 38, 189], "(a)": [20, 208], "slow":
+        [21, 45, 53], "precipitation": [22], "at": [23, 49, 57, 73, 80, 96, 295],
+        "room": [24, 74], "temperature": [25, 75], "diffusion": [27], "CO2": [29],
+        "gas": [30], "into": [31, 264], "thorium": [32], "nitrate": [33], "solution,":
+        [34], "(b)": [35, 216], "rapid": [36], "precipitaticn": [37], "the": [39,
+        134, 137, 147, 150, 203, 212, 220, 228, 243, 247, 252, 256, 288, 309], "addition":
+        [40], "ammonium": [42], "hydroxide,": [43], "(c)": [44], "hydrolysis": [46,
+        54], "ThCl4": [48, 56, 94], "80\u201390\u00b0,": [50], "(d)": [52], "180\u00b0":
+        [58, 99, 296], "in": [59, 76, 83, 109, 118, 169, 172, 182, 202, 231, 246,
+        255, 266, 291, 305], "sealed": [60, 292], "glass": [61, 138, 293], "tubes.":
+        [62], "Hydrous": [63], "are": [66, 153, 174, 200, 249, 258], "essentially":
+        [67], "\u201camorphous\u201d,": [68], "but": [69], "age": [70], "under": [71],
+        "water": [72], "several": [77], "months,": [78], "100": [81], "\u00b0": [82],
+        "a": [84, 113, 143, 306], "few": [85], "days,": [86], "to": [87, 155, 233,
+        272], "form": [88, 132], "anhydrous,": [89], "cubic": [90], "ThO2.": [91],
+        "Hydrolysis": [92], "solutions": [95], "80\u00b0": [97], "or": [98, 104, 115,
+        274], "yields": [100], "thin": [101], "transparent": [102, 151, 197, 238,
+        261], "sheets": [103, 130, 152, 199, 230, 290], "plate-like": [105], "aggregates":
+        [106, 158, 165, 223], "400\u20134000": [107], "\u00c5": [108, 168, 181], "thickness.":
+        [110], "These": [111], "present": [112], "\u201cshiny\u201d": [114], "glittering":
+        [116], "appearance": [117], "suspension,": [119, 268], "dried": [121], "samples":
+        [122], "overlapping": [124], "plates": [125, 262], "exhibit": [126], "interference":
+        [127], "colors.": [128], "The": [129, 184, 196, 225, 260], "often": [131],
+        "on": [133], "walls": [135], "container,": [139], "which": [140, 171], "may":
+        [141], "exert": [142], "catalytic": [144], "effect.": [145], "In": [146],
+        "microscope": [149], "found": [154], "be": [156], "\u201csecondary\u201d":
+        [157], "composed": [159, 175], "disc-like": [161], "\u201c": [162, 221], "primary":
+        [163, 185, 213, 222], "\u201d": [164], "about": [166], "5OO\u20131000": [167],
+        "diameter,": [170], "turn": [173], "crystallites": [177, 186, 214, 245], "ThO2":
+        [179, 244], "20\u201330": [180], "diameter.": [183], "were": [187], "identified":
+        [188], "their": [190, 270], "x-ray": [193], "patterns.": [195], "porous":
+        [201], "sense": [204], "that": [205, 234, 242], "they": [206], "contain":
+        [207], "small": [209], "interstices": [210, 218], "between": [211, 219], "larger":
+        [217], "\u201d.": [224], "structure": [226], "similar": [232], "previously":
+        [236], "reported": [237], "alumina": [239, 279], "films,": [240], "except":
+        [241], "former": [248], "random,": [250], "whereas": [251], "\u03b3-AIOOH":
+        [253], "crystals": [254, 314], "latter": [257], "oriented.": [259], "roll":
+        [263], "scrolls": [265, 275], "aqueous": [267], "relation": [271], "rolls":
+        [273], "Halloysite": [277], "clay,": [278], "(bayerite),": [280], "Nd(OH)3":
+        [282], "is": [283], "discussed.": [284], "Continued": [285], "aging": [286],
+        "tubes": [294], "for": [297], "periods": [298], "as": [299, 301], "long":
+        [300], "5\u20136": [302], "weeks": [303], "Results": [304], "reaction": [307],
+        "with": [308], "glass,": [310], "producing": [311], "micron": [312], "sized":
+        [313], "tetragonal": [316], "ThSiO4.": [317]}, "primary_location": {"id":
+        "doi:10.1093/oxfordjournals.jmicro.a049552", "doi": "https://doi.org/10.1093/oxfordjournals.jmicro.a049552",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1093/oxfordjournals.jmicro.a049552",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S145845511", "display_name":
+        "Journal of Electron Microscopy", "issn_l": "0022-0744", "issn": ["0022-0744",
+        "1477-9986"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "norway-1"], "host_organization": "https://openalex.org/P4310311648",
+        "host_organization_name": "Oxford University Press", "host_organization_lineage":
+        ["https://openalex.org/P4310311648", "https://openalex.org/P4310311647"],
+        "host_organization_lineage_names": ["Oxford University Press", "University
+        of Oxford"], "type": "journal"}, "license": null, "license_id": null, "version":
+        "publishedVersion", "is_accepted": true, "is_published": true, "raw_source_name":
+        "Journal of Electron Microscopy", "raw_type": "journal-article"}}, {"id":
+        "https://openalex.org/W2002774140", "doi": "https://doi.org/10.1016/0167-577x(91)90051-7",
+        "title": "Growth of thoria on heat-treated SiC", "publication_year": 1991,
+        "abstract_inverted_index": {"The": [0, 48], "growth": [1], "of": [2, 5, 11,
+        50, 65], "small": [3], "particles": [4, 49], "thoria": [6, 51], "on": [7,
+        55], "heat-treated": [8, 37], "thin": [9], "films": [10], "SiC": [12, 57],
+        "has": [13], "been": [14], "studied": [15], "by": [16, 44], "transmission":
+        [17], "electron": [18, 32], "microscopy.": [19], "Thinned": [20], "samples":
+        [21], "are": [22, 35], "prepared": [23], "in": [24, 30, 62], "a": [25], "form":
+        [26], "suitable": [27], "for": [28], "imaging": [29], "the": [31, 45, 56,
+        60, 63], "microscope": [33], "and": [34], "then": [36, 53], "to": [38], "remove":
+        [39], "any": [40], "surface": [41], "damage": [42], "created": [43], "thinning":
+        [46], "process.": [47], "were": [52], "grown": [54], "while": [58], "heating":
+        [59], "sample": [61], "presence": [64], "thoriated": [66], "tungsten.": [67]},
+        "primary_location": {"id": "doi:10.1016/0167-577x(91)90051-7", "doi": "https://doi.org/10.1016/0167-577x(91)90051-7",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.1016/0167-577x(91)90051-7",
+        "pdf_url": "https://www.sciencedirect.com/science/article/pii/0167577X91900517/pdf",
+        "source": {"id": "https://openalex.org/S55626769", "display_name": "Materials
+        Letters", "issn_l": "0167-577X", "issn": ["0167-577X", "1873-4979"], "is_oa":
+        false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core", "dongbi-b",
+        "jufo-1", "ki-jl-1", "norway-1", "poland-70", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320990", "host_organization_name":
+        "Elsevier BV", "host_organization_lineage": ["https://openalex.org/P4310320990"],
+        "host_organization_lineage_names": ["Elsevier BV"], "type": "journal"}, "license":
+        "cc-by-nc-nd", "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Materials Letters", "raw_type": "journal-article"}}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429459e645f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '20740'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:04 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=17HtlCCV1CyoWxmzrGryZNE4g4Q1BzSYU31q9HujqA8%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633224"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=17HtlCCV1CyoWxmzrGryZNE4g4Q1BzSYU31q9HujqA8%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633224"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9770'
+      x-ratelimit-remaining-usd:
+      - '0.977'
+      x-ratelimit-reset:
+      - '30776'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=thoria+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 22, "db_response_time_ms": 20, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (thoria thin film)
+        in the title or abstract", "x_new_oql": "get works with (thoria thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "thoria thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:thoria thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W2913642223"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429469ac35f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '618'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:04 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=17HtlCCV1CyoWxmzrGryZNE4g4Q1BzSYU31q9HujqA8%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633224"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=17HtlCCV1CyoWxmzrGryZNE4g4Q1BzSYU31q9HujqA8%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633224"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9760'
+      x-ratelimit-remaining-usd:
+      - '0.976'
+      x-ratelimit-reset:
+      - '30776'
+    status:
+      code: 200
+      message: OK
+version: 1

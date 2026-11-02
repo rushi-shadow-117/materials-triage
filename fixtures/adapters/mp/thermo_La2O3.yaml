@@ -1,0 +1,88 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - _csrf_token=authenticated; mp-session=D6CxMRzs_AnmoKVJ2zbT2A|1794688597|UwqU8V4OK2FICdT9uo-Pr4QBxKQ;
+        __cf_bm=H6UGl9qHtmdvqmD720DOzbAwa4e0KbmiYNzIlO3eJx8-1793633224.245169-1.0.1.1-2Mc7L0orjBGLTAfd2i0_kZa60dtsP0Zkz7_dX8TNLr_rkm.JoJJ1ipORcMyB7HZ7ut.Ydan5WXZVicGFjW9NjGhpntDvL4Q1vzUGKRDlMjNu9U92s0qgTsPqxfY05HNA
+      host:
+      - api.materialsproject.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.materialsproject.org/materials/thermo/?_fields=material_id%2Cthermo_type%2Cenergy_above_hull%2Cis_stable&_limit=1000&material_ids=mp-1180635%2Cmp-1968%2Cmp-2292%2Cmp-33032%2Cmp-553347%2Cmp-557691
+  response:
+    body:
+      string: '{"data":[{"material_id":"mp-aaaaacxs","thermo_type":"r2SCAN","energy_above_hull":0.0,"is_stable":true},{"material_id":"mp-aaaaacxs","thermo_type":"GGA_GGA+U","energy_above_hull":0.024399077249999124,"is_stable":false},{"material_id":"mp-aaaaacxs","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.0,"is_stable":true},{"material_id":"mp-aaaaadke","thermo_type":"r2SCAN","energy_above_hull":0.0017858232499996518,"is_stable":false},{"material_id":"mp-aaaaadke","thermo_type":"GGA_GGA+U","energy_above_hull":0.0,"is_stable":true},{"material_id":"mp-aaaaadke","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.0017858232499978755,"is_stable":false},{"material_id":"mp-aaaabwwm","thermo_type":"GGA_GGA+U","energy_above_hull":0.8906750912500003,"is_stable":false},{"material_id":"mp-aaaabwwm","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.8924609145,"is_stable":false},{"material_id":"mp-aaabfmop","thermo_type":"GGA_GGA+U","energy_above_hull":0.2404115472499999,"is_stable":false},{"material_id":"mp-aaabfmop","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.24219737049999956,"is_stable":false},{"material_id":"mp-aaabfszr","thermo_type":"GGA_GGA+U","energy_above_hull":0.02960378991666701,"is_stable":false},{"material_id":"mp-aaabfszr","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.03138961316666666,"is_stable":false},{"material_id":"mp-aaacpenb","thermo_type":"GGA_GGA+U","energy_above_hull":0.23387022524999956,"is_stable":false},{"material_id":"mp-aaacpenb","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.23565604849999922,"is_stable":false}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-02T15:27:05.024406+00:00","total_doc":14,"facet":null,"max_limit":1000,"default_fields":["thermo_id","material_id","last_updated"]}}'
+    headers:
+      access-control-expose-headers:
+      - X-Api-Key
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429482c19db04-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '1772'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:05 GMT
+      ratelimit-limit:
+      - '25'
+      ratelimit-remaining:
+      - '24'
+      ratelimit-reset:
+      - '1'
+      server:
+      - cloudflare
+      set-cookie:
+      - _csrf_token=authenticated; Domain=.materialsproject.org; Path=/; SameSite=Strict
+      vary:
+      - Accept-Encoding
+      - Origin
+      via:
+      - kong/2.8.4
+      x-consumer-id:
+      - 58e0b4c2-4c2d-439b-ba0a-648cd568a0fa
+      x-kong-proxy-latency:
+      - '12'
+      x-kong-upstream-latency:
+      - '11'
+      x-ratelimit-limit-day:
+      - '640000'
+      x-ratelimit-limit-hour:
+      - '40000'
+      x-ratelimit-limit-minute:
+      - '1000'
+      x-ratelimit-limit-month:
+      - '12800000'
+      x-ratelimit-limit-second:
+      - '25'
+      x-ratelimit-limit-year:
+      - '100000000'
+      x-ratelimit-remaining-day:
+      - '639981'
+      x-ratelimit-remaining-hour:
+      - '39981'
+      x-ratelimit-remaining-minute:
+      - '986'
+      x-ratelimit-remaining-month:
+      - '12799981'
+      x-ratelimit-remaining-second:
+      - '24'
+      x-ratelimit-remaining-year:
+      - '99999933'
+    status:
+      code: 200
+      message: OK
+version: 1

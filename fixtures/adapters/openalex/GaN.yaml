@@ -1,0 +1,691 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=GaN+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 4466, "db_response_time_ms": 69, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (GaN thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (GaN thin film) in the title or abstract where it has an abstract", "oqo":
+        {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract", "value":
+        true}, {"column_id": "title_and_abstract.search", "value": "GaN thin film",
+        "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:GaN
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2074796258",
+        "doi": "https://doi.org/10.1103/physrevb.54.17745", "title": "Strain-related
+        phenomena in GaN thin films", "publication_year": 1996, "abstract_inverted_index":
+        {"Photoluminescence": [0], "(PL),": [1], "Raman": [2, 118, 170], "spectroscopy,":
+        [3], "and": [4, 16, 37, 71, 80, 126, 141, 167, 236], "x-ray": [5], "diffraction":
+        [6], "are": [7, 120], "employed": [8], "to": [9, 47, 91, 115, 136, 208, 213],
+        "demonstrate": [10], "the": [11, 51, 60, 66, 69, 93, 109, 116, 160, 168, 178,
+        187, 193, 199, 211, 219, 228, 234, 237], "co-existence": [12], "of": [13,
+        53, 59, 68, 95, 108, 155, 177, 201, 227, 233], "a": [14, 17, 76, 81, 152],
+        "biaxial": [15, 29, 142, 153], "hydrostatic": [18, 43, 140], "strain": [19,
+        30, 44, 209], "that": [20, 100, 151, 189, 216], "can": [21, 205], "be": [22,
+        48, 206], "present": [23], "in": [24, 192], "GaN": [25, 194], "thin": [26,
+        131, 195], "films.": [27, 132], "The": [28], "originates": [31], "from": [32,
+        38, 186, 222], "growth": [33], "on": [34], "lattice-mismatched": [35], "substrates":
+        [36], "post-growth": [39], "cooling.": [40], "An": [41], "additional": [42],
+        "is": [45, 63, 184], "shown": [46], "introduced": [49], "by": [50, 164, 172,
+        175], "presence": [52], "point": [54], "defects.": [55], "A": [56], "consistent":
+        [57], "description": [58], "experimental": [61], "results": [62], "derived":
+        [64], "within": [65], "limits": [67], "linear": [70], "isotropic": [72, 87,
+        180], "elastic": [73, 88, 98, 181], "theory": [74], "using": [75], "Poisson":
+        [77], "ratio": [78], "$\\ensuremath{\\nu}=0.23\\ifmmode\\pm\\else\\textpm\\fi{}0.06$":
+        [79], "bulk": [82], "modulus": [83], "$B=200\\ifmmode\\pm\\else\\textpm\\fi{}20$":
+        [84], "GPa.": [85], "These": [86], "constants": [89, 99, 104], "help": [90],
+        "judge": [92], "validity": [94], "published": [96], "anisotropic": [97], "vary":
+        [101], "greatly.": [102], "Calibration": [103], "for": [105, 122], "strain-induced":
+        [106], "shifts": [107], "near-band-edge": [110, 161], "PL": [111, 162], "lines":
+        [112, 163], "with": [113, 198], "respect": [114], "${E}_{2}$": [117, 169],
+        "mode": [119, 171], "given": [121], "strain-free,": [123], "biaxially": [124],
+        "strained,": [125], "hydrostatically": [127], "contracted": [128], "or": [129],
+        "expanded": [130], "They": [133], "allow": [134], "us": [135], "extract":
+        [137], "differences": [138], "between": [139], "stress": [143, 154], "components":
+        [144], "if": [145], "present.": [146], "In": [147], "particular,": [148],
+        "we": [149], "determine": [150], "one": [156], "GPa": [157], "would": [158],
+        "shift": [159], "27\\ifmmode\\pm\\else\\textpm\\fi{}2": [165], "meV": [166],
+        "4.2\\ifmmode\\pm\\else\\textpm\\fi{}0.3": [173], "${\\mathrm{cm}}^{\\ensuremath{-}1}$":
+        [174], "use": [176], "listed": [179], "constants.": [182], "It": [183], "expected":
+        [185], "analyses": [188], "stoichiometric": [190], "variations": [191], "films":
+        [196], "together": [197], "design": [200], "specific": [202], "buffer": [203],
+        "layers": [204], "utilized": [207], "engineer": [210], "material": [212],
+        "an": [214], "extent": [215], "greatly": [217], "exceeds": [218], "possibilities":
+        [220], "known": [221], "other": [223], "semiconductor": [224], "systems":
+        [225], "because": [226], "largely": [229], "different": [230], "covalent":
+        [231], "radii": [232], "Ga": [235], "N": [238], "atom.": [239]}, "primary_location":
+        {"id": "doi:10.1103/physrevb.54.17745", "doi": "https://doi.org/10.1103/physrevb.54.17745",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1103/physrevb.54.17745",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4210174675", "display_name":
+        "Physical review. B, Condensed matter", "issn_l": "0163-1829", "issn": ["0163-1829",
+        "1095-3795"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "ki-jl-2"], "host_organization": "https://openalex.org/P4310320261",
+        "host_organization_name": "American Physical Society", "host_organization_lineage":
+        ["https://openalex.org/P4310320261"], "host_organization_lineage_names": ["American
+        Physical Society"], "type": "journal"}, "license": null, "license_id": null,
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Physical Review B", "raw_type": "journal-article"}}, {"id":
+        "https://openalex.org/W2044661180", "doi": "https://doi.org/10.1063/1.116756",
+        "title": "Spatial distribution of the luminescence in GaN thin films", "publication_year":
+        1996, "abstract_inverted_index": {"The": [0, 36, 86], "spatial": [1], "dependence":
+        [2], "of": [3, 88], "the": [4, 8, 15, 57, 61, 79], "luminescence": [5, 68],
+        "intensities": [6], "at": [7, 14, 19, 33, 82], "band": [9, 63], "edge": [10],
+        "(364": [11], "nm)": [12, 21], "and": [13, 49, 59, 81], "\u2018\u2018yellow\u2019\u2019":
+        [16], "defect-band": [17], "(centered": [18], "560": [20], "regions": [22],
+        "for": [23], "epitaxial": [24], "GaN": [25], "films": [26, 37], "have": [27],
+        "been": [28], "studied": [29], "using": [30], "cathodoluminescence": [31],
+        "microscopy": [32], "room": [34], "temperature.": [35], "were": [38, 50, 65],
+        "grown": [39], "by": [40, 98], "metalorganic": [41], "chemical": [42], "vapor":
+        [43], "deposition": [44], "on": [45], "(0001)": [46], "sapphire": [47], "substrates":
+        [48], "not": [51], "intentionally": [52], "doped.": [53], "Significant": [54],
+        "nonuniformities": [55], "in": [56, 60, 69], "band-to-band": [58, 89], "yellow":
+        [62], "emissions": [64], "observed.": [66], "Yellow": [67], "small": [70],
+        "crystallites": [71], "appears": [72], "to": [73], "originate": [74], "from":
+        [75], "extended": [76], "defects": [77], "inside": [78], "grains": [80], "low-angle":
+        [83, 94], "grain": [84, 95], "boundaries.": [85], "size": [87], "emission":
+        [90], "sites": [91], "correlates": [92], "with": [93], "sizes": [96], "observed":
+        [97], "transmission": [99], "electron": [100], "microscopy.": [101]}, "primary_location":
+        {"id": "doi:10.1063/1.116756", "doi": "https://doi.org/10.1063/1.116756",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.116756", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S105243760", "display_name":
+        "Applied Physics Letters", "issn_l": "0003-6951", "issn": ["0003-6951", "1077-3118",
+        "1520-8842"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Applied Physics Letters", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W1983834680", "doi": "https://doi.org/10.1063/1.118799",
+        "title": "Deep levels and persistent photoconductivity in GaN thin films",
+        "publication_year": 1997, "abstract_inverted_index": {"Photocurrent": [0],
+        "decay": [1], "in": [2, 8, 28, 35, 64, 112, 125], "GaN": [3, 31, 38], "thin":
+        [4], "films": [5, 32], "was": [6, 24], "studied": [7], "the": [9, 44, 59,
+        65, 68, 70, 74, 81, 85, 102, 109, 120], "time": [10, 47], "span": [11], "from":
+        [12], "a": [13, 51], "few": [14], "seconds": [15], "to": [16, 73, 84], "several":
+        [17, 56], "days.": [18], "The": [19, 40], "persistent": [20], "photoconductivity":
+        [21, 41], "(PPC)": [22], "behavior": [23, 111], "observed": [25], "not": [26],
+        "only": [27], "Mg-doped": [29, 113], "p-type": [30], "but": [33], "also":
+        [34], "undoped": [36], "n-type": [37, 126], "films.": [39], "spectra": [42],
+        "and": [43, 98, 115], "photocurrent": [45, 71, 82], "response": [46], "were":
+        [48], "measured": [49], "using": [50], "weak": [52], "probe": [53, 76, 87],
+        "light": [54, 77], "at": [55, 95], "times": [57], "after": [58], "samples":
+        [60], "had": [61], "been": [62], "kept": [63], "dark.": [66], "During": [67],
+        "relaxation,": [69], "due": [72, 83], "subband-gap": [75], "decreased": [78],
+        "more": [79], "than": [80], "UV": [86], "light.": [88], "It": [89], "is":
+        [90, 119], "suggested": [91], "that": [92, 116], "metastable": [93], "centers":
+        [94], "1.1,": [96], "1.40,": [97], "2.04": [99], "eV": [100], "above": [101],
+        "valence": [103], "band": [104], "edge": [105], "are": [106], "responsible":
+        [107], "for": [108, 122], "PPC": [110, 123], "GaN,": [114], "Ga": [117], "vacancy":
+        [118], "candidate": [121], "effect": [124], "GaN.": [127]}, "primary_location":
+        {"id": "doi:10.1063/1.118799", "doi": "https://doi.org/10.1063/1.118799",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.118799", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S105243760", "display_name":
+        "Applied Physics Letters", "issn_l": "0003-6951", "issn": ["0003-6951", "1077-3118",
+        "1520-8842"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Applied Physics Letters", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2031683891", "doi": "https://doi.org/10.1002/sia.740160116",
+        "title": "An XPS study of GaN thin films on GaAs", "publication_year": 1990,
+        "abstract_inverted_index": {"Abstract": [0], "The": [1, 35, 64, 91, 107, 130],
+        "energies": [2], "of": [3, 8, 39, 46, 52, 78, 83, 88, 156], "photoelectron":
+        [4, 97], "and": [5, 10, 85, 94], "Auger": [6, 72], "lines": [7], "gallium":
+        [9, 48, 131, 147], "nitrogen": [11, 84], "in": [12, 32, 159], "GaN": [13,
+        79, 113, 157], "thin": [14], "films": [15, 41, 158], "obtained": [16], "by":
+        [17, 58, 80], "reactive": [18], "sputtering": [19, 82, 114], "are": [20],
+        "derived.": [21], "From": [22], "previous": [23], "RBS": [24], "investigations,":
+        [25], "such": [26], "were": [27], "found": [28, 126], "to": [29, 127, 152],
+        "be": [30, 128], "stoichiometric": [31], "the": [33, 40, 86, 104, 112, 119,
+        145, 153], "bulk.": [34], "XPS": [36], "surface": [37, 146], "analysis": [38],
+        "gives": [42], "a": [43, 75], "chemical": [44], "content": [45], "\u223c20%":
+        [47], "oxide.": [49], "Depth": [50], "profiling": [51], "GaN/GaAs": [53],
+        "samples": [54], "is": [55, 110, 117, 125, 142, 149], "then": [56], "performed":
+        [57], "Ar": [59], "+": [60], "(2": [61], "keV)": [62], "sputter\u2010etching.":
+        [63], "Ga": [65, 92, 95], "L": [66], "3": [67], "M": [68, 70], "4,5": [69,
+        71], "line": [73], "shows": [74], "partial": [76, 154], "dissociation": [77],
+        "preferential": [81], "production": [87], "metallic": [89], "gallium.": [90],
+        "3d": [93], "2p": [96], "lines,": [98], "having": [99], "different": [100],
+        "escape": [101], "depths,": [102], "give": [103], "same": [105, 120], "result.":
+        [106], "etching": [108], "rate": [109], "high:": [111], "yield,": [115], "which":
+        [116], "almost": [118], "as": [121], "that": [122, 144], "for": [123, 135],
+        "Ga,": [124], "\u223c8.": [129], "oxide": [132, 148], "component": [133],
+        "disappears": [134], "depths": [136], "larger": [137], "than": [138], "10":
+        [139], "nm:": [140], "it": [141], "concluded": [143], "probably": [150], "due":
+        [151], "oxidation": [155], "atomospheric": [160], "air.": [161]}, "primary_location":
+        {"id": "doi:10.1002/sia.740160116", "doi": "https://doi.org/10.1002/sia.740160116",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1002/sia.740160116",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S114406758", "display_name":
+        "Surface and Interface Analysis", "issn_l": "0142-2421", "issn": ["0142-2421",
+        "1096-9918"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-c", "jufo-1", "norway-1", "poland-40",
+        "russia-white-list-3", "vabb-shw"], "host_organization": "https://openalex.org/P4310320595",
+        "host_organization_name": "Wiley", "host_organization_lineage": ["https://openalex.org/P4310320595"],
+        "host_organization_lineage_names": ["Wiley"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Surface and Interface Analysis",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2141593643",
+        "doi": "https://doi.org/10.1364/josab.10.001447", "title": "Linear- and nonlinear-optical
+        properties of GaN thin films", "publication_year": 1993, "abstract_inverted_index":
+        {"Results": [0], "of": [1, 7, 42, 47, 60, 67, 79, 86], "a": [2, 40, 57, 65,
+        117, 123, 134], "linear-": [3], "and": [4, 19, 30, 62, 64, 72, 82, 94], "nonlinear-optical":
+        [5], "investigation": [6], "GaN": [8, 44, 69, 103, 136], "thin": [9], "films":
+        [10, 104], "epitaxially": [11], "deposited": [12], "onto": [13], "(0001)-oriented":
+        [14], "sapphire": [15], "are": [16], "reported.": [17], "Wavelength-": [18],
+        "angle-dependent": [20], "linear": [21], "transmission": [22, 51], "measurements":
+        [23], "were": [24, 106], "used": [25], "to": [26], "determine": [27], "the":
+        [28, 31, 35, 68, 76, 80, 83, 87, 127], "thickness": [29], "refractive": [32],
+        "index": [33], "in": [34, 101, 111, 126], "500\u20131200-nm": [36], "spectral":
+        [37], "region": [38], "for": [39], "series": [41], "six": [43], "films.":
+        [45], "Analysis": [46], "angle-dependent,": [48], "second-harmonic": [49],
+        "(SH)": [50], "profiles": [52], "at": [53], "532": [54], "nm": [55, 93], "provided":
+        [56], "quantitative": [58], "evaluation": [59], "\u03c7xzx(2),\u03c7zxx(2),":
+        [61], "\u03c7zzz(2)": [63], "determination": [66], "lattice": [70], "structure":
+        [71, 121], "tilt": [73], "angle": [74], "between": [75, 91], "optical": [77],
+        "axis": [78], "film": [81], "surface": [84], "normal": [85], "sample.": [88],
+        "Dispersion": [89], "effects": [90], "500": [92], "1.064": [95], "\u03bcm":
+        [96, 110], "prevented": [97], "efficient": [98], "SH": [99, 129], "production":
+        [100], "individual": [102], "that": [105], "greater": [107], "than": [108],
+        "2.5": [109], "thickness.": [112], "However,": [113], "field": [114], "calculations":
+        [115], "on": [116], "proposed": [118], "multilayer": [119], "GaN\u2013sapphire":
+        [120], "observed": [122], "ninefold": [124], "increase": [125], "transmitted":
+        [128], "power": [130], "as": [131], "compared": [132], "with": [133], "single":
+        [135], "film.": [137]}, "primary_location": {"id": "doi:10.1364/josab.10.001447",
+        "doi": "https://doi.org/10.1364/josab.10.001447", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1364/josab.10.001447", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S64486668", "display_name": "Journal of the Optical
+        Society of America B", "issn_l": "0740-3224", "issn": ["0740-3224", "1520-8540"],
+        "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core",
+        "dongbi-c", "jufo-1", "ki-jl-1", "norway-2", "poland-70", "russia-white-list-2"],
+        "host_organization": "https://openalex.org/P4310315679", "host_organization_name":
+        "Optica Publishing Group", "host_organization_lineage": ["https://openalex.org/P4310315679"],
+        "host_organization_lineage_names": ["Optica Publishing Group"], "type": "journal"},
+        "license": null, "license_id": null, "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "Journal of the Optical Society
+        of America B", "raw_type": "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442994eab45f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '16414'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:17 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=byF4gk0w28Gd%2FcyDuivMRoJFLcRMvmWtFUXMy%2B3KvCs%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633237"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=byF4gk0w28Gd%2FcyDuivMRoJFLcRMvmWtFUXMy%2B3KvCs%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633237"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9290'
+      x-ratelimit-remaining-usd:
+      - '0.929'
+      x-ratelimit-reset:
+      - '30763'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=GaN+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 6387, "db_response_time_ms": 16, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (GaN thin film)
+        in the title or abstract", "x_new_oql": "get works with (GaN thin film) in
+        the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "GaN thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:GaN thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W2074796258"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54429961f005f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '608'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:17 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=byF4gk0w28Gd%2FcyDuivMRoJFLcRMvmWtFUXMy%2B3KvCs%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633237"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=byF4gk0w28Gd%2FcyDuivMRoJFLcRMvmWtFUXMy%2B3KvCs%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633237"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9280'
+      x-ratelimit-remaining-usd:
+      - '0.928'
+      x-ratelimit-reset:
+      - '30763'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=gallium+nitride+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 998, "db_response_time_ms": 30, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (gallium nitride
+        thin film) in the title or abstract where it has an abstract", "x_new_oql":
+        "get works with (gallium nitride thin film) in the title or abstract where
+        it has an abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "has_abstract", "value": true}, {"column_id": "title_and_abstract.search",
+        "value": "gallium nitride thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:gallium
+        nitride thin film&per_page=5", "order": "best matches first", "order_default":
+        true}, "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2006553171",
+        "doi": "https://doi.org/10.1063/1.124317", "title": "Pendeoepitaxy of gallium
+        nitride thin films", "publication_year": 1999, "abstract_inverted_index":
+        {"Pendeoepitaxy,": [0], "a": [1, 43, 54, 88, 113], "form": [2], "of": [3,
+        7, 36, 95, 104, 108, 118], "selective": [4], "lateral": [5, 25], "growth":
+        [6, 26], "GaN": [8, 34, 38, 145], "thin": [9], "films": [10], "has": [11],
+        "been": [12], "developed": [13], "using": [14], "GaN/AlN/6H\u2013SiC(0001)":
+        [15], "substrates": [16], "and": [17, 48, 58, 78, 87, 135], "produced": [18],
+        "by": [19, 41, 138], "organometallic": [20], "vapor": [21], "phase": [22],
+        "epitaxy.": [23], "Selective": [24], "is": [27, 136], "forced": [28], "to":
+        [29, 131, 143], "initiate": [30], "from": [31, 75], "the": [32, 50, 60, 76,
+        84, 92, 96, 105, 144], "(112\u03040)": [33, 106], "sidewalls": [35], "etched":
+        [37], "seed": [39, 46, 61, 85, 146], "forms": [40, 62, 86], "incorporating":
+        [42], "silicon": [44], "nitride": [45], "mask": [47], "employing": [49], "SiC":
+        [51], "substrate": [52], "as": [53, 141], "pseudomask.": [55], "Coalescence":
+        [56], "over": [57], "between": [59], "was": [63, 129], "achieved.": [64],
+        "Transmission": [65], "electron": [66], "microscopy": [67, 102], "revealed":
+        [68, 112], "that": [69], "all": [70], "vertically": [71], "threading": [72],
+        "defects": [73], "stemming": [74], "GaN/AlN": [77], "AlN/SiC": [79], "interfaces":
+        [80], "are": [81], "contained": [82], "within": [83], "substantial": [89],
+        "reduction": [90], "in": [91], "dislocation": [93], "density": [94], "laterally":
+        [97], "grown": [98], "GaN.": [99], "Atomic": [100], "force": [101], "analysis":
+        [103], "face": [107], "discrete": [109], "pendeoepitaxial": [110, 122], "structures":
+        [111], "root": [114], "mean": [115], "square": [116], "roughness": [117],
+        "0.98": [119], "\u00c5.": [120], "The": [121], "layer": [123], "photoluminescence":
+        [124], "band": [125], "edge": [126], "emission": [127], "peak": [128], "observed":
+        [130], "be": [132], "3.454": [133], "eV": [134], "blueshifted": [137], "12":
+        [139], "meV": [140], "compared": [142], "layer.": [147]}, "primary_location":
+        {"id": "doi:10.1063/1.124317", "doi": "https://doi.org/10.1063/1.124317",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.124317", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S105243760", "display_name":
+        "Applied Physics Letters", "issn_l": "0003-6951", "issn": ["0003-6951", "1077-3118",
+        "1520-8842"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Applied Physics Letters", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2037502705", "doi": "https://doi.org/10.1063/1.1311595",
+        "title": "Nanocrystalline gallium nitride thin films", "publication_year":
+        2000, "abstract_inverted_index": {"Nanocrystalline": [0], "gallium": [1],
+        "nitride": [2], "(GaN)": [3], "thin": [4], "films": [5, 62, 83], "were": [6,
+        69], "deposited": [7], "on": [8], "quartz": [9], "substrates": [10], "by":
+        [11], "reactive": [12, 22], "rf": [13], "sputtering": [14, 24], "of": [15,
+        35, 76, 81], "GaAs": [16], "target": [17], "with": [18, 38, 93], "nitrogen":
+        [19], "as": [20, 47], "the": [21, 33, 48, 72], "cum": [23], "gas.": [25],
+        "X-ray": [26], "diffraction": [27], "and": [28, 87], "transmission": [29],
+        "electron": [30], "microscopy": [31], "confirmed": [32], "presence": [34],
+        "GaN": [36], "crystallites": [37], "particle": [39, 59], "size": [40, 60],
+        "increasing": [41], "from": [42, 53, 85], "3": [43], "to": [44, 55, 95], "16":
+        [45], "nm,": [46], "substrate": [49], "temperature": [50], "was": [51], "increased":
+        [52], "400": [54], "550": [56, 67], "\u00b0C.": [57], "The": [58, 78], "in":
+        [61], "grown": [63], "at": [64], "temperatures": [65], "below": [66], "\u00b0C":
+        [68], "less": [70], "than": [71], "exciton": [73], "Bohr": [74], "radius":
+        [75], "GaN.": [77, 97], "band": [79], "gap": [80], "these": [82], "obtained":
+        [84], "absorption": [86], "photoluminescence": [88], "measurements": [89],
+        "showed": [90], "a": [91], "blueshift": [92], "respect": [94], "bulk": [96]},
+        "primary_location": {"id": "doi:10.1063/1.1311595", "doi": "https://doi.org/10.1063/1.1311595",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.1311595", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S105243760", "display_name":
+        "Applied Physics Letters", "issn_l": "0003-6951", "issn": ["0003-6951", "1077-3118",
+        "1520-8842"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Applied Physics Letters", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2084972008", "doi": "https://doi.org/10.1063/1.118027",
+        "title": "Pyroelectricity in gallium nitride thin films", "publication_year":
+        1996, "abstract_inverted_index": {"We": [0, 19], "report": [1], "on": [2],
+        "the": [3, 6, 21, 25, 28, 33, 51, 61, 87], "measurements": [4], "of": [5,
+        50, 69], "pyroeffect": [7], "in": [8, 64, 86], "wurtzite": [9], "n-type":
+        [10], "GaN": [11, 65], "films": [12], "deposited": [13], "over": [14], "basal":
+        [15], "plane": [16], "sapphire": [17], "substrates.": [18], "measured": [20],
+        "voltage": [22, 40], "drop": [23], "between": [24], "contacts": [26], "while":
+        [27], "sample": [29, 88], "was": [30], "subjected": [31], "to": [32, 48, 73,
+        83], "uniform": [34], "heating": [35], "or": [36], "cooling.": [37], "The":
+        [38], "pyroelectric": [39, 52, 62], "coefficient": [41], "extracted": [42],
+        "from": [43], "our": [44], "data": [45], "is": [46, 66], "comparable": [47],
+        "that": [49, 60], "ceramics": [53], "(\u223c104": [54], "V/m": [55], "K).":
+        [56], "Our": [57], "results": [58], "show": [59], "effect": [63], "a": [67,
+        70, 79, 84], "combination": [68], "fast": [71], "response": [72, 81], "an":
+        [74], "initial": [75], "heat": [76], "flow": [77], "and": [78], "slower":
+        [80], "related": [82], "change": [85], "temperature.": [89]}, "primary_location":
+        {"id": "doi:10.1063/1.118027", "doi": "https://doi.org/10.1063/1.118027",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.118027", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S105243760", "display_name":
+        "Applied Physics Letters", "issn_l": "0003-6951", "issn": ["0003-6951", "1077-3118",
+        "1520-8842"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Applied Physics Letters", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2084181104", "doi": "https://doi.org/10.1063/1.121219",
+        "title": "The piezoelectric coefficient of gallium nitride thin films", "publication_year":
+        1998, "abstract_inverted_index": {"A": [0], "laser": [1], "interferometer":
+        [2], "was": [3, 16, 37, 48, 66], "used": [4], "to": [5, 50], "measure": [6],
+        "the": [7, 18, 31, 34, 56, 63], "d33": [8, 65], "piezoelectric": [9, 35],
+        "coefficient": [10, 36], "of": [11, 20, 33, 43], "wurtzite": [12], "GaN.":
+        [13], "The": [14], "GaN": [15], "in": [17, 55], "form": [19], "1": [21], "\u03bcm":
+        [22], "thick": [23], "films,": [24], "grown": [25], "by": [26], "chemical":
+        [27], "vapor": [28], "deposition": [29], "and": [30], "measurement": [32],
+        "made": [38], "with": [39], "a": [40], "spatial": [41], "resolution": [42],
+        "100": [44], "\u03bcm.": [45], "Sample": [46], "mounting": [47], "found":
+        [49], "play": [51], "an": [52], "important": [53], "part": [54], "observed":
+        [57], "response.": [58], "For": [59], "rigidly": [60], "mounted": [61], "samples,":
+        [62], "measured": [64], "2.0\u00b10.1": [67], "pm": [68], "V\u22121.": [69]},
+        "primary_location": {"id": "doi:10.1063/1.121219", "doi": "https://doi.org/10.1063/1.121219",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.121219", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S105243760", "display_name":
+        "Applied Physics Letters", "issn_l": "0003-6951", "issn": ["0003-6951", "1077-3118",
+        "1520-8842"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Applied Physics Letters", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2026160409", "doi": "https://doi.org/10.1063/1.106309",
+        "title": "Epitaxial growth of zinc blende and wurtzitic gallium nitride thin
+        films on (001) silicon", "publication_year": 1991, "abstract_inverted_index":
+        {"Zinc": [0], "blende": [1, 63], "and": [2], "wurtzitic": [3, 76], "GaN":
+        [4, 51, 58], "films": [5, 52], "have": [6, 60, 74], "been": [7], "epitaxially":
+        [8], "grown": [9, 34, 53, 67], "onto": [10], "(001)Si": [11], "by": [12, 40],
+        "electron": [13], "<m1;&1p>cyclotron": [14], "resonance": [15], "microwave":
+        [16], "plasma-assisted": [17], "molecular": [18], "beam": [19], "epitaxy,":
+        [20], "using": [21], "a": [22, 29, 41, 55, 69], "two-step": [23], "growth":
+        [24, 44], "process.": [25], "In": [26], "this": [27], "process": [28], "thin":
+        [30], "buffer": [31, 59, 73], "layer": [32], "is": [33], "at": [35], "relatively":
+        [36], "low": [37], "temperatures": [38], "followed": [39], "higher": [42],
+        "temperature": [43], "of": [45, 48], "the": [46, 49, 61, 75], "rest": [47],
+        "film.": [50], "on": [54, 68], "single": [56], "crystalline": [57], "zinc":
+        [62], "structure,": [64], "while": [65], "those": [66], "polycrystalline":
+        [70], "or": [71], "amorphous": [72], "structure.": [77]}, "primary_location":
+        {"id": "doi:10.1063/1.106309", "doi": "https://doi.org/10.1063/1.106309",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.106309", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S105243760", "display_name":
+        "Applied Physics Letters", "issn_l": "0003-6951", "issn": ["0003-6951", "1077-3118",
+        "1520-8842"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Applied Physics Letters", "raw_type": "journal-article"}}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442996b9785f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '12987'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:17 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=byF4gk0w28Gd%2FcyDuivMRoJFLcRMvmWtFUXMy%2B3KvCs%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633237"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=byF4gk0w28Gd%2FcyDuivMRoJFLcRMvmWtFUXMy%2B3KvCs%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633237"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9270'
+      x-ratelimit-remaining-usd:
+      - '0.927'
+      x-ratelimit-reset:
+      - '30763'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=gallium+nitride+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 1420, "db_response_time_ms": 29, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (gallium nitride
+        thin film) in the title or abstract", "x_new_oql": "get works with (gallium
+        nitride thin film) in the title or abstract", "oqo": {"get_rows": "works",
+        "filter_rows": [{"column_id": "title_and_abstract.search", "value": "gallium
+        nitride thin film", "operator": "has"}]}, "url": "/works?filter=title_and_abstract.search:gallium
+        nitride thin film&per_page=1", "order": "best matches first", "order_default":
+        true}, "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2006553171"}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442997cdc75f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '656'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:17 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=byF4gk0w28Gd%2FcyDuivMRoJFLcRMvmWtFUXMy%2B3KvCs%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633237"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=byF4gk0w28Gd%2FcyDuivMRoJFLcRMvmWtFUXMy%2B3KvCs%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633237"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9260'
+      x-ratelimit-remaining-usd:
+      - '0.926'
+      x-ratelimit-reset:
+      - '30763'
+    status:
+      code: 200
+      message: OK
+version: 1

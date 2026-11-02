@@ -1,0 +1,202 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=SrB4O7+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 1, "db_response_time_ms": 21, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (SrB4O7 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (SrB4O7 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "SrB4O7
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:SrB4O7
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2944814187",
+        "doi": "https://doi.org/10.1063/1.5100389", "title": "SrB4O7:Sm2+ phosphor
+        for solar photovoltaics", "publication_year": 2019, "abstract_inverted_index":
+        {"Thin": [0], "film": [1], "solar": [2, 11, 25, 45, 112], "cells": [3, 12],
+        "were": [4], "developed": [5], "as": [6, 32, 34], "an": [7, 14], "alternative":
+        [8], "to": [9, 16, 36, 72], "c-Si": [10], "in": [13, 52, 75, 94], "effort":
+        [15], "bring": [17], "down": [18], "the": [19, 23, 53, 66, 73, 76, 95, 108],
+        "cost.": [20, 41], "Among": [21], "these": [22], "CdS/CdTe": [24, 44, 111],
+        "cell,": [26], "has": [27], "a": [28, 48], "high": [29, 49], "conversion":
+        [30], "efficiency": [31, 109], "well": [33], "capability": [35], "be": [37,
+        86], "produced": [38], "at": [39], "low": [40], "The": [42], "heterojunction":
+        [43], "cell": [46], "shows": [47], "spectral": [50], "response": [51], "wavelength":
+        [54, 96], "region": [55, 67, 97], "from": [56], "500": [57, 69], "nm": [58,
+        70, 99], "while": [59], "it": [60], "is": [61, 81], "much": [62], "less":
+        [63], "sensitive": [64], "for": [65], "below": [68], "due": [71], "absorption":
+        [74], "CdS": [77], "window": [78], "layer.": [79], "It": [80], "suggested":
+        [82], "thatsolar": [83], "spectrum": [84], "can": [85, 106], "shifted": [87],
+        "using": [88], "SrB4O7:Sm2+phosphor": [89], "which": [90], "will": [91], "absorb":
+        [92], "radiations": [93], "300-500": [98], "and": [100], "emit": [101], "around":
+        [102], "650-750": [103], "nm.": [104], "This": [105], "improve": [107], "of":
+        [110], "cell.": [113]}, "primary_location": {"id": "doi:10.1063/1.5100389",
+        "doi": "https://doi.org/10.1063/1.5100389", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.5100389", "pdf_url": null, "source": {"id": "https://openalex.org/S2764696622",
+        "display_name": "AIP conference proceedings", "issn_l": "0094-243X", "issn":
+        ["0094-243X", "1551-7616", "1935-0465"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["cwts-core", "jufo-1", "norway-1"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "AIP Conference
+        Proceedings", "raw_type": "proceedings-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442a4c6eb85f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '3166'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:46 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=KXWGYgU4mwvmNtj6t9g6YxI18ylIE%2Bl7F0p8%2FgfJHw8%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633266"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=KXWGYgU4mwvmNtj6t9g6YxI18ylIE%2Bl7F0p8%2FgfJHw8%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633266"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '8590'
+      x-ratelimit-remaining-usd:
+      - '0.859'
+      x-ratelimit-reset:
+      - '30734'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=SrB4O7+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 2, "db_response_time_ms": 11, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (SrB4O7 thin film)
+        in the title or abstract", "x_new_oql": "get works with (SrB4O7 thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "SrB4O7 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:SrB4O7 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W2348245415"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5442a4d19485f00-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '617'
+      content-type:
+      - application/json
+      date:
+      - Mon, 02 Nov 2026 15:27:46 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=KXWGYgU4mwvmNtj6t9g6YxI18ylIE%2Bl7F0p8%2FgfJHw8%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793633266"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=KXWGYgU4mwvmNtj6t9g6YxI18ylIE%2Bl7F0p8%2FgfJHw8%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793633266"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '8580'
+      x-ratelimit-remaining-usd:
+      - '0.858'
+      x-ratelimit-reset:
+      - '30734'
+    status:
+      code: 200
+      message: OK
+version: 1
