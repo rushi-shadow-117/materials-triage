@@ -1,0 +1,88 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - _csrf_token=authenticated; mp-session=tWdGuSYcBtwKT9fVveU9Fw|1794688599|dSAFT28AT-Yx0QkzLbH5Irl_Eoo;
+        __cf_bm=SUJ5E.ILnJRWkz2ahuAcKyXpx8YCy3Tt9jfU4iaNIW4-1793673398.2036865-1.0.1.1-ZPhuQHvbLIA.fbZ3RrkVKQcVDqasGdKNZtSDwtkJbxaRYSc57oJAqoWVLP6._v9oFbf.F0E4kDuyuLh2MpUQMie.lvmD5wjQsORVU2XnvFdVhit6EOD7X2LMtvc74S_6
+      host:
+      - api.materialsproject.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.materialsproject.org/materials/dielectric/?_fields=material_id%2Cformula_pretty%2Ce_total%2Ce_ionic%2Ce_electronic%2Cn%2Cdeprecated%2Cbuilder_meta&_limit=1000&material_ids=mp-1181087%2Cmp-1182019%2Cmp-1974803%2Cmp-24043%2Cmp-2739191%2Cmp-32959%2Cmp-557082%2Cmp-558226%2Cmp-558958%2Cmp-634812%2Cmp-673658%2Cmp-684678%2Cmp-684704%2Cmp-696735%2Cmp-697085%2Cmp-697111%2Cmp-703459%2Cmp-990441
+  response:
+    body:
+      string: '{"data":[{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:45.929000","license":null},"formula_pretty":"H2O","material_id":"mp-aaaabjot","deprecated":false,"e_total":3.5048876833335925,"e_ionic":1.414178310000258,"e_electronic":2.0907093733333344,"n":1.4459285505630401},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:00.342000","license":null},"formula_pretty":"H2O","material_id":"mp-aaaabwtr","deprecated":false,"e_total":3.874392080000001,"e_ionic":1.4996342433333334,"e_electronic":2.3747578366666673,"n":1.5410249305792127},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:02.804000","license":null},"formula_pretty":"H2O","material_id":"mp-aaabfscg","deprecated":false,"e_total":4.045361340400748,"e_ionic":1.8584241911527268,"e_electronic":2.1869371492480214,"n":1.4788296552504014},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:06.572000","license":null},"formula_pretty":"H2O","material_id":"mp-aaabkdbw","deprecated":false,"e_total":22.83221643,"e_ionic":20.653732826666666,"e_electronic":2.1784836033333335,"n":1.4759686999842963},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:00.503000","license":null},"formula_pretty":"H2O","material_id":"mp-aaabmywu","deprecated":false,"e_total":3.2588235599999997,"e_ionic":1.5338035133333332,"e_electronic":1.7250200466666668,"n":1.3134001852697703},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:08.465000","license":null},"formula_pretty":"H2O","material_id":"mp-aaabnqrn","deprecated":false,"e_total":3.62235953,"e_ionic":1.5841855999999999,"e_electronic":2.03817393,"n":1.4276462902273799},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:08.759000","license":null},"formula_pretty":"H2O","material_id":"mp-aaabnrfz","deprecated":false,"e_total":2.9722923233333334,"e_ionic":1.1496214233333333,"e_electronic":1.8226709,"n":1.3500632948125062},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:08.455000","license":null},"formula_pretty":"H2O","material_id":"mp-aaaboaqd","deprecated":false,"e_total":3.483313266555014,"e_ionic":1.5786410365550143,"e_electronic":1.9046722299999999,"n":1.3800986305333398}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-03T02:36:39.771870+00:00","total_doc":8,"facet":null,"max_limit":1000,"default_fields":["material_id","last_updated"]}}'
+    headers:
+      access-control-expose-headers:
+      - X-Api-Key
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a547fe1c4a49863e-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '3474'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:36:39 GMT
+      ratelimit-limit:
+      - '25'
+      ratelimit-remaining:
+      - '22'
+      ratelimit-reset:
+      - '1'
+      server:
+      - cloudflare
+      set-cookie:
+      - _csrf_token=authenticated; Domain=.materialsproject.org; Path=/; SameSite=Strict
+      vary:
+      - Accept-Encoding
+      - Origin
+      via:
+      - kong/2.8.4
+      x-consumer-id:
+      - 58e0b4c2-4c2d-439b-ba0a-648cd568a0fa
+      x-kong-proxy-latency:
+      - '7'
+      x-kong-upstream-latency:
+      - '9'
+      x-ratelimit-limit-day:
+      - '640000'
+      x-ratelimit-limit-hour:
+      - '40000'
+      x-ratelimit-limit-minute:
+      - '1000'
+      x-ratelimit-limit-month:
+      - '12800000'
+      x-ratelimit-limit-second:
+      - '25'
+      x-ratelimit-limit-year:
+      - '100000000'
+      x-ratelimit-remaining-day:
+      - '639985'
+      x-ratelimit-remaining-hour:
+      - '39985'
+      x-ratelimit-remaining-minute:
+      - '994'
+      x-ratelimit-remaining-month:
+      - '12799799'
+      x-ratelimit-remaining-second:
+      - '22'
+      x-ratelimit-remaining-year:
+      - '99999751'
+    status:
+      code: 200
+      message: OK
+version: 1

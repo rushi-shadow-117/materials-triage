@@ -1,0 +1,96 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - _csrf_token=authenticated; mp-session=tWdGuSYcBtwKT9fVveU9Fw|1794688599|dSAFT28AT-Yx0QkzLbH5Irl_Eoo;
+        __cf_bm=cR6wq9IHc47.BYiKg4gP.0G34UHeybAaWkxm4kRpS24-1793732502.6549075-1.0.1.1-jd7nmfKXxHEZZ7KNe5vCuKdaP1K_4S.Nu9tR9DY3MSLjBrwz_WqLU29Kv2VOfQGPhT9Mj493eA9n5lJqN36MtuTYMBeMdcUWsCrM0OvD5mOOWp2De5ve1VTbkZELQD3D
+      host:
+      - api.materialsproject.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.materialsproject.org/materials/thermo/?_fields=material_id%2Cthermo_type%2Cenergy_above_hull%2Cis_stable&_limit=1000&material_ids=mp-547094%2Cmp-554791
+  response:
+    body:
+      string: '{"data":[{"material_id":"mp-aaabfdic","thermo_type":"r2SCAN","energy_above_hull":0.04502989149999692,"is_stable":false},{"material_id":"mp-aaabfdic","thermo_type":"GGA_GGA+U","energy_above_hull":0.0009664927499999365,"is_stable":false},{"material_id":"mp-aaabfdic","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.00018182525000032257,"is_stable":false},{"material_id":"mp-aaabfosd","thermo_type":"r2SCAN","energy_above_hull":0.04484806624999571,"is_stable":false},{"material_id":"mp-aaabfosd","thermo_type":"GGA_GGA+U","energy_above_hull":0.0,"is_stable":true},{"material_id":"mp-aaabfosd","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.0,"is_stable":true}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-03T19:01:46.226313+00:00","total_doc":6,"facet":null,"max_limit":1000,"default_fields":["thermo_id","material_id","last_updated"]}}'
+    headers:
+      access-control-expose-headers:
+      - X-Api-Key
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54da123b8a1b22f-BOS
+      connection:
+      - keep-alive
+      content-length:
+      - '857'
+      content-security-policy-report-only:
+      - script-src 'unsafe-inline' 'unsafe-eval'; report-uri https://csp-reporting.cloudflare.com/cdn-cgi/script_monitor/report?m=tABd6ZFcX1REOS2qaWq8GJ3h_EdfJUtt23Hwl2pXXIA-1793732506.1955369-1.0.1.1-TAQc7oXXphYKZoPpnNmovnrUcvGthPhXyZkqYRKYehSFe_227gR4.eBXFa4q7LUhb6SjC8kQ87aGwNfX9SXzqjrc2NPXjLMfGtvh0jQR4B5OqySHX5pkeuvR6N1WuKHetR1irb595yQ4FGZZ2WrOtwuWD0PQtafuzuc.uP0UZ874hZxPD.Q61he1LH8d9hy9;
+        report-to cf-csp-endpoint
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 19:01:46 GMT
+      ratelimit-limit:
+      - '25'
+      ratelimit-remaining:
+      - '23'
+      ratelimit-reset:
+      - '1'
+      report-to:
+      - '{"group":"cf-csp-endpoint","max_age":86400,"endpoints":[{"url":"https://csp-reporting.cloudflare.com/cdn-cgi/script_monitor/report?m=tABd6ZFcX1REOS2qaWq8GJ3h_EdfJUtt23Hwl2pXXIA-1793732506.1955369-1.0.1.1-TAQc7oXXphYKZoPpnNmovnrUcvGthPhXyZkqYRKYehSFe_227gR4.eBXFa4q7LUhb6SjC8kQ87aGwNfX9SXzqjrc2NPXjLMfGtvh0jQR4B5OqySHX5pkeuvR6N1WuKHetR1irb595yQ4FGZZ2WrOtwuWD0PQtafuzuc.uP0UZ874hZxPD.Q61he1LH8d9hy9"}]}'
+      reporting-endpoints:
+      - cf-csp-endpoint="https://csp-reporting.cloudflare.com/cdn-cgi/script_monitor/report?m=tABd6ZFcX1REOS2qaWq8GJ3h_EdfJUtt23Hwl2pXXIA-1793732506.1955369-1.0.1.1-TAQc7oXXphYKZoPpnNmovnrUcvGthPhXyZkqYRKYehSFe_227gR4.eBXFa4q7LUhb6SjC8kQ87aGwNfX9SXzqjrc2NPXjLMfGtvh0jQR4B5OqySHX5pkeuvR6N1WuKHetR1irb595yQ4FGZZ2WrOtwuWD0PQtafuzuc.uP0UZ874hZxPD.Q61he1LH8d9hy9"
+      server:
+      - cloudflare
+      set-cookie:
+      - _csrf_token=authenticated; Domain=.materialsproject.org; Path=/; SameSite=Strict
+      transfer-encoding:
+      - chunked
+      vary:
+      - Origin
+      via:
+      - kong/2.8.4
+      x-consumer-id:
+      - 58e0b4c2-4c2d-439b-ba0a-648cd568a0fa
+      x-kong-proxy-latency:
+      - '9'
+      x-kong-upstream-latency:
+      - '12'
+      x-ratelimit-limit-day:
+      - '640000'
+      x-ratelimit-limit-hour:
+      - '40000'
+      x-ratelimit-limit-minute:
+      - '1000'
+      x-ratelimit-limit-month:
+      - '12800000'
+      x-ratelimit-limit-second:
+      - '25'
+      x-ratelimit-limit-year:
+      - '100000000'
+      x-ratelimit-remaining-day:
+      - '639923'
+      x-ratelimit-remaining-hour:
+      - '39989'
+      x-ratelimit-remaining-minute:
+      - '989'
+      x-ratelimit-remaining-month:
+      - '12799737'
+      x-ratelimit-remaining-second:
+      - '23'
+      x-ratelimit-remaining-year:
+      - '99999689'
+    status:
+      code: 200
+      message: OK
+version: 1

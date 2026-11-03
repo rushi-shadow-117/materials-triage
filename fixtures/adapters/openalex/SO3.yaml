@@ -1,0 +1,367 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=SO3+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 58, "db_response_time_ms": 47, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (SO3 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (SO3 thin film) in the title or abstract where it has an abstract", "oqo":
+        {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract", "value":
+        true}, {"column_id": "title_and_abstract.search", "value": "SO3 thin film",
+        "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:SO3
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2072500823",
+        "doi": "https://doi.org/10.3144/expresspolymlett.2009.91", "title": "Sulfated
+        cellulose thin films with antithrombin affinity", "publication_year": 2009,
+        "abstract_inverted_index": {"Cellulose": [0], "thin": [1], "films": [2, 62],
+        "were": [3, 33], "chemically": [4], "modified": [5], "by": [6, 91], "in":
+        [7, 18], "situ": [8], "sulfation": [9, 54, 75], "to": [10, 35, 44, 67, 78,
+        96], "produce": [11], "surfaces": [12, 93], "with": [13, 65], "anticoagulant":
+        [14, 101], "characteristics.Two": [15], "celluloses": [16], "differing": [17],
+        "their": [19, 99], "degree": [20], "of": [21, 51, 59, 84, 88], "polymerization":
+        [22], "(DP):": [23], "CEL": [24, 29], "I": [25], "(DP": [26, 31], "215-240)":
+        [27], "and": [28, 41, 73], "II": [30], "1300-1400)": [32], "tethered": [34],
+        "maleic": [36], "anhydride": [37], "copolymer": [38], "(MA)": [39], "layers":
+        [40], "subsequently": [42], "exposed": [43], "SO3\u2022NMe3": [45], "solutions":
+        [46], "at": [47], "elevated": [48], "temperature.The": [49], "impact": [50],
+        "the": [52, 56, 60, 92], "resulting": [53], "on": [55, 98], "physicochemical":
+        [57], "properties": [58], "cellulose": [61], "was": [63, 76, 94], "investigated":
+        [64], "respect": [66], "film": [68], "thickness,": [69], "atomic": [70], "composition,":
+        [71], "wettability": [72], "roughness.The": [74], "optimized": [77], "gain":
+        [79], "a": [80], "maximal": [81], "surface": [82], "concentration": [83],
+        "sulfate": [85], "groups.The": [86], "scavenging": [87], "antithrombin": [89],
+        "(AT)": [90], "determined": [95], "conclude": [97], "potential": [100], "properties.":
+        [102]}, "primary_location": {"id": "doi:10.3144/expresspolymlett.2009.91",
+        "doi": "https://doi.org/10.3144/expresspolymlett.2009.91", "is_oa": true,
+        "landing_page_url": "https://doi.org/10.3144/expresspolymlett.2009.91", "pdf_url":
+        "https://doi.org/10.3144/expresspolymlett.2009.91", "source": {"id": "https://openalex.org/S50169622",
+        "display_name": "eXPRESS Polymer Letters", "issn_l": "1788-618X", "issn":
+        ["1788-618X"], "is_oa": true, "is_in_doaj": true, "is_core": true, "listed_in":
+        ["cwts-core", "doaj", "dongbi-c", "jufo-1", "norway-1", "oarl", "poland-100",
+        "russia-white-list-1"], "host_organization": "https://openalex.org/P4310315438",
+        "host_organization_name": "Budapest University of Technology and Economics",
+        "host_organization_lineage": ["https://openalex.org/P4310315438"], "host_organization_lineage_names":
+        ["Budapest University of Technology and Economics"], "type": "journal"}, "license":
+        "cc-by-nc-nd", "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Express Polymer Letters", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2315029840", "doi": "https://doi.org/10.1021/acs.langmuir.5b00764",
+        "title": "Water Uptake and Swelling Hysteresis in a Nafion Thin Film Measured
+        with Neutron Reflectometry", "publication_year": 2015, "abstract_inverted_index":
+        {"Water": [0], "uptake": [1], "and": [2, 31, 61, 134], "swelling": [3, 74,
+        114, 139], "in": [4, 76, 104], "a": [5, 16, 22, 33], "thin": [6, 55], "(\u223c15":
+        [7], "nm)": [8], "Nafion": [9, 56, 157], "film": [10, 78], "on": [11, 15,
+        51, 158], "SiO2": [12], "native": [13], "oxide": [14], "Si": [17], "wafer":
+        [18], "is": [19, 47, 66, 82, 91, 115], "studied": [20], "as": [21, 32, 84],
+        "function": [23, 34], "of": [24, 35, 54, 111, 130, 136, 156], "relative":
+        [25, 41], "humidity": [26, 42], "(8-97%)": [27], "at": [28, 39, 58, 79, 98],
+        "room": [29, 99, 146], "temperature": [30, 36, 70], "(25-60": [37], "\u00b0C)":
+        [38], "97%": [40], "by": [43, 127], "neutron": [44], "reflectometry.": [45],
+        "This": [46], "the": [48, 52, 69, 77, 87, 105, 112, 121, 131, 137, 154], "first":
+        [49], "report": [50], "behavior": [53], "films": [57], "elevated": [59], "temperatures":
+        [60], "high": [62], "humidity.": [63], "Large": [64], "hysteresis": [65],
+        "observed": [67, 73, 96], "during": [68, 142], "cycle.": [71], "The": [72,
+        148], "strain": [75], "60": [80], "\u00b0C": [81], "48%": [83], "compared":
+        [85], "to": [86, 117, 145], "as-deposited": [88], "state,": [89], "which":
+        [90], "far": [92], "above": [93], "any": [94], "previously": [95], "trend":
+        [97], "temperature.": [100, 147], "A": [101], "small": [102], "decrease":
+        [103], "average": [106], "SLD": [107], "suggests": [108], "that": [109], "part":
+        [110], "additional": [113, 138], "due": [116], "thermal": [118], "expansion,":
+        [119], "but": [120], "estimated": [122], "D2O/SO3": [123], "ratio": [124],
+        "also": [125], "increases": [126], "70%.": [128], "Half": [129], "\"excess\"":
+        [132], "absorption": [133], "73%": [135], "are": [140], "retained": [141],
+        "cooling": [143], "back": [144], "results": [149], "provide": [150], "new":
+        [151], "insights": [152], "into": [153], "dynamics": [155], "nanometer": [159],
+        "scales": [160], "under": [161], "fuel": [162], "cell": [163], "operating":
+        [164], "conditions.": [165]}, "primary_location": {"id": "doi:10.1021/acs.langmuir.5b00764",
+        "doi": "https://doi.org/10.1021/acs.langmuir.5b00764", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1021/acs.langmuir.5b00764", "pdf_url": null, "source":
+        {"id": "https://openalex.org/S75741262", "display_name": "Langmuir", "issn_l":
+        "0743-7463", "issn": ["0743-7463", "1520-5827"], "is_oa": false, "is_in_doaj":
+        false, "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d",
+        "doyens", "jufo-2", "ki-jl-1", "medline", "norway-1", "poland-100", "russia-white-list-1",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310320006", "host_organization_name":
+        "American Chemical Society", "host_organization_lineage": ["https://openalex.org/P4310320006"],
+        "host_organization_lineage_names": ["American Chemical Society"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Langmuir",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2277492687",
+        "doi": "https://doi.org/10.1080/0371750x.1962.11011989", "title": "Glasses
+        in the Systems PbO-B2O3-SO3and ZnO-B2O3-SO3", "publication_year": 1962, "abstract_inverted_index":
+        {"In": [0], "the": [1, 21, 37, 78], "systems": [2], "PbO-B2O3-SO3": [3], "and":
+        [4, 7, 49], "ZnO-B2O3-SO3": [5], "clear": [6], "stable": [8], "glasses": [9,
+        28, 68, 79], "containing": [10], "upto": [11], "about": [12, 94], "20": [13],
+        "mole": [14], "per": [15], "cent": [16], "SOs": [17], "were": [18, 88], "obtained.":
+        [19], "Unlike": [20], "borate": [22, 39], "glasses,": [23, 40], "thin": [24],
+        "films": [25], "of": [26, 62, 66, 77], "sulphate-containing": [27], "show":
+        [29, 82], "selective": [30], "infra-red": [31], "transmission": [32], "around":
+        [33], "12\u03bc.": [34], "Compared": [35], "to": [36, 69, 91], "corresponding":
+        [38], "thermal": [41], "expansion": [42], "is": [43], "higher.": [44], "DC":
+        [45], "resistivity,": [46], "dielectric": [47], "constant": [48], "softening":
+        [50], "temperature": [51], "do": [52], "not": [53, 81], "change": [54, 85],
+        "significantly": [55], "by": [56], "replacing": [57], "B2O3": [58], "with":
+        [59], "SO3.": [60], "Addition": [61], "SO3,": [63], "improves": [64], "resistance":
+        [65], "lead": [67], "water": [70], "attack": [71], "but": [72], "deteriorates":
+        [73], "zinc": [74], "glasses.": [75], "Some": [76], "did": [80], "any": [83],
+        "visible": [84], "after": [86], "they": [87], "kept": [89], "exposed": [90],
+        "atmosphere": [92], "for": [93], "a": [95], "year.": [96]}, "primary_location":
+        {"id": "doi:10.1080/0371750x.1962.11011989", "doi": "https://doi.org/10.1080/0371750x.1962.11011989",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1080/0371750x.1962.11011989",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S79872515", "display_name":
+        "Transactions of the Indian Ceramic Society", "issn_l": "0371-750X", "issn":
+        ["0371-750X", "2165-5456"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["cwts-core", "dongbi-c", "jufo-1", "poland-40", "russia-white-list-2"],
+        "host_organization": "https://openalex.org/P4310320547", "host_organization_name":
+        "Taylor & Francis", "host_organization_lineage": ["https://openalex.org/P4310320547",
+        "https://openalex.org/P4310320449"], "host_organization_lineage_names": ["Taylor
+        & Francis", "Informa"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Transactions of the Indian Ceramic Society", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W2510950906", "doi": "https://doi.org/10.1002/cssc.201600641",
+        "title": "Impact of Precursor Compositions on the Structural and Photovoltaic
+        Properties of Spray\u2010Deposited Cu2ZnSnS4 Thin Films", "publication_year":
+        2016, "abstract_inverted_index": {"Pure": [0], "sulfide": [1], "Cu2": [2,
+        56, 83, 138, 162], "ZnSnS4": [3, 57, 84, 139, 163], "thin": [4, 58, 85], "films":
+        [5], "were": [6], "fabricated": [7], "on": [8, 136], "Mo-coated": [9], "glass":
+        [10], "substrates": [11], "by": [12, 34, 89], "facile": [13], "spray": [14],
+        "deposition": [15], "of": [16, 47, 70, 93, 104, 125, 149, 157, 161], "aqueous":
+        [17], "precursor": [18, 41, 97], "solutions": [19], "containing": [20, 43],
+        "Cu(NO3": [21], ")2": [22, 25, 29], ",": [23, 26, 30], "Zn(NO3": [24], "Sn(CH3":
+        [27], "SO3": [28], "and": [31, 50, 111, 129], "thiourea": [32], "followed":
+        [33], "annealing": [35, 75], "at": [36], "600": [37], "\u00b0C.": [38], "When":
+        [39], "a": [40, 44, 61, 168], "solution": [42], "stoichiometric": [45], "composition":
+        [46, 145], "Cu,": [48], "Zn,": [49], "Sn": [51, 71], "was": [52, 87, 155],
+        "used,": [53], "the": [54, 68, 74, 82, 91, 96, 105, 116, 123, 126, 137, 158],
+        "resulting": [55], "film": [59, 86, 140], "contained": [60], "Cu2-x": [62,
+        78], "S": [63, 79], "impurity": [64, 80], "phase": [65], "owing": [66], "to":
+        [67], "evaporation": [69], "components": [72], "during": [73], "process.":
+        [76, 170], "The": [77, 152], "in": [81, 95, 101], "removed": [88], "reducing":
+        [90], "concentration": [92], "Cu": [94], "solution.": [98], "This": [99],
+        "resulted": [100], "an": [102, 142], "improvement": [103], "structural": [106],
+        "features": [107], "(i.e.,": [108], "grain": [109], "sizes": [110], "compactness)":
+        [112], "as": [113, 115, 120], "well": [114], "electric": [117], "properties":
+        [118], "such": [119], "acceptor": [121, 127], "densities,": [122], "nature":
+        [124], "defects,": [128], "carrier": [130], "lifetimes.": [131], "A": [132],
+        "solar": [133], "cell": [134], "based": [135], "with": [141], "empirically":
+        [143], "optimal": [144], "showed": [146], "conversion": [147], "efficiency":
+        [148], "8.1": [150], "%.": [151], "value": [153], "achieved": [154], "one":
+        [156], "best": [159], "efficiencies": [160], "-based": [164], "cells": [165],
+        "derived": [166], "from": [167], "non-vacuum": [169]}, "primary_location":
+        {"id": "doi:10.1002/cssc.201600641", "doi": "https://doi.org/10.1002/cssc.201600641",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1002/cssc.201600641",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S193447295", "display_name":
+        "ChemSusChem", "issn_l": "1864-5631", "issn": ["1864-5631", "1864-564X"],
+        "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core",
+        "dongbi-c", "jufo-2", "ki-jl-1", "medline", "norway-1", "poland-140", "russia-white-list-1",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310320595", "host_organization_name":
+        "Wiley", "host_organization_lineage": ["https://openalex.org/P4310320595"],
+        "host_organization_lineage_names": ["Wiley"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "ChemSusChem", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2325383789", "doi": "https://doi.org/10.5650/jos1956.24.395",
+        "title": "Studies on Sulfonation of Esters of Fatty Acids by a Continuous
+        Thin Film Sulfonator and its Initial Reaction Products", "publication_year":
+        1975, "abstract_inverted_index": {"The": [0, 67], "mechanism": [1], "of":
+        [2, 5, 8, 23, 26, 45, 55, 105, 148, 168, 172], "the": [3, 53, 56, 64, 143,
+        145, 153, 155, 159, 166, 169, 173, 192, 195, 200], "formation": [4], "sodium":
+        [6], "salt": [7], "\u03b1-sulfo": [9, 17], "fatty": [10, 18, 27], "acid":
+        [11], "methyl": [12, 24, 38], "esters": [13, 25], "(\u03b1-SFMeNa)": [14],
+        "and": [15, 37, 52, 108, 120, 136, 152], "disodium": [16], "acids": [19, 28],
+        "(\u03b1-SFNa2)": [20], "by": [21, 42, 63], "sulfonation": [22, 58], "(FMe)":
+        [29], "with": [30, 100, 133], "sulfur": [31], "trioxide": [32], "(SO3)": [33],
+        "was": [34, 61, 70, 74, 81, 98, 116, 127, 163, 177, 187, 202, 211], "investigated.Methyl":
+        [35], "propionate": [36], "stearate": [39], "were": [40, 110], "sulfonated":
+        [41], "dropwise": [43], "addition": [44], "SO3": [46, 87, 149], "in": [47,
+        198], "carbon": [48], "tetrachloride": [49], "at": [50, 76, 89, 208], "-20\u00b0C,":
+        [51, 77], "structure": [54], "initial": [57], "product": [59, 68], "(I)":
+        [60, 69], "elucidated": [62], "NMR": [65], "analysis.": [66], "FMe-SO3": [71,
+        94], "adduct": [72], "which": [73, 106, 126, 199], "stable": [75], "but":
+        [78], "when": [79], "it": [80], "warmed": [82], "to": [83, 91, 102, 118, 123,
+        150, 175, 190], "room": [84], "temperature": [85, 157], "another": [86], "attacked":
+        [88], "\u03b1-hydrogen": [90], "give": [92, 103, 124], "\u03b1-sulfonated":
+        [93], "adduct.": [95], "This": [96], "intermediate": [97, 115, 174], "neutralized":
+        [99, 122], "NaOH": [101], "\u03b1-SFNa2": [104], "detergency": [107], "solubility":
+        [109], "extremely": [111], "poor.": [112], "However,": [113, 165], "this":
+        [114], "heated": [117], "60\u00b0C": [119], "then": [121], "\u03b1-SFMeNa":
+        [125], "known": [128], "as": [129], "an": [130], "anionic": [131], "surfactant":
+        [132], "excellent": [134], "biodegradability": [135], "detergency.In": [137],
+        "a": [138, 205], "continuous": [139], "thin": [140], "film": [141], "sulfonator,":
+        [142], "higher": [144, 154, 160, 209], "molar": [146], "ratio": [147, 162,
+        186], "FMe": [151], "reaction": [156, 171], "were,": [158], "conversion":
+        [161, 185], "obtained.": [164, 188], "rate": [167], "elimination": [170],
+        "\u03b1-SFMe": [176], "so": [178], "slow": [179], "that": [180], "no": [181],
+        "more": [182], "than": [183], "84%": [184], "Consequently,": [189], "gain":
+        [191], "highest": [193], "yields,": [194], "post": [196], "reactor": [197],
+        "inter-mediate": [201], "kept": [203], "for": [204], "longer": [206], "period":
+        [207], "temperatures": [210], "necessary.": [212]}, "primary_location": {"id":
+        "doi:10.5650/jos1956.24.395", "doi": "https://doi.org/10.5650/jos1956.24.395",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.5650/jos1956.24.395",
+        "pdf_url": "https://www.jstage.jst.go.jp/article/jos1956/24/6/24_6_395/_pdf",
+        "source": {"id": "https://openalex.org/S2947215884", "display_name": "Journal
+        of Japan Oil Chemists Society", "issn_l": "0513-398X", "issn": ["0513-398X",
+        "1884-2003"], "is_oa": true, "is_in_doaj": false, "is_core": false, "listed_in":
+        [], "host_organization": "https://openalex.org/P4323237076", "host_organization_name":
+        "Japan Oil Chemists'' Society", "host_organization_lineage": ["https://openalex.org/P4323237076"],
+        "host_organization_lineage_names": ["Japan Oil Chemists'' Society"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Japan Oil Chemists'' Society", "raw_type": "journal-article"}}], "group_by":
+        []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a547fe224f192d2a-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '16284'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:36:40 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=f7buofY%2BpUFGhJiEGsPKdvlxjlkq7reTMXieiwGV5Wg%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793673400"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=f7buofY%2BpUFGhJiEGsPKdvlxjlkq7reTMXieiwGV5Wg%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793673400"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9950'
+      x-ratelimit-remaining-usd:
+      - '0.995'
+      x-ratelimit-reset:
+      - '77000'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=SO3+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 82, "db_response_time_ms": 35, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (SO3 thin film)
+        in the title or abstract", "x_new_oql": "get works with (SO3 thin film) in
+        the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "SO3 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:SO3 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W2044341204"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a547fe23cc612d2a-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '606'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:36:41 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=f7buofY%2BpUFGhJiEGsPKdvlxjlkq7reTMXieiwGV5Wg%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793673400"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=f7buofY%2BpUFGhJiEGsPKdvlxjlkq7reTMXieiwGV5Wg%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793673400"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9940'
+      x-ratelimit-remaining-usd:
+      - '0.994'
+      x-ratelimit-reset:
+      - '76999'
+    status:
+      code: 200
+      message: OK
+version: 1

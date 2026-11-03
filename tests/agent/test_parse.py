@@ -23,7 +23,7 @@ def _run(layers: Layers, script: list[dict]) -> tuple[loop.StepResult, llm.FakeL
         site=site,
         profile=profile,
         cli_profile=profile.name,
-        budget=loop.Budget.from_core(core),
+        budget=loop.Budget.from_core(core, "parse"),
     )
     return result, fake
 

@@ -1,5 +1,5 @@
 {
- "_recorded_at": "2026-11-02T15:26:58+00:00",
+ "_recorded_at": "2026-11-03T19:08:38+00:00",
  "HfO2": {
   "display": "HfO2",
   "reduced": "HfO2",
@@ -1186,6 +1186,19 @@
     "matched_with_abstract": 412,
     "hits": 5
    }
+  },
+  "pubchem": {
+   "cid": 14811,
+   "rule": "min CID from name lookup",
+   "h_codes": [
+    "H302",
+    "H315",
+    "H319",
+    "H335"
+   ],
+   "notifications_total": 803,
+   "echa": true,
+   "synonyms": 52
   }
  },
  "VBiO4": {
@@ -1270,6 +1283,17 @@
     "matched_with_abstract": 642,
     "hits": 5
    }
+  },
+  "pubchem": {
+   "cid": 14833,
+   "rule": "min CID from formula lookup",
+   "h_codes": [
+    "H315",
+    "H318"
+   ],
+   "notifications_total": 457,
+   "echa": true,
+   "synonyms": 60
   }
  },
  "ZnO": {
@@ -1309,6 +1333,21 @@
     "matched_with_abstract": 12246,
     "hits": 5
    }
+  },
+  "pubchem": {
+   "cid": 3007857,
+   "rule": "min CID from name lookup",
+   "h_codes": [
+    "H333",
+    "H361",
+    "H370",
+    "H372",
+    "H400",
+    "H410"
+   ],
+   "notifications_total": 7128,
+   "echa": true,
+   "synonyms": 4719
   }
  },
  "AlN": {
@@ -1340,6 +1379,20 @@
     "matched_with_abstract": 2405,
     "hits": 5
    }
+  },
+  "pubchem": {
+   "cid": 90455,
+   "rule": "min CID from name lookup",
+   "h_codes": [
+    "H315",
+    "H319",
+    "H335",
+    "H373",
+    "H410"
+   ],
+   "notifications_total": 328,
+   "echa": true,
+   "synonyms": 33
   }
  },
  "GaN": {
@@ -1411,6 +1464,16 @@
     "matched_with_abstract": 998,
     "hits": 5
    }
+  },
+  "pubchem": {
+   "cid": 117559,
+   "rule": "min CID from name lookup",
+   "h_codes": [
+    "H317"
+   ],
+   "notifications_total": 45,
+   "echa": true,
+   "synonyms": 23
   }
  },
  "Si3N4": {
@@ -1454,6 +1517,14 @@
     "matched_with_abstract": 5756,
     "hits": 5
    }
+  },
+  "pubchem": {
+   "cid": 3084099,
+   "rule": "min CID from name lookup",
+   "h_codes": [],
+   "notifications_total": 257,
+   "echa": true,
+   "synonyms": 63
   }
  },
  "BN": {
@@ -1511,6 +1582,17 @@
     "matched_with_abstract": 1686,
     "hits": 5
    }
+  },
+  "pubchem": {
+   "cid": 66227,
+   "rule": "min CID from name lookup",
+   "h_codes": [
+    "H319",
+    "H335"
+   ],
+   "notifications_total": 480,
+   "echa": true,
+   "synonyms": 95
   }
  },
  "Ta4Ag2O11": {
@@ -1652,6 +1734,14 @@
     "matched_with_abstract": 144,
     "hits": 5
    }
+  },
+  "pubchem": {
+   "cid": 518682,
+   "rule": "min CID from name lookup",
+   "h_codes": [],
+   "notifications_total": null,
+   "echa": false,
+   "synonyms": 20
   }
  },
  "Ba2SiO4": {
@@ -2713,6 +2803,36 @@
    "notifications_total": 359,
    "echa": true,
    "synonyms": 34
+  },
+  "mp_summary_docs": 12,
+  "mp_ids": [
+   "mp-1008500",
+   "mp-1178514",
+   "mp-1178531",
+   "mp-1244871",
+   "mp-1245192",
+   "mp-1245276",
+   "mp-1245298",
+   "mp-1245311",
+   "mp-1342",
+   "mp-1950989",
+   "mp-7487",
+   "mp-776658"
+  ],
+  "mp_licenses": [
+   "BY-C"
+  ],
+  "mp_thermo_docs": 27,
+  "mp_dielectric_docs": 1,
+  "mp_polymorphs": 12,
+  "mp_excluded": [],
+  "mp_hull_conflicts": [],
+  "openalex": {
+   "BaO thin film": {
+    "matched_total": 563,
+    "matched_with_abstract": 386,
+    "hits": 5
+   }
   }
  },
  "_discovery": {
@@ -2746,7 +2866,7 @@
    "total_available": 3016,
    "returned": 3016,
    "refused": false,
-   "elapsed_s": 4.6,
+   "elapsed_s": 0.7,
    "licenses": [
     "BY-C"
    ]
@@ -2763,12 +2883,1157 @@
    "total_available": 68,
    "returned": 68,
    "refused": false,
-   "elapsed_s": 1.1,
+   "elapsed_s": 0.1,
+   "licenses": [
+    "BY-C"
+   ]
+  },
+  "oxides_gap_5_plus": {
+   "cassette": "mp/discovery_oxides_gap_5_plus.yaml",
+   "filter": {
+    "elements": "O",
+    "nelements_min": "2",
+    "nelements_max": "3",
+    "band_gap_min": "5.0"
+   },
+   "total_available": 895,
+   "returned": 895,
+   "refused": false,
+   "elapsed_s": 1.9,
+   "licenses": [
+    "BY-C"
+   ]
+  },
+  "oxides_gap_2_to_3_3": {
+   "cassette": "mp/discovery_oxides_gap_2_to_3_3.yaml",
+   "filter": {
+    "elements": "O",
+    "nelements_min": "2",
+    "nelements_max": "3",
+    "band_gap_min": "2.0",
+    "band_gap_max": "3.3"
+   },
+   "total_available": 3835,
+   "returned": 3835,
+   "refused": false,
+   "elapsed_s": 5.4,
    "licenses": [
     "BY-C"
    ]
   }
  },
  "_failures": [],
- "_compositions": 61
+ "_compositions": 88,
+ "CO2": {
+  "display": "CO2",
+  "reduced": "CO2",
+  "mp_summary_docs": 12,
+  "mp_ids": [
+   "mp-1077316",
+   "mp-1077906",
+   "mp-1102227",
+   "mp-11725",
+   "mp-1190685",
+   "mp-1190699",
+   "mp-20066",
+   "mp-556034",
+   "mp-644607",
+   "mp-729728",
+   "mp-995198",
+   "mp-995224"
+  ],
+  "mp_licenses": [
+   "BY-C"
+  ],
+  "mp_thermo_docs": 31,
+  "mp_dielectric_docs": 4,
+  "mp_polymorphs": 12,
+  "mp_excluded": [],
+  "mp_hull_conflicts": [],
+  "openalex": {
+   "CO2 thin film": {
+    "matched_total": 5253,
+    "matched_with_abstract": 3484,
+    "hits": 5
+   }
+  },
+  "pubchem": {
+   "cid": 280,
+   "rule": "min CID from name lookup",
+   "h_codes": [
+    "H280",
+    "H281",
+    "H336"
+   ],
+   "notifications_total": 1570,
+   "echa": true,
+   "synonyms": 116
+  }
+ },
+ "H2O": {
+  "display": "H2O",
+  "reduced": "H2O",
+  "mp_summary_docs": 18,
+  "mp_ids": [
+   "mp-1181087",
+   "mp-1182019",
+   "mp-1974803",
+   "mp-24043",
+   "mp-2739191",
+   "mp-32959",
+   "mp-557082",
+   "mp-558226",
+   "mp-558958",
+   "mp-634812",
+   "mp-673658",
+   "mp-684678",
+   "mp-684704",
+   "mp-696735",
+   "mp-697085",
+   "mp-697111",
+   "mp-703459",
+   "mp-990441"
+  ],
+  "mp_licenses": [
+   "BY-C"
+  ],
+  "mp_thermo_docs": 45,
+  "mp_dielectric_docs": 8,
+  "mp_polymorphs": 18,
+  "mp_excluded": [],
+  "mp_hull_conflicts": [],
+  "openalex": {
+   "H2O thin film": {
+    "matched_total": 3172,
+    "matched_with_abstract": 2195,
+    "hits": 5
+   }
+  },
+  "pubchem": {
+   "cid": 962,
+   "rule": "min CID from name lookup",
+   "h_codes": [],
+   "notifications_total": 1876,
+   "echa": true,
+   "synonyms": 330
+  }
+ },
+ "SO3": {
+  "display": "SO3",
+  "reduced": "SO3",
+  "mp_summary_docs": 2,
+  "mp_ids": [
+   "mp-2414",
+   "mp-561397"
+  ],
+  "mp_licenses": [
+   "BY-C"
+  ],
+  "mp_thermo_docs": 6,
+  "mp_dielectric_docs": 2,
+  "mp_polymorphs": 2,
+  "mp_excluded": [],
+  "mp_hull_conflicts": [
+   "mp-2414",
+   "mp-561397"
+  ],
+  "openalex": {
+   "SO3 thin film": {
+    "matched_total": 82,
+    "matched_with_abstract": 58,
+    "hits": 5
+   }
+  },
+  "pubchem": {
+   "cid": 24682,
+   "rule": "min CID from name lookup",
+   "h_codes": [
+    "H314",
+    "H318",
+    "H330",
+    "H335",
+    "H351",
+    "H411"
+   ],
+   "notifications_total": 503,
+   "echa": true,
+   "synonyms": 25
+  }
+ },
+ "P2O5": {
+  "display": "P2O5",
+  "reduced": "P2O5",
+  "mp_summary_docs": 12,
+  "mp_ids": [
+   "mp-1172859",
+   "mp-1182643",
+   "mp-1244897",
+   "mp-1245177",
+   "mp-1245218",
+   "mp-1245245",
+   "mp-2173",
+   "mp-2452",
+   "mp-562613",
+   "mp-661384",
+   "mp-689684",
+   "mp-990076"
+  ],
+  "mp_licenses": [
+   "BY-C"
+  ],
+  "mp_thermo_docs": 27,
+  "mp_dielectric_docs": 2,
+  "mp_polymorphs": 12,
+  "mp_excluded": [],
+  "mp_hull_conflicts": [
+   "mp-2173",
+   "mp-2452"
+  ],
+  "openalex": {
+   "P2O5 thin film": {
+    "matched_total": 199,
+    "matched_with_abstract": 107,
+    "hits": 5
+   }
+  },
+  "pubchem": {
+   "cid": 6326975,
+   "rule": "min CID from name lookup",
+   "h_codes": [],
+   "notifications_total": null,
+   "echa": false,
+   "synonyms": 24
+  }
+ },
+ "P4O9": {
+  "display": "P4O9",
+  "reduced": "P4O9",
+  "mp_summary_docs": 1,
+  "mp_ids": [
+   "mp-541846"
+  ],
+  "mp_licenses": [
+   "BY-C"
+  ],
+  "mp_thermo_docs": 3,
+  "mp_dielectric_docs": 0,
+  "mp_polymorphs": 1,
+  "mp_excluded": [],
+  "mp_hull_conflicts": [],
+  "openalex": {
+   "P4O9 thin film": {
+    "matched_total": 0,
+    "matched_with_abstract": 0,
+    "hits": 0
+   }
+  },
+  "pubchem": {
+   "cid": 139224,
+   "rule": "min CID from formula lookup",
+   "h_codes": [],
+   "notifications_total": null,
+   "echa": false,
+   "synonyms": 9
+  }
+ },
+ "MgO": {
+  "display": "MgO",
+  "reduced": "MgO",
+  "mp_summary_docs": 23,
+  "mp_ids": [
+   "mp-1009127",
+   "mp-1009129",
+   "mp-1065577",
+   "mp-1101930",
+   "mp-1180312",
+   "mp-1180973",
+   "mp-1190533",
+   "mp-1190649",
+   "mp-1191789",
+   "mp-1192043",
+   "mp-1192189",
+   "mp-1244962",
+   "mp-1245039",
+   "mp-1245045",
+   "mp-1245128",
+   "mp-1245143",
+   "mp-1245157",
+   "mp-1245195",
+   "mp-1245232",
+   "mp-1265",
+   "mp-549706",
+   "mp-775808",
+   "mp-776911"
+  ],
+  "mp_licenses": [
+   "BY-C"
+  ],
+  "mp_thermo_docs": 54,
+  "mp_dielectric_docs": 5,
+  "mp_polymorphs": 23,
+  "mp_excluded": [],
+  "mp_hull_conflicts": [],
+  "openalex": {
+   "MgO thin film": {
+    "matched_total": 10952,
+    "matched_with_abstract": 7104,
+    "hits": 5
+   }
+  },
+  "pubchem": {
+   "cid": 14792,
+   "rule": "min CID from name lookup",
+   "h_codes": [
+    "H319",
+    "H335"
+   ],
+   "notifications_total": 1807,
+   "echa": true,
+   "synonyms": 185
+  }
+ },
+ "Al(PO3)3": {
+  "display": "Al(PO3)3",
+  "reduced": "Al(PO3)3",
+  "mp_summary_docs": 4,
+  "mp_ids": [
+   "mp-1019377",
+   "mp-14011",
+   "mp-540549",
+   "mp-559996"
+  ],
+  "mp_licenses": [
+   "BY-C"
+  ],
+  "mp_thermo_docs": 8,
+  "mp_dielectric_docs": 0,
+  "mp_polymorphs": 4,
+  "mp_excluded": [],
+  "mp_hull_conflicts": [],
+  "openalex": {
+   "Al(PO3)3 thin film": {
+    "matched_total": 1,
+    "matched_with_abstract": 1,
+    "hits": 1
+   }
+  },
+  "pubchem": {
+   "cid": 16131219,
+   "rule": "min CID from name lookup",
+   "h_codes": [
+    "H315",
+    "H319",
+    "H335"
+   ],
+   "notifications_total": 80,
+   "echa": true,
+   "synonyms": 14
+  }
+ },
+ "Al2(SO4)3": {
+  "display": "Al2(SO4)3",
+  "reduced": "Al2(SO4)3",
+  "mp_summary_docs": 2,
+  "mp_ids": [
+   "mp-2713752",
+   "mp-4417"
+  ],
+  "mp_licenses": [
+   "BY-C"
+  ],
+  "mp_thermo_docs": 5,
+  "mp_dielectric_docs": 0,
+  "mp_polymorphs": 2,
+  "mp_excluded": [],
+  "mp_hull_conflicts": [],
+  "openalex": {
+   "Al2(SO4)3 thin film": {
+    "matched_total": 24,
+    "matched_with_abstract": 21,
+    "hits": 5
+   }
+  },
+  "pubchem": {
+   "cid": 24850,
+   "rule": "min CID from name lookup",
+   "h_codes": [
+    "H290",
+    "H318",
+    "H319"
+   ],
+   "notifications_total": 1124,
+   "echa": true,
+   "synonyms": 118
+  }
+ },
+ "Al2SiO5": {
+  "display": "Al2SiO5",
+  "reduced": "Al2SiO5",
+  "mp_summary_docs": 8,
+  "mp_ids": [
+   "mp-1183015",
+   "mp-1247890",
+   "mp-4753",
+   "mp-4934",
+   "mp-5065",
+   "mp-640357",
+   "mp-9515",
+   "mp-9516"
+  ],
+  "mp_licenses": [
+   "BY-C"
+  ],
+  "mp_thermo_docs": 19,
+  "mp_dielectric_docs": 0,
+  "mp_polymorphs": 8,
+  "mp_excluded": [],
+  "mp_hull_conflicts": [
+   "mp-4753",
+   "mp-5065"
+  ],
+  "openalex": {
+   "Al2SiO5 thin film": {
+    "matched_total": 7,
+    "matched_with_abstract": 3,
+    "hits": 3
+   }
+  },
+  "pubchem": {
+   "cid": 9942228,
+   "rule": "min CID from formula lookup",
+   "h_codes": [],
+   "notifications_total": null,
+   "echa": false,
+   "synonyms": 31
+  }
+ },
+ "BaO2": {
+  "display": "BaO2",
+  "reduced": "BaO2",
+  "mp_summary_docs": 6,
+  "mp_ids": [
+   "mp-1006878",
+   "mp-1105",
+   "mp-1182141",
+   "mp-1182238",
+   "mp-1182259",
+   "mp-726415"
+  ],
+  "mp_licenses": [
+   "BY-C"
+  ],
+  "mp_thermo_docs": 14,
+  "mp_dielectric_docs": 1,
+  "mp_polymorphs": 6,
+  "mp_excluded": [],
+  "mp_hull_conflicts": [],
+  "openalex": {
+   "BaO2 thin film": {
+    "matched_total": 14,
+    "matched_with_abstract": 8,
+    "hits": 5
+   }
+  },
+  "pubchem": {
+   "cid": 14773,
+   "rule": "min CID from name lookup",
+   "h_codes": [
+    "H272",
+    "H302",
+    "H314",
+    "H315",
+    "H316",
+    "H318",
+    "H319",
+    "H320",
+    "H332",
+    "H335",
+    "H370",
+    "H371",
+    "H372"
+   ],
+   "notifications_total": 239,
+   "echa": true,
+   "synonyms": 44
+  }
+ },
+ "Bi2O3": {
+  "display": "Bi2O3",
+  "reduced": "Bi2O3",
+  "mp_summary_docs": 29,
+  "mp_ids": [
+   "mp-1017551",
+   "mp-1017552",
+   "mp-1046792",
+   "mp-1080122",
+   "mp-1091371",
+   "mp-1105780",
+   "mp-1183524",
+   "mp-1188267",
+   "mp-1188316",
+   "mp-1190124",
+   "mp-1196483",
+   "mp-1197128",
+   "mp-1204405",
+   "mp-1383505",
+   "mp-22891",
+   "mp-23195",
+   "mp-23262",
+   "mp-37036",
+   "mp-556549",
+   "mp-558953",
+   "mp-636934",
+   "mp-637599",
+   "mp-673244",
+   "mp-674644",
+   "mp-684617",
+   "mp-684654",
+   "mp-684747",
+   "mp-714859",
+   "mp-759526"
+  ],
+  "mp_licenses": [
+   "BY-C"
+  ],
+  "mp_thermo_docs": 72,
+  "mp_dielectric_docs": 3,
+  "mp_polymorphs": 29,
+  "mp_excluded": [],
+  "mp_hull_conflicts": [],
+  "openalex": {
+   "Bi2O3 thin film": {
+    "matched_total": 613,
+    "matched_with_abstract": 356,
+    "hits": 5
+   }
+  },
+  "pubchem": {
+   "cid": 14776,
+   "rule": "min CID from formula lookup",
+   "h_codes": [
+    "H370",
+    "H372"
+   ],
+   "notifications_total": 452,
+   "echa": true,
+   "synonyms": 35
+  }
+ },
+ "CaO2": {
+  "display": "CaO2",
+  "reduced": "CaO2",
+  "mp_summary_docs": 4,
+  "mp_ids": [
+   "mp-1062228",
+   "mp-1095665",
+   "mp-1181909",
+   "mp-634859"
+  ],
+  "mp_licenses": [
+   "BY-C"
+  ],
+  "mp_thermo_docs": 9,
+  "mp_dielectric_docs": 1,
+  "mp_polymorphs": 4,
+  "mp_excluded": [],
+  "mp_hull_conflicts": [
+   "mp-634859"
+  ],
+  "openalex": {
+   "CaO2 thin film": {
+    "matched_total": 4,
+    "matched_with_abstract": 4,
+    "hits": 4
+   }
+  },
+  "pubchem": {
+   "cid": 14779,
+   "rule": "min CID from name lookup",
+   "h_codes": [
+    "H272",
+    "H302",
+    "H314",
+    "H315",
+    "H318",
+    "H319",
+    "H335"
+   ],
+   "notifications_total": 140,
+   "echa": true,
+   "synonyms": 29
+  }
+ },
+ "CeO2": {
+  "display": "CeO2",
+  "reduced": "CeO2",
+  "mp_summary_docs": 4,
+  "mp_ids": [
+   "mp-1018659",
+   "mp-1018664",
+   "mp-1062989",
+   "mp-20194"
+  ],
+  "mp_licenses": [
+   "BY-C"
+  ],
+  "mp_thermo_docs": 9,
+  "mp_dielectric_docs": 1,
+  "mp_polymorphs": 4,
+  "mp_excluded": [],
+  "mp_hull_conflicts": [],
+  "openalex": {
+   "CeO2 thin film": {
+    "matched_total": 2155,
+    "matched_with_abstract": 1142,
+    "hits": 5
+   }
+  },
+  "pubchem": {
+   "cid": 73963,
+   "rule": "min CID from formula lookup",
+   "h_codes": [
+    "H371",
+    "H372"
+   ],
+   "notifications_total": 651,
+   "echa": true,
+   "synonyms": 65
+  }
+ },
+ "FeO": {
+  "display": "FeO",
+  "reduced": "FeO",
+  "mp_summary_docs": 18,
+  "mp_ids": [
+   "mp-1178232",
+   "mp-1178239",
+   "mp-1178247",
+   "mp-1181437",
+   "mp-1244983",
+   "mp-1245001",
+   "mp-1245168",
+   "mp-1274279",
+   "mp-1283030",
+   "mp-18905",
+   "mp-1974703",
+   "mp-2767639",
+   "mp-715262",
+   "mp-753682",
+   "mp-754765",
+   "mp-755189",
+   "mp-756436",
+   "mp-849689"
+  ],
+  "mp_licenses": [
+   "BY-C"
+  ],
+  "mp_thermo_docs": 35,
+  "mp_dielectric_docs": 1,
+  "mp_polymorphs": 18,
+  "mp_excluded": [],
+  "mp_hull_conflicts": [],
+  "openalex": {
+   "FeO thin film": {
+    "matched_total": 605,
+    "matched_with_abstract": 366,
+    "hits": 5
+   }
+  },
+  "pubchem": {
+   "cid": 449809,
+   "rule": "min CID from name lookup",
+   "h_codes": [],
+   "notifications_total": null,
+   "echa": false,
+   "synonyms": 26
+  }
+ },
+ "Ga2O3": {
+  "display": "Ga2O3",
+  "reduced": "Ga2O3",
+  "mp_summary_docs": 10,
+  "mp_ids": [
+   "mp-1181342",
+   "mp-1243",
+   "mp-1244900",
+   "mp-1244932",
+   "mp-1244938",
+   "mp-1245018",
+   "mp-1245167",
+   "mp-13134",
+   "mp-685090",
+   "mp-886"
+  ],
+  "mp_licenses": [
+   "BY-C"
+  ],
+  "mp_thermo_docs": 22,
+  "mp_dielectric_docs": 1,
+  "mp_polymorphs": 10,
+  "mp_excluded": [],
+  "mp_hull_conflicts": [],
+  "openalex": {
+   "Ga2O3 thin film": {
+    "matched_total": 2281,
+    "matched_with_abstract": 1463,
+    "hits": 5
+   }
+  },
+  "pubchem": {
+   "cid": 158605,
+   "rule": "min CID from name lookup",
+   "h_codes": [],
+   "notifications_total": 15,
+   "echa": true,
+   "synonyms": 33
+  }
+ },
+ "Gd2O3": {
+  "display": "Gd2O3",
+  "reduced": "Gd2O3",
+  "mp_summary_docs": 5,
+  "mp_ids": [
+   "mp-1224674",
+   "mp-20470",
+   "mp-504886",
+   "mp-643084",
+   "mp-684585"
+  ],
+  "mp_licenses": [
+   "BY-C"
+  ],
+  "mp_thermo_docs": 13,
+  "mp_dielectric_docs": 0,
+  "mp_polymorphs": 5,
+  "mp_excluded": [],
+  "mp_hull_conflicts": [],
+  "openalex": {
+   "Gd2O3 thin film": {
+    "matched_total": 337,
+    "matched_with_abstract": 186,
+    "hits": 5
+   }
+  },
+  "pubchem": {
+   "cid": 159427,
+   "rule": "min CID from name lookup",
+   "h_codes": [
+    "H319",
+    "H400",
+    "H410"
+   ],
+   "notifications_total": 257,
+   "echa": true,
+   "synonyms": 36
+  }
+ },
+ "I2O5": {
+  "display": "I2O5",
+  "reduced": "I2O5",
+  "mp_summary_docs": 1,
+  "mp_ids": [
+   "mp-23261"
+  ],
+  "mp_licenses": [
+   "BY-C"
+  ],
+  "mp_thermo_docs": 3,
+  "mp_dielectric_docs": 0,
+  "mp_polymorphs": 1,
+  "mp_excluded": [],
+  "mp_hull_conflicts": [],
+  "openalex": {
+   "I2O5 thin film": {
+    "matched_total": 0,
+    "matched_with_abstract": 0,
+    "hits": 0
+   }
+  },
+  "pubchem": {
+   "cid": 159402,
+   "rule": "min CID from name lookup",
+   "h_codes": [
+    "H272",
+    "H314",
+    "H318"
+   ],
+   "notifications_total": 48,
+   "echa": true,
+   "synonyms": 33
+  }
+ },
+ "K2O2": {
+  "display": "K2O2",
+  "reduced": "K2O2",
+  "mp_summary_docs": 3,
+  "mp_ids": [
+   "mp-1097008",
+   "mp-2672",
+   "mp-998917"
+  ],
+  "mp_licenses": [
+   "BY-C"
+  ],
+  "mp_thermo_docs": 8,
+  "mp_dielectric_docs": 1,
+  "mp_polymorphs": 3,
+  "mp_excluded": [],
+  "mp_hull_conflicts": [],
+  "openalex": {
+   "K2O2 thin film": {
+    "matched_total": 4,
+    "matched_with_abstract": 4,
+    "hits": 4
+   }
+  },
+  "pubchem": {
+   "cid": 28202,
+   "rule": "min CID from name lookup",
+   "h_codes": [
+    "H271",
+    "H272",
+    "H315",
+    "H319",
+    "H335"
+   ],
+   "notifications_total": null,
+   "echa": true,
+   "synonyms": 19
+  }
+ },
+ "NO2": {
+  "display": "NO2",
+  "reduced": "NO2",
+  "mp_summary_docs": 6,
+  "mp_ids": [
+   "mp-1180500",
+   "mp-1771",
+   "mp-2789",
+   "mp-557865",
+   "mp-608071",
+   "mp-726866"
+  ],
+  "mp_licenses": [
+   "BY-C"
+  ],
+  "mp_thermo_docs": 15,
+  "mp_dielectric_docs": 3,
+  "mp_polymorphs": 6,
+  "mp_excluded": [],
+  "mp_hull_conflicts": [],
+  "openalex": {
+   "NO2 thin film": {
+    "matched_total": 1779,
+    "matched_with_abstract": 937,
+    "hits": 5
+   }
+  },
+  "pubchem": {
+   "cid": 3032552,
+   "rule": "min CID from name lookup",
+   "h_codes": [
+    "H270",
+    "H280",
+    "H314",
+    "H315",
+    "H318",
+    "H319",
+    "H330",
+    "H336",
+    "H361",
+    "H370",
+    "H372"
+   ],
+   "notifications_total": 261,
+   "echa": true,
+   "synonyms": 27
+  }
+ },
+ "OF2": {
+  "display": "OF2",
+  "reduced": "OF2",
+  "mp_summary_docs": 1,
+  "mp_ids": [
+   "mp-1095223"
+  ],
+  "mp_licenses": [
+   "BY-C"
+  ],
+  "mp_thermo_docs": 3,
+  "mp_dielectric_docs": 0,
+  "mp_polymorphs": 1,
+  "mp_excluded": [],
+  "mp_hull_conflicts": [
+   "mp-1095223"
+  ],
+  "openalex": {
+   "OF2 thin film": {
+    "matched_total": 10,
+    "matched_with_abstract": 10,
+    "hits": 5
+   }
+  },
+  "pubchem": {
+   "cid": 24547,
+   "rule": "min CID from name lookup",
+   "h_codes": [
+    "H270",
+    "H314",
+    "H330"
+   ],
+   "notifications_total": 22,
+   "echa": true,
+   "synonyms": 38
+  }
+ },
+ "Re2O7": {
+  "display": "Re2O7",
+  "reduced": "Re2O7",
+  "mp_summary_docs": 4,
+  "mp_ids": [
+   "mp-1016092",
+   "mp-1042110",
+   "mp-1342139",
+   "mp-1368296"
+  ],
+  "mp_licenses": [
+   "BY-C"
+  ],
+  "mp_thermo_docs": 8,
+  "mp_dielectric_docs": 1,
+  "mp_polymorphs": 4,
+  "mp_excluded": [],
+  "mp_hull_conflicts": [],
+  "openalex": {
+   "Re2O7 thin film": {
+    "matched_total": 3,
+    "matched_with_abstract": 1,
+    "hits": 1
+   }
+  },
+  "pubchem": {
+   "cid": 123106,
+   "rule": "min CID from name lookup",
+   "h_codes": [
+    "H314"
+   ],
+   "notifications_total": 111,
+   "echa": true,
+   "synonyms": 23
+  }
+ },
+ "RuO4": {
+  "display": "RuO4",
+  "reduced": "RuO4",
+  "mp_summary_docs": 2,
+  "mp_ids": [
+   "mp-547094",
+   "mp-554791"
+  ],
+  "mp_licenses": [
+   "BY-C"
+  ],
+  "mp_thermo_docs": 6,
+  "mp_dielectric_docs": 1,
+  "mp_polymorphs": 2,
+  "mp_excluded": [],
+  "mp_hull_conflicts": [
+   "mp-554791"
+  ],
+  "openalex": {
+   "RuO4 thin film": {
+    "matched_total": 40,
+    "matched_with_abstract": 30,
+    "hits": 5
+   }
+  },
+  "pubchem": {
+   "cid": 119079,
+   "rule": "min CID from name lookup",
+   "h_codes": [
+    "H271",
+    "H319"
+   ],
+   "notifications_total": 104,
+   "echa": true,
+   "synonyms": 28
+  }
+ },
+ "SO2": {
+  "display": "SO2",
+  "reduced": "SO2",
+  "mp_summary_docs": 1,
+  "mp_ids": [
+   "mp-27726"
+  ],
+  "mp_licenses": [
+   "BY-C"
+  ],
+  "mp_thermo_docs": 3,
+  "mp_dielectric_docs": 1,
+  "mp_polymorphs": 1,
+  "mp_excluded": [],
+  "mp_hull_conflicts": [],
+  "openalex": {
+   "SO2 thin film": {
+    "matched_total": 361,
+    "matched_with_abstract": 219,
+    "hits": 5
+   }
+  },
+  "pubchem": {
+   "cid": 1119,
+   "rule": "min CID from name lookup",
+   "h_codes": [
+    "H280",
+    "H314",
+    "H318",
+    "H319",
+    "H331",
+    "H370",
+    "H372"
+   ],
+   "notifications_total": 2617,
+   "echa": true,
+   "synonyms": 90
+  }
+ },
+ "Sb2O3": {
+  "display": "Sb2O3",
+  "reduced": "Sb2O3",
+  "mp_summary_docs": 6,
+  "mp_ids": [
+   "mp-1046803",
+   "mp-1202960",
+   "mp-1205345",
+   "mp-1999",
+   "mp-2136",
+   "mp-560607"
+  ],
+  "mp_licenses": [
+   "BY-C"
+  ],
+  "mp_thermo_docs": 15,
+  "mp_dielectric_docs": 2,
+  "mp_polymorphs": 6,
+  "mp_excluded": [],
+  "mp_hull_conflicts": [],
+  "openalex": {
+   "Sb2O3 thin film": {
+    "matched_total": 182,
+    "matched_with_abstract": 109,
+    "hits": 5
+   }
+  },
+  "pubchem": {
+   "cid": 14794,
+   "rule": "min CID from formula lookup",
+   "h_codes": [
+    "H302",
+    "H303",
+    "H320",
+    "H350",
+    "H351",
+    "H360",
+    "H370",
+    "H371",
+    "H372",
+    "H373",
+    "H401",
+    "H402",
+    "H411",
+    "H412"
+   ],
+   "notifications_total": 1950,
+   "echa": true,
+   "synonyms": 89
+  }
+ },
+ "SbO2": {
+  "display": "SbO2",
+  "reduced": "SbO2",
+  "mp_summary_docs": 21,
+  "mp_ids": [
+   "mp-1041974",
+   "mp-1044574",
+   "mp-1044716",
+   "mp-1044869",
+   "mp-1045682",
+   "mp-1047300",
+   "mp-1179587",
+   "mp-1350908",
+   "mp-1356631",
+   "mp-1374616",
+   "mp-1377931",
+   "mp-13866",
+   "mp-1388164",
+   "mp-1398749",
+   "mp-1400172",
+   "mp-1402558",
+   "mp-1419175",
+   "mp-1819",
+   "mp-22071",
+   "mp-230",
+   "mp-560098"
+  ],
+  "mp_licenses": [
+   "BY-C"
+  ],
+  "mp_thermo_docs": 45,
+  "mp_dielectric_docs": 2,
+  "mp_polymorphs": 21,
+  "mp_excluded": [],
+  "mp_hull_conflicts": [
+   "mp-230",
+   "mp-1819"
+  ],
+  "openalex": {
+   "SbO2 thin film": {
+    "matched_total": 2,
+    "matched_with_abstract": 0,
+    "hits": 0
+   }
+  },
+  "pubchem": {
+   "cid": 91865468,
+   "rule": "min CID from name lookup",
+   "h_codes": [],
+   "notifications_total": null,
+   "echa": false,
+   "synonyms": 7
+  }
+ },
+ "Se2O5": {
+  "display": "Se2O5",
+  "reduced": "Se2O5",
+  "mp_summary_docs": 1,
+  "mp_ids": [
+   "mp-27358"
+  ],
+  "mp_licenses": [
+   "BY-C"
+  ],
+  "mp_thermo_docs": 3,
+  "mp_dielectric_docs": 0,
+  "mp_polymorphs": 1,
+  "mp_excluded": [],
+  "mp_hull_conflicts": [
+   "mp-27358"
+  ],
+  "openalex": {
+   "Se2O5 thin film": {
+    "matched_total": 0,
+    "matched_with_abstract": 0,
+    "hits": 0
+   }
+  },
+  "pubchem": {
+   "cid": 5239029,
+   "rule": "min CID from formula lookup",
+   "h_codes": [],
+   "notifications_total": null,
+   "echa": false,
+   "synonyms": 0
+  }
+ }
 }

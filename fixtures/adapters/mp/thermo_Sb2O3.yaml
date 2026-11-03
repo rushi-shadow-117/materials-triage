@@ -1,0 +1,88 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - _csrf_token=authenticated; mp-session=tWdGuSYcBtwKT9fVveU9Fw|1794688599|dSAFT28AT-Yx0QkzLbH5Irl_Eoo;
+        __cf_bm=cR6wq9IHc47.BYiKg4gP.0G34UHeybAaWkxm4kRpS24-1793732502.6549075-1.0.1.1-jd7nmfKXxHEZZ7KNe5vCuKdaP1K_4S.Nu9tR9DY3MSLjBrwz_WqLU29Kv2VOfQGPhT9Mj493eA9n5lJqN36MtuTYMBeMdcUWsCrM0OvD5mOOWp2De5ve1VTbkZELQD3D
+      host:
+      - api.materialsproject.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.materialsproject.org/materials/thermo/?_fields=material_id%2Cthermo_type%2Cenergy_above_hull%2Cis_stable&_limit=1000&material_ids=mp-1046803%2Cmp-1202960%2Cmp-1205345%2Cmp-1999%2Cmp-2136%2Cmp-560607
+  response:
+    body:
+      string: '{"data":[{"material_id":"mp-aaaaacyx","thermo_type":"r2SCAN","energy_above_hull":0.004735054500001112,"is_stable":false},{"material_id":"mp-aaaaacyx","thermo_type":"GGA_GGA+U","energy_above_hull":0.008487304499999127,"is_stable":false},{"material_id":"mp-aaaaacyx","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.004735054499999336,"is_stable":false},{"material_id":"mp-aaaaadee","thermo_type":"r2SCAN","energy_above_hull":0.0,"is_stable":true},{"material_id":"mp-aaaaadee","thermo_type":"GGA_GGA+U","energy_above_hull":0.0,"is_stable":true},{"material_id":"mp-aaaaadee","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.0,"is_stable":true},{"material_id":"mp-aaabfxhv","thermo_type":"GGA_GGA+U","energy_above_hull":0.17013904900000032,"is_stable":false},{"material_id":"mp-aaabfxhv","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.17013904899999854,"is_stable":false},{"material_id":"mp-aaachonr","thermo_type":"GGA_GGA+U","energy_above_hull":0.2601868644999996,"is_stable":false},{"material_id":"mp-aaachonr","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.26018686449999784,"is_stable":false},{"material_id":"mp-aaacqlns","thermo_type":"GGA_GGA+U","energy_above_hull":0.032486894999999905,"is_stable":false},{"material_id":"mp-aaacqlns","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.03248689499999813,"is_stable":false},{"material_id":"mp-aaacqpbl","thermo_type":"r2SCAN","energy_above_hull":0.018393840500003478,"is_stable":false},{"material_id":"mp-aaacqpbl","thermo_type":"GGA_GGA+U","energy_above_hull":0.006493923999999929,"is_stable":false},{"material_id":"mp-aaacqpbl","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.0183938405000017,"is_stable":false}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-03T19:05:34.375721+00:00","total_doc":15,"facet":null,"max_limit":1000,"default_fields":["thermo_id","material_id","last_updated"]}}'
+    headers:
+      access-control-expose-headers:
+      - X-Api-Key
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54da6b59dcc8120-BOS
+      connection:
+      - keep-alive
+      content-length:
+      - '1891'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 19:05:34 GMT
+      ratelimit-limit:
+      - '25'
+      ratelimit-remaining:
+      - '23'
+      ratelimit-reset:
+      - '1'
+      server:
+      - cloudflare
+      set-cookie:
+      - _csrf_token=authenticated; Domain=.materialsproject.org; Path=/; SameSite=Strict
+      vary:
+      - Accept-Encoding
+      - Origin
+      via:
+      - kong/2.8.4
+      x-consumer-id:
+      - 58e0b4c2-4c2d-439b-ba0a-648cd568a0fa
+      x-kong-proxy-latency:
+      - '7'
+      x-kong-upstream-latency:
+      - '21'
+      x-ratelimit-limit-day:
+      - '640000'
+      x-ratelimit-limit-hour:
+      - '40000'
+      x-ratelimit-limit-minute:
+      - '1000'
+      x-ratelimit-limit-month:
+      - '12800000'
+      x-ratelimit-limit-second:
+      - '25'
+      x-ratelimit-limit-year:
+      - '100000000'
+      x-ratelimit-remaining-day:
+      - '639917'
+      x-ratelimit-remaining-hour:
+      - '39983'
+      x-ratelimit-remaining-minute:
+      - '995'
+      x-ratelimit-remaining-month:
+      - '12799731'
+      x-ratelimit-remaining-second:
+      - '23'
+      x-ratelimit-remaining-year:
+      - '99999683'
+    status:
+      code: 200
+      message: OK
+version: 1

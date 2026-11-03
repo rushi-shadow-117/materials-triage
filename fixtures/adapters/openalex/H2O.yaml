@@ -1,0 +1,383 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=H2O+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 2195, "db_response_time_ms": 184, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (H2O thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (H2O thin film) in the title or abstract where it has an abstract", "oqo":
+        {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract", "value":
+        true}, {"column_id": "title_and_abstract.search", "value": "H2O thin film",
+        "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:H2O
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W7216094415",
+        "doi": "https://doi.org/10.32508/vnuhcmj-arns.v10i2.1485", "title": "Fabrication
+        of MoS2-MoO3.H2O thin film on fto substrate by electrodeposition method combining
+        with heat treatment as electrode for hydrogen evolution reaction (HER)", "publication_year":
+        2026, "abstract_inverted_index": {"Green": [0], "hydrogen": [1, 167, 283],
+        "production": [2], "via": [3], "water-splitting": [4], "technology": [5],
+        "holds": [6], "promise": [7], "for": [8, 50, 165, 281], "the": [9, 69, 77,
+        154, 161, 166, 196, 202, 219, 223, 249], "future": [10], "of": [11, 71, 160,
+        222, 237], "a": [12, 47, 59, 94, 107, 121, 188, 207, 234, 241, 274], "hydrogen-based":
+        [13], "economy": [14], "and": [15, 35, 96, 149, 191, 212, 240, 261], "addresses":
+        [16], "climate": [17], "change": [18], "caused": [19], "using": [20, 76, 153,
+        177], "fossil": [21], "fuels.": [22], "Current": [23], "research": [24], "focuses":
+        [25], "on": [26, 90, 130], "developing": [27], "new": [28], "catalytic": [29,
+        259, 278], "materials": [30], "from": [31, 57, 138], "abundant": [32], "natural":
+        [33, 64], "resources": [34], "cost-effective": [36], "sources": [37], "to":
+        [38, 82, 248], "replace": [39], "noble": [40], "metal-based": [41], "catalysts.":
+        [42], "Among": [43], "them,": [44], "(MoS2": [45], "is": [46], "potential":
+        [48], "catalyst": [49], "water": [51], "splitting,": [52], "which": [53],
+        "can": [54], "be": [55], "synthesized": [56], "molybdenum,": [58], "transition":
+        [60], "metal": [61], "with": [62, 233], "high": [63, 258], "abundance.": [65],
+        "This": [66], "paper": [67], "presents": [68], "development": [70], "an":
+        [72, 139, 192], "electrochemical": [73], "deposition": [74], "process": [75],
+        "cyclic": [78], "voltammetry": [79, 180], "(CV)": [80], "method": [81], "fabricate":
+        [83], "molybdenum": [84], "disulfide\u2013molybdenum": [85], "trioxide": [86],
+        "(MoS2-MoO3.H2O)": [87], "hybrid": [88], "films": [89, 103, 183], "FTO": [91,
+        133], "substrates": [92, 134], "in": [93, 173, 244, 263], "simple": [95],
+        "low-cost": [97], "single": [98], "step.": [99], "The": [100, 157, 182, 252],
+        "initially": [101], "amorphous": [102, 193, 203], "could": [104], "crystallize":
+        [105], "at": [106, 199, 230], "relatively": [108], "low": [109], "temperature":
+        [110], "(120": [111], "oC),": [112], "unlike": [113], "conventional": [114],
+        "methods": [115], "that": [116, 218, 270], "required": [117], "higher": [118],
+        "temperatures.": [119], "Accordingly,": [120], "thin": [122], "MoS2-MoO3.H2O":
+        [123, 136, 162, 254, 271], "film": [124], "(500": [125], "nm)": [126], "was":
+        [127, 171, 273], "electrochemically": [128], "deposited": [129], "conductive":
+        [131], "glass": [132], "(denoted": [135], "/FTO)": [137], "electrolyte": [140],
+        "solution": [141], "containing": [142], "5": [143], "mM": [144], "(NH4)6Mo7O24":
+        [145], "30": [146], "g/L": [147], "Na2S": [148], "0.1": [150], "M": [151,
+        175, 265], "KCl": [152], "CV": [155, 186], "method.": [156], "electrocatalytic":
+        [158, 220], "activity": [159, 221, 260], "/FTO": [163, 255, 272], "electrode":
+        [164, 224, 256], "evolution": [168], "reaction": [169], "(HER)": [170], "evaluated":
+        [172], "0.5": [174, 264], "H2SO4": [176, 266], "linear": [178], "sweep": [179],
+        "(LSV).": [181], "formed": [184], "by": [185], "exhibited": [187, 257], "brown":
+        [189], "color": [190], "structure.": [194], "After": [195], "thermal": [197],
+        "treatment": [198, 229], "120": [200, 231], "oC,": [201], "structure": [204],
+        "transformed": [205], "into": [206], "crystalline": [208], "structure,": [209],
+        "comprising": [210], "MoS2": [211], "MoO3.H2O": [213], "phases.": [214], "LSV":
+        [215], "results": [216, 268], "showed": [217], "significantly": [225], "improved":
+        [226], "after": [227], "heat": [228], "\u00b0C,": [232], "Tafel": [235], "slope":
+        [236], "80": [238], "mV/dec": [239], "2.75-fold": [242], "increase": [243],
+        "current": [245], "density": [246], "compared": [247], "untreated": [250],
+        "electrode.": [251], "fabricated": [253, 277], "stability": [262], "These":
+        [267], "demonstrated": [269], "promising,": [275], "easily": [276], "system":
+        [279], "suitable": [280], "green": [282], "applications.": [284]}, "primary_location":
+        {"id": "pmh:oai:arns.vnuhcmjournal.com.vn:article/1485", "doi": "https://doi.org/10.32508/vnuhcmj-arns.v10i2.1485",
+        "is_oa": true, "landing_page_url": "https://arns.vnuhcmjournal.com.vn/index.php/index/article/view/1485",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S7407059662", "display_name":
+        "VNUHCM Journal of Advanced Research and Natural Sciences", "issn_l": "3126-3011",
+        "issn": ["3126-3011"], "is_oa": false, "is_in_doaj": false, "is_core": false,
+        "listed_in": [], "host_organization": null, "host_organization_name": null,
+        "host_organization_lineage": [], "host_organization_lineage_names": [], "type":
+        "journal"}, "license": "cc-by", "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "3126-3011", "raw_type": "info:eu-repo/semantics/article"}},
+        {"id": "https://openalex.org/W1969191319", "doi": "https://doi.org/10.1063/1.460893",
+        "title": "Charge trapping by H2O condensed onto thin films of Kr and Xe",
+        "publication_year": 1991, "abstract_inverted_index": {"The": [0], "energy":
+        [1, 99], "dependence": [2], "for": [3, 31, 46], "electron": [4, 32, 59, 75],
+        "trapping": [5, 33, 55, 121], "by": [6, 61], "H2O": [7, 136], "molecules":
+        [8], "condensed": [9], "onto": [10], "thin": [11], "films": [12], "of": [13,
+        43, 63, 73, 79, 96, 105, 135], "Kr": [14, 110], "and": [15, 22, 36, 111],
+        "Xe": [16, 112], "has": [17], "been": [18], "measured": [19], "between": [20],
+        "0.4": [21], "11.0": [23], "eV.": [24, 53], "From": [25, 114], "these": [26],
+        "measurements,": [27], "absolute": [28], "cross": [29, 85], "sections": [30],
+        "were": [34], "deduced": [35], "found": [37], "to": [38, 70, 116], "reach":
+        [39], "magnitudes": [40], "in": [41, 108], "excess": [42], "10\u221216": [44],
+        "cm2": [45], "incident": [47], "kinetic": [48], "energies": [49], "smaller":
+        [50], "than": [51], "1.0": [52], "This": [54], "is": [56, 87], "associated":
+        [57], "with": [58], "capture": [60], "clusters": [62], "water": [64], "molecules,":
+        [65], "a": [66, 127], "process": [67], "related": [68], "possibly": [69],
+        "the": [71, 74, 77, 84, 103, 109], "solvation": [72], "following": [76], "radiolysis":
+        [78], "water.": [80], "Near": [81], "0": [82], "eV,": [83, 118], "section":
+        [86], "so": [88], "large": [89], "that": [90], "appreciable": [91], "charging":
+        [92], "occurs": [93], "when": [94], "electrons": [95, 130], "low": [97], "residual":
+        [98], "are": [100], "created": [101], "at": [102], "onset": [104], "exciton":
+        [106], "formation": [107], "substrates.": [113], "6.0": [115], "9.0": [117],
+        "further": [119], "charge": [120], "proceeds": [122], "via": [123], "dissociative":
+        [124], "attachment,": [125], "but": [126], "contribution": [128], "from":
+        [129, 132], "scattered": [131], "electronic": [133], "states": [134], "cannot":
+        [137], "be": [138], "excluded.": [139]}, "primary_location": {"id": "doi:10.1063/1.460893",
+        "doi": "https://doi.org/10.1063/1.460893", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.460893", "pdf_url": null, "source": {"id": "https://openalex.org/S77047749",
+        "display_name": "The Journal of Chemical Physics", "issn_l": "0021-9606",
+        "issn": ["0021-9606", "1089-7690", "1520-9032"], "is_oa": false, "is_in_doaj":
+        false, "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-b",
+        "jufo-1", "ki-jl-1", "medline", "norway-1", "poland-100", "russia-white-list-2",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "The Journal
+        of Chemical Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W1619219615",
+        "doi": "https://doi.org/10.1063/1.366096", "title": "Influence of Na and H2O
+        on the surface properties of Cu(In,Ga)Se2 thin films", "publication_year":
+        1997, "abstract_inverted_index": {"The": [0], "influence": [1, 85], "of":
+        [2, 8, 64, 72, 86, 98, 101], "humidity": [3], "on": [4, 14, 89], "the": [5,
+        40, 65, 70, 84, 96], "electronic": [6], "structure": [7], "Na-containing":
+        [9, 102], "polycrystalline": [10], "Cu(In,Ga)Se2": [11, 41, 90], "thin": [12],
+        "films": [13], "soda-lime": [15], "glass": [16], "substrates": [17], "has":
+        [18], "been": [19], "investigated": [20], "by": [21, 29], "x-ray": [22], "and":
+        [23, 39, 48, 56, 69, 94], "UV": [24], "photoemission": [25], "as": [26, 28,
+        60], "well": [27], "Auger": [30], "electron": [31], "spectroscopy.": [32],
+        "Different": [33], "interactions": [34, 58], "between": [35], "coadsorbed":
+        [36], "Na,": [37], "H2O,": [38], "surface": [42, 67], "are": [43, 76], "revealed":
+        [44], "at": [45, 51], "low": [46], "temperatures": [47], "upon": [49], "annealing":
+        [50], "room": [52], "temperature.": [53], "Both,": [54], "reversible": [55],
+        "irreversible": [57], "such": [59], "a": [61, 73], "H2O-induced": [62], "reduction":
+        [63], "Na": [66], "content": [68], "formation": [71], "Na\u2013O\u2013Cu(In,Ga)Se2":
+        [74], "complex": [75], "observed.": [77], "Our": [78], "findings": [79], "can":
+        [80], "be": [81], "correlated": [82], "with": [83], "ambient": [87], "conditions":
+        [88], "solar": [91, 105], "cell": [92], "adsorbers": [93], "demonstrate":
+        [95], "importance": [97], "adequate": [99], "encapsulation": [100], "Cu(In,Ga)Se2-based":
+        [103], "thin-film": [104], "cells.": [106]}, "primary_location": {"id": "doi:10.1063/1.366096",
+        "doi": "https://doi.org/10.1063/1.366096", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.366096", "pdf_url": null, "source": {"id": "https://openalex.org/S187991544",
+        "display_name": "Journal of Applied Physics", "issn_l": "0021-8979", "issn":
+        ["0021-8979", "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d",
+        "jufo-1", "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2036669245",
+        "doi": "https://doi.org/10.1039/b809953g", "title": "Atomic layer deposition
+        of photocatalytic TiO2 thin films from TiF4 and H2O", "publication_year":
+        2008, "abstract_inverted_index": {"Titanium": [0], "dioxide": [1], "(TiO2)":
+        [2], "thin": [3], "films": [4, 23, 94, 146, 166], "were": [5, 24, 40, 84,
+        95, 114], "grown": [6], "by": [7, 26, 134], "atomic": [8], "layer": [9], "deposition":
+        [10, 101], "(ALD)": [11], "at": [12, 130, 148, 168, 182], "300-500": [13],
+        "degrees": [14, 77, 132, 150, 170, 184], "C": [15, 133, 151, 171], "using":
+        [16], "TiF4": [17], "and": [18, 30, 38, 64, 75, 86, 92, 110, 116, 144, 161],
+        "H2O": [19], "as": [20, 42], "precursors.": [21, 141], "The": [22], "characterized":
+        [25], "FESEM,": [27], "EDX,": [28], "UV/Vis": [29], "XRD": [31], "techniques.":
+        [32], "Two": [33], "glass": [34, 54, 128], "types,": [35], "soda": [36, 104],
+        "lime": [37], "borosilicate,": [39], "used": [41], "the": [43, 50, 53, 62,
+        67, 79, 93, 99, 111, 136, 140, 165, 177], "substrate": [44, 55, 71], "materials.":
+        [45], "It": [46], "was": [47, 108, 124], "found": [48], "that": [49], "type":
+        [51], "of": [52, 66, 73, 139], "had": [56, 172], "a": [57], "very": [58],
+        "strong": [59], "influence": [60], "on": [61, 82, 103], "growth": [63, 80,
+        112], "properties": [65], "resulting": [68], "films.": [69], "At": [70], "temperatures":
+        [72], "400": [74, 131], "500": [76], "C,": [78, 185], "rates": [81, 113],
+        "borosilicate": [83], "0.8": [85], "1.0": [87], "A": [88, 118], "per": [89,
+        119], "cycle,": [90, 120], "respectively,": [91], "mainly": [96], "anatase.":
+        [97], "With": [98], "same": [100], "conditions": [102], "lime,": [105], "rutile":
+        [106, 145], "phase": [107], "formed": [109], "1.1": [115], "1.5": [117], "respectively.":
+        [121], "Growth": [122], "saturation": [123], "confirmed": [125], "for": [126],
+        "both": [127], "substrates": [129], "varying": [135], "pulse": [137], "lengths":
+        [138], "Both": [142], "anatase": [143], "prepared": [147, 167, 181], "400-500":
+        [149], "possessed": [152], "photocatalytic": [153], "activity": [154], "in":
+        [155], "degrading": [156], "stearic": [157], "acid": [158], "under": [159,
+        188], "UV": [160, 189], "visible": [162], "light,": [163], "whereas": [164],
+        "300": [169, 183], "virtually": [173], "no": [174], "activity.": [175], "All":
+        [176], "films,": [178], "including": [179], "those": [180], "turned": [186],
+        "superhydrophilic": [187], "light.": [190]}, "primary_location": {"id": "doi:10.1039/b809953g",
+        "doi": "https://doi.org/10.1039/b809953g", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1039/b809953g", "pdf_url": null, "source": {"id": "https://openalex.org/S166159787",
+        "display_name": "Dalton Transactions", "issn_l": "1477-9226", "issn": ["1477-9226",
+        "1477-9234"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-1", "ki-jl-1", "medline",
+        "norway-1", "poland-140", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320556", "host_organization_name": "Royal Society
+        of Chemistry", "host_organization_lineage": ["https://openalex.org/P4310320556"],
+        "host_organization_lineage_names": ["Royal Society of Chemistry"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Dalton Transactions",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2319683481",
+        "doi": "https://doi.org/10.1149/1.3495859", "title": "Evaluating H2O Electrolysis
+        on Ceria with Thin-Film Electrodes", "publication_year": 2010, "abstract_inverted_index":
+        {"Undoped": [0], "ceria": [1, 24, 48, 105, 135], "with": [2, 55, 66], "its":
+        [3], "facile": [4], "redox": [5], "at": [6, 29], "high-temperatures": [7],
+        "has": [8], "potential": [9], "as": [10], "an": [11], "effective": [12], "material":
+        [13], "for": [14, 26, 116, 136], "electrolysis.": [15, 118, 138], "This":
+        [16], "study": [17], "explores": [18], "the": [19, 45, 81, 109], "electrochemical":
+        [20, 33, 73], "performance": [21], "of": [22, 53, 72, 111], "thin-film": [23],
+        "electrodes": [25], "H2O": [27, 62, 117, 137], "electrolysis": [28, 56, 63,
+        82], "700": [30], "\u00b0C.": [31], "The": [32, 119], "characterization":
+        [34], "is": [35, 64], "complemented": [36], "by": [37, 96, 108], "in": [38,
+        51, 134], "situ": [39], "XPS": [40], "measurements,": [41], "which": [42,
+        91], "show": [43, 60, 79], "that": [44, 61, 80, 103], "highly": [46], "reduced":
+        [47], "surface": [49, 98, 106, 130], "increases": [50], "degree": [52], "reduction":
+        [54, 107], "voltage.": [57], "Results": [58], "also": [59], "enhanced": [65],
+        "increased": [67, 104], "H2": [68, 87, 112], "partial": [69], "pressure.":
+        [70, 88], "Analysis": [71], "impedance": [74], "spectra": [75], "and": [76,
+        131], "voltammetric": [77], "measurements": [78], "reactions": [83], "depend":
+        [84], "strongly": [85], "on": [86], "These": [89], "trends,": [90], "are":
+        [92], "not": [93], "readily": [94], "explained": [95], "simple": [97], "kinetic":
+        [99], "models,": [100], "do": [101], "indicate": [102], "presence": [110],
+        "product": [113], "enhances": [114], "activity": [115], "results": [120],
+        "were": [121], "used": [122], "to": [123, 128], "create": [124], "a": [125],
+        "microkinetic": [126], "model": [127], "assess": [129], "subsurface": [132],
+        "processes": [133]}, "primary_location": {"id": "doi:10.1149/1.3495859", "doi":
+        "https://doi.org/10.1149/1.3495859", "is_oa": true, "landing_page_url": "https://doi.org/10.1149/1.3495859",
+        "pdf_url": "https://iopscience.iop.org/article/10.1149/1.3495859/pdf", "source":
+        {"id": "https://openalex.org/S4210205149", "display_name": "ECS Transactions",
+        "issn_l": "1938-5862", "issn": ["1938-5862", "1938-6737", "2151-2051"], "is_oa":
+        false, "is_in_doaj": false, "is_core": false, "listed_in": ["norway-1", "poland-20"],
+        "host_organization": "https://openalex.org/P4310311669", "host_organization_name":
+        "Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310311669"],
+        "host_organization_lineage_names": ["Institute of Physics"], "type": "journal"},
+        "license": null, "license_id": null, "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "ECS Transactions", "raw_type":
+        "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a547fe1cda8a2d2a-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '17742'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:36:40 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=ijeYM2qqaCGmtt6pV7SgzmFfCcXHyOYn%2FaBy1tL1tKA%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793673399"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=ijeYM2qqaCGmtt6pV7SgzmFfCcXHyOYn%2FaBy1tL1tKA%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793673399"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9970'
+      x-ratelimit-remaining-usd:
+      - '0.997'
+      x-ratelimit-reset:
+      - '77000'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=H2O+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 3172, "db_response_time_ms": 22, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (H2O thin film)
+        in the title or abstract", "x_new_oql": "get works with (H2O thin film) in
+        the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "H2O thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:H2O thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W3119781792"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a547fe1f3baa2d2a-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '608'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:36:40 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=f7buofY%2BpUFGhJiEGsPKdvlxjlkq7reTMXieiwGV5Wg%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793673400"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=f7buofY%2BpUFGhJiEGsPKdvlxjlkq7reTMXieiwGV5Wg%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793673400"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9960'
+      x-ratelimit-remaining-usd:
+      - '0.996'
+      x-ratelimit-reset:
+      - '77000'
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,0 +1,275 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/tetraphosphorus%20nonaoxide/cids/JSON
+  response:
+    body:
+      string: "{\n  \"Fault\": {\n    \"Code\": \"PUGREST.NotFound\",\n    \"Message\":
+        \"No CID found\",\n    \"Details\": [\n      \"No CID found that matches the
+        given name\"\n    ]\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '156'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:37:28 GMT
+      expires:
+      - Tue, 03 Nov 2026 03:37:29 GMT
+      ncbi-phid:
+      - 90C6DBB0AE948E810000000000000001.m_1
+      ncbi-sid:
+      - 90C64B6DAE6515F1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID; domain=.nih.gov; path=/; expires=Wed, 03
+        Nov 2027 02:37:28 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (6%), Request Time status: Green (3%), Service
+        status: Green (20%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 404
+      message: PUGREST.NotFound
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/fastformula/P4O9/cids/JSON
+  response:
+    body:
+      string: "{\n  \"IdentifierList\": {\n    \"CID\": [\n      139224\n    ]\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '62'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:37:29 GMT
+      expires:
+      - Tue, 03 Nov 2026 03:37:30 GMT
+      ncbi-phid:
+      - 95B725BCAE948E910000000000000001.m_3
+      ncbi-sid:
+      - 90C64B6DAE6515F1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID; domain=.nih.gov; path=/; expires=Wed, 03
+        Nov 2027 02:37:29 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (3%), Request Time status: Green (1%), Service
+        status: Green (37%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug_view/data/compound/139224/JSON?heading=GHS+Classification
+  response:
+    body:
+      string: "{\n  \"Fault\": {\n    \"Code\": \"PUGVIEW.NotFound\",\n    \"Message\":
+        \"No data found\"\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '84'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 03 Nov 2026 02:37:30 GMT
+      expires:
+      - Tue, 03 Nov 2026 10:37:30 GMT
+      ncbi-phid:
+      - 90C6DCFFAE948EA10000000000000001.m_1
+      ncbi-sid:
+      - 90C64B6DAE6515F1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID; domain=.nih.gov; path=/; expires=Wed, 03
+        Nov 2027 02:37:30 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (2%), Request Time status: Green (0%), Service
+        status: Green (2%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 404
+      message: PUGVIEW.NotFound
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/139224/synonyms/JSON
+  response:
+    body:
+      string: "{\n  \"InformationList\": {\n    \"Information\": [\n      {\n        \"CID\":
+        139224,\n        \"Synonym\": [\n          \"Tetraphosphorus nonoxide\",\n
+        \         \"12037-11-5\",\n          \"DTXSID70152823\",\n          \"RefChem:1059605\",\n
+        \         \"DTXCID0075314\",\n          \"2,4,6,8,9,10-Hexaoxa-1,3,5,7-tetraphosphatricyclo(3.3.1.13,7)decane,
+        1,3,5-trioxide\",\n          \"Tetraphosphorous nonoxide\",\n          \"SCHEMBL15233181\",\n
+        \         \"1lambda~5~,3lambda~5~,5lambda~5~-Tricyclo[3.3.1.1~3,7~]tetraphosphoxane-1,3,5-trione\"\n
+        \       ]\n      }\n    ]\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '536'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:37:30 GMT
+      expires:
+      - Tue, 03 Nov 2026 03:37:30 GMT
+      ncbi-phid:
+      - 90C6DD45AE948EA10000000000000001.m_1
+      ncbi-sid:
+      - 90C64B6DAE6515F1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID; domain=.nih.gov; path=/; expires=Wed, 03
+        Nov 2027 02:37:30 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (6%), Request Time status: Green (3%), Service
+        status: Green (33%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

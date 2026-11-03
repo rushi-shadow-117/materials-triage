@@ -1,0 +1,287 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/aluminum%20silicate/cids/JSON
+  response:
+    body:
+      string: "{\n  \"Fault\": {\n    \"Code\": \"PUGREST.NotFound\",\n    \"Message\":
+        \"No CID found\",\n    \"Details\": [\n      \"No CID found that matches the
+        given name\"\n    ]\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '156'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:41:22 GMT
+      expires:
+      - Tue, 03 Nov 2026 03:41:22 GMT
+      ncbi-phid:
+      - 90C669C8AE949D210000000000000001.m_1
+      ncbi-sid:
+      - 90C64B6DAE6515F1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID; domain=.nih.gov; path=/; expires=Wed, 03
+        Nov 2027 02:41:22 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (0%), Request Time status: Green (0%), Service
+        status: Green (40%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 404
+      message: PUGREST.NotFound
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/fastformula/Al2SiO5/cids/JSON
+  response:
+    body:
+      string: "{\n  \"IdentifierList\": {\n    \"CID\": [\n      56841952,\n      16703273,\n
+        \     9942228,\n      138394506,\n      16709502,\n      138394839,\n      158483380,\n
+        \     173416886,\n      10313254,\n      11708135\n    ]\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '211'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:41:22 GMT
+      expires:
+      - Tue, 03 Nov 2026 03:41:23 GMT
+      ncbi-phid:
+      - 95B7AAF8AE949D210000000000000001.m_3
+      ncbi-sid:
+      - 90C64B6DAE6515F1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID; domain=.nih.gov; path=/; expires=Wed, 03
+        Nov 2027 02:41:22 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (0%), Request Time status: Green (0%), Service
+        status: Green (33%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug_view/data/compound/9942228/JSON?heading=GHS+Classification
+  response:
+    body:
+      string: "{\n  \"Fault\": {\n    \"Code\": \"PUGVIEW.NotFound\",\n    \"Message\":
+        \"No data found\"\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '84'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 03 Nov 2026 02:41:24 GMT
+      expires:
+      - Tue, 03 Nov 2026 10:41:24 GMT
+      ncbi-phid:
+      - 95B7AC6AAE949D410000000000000001.m_1
+      ncbi-sid:
+      - 90C64B6DAE6515F1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID; domain=.nih.gov; path=/; expires=Wed, 03
+        Nov 2027 02:41:24 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (0%), Request Time status: Green (0%), Service
+        status: Green (2%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 404
+      message: PUGVIEW.NotFound
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/9942228/synonyms/JSON
+  response:
+    body:
+      string: "{\n  \"InformationList\": {\n    \"Information\": [\n      {\n        \"CID\":
+        9942228,\n        \"Synonym\": [\n          \"Aluminosilicate\",\n          \"Zeolites,
+        synthetic\",\n          \"Permutit\",\n          \"Kaolinite, natural\",\n
+        \         \"Microzeokan 8\",\n          \"KC-Perlkator D 10E\",\n          \"Silton
+        B-MZ 260\",\n          \"Aluminosilicate, mesostructured\",\n          \"CCRIS
+        6604\",\n          \"MZ 3\",\n          \"Synthetic zeolites\",\n          \"Y-SK
+        40\",\n          \"EINECS 215-283-8\",\n          \"Zeolite, phillipsite\",\n
+        \         \"CS 100\",\n          \"Zeolite, clinoptilolite\",\n          \"Permutit,
+        CP,97%\",\n          \"Silica-alumina catalyst support, grade 135\",\n          \"UNII-NT5NN5KL16\",\n
+        \         \"Zeolites other than erionite\",\n          \"Non-fibrous Japanese
+        zeolite\",\n          \"SCHEMBL29354856\",\n          \"BAA31874\",\n          \"Dialuminum,oxygen(2-),silicon(4+)\",\n
+        \         \"Mesoporous structured aluminosilicates\",\n          \"AKOS015911071\",\n
+        \         \"Type Y molecular sieve, sodium ion, powder\",\n          \"Type
+        Y molecular sieve, ammonium ion, powder\",\n          \"Aluminosilicate, mesostructured,
+        MCM-41 (hexagonal)\",\n          \"Aluminosilicate, mesostructured, Al-MSU-F
+        (cellular foam)\",\n          \"Mullite (lattice spacing, other parameters),
+        Reference Material\"\n        ]\n      }\n    ]\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '1296'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:41:24 GMT
+      expires:
+      - Tue, 03 Nov 2026 03:41:24 GMT
+      ncbi-phid:
+      - 90C66BCEAE949D410000000000000001.m_1
+      ncbi-sid:
+      - 90C64B6DAE6515F1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID; domain=.nih.gov; path=/; expires=Wed, 03
+        Nov 2027 02:41:24 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (0%), Request Time status: Green (0%), Service
+        status: Green (40%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

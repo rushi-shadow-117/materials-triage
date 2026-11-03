@@ -1,0 +1,313 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=BaO+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 386, "db_response_time_ms": 37, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (BaO thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (BaO thin film) in the title or abstract where it has an abstract", "oqo":
+        {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract", "value":
+        true}, {"column_id": "title_and_abstract.search", "value": "BaO thin film",
+        "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:BaO
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2051044965",
+        "doi": "https://doi.org/10.1088/0256-307x/15/11/019", "title": "Coherent Phonons
+        in Ag-BaO Thin Films", "publication_year": 1998, "abstract_inverted_index":
+        {"Coherent": [0], "acoustic": [1, 35, 45], "phonons": [2, 46], "have": [3],
+        "been": [4], "observed": [5], "in": [6, 12, 27], "Ag": [7, 39], "nanoscale":
+        [8], "particles": [9], "(NSPs)": [10], "embedded": [11], "BaO": [13], "thin":
+        [14], "film": [15], "by": [16], "means": [17], "of": [18, 38, 43, 53], "the":
+        [19, 28, 50], "femtosecond": [20], "time-resolved": [21], "pump-probe": [22],
+        "technique.": [23], "The": [24, 41], "oscillatory": [25], "component": [26],
+        "signal": [29], "corresponds": [30], "to": [31, 49], "a": [32], "very": [33],
+        "low-frequency": [34], "phonon": [36], "mode": [37], "NSPs.": [40], "generation":
+        [42], "coherent": [44], "is": [47], "attributed": [48], "resonant": [51],
+        "excitation": [52], "localized": [54], "surface": [55], "plasmon.": [56]},
+        "primary_location": {"id": "doi:10.1088/0256-307x/15/11/019", "doi": "https://doi.org/10.1088/0256-307x/15/11/019",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1088/0256-307x/15/11/019",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S110033974", "display_name":
+        "Chinese Physics Letters", "issn_l": "0256-307X", "issn": ["0256-307X", "1741-3540"],
+        "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core",
+        "dongbi-a", "jufo-1", "norway-1", "poland-40", "russia-white-list-2"], "host_organization":
+        "https://openalex.org/P4310311669", "host_organization_name": "Institute of
+        Physics", "host_organization_lineage": ["https://openalex.org/P4310311669"],
+        "host_organization_lineage_names": ["Institute of Physics"], "type": "journal"},
+        "license": null, "license_id": null, "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "Chinese Physics Letters",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2057507667",
+        "doi": "https://doi.org/10.1021/jp063968b", "title": "Quantum Yield Investigation
+        of Ag\u2212BaO Thin Film", "publication_year": 2007, "abstract_inverted_index":
+        {"Ag\u2212BaO": [0], "thin": [1, 12], "films": [2], "have": [3, 38], "been":
+        [4, 32], "fabricated": [5], "by": [6], "evaporating": [7], "silver": [8, 59],
+        "into": [9], "BaO": [10], "semiconductor": [11], "film": [13], "in": [14,
+        22, 66], "ultrahigh": [15], "vacuum": [16], "and": [17, 28, 54, 84], "the":
+        [18, 23, 42, 45, 68, 77, 81, 85], "quantum": [19, 35, 71], "yield": [20, 36,
+        72], "distribution": [21], "visible": [24], "region": [25], "between": [26,
+        80], "1.5": [27], "3.7": [29], "eV": [30], "has": [31], "measured.": [33],
+        "The": [34, 51, 74], "spectra": [37], "a": [39], "peak": [40], "when": [41],
+        "energy": [43], "of": [44, 58, 70], "incident": [46], "light": [47], "is":
+        [48, 88], "2.5": [49], "eV.": [50], "direct": [52], "transitions": [53], "surface":
+        [55], "plasmon": [56], "resonance": [57], "nanoparticles": [60], "appear":
+        [61], "to": [62], "be": [63], "very": [64], "important": [65], "determining":
+        [67], "shape": [69], "spectra.": [73], "explanation": [75], "for": [76], "small":
+        [78], "discrepancy": [79], "experimental": [82], "result": [83], "theoretical":
+        [86], "data": [87], "given.": [89]}, "primary_location": {"id": "doi:10.1021/jp063968b",
+        "doi": "https://doi.org/10.1021/jp063968b", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1021/jp063968b", "pdf_url": null, "source": {"id": "https://openalex.org/S95739953",
+        "display_name": "The Journal of Physical Chemistry C", "issn_l": "1932-7447",
+        "issn": ["1932-7447", "1932-7455"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["cwts-core", "dongbi-c", "jufo-2", "ki-jl-1", "norway-1",
+        "poland-140", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320006",
+        "host_organization_name": "American Chemical Society", "host_organization_lineage":
+        ["https://openalex.org/P4310320006"], "host_organization_lineage_names": ["American
+        Chemical Society"], "type": "journal"}, "license": null, "license_id": null,
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "The Journal of Physical Chemistry C", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2017125978", "doi": "https://doi.org/10.1063/1.123092",
+        "title": "Observation of coherent phonons in silver nanoparticles embedded
+        in BaO thin films", "publication_year": 1999, "abstract_inverted_index": {"Three":
+        [0], "kinds": [1], "of": [2, 23, 31, 42, 46, 64], "coherent": [3, 34, 69],
+        "phonons": [4, 35], "(0.30,": [5], "1.90,": [6], "and": [7, 49, 66], "3.75":
+        [8, 67], "THz)": [9], "have": [10], "been": [11], "observed": [12], "in":
+        [13, 17, 56], "silver": [14, 47, 57], "nanoparticles": [15], "embedded": [16],
+        "BaO": [18], "thin": [19], "films": [20], "by": [21], "means": [22], "the":
+        [24, 39, 50, 62], "femtosecond": [25], "time-resolved": [26], "pump-probe":
+        [27], "technique.": [28], "The": [29], "generation": [30, 63], "0.3": [32],
+        "THz": [33, 68], "is": [36, 59], "attributed": [37], "to": [38], "resonant":
+        [40, 51], "excitation": [41], "localized": [43], "surface": [44], "plasmon":
+        [45], "nanopaticles,": [48], "impulsive": [52], "stimulated": [53], "Raman":
+        [54], "scattering": [55], "aggregates": [58], "responsible": [60], "for":
+        [61], "1.90": [65], "phonons.": [70]}, "primary_location": {"id": "doi:10.1063/1.123092",
+        "doi": "https://doi.org/10.1063/1.123092", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.123092", "pdf_url": null, "source": {"id": "https://openalex.org/S105243760",
+        "display_name": "Applied Physics Letters", "issn_l": "0003-6951", "issn":
+        ["0003-6951", "1077-3118", "1520-8842"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-a",
+        "jufo-3", "ki-jl-1", "norway-2", "poland-100", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Applied Physics
+        Letters", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2373837628",
+        "doi": null, "title": "The Action of Rare Earth Elements in Ag-BaO Thin Films",
+        "publication_year": 2003, "abstract_inverted_index": {"The": [0], "action":
+        [1, 47], "of": [2, 28, 48, 63, 92], "rare": [3, 49, 85], "earth": [4, 50,
+        86], "elements": [5, 87], "doped": [6], "in": [7], "Ag-BaO": [8, 93], "thin":
+        [9, 94], "films": [10], "is": [11], "discussed,based": [12], "on": [13], "the":
+        [14, 24, 42, 46, 77, 81, 90], "colloidal": [15], "particles": [16, 53, 65],
+        "theory": [17], "and": [18, 26, 33, 56, 76], "experimental": [19], "results.It":
+        [20], "shows": [21], "that,influenced": [22], "by": [23], "size": [25], "shape":
+        [27], "Ag": [29, 52, 64], "nanoparticles,increasing": [30], "optical": [31,
+        67], "absorption": [32, 68], "improving": [34], "transport": [35, 82], "condition":
+        [36, 83], "are": [37], "two": [38], "ways": [39], "to": [40], "enhance": [41,
+        89], "photoemissive": [43], "current": [44], "density.With": [45], "elements,the":
+        [51], "become": [54], "smaller": [55], "spheroid.As": [57], "a": [58, 73],
+        "result,the": [59], "total": [60], "surface": [61], "square": [62], "increases,the":
+        [66, 69], "equivalent": [70], "barrier": [71], "between": [72], "metallic":
+        [74], "particle": [75], "host": [78], "semiconductor": [79], "decreases,and":
+        [80], "improves.So,the": [84], "can": [88], "photoemission": [91], "films.":
+        [95]}, "primary_location": {"id": "mag:2373837628", "doi": null, "is_oa":
+        false, "landing_page_url": "https://en.cnki.com.cn/Article_en/CJFDTOTAL-BJDZ200303016.htm",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4306500496", "display_name":
+        "Acta Scicentiarum Naturalum Universitis Pekinesis", "issn_l": "0479-8023",
+        "issn": ["0479-8023"], "is_oa": false, "is_in_doaj": false, "is_core": false,
+        "listed_in": ["poland-20", "russia-white-list-3"], "host_organization": null,
+        "host_organization_name": null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "journal"}, "license": null, "license_id": null, "version": null,
+        "is_accepted": false, "is_published": false, "raw_source_name": "Acta Scicentiarum
+        Naturalum Universitis Pekinesis", "raw_type": null}}, {"id": "https://openalex.org/W782652393",
+        "doi": null, "title": "Influence of Lanthanum on Fluorescence Properties of
+        Ag-BaO Thin Films", "publication_year": 2003, "abstract_inverted_index": {"Ag-BaO":
+        [0, 15], "thin": [1, 16], "films": [2], "doped": [3], "with": [4, 12, 23,
+        71, 129], "lanthanum": [5], "were": [6], "prepared": [7], "by": [8], "vacuum":
+        [9], "deposition.": [10], "Compared": [11], "the": [13, 24, 27, 31, 39, 47,
+        72, 81, 88, 96, 100, 105, 110, 119, 130, 141], "normal": [14], "film,": [17],
+        "there": [18], "is": [19, 53, 95, 118], "almost": [20], "no": [21], "change":
+        [22], "shape": [25], "and": [26, 46, 79, 104, 116], "peak": [28], "site":
+        [29], "of": [30, 38, 49, 58, 74, 113, 124, 132, 134], "fluorescence": [32,
+        35, 114], "spectrum;": [33], "however,": [34], "emission": [36], "strength":
+        [37], "whole": [40], "observation": [41], "band(325\uff5e600": [42], "nm)increases":
+        [43], "about": [44], "40%,": [45], "increase": [48, 111, 131], "short": [50],
+        "wavelength": [51, 60], "range": [52], "more": [54], "remarkable": [55], "than":
+        [56], "that": [57, 108, 137], "long": [59], "range,": [61], "which": [62,
+        127], "we": [63], "named": [64], "blue-stronger": [65, 142], "phenomenon.":
+        [66, 143], "Analytic": [67], "results": [68], "show": [69], "that,": [70],
+        "forming": [73], "intermetallic": [75], "compounds": [76], "between": [77,
+        99], "silver": [78], "lanthanum,": [80], "4f-state": [82], "energy": [83,
+        97, 102, 133], "levels": [84, 103], "lie": [85], "just": [86], "below": [87],
+        "Fermi": [89], "level": [90], "within": [91], "5": [92], "eV.": [93], "It":
+        [94], "exchange": [98], "4f": [101, 125], "conduction": [106], "band": [107],
+        "causes": [109], "effect": [112], "emission,": [115], "it": [117], "optical":
+        [120], "absorption": [121], "cross": [122], "section": [123], "electron,":
+        [126], "increases": [128], "incidence": [135], "photon,": [136], "gives":
+        [138], "rise": [139], "to": [140]}, "primary_location": {"id": "mag:782652393",
+        "doi": null, "is_oa": false, "landing_page_url": "http://www.cqvip.com/qk/84120X/200305/8603777.html",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S139187495", "display_name":
+        "Journal of Rare Earths", "issn_l": "1002-0721", "issn": ["1002-0721", "2509-4963"],
+        "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core",
+        "dongbi-c", "jufo-1", "norway-1", "poland-70", "russia-white-list-1"], "host_organization":
+        "https://openalex.org/P4310320990", "host_organization_name": "Elsevier BV",
+        "host_organization_lineage": ["https://openalex.org/P4310320990"], "host_organization_lineage_names":
+        ["Elsevier BV"], "type": "journal"}, "license": null, "license_id": null,
+        "version": null, "is_accepted": false, "is_published": false, "raw_source_name":
+        "\u4e2d\u56fd\u7a00\u571f\u5b66\u62a5\uff1a\u82f1\u6587\u7248", "raw_type":
+        null}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a548027c8db6eae4-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '12081'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:39:39 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=V5TVTQDH%2Bwr0Hr8nje4LY6%2BzqBiVp%2B7WkOKHGlIh2ZI%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793673579"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=V5TVTQDH%2Bwr0Hr8nje4LY6%2BzqBiVp%2B7WkOKHGlIh2ZI%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793673579"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9810'
+      x-ratelimit-remaining-usd:
+      - '0.981'
+      x-ratelimit-reset:
+      - '76821'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=BaO+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 563, "db_response_time_ms": 35, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (BaO thin film)
+        in the title or abstract", "x_new_oql": "get works with (BaO thin film) in
+        the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "BaO thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:BaO thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W2051044965"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a548027d7a25eae4-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '607'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:39:39 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=V5TVTQDH%2Bwr0Hr8nje4LY6%2BzqBiVp%2B7WkOKHGlIh2ZI%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793673579"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=V5TVTQDH%2Bwr0Hr8nje4LY6%2BzqBiVp%2B7WkOKHGlIh2ZI%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793673579"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9800'
+      x-ratelimit-remaining-usd:
+      - '0.98'
+      x-ratelimit-reset:
+      - '76821'
+    status:
+      code: 200
+      message: OK
+version: 1

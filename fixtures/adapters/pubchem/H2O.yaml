@@ -1,0 +1,561 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/water/cids/JSON
+  response:
+    body:
+      string: "{\n  \"IdentifierList\": {\n    \"CID\": [\n      962\n    ]\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '59'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:37:23 GMT
+      expires:
+      - Tue, 03 Nov 2026 03:37:23 GMT
+      ncbi-phid:
+      - 90C6D521AE948E310000000000000001.m_1
+      ncbi-sid:
+      - 90C64B6DAE6515F1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID; domain=.nih.gov; path=/; expires=Wed, 03
+        Nov 2027 02:37:23 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (5%), Request Time status: Green (2%), Service
+        status: Green (23%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/fastformula/H2O/cids/JSON
+  response:
+    body:
+      string: "{\n  \"IdentifierList\": {\n    \"CID\": [\n      962,\n      24602,\n
+        \     104752,\n      22247451,\n      10129877,\n      105142,\n      139859,\n
+        \     6914120,\n      10214376,\n      171528,\n      10197601,\n      16048639,\n
+        \     5460604,\n      139505,\n      12161503,\n      12598072,\n      12676391,\n
+        \     72700706,\n      160528969,\n      173111758,\n      173159257,\n      76071083,\n
+        \     174863167\n    ]\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '400'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:37:23 GMT
+      expires:
+      - Tue, 03 Nov 2026 03:37:24 GMT
+      ncbi-phid:
+      - 95B71EA9AE948E310000000000000001.m_3
+      ncbi-sid:
+      - 90C64B6DAE6515F1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID; domain=.nih.gov; path=/; expires=Wed, 03
+        Nov 2027 02:37:23 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (2%), Request Time status: Green (1%), Service
+        status: Green (33%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug_view/data/compound/962/JSON?heading=GHS+Classification
+  response:
+    body:
+      string: "{\n  \"Record\": {\n    \"RecordType\": \"CID\",\n    \"RecordNumber\":
+        962,\n    \"RecordTitle\": \"Water\",\n    \"Section\": [\n      {\n        \"TOCHeading\":
+        \"Safety and Hazards\",\n        \"Description\": \"Information on safety
+        and hazards for this compound, including safety/hazards properties, reactivity,
+        incompatibilities, management techniques, first aid treatments, and more.
+        \ For toxicity and related information, please see the Toxicity section.\",\n
+        \       \"Section\": [\n          {\n            \"TOCHeading\": \"Hazards
+        Identification\",\n            \"Description\": \"This section identifies
+        the hazards of the chemical presented on the safety data sheet (SDS) and the
+        appropriate warning information associated with those hazards.  The information
+        in this section includes, but are not limited to, the hazard classification
+        of the chemical, signal word, pictograms, hazard statements and precautionary
+        statements.\",\n            \"URL\": \"https://www.osha.gov/sites/default/files/publications/OSHA3514.pdf\",\n
+        \           \"Section\": [\n              {\n                \"TOCHeading\":
+        \"GHS Classification\",\n                \"Description\": \"GHS (Globally
+        Harmonized System of Classification and Labelling of Chemicals) is a United
+        Nations system to identify hazardous chemicals and to inform users about these
+        hazards. GHS has been adopted by many countries around the world and is now
+        also used as the basis for international and national transport regulations
+        for dangerous goods. The GHS hazard statements, class categories, pictograms,
+        signal words, and the precautionary statements can be found on the PubChem
+        GHS page.\",\n                \"URL\": \"https://pubchem.ncbi.nlm.nih.gov/ghs/\",\n
+        \               \"DisplayControls\": {\n                  \"CreateTable\":
+        {\n                    \"FromInformationIn\": \"ThisSection\",\n                    \"NumberOfColumns\":
+        2,\n                    \"ColumnContents\": [\n                      \"Name\",\n
+        \                     \"Value\"\n                    ]\n                  },\n
+        \                 \"ShowAtMost\": 1\n                },\n                \"Information\":
+        [\n                  {\n                    \"ReferenceNumber\": 86,\n                    \"Name\":
+        \"Note\",\n                    \"Value\": {\n                      \"StringWithMarkup\":
+        [\n                        {\n                          \"String\": \"This
+        chemical does not meet GHS hazard criteria for 99.5% (1866 of 1876) of all
+        reports.\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 0,\n                              \"Length\":
+        88,\n                              \"Type\": \"Italics\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        86,\n                    \"Name\": \"GHS Hazard Statements\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"Not Classified\"\n                        },\n
+        \                       {\n                          \"String\": \"Reported
+        as not meeting GHS hazard criteria by 1866 of 1876 companies (only 0.5% companies
+        provided GHS information). For more detailed information, please visit  ECHA
+        C&L website.\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 163,\n                              \"Length\":
+        20,\n                              \"URL\": \"https://chem.echa.europa.eu/substance-search?searchText=231-791-2\"\n
+        \                           }\n                          ]\n                        }\n
+        \                     ]\n                    }\n                  },\n                  {\n
+        \                   \"ReferenceNumber\": 86,\n                    \"Name\":
+        \"ECHA C&L Notifications Summary\",\n                    \"Value\": {\n                      \"StringWithMarkup\":
+        [\n                        {\n                          \"String\": \"Aggregated
+        GHS information provided per 1876 reports by companies from 9 notifications
+        to the ECHA C&L Inventory.\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 0,\n                              \"Length\":
+        117,\n                              \"Type\": \"Italics\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"Reported as not meeting GHS hazard
+        criteria per 1866 of 1876 reports by companies.\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 82,\n                              \"Type\":
+        \"Italics\"\n                            }\n                          ]\n
+        \                       },\n                        {\n                          \"String\":
+        \"There are 7 notifications provided by 10 of 1876 reports by companies with
+        hazard statement code(s).\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 0,\n                              \"Length\":
+        100,\n                              \"Type\": \"Italics\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"Information may vary between notifications
+        depending on impurities, additives, and other factors. The percentage value
+        in parenthesis indicates the notified classification ratio from companies
+        that provide hazard codes. Only hazard codes with percentage values above
+        10% are shown. For more detailed information, please visit  ECHA C&L website.\",\n
+        \                         \"Markup\": [\n                            {\n                              \"Start\":
+        327,\n                              \"Length\": 20,\n                              \"URL\":
+        \"https://chem.echa.europa.eu/substance-search?searchText=231-791-2\"\n                            },\n
+        \                           {\n                              \"Start\": 0,\n
+        \                             \"Length\": 348,\n                              \"Type\":
+        \"Italics\"\n                            }\n                          ]\n
+        \                       }\n                      ]\n                    }\n
+        \                 },\n                  {\n                    \"ReferenceNumber\":
+        89,\n                    \"Name\": \"GHS Hazard Statements\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"Not Classified\"\n                        },\n
+        \                       {\n                          \"String\": \"Reported
+        as not meeting GHS hazard criteria by 1 of 1 companies. For more detailed
+        information, please visit  ECHA C&L website.\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        110,\n                              \"Length\": 20,\n                              \"URL\":
+        \"https://chem.echa.europa.eu/substance-search?searchText=686-299-4\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  }\n                ]\n              }\n
+        \           ]\n          }\n        ]\n      }\n    ],\n    \"Reference\":
+        [\n      {\n        \"ReferenceNumber\": 86,\n        \"SourceName\": \"European
+        Chemicals Agency (ECHA)\",\n        \"SourceID\": \"69840\",\n        \"Name\":
+        \"Water (EC: 231-791-2)\",\n        \"Description\": \"The information provided
+        here is aggregated from the \\\"Notified classification and labelling\\\"
+        from ECHA's C&L Inventory. Read more: https://echa.europa.eu/information-on-chemicals/cl-inventory-database\",\n
+        \       \"URL\": \"https://chem.echa.europa.eu/substance-search?searchText=231-791-2\",\n
+        \       \"LicenseNote\": \"Use of the information, documents and data from
+        the ECHA website is subject to the terms and conditions of this Legal Notice,
+        and subject to other binding limitations provided for under applicable law,
+        the information, documents and data made available on the ECHA website may
+        be reproduced, distributed and/or used, totally or in part, for non-commercial
+        purposes provided that ECHA is acknowledged as the source: \\\"Source: European
+        Chemicals Agency, http://echa.europa.eu/\\\". Such acknowledgement must be
+        included in each copy of the material. ECHA permits and encourages organisations
+        and individuals to create links to the ECHA website under the following cumulative
+        conditions: Links can only be made to webpages that provide a link to the
+        Legal Notice page.\",\n        \"LicenseURL\": \"https://echa.europa.eu/web/guest/legal-notice\",\n
+        \       \"ANID\": 1871726,\n        \"SortOrder\": 4876\n      },\n      {\n
+        \       \"ReferenceNumber\": 89,\n        \"SourceName\": \"European Chemicals
+        Agency (ECHA)\",\n        \"SourceID\": \"210211\",\n        \"Name\": \"water
+        (EC: 686-299-4)\",\n        \"Description\": \"The information provided here
+        is aggregated from the \\\"Notified classification and labelling\\\" from
+        ECHA's C&L Inventory. Read more: https://echa.europa.eu/information-on-chemicals/cl-inventory-database\",\n
+        \       \"URL\": \"https://chem.echa.europa.eu/substance-search?searchText=686-299-4\",\n
+        \       \"LicenseNote\": \"Use of the information, documents and data from
+        the ECHA website is subject to the terms and conditions of this Legal Notice,
+        and subject to other binding limitations provided for under applicable law,
+        the information, documents and data made available on the ECHA website may
+        be reproduced, distributed and/or used, totally or in part, for non-commercial
+        purposes provided that ECHA is acknowledged as the source: \\\"Source: European
+        Chemicals Agency, http://echa.europa.eu/\\\". Such acknowledgement must be
+        included in each copy of the material. ECHA permits and encourages organisations
+        and individuals to create links to the ECHA website under the following cumulative
+        conditions: Links can only be made to webpages that provide a link to the
+        Legal Notice page.\",\n        \"LicenseURL\": \"https://echa.europa.eu/web/guest/legal-notice\",\n
+        \       \"ANID\": 37172569,\n        \"SortOrder\": 3001\n      }\n    ]\n
+        \ }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '10092'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 03 Nov 2026 02:37:24 GMT
+      expires:
+      - Tue, 03 Nov 2026 10:37:24 GMT
+      ncbi-phid:
+      - 90C6D6EAAE948E410000000000000001.m_1
+      ncbi-sid:
+      - 90C64B6DAE6515F1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID; domain=.nih.gov; path=/; expires=Wed, 03
+        Nov 2027 02:37:24 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (1%), Request Time status: Green (0%), Service
+        status: Green (2%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/962/synonyms/JSON
+  response:
+    body:
+      string: "{\n  \"InformationList\": {\n    \"Information\": [\n      {\n        \"CID\":
+        962,\n        \"Synonym\": [\n          \"water\",\n          \"7732-18-5\",\n
+        \         \"Distilled water\",\n          \"Dihydrogen oxide\",\n          \"Purified
+        water\",\n          \"Sterile water\",\n          \"Water vapor\",\n          \"Water,
+        deionized\",\n          \"oxidane\",\n          \"aqua\",\n          \"Water,
+        mineral\",\n          \"Water, purified\",\n          \"Dihydrogen Monoxide\",\n
+        \         \"steam\",\n          \"Deionized water\",\n          \"DHMO\",\n
+        \         \"Water, sterile\",\n          \"Water, distilled\",\n          \"Water
+        for injection\",\n          \"Sterile purified water\",\n          \"Water
+        for hemodialysis\",\n          \"Water purified\",\n          \"Sterile water
+        for irrigation\",\n          \"Pur-wash\",\n          \"Water, purified sterile\",\n
+        \         \"Water, sterile purified\",\n          \"Ultrex ii ultrapure\",\n
+        \         \"Sterile water for injection\",\n          \"Sterile water for
+        inhalation\",\n          \"Water for inhalation, sterile\",\n          \"Sterile
+        water in plastic container\",\n          \"Water for injection, sterile\",\n
+        \         \"Water for irrigation, sterile\",\n          \"NSC-147337\",\n
+        \         \"059QF0KO0R\",\n          \"Bacteriostatic water for injection\",\n
+        \         \"Water for injection, bacteriostatic\",\n          \"Sterile water
+        for injection in plastic container\",\n          \"Bacteriostatic water for
+        injection in plastic container\",\n          \"DTXSID6026296\",\n          \"R-718\",\n
+        \         \"CHEBI:15377\",\n          \"Drinking Water\",\n          \"Water,
+        distilled, conductivity or of similar purity\",\n          \"B1217\",\n          \"Mineral
+        Water\",\n          \"Water, Drinking\",\n          \"Water, Bottled\",\n
+        \         \"Water, Potable\",\n          \"Eyewash\",\n          \"Ocufresh\",\n
+        \         \"Salinaax\",\n          \"Bouton\",\n          \"Steams\",\n          \"water
+        injection\",\n          \"Water solution\",\n          \"Dynamic Eyewash\",\n
+        \         \"Eye Irrigating\",\n          \"Redu mineral\",\n          \"Sterile
+        Diluent\",\n          \"Water Additive\",\n          \"Dorama-neo\",\n          \"Eyewash
+        additive\",\n          \"Neutral-Eyes\",\n          \"Real Eyewash\",\n          \"Water
+        Vapors\",\n          \"Xpect Eyewash\",\n          \"Bio rock water\",\n          \"Eye
+        Stream\",\n          \"Eyewash Solution\",\n          \"Rock Water\",\n          \"AeroWash
+        Eyewash\",\n          \"Eye Clean\",\n          \"Bouton Eye Wash\",\n          \"Eye
+        Wash\",\n          \"Leader Eye Wash\",\n          \"Vapors, Water\",\n          \"Rugby
+        Eye Wash\",\n          \"Vapor, Water\",\n          \"Boraqua Eye Wash\",\n
+        \         \"Pivetal Eye Wash\",\n          \"Buffered Eye-lert\",\n          \"Eys
+        Eye Wash\",\n          \"Firstep Firstflush\",\n          \"ULINE Eyewash\",\n
+        \         \"Fendall Pure Flow\",\n          \"gel relajante CBD\",\n          \"Salinaax
+        Eye Wash\",\n          \"Scienceware Eyewash\",\n          \"ECOLAB Eye Wash\",\n
+        \         \"A-Med\",\n          \"Bacteriostatic Water\",\n          \"Rite
+        Aid Eye Wash\",\n          \"Eyesaline Concentrate\",\n          \"DANGTTEOL\",\n
+        \         \"Ionized Alkali Water\",\n          \"Plus Rinse Emergency\",\n
+        \         \"Eyes Alive Eye Wash\",\n          \"Haws Eyewash Additive\",\n
+        \         \"RefChem:116\",\n          \"Family Care Eye Wash\",\n          \"NOURISHING
+        HAIR\",\n          \"Plum Emergency Eyewash\",\n          \"Sterile Saline
+        Eyewash\",\n          \"Crane Safety Eye Wash\",\n          \"Industrial Neutral-eyes\",\n
+        \         \"Thompson Safety Eyewash\",\n          \"BLACK HAIR SERUM\",\n
+        \         \"MUGWORT SUNSCREEN\",\n          \"Quality Choice Eye Wash\",\n
+        \         \"Veterinary Sterile Water\",\n          \"SKINCARE SUNSCREEN\",\n
+        \         \"Eyewash Flushing Solution\",\n          \"Sperian Eyesaline Eyewash\",\n
+        \         \"Sterile Eyesaline Eyewash\",\n          \"Purified Water 98.3%\",\n
+        \         \"RapidCare Sterile Eyewash\",\n          \"Opthalmic Solution Eyewash\",\n
+        \         \"Prinzing Eye Wash Station\",\n          \"Eyesaline Emergency
+        Eyewash\",\n          \"Honeywell Sterile Eyesaline\",\n          \"Kollourion
+        Eyesalve Eyewash\",\n          \"Opticlear Sterile Eye Wash\",\n          \"Plum
+        Duo Emergency Eyewash\",\n          \"Fendall 2000 Pure Flow\",\n          \"WATER-FIT
+        SUN SERUM\",\n          \"Dynamic Eyewash with Eyecup\",\n          \"Thesafetydirector
+        Aquapreserv\",\n          \"Easy Care First Aid Eyewash\",\n          \"Eyesaline
+        Eyewash Concentrate\",\n          \"pH Neutral Emergency Eyewash\",\n          \"Plus
+        Rinse Emergency Eyewash\",\n          \"Advanced Eye Relief Eye Wash\",\n
+        \         \"Bach Original Flower Remedies\",\n          \"Fad First Aid Direct
+        Eyewash\",\n          \"Sterile Diluent for Remodulin\",\n          \"DTXCID106296\",\n
+        \         \"Medi-first First Aid Eye Wash\",\n          \"Aerowash Eyewash
+        and Skin-rinse\",\n          \"Green Guard First Aid Eye Wash\",\n          \"Medics
+        Choice Soothing Eye Wash\",\n          \"Sterile Diluent for Treprostinil\",\n
+        \         \"Sterile Isotonic Saline Solution\",\n          \"Xpect First Aid
+        Buffered Eyewash\",\n          \"Emergency Eye Wash, PW, Sterile\",\n          \"Salinaax
+        Eye Wash and Skin Flush\",\n          \"Sperian Water Additive Concentrate\",\n
+        \         \"Sperian Eyesaline Emergency Eyewash\",\n          \"Insulin Diluting
+        Medium for NovoLog\",\n          \"Walgreens Sterile Soothing Eye Wash\",\n
+        \         \"Medi-first Plus First Aid Eye Wash\",\n          \"Well and Good
+        Eye Rinse and Cleaner\",\n          \"Plum Emergency Eyewash Ph Neutralizing\",\n
+        \         \"Eyesaline Emergency Eyewash Concentrate\",\n          \"Veterinary
+        Sterile Water for Irrigation\",\n          \"Xpect First Aid Buffered Eye
+        and Skin\",\n          \"Bach Original Flower Remedies Rock Water\",\n          \"Physicianscare
+        Ophthalmic Solution Eyewash\",\n          \"Sterile Isotonic Buffered Genuine
+        Eyewash\",\n          \"A-med Brand First Aid Eye and Skin-rinse\",\n          \"Emergency
+        First Aid Eyewash Purified Water\",\n          \"Plum Duo Emergency Eyewash
+        Ph Neutralizing\",\n          \"Emergency Eye Wash, Pw, Sterile Ster-aide\",\n
+        \         \"Fad First Aid Direct Buffered Eye and Skin\",\n          \"Honeywell
+        Sterile Eyesaline Emergency Eyewash\",\n          \"Plum Emergency Eyewash/Eyewash
+        DUO/Eyewash Shower ISS USA\",\n          \"Physicianscare Ophthalmic Solution
+        Eyewash Purified Water, 98.3%\",\n          \"Plum pH Neutral Emergency Eyewash/Emergency
+        Eyewash DUO/Emergency Eyewash Shower ISS USA\",\n          \"231-791-2\",\n
+        \         \"686-299-4\",\n          \"hydron;hydroxide\",\n          \"Opticlear\",\n
+        \         \"Oxygen atom\",\n          \"Bac Water\",\n          \"CCRIS 6115\",\n
+        \         \"Aqua Purificata\",\n          \"H2O\",\n          \"Water, HPLC
+        grade\",\n          \"Deuterium Cdepleted water\",\n          \"MFCD00011332\",\n
+        \         \"Water, for HPLC\",\n          \"Water; Dihydrogen oxide\",\n          \"NSC
+        147337; R 718\",\n          \"DEUTERIUM OXIDE- D\",\n          \"HOH\",\n
+        \         \"agua\",\n          \"1,3-epoxy-\",\n          \"Crackle Test Reference
+        Standard: 0 wt% H2O in 10W30 Motor Oil\",\n          \"Water, sterile-filtered,
+        BioReagent, suitable for cell culture\",\n          \"Crackle Test Reference
+        Standard: 0.1 wt% H2O in 10W30 Motor Oil\",\n          \"Crackle Test Reference
+        Standard: 0.5 wt% H2O in 10W30 Motor Oil\",\n          \"Crackle Test Reference
+        Standard: 1.0 wt% H2O in 10W30 Motor Oil\",\n          \"Poly[6-[4-(4-cyanophenyl)phenoxy]hexyl\",\n
+        \         \"Water, HPLC\",\n          \"Water, DEPC-Treated\",\n          \"EINECS
+        231-791-2\",\n          \"NSC 147337\",\n          \"acqua\",\n          \"dihydridooxygen\",\n
+        \         \"UNII-059QF0KO0R\",\n          \"Wiesbaden\",\n          \"Wasser\",\n
+        \         \"Water,deionized\",\n          \"Water,distilled\",\n          \"Water,sanitized\",\n
+        \         \"Adelheid aqua\",\n          \"Aqua adelheid\",\n          \"Aqua
+        wiesbaden\",\n          \"Water,purified\",\n          \"Water,sterile\",\n
+        \         \"Wiesbaden aqua\",\n          \"Aqua wildbad\",\n          \"Deionised
+        Water\",\n          \"Tantalum ore\",\n          \"Wildbad aqua\",\n          \"water-\",\n
+        \         \"DI water\",\n          \"HSDB 8183\",\n          \"hydrogen hydroxide\",\n
+        \         \"Type I water\",\n          \"QVGXLLKOCUKJST-UHFFFAOYSA-N\",\n
+        \         \"Aqua pro injectione\",\n          \"eau\",\n          \"Pure Water
+        Density Standard, UKAS ISO/IEC17025 and ISO Guide 34 certified, density: 0.9982
+        g/mL at 20 C, density: 0.9970 g/mL at 25 C\",\n          \"Water for LC-MS\",\n
+        \         \"Water,bacteriostatic\",\n          \"Water for injections\",\n
+        \         \"Water, ACS reagent\",\n          \"Water, HPLC Plus\",\n          \"Water,
+        LCMS grade\",\n          \"AQUAFINA\",\n          \"Water, PCR Reagent\",\n
+        \         \"Water Injection grade\",\n          \"Water, LC/MS\",\n          \"Water,
+        Endotoxin-free\",\n          \"Water saturated octanol\",\n          \"Water
+        SH HPLC grade\",\n          \"Water, for HPLC-MS\",\n          \"WATER/EAU/AQUA\",\n
+        \         \"Water, double distilled\",\n          \"an unknown oxygen source\",\n
+        \         \"WATER [VANDF]\",\n          \"Water, purified (USP)\",\n          \"H-OH\",\n
+        \         \"Purified water (JP18)\",\n          \"Water (JP18/USP)\",\n          \"Water,
+        for TOC analysis\",\n          \"Deuterium oxide 99.9%\",\n          \"WATER
+        [JAN]\",\n          \"WATER [WHO-DD]\",\n          \"SCHEMBL624\",\n          \"SCHEMBL822\",\n
+        \         \"WATER [MI]\",\n          \"Barium perchlorate solution\",\n          \"De-Ionised
+        Distilled Water\",\n          \"Water pound WFI pound(c)\",\n          \"Distilled
+        water, for HPLC\",\n          \"InChI=1/H2O/h1H2\",\n          \"Water, deionized
+        (<2uS)\",\n          \"Water, RNase, DNase-free\",\n          \"SCHEMBL2523\",\n
+        \         \"Sterile water for injections\",\n          \"Water for irrigation,sterile\",\n
+        \         \"Water, HPLC gradient grade\",\n          \"DEUTERIUM OXIDE-  D\",\n
+        \         \"Water, deionized (<10uS)\",\n          \"Water, demineralized,
+        p.A.\",\n          \"very long chain fatty alcohol\",\n          \"very long-chain
+        fatty alcohol\",\n          \"Water,bacteriostatic injection\",\n          \"Water
+        for injection (JP18)\",\n          \"Water, for ion chromatography\",\n          \"Water,Reagent(Deionizedwater)\",\n
+        \         \"B1217 [LANGUAL]\",\n          \"HYDROGEN OXIDE (H2O)\",\n          \"very
+        long chain fatty alcohols\",\n          \"very long-chain fatty alcohols\",\n
+        \         \"WATER, For PCR Applications\",\n          \"Aqua sterilisata pro
+        injectione\",\n          \"Water, ultrapure, HPLC Grade\",\n          \"orb3214760\",\n
+        \         \"Water, BioPerformance Certified\",\n          \"PURIFIED WATER
+        [MART.]\",\n          \"CHEMBL1098659\",\n          \"Water, Molecular Biology
+        Reagent\",\n          \"XLYOFNOQVPJJNP-UHFFFAOYSA-\",\n          \"CHEBI:197504\",\n
+        \         \"TUJKJAMUKRIRHC-UHFFFAOYSA-N\",\n          \"Water (Molecular biology
+        reagent)\",\n          \"Water, Reagent (Deionized water)\",\n          \"[OH2]\",\n
+        \         \"Water, tested according to Ph.Eur.\",\n          \"NSC147337\",\n
+        \         \"Purified water in containers (JP18)\",\n          \"AKOS015950726\",\n
+        \         \"E-Toxate(TM) Water, endotoxin, free\",\n          \"Water with
+        0.1% trifluoroacetic acid\",\n          \"DB09145\",\n          \"Water USP
+        Purified Water; RO/Deionized\",\n          \"Water, for UHPLC, for mass spectrometry\",\n
+        \         \"AS-89676\",\n          \"Distilled water, Laboratory reagent grade\",\n
+        \         \"Q283\",\n          \"Synthetic Fresh Water Stds 80-100 ppm\",\n
+        \         \"Water for injection in containers (JP18)\",\n          \"BD FACSFlow
+        Sheath Fluid - BD 342003\",\n          \"De-Ionised Distilled Water - Medical
+        grade\",\n          \"NS00076359\",\n          \"Sterile purified water in
+        containers (JP18)\",\n          \"Water, ACS reagent, for ultratrace analysis\",\n
+        \         \"Water, packaged for use in deposition systems\",\n          \"C00001\",\n
+        \         \"D00001\",\n          \"F600024\",\n          \"F863015\",\n          \"Q274959\",\n
+        \         \"Q427071\",\n          \"Gibco DMEM, high glucose, pyruvate - Gibco
+        41966029\",\n          \"Water, for HPCE, for luminescence, for UV-spectroscopy\",\n
+        \         \"Density Standard 998 kg/m3, H&D Fitzgerald Ltd. Quality\",\n          \"Invitrogen
+        Ambion DNase I (RNase-free) CAT: 10239144\",\n          \"Water (sterile filtered,
+        BioReagent, suitable for cell culture)\",\n          \"Water, for molecular
+        biology, DEPC-treated and sterile filtered\",\n          \"Acetylene intermix
+        (1 per cent) in nitrogen Impurity E [EP Impurity]\",\n          \"Carbon monoxide
+        intermix (5 per cent) in nitrogen Impurity A [EP Impurity]\",\n          \"Water,
+        99.999%, contained in 50 ml Swagelok? cylinder for CVD/ALD\",\n          \"Water,
+        deionized 18 megaohm ASTM Type I, suitable for trace metal analysis\",\n          \"Water,
+        for cell biology, free of endotoxins, ultrafiltered and autoclaved\",\n          \"Water,
+        for embryo transfer, sterile-filtered, BioXtra, suitable for mouse embryo\",\n
+        \         \"OH2\"\n        ]\n      }\n    ]\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '12382'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:37:25 GMT
+      expires:
+      - Tue, 03 Nov 2026 03:37:25 GMT
+      ncbi-phid:
+      - 90C6D74EAE948E510000000000000001.m_1
+      ncbi-sid:
+      - 90C64B6DAE6515F1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID; domain=.nih.gov; path=/; expires=Wed, 03
+        Nov 2027 02:37:25 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (5%), Request Time status: Green (2%), Service
+        status: Green (30%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

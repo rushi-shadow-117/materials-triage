@@ -1,0 +1,377 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=BaO2+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 8, "db_response_time_ms": 16, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (BaO2 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (BaO2 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "BaO2
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:BaO2
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W3172287151",
+        "doi": "https://doi.org/10.1016/j.apsusc.2021.150288", "title": "Oxidation
+        processes at the surface of BaTiO3 thin films under environmental conditions",
+        "publication_year": 2021, "abstract_inverted_index": {"Dissociation": [0],
+        "and": [1, 17, 52, 61, 76, 89, 148], "adsorption": [2], "of": [3, 15, 20,
+        47, 95, 101, 130, 158, 196], "water": [4], "on": [5, 126, 174], "ferroelectric":
+        [6, 21, 48, 169], "oxide": [7], "surfaces": [8], "play": [9], "important":
+        [10, 152], "role": [11], "in": [12, 26, 73, 78, 98, 112, 122, 167, 179, 185],
+        "the": [13, 54, 99, 123, 127, 156, 194], "processes": [14, 28], "screening":
+        [16, 159], "switching": [18, 178], "dynamics": [19], "polarization,": [22],
+        "as": [23, 25, 151], "well": [24], "catalytic": [27, 164], "which": [29],
+        "can": [30], "be": [31], "additionally": [32], "coupled": [33], "with": [34,
+        163], "light,": [35], "temperature": [36], "or": [37, 187, 204], "vibration":
+        [38], "stimuli.": [39], "In": [40], "this": [41, 104, 138, 168], "work,":
+        [42], "we": [43, 135, 172], "present": [44, 166], "XPS": [45, 128], "study":
+        [46, 157], "BaTiO3": [49], "thin": [50, 133, 180], "films": [51, 181], "determine":
+        [53], "entanglement": [55], "between": [56], "surface": [57, 113, 198], "chemistry,":
+        [58], "polarization": [59, 177], "direction": [60], "stability,": [62], "by":
+        [63, 183, 202], "observing": [64], "changes": [65], "upon": [66], "time":
+        [67], "exposure": [68, 188], "to": [69, 84, 110, 144, 189, 193], "environmental":
+        [70], "conditions,": [71], "heating": [72, 184], "O2": [74], "atmosphere":
+        [75], "irradiation": [77], "vacuum.": [79], "We": [80], "devote": [81], "special":
+        [82], "attention": [83], "Ba": [85, 111], "3d": [86], "spectral": [87], "region":
+        [88], "identify": [90, 149], "two": [91], "different": [92, 118], "oxidation":
+        [93], "states": [94], "O": [96], "atoms": [97], "compounds": [100, 114], "Ba.":
+        [102], "While": [103], "second": [105], "specie": [106, 154], "was": [107],
+        "generally": [108], "attributed": [109], "where": [115], "it": [116, 150],
+        "has": [117], "oxygen": [119, 131, 203], "coordination": [120], "than": [121],
+        "bulk,": [124], "based": [125], "results": [129], "annealed": [132], "films,":
+        [134], "demonstrate": [136], "that": [137], "so": [139], "far": [140], "neglected":
+        [141], "component,": [142], "corresponds": [143], "barium": [145], "peroxide":
+        [146], "(BaO2)": [147], "active": [153], "for": [155], "mechanisms": [160],
+        "closely": [161], "related": [162], "activity": [165], "material.": [170],
+        "Finally,": [171], "report": [173], "chemically": [175], "assisted": [176],
+        "induced": [182], "vacuum": [186], "X-Ray": [190], "radiation": [191], "due":
+        [192], "formation": [195], "positive": [197], "electric": [199], "field":
+        [200], "created": [201], "electron": [205], "vacancies,": [206], "respectively.":
+        [207]}, "primary_location": {"id": "doi:10.1016/j.apsusc.2021.150288", "doi":
+        "https://doi.org/10.1016/j.apsusc.2021.150288", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.1016/j.apsusc.2021.150288", "pdf_url": "https://www.sciencedirect.com/science/article/pii/S0169433221013635/pdf",
+        "source": {"id": "https://openalex.org/S42323631", "display_name": "Applied
+        Surface Science", "issn_l": "0169-4332", "issn": ["0169-4332", "1873-5584"],
+        "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in": ["anvur-scientific",
+        "cwts-core", "dongbi-a", "jufo-2", "ki-jl-1", "norway-1", "poland-140", "russia-white-list-1",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310320990", "host_organization_name":
+        "Elsevier BV", "host_organization_lineage": ["https://openalex.org/P4310320990"],
+        "host_organization_lineage_names": ["Elsevier BV"], "type": "journal"}, "license":
+        "cc-by-nc-nd", "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Applied Surface Science", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2014487925", "doi": "https://doi.org/10.1063/1.1610794",
+        "title": "Giant dielectric permittivity and electromechanical strain in thin
+        film materials produced by pulsed-laser deposition", "publication_year": 2003,
+        "abstract_inverted_index": {"Thin": [0], "film": [1], "materials": [2], "with":
+        [3, 87], "a": [4, 60, 67], "giant": [5], "dielectric": [6, 47], "permittivity":
+        [7], "\u03b5r\u2032\u224810": [8], "000": [9], "and": [10, 32, 66, 89], "an":
+        [11], "electromechanical": [12], "strain": [13], "of": [14, 49], "\u0394h/h\u22488%":
+        [15], "are": [16, 41], "produced": [17, 79], "by": [18], "pulsed-laser": [19],
+        "deposition.": [20], "Composite": [21, 73], "targets": [22, 74, 82], "containing":
+        [23], "various": [24], "different": [25], "oxides": [26], "such": [27, 93],
+        "as": [28, 75, 77], "BaTiO3,": [29], "BaO2,": [30], "BaCO3,": [31], "TiO2":
+        [33], "powder": [34], "embedded": [35], "in": [36], "the": [37, 50], "polymer":
+        [38], "polytetrafluoroethylen": [39], "(PTFE)": [40], "employed": [42], "for":
+        [43], "laser": [44], "ablation.": [45], "The": [46], "permittivities": [48,
+        86], "films": [51, 78], "show": [52, 83], "strong": [53], "relaxation": [54],
+        "at": [55, 70], "frequencies": [56], "above": [57], "10": [58], "kHz,": [59],
+        "pronounced": [61], "dependence": [62], "on": [63], "layer": [64], "thickness,":
+        [65], "frequency-dependent": [68], "activation": [69], "lower": [71], "temperatures.":
+        [72], "well": [76], "from": [80], "BaF2/PTFE": [81], "only": [84], "low":
+        [85], "\u03b5r\u2032<20": [88], "do": [90], "not": [91], "reveal": [92], "phenomena.":
+        [94]}, "primary_location": {"id": "doi:10.1063/1.1610794", "doi": "https://doi.org/10.1063/1.1610794",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.1610794", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S105243760", "display_name":
+        "Applied Physics Letters", "issn_l": "0003-6951", "issn": ["0003-6951", "1077-3118",
+        "1520-8842"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Applied Physics Letters", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W4290973039", "doi": "https://doi.org/10.3390/nano12162756",
+        "title": "Studies of the Structure and Optical Properties of BaSrMgWO6 Thin
+        Films Deposited by a Spin-Coating Method", "publication_year": 2022, "abstract_inverted_index":
+        {"Highly": [0], "transparent": [1], "thin": [2], "films": [3], "with": [4,
+        29, 52, 90, 108], "the": [5, 49, 56, 109, 117, 126, 144, 164], "chemical":
+        [6, 110], "formula": [7, 111], "BaSrMgWO6": [8], "were": [9, 123], "deposited":
+        [10], "by": [11, 143], "spin": [12], "coating": [13], "using": [14], "a":
+        [15, 30, 53, 60, 70, 75, 82, 138], "solution": [16], "of": [17, 19, 77, 119,
+        137, 147], "nitrates": [18], "Ba,": [20], "Sr": [21], "and": [22, 24, 36,
+        58, 73, 92, 101, 103, 130, 149, 161, 167], "Mg": [23], "ammonium": [25], "paratungstate":
+        [26], "in": [27, 156], "dimethylformamide": [28], "ratio": [31], "Ba:Sr:Mg;W=1:1:1:1.":
+        [32], "XRD,": [33], "SEM,": [34], "EDX": [35], "XPS": [37], "investigations":
+        [38], "evidenced": [39, 81], "that": [40, 59], "an": [41, 104], "annealing":
+        [42, 62], "at": [43, 63], "800": [44], "\u00baC": [45, 65], "for": [46, 66,
+        125], "1h": [47], "leaves": [48], "structure": [50, 72, 87], "amorphous":
+        [51, 127], "precipitate": [54], "on": [55], "surface": [57], "supplementary":
+        [61], "850": [64], "45": [67], "min": [68], "forms": [69], "nanocrystalline":
+        [71, 131], "dissolves": [74], "part": [76], "precipitates.": [78], "It": [79],
+        "was": [80, 141, 159], "textured": [83], "double": [84], "perovskite": [85],
+        "cubic": [86, 93], "(61.9%)": [88], "decorated": [89], "tetragonal": [91],
+        "impurity": [94], "phases": [95], "(12.7": [96], "%)": [97], "like": [98],
+        "BaO2,": [99], "SrO2": [100], "MgO": [102], "under-stoichiometric": [105],
+        "phase": [106], "(24.4%)": [107], "Ba2-(x+y)": [112], "SrxMgyWO5.": [113],
+        "From": [114], "transmittance": [115], "measurements": [116], "values": [118,
+        146, 158], "optical": [120], "band": [121], "gap": [122], "estimated": [124],
+        "(Eg=": [128], "5.15)": [129], "(Eg=4.58": [132], "eV)": [133], "phases.":
+        [134], "The": [135], "presence": [136], "lattice": [139], "disorder": [140],
+        "indicated": [142], "high": [145], "Urbach": [148], "weak": [150], "absorption":
+        [151], "tail": [152], "energies": [153], "A": [154], "decrease": [155], "their":
+        [157], "observed": [160], "attributed": [162], "to": [163], "crystallization":
+        [165], "process": [166], "cation": [168], "redistribution.": [169]}, "primary_location":
+        {"id": "doi:10.3390/nano12162756", "doi": "https://doi.org/10.3390/nano12162756",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.3390/nano12162756",
+        "pdf_url": "https://www.mdpi.com/2079-4991/12/16/2756/pdf?version=1660546688",
+        "source": {"id": "https://openalex.org/S2764646681", "display_name": "Nanomaterials",
+        "issn_l": "2079-4991", "issn": ["2079-4991"], "is_oa": true, "is_in_doaj":
+        true, "is_core": true, "listed_in": ["cwts-core", "doaj", "jufo-1", "ki-jl-1",
+        "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310310987", "host_organization_name": "Multidisciplinary
+        Digital Publishing Institute", "host_organization_lineage": ["https://openalex.org/P4310310987"],
+        "host_organization_lineage_names": ["Multidisciplinary Digital Publishing
+        Institute"], "type": "journal"}, "license": "cc-by", "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Nanomaterials", "raw_type": "journal-article"}}, {"id":
+        "https://openalex.org/W4407860493", "doi": "https://doi.org/10.1002/crat.202400212",
+        "title": "Barium Oxide Thin Films Designed as Electro\u2010Optical Gigahertz/Terahertz
+        Filters", "publication_year": 2025, "abstract_inverted_index": {"Abstract":
+        [0], "Herein": [1], "barium": [2], "oxide": [3], "thin": [4], "films": [5,
+        15, 33, 62, 105, 168], "are": [6, 22, 34], "studied": [7], "as": [8, 107,
+        169, 178], "a": [9, 17, 25, 73, 83, 113, 137, 150], "promising": [10], "electro\u2010optical":
+        [11], "system.": [12], "The": [13, 31], "deposited": [14], "exhibited": [16],
+        "polycrystalline": [18], "tetragonal": [19], "structure": [20], "and": [21,
+        29, 90, 173], "composed": [23], "of": [24, 27, 43, 50, 52, 80, 87, 94, 117,
+        140, 146, 166], "mixture": [26], "BaO": [28, 167], "BaO2.": [30], "p\u2010type":
+        [32], "highly": [35], "transparent": [36], "(80%)": [37], "with": [38, 68,
+        112, 127, 136], "an": [39, 133], "energy": [40], "band": [41, 48, 110], "gap":
+        [42], "3.55": [44], "eV": [45], "containing": [46], "exponential": [47], "tails":
+        [49], "widths": [51], "1.22": [53], "eV.": [54], "Analyses": [55], "using":
+        [56], "the": [57, 61, 78, 104, 121, 144, 157, 164], "Drude\u2010Lorentz":
+        [58], "model": [59], "demonstrated": [60], "suitability": [63], "for": [64,
+        180], "nonlinear": [65, 122, 170], "optical": [66, 69, 124, 171], "applications,":
+        [67], "conductivity": [70], "parameters": [71], "revealing": [72], "scattering":
+        [74], "time": [75], "constant": [76], "in": [77, 156], "range": [79, 116],
+        "0.4\u20131.8": [81], "fs,": [82], "free": [84], "hole": [85], "concentration":
+        [86], "1018\u22121019": [88], "cm\u22123": [89], "drift": [91], "mobility":
+        [92], "values": [93], "0.70\u20133.16": [95], "cm2": [96], "Vs\u22121.": [97],
+        "Terahertz": [98], "cutoff": [99, 114, 152], "frequency": [100, 115, 139,
+        153, 159], "spectra": [101], "calculations": [102], "indicated": [103], "capability":
+        [106], "efficient": [108], "terahertz": [109], "filters": [111, 172], "3.2\u2013193.0":
+        [118], "THz.": [119], "Additionally,": [120], "third\u2010order": [123], "susceptibility":
+        [125], "increased": [126], "decreasing": [128], "incident": [129], "photon":
+        [130], "energy.": [131], "Applying": [132], "AC": [134], "signal": [135],
+        "driving": [138], "0.01\u20131.40": [141], "GHz": [142], "across": [143],
+        "terminals": [145], "Yb/BaO/Ag": [147], "devices": [148], "revealed": [149],
+        "high": [151], "(\u22489": [154], "GHz)": [155], "microwave": [158, 174],
+        "domain.": [160], "These": [161], "properties": [162], "highlight": [163],
+        "potential": [165], "waveguides,": [175], "positioning": [176], "them": [177],
+        "candidates": [179], "gigahertz/terahertz": [181], "technology": [182], "applications.":
+        [183]}, "primary_location": {"id": "doi:10.1002/crat.202400212", "doi": "https://doi.org/10.1002/crat.202400212",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1002/crat.202400212",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S85849776", "display_name":
+        "Crystal Research and Technology", "issn_l": "0232-1300", "issn": ["0232-1300",
+        "1521-4079"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "dongbi-d", "jufo-1", "poland-40", "russia-white-list-2"], "host_organization":
+        "https://openalex.org/P4310320595", "host_organization_name": "Wiley", "host_organization_lineage":
+        ["https://openalex.org/P4310320595"], "host_organization_lineage_names": ["Wiley"],
+        "type": "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Crystal Research
+        and Technology", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2072539215",
+        "doi": "https://doi.org/10.1088/0022-3727/24/7/005", "title": "Electric field
+        enhancement of optical emission from plasma plume generated during ArF excimer
+        photoablation of BaO2, Y2O3, CuO and YBa2Cu3O7", "publication_year": 1991,
+        "abstract_inverted_index": {"A": [0], "193": [1], "nm": [2], "ArF": [3], "excimer":
+        [4], "laser": [5], "is": [6, 35, 73], "used": [7], "in": [8, 63, 92, 112,
+        116], "the": [9, 20, 30, 61, 77, 81, 87, 93, 104, 113], "photoablation": [10],
+        "of": [11, 22, 32, 54, 79, 86, 107, 115, 121], "bulk": [12], "YBa": [13, 122],
+        "2": [14, 123], "Cu": [15, 124], "3": [16, 125], "O": [17, 126], "7": [18,
+        127], "and": [19, 25, 46, 57, 65], "oxides": [21, 49], "barium,": [23], "copper":
+        [24], "yttrium.": [26], "Optical": [27], "emission": [28, 90], "from": [29,
+        37, 43], "plume": [31, 62], "ablated": [33], "material": [34], "studied":
+        [36], "350": [38], "to": [39, 75, 99], "630": [40], "nm.": [41], "Emission":
+        [42], "ions,": [44], "atoms": [45], "diatomic": [47], "molecular": [48], "are":
+        [50, 67], "observed.": [51], "The": [52, 69, 95], "effects": [53], "applied":
+        [55, 70, 109], "electric": [56, 71, 110], "magnetic": [58], "fields": [59],
+        "on": [60], "vacuum": [64], "oxygen": [66], "discussed.": [68], "field": [72,
+        111], "found": [74], "enhance": [76], "intensity": [78], "all": [80], "emitting":
+        [82], "species": [83], "enabling": [84], "identification": [85], "highly":
+        [88], "congested": [89], "lines": [91], "spectra.": [94], "results": [96],
+        "might": [97], "help": [98], "provide": [100], "a": [101], "mechanism": [102],
+        "for": [103], "observed": [105], "effect": [106], "an": [108], "production":
+        [114], "situ": [117], "superconducting": [118], "thin": [119], "films": [120],
+        ".": [128]}, "primary_location": {"id": "doi:10.1088/0022-3727/24/7/005",
+        "doi": "https://doi.org/10.1088/0022-3727/24/7/005", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.1088/0022-3727/24/7/005", "pdf_url": "https://iopscience.iop.org/article/10.1088/0022-3727/24/7/005/pdf",
+        "source": {"id": "https://openalex.org/S111927887", "display_name": "Journal
+        of Physics D Applied Physics", "issn_l": "0022-3727", "issn": ["0022-3727",
+        "1361-6463"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1", "ki-jl-1", "norway-1",
+        "poland-70", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310311669",
+        "host_organization_name": "Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310311669"], "host_organization_lineage_names": ["Institute
+        of Physics"], "type": "journal"}, "license": null, "license_id": null, "version":
+        "publishedVersion", "is_accepted": true, "is_published": true, "raw_source_name":
+        "Journal of Physics D: Applied Physics", "raw_type": "journal-article"}}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5480280ffb4eae4-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '17278'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:39:39 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=V5TVTQDH%2Bwr0Hr8nje4LY6%2BzqBiVp%2B7WkOKHGlIh2ZI%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793673579"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=V5TVTQDH%2Bwr0Hr8nje4LY6%2BzqBiVp%2B7WkOKHGlIh2ZI%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793673579"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9790'
+      x-ratelimit-remaining-usd:
+      - '0.979'
+      x-ratelimit-reset:
+      - '76821'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=BaO2+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 14, "db_response_time_ms": 19, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (BaO2 thin film)
+        in the title or abstract", "x_new_oql": "get works with (BaO2 thin film) in
+        the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "BaO2 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:BaO2 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W3172287151"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54802826d66eae4-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '610'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:39:40 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=V5TVTQDH%2Bwr0Hr8nje4LY6%2BzqBiVp%2B7WkOKHGlIh2ZI%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793673579"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=V5TVTQDH%2Bwr0Hr8nje4LY6%2BzqBiVp%2B7WkOKHGlIh2ZI%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793673579"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9780'
+      x-ratelimit-remaining-usd:
+      - '0.978'
+      x-ratelimit-reset:
+      - '76820'
+    status:
+      code: 200
+      message: OK
+version: 1

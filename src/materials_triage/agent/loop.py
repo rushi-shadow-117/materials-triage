@@ -36,14 +36,17 @@ class Budget:
     max_tool_calls: int
     max_tokens: int
     max_seconds: float
+    step: str = ""
     tool_calls: int = 0
     tokens: int = 0
     started: float = field(default_factory=time.monotonic)
     clock: Callable[[], float] = time.monotonic
 
     @classmethod
-    def from_core(cls, core: CoreConfig) -> Budget:
-        return cls(core.max_tool_calls, core.max_tokens, float(core.max_seconds))
+    def from_core(cls, core: CoreConfig, step: str) -> Budget:
+        """The step's own budget; an unknown step name is a programming error."""
+        limits = core.step_budgets[step]
+        return cls(limits.max_tool_calls, limits.max_tokens, float(limits.max_seconds), step=step)
 
     @property
     def seconds(self) -> float:
@@ -62,18 +65,21 @@ class Budget:
         self.tool_calls += 1
         self.tokens += usage.total
 
+    def _key(self, name: str) -> str:
+        return f"{self.step}.{name}" if self.step else name
+
     def used(self) -> dict[str, float]:
         return {
-            "tool_calls": float(self.tool_calls),
-            "tokens": float(self.tokens),
-            "seconds": round(self.seconds, 3),
+            self._key("tool_calls"): float(self.tool_calls),
+            self._key("tokens"): float(self.tokens),
+            self._key("seconds"): round(self.seconds, 3),
         }
 
     def limits(self) -> dict[str, float]:
         return {
-            "tool_calls": float(self.max_tool_calls),
-            "tokens": float(self.max_tokens),
-            "seconds": self.max_seconds,
+            self._key("tool_calls"): float(self.max_tool_calls),
+            self._key("tokens"): float(self.max_tokens),
+            self._key("seconds"): self.max_seconds,
         }
 
 

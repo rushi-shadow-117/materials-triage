@@ -1,0 +1,260 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=Al%28PO3%293+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 1, "db_response_time_ms": 37, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Al PO3 3 thin
+        film) in the title or abstract where it has an abstract", "x_new_oql": "get
+        works with (Al PO3 3 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "Al(PO3)3
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:Al%28PO3%293
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2901276066",
+        "doi": "https://doi.org/10.1149/ma2018-02/1/6", "title": "Electrochemical
+        and Electrocatalytic Behavior of Phosphate Family of Battery Insertion Materials:
+        Few Case Studies", "publication_year": 2018, "abstract_inverted_index": {"Exploring":
+        [0], "post": [1], "Li-ion": [2, 40], "battery": [3], "systems,": [4, 41],
+        "various": [5, 95, 243, 332], "monovalent": [6], "(Na+,": [7], "K+)": [8],
+        "and": [9, 45, 52, 104, 125, 179, 191, 209, 217, 247, 261, 286, 350], "multivalent":
+        [10], "(Mg2+,": [11], "Ca2+,": [12], "Zn2+,": [13], "Al3+)": [14], "chemistry":
+        [15], "have": [16, 30, 55], "been": [17, 56], "intensely": [18], "investigated":
+        [19, 94], "over": [20, 309], "the": [21, 87, 109, 161], "last": [22], "decade.":
+        [23], "Among": [24], "them,": [25], "sodium-ion": [26], "based": [27, 99,
+        291, 325], "insertion": [28, 100, 326], "compounds": [29, 54, 101, 229], "emerged":
+        [31], "as": [32, 81], "front-runners": [33], "owing": [34], "to": [35, 68,
+        117, 143, 235, 263, 272], "their": [36], "operational": [37], "similarity":
+        [38], "with": [39, 58, 83, 205, 277, 306, 313, 337], "low": [42, 150], "cost/":
+        [43], "abundance": [44], "high": [46, 62], "rate": [47], "kinetics": [48],
+        "[1].": [49], "Various": [50], "oxides": [51], "oxyanionic": [53], "reported":
+        [57], "great": [59], "success": [60], "delivering": [61], "capacity": [63,
+        308], "and/or": [64], "redox": [65], "potential": [66, 278], "leading": [67],
+        "promising": [69], "energy": [70], "density.": [71], "In": [72, 108, 392,
+        404, 416, 452], "addition,": [73], "some": [74, 119, 343], "of": [75, 133,
+        167, 194, 200, 227, 242, 267, 289, 345], "these": [76, 115, 268], "systems":
+        [77], "can": [78], "be": [79, 186, 203, 231, 259, 273, 296, 329], "exploited":
+        [80], "electrocatalysts": [82], "bi-functional": [84], "activity.": [85, 318],
+        "Over": [86], "past": [88], "two": [89], "years,": [90], "our": [91], "group":
+        [92], "has": [93], "phosphate": [96, 244, 290, 324], "(PO4": [97, 245], "3-)":
+        [98, 246], "for": [102, 215], "electrochemical": [103, 171, 190, 285], "electrocatalytic":
+        [105, 131, 222, 287], "activity": [106, 132, 193, 214, 241], "[2-9].": [107],
+        "current": [110], "work,": [111], "we": [112], "will": [113, 185, 202, 230,
+        258, 295, 328, 341], "summarize": [114], "work": [116, 322], "give": [118],
+        "insights": [120], "on": [121, 323], "sodium": [122, 196], "intercalation":
+        [123], "properties": [124], "bifunctional": [126, 240, 274], "(oxygen": [127,
+        223], "evolution/": [128], "reduction": [129, 224, 316], "reaction)": [130,
+        225], "following": [134], "PO4": [135], "materials.": [136], "(i)": [137],
+        "Solution": [138], "combustion": [139], "synthesis": [140], "was": [141, 157,
+        304], "used": [142], "prepare": [144], "phase-pure": [145], "Na2FePO4F": [146],
+        "fluorophosphate": [147], "compound": [148], "involving": [149], "cost": [151],
+        "Fe(III)": [152], "precursor.": [153], "The": [154, 170, 189, 221, 239, 284,
+        320], "target": [155], "phase": [156], "obtained": [158], "by": [159], "annealing":
+        [160], "intermediate": [162], "complex": [163], "in": [164, 233, 275, 280,
+        335], "short": [165], "duration": [166], "1": [168], "minute.": [169], "performance":
+        [172, 288], "(3": [173], "V": [174, 208, 211, 301], "vs": [175], "Na,": [176],
+        "100": [177], "mAh/g)": [178], "one": [180], "dimensional": [181], "Na+":
+        [182], "diffusional": [183, 192], "mechanism": [184], "demonstrated.": [187],
+        "(ii)": [188], "novel": [195], "metaphosphate": [197, 219], "[NaM(PO3)3]":
+        [198], "class": [199], "cathodes": [201], "shown": [204, 330], "a": [206],
+        "2.8": [207], "3.2": [210], "(vs.": [212], "Na)": [213], "Fe-": [216], "Co-based":
+        [218], "respectively.": [220], "behavior": [226], "NaM(PO3)3": [228], "demonstrated":
+        [232], "comparison": [234], "Pt/C": [236, 264], "system.": [237, 265], "(iii)":
+        [238], "pyrophosphate": [248], "(P2O7": [249], "2-)": [250], "materials":
+        [251, 269, 293, 327], "(e.g.": [252], "NaFePO4,": [253], "KFePO4,": [254],
+        "NaCoPO4,": [255], "Na2CoP2O7,": [256], "K2CoP2O7)": [257], "described": [260],
+        "compared": [262], "Most": [266], "were": [270], "found": [271], "nature":
+        [276], "application": [279], "Na-air": [281], "batteries.": [282, 352], "(iv)":
+        [283], "alluaudite": [292], "[NaMFe2(PO4)3]": [294], "reported.": [297], "An":
+        [298], "overall": [299], "3": [300], "Na": [302], "(de)intercalation": [303],
+        "noticed": [305], "reversible": [307], "70": [310], "mAh/g": [311], "along":
+        [312], "efficient": [314], "oxygen": [315], "reaction": [317], "(v)": [319],
+        "entire": [321], "using": [331], "experimental": [333], "tools": [334], "synergy":
+        [336], "computational": [338], "investigation.": [339], "It": [340], "demonstrate":
+        [342], "examples": [344], "half-cell": [346], "batteries,": [347], "thin-film":
+        [348], "micro-batteries": [349], "metal-air": [351], "Reference": [353], "s":
+        [354], ":": [355], "[1]": [356], "N.": [357], "Yabuuchi": [358], "et": [359,
+        371, 385, 397, 409, 421, 433, 445, 457], "al,": [360, 372, 386, 398, 410,
+        422, 434, 446, 458], "S.": [361], "Komaba,": [362], "Chem.": [363, 426], "Rev.":
+        [364], "114": [365], "(2014)": [366], "11636\u201311682.": [367], "[2]": [368],
+        "L.": [369, 383], "Sharma": [370, 384], "P.": [373, 387, 399, 411, 423, 435,
+        447, 459], "Barpanda,": [374, 388, 400, 412, 424, 436, 448, 460], "ACS": [375],
+        "Appl.": [376], "Mater.": [377], "Interfaces.": [378], "9": [379], "(2017)":
+        [380, 428, 440], "34961\u201334969.": [381], "[3]": [382], "Ionics.": [389],
+        "24": [390], "(2018)": [391, 403, 415, 451, 463], "press.": [393, 405, 417,
+        453], "[4]": [394], "C.": [395], "Murugesan": [396], "ChemCatChem.": [401],
+        "10": [402], "[5]": [406], "R.": [407, 419], "Gond": [408, 420], "ChemElectroChem.":
+        [413], "5": [414], "[6]": [418], "Inorg.": [425], "56": [427], "5918\u20135929.":
+        [429], "[7]": [430], "D.": [431, 443, 455], "Dwibedi": [432, 444, 456], "ECS":
+        [437], "Trans.": [438], "80": [439], "337\u2013342.": [441], "[8]": [442],
+        "MRS": [449], "Adv.": [450], "[9]": [454], "Electrochim.": [461], "Acta.":
+        [462], "Submitted.": [464]}, "primary_location": {"id": "doi:10.1149/ma2018-02/1/6",
+        "doi": "https://doi.org/10.1149/ma2018-02/1/6", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1149/ma2018-02/1/6", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S4210168594", "display_name": "ECS Meeting Abstracts",
+        "issn_l": "1091-8213", "issn": ["1091-8213", "2151-2035", "2151-2043", "2152-8365"],
+        "is_oa": false, "is_in_doaj": false, "is_core": false, "listed_in": [], "host_organization":
+        "https://openalex.org/P4310311669", "host_organization_name": "Institute of
+        Physics", "host_organization_lineage": ["https://openalex.org/P4310311669"],
+        "host_organization_lineage_names": ["Institute of Physics"], "type": "journal"},
+        "license": null, "license_id": null, "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "ECS Meeting Abstracts", "raw_type":
+        "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a547fe365a412d2a-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '7626'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:36:44 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=3Auqpns9RuEi77Pcj8iaHwkIXK0iLktJiTD8CQoI3qE%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793673403"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=3Auqpns9RuEi77Pcj8iaHwkIXK0iLktJiTD8CQoI3qE%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793673403"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9870'
+      x-ratelimit-remaining-usd:
+      - '0.987'
+      x-ratelimit-reset:
+      - '76996'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=Al%28PO3%293+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 1, "db_response_time_ms": 19, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (Al PO3 3 thin
+        film) in the title or abstract", "x_new_oql": "get works with (Al PO3 3 thin
+        film) in the title or abstract", "oqo": {"get_rows": "works", "filter_rows":
+        [{"column_id": "title_and_abstract.search", "value": "Al(PO3)3 thin film",
+        "operator": "has"}]}, "url": "/works?filter=title_and_abstract.search:Al%28PO3%293
+        thin film&per_page=1", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2901276066"}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a547fe374e882d2a-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '629'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:36:44 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=vtLRqtqhfBvc%2BQkliYJMUBHjair24oQ%2BRjpzCqQk8WQ%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793673404"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=vtLRqtqhfBvc%2BQkliYJMUBHjair24oQ%2BRjpzCqQk8WQ%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793673404"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9860'
+      x-ratelimit-remaining-usd:
+      - '0.986'
+      x-ratelimit-reset:
+      - '76996'
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -84,6 +84,7 @@ class FetchContext:
                 {
                     "source": call.source.value,
                     "endpoint": call.endpoint,
+                    "params": dict(call.params),
                     "at": datetime.now(UTC).isoformat(),
                     "error": "not available",
                 }
@@ -196,6 +197,7 @@ class RunInputs:
     fetch_mode: FetchMode = FetchMode.REPLAY
     run_id: UUID = field(default_factory=uuid4)
     started_at: datetime = field(default_factory=lambda: datetime.now(UTC))
+    prior_budgets: list[Budget] = field(default_factory=list)  # e.g. the CLI's parse step
 
 
 def code_version() -> str:
@@ -263,10 +265,15 @@ def _run_metadata(
     provider: str | None,
     source_versions: dict[str, str] | None = None,
     partial_reasons: list[str] | None = None,
-    budget: Budget | None = None,
+    budgets: list[Budget] | None = None,
     note: str | None = None,
     finished: bool = False,
 ) -> RunMetadata:
+    used: dict[str, float] = {}
+    limits: dict[str, float] = {}
+    for b in budgets or []:
+        used.update(b.used())
+        limits.update(b.limits())
     return RunMetadata(
         run_id=inputs.run_id,
         started_at=inputs.started_at,
@@ -282,15 +289,17 @@ def _run_metadata(
         fetch_mode=inputs.fetch_mode,
         partial=bool(partial_reasons),
         partial_reasons=list(partial_reasons or []),
-        budgets_used=budget.used() if budget else {},
-        budgets_limit=budget.limits() if budget else {},
+        budgets_used=used,
+        budgets_limit=limits,
         note=note,
     )
 
 
 def discovery_filter(query: QuerySettings, profile: ScoringProfile) -> mp.DiscoveryFilter:
     """The MP query for discovery mode. The stability cutoff is a scoring rule shown as an
-    exclusion, so it is never folded into the API filter."""
+    exclusion, so it is never folded into the API filter. A discovery query needs a gap
+    floor (every oxide is above the ceiling): the query's, else the profile's hard minimum,
+    else its soft preference start; the gap ceiling is the query's, else the profile's."""
     policy = profile.simplicity.anion_policy
     elements: tuple[str, ...] = (
         ("O",) if policy == "strict_oxide" else ("N",) if policy == "strict_nitride" else ()
@@ -298,12 +307,17 @@ def discovery_filter(query: QuerySettings, profile: ScoringProfile) -> mp.Discov
     exclude: tuple[str, ...] = ()
     if policy == "strict_nitride":
         exclude = ("O", "F", "Cl", "Br", "I", "S", "Se", "Te", "P", "As", "Sb", "H")
+    gap = profile.band_gap
+    floor = query.band_gap_min_ev
+    if floor is None:
+        floor = gap.hard_min_ev if gap.hard_min_ev is not None else gap.soft_preference_start_ev
+    ceiling = query.band_gap_max_ev if query.band_gap_max_ev is not None else gap.hard_max_ev
     return mp.DiscoveryFilter(
         elements=elements or ("O",),
         nelements_min=2,
         nelements_max=query.max_elements or profile.simplicity.max_elements,
-        band_gap_min=query.band_gap_min_ev,
-        band_gap_max=query.band_gap_max_ev,
+        band_gap_min=floor,
+        band_gap_max=ceiling,
         exclude_elements=exclude,
     )
 
@@ -352,14 +366,12 @@ def collect_discovery(
     query: QuerySettings,
     *,
     profile: ScoringProfile,
-    anchors: list[str],
-    top_k: int,
     ctx: FetchContext,
     sources: Sources,
-    score: Callable[[dict[str, CompositionGroup]], list[str]],
 ) -> Collected:
-    """Discovery: page every match or refuse above the ceiling; score summary-level groups;
-    enrich the top K with the full cross-checks; the caller scores again."""
+    """Discovery: page every match or refuse above the ceiling, then build summary-level
+    groups. Enrichment happens in the run loop, which repeats until the final top K is
+    enriched (an exclusion found by enrichment admits the next candidate)."""
     out = Collected({}, [], [])
     f = discovery_filter(query, profile)
 
@@ -384,34 +396,20 @@ def collect_discovery(
             _log("discovery", out.refused, total=result.total_available, ceiling=result.ceiling)
         )
         return out
-    groups = summary_groups(result.records, sources)
+    out.groups = summary_groups(result.records, sources)
     out.log.append(
         _log(
             "discovery",
-            f"{result.returned} summary documents in {len(groups)} compositions",
+            f"{result.returned} summary documents in {len(out.groups)} compositions",
             params=f.params(),
             total=result.total_available,
         )
     )
-    ranked = score(groups)
-    enrich = list(dict.fromkeys([*ranked[:top_k], *anchors]))
-    enriched = 0
-    for key in enrich:
-        full = fetch_composition(key, ctx=ctx, sources=sources, synonyms=profile.synonyms)
-        if full is None:
-            out.partial.append(f"{key}: enrichment unavailable")
-            continue
-        groups[key] = full
-        enriched += 1
-    out.log.append(
-        _log(
-            "enrich",
-            f"cross-checks fetched for {enriched} of {len(enrich)} top candidates",
-            events=len(ctx.events),
-        )
-    )
-    out.groups = groups
     return out
+
+
+MAX_ENRICHMENT_ROUNDS = 12  # each round enriches only newcomers to the top K
+MAX_ENRICHED_PER_TOP = 5  # stop once 5 x top_n compositions have been enriched
 
 
 def run(
@@ -430,7 +428,8 @@ def run(
         raise ValueError("the run needs resolved criteria")
     query, effective = outcome.query, outcome.effective
 
-    budget = Budget.from_core(inputs.core)
+    budgets = {step: Budget.from_core(inputs.core, step) for step in ("classify", "rationale")}
+    all_budgets = [*inputs.prior_budgets, *budgets.values()]
     log: list[DecisionLogEntry] = [
         _log("start", "run started", code_version=code_version(), mode=query.mode)
     ]
@@ -460,65 +459,101 @@ def run(
             )
         )
 
+    enriched: set[str] = set()  # compositions the full cross-checks were attempted for
     if query.mode == "candidate_list":
         keys = list(dict.fromkeys([*query.candidate_list, *inputs.profile.anchors]))
         collected = collect_candidate_list(
             keys, ctx=ctx, sources=sources, synonyms=inputs.profile.synonyms
         )
+        enriched.update(keys)
     else:
-
-        def pass_one(groups: dict[str, CompositionGroup]) -> list[str]:
-            first = score_groups(groups)
-            ranked = sorted(
-                (c for c in first.candidates if c.rank is not None), key=lambda c: c.rank or 0
-            )
-            return [c.composition for c in ranked]
-
-        collected = collect_discovery(
-            query,
-            profile=inputs.profile,
-            anchors=inputs.profile.anchors,
-            top_k=effective.top_n,
-            ctx=ctx,
-            sources=sources,
-            score=pass_one,
-        )
+        collected = collect_discovery(query, profile=inputs.profile, ctx=ctx, sources=sources)
     log.extend(collected.log)
     partial.extend(collected.partial)
     if collected.refused is not None:
         partial.append(collected.refused)
+    groups = collected.groups
 
-    # 2. score (code only), classify the ranked top K's hits, then score again with the
-    #    evidence so the evidence criterion reads the labels
-    first = score_groups(collected.groups) if collected.groups else ScoredSet([], [])
+    # 2. score, enrich the ranked top K (plus anchors) that are not yet enriched, classify
+    #    their hits, score again with the evidence; repeat while enrichment changes the top K
     model = llm.model if llm is not None else None
     provider = llm.provider if llm is not None else None
-    ranked_first = sorted(
-        (c for c in first.candidates if c.rank is not None), key=lambda c: c.rank or 0
-    )
-    hits: list[tuple[str, LiteratureHit]] = []
-    for c in ranked_first[: effective.top_n]:
-        group = collected.groups.get(c.composition)
-        if group is None or group.literature is None:
-            continue
-        hits.extend((c.composition, h) for h in group.literature.hits)
-    classified = classifier.classify_hits(
-        client=llm, hits=hits, budget=budget, cache=cache, model_version=model
-    )
-    log.extend(classified.entries)
-    partial.extend(classified.partial_reasons)
+    cap = inputs.core.max_abstracts_per_candidate
+    evidence_by_comp: dict[str, list[EvidenceHit]] = {}
+    all_hits: list[EvidenceHit] = []
+    llm_calls = cache_hits = 0
+    scored = score_groups(groups, evidence_by_comp) if groups else ScoredSet([], [])
+    classified_keys: set[str] = set()
+    for round_no in range(1, MAX_ENRICHMENT_ROUNDS + 1):
+        ranked = sorted(
+            (c for c in scored.candidates if c.rank is not None), key=lambda c: c.rank or 0
+        )
+        top = [c.composition for c in ranked[: effective.top_n]]
+        need_enrich = [
+            k for k in [*top, *inputs.profile.anchors] if k in groups and k not in enriched
+        ]
+        need_classify = [k for k in top if k in groups and k not in classified_keys]
+        if not need_enrich and not need_classify:
+            break
+        if (
+            len(enriched) >= MAX_ENRICHED_PER_TOP * effective.top_n
+            and query.mode != "candidate_list"
+        ):
+            partial.append(
+                f"enrichment stopped after {len(enriched)} compositions; "
+                f"{', '.join(need_enrich)} in the top {effective.top_n} lack cross-checks"
+            )
+            break
+        if need_enrich:
+            fetched = 0
+            for key in need_enrich:
+                enriched.add(key)
+                full = fetch_composition(
+                    key, ctx=ctx, sources=sources, synonyms=inputs.profile.synonyms
+                )
+                if full is None:
+                    partial.append(f"{key}: enrichment unavailable")
+                    continue
+                groups[key] = full
+                fetched += 1
+            log.append(
+                _log(
+                    "enrich",
+                    f"round {round_no}: cross-checks fetched for {fetched} of "
+                    f"{len(need_enrich)} candidates",
+                    compositions=need_enrich,
+                    events=len(ctx.events),
+                )
+            )
+        hits: list[tuple[str, LiteratureHit]] = []
+        for key in need_classify:
+            classified_keys.add(key)
+            group = groups.get(key)
+            if group is not None and group.literature is not None:
+                hits.extend((key, h) for h in group.literature.hits[:cap])
+        classified = classifier.classify_hits(
+            client=llm, hits=hits, budget=budgets["classify"], cache=cache, model_version=model
+        )
+        log.extend(classified.entries)
+        partial.extend(classified.partial_reasons)
+        llm_calls += classified.llm_calls
+        cache_hits += classified.cache_hits
+        for hit in classified.hits:
+            evidence_by_comp.setdefault(hit.composition, []).append(hit)
+            all_hits.append(hit)
+        scored = score_groups(groups, evidence_by_comp)
+    else:
+        partial.append(
+            f"enrichment stopped after {MAX_ENRICHMENT_ROUNDS} rounds; "
+            "top candidates may lack cross-checks"
+        )
+    # the else clause fires only when the loop ran out of rounds with work left; a round
+    # that enriched the last newcomer breaks on the next iteration
     log.append(
         _log(
             "classify",
-            f"{len(classified.hits)} hits: {classified.llm_calls} classified by the model, "
-            f"{classified.cache_hits} from cache",
+            f"{len(all_hits)} hits: {llm_calls} classified by the model, {cache_hits} from cache",
         )
-    )
-    evidence_by_comp: dict[str, list[EvidenceHit]] = {}
-    for hit in classified.hits:
-        evidence_by_comp.setdefault(hit.composition, []).append(hit)
-    scored = (
-        score_groups(collected.groups, evidence_by_comp) if collected.groups else ScoredSet([], [])
     )
     log.extend(scored.decision_log)
     log.append(
@@ -548,7 +583,7 @@ def run(
             provider=provider,
             source_versions=source_versions,
             partial_reasons=partial,
-            budget=budget,
+            budgets=all_budgets,
             note=scored.note,
             finished=finished,
         )
@@ -567,7 +602,7 @@ def run(
         ),
         candidates=scored.candidates,
         anchors=scored.anchors,
-        evidence=classified.hits,
+        evidence=all_hits,
         missing_properties=(
             scored.missing_properties
             if scored.missing_properties is not None
@@ -576,7 +611,9 @@ def run(
         decision_log=log,
         availability_events=ctx.events,
     )
-    written = rationale.run_rationale(client=llm, bundle=bundle, effective=effective, budget=budget)
+    written = rationale.run_rationale(
+        client=llm, bundle=bundle, effective=effective, budget=budgets["rationale"]
+    )
     log.extend(written.entries)
     if written.partial_reason:
         partial.append(written.partial_reason)

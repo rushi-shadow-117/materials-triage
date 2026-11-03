@@ -1,0 +1,315 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=Al2SiO5+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 3, "db_response_time_ms": 29, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Al2SiO5 thin
+        film) in the title or abstract where it has an abstract", "x_new_oql": "get
+        works with (Al2SiO5 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "Al2SiO5
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:Al2SiO5
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2964226466",
+        "doi": "https://doi.org/10.4236/jmmce.2019.74013", "title": "Development of
+        an In-Situ Composite Doped Coating for Corrosion Protection and Mechanical
+        Properties Enhancements in Process Engineering", "publication_year": 2019,
+        "abstract_inverted_index": {"Process": [0, 50], "engineering": [1], "has":
+        [2], "been": [3], "seen": [4], "as": [5, 122], "one": [6], "of": [7, 30, 52,
+        76, 90, 125, 141], "the": [8, 24, 31, 77, 88, 126, 144], "vital": [9], "tools":
+        [10], "for": [11, 16, 34], "improving": [12], "surface": [13], "coating":
+        [14, 65], "phenomena": [15], "advance": [17], "application.": [18], "In":
+        [19, 129], "an": [20], "attempt": [21], "to": [22, 58], "improve": [23], "mechanical,":
+        [25], "physical": [26], "and": [27, 87, 137], "chemical": [28, 74], "performance":
+        [29], "steel": [32, 45], "structure": [33], "ex-tended": [35], "application,":
+        [36], "Zn-CeO2/ZnCeO2-Al2SiO5": [37], "thin": [38], "film": [39], "composite":
+        [40], "was": [41, 66, 80], "fabri-cated": [42], "on": [43], "mild": [44],
+        "using": [46, 68], "direct": [47], "electrolytic": [48], "route.": [49], "variation":
+        [51], "Al2SiO5": [53], "particulate": [54], "ranges": [55], "from": [56],
+        "5": [57], "15": [59], "g": [60], "per": [61], "litre.": [62], "The": [63,
+        73, 99, 112], "embedded": [64], "charac-terized": [67], "Scanning": [69],
+        "electron": [70], "microscope": [71], "(SEM).": [72], "effect": [75], "developed":
+        [78], "alloy": [79], "characterized": [81], "through": [82], "linear": [83],
+        "potentiodynamic": [84], "polarization": [85], "experiment": [86], "performances":
+        [89], "samples": [91], "were": [92], "examined": [93], "in": [94, 109], "simulated":
+        [95], "3.5%": [96], "sodium": [97], "chloride.": [98], "microhardness": [100],
+        "verification": [101], "study": [102], "proves": [103], "that": [104, 116],
+        "there": [105, 117], "is": [106, 118], "sig-nificant": [107], "improvement":
+        [108], "hardness": [110], "trend.": [111], "tribological": [113], "assessment":
+        [114], "indicated": [115], "less": [119], "plastic": [120], "deformation":
+        [121], "a": [123], "result": [124], "counter": [127], "body.": [128], "all,":
+        [130], "Zn-CeO2/Zn-CeO2-Al2SiO5": [131], "exhibits": [132], "good": [133],
+        "stability,": [134], "with": [135], "agglomeration": [136], "great": [138],
+        "built": [139], "up": [140], "crystal": [142], "at": [143], "interface.":
+        [145]}, "primary_location": {"id": "doi:10.4236/jmmce.2019.74013", "doi":
+        "https://doi.org/10.4236/jmmce.2019.74013", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.4236/jmmce.2019.74013", "pdf_url": "https://content.scirp.org/pdf/jmmce_2019072216013287.pdf",
+        "source": {"id": "https://openalex.org/S2764416086", "display_name": "Journal
+        of Minerals and Materials Characterization and Engineering", "issn_l": "2327-4077",
+        "issn": ["2327-4077", "2327-4085"], "is_oa": true, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["cwts-core"], "host_organization": "https://openalex.org/P4310320480",
+        "host_organization_name": "Scientific Research Publishing", "host_organization_lineage":
+        ["https://openalex.org/P4310320480"], "host_organization_lineage_names": ["Scientific
+        Research Publishing"], "type": "journal"}, "license": "cc-by", "license_id":
+        "https://openalex.org/licenses/cc-by", "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "Journal of Minerals and Materials
+        Characterization and Engineering", "raw_type": "journal-article"}}, {"id":
+        "https://openalex.org/W2119347063", "doi": "https://doi.org/10.1002/crat.200410314",
+        "title": "Preparation of aluminosilicate crystalline coatings from sol\u2010gel
+        derived alumina films deposited on silicon/silica substrates", "publication_year":
+        2004, "abstract_inverted_index": {"Abstract": [0], "The": [1, 28], "dedicated":
+        [2], "formation": [3, 67], "of": [4, 7, 14, 22, 30, 47, 61, 68, 96, 130, 143,
+        165], "crystalline": [5], "coatings": [6], "the": [8, 12, 37, 69, 94, 127,
+        137, 153, 157], "trimorphous": [9], "aluminosilicates": [10], "with": [11,
+        83, 108, 149], "composition": [13], "Al2SiO5": [15], "starting": [16], "from":
+        [17, 163], "a": [18, 59, 84, 109], "low\u2010cost": [19], "sol\u2010gel":
+        [20], "deposition": [21], "alumina": [23], "thin": [24, 85], "films": [25,
+        76, 97, 138], "is": [26, 43, 89, 114], "reported.": [27], "influence": [29],
+        "substrate": [31, 160], "type": [32], "and": [33, 40, 52, 103], "film": [34,
+        41, 154], "thickness": [35], "on": [36, 78, 99, 140, 156], "crystallisation":
+        [38, 119], "behaviour": [39], "morphology": [42], "studied": [44], "by": [45],
+        "means": [46], "wide\u2010angle": [48], "X\u2010ray": [49, 53], "scattering":
+        [50], "(WAXS)": [51], "reflectometry": [54], "(XR).": [55], "When": [56],
+        "annealed": [57], "at": [58, 121, 126], "temperature": [60, 129], "1150":
+        [62], "\u00b0C": [63, 132], "under": [64, 133], "high\u2010vacuum": [65, 134],
+        "conditions,": [66, 135], "aimed": [70], "phases": [71], "was": [72], "achieved":
+        [73], "only": [74], "for": [75], "deposited": [77, 98, 139, 155], "naturally":
+        [79], "oxidised": [80, 105], "Si\u2010substrates": [81, 106, 144], "covered":
+        [82, 107], "silica": [86, 111], "layer": [87, 112], "(thickness": [88, 113],
+        "about": [90, 115], "3": [91], "nm).": [92], "In": [93], "case": [95], "amorphous":
+        [100, 162], "quartz": [101, 158], "glass": [102, 159], "thermally": [104],
+        "thick": [110], "500": [116], "nm)": [117], "no": [118], "occurred": [120],
+        "this": [122], "temperature.": [123], "After": [124], "annealing": [125],
+        "higher": [128], "1300": [131], "in": [136], "both": [141], "kinds": [142],
+        "mullite": [145], "(Al4SiO8)": [146], "crystallises": [147], "together": [148],
+        "cristobalite": [150], "(SiO2)": [151], "whereas": [152], "remains": [161],
+        "viewpoint": [164], "WAXS.": [166], "(\u00a9": [167], "2005": [168], "WILEY\u2010VCH":
+        [169], "Verlag": [170], "GmbH": [171], "&": [172], "Co.": [173], "KGaA,":
+        [174], "Weinheim)": [175]}, "primary_location": {"id": "doi:10.1002/crat.200410314",
+        "doi": "https://doi.org/10.1002/crat.200410314", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1002/crat.200410314", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S85849776", "display_name": "Crystal Research and Technology",
+        "issn_l": "0232-1300", "issn": ["0232-1300", "1521-4079"], "is_oa": false,
+        "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core", "dongbi-d",
+        "jufo-1", "poland-40", "russia-white-list-2"], "host_organization": "https://openalex.org/P4310320595",
+        "host_organization_name": "Wiley", "host_organization_lineage": ["https://openalex.org/P4310320595"],
+        "host_organization_lineage_names": ["Wiley"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Crystal Research and Technology",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2943124068",
+        "doi": null, "title": "Minimization of Aluminium Silicates in Composite Polyamide
+        RO membrane: A case study at PP(M)SB", "publication_year": 2015, "abstract_inverted_index":
+        {"Boiler": [0], "feed": [1, 60, 114, 144, 224, 253], "water": [2, 24, 66,
+        145, 225, 241, 254], "requires": [3], "proper": [4], "treatment": [5, 21],
+        "to": [6, 42, 49, 74, 110, 178, 215], "meet": [7], "stringent": [8], "requirement":
+        [9], "before": [10], "entering": [11], "into": [12], "utilities": [13], "boilers":
+        [14], ".Advance": [15], "in": [16, 108], "membrane": [17, 36, 46, 126, 174,
+        209], "technology": [18, 47], "allows": [19], "economical": [20], "of": [22,
+        26, 29, 54, 85, 103, 124, 139, 143, 155, 160, 168, 172, 186, 203, 229, 234],
+        "municipal": [23, 65, 223], "instead": [25], "using": [27], "chemical": [28],
+        "ion": [30], "exchange": [31], "technology.": [32], "Reverse": [33], "Osmosis":
+        [34, 190], "(RO)": [35], "separation": [37], "process": [38], "has": [39],
+        "been": [40], "found": [41], "be": [43, 216, 249], "the": [44, 227, 239, 244],
+        "best": [45], "available": [48], "remove": [50], "aluminium": [51], "silicate":
+        [52], "(Al2SiO5)": [53], "salts": [55, 104], "fouling": [56], "cake": [57],
+        "layer": [58], "from": [59, 67, 222], "water.": [61], "In": [62], "this":
+        [63], "research,": [64], "Syarikat": [68], "Air": [69], "Melaka": [70], "(SAM)":
+        [71], "was": [72, 82], "supplied": [73], "PP(M)SB": [75], "(PETRONAS": [76],
+        "Penapisan": [77], "(Melaka)": [78], "Sdn.": [79], "Bhd.)": [80], "and": [81,
+        101, 116, 147, 181, 196, 212, 232, 247, 256, 261], "treated": [83, 240], "via":
+        [84], "BW30-4040": [86, 125], "tubular": [87], "thin": [88], "film": [89],
+        "composite": [90], "polyamide": [91], "RO": [92, 208], "membrane.": [93, 237],
+        "To": [94], "achieve": [95], "optimum": [96, 132, 219], "Al2SiO5": [97, 156,
+        220], "removal,": [98], "permeate": [99, 169], "flux": [100], "percentage":
+        [102, 202], "rejection": [105, 177, 195], "were": [106], "investigated": [107],
+        "relation": [109], "Transmembrane": [111], "Pressure": [112], "(TMP),": [113],
+        "pH": [115, 148], "feed-water": [117], "concentration.": [118], "The": [119],
+        "experimental": [120], "results": [121], "indicated": [122], "that": [123],
+        "improved": [127], "its": [128], "performance": [129], "by": [130], "having":
+        [131], "value": [133], "at": [134, 149], "16": [135], "bar": [136], "TMP,":
+        [137], "temperature": [138], "30oC,": [140], "150": [141], "ppm": [142, 162],
+        "concentration": [146], "7.": [150], "Activated": [151], "alumina": [152,
+        231], "proves": [153], "removal": [154, 221], "is": [157, 210], "96.25": [158],
+        "%": [159, 180, 198], "2.5": [161], "dosing": [163], "rate": [164], "with":
+        [165, 184, 193, 200, 226], "300": [166], "L/m2.hr": [167], "flux.": [170],
+        "Addition": [171], "UF": [173], "improve": [175], "salt": [176], "98.18":
+        [179], "90%": [182], "recovery": [183, 199, 263], "comparison": [185], "ROSA":
+        [187], "9.1": [188], "(Reverse": [189], "System": [191], "Analysis)": [192],
+        "98.74%": [194], "91.54": [197], "acceptable": [201], "error.": [204], "This":
+        [205], "work": [206], "shows": [207], "feasible": [211], "technically": [213],
+        "viable": [214], "used": [217, 250], "for": [218, 251, 259], "help": [228],
+        "activated": [230], "pre-treatment": [233], "ultra-filtration": [235], "(UF)":
+        [236], "Besides,": [238], "(permeate)": [242], "fulfils": [243], "watering":
+        [245], "standards": [246], "can": [248], "boiler": [252, 260], "users": [255],
+        "steam": [257, 264], "generation": [258], "heat": [262], "generator": [265],
+        "(HRSG).": [266]}, "primary_location": {"id": "pmh:oai:utpedia.utp.edu.my:15742",
+        "doi": null, "is_oa": false, "landing_page_url": "http://utpedia.utp.edu.my/id/eprint/15742/1/Finalized%20Dissertation.pdf",
+        "pdf_url": "http://utpedia.utp.edu.my/id/eprint/15742/1/Finalized%20Dissertation.pdf",
+        "source": {"id": "https://openalex.org/S4306401854", "display_name": "UTPedia
+        (Universiti Teknologi Petronas)", "issn_l": null, "issn": null, "is_oa": false,
+        "is_in_doaj": false, "is_core": false, "listed_in": [], "host_organization":
+        "https://openalex.org/I203899302", "host_organization_name": "Universiti Teknologi
+        Petronas", "host_organization_lineage": ["https://openalex.org/I203899302"],
+        "host_organization_lineage_names": [], "type": "repository"}, "license": null,
+        "license_id": null, "version": "acceptedVersion", "is_accepted": true, "is_published":
+        false, "raw_source_name": null, "raw_type": "Final Year Project"}}], "group_by":
+        []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5480277ca7aeae4-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '12016'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:39:38 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=Xuv0Z5sq67eNYI17D8FGDnKBIwnMO7brdWvdFiByHLk%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793673578"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=Xuv0Z5sq67eNYI17D8FGDnKBIwnMO7brdWvdFiByHLk%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793673578"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9830'
+      x-ratelimit-remaining-usd:
+      - '0.983'
+      x-ratelimit-reset:
+      - '76822'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=Al2SiO5+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 7, "db_response_time_ms": 14, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (Al2SiO5 thin
+        film) in the title or abstract", "x_new_oql": "get works with (Al2SiO5 thin
+        film) in the title or abstract", "oqo": {"get_rows": "works", "filter_rows":
+        [{"column_id": "title_and_abstract.search", "value": "Al2SiO5 thin film",
+        "operator": "has"}]}, "url": "/works?filter=title_and_abstract.search:Al2SiO5
+        thin film&per_page=1", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2964226466"}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a548027979a9eae4-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '621'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:39:38 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=Xuv0Z5sq67eNYI17D8FGDnKBIwnMO7brdWvdFiByHLk%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793673578"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=Xuv0Z5sq67eNYI17D8FGDnKBIwnMO7brdWvdFiByHLk%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793673578"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9820'
+      x-ratelimit-remaining-usd:
+      - '0.982'
+      x-ratelimit-reset:
+      - '76822'
+    status:
+      code: 200
+      message: OK
+version: 1

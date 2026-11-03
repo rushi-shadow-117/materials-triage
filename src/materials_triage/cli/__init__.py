@@ -179,7 +179,7 @@ def _maybe_relax(
         client=client,
         choices=choices,
         request_text=request_text,
-        budget=Budget.from_core(layers.core),
+        budget=Budget.from_core(layers.core, "relax"),
     )
     if result.choice is None:
         typer.echo(f"no relaxation proposed ({result.reason})", err=True)
@@ -239,6 +239,7 @@ def query(
             _fail(str(e), EXIT_USAGE)
     else:
         assert client is not None
+        parse_budget = Budget.from_core(layers.core, "parse")
         step = parse_mod.run_parse(
             client=client,
             request_text=request,
@@ -246,7 +247,7 @@ def query(
             site=layers.site,
             profile=layers.profile,
             cli_profile=layers.profile.name,
-            budget=Budget.from_core(layers.core),
+            budget=parse_budget,
         )
         if not step.ok or step.outcome is None:
             _fail(f"could not parse the request: {step.reason}")
@@ -439,7 +440,7 @@ def eval(  # noqa: A001 - command name from the plan
 ) -> None:
     """Run the eval suite (Track E runner)."""
     try:
-        from materials_triage.evals import runner  # type: ignore[import-not-found,import-untyped,unused-ignore]
+        from evals import runner  # type: ignore[import-not-found,import-untyped,unused-ignore]
     except ImportError:
         typer.echo("eval runner pending")
         raise typer.Exit(code=EXIT_USAGE) from None

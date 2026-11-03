@@ -131,7 +131,8 @@ def test_discovery_pages_everything_scores_summaries_and_enriches_the_top_k(
     inputs = _inputs(layers, tmp_path, band_gap_min_ev=2.0, band_gap_max_ev=3.0, top_n=3)
     bundle = pipeline.run(inputs, fetch=transport, sources=sources, scorer=gap_scorer)
     steps = [d.step for d in bundle.decision_log]
-    assert steps[:5] == ["start", "discovery", "enrich", "classify", "score"]
+    assert steps[:3] == ["start", "discovery", "enrich"] and steps[-1] == "verify"
+    assert "classify" in steps and "score" in steps
     discovery = next(d for d in bundle.decision_log if d.step == "discovery")
     assert discovery.detail["total"] == 3016 and "3016 summary documents" in discovery.summary
     assert len(bundle.candidates) > 1000 and bundle.criteria.mode == "discovery"
@@ -139,7 +140,8 @@ def test_discovery_pages_everything_scores_summaries_and_enriches_the_top_k(
     gaps = [c.score.total for c in ranked if c.score]
     assert gaps == sorted(gaps, reverse=True) and gaps[0] is not None and gaps[0] <= 3.0
     enrich = next(d for d in bundle.decision_log if d.step == "enrich")
-    assert "of 4 top candidates" in enrich.summary  # top 3 plus the SiO2 anchor
+    assert enrich.summary.startswith("round 1: cross-checks fetched for")
+    assert enrich.summary.endswith("of 4 candidates")  # top 3 plus the SiO2 anchor
     assert [a.composition for a in bundle.anchors] == ["SiO2"]
     si = bundle.anchors[0]
     assert si.group.hazard is not None and si.group.literature is not None
@@ -173,3 +175,63 @@ def test_discovery_above_the_ceiling_is_refused_with_the_count(
     assert any("above the ceiling of 10; narrow the query" in r for r in bundle.run.partial_reasons)
     refused = next(d for d in bundle.decision_log if d.step == "discovery")
     assert refused.detail == {"total": 11, "ceiling": 10}
+
+
+@pytest.mark.parametrize(
+    ("profile_name", "total", "request_text"),
+    [
+        ("oxide_dielectric_thin_film", 895, "wide gap oxide dielectrics"),
+        ("oxide_photocatalyst", 3835, "visible light oxide photocatalysts"),
+    ],
+)
+def test_recorded_discovery_queries_run_offline_end_to_end_with_the_real_scorer(
+    profile_name: str,
+    total: int,
+    request_text: str,
+    tmp_path: Path,
+    transport: DiscoveryCassettes,
+    sources: pipeline.Sources,
+) -> None:
+    """Owner request, Nov 3: the dielectric profile's default discovery (gap floor from its
+    soft preference start, 5.0 eV) and the photocatalyst window (2.0 to 3.3 eV) both page
+    from cassettes, and every composition in the final top 10 carries the full cross-checks
+    because the enrich-classify-score loop repeats until the top K is enriched."""
+    from materials_triage.agent.scoring_port import default_scorer, track_a_scorer
+
+    track_a_scorer()  # raises if Track A's scorer is not importable
+    profile, _ = cs.scoring_profile_from_yaml(
+        cs.CONFIG_DIR / "scoring_profiles" / f"{profile_name}.yaml"
+    )
+    core, site, _ = layers_for(profile)
+    path = tmp_path / "criteria.yaml"
+    path.write_text("mode: discovery\ntop_n: 10\n")
+    outcome = parse.parse_from_file(
+        path, core=core, site=site, profile=profile, cli_profile=profile.name
+    )
+    inputs = pipeline.RunInputs(
+        request_text=request_text,
+        parse=outcome,
+        core=core,
+        site=site,
+        profile=profile,
+        hazard_policy=cs.load_yaml(cs.default_paths()["hazard_policy"]),
+    )
+    bundle = pipeline.run(inputs, fetch=transport, sources=sources, scorer=default_scorer())
+    assert bundle.run.partial is False and bundle.run.partial_reasons == []
+    discovery = next(d for d in bundle.decision_log if d.step == "discovery")
+    assert discovery.detail["total"] == total
+    top = bundle.ranked()[:10]
+    assert len(top) == 10
+    for c in top:
+        assert c.group.hazard is not None and c.group.literature is not None, c.composition
+        assert "enrichment_missing" not in [f.value for f in c.flags], c.composition
+    rounds = [d for d in bundle.decision_log if d.step == "enrich"]
+    assert 1 <= len(rounds) <= pipeline.MAX_ENRICHMENT_ROUNDS
+    assert {a.composition for a in bundle.anchors} <= set(profile.anchors)
+
+
+def layers_for(
+    profile: cs.ScoringProfile,
+) -> tuple[cs.CoreConfig, cs.SiteProfile, cs.ScoringProfile]:
+    paths = cs.default_paths()
+    return cs.CoreConfig(), cs.site_profile_from_yaml(paths["site_profile"]), profile

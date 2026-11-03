@@ -1,0 +1,371 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=P2O5+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 107, "db_response_time_ms": 65, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (P2O5 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (P2O5 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "P2O5
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:P2O5
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W1965578362",
+        "doi": "https://doi.org/10.1021/la070081d", "title": "Vapor-Phase Synthesis
+        of Mesoporous SiO2\u2212P2O5 Thin Films", "publication_year": 2007, "abstract_inverted_index":
+        {"Mesoporous": [0], "SiO2-P2O5": [1, 83, 111], "films": [2, 84, 91], "were":
+        [3], "synthesized": [4], "from": [5], "the": [6, 36, 61, 72, 82, 110, 135,
+        141], "vapor": [7, 45, 65], "phase": [8, 76], "onto": [9], "a": [10, 14, 28,
+        32, 57, 75, 93, 118, 125], "silicon": [11, 29, 62], "substrate.": [12], "First,":
+        [13], "precursor": [15], "solution": [16], "of": [17, 81, 97, 107], "cetyltrimethylammonium":
+        [18], "bromide": [19], "(C16TAB),": [20], "H3PO4,": [21], "ethanol,": [22],
+        "and": [23, 134], "water": [24], "was": [25, 40, 85, 113, 121], "deposited":
+        [26], "on": [27, 60], "substrate": [30, 63], "by": [31, 124], "spin-coating":
+        [33], "method.": [34, 128], "Then,": [35], "C16TAB-H3PO4": [37], "composite":
+        [38, 55], "film": [39, 73, 112], "treated": [41], "with": [42], "tetraethoxysilane":
+        [43], "(TEOS)": [44], "at": [46, 101], "90-180": [47], "degrees": [48], "C":
+        [49], "for": [50], "2.5": [51], "h.": [52], "The": [53, 67, 78, 89, 104, 129],
+        "H3PO4-C16TAB": [54], "formed": [56], "hexagonal": [58], "structure": [59],
+        "before": [64], "treatment.": [66], "TEOS": [68], "molecules": [69], "penetrated":
+        [70], "into": [71], "without": [74], "transition.": [77], "periodic": [79,
+        137], "mesostructure": [80, 138], "retained": [86], "after": [87], "calcination.":
+        [88], "calcined": [90], "showed": [92], "high": [94, 115, 130, 142], "proton":
+        [95, 143], "conductivity": [96], "about": [98], "0.55": [99], "S/cm": [100],
+        "room": [102], "temperature.": [103], "molar": [105], "ratio": [106], "P/Si":
+        [108], "in": [109], "as": [114, 116], "0.43,": [117], "level": [119], "that":
+        [120], "not": [122], "attained": [123], "premixing": [126], "sol-gel": [127],
+        "phosphate": [131], "group": [132], "content": [133], "ordered": [136], "contributed":
+        [139], "to": [140], "conductivity.": [144]}, "primary_location": {"id": "doi:10.1021/la070081d",
+        "doi": "https://doi.org/10.1021/la070081d", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1021/la070081d", "pdf_url": null, "source": {"id": "https://openalex.org/S75741262",
+        "display_name": "Langmuir", "issn_l": "0743-7463", "issn": ["0743-7463", "1520-5827"],
+        "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in": ["anvur-scientific",
+        "cwts-core", "dongbi-d", "doyens", "jufo-2", "ki-jl-1", "medline", "norway-1",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320006",
+        "host_organization_name": "American Chemical Society", "host_organization_lineage":
+        ["https://openalex.org/P4310320006"], "host_organization_lineage_names": ["American
+        Chemical Society"], "type": "journal"}, "license": null, "license_id": null,
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Langmuir", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2156499903",
+        "doi": "https://doi.org/10.1051/jp4:2001383", "title": "Deposition by an aerosol
+        assisted MOCVD process of Eu or Er doped Y2O3-P2O5 thin films", "publication_year":
+        2001, "abstract_inverted_index": {"The": [0, 43, 52, 93], "deposition": [1],
+        "of": [2, 54, 61], "Er": [3], "or": [4], "Eu": [5], "doped": [6], "Y": [7],
+        "2": [8, 12, 64, 82, 103], "O": [9, 13, 65, 83, 104], "3": [10], "-P": [11],
+        "5": [14, 66, 84, 105], "thin": [16], "films": [17, 32, 56, 75, 112], "by":
+        [18, 49], "an": [19], "aerosol": [20], "assisted": [21], "MO-CVD": [22], "atmospheric":
+        [23], "process": [24], "is": [25, 47], "studied.": [26], "0.1": [27], "to":
+        [28, 87], "0.5": [29], "\u03bcm": [30], "thick": [31], "were": [33, 57], "obtained":
+        [34], "on": [35], "glass": [36], "substrates": [37], "in": [38, 59, 89], "the":
+        [39, 55, 62, 74, 90, 111], "temperature": [40], "range": [41], "400\u00b0C-580\u00b0C.":
+        [42], "rare": [44], "earth": [45], "luminescence": [46, 123], "activated":
+        [48], "post": [50], "annealing.": [51], "properties": [53], "discussed": [58],
+        "function": [60], "P": [63, 81, 102], "content.": [68], "For": [69], "high":
+        [70], "annealing": [71], "post-deposition": [72], "treatments": [73], "with":
+        [76], "less": [77], "than": [78], "15": [79], "Mol%": [80, 101], "tended":
+        [86], "crystallise": [88], "yttria": [91], "phase.": [92], "YPO": [94], "4":
+        [95], "phase": [97, 119], "appeared": [98, 113], "around": [99], "50": [100],
+        ".": [106], "Between": [107], "these": [108], "concentration": [109], "limits":
+        [110], "as": [114], "a": [115], "disordered": [116], "composite": [117], "Y-P-O":
+        [118], "and": [120], "exhibited": [121], "wide": [122], "bands.": [124]},
+        "primary_location": {"id": "doi:10.1051/jp4:2001383", "doi": "https://doi.org/10.1051/jp4:2001383",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1051/jp4:2001383",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4210173038", "display_name":
+        "Journal de Physique IV (Proceedings)", "issn_l": "1155-4339", "issn": ["1155-4339",
+        "1764-7177"], "is_oa": false, "is_in_doaj": false, "is_core": false, "listed_in":
+        ["norway-1"], "host_organization": "https://openalex.org/P4310319900", "host_organization_name":
+        "Springer Science+Business Media", "host_organization_lineage": ["https://openalex.org/P4310319900",
+        "https://openalex.org/P4310319965"], "host_organization_lineage_names": ["Springer
+        Science+Business Media", "Springer Nature"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Le Journal de Physique IV", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W2462418990", "doi": "https://doi.org/10.1134/s0020168514080056",
+        "title": "Synthesis and properties of thin SiO2-P2O5-CaO films", "publication_year":
+        2014, "abstract_inverted_index": {"Thin": [0], "SiO": [1], "2": [2, 4], "-P":
+        [3], "O": [5], "5": [6], "-CaO": [7], "films": [8, 27], "have": [9, 28, 38],
+        "been": [10, 29, 39], "produced": [11], "by": [12], "a": [13], "sol-gel":
+        [14], "process": [15], "from": [16], "film-forming": [17], "solutions.": [18],
+        "The": [19], "physicochemical": [20], "processes": [21], "underlying": [22],
+        "the": [23, 26], "formation": [24], "of": [25], "investigated,": [30], "and":
+        [31, 36], "their": [32], "phase": [33], "composition,": [34], "structure,":
+        [35], "bioactivity": [37], "determined.": [40]}, "primary_location": {"id":
+        "doi:10.1134/s0020168514080056", "doi": "https://doi.org/10.1134/s0020168514080056",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1134/s0020168514080056",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S70837955", "display_name":
+        "Inorganic Materials", "issn_l": "0020-1685", "issn": ["0020-1685", "1608-3172"],
+        "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core",
+        "dongbi-c", "norway-1", "poland-40", "russia-white-list-2"], "host_organization":
+        "https://openalex.org/P4310320267", "host_organization_name": "Pleiades Publishing",
+        "host_organization_lineage": ["https://openalex.org/P4310320267", "https://openalex.org/P4310319965"],
+        "host_organization_lineage_names": ["Pleiades Publishing", "Springer Nature"],
+        "type": "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Inorganic Materials",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2283617754",
+        "doi": "https://doi.org/10.4028/www.scientific.net/kem.683.427", "title":
+        "Study of Biological Properties of Thin-Film Materials on the Basis of the
+        SIO2\u2013P2O5\u2013\u0421aO System", "publication_year": 2016, "abstract_inverted_index":
+        {"Thin": [0, 18], "films": [1, 19], "were": [2, 20, 93, 147, 163], "obtained":
+        [3], "from": [4, 75, 98], "film-forming": [5, 65], "solutions": [6, 66], "by":
+        [7, 29, 38], "the": [8, 12, 15, 23, 59, 76, 109, 123, 129, 144, 157, 166],
+        "sol-gel": [9], "method": [10], "on": [11, 22, 165], "basis": [13], "of":
+        [14, 34, 44, 53, 78, 89, 125, 131, 143], "SiO2-P2O5-\u0421\u0430O": [16],
+        "system.": [17], "produced": [21], "single-crystal": [24], "silicon": [25],
+        "substrates": [26], "(model": [27], "substrate)": [28], "extraction": [30],
+        "at": [31, 41, 50, 128], "a": [32, 42, 51, 112], "velocity": [33], "5": [35],
+        "mm/s": [36], "following": [37], "heat": [39], "treatment": [40], "temperature":
+        [43, 52], "60\u00b0\u0421": [45], "for": [46, 55, 70, 172], "20": [47], "minutes":
+        [48], "and": [49, 82, 140, 161], "600\u00b0\u0421": [54], "1": [56], "hour.":
+        [57], "During": [58], "experiment": [60], "it": [61], "was": [62, 134, 170],
+        "established": [63], "that": [64, 152], "are": [67], "usable": [68], "only":
+        [69], "2": [71], "to": [72, 96], "7": [73], "days": [74], "moment": [77],
+        "preparation.": [79], "Using": [80], "thermal": [81], "infra-red": [83], "\u2013":
+        [84], "spectroscopic": [85], "analysis": [86, 101], "main": [87], "stages":
+        [88], "oxide": [90], "system": [91], "formation": [92], "retraced.": [94],
+        "According": [95], "data": [97], "x-ray": [99], "phase": [100], "phases":
+        [102], "CaClH2PO4\u2219H2O,": [103], "Ca(H2PO4)2\u2219H2O,": [104], "CaHPO4\u22192H2O,":
+        [105], "Ca2SiO4\u2219H2O,": [106], "Ca5(PO4)3Cl.": [107], "On": [108], "supporter\u2019s":
+        [110], "surface": [111, 138], "homogeneous": [113], "film": [114], "coating":
+        [115], "with": [116, 122], "quite": [117], "equally": [118], "spaced": [119],
+        "crystal-like": [120], "formations": [121], "diameter": [124], "10-11": [126],
+        "microns": [127, 133], "distance": [130], "1-30": [132], "formed.": [135],
+        "Phase": [136], "composition,": [137], "properties": [139], "biological":
+        [141], "activity": [142], "synthesized": [145], "materials": [146], "investigated.":
+        [148], "XRD": [149], "results": [150], "indicated": [151], "after": [153],
+        "being": [154], "immersed": [155], "into": [156], "SBF,": [158], "hydroxylapatite,":
+        [159], "wollastonite,": [160], "chlorapatite": [162], "formed": [164], "samples\u2019":
+        [167], "surfaces,": [168], "which": [169], "important": [171], "practical":
+        [173], "applications": [174]}, "primary_location": {"id": "doi:10.4028/www.scientific.net/kem.683.427",
+        "doi": "https://doi.org/10.4028/www.scientific.net/kem.683.427", "is_oa":
+        false, "landing_page_url": "https://doi.org/10.4028/www.scientific.net/kem.683.427",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S75411654", "display_name":
+        "Key engineering materials", "issn_l": "1013-9826", "issn": ["1013-9826",
+        "1662-9795", "1662-9809"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["cwts-core", "jufo-1", "norway-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310317839", "host_organization_name": "Trans Tech
+        Publications", "host_organization_lineage": ["https://openalex.org/P4310317839"],
+        "host_organization_lineage_names": ["Trans Tech Publications"], "type": "book
+        series"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Key Engineering
+        Materials", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W4324367389",
+        "doi": "https://doi.org/10.17580/tsm.2023.02.04", "title": "Synthesis of bioactive
+        thin-film SiO2 \u2013 P2O5 \u2013 \u0421\u0430O \u2013 TiO2-base composites",
+        "publication_year": 2023, "abstract_inverted_index": {"This": [0], "paper":
+        [1], "examines": [2], "bioactive": [3, 103], "thin-film": [4, 104], "composites":
+        [5, 112, 130, 289, 317], "synthesized": [6, 260, 316], "on": [7, 40, 57, 65,
+        75, 99, 266, 303, 310], "the": [8, 11, 31, 37, 41, 76, 94, 100, 129, 157,
+        160, 177, 236, 256, 259, 267, 280, 333], "basis": [9, 77], "of": [10, 44,
+        48, 78, 96, 102, 127, 159, 164, 258, 263, 279, 292, 324], "SiO2": [12, 105],
+        "\u2013": [13, 15, 17, 106, 108, 110, 150, 176, 253], "P2O5": [14, 107], "\u0421\u0430O":
+        [16, 109], "TiO2": [18, 218], "system": [19], "from": [20, 36, 145, 171],
+        "alcohol": [21, 70, 151], "solutions": [22], "by": [23, 34], "sol-gel": [24],
+        "method.": [25], "The": [26, 121, 180, 200, 212, 223, 287, 298, 315], "film":
+        [27, 97, 265, 308], "was": [28, 198, 330], "produced": [29, 113], "at": [30,
+        93, 187, 205, 239, 243], "sol": [32], "stage": [33], "pulling": [35], "film-forming":
+        [38], "solution": [39, 71], "oxide": [42, 53, 60], "surface": [43, 257, 296],
+        "titanium": [45, 51, 58, 116, 269, 305, 312], "(BT1-0": [46], "grade": [47],
+        "commercially": [49], "pure": [50], "with": [52, 59, 114, 306], "coating).":
+        [54], "Uniform": [55], "films": [56], "coating": [61, 98], "can": [62, 318],
+        "be": [63, 233, 319], "obtained": [64], "day": [66], "5": [67], "after": [68],
+        "an": [69, 277, 294], "has": [72, 88], "been": [73, 89, 125, 229], "prepared":
+        [74], "orthophosphoric": [79], "acid,": [80], "tetrabutoxytitanium,": [81],
+        "tetraethoxysilane,": [82], "calcium": [83], "nitrate.": [84], "A": [85],
+        "comprehensive": [86], "study": [87, 323], "conducted": [90], "that": [91,
+        202, 231], "looks": [92], "effect": [95], "properties": [101], "TiO2-base":
+        [111], "oxide-coated": [115, 268, 304, 311], "used": [117], "as": [118], "a":
+        [119, 191, 209, 264, 272, 307], "substrate.": [120], "following": [122, 213,
+        224], "stages": [123], "have": [124, 228], "identified": [126, 230], "how":
+        [128], "get": [131], "formed.": [132], "Stage": [133, 143, 169], "1:": [134],
+        "up": [135, 194, 283], "to": [136, 147, 173, 184, 195, 235, 284], "400": [137,
+        146], "oC": [138, 149, 175, 189, 197, 207, 245], "\u2014": [139], "water":
+        [140], "is": [141, 301], "removed;": [142], "2:": [144], "600": [148, 172,
+        188], "burns": [152], "off,": [153], "nitrates": [154], "decompose": [155],
+        "and": [156, 190, 276], "products": [158], "thermal": [161], "oxidative":
+        [162], "breakdown": [163], "ethoxy": [165], "groups": [166], "burn": [167],
+        "off;": [168], "3:": [170], "1,000": [174], "sample": [178], "crystallizes.":
+        [179], "samples": [181, 201], "were": [182, 203, 215], "found": [183], "remain":
+        [185], "amorphous": [186], "temperature": [192], "increase": [193, 278], "800":
+        [196, 206, 244], "needed.": [199], "annealed": [204], "had": [208], "crystalline":
+        [210], "structure.": [211], "phases": [214], "produced:": [216], "CaSiO3,":
+        [217], "anatase,": [219], "TiO2,": [220], "Ca3(PO4)2,": [221], "Ca5(PO4)2.85(SiO4)0.15O.":
+        [222], "heat": [225], "treatment": [226], "conditions": [227], "would": [232],
+        "applicable": [234], "samples:": [237], "drying": [238], "60": [240], "oC,":
+        [241], "annealing": [242], "for": [246, 321, 327], "1": [247], "hour.": [248],
+        "Lewis": [249], "basic": [250], "centers": [251], "(Ti/Si": [252], "O)": [254],
+        "dominate": [255], "composites.": [261], "Production": [262], "results": [270],
+        "in": [271], "more": [273], "distinguished": [274], "topography": [275], "critical":
+        [281], "load": [282], "2.28": [285], "N.": [286], "studied": [288], "are":
+        [290], "capable": [291], "forming": [293], "apatite-like": [295], "layer.":
+        [297], "formation": [299], "rate": [300], "higher": [302], "than": [309],
+        "without": [313], "one.": [314], "recommended": [320], "further": [322], "biological":
+        [325], "properties.Support": [326], "this": [328], "research": [329], "provided":
+        [331], "under": [332], "Tomsk": [334], "State": [335], "University": [336],
+        "Development": [337], "Programme": [338], "Priority-2030.": [339]}, "primary_location":
+        {"id": "doi:10.17580/tsm.2023.02.04", "doi": "https://doi.org/10.17580/tsm.2023.02.04",
+        "is_oa": false, "landing_page_url": "http://dx.doi.org/10.17580/tsm.2023.02.04",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S2764813239", "display_name":
+        "Nonferrous Metals", "issn_l": "0372-2929", "issn": ["0372-2929", "2414-0090"],
+        "is_oa": false, "is_in_doaj": false, "is_core": false, "listed_in": ["russia-white-list-2"],
+        "host_organization": "https://openalex.org/P4323237075", "host_organization_name":
+        "Ore and Metals Publishing House", "host_organization_lineage": ["https://openalex.org/P4323237075"],
+        "host_organization_lineage_names": ["Ore and Metals Publishing House"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Tsvetnye Metally",
+        "raw_type": "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a547fe26cf5e2d2a-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '16866'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:36:41 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=nVROHF8yBw9GZp1%2FTWAXATymh0D4ZLt1b7JkicGvU08%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793673401"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=nVROHF8yBw9GZp1%2FTWAXATymh0D4ZLt1b7JkicGvU08%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793673401"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9930'
+      x-ratelimit-remaining-usd:
+      - '0.993'
+      x-ratelimit-reset:
+      - '76999'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=P2O5+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 199, "db_response_time_ms": 20, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (P2O5 thin film)
+        in the title or abstract", "x_new_oql": "get works with (P2O5 thin film) in
+        the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "P2O5 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:P2O5 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W1965578362"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a547fe27fbce2d2a-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '611'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:36:41 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=nVROHF8yBw9GZp1%2FTWAXATymh0D4ZLt1b7JkicGvU08%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793673401"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=nVROHF8yBw9GZp1%2FTWAXATymh0D4ZLt1b7JkicGvU08%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793673401"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9920'
+      x-ratelimit-remaining-usd:
+      - '0.992'
+      x-ratelimit-reset:
+      - '76999'
+    status:
+      code: 200
+      message: OK
+version: 1
