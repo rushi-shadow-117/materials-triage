@@ -22,6 +22,7 @@ PLACES: dict[str, int] = {
     "rank": 0,
     "year": 0,
     "score": 3,
+    "tier": 1,  # hazard tier score
 }
 DEFAULT_PLACES = 2
 ENERGY_TO_MEV: dict[str, str] = {"eV": "meV", "eV/atom": "meV/atom"}

@@ -51,10 +51,9 @@ def template_only(bundle: ProvenanceBundle) -> dict[str, RationaleSlot]:
                 parts.append("on " + ", ".join(scored))
         text = " ".join(parts) + "."
         if c.caveats:
-            names = dict.fromkeys(
-                cv.id.value + (f" [{cv.subject}]" if cv.subject else "") for cv in c.caveats
-            )
-            text += " Caveats: " + ", ".join(names) + "."
+            # ids only: a subject can carry digits (a reference entry id) the verifier
+            # would rightly reject; the renderer lists subjects beside each caveat
+            text += " Caveats: " + ", ".join(dict.fromkeys(cv.id.value for cv in c.caveats)) + "."
         slots[slot] = RationaleSlot(slot=slot, text=text, verified=True)
     ranked = bundle.ranked()
     overview = (
