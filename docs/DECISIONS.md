@@ -801,3 +801,36 @@ recorded; dropping it would be a hand choice.
 Alternative: leave the value in the results JSON for Integration to copy (rejected by the
 owner: the commit goes to the profile, separate and labeled).
 
+### 2026-11-02 The eval cases run through Track B's pipeline with a scripted model in CI
+Decision: `evals.execute.PipelineExecutor` runs each case through `agent.pipeline.run` with
+Track B's own parse step, Track A's scorer behind Track B's port, the verifier and the
+renderers. Data comes from recorded cassettes (`--fetch cassettes`, the CI default) or from
+the seeded store with `FETCH_MODE=replay` (`--fetch store`); either way nothing touches the
+network. The model is `evals.pipeline_llm.CaseScriptedLLM` with `--llm fake`: it implements
+Track B's client protocol and answers from the offered tool and the case file (refusal
+category from the harness triggers, otherwise the case's mode and candidate list; keyword
+labels with a verbatim supporting sentence; token-only rationale). `--llm live` uses the
+configured provider; `--llm none` skips the model and takes criteria from the case file. No
+classifier cache, so repeats classify anew. Every bundle is saved under
+`.data-cache/evals/runs/<run id>.json`. An F case with `injected_fixture` has that OpenAlex
+response served for `injected_into`'s literature search in place of the recording.
+Reason: the structural checks must see what the pipeline produces, not a copy of a bundle;
+CI cannot call a model, and a scripted client that goes through the real loop exercises the
+parse, classify, rationale and verify paths. A keyword label is an arbitrary label, so the
+results name the executor as `pipeline:fake:cassettes` and evidence-dependent ranks from CI
+are read with that in mind; live runs are the results.
+Alternative considered: Track B's queue-replaying `FakeLLM` (rejected: the number of
+classify calls depends on the data, so a fixed queue is exhausted or wasted).
+
+### 2026-11-02 Two Track B behaviors the executor surfaced, left as findings
+Finding 1: with the baseline eleven as a candidate list, classifying the top ten candidates'
+hits spends the core budget of 40 tool calls before the rationale step, so the run is partial
+with "rationale not written: max_tool_calls (40) reached" and the rationale is template text.
+The A1 check `run_completed` reports this; the budget lives in the frozen `config/schema.py`
+and is the owner's to raise.
+Finding 2: the classifier accepts a `not_relevant` label without a supporting sentence, but
+the verifier checks a quote on every label except `no_abstract` and `unclassified`, so such a
+hit is dropped as a quote mismatch. The scripted model quotes a sentence on every label so the
+verifier passes; whether the verifier or the classifier should change is the owner's call.
+Unverified whether either behavior is intended.
+

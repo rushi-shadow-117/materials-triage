@@ -11,7 +11,7 @@ import sys
 from pathlib import Path
 
 from evals.cases import load_cases, select
-from evals.execute import SampleBundleExecutor
+from evals.execute import Executor, PipelineExecutor, SampleBundleExecutor
 from evals.judge import SAMPLE_PATH, agreement_rate, make_judge, write_judge_sample
 from evals.preregistration import PREREG_PATH, preregister
 from evals.runner import RESULTS_DIR, parse_repeats, run_suite, write_results
@@ -21,13 +21,31 @@ def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="evals")
     sub = ap.add_subparsers(dest="cmd", required=True)
     run = sub.add_parser("run", help="run cases, write results JSON")
-    run.add_argument("--suite", default="all")
-    run.add_argument("--repeats", nargs="*", default=[], help="ID=N overrides")
+    js = sub.add_parser("judge-sample", help="write evals/judge_sample.md for owner grading")
+    for p in (run, js):
+        p.add_argument("--suite", default="all")
+        p.add_argument("--repeats", nargs="*", default=[], help="ID=N overrides")
+        p.add_argument(
+            "--executor",
+            choices=["pipeline", "sample"],
+            default="pipeline",
+            help="pipeline: Track B's pipeline end to end; sample: the sample bundle",
+        )
+        p.add_argument(
+            "--llm",
+            choices=["fake", "live", "none"],
+            default="fake",
+            help="fake: scripted model (CI); live: the configured provider; none: no LLM steps",
+        )
+        p.add_argument(
+            "--fetch",
+            choices=["cassettes", "store"],
+            default="cassettes",
+            help="cassettes: recorded files; store: the seeded store with FETCH_MODE=replay",
+        )
     run.add_argument("--out", default=str(RESULTS_DIR))
     pre = sub.add_parser("prereg", help="record the scoring config sha before validation runs")
     pre.add_argument("--scorer", default="track_a")
-    js = sub.add_parser("judge-sample", help="write evals/judge_sample.md for owner grading")
-    js.add_argument("--suite", default="all")
     sub.add_parser("agreement", help="report owner agreement with the judge sample")
     args = ap.parse_args(argv)
 
@@ -46,7 +64,11 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     cases = select(load_cases(), args.suite)
-    executor = SampleBundleExecutor()
+    executor: Executor
+    if args.executor == "sample":
+        executor = SampleBundleExecutor()
+    else:
+        executor = PipelineExecutor(llm=args.llm, fetch_source=args.fetch)
     judge = make_judge()
     result = run_suite(
         cases, executor, judge, suite=args.suite, repeats=parse_repeats(args.repeats)

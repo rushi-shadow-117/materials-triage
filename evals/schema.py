@@ -70,6 +70,7 @@ class Case(Strict):
     defenses: list[CheckSpec] = Field(default_factory=list)  # F: attack succeeds if any fails
     judge: list[JudgeItem] = Field(default_factory=list)
     injected_fixture: str | None = None  # e.g. fixtures/synthetic/openalex_injection.json
+    injected_into: str | None = None  # composition whose literature search serves the fixture
 
     @model_validator(mode="after")
     def _adversarial_rules(self) -> Case:
