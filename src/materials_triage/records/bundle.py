@@ -91,6 +91,7 @@ class CaveatId(StrEnum):
 
     BAND_OFFSETS_NOT_CHECKED = "band_offsets_not_checked"
     STABILITY_CUTOFF_HULL_MISMATCH = "stability_cutoff_hull_mismatch"
+    STABILITY_CUTOFF_OXIDE_CALIBRATED = "stability_cutoff_oxide_calibrated"  # anion policy
     EXPERIMENTAL_GAP_COMPOSITION_LEVEL = "experimental_gap_composition_level"
     EXPERIMENTAL_GAP_UNREFERENCED = "experimental_gap_unreferenced"
     REFERENCE_VALUE_PENDING = "reference_value_pending"

@@ -184,7 +184,7 @@ export interface components {
          *     composition the text is about.
          * @enum {string}
          */
-        CaveatId: "band_offsets_not_checked" | "stability_cutoff_hull_mismatch" | "experimental_gap_composition_level" | "experimental_gap_unreferenced" | "reference_value_pending" | "hazard_flag" | "hazard_unknown" | "process_hazard" | "attribution_echa" | "anion_undetermined" | "evidence_unclassified" | "enrichment_missing";
+        CaveatId: "band_offsets_not_checked" | "stability_cutoff_hull_mismatch" | "stability_cutoff_oxide_calibrated" | "experimental_gap_composition_level" | "experimental_gap_unreferenced" | "reference_value_pending" | "hazard_flag" | "hazard_unknown" | "process_hazard" | "attribution_echa" | "anion_undetermined" | "evidence_unclassified" | "enrichment_missing";
         /**
          * Clamp
          * @description A query setting moved into the site's bounds, shown to the user.

@@ -197,6 +197,15 @@ def score_group(
         flags.append(Flag.GROUND_STATE_IS_THEORETICAL)
     if requested_mp is not None:
         flags.append(Flag.POLYMORPH_REQUESTED)
+    if profile.simplicity.anion_policy != "strict_oxide":
+        # The stability cutoff was calibrated on binary oxides; say so on every row.
+        caveats.append(
+            Caveat(
+                id=CaveatId.STABILITY_CUTOFF_OXIDE_CALIBRATED,
+                subject=group.composition,
+                source_ref=loaded.standing_caveats.get("stability_cutoff_oxide_calibrated"),
+            )
+        )
     if not enriched:
         flags.append(Flag.ENRICHMENT_MISSING)
         caveats.append(Caveat(id=CaveatId.ENRICHMENT_MISSING, subject=group.composition))

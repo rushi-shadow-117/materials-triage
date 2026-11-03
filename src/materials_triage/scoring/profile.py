@@ -154,6 +154,10 @@ def load_scoring_profile(path: Path) -> LoadedProfile:
         standing["band_offsets_not_checked"] = f"{rel}#criteria.band_gap.standing_caveat"
     if stab.get("caveat"):
         standing["stability_cutoff_hull_mismatch"] = f"{rel}#criteria.stability.caveat"
+    if stab.get("anion_calibration_caveat"):
+        standing["stability_cutoff_oxide_calibrated"] = (
+            f"{rel}#criteria.stability.anion_calibration_caveat"
+        )
     return LoadedProfile(
         profile=profile,
         evidence_tiers=tiers,
