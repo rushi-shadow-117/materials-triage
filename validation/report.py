@@ -39,7 +39,9 @@ CALIBRATION_JSON = RESULTS_DIR / "band_gap_calibration.json"
 
 Scorer = Callable[[dict[str, LoadedGroup]], ProvenanceBundle]
 
-NAMED_NEGATIVE_CONTROLS = ["ThO2", "BeO", "CdTiO3", "Cd2Ta2O7", "PbHfO3", "PbZrO3"]
+# Owner's controls: ThO2 and BeO sit in the baseline oxides; the Cd and Pb compounds and BeO
+# are the Yim fixture's negatives and are checked on the Yim run.
+BASELINE_NEGATIVE_CONTROLS = ["ThO2", "BeO"]
 
 
 def git_commit() -> str | None:
@@ -87,8 +89,10 @@ def run_validation(
         "yim": yim_report(yim_bundle, gt).to_dict(),
         "recall": recall_at_k(baseline_bundle, known, k, source).to_dict(),
         "negative_controls": {
-            "yim_set": asdict(negative_controls(yim_bundle, NAMED_NEGATIVE_CONTROLS)),
-            "baseline_oxides": asdict(negative_controls(baseline_bundle, ["ThO2", "BeO"])),
+            "yim_set": asdict(negative_controls(yim_bundle, list(gt.negatives))),
+            "baseline_oxides": asdict(
+                negative_controls(baseline_bundle, BASELINE_NEGATIVE_CONTROLS)
+            ),
         },
         "calibration_sha256": calibration.data_sha256,
     }
