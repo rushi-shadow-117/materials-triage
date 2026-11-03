@@ -40,7 +40,11 @@ def main(argv: list[str] | None = None) -> int:
                 line += f"; Yim-like: ranked {lt['n_ranked']}, rho={lt['rho']}"
             dl = data_tables.get(t["table"])
             if dl is not None:
-                line += f"; data-level: paired {dl['n_paired']}, rho={dl['rho']}"
+                line += (
+                    f"; data-level: paired {dl['n_paired']} of {dl['n_rows']} rows, "
+                    f"rho_pbe={dl['rho_pbe']}, rho_exp={dl['rho_experimental']} "
+                    f"(n={dl['n_experimental']})"
+                )
             print(line)
         print("recall:", report["recall"]["recall"], "misses:", report["recall"]["misses"])
         print("wrote", Path(args.out) / "validation.json")

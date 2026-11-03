@@ -1,14 +1,18 @@
-"""Data-level Yim comparison: Spearman between Yim's figure of merit and best-available gap
-times e_total, computed from our records for the same compositions. No scoring policy: no
+"""Data-level Yim comparison, paired by structure: Spearman between Yim's figure of merit and
+(PBE gap x e_total) read from our records for the same structures. No scoring policy: no
 weights, no normalization, no exclusions.
 
-best-available gap: the experimental median when the composition has one in the expt_gap
-snapshot, else the JARVIS TBmBJ gap, else the Materials Project PBE gap, read from the
-polymorph used. e_total: the Materials Project DFPT total dielectric constant on that same
-polymorph. The polymorph is the one the scorer selects (ground state among MP polymorphs no
-adapter rule excludes); when it carries no e_total, the lowest-hull MP polymorph that has one.
-A composition without both values is listed as unpaired and left out of rho. Nothing is
-filled. Owner request 2026-11-02.
+Pairing: each Yim row names an ICSD id. The row pairs with the Materials Project polymorph
+whose recorded database ids carry that ICSD id; when none does, with the MP polymorph of the
+same reduced composition and the row's space group number (lowest hull first when several);
+otherwise the row is unpaired and listed with the reason. A paired row without a PBE gap or
+an e_total on that polymorph is listed too and left out of rho.
+
+Values: the gap is the Materials Project PBE gap on the paired polymorph (one source for every
+row); e_total is the MP DFPT total dielectric constant on it. The experimental median from
+the expt_gap snapshot is shown as a separate column where the composition has one, and a
+second rho over those rows uses it in place of the PBE gap. Nothing is filled. Owner request
+2026-11-03.
 """
 
 from __future__ import annotations
@@ -17,44 +21,64 @@ from dataclasses import asdict, dataclass
 from typing import Any
 
 from materials_triage.records import Polymorph
-from materials_triage.scoring.polymorphs import mp_polymorphs, select_scored
+from materials_triage.scoring.polymorphs import mp_polymorphs
 from validation.groups import LoadedGroup
 from validation.spearman import spearman
-from validation.yim import YimGroundTruth
+from validation.yim import YimGroundTruth, YimRow
 
-COMPUTED_GAP_ORDER = (("tbmbj", "jarvis_tbmbj"), ("pbe", "mp_summary"))
+PBE_KEY = "mp_summary"
 E_TOTAL_KEY = "e_total"
 
 DEFINITION = (
-    "Spearman rho between Yim's figure of merit and (best-available gap x e_total) from our "
-    "records, no scoring policy. Gap: experimental median (expt_gap snapshot) when present, "
-    "else JARVIS TBmBJ, else Materials Project PBE, on the polymorph used. e_total: Materials "
-    "Project DFPT total dielectric constant on that polymorph. Polymorph: the scorer's selected "
-    "ground state, else the lowest-hull MP polymorph carrying e_total. Compositions without "
-    "both values are listed and left out; nothing is filled."
+    "Spearman rho between Yim's figure of merit and (PBE gap x e_total) from our records, "
+    "paired by structure, no scoring policy. Pairing: the Yim row's ICSD id against the MP "
+    "polymorph's recorded database ids; else the same reduced composition and the row's space "
+    "group number; else unpaired. Gap: Materials Project PBE on the paired polymorph, one "
+    "source for every row. e_total: MP DFPT total dielectric constant on it. The experimental "
+    "median (expt_gap snapshot) is a separate column where present, with its own rho over "
+    "those rows. Rows without both values are listed and left out; nothing is filled."
 )
 
 
 @dataclass(frozen=True)
-class DataPoint:
+class RowPoint:
+    name_as_printed: str
     composition: str
+    icsd: str
+    yim_spacegroup: int | None
+    mp_id: str
+    mp_spacegroup: int | None
+    match: str  # icsd | composition_spacegroup
     yim_best_fom: float
-    gap_ev: float
-    gap_source: str  # experimental | tbmbj | pbe
+    pbe_gap_ev: float
     e_total: float
-    mp_id: str | None
     product: float
+    experimental_median_ev: float | None
+    experimental_product: float | None
+
+
+@dataclass(frozen=True)
+class UnpairedRow:
+    name_as_printed: str
+    composition: str
+    icsd: str
+    yim_spacegroup: int | None
+    mp_id: str | None  # set when a structure matched but a value is missing
+    reason: str
 
 
 @dataclass(frozen=True)
 class DataLevelTable:
     table: int
-    n_in_table: int
+    n_rows: int
     n_paired: int
-    rho: float | None
-    reason: str | None
-    points: list[DataPoint]
-    unpaired: list[dict[str, str]]  # composition, missing
+    rho_pbe: float | None
+    reason_pbe: str | None
+    n_experimental: int
+    rho_experimental: float | None
+    reason_experimental: str | None
+    points: list[RowPoint]
+    unpaired: list[UnpairedRow]
 
 
 @dataclass(frozen=True)
@@ -66,76 +90,100 @@ class DataLevelReport:
         return asdict(self)
 
 
-def _e_total(p: Polymorph) -> float | None:
-    v = p.dielectric.get(E_TOTAL_KEY)
+def _value(p: Polymorph, field: dict[str, Any], key: str) -> float | None:
+    v = field.get(key)
     return None if v is None else v.value
 
 
-def _polymorph_with_e_total(lg: LoadedGroup) -> Polymorph | None:
-    scored = select_scored(lg.group)
-    if scored is not None and _e_total(scored) is not None:
-        return scored
-    return next((p for p in mp_polymorphs(lg.group) if _e_total(p) is not None), None)
+def match_polymorph(row: YimRow, lg: LoadedGroup) -> tuple[Polymorph | None, str]:
+    """The MP polymorph for a Yim row, with how it matched or why it did not."""
+    polys = mp_polymorphs(lg.group)
+    try:
+        icsd = int(row.icsd)
+    except ValueError:
+        icsd = None
+    if icsd is not None:
+        for p in polys:
+            if icsd in p.ids.icsd:
+                return p, "icsd"
+    if row.spacegroup_number is None:
+        return None, "ICSD id not among the recorded MP ids; fixture row has no space group"
+    for p in polys:
+        if p.spacegroup_number == row.spacegroup_number:
+            return p, "composition_spacegroup"
+    return None, (
+        "ICSD id not among the recorded MP ids; no MP polymorph with space group "
+        f"{row.spacegroup_number}"
+    )
 
 
-def _gap(lg: LoadedGroup, p: Polymorph) -> tuple[float, str] | None:
-    agg = lg.group.experimental_gaps
-    if agg is not None:
-        return agg.median, "experimental"
-    for label, key in COMPUTED_GAP_ORDER:
-        v = p.band_gap.get(key)
-        if v is not None and v.value is not None:
-            return v.value, label
-    return None
+def row_point(row: YimRow, lg: LoadedGroup | None) -> RowPoint | UnpairedRow:
+    def unpaired(reason: str, mp_id: str | None = None) -> UnpairedRow:
+        return UnpairedRow(
+            name_as_printed=row.name_as_printed,
+            composition=row.composition,
+            icsd=row.icsd,
+            yim_spacegroup=row.spacegroup_number,
+            mp_id=mp_id,
+            reason=reason,
+        )
 
-
-def data_point(composition: str, fom: float, lg: LoadedGroup) -> DataPoint | dict[str, str]:
-    """A point, or the reason there is none."""
-    p = _polymorph_with_e_total(lg)
+    if lg is None:
+        return unpaired("composition not loaded")
+    p, how = match_polymorph(row, lg)
     if p is None:
-        first = select_scored(lg.group) or next(iter(mp_polymorphs(lg.group)), None)
-        has_gap = first is not None and _gap(lg, first) is not None
-        missing = "e_total" if has_gap else "gap and e_total"
-        return {"composition": composition, "missing": missing}
-    gap = _gap(lg, p)
-    if gap is None:
-        return {"composition": composition, "missing": "gap"}
-    e_total = _e_total(p)
-    assert e_total is not None
-    return DataPoint(
-        composition=composition,
-        yim_best_fom=fom,
-        gap_ev=gap[0],
-        gap_source=gap[1],
-        e_total=e_total,
+        return unpaired(how)
+    gap = _value(p, p.band_gap, PBE_KEY)
+    e_total = _value(p, p.dielectric, E_TOTAL_KEY)
+    missing = [name for name, v in (("PBE gap", gap), ("e_total", e_total)) if v is None]
+    if missing or gap is None or e_total is None:
+        return unpaired(f"matched by {how}; missing {' and '.join(missing)}", p.ids.mp)
+    agg = lg.group.experimental_gaps
+    exp = None if agg is None else agg.median
+    assert p.ids.mp is not None
+    return RowPoint(
+        name_as_printed=row.name_as_printed,
+        composition=row.composition,
+        icsd=row.icsd,
+        yim_spacegroup=row.spacegroup_number,
         mp_id=p.ids.mp,
-        product=gap[0] * e_total,
+        mp_spacegroup=p.spacegroup_number,
+        match=how,
+        yim_best_fom=row.f_fom,
+        pbe_gap_ev=gap,
+        e_total=e_total,
+        product=gap * e_total,
+        experimental_median_ev=exp,
+        experimental_product=None if exp is None else exp * e_total,
     )
 
 
 def data_level_table(
     groups: dict[str, LoadedGroup], gt: YimGroundTruth, table: int
 ) -> DataLevelTable:
-    order = gt.table_order(table)
-    points: list[DataPoint] = []
-    unpaired: list[dict[str, str]] = []
-    for comp, fom in order:
-        lg = groups.get(comp)
-        if lg is None:
-            unpaired.append({"composition": comp, "missing": "not loaded"})
-            continue
-        point = data_point(comp, fom, lg)
-        if isinstance(point, DataPoint):
+    rows = [r for r in gt.rows if r.table == table]
+    points: list[RowPoint] = []
+    unpaired: list[UnpairedRow] = []
+    for row in rows:
+        point = row_point(row, groups.get(row.composition))
+        if isinstance(point, RowPoint):
             points.append(point)
         else:
             unpaired.append(point)
-    res = spearman([p.yim_best_fom for p in points], [p.product for p in points])
+    pbe = spearman([p.yim_best_fom for p in points], [p.product for p in points])
+    with_exp = [p for p in points if p.experimental_product is not None]
+    exp = spearman(
+        [p.yim_best_fom for p in with_exp], [p.experimental_product or 0.0 for p in with_exp]
+    )
     return DataLevelTable(
         table=table,
-        n_in_table=len(order),
+        n_rows=len(rows),
         n_paired=len(points),
-        rho=res.rho,
-        reason=res.reason,
+        rho_pbe=pbe.rho,
+        reason_pbe=pbe.reason,
+        n_experimental=len(with_exp),
+        rho_experimental=exp.rho,
+        reason_experimental=exp.reason,
         points=points,
         unpaired=unpaired,
     )

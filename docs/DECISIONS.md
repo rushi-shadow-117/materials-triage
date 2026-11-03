@@ -834,20 +834,25 @@ hit is dropped as a quote mismatch. The scripted model quotes a sentence on ever
 verifier passes; whether the verifier or the classifier should change is the owner's call.
 Unverified whether either behavior is intended.
 
-### 2026-11-02 A data-level Yim correlation beside the two scorer columns
+### 2026-11-03 A data-level Yim correlation, paired by structure, beside the two scorer columns
 Decision: `validation/data_level.py` computes, per Yim table, Spearman rho between Yim's
-figure of merit and (best-available gap x e_total) read from our records for the same
-compositions, with no scoring policy: no weights, normalization or exclusions. The gap is the
-experimental median when the expt_gap snapshot has one, else the JARVIS TBmBJ gap, else the
-Materials Project PBE gap, on the polymorph used; e_total is the MP DFPT total dielectric
-constant on that polymorph (the scorer's selected ground state, else the lowest-hull MP
-polymorph carrying e_total). A composition without both values is listed as unpaired and
-left out; nothing is filled. docs/EVAL.md shows it as the third column, labeled "data-level",
-with the gap sources used and the unpaired compositions per table. Owner request 2026-11-02.
-Reason: the two scorer columns mix data and policy; a correlation computed from the records
-alone says whether a weak scorer rho comes from the policy or from the data our sources hold
-for these compositions. The JARVIS slice covers the eleven baseline oxides only, so the Yim
-compositions use experimental or PBE gaps; the report names which.
+figure of merit and (PBE gap x e_total) read from our records, with no scoring policy: no
+weights, normalization or exclusions. Pairing is by structure, row by row: the Yim row's
+ICSD id against the ICSD ids the Materials Project records carry in `database_IDs`; when none
+matches, the MP polymorph of the same reduced composition and the row's space group number
+(lowest hull first when several); otherwise the row is unpaired and listed with the reason.
+The gap is the MP PBE gap on the paired polymorph, one source for every row; e_total is the
+MP DFPT value on it. The experimental median from the expt_gap snapshot is a separate column
+where the composition has one, with a second rho over those rows. Rows without both values
+are listed and left out; nothing is filled. docs/EVAL.md shows the two data-level columns
+beside the default and Yim-like ones, which are unchanged. Owner decision 2026-11-03,
+replacing the first version (2026-11-02) that paired by composition with a best-available
+gap.
+Reason: Yim's rows are structures, and a composition-level pairing can set a row against a
+different polymorph than the paper computed. One gap source keeps the column comparable
+across rows; the experimental column shows where measurement and PBE disagree without
+mixing them. The two scorer columns mix data and policy; a correlation from the records
+alone says whether a weak scorer rho comes from the policy or from the data our sources hold.
 Alternative considered: Yim's own gap and dielectric values from the paper (rejected: the
 question is what our records say).
 

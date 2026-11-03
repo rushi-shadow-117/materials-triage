@@ -150,14 +150,16 @@ def validation_sections(val: dict[str, Any] | None, cal: dict[str, Any] | None) 
             "",
             "Spearman rho is the scorer's rank against the Yim figure-of-merit order within each "
             "table. The default column is the profile as entered; the Yim-like column is the "
-            "second configuration described below the table; the data-level column is Yim's "
-            "figure of merit against gap x e_total from our records with no scoring policy, "
-            "defined below the table.",
+            "second configuration described below the table; the two data-level columns are "
+            "Yim's figure of merit against gap x e_total from our records, paired by structure "
+            "with no scoring policy, defined below the table: PBE gap on every paired row, and "
+            "the experimental median over the rows that have one.",
             "",
-            "| Table | In table | Ranked (default) | rho (default) "
-            "| Ranked (Yim-like) | rho (Yim-like) | Paired (data-level) | rho (data-level) "
+            "| Table | Compositions in table | Ranked (default) | rho (default) "
+            "| Ranked (Yim-like) | rho (Yim-like) | Paired rows (data-level) "
+            "| rho (data-level, PBE) | Rows with experimental | rho (data-level, experimental) "
             "| Note |",
-            "|---|---|---|---|---|---|---|---|---|",
+            "|---|---|---|---|---|---|---|---|---|---|---|",
         ]
         data_tables = {t["table"]: t for t in val.get("data_level", {}).get("tables", [])}
         for t in yim["tables"]:
@@ -171,7 +173,12 @@ def validation_sections(val: dict[str, Any] | None, cal: dict[str, Any] | None) 
                     note = (note + "; " if note else "") + "Yim-like " + _table_note(lt)
             dl = data_tables.get(t["table"])
             data_cells = (
-                "| not run | not run " if dl is None else f"| {dl['n_paired']} | {_num(dl['rho'])} "
+                "| not run | not run | not run | not run "
+                if dl is None
+                else (
+                    f"| {dl['n_paired']} of {dl['n_rows']} | {_num(dl['rho_pbe'])} "
+                    f"| {dl['n_experimental']} | {_num(dl['rho_experimental'])} "
+                )
             )
             out.append(
                 f"| {t['table']} | {t['n_in_table']} | {t['n_ranked']} "
@@ -202,15 +209,23 @@ def validation_sections(val: dict[str, Any] | None, cal: dict[str, Any] | None) 
         else:
             out += [f"Data-level correlation: {dl_report['definition']}", ""]
             for dt in dl_report["tables"]:
-                sources = sorted({p["gap_source"] for p in dt["points"]})
-                unpaired = ", ".join(f"{u['composition']} ({u['missing']})" for u in dt["unpaired"])
+                by_icsd = sum(1 for p in dt["points"] if p["match"] == "icsd")
+                by_sg = dt["n_paired"] - by_icsd
                 out.append(
-                    f"- table {dt['table']}: {dt['n_paired']} of {dt['n_in_table']} paired, "
-                    f"rho {_num(dt['rho'])}"
-                    + (f" ({dt['reason']})" if dt["reason"] else "")
-                    + f"; gap sources used: {', '.join(sources) or 'none'}"
-                    + (f"; unpaired: {unpaired}" if unpaired else "")
+                    f"- table {dt['table']}: {dt['n_paired']} of {dt['n_rows']} rows paired "
+                    f"({by_icsd} by ICSD id, {by_sg} by composition and space group); "
+                    f"rho (PBE) {_num(dt['rho_pbe'])}"
+                    + (f" ({dt['reason_pbe']})" if dt["reason_pbe"] else "")
+                    + f"; rows with an experimental median: {dt['n_experimental']}, "
+                    f"rho (experimental) {_num(dt['rho_experimental'])}"
+                    + (f" ({dt['reason_experimental']})" if dt["reason_experimental"] else "")
                 )
+                for u in dt["unpaired"]:
+                    where = f" ({u['mp_id']})" if u["mp_id"] else ""
+                    out.append(
+                        f"  - unpaired: {u['name_as_printed']} ICSD {u['icsd']}{where}: "
+                        f"{u['reason']}"
+                    )
         out += ["", "Negatives (must be excluded or flagged with the rule shown):", ""]
         for n in yim["negatives"]:
             rule = n["rule"] or (", ".join(n["flags"]) if n["flags"] else "none")

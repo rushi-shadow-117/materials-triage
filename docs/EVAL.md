@@ -8,19 +8,19 @@ No eval results found. Run `uv run python -m evals run`.
 
 ## Validation
 
-Scorer `track_a`, profile `oxide_dielectric_thin_film` version `0`, config sha `3e7006725575`, commit `30f459af8d755eaa503c553642cb17388af0a1a6`.
+Scorer `track_a`, profile `oxide_dielectric_thin_film` version `0`, config sha `3e7006725575`, commit `7bc010430b442f6940f2512800267e39674c13f6`.
 
 ### Yim 2015 positives (10.1038/am.2015.57)
 
 Polymorph rule: one entry per composition per table, ordered by its best f_fom in that table; ties share average ranks (owner decision 2026-11-02). Fixture sha `83198d58fe86`.
 
-Spearman rho is the scorer's rank against the Yim figure-of-merit order within each table. The default column is the profile as entered; the Yim-like column is the second configuration described below the table; the data-level column is Yim's figure of merit against gap x e_total from our records with no scoring policy, defined below the table.
+Spearman rho is the scorer's rank against the Yim figure-of-merit order within each table. The default column is the profile as entered; the Yim-like column is the second configuration described below the table; the two data-level columns are Yim's figure of merit against gap x e_total from our records, paired by structure with no scoring policy, defined below the table: PBE gap on every paired row, and the experimental median over the rows that have one.
 
-| Table | In table | Ranked (default) | rho (default) | Ranked (Yim-like) | rho (Yim-like) | Paired (data-level) | rho (data-level) | Note |
-|---|---|---|---|---|---|---|---|---|
-| 1 | 11 | 9 | -0.184 | 9 | -0.686 | 10 | -0.353 | excluded: BeO (hazard.exclude), NbCl3O (stability.cutoff) |
-| 2 | 24 | 18 | -0.484 | 18 | -0.587 | 18 | -0.263 | excluded: BeO (hazard.exclude), NbCl3O (stability.cutoff), TiCdO3 (hazard.exclude), Ta2Cd2O7 (hazard.exclude), HfPbO3 (hazard.acute_toxicity.element), ZrPbO3 (hazard.acute_toxicity.element) |
-| 3 | 23 | 19 | 0.028 | 19 | -0.232 | 17 | 0.110 | excluded: BeO (hazard.exclude), YClO (stability.cutoff), Li3BrO (stability.cutoff), YOF (simplicity.anion_policy) |
+| Table | Compositions in table | Ranked (default) | rho (default) | Ranked (Yim-like) | rho (Yim-like) | Paired rows (data-level) | rho (data-level, PBE) | Rows with experimental | rho (data-level, experimental) | Note |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | 11 | 9 | -0.184 | 9 | -0.686 | 8 of 13 | -0.156 | 0 | n/a | excluded: BeO (hazard.exclude), NbCl3O (stability.cutoff) |
+| 2 | 24 | 18 | -0.484 | 18 | -0.587 | 11 of 35 | -0.176 | 1 | n/a | excluded: BeO (hazard.exclude), NbCl3O (stability.cutoff), TiCdO3 (hazard.exclude), Ta2Cd2O7 (hazard.exclude), HfPbO3 (hazard.acute_toxicity.element), ZrPbO3 (hazard.acute_toxicity.element) |
+| 3 | 23 | 19 | 0.028 | 19 | -0.232 | 11 of 26 | 0.092 | 0 | n/a | excluded: BeO (hazard.exclude), YClO (stability.cutoff), Li3BrO (stability.cutoff), YOF (simplicity.anion_policy) |
 
 Yim-like configuration: stability, band gap and dielectric constant at weight 1; hazard, simplicity, evidence, deposition method and cost at weight 0. Weights are query-level overrides within site bounds; the default profile file is unchanged. Exclusion rules (hazard, stability cutoff, anion policy) still apply at weight 0.
 
@@ -28,11 +28,55 @@ Yim-like configuration: stability, band gap and dielectric constant at weight 1;
 - dielectric target band: [10, 30] (status pending_verification)
 - config sha `4975ae5e32dc` (default run `3e7006725575`)
 
-Data-level correlation: Spearman rho between Yim's figure of merit and (best-available gap x e_total) from our records, no scoring policy. Gap: experimental median (expt_gap snapshot) when present, else JARVIS TBmBJ, else Materials Project PBE, on the polymorph used. e_total: Materials Project DFPT total dielectric constant on that polymorph. Polymorph: the scorer's selected ground state, else the lowest-hull MP polymorph carrying e_total. Compositions without both values are listed and left out; nothing is filled.
+Data-level correlation: Spearman rho between Yim's figure of merit and (PBE gap x e_total) from our records, paired by structure, no scoring policy. Pairing: the Yim row's ICSD id against the MP polymorph's recorded database ids; else the same reduced composition and the row's space group number; else unpaired. Gap: Materials Project PBE on the paired polymorph, one source for every row. e_total: MP DFPT total dielectric constant on it. The experimental median (expt_gap snapshot) is a separate column where present, with its own rho over those rows. Rows without both values are listed and left out; nothing is filled.
 
-- table 1: 10 of 11 paired, rho -0.353; gap sources used: experimental, pbe; unpaired: K2W2O7 (e_total)
-- table 2: 18 of 24 paired, rho -0.263; gap sources used: experimental, pbe; unpaired: Y2Ti2O7 (e_total), HfPbO3 (e_total), Ta4Ag2O11 (e_total), TaBiO4 (e_total), HfTe3O8 (e_total), K2W2O7 (e_total)
-- table 3: 17 of 23 paired, rho 0.110; gap sources used: experimental, pbe; unpaired: LaYO3 (e_total), Ba2SiO4 (e_total), Ba3P4O13 (e_total), Mg4H2O5 (e_total), Li3BrO (e_total), BaSO4 (e_total)
+- table 1: 8 of 13 rows paired (8 by ICSD id, 0 by composition and space group); rho (PBE) -0.156; rows with an experimental median: 0, rho (experimental) n/a (fewer than two pairs)
+  - unpaired: c-BeO ICSD 163825 (mp-1794): matched by icsd; missing e_total
+  - unpaired: NbOCl 3 ICSD 26471 (mp-27815): matched by icsd; missing e_total
+  - unpaired: δ-AlO(OH) ICSD 166337 (mp-1078520): matched by icsd; missing e_total
+  - unpaired: K 2 W 2 O 7 ICSD 67284 (mp-19037): matched by icsd; missing e_total
+  - unpaired: Na 2 SO 4 ICSD 66554 (mp-3143): matched by icsd; missing e_total
+- table 2: 11 of 35 rows paired (11 by ICSD id, 0 by composition and space group); rho (PBE) -0.176; rows with an experimental median: 1, rho (experimental) n/a (fewer than two pairs)
+  - unpaired: BeO ICSD 163825 (mp-1794): matched by icsd; missing e_total
+  - unpaired: NbOCl 3 ICSD 26471 (mp-27815): matched by icsd; missing e_total
+  - unpaired: SrTiO 3 ICSD 201256 (mp-5229): matched by icsd; missing e_total
+  - unpaired: NaNbO 3 ICSD 247316 (mp-1188528): matched by icsd; missing e_total
+  - unpaired: AgTaO 3 ICSD 40830: ICSD id not among the recorded MP ids; no MP polymorph with space group 161
+  - unpaired: SrTiO 3 ICSD 182762 (mp-5229): matched by icsd; missing e_total
+  - unpaired: Li 4 CO 4 ICSD 245400 (mp-549389): matched by icsd; missing e_total
+  - unpaired: CdTiO 3 ICSD 62150 (mp-14550): matched by icsd; missing e_total
+  - unpaired: CdTiO 3 ICSD 51698 (mp-20940): matched by icsd; missing e_total
+  - unpaired: CdTiO 3 ICSD 262711 (mp-5052): matched by icsd; missing e_total
+  - unpaired: Y 2 Ti 2 O 7 ICSD 15633 (mp-5373): matched by icsd; missing e_total
+  - unpaired: PbHfO 3 ICSD 89326 (mp-22734): matched by icsd; missing e_total
+  - unpaired: AlO(OH) ICSD 166337 (mp-1078520): matched by icsd; missing e_total
+  - unpaired: AlO(OH) ICSD 166345 (mp-1078520): matched by icsd; missing e_total
+  - unpaired: SrHfO 3 ICSD 161595 (mp-550908): matched by icsd; missing e_total
+  - unpaired: Ag 2 Ta 4 O 11 ICSD 180734 (mp-1203398): matched by icsd; missing e_total
+  - unpaired: PbZrO 3 ICSD 31154 (mp-647557): matched by icsd; missing e_total
+  - unpaired: BiTaO 4 ICSD 97423 (mp-30900): matched by icsd; missing e_total
+  - unpaired: PbHfO 3 ICSD 174106 (mp-22734): matched by icsd; missing e_total
+  - unpaired: PbHfO 3 ICSD 33194 (mp-669414): matched by icsd; missing e_total
+  - unpaired: HfTe 3 O 8 ICSD 9078 (mp-18352): matched by icsd; missing e_total
+  - unpaired: ZrO 2 ICSD 93031 (mp-2574): matched by icsd; missing e_total
+  - unpaired: K 2 W 2 O 7 ICSD 67284 (mp-19037): matched by icsd; missing e_total
+  - unpaired: Sr 2 Ta 2 O 7 ICSD 16388 (mp-13664): matched by icsd; missing e_total
+- table 3: 11 of 26 rows paired (11 by ICSD id, 0 by composition and space group); rho (PBE) 0.092; rows with an experimental median: 0, rho (experimental) n/a (fewer than two pairs)
+  - unpaired: BeO ICSD 163825 (mp-1794): matched by icsd; missing e_total
+  - unpaired: AlO(OH) ICSD 166345 (mp-1078520): matched by icsd; missing e_total
+  - unpaired: HfO 2 ICSD 173966 (mp-1018721): matched by icsd; missing e_total
+  - unpaired: LaYO 3 ICSD 419666 (mp-10429): matched by icsd; missing e_total
+  - unpaired: Na 2 SO 4 ICSD 66554 (mp-3143): matched by icsd; missing e_total
+  - unpaired: MgSiO 3 ICSD 171911 (mp-3547): matched by icsd; missing e_total
+  - unpaired: MgAl 2 O 4 ICSD 157186 (mp-5857): matched by icsd; missing e_total
+  - unpaired: Ba 2 SiO 4 ICSD 28476 (mp-17612): matched by icsd; missing e_total
+  - unpaired: Mg 4 O 3 (OH) 2 ICSD 95470 (mp-30242): matched by icsd; missing e_total
+  - unpaired: Ba 3 P 4 O 13 ICSD 280908 (mp-30088): matched by icsd; missing e_total
+  - unpaired: B 2 O 3 ICSD 36066: ICSD id not among the recorded MP ids; no MP polymorph with space group 144
+  - unpaired: Li 3 OBr ICSD 67265 (mp-28593): matched by icsd; missing e_total
+  - unpaired: MgSiO 3 ICSD 172736 (mp-4391): matched by icsd; missing e_total
+  - unpaired: Y 2 (Si 2 O 7 ) ICSD 164148 (mp-556860): matched by icsd; missing e_total
+  - unpaired: BaSO 4 ICSD 33730 (mp-3164): matched by icsd; missing e_total
 
 Negatives (must be excluded or flagged with the rule shown):
 
