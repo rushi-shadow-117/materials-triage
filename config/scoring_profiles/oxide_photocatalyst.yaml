@@ -1,0 +1,184 @@
+# FDE-owned scoring profile: oxide photocatalyst candidates (visible-light gap window).
+# Thresholds are owner-sourced or owner-decided; status vocabulary in config/README.md.
+schema_version: 0
+profile: oxide_photocatalyst
+description: "Oxide photocatalyst candidates: band gap window 2 to 3 eV, otherwise the same machinery as the dielectric profile."
+
+criteria:
+  stability:
+    kind: energy_above_hull_ev_per_atom
+    hull: mixed_GGA_GGA+U_R2SCAN
+    shape: "linear ramp: score 1 at 0 meV/atom, 0 at cutoff; hard exclusion above cutoff"
+    cutoff_mev_per_atom: 94
+    near_cutoff_band_mev_per_atom: 24
+    near_cutoff_flag: "near cutoff"
+    thermo_enrichment: "fetch per-functional thermo documents for polymorphs within the near-cutoff band and flag hull-status disagreement"
+    status: entered
+    source:
+      citation: "W. Sun et al., The thermodynamic scale of inorganic crystalline metastability, Sci. Adv. 2, e1600225 (2016), CC BY-NC 4.0"
+      url: https://europepmc.org/article/PMC/PMC5262468
+      access: open
+      quote: "the 90th percentile for binary oxides occurring at 94 meV/atom"
+      quote_2: "formation energies from adjacent stable compounds in phase space can be accurately calculated to within 24 meV/atom"
+    caveat: "The 94 meV/atom percentile was computed on Materials Project GGA/GGA+U (PBE) energies for ICSD-observed binary oxide polymorphs. It is applied here to MP's mixed GGA_GGA+U_R2SCAN hull, which did not exist when the paper was written. Known limitation; shown in the audit view."
+    note: "Both numbers configurable. The all-chemistries 90th percentile (67 +/- 2 meV/atom) and median (15 +/- 0.5) are in the same paper."
+    entered_by: owner
+    entered_on: 2026-10-31
+
+  band_gap:
+    kind: band_gap_ev
+    policy: best_available
+    source_order: [experimental, tbmbj, pbe]
+    soft_preference_start_ev: null
+    hard_min_ev: 2.0
+    hard_max_ev: 3.3
+    shape: "hard window: excluded below hard_min_ev or above hard_max_ev; 1.0 inside"
+    status: entered
+    source:
+      citation: "Owner decision 2026-11-02: gap window 2.0 to 3.3 eV. The upper edge was set after the first scoring pass so that the recorded compendium medians of TiO2 (3.30 eV) and BaTiO3 (3.06 eV) fall inside it; the Track 0 discovery recording oxides_gap_2_to_3 used 3.0. An application choice, not a sourced chemistry fact."
+      url: null
+      access: not_applicable
+    aggregate_when_several_experimental_values: median
+    aggregate_options: [median, minimum]
+    conflict_tolerance_ev: null
+    conflict_tolerance_status: open
+    conflict_tolerance_derivation: "Shared with the dielectric profile; set when derived."
+    on_conflict: next_source
+    on_conflict_options: [next_source, minimum]
+    entered_by: owner
+    entered_on: 2026-11-02
+
+  dielectric_constant:
+    kind: static_dielectric_constant
+    weight: 0.0
+    target_band: [10, 30]
+    shape: "target band, not higher-is-better"
+    status: pending_verification
+    rationale: "Owner's reading of a secondary summary of Robertson (2004): k above 10, preferably 25 to 30; very high k is undesirable in CMOS because of fringing fields at source and drain."
+    source:
+      citation: "J. Robertson, Eur. Phys. J. Appl. Phys. 28, 265-291 (2004)"
+      doi: 10.1051/epjap:2004206
+      url: https://doi.org/10.1051/epjap:2004206
+      access: unknown
+    note: "Confirm against the primary review before use."
+    entered_by: owner
+    entered_on: 2026-10-31
+
+  simplicity:
+    max_elements: 3
+    anion_policy: strict_oxide
+    ternary_penalty: true
+    ternary_penalty_size: null
+    status: entered
+    source:
+      citation: "PI preference, not a chemistry fact; listed as a discovery question (owner decision 2026-10-31)"
+      url: null
+      access: not_applicable
+    entered_by: owner
+    entered_on: 2026-10-31
+
+  hazard:
+    policy_file: config/hazard_policy.yaml
+    status: entered
+    entered_by: owner
+    entered_on: 2026-10-31
+
+  evidence:
+    kind: evidence_tier
+    shape: "ordinal tier of the best verified evidence label for the composition; no usable label is missing (unclassified), never 0"
+    tiers:
+      dielectric_characterized: 1.0
+      thin_film_deposited: 0.75
+      bulk_synthesized: 0.5
+      computed_only: 0.25
+    ignored_labels: [not_relevant, no_abstract, unclassified]
+    status: entered
+    source:
+      citation: "Owner decision 2026-11-02 (Track A planning round): score evidence from classifier labels when present, otherwise missing; a design decision, not a chemistry fact. Recorded in docs/DECISIONS.md."
+      url: null
+      access: not_applicable
+    entered_by: owner
+    entered_on: 2026-11-02
+
+  deposition_method:
+    kind: deposition_method_match
+    weight: 0.0
+    shape: "1.0 when any evidence hit names a deposition method in the site profile's list, 0.0 when hits name methods and none match, missing otherwise"
+    status: entered
+    source:
+      citation: "Owner decision 2026-11-02: optional criterion, present at weight 0; design decision"
+      url: null
+      access: not_applicable
+    entered_by: owner
+    entered_on: 2026-11-02
+
+  cost:
+    kind: cost_or_abundance
+    weight: 0.0
+    status: open
+    note: "No public cost or abundance source is wired; the criterion is always missing. Documented extension."
+    entered_by: owner
+    entered_on: 2026-11-02
+
+weights:
+  status: entered
+  values:
+    stability: 1.0
+    band_gap: 1.0
+    hazard: 1.0
+    simplicity: 1.0
+    evidence: 1.0
+    dielectric_constant: 0.0
+    deposition_method: 0.0
+    cost: 0.0
+  shape: "total = sum(normalized * weight) / sum(weight) over criteria that have a value; missing criteria contribute nothing and are listed"
+  source:
+    citation: "Defaults from the Track 0 contract (config/schema.py ScoringProfile) carried into config so the FDE edits them here; optional criteria off per the owner's Track A prompt, 2026-11-02"
+    url: null
+    access: not_applicable
+  entered_by: owner
+  entered_on: 2026-11-02
+
+sensitivity:
+  status: entered
+  perturbation: 0.2
+  shape: "each weighted criterion is rescored at weight x 0.8 and x 1.2, one at a time; the rank range per candidate is reported"
+  source:
+    citation: "Owner decision 2026-11-02 (Track A prompt): +/-20% per weight"
+    url: null
+    access: not_applicable
+  entered_by: owner
+  entered_on: 2026-11-02
+
+synonyms:
+  status: entered
+  description: "FDE-owned search terms per composition for the literature query; curated from the recorded PubChem synonym lists."
+  source:
+    citation: "PubChem synonym lists for the chosen CIDs, recorded 2026-10-31 (fixtures/adapters/pubchem); trivial names chosen by the FDE"
+    url: https://pubchem.ncbi.nlm.nih.gov/
+    access: open
+  terms:
+    HfO2: [hafnia, hafnium dioxide]
+    ZrO2: [zirconia, zirconium dioxide]
+    Al2O3: [alumina, aluminum oxide]
+    SiO2: [silica, silicon dioxide]
+    TiO2: [titania, titanium dioxide]
+    ThO2: [thoria, thorium dioxide]
+    La2O3: [lanthana, lanthanum oxide]
+    BaTiO3: [barium titanate]
+    BeO: [beryllia, beryllium oxide]
+    Y2O3: [yttria, yttrium oxide]
+    Ta2O5: [tantalum pentoxide]
+  entered_by: owner
+  entered_on: 2026-11-02
+
+anchors:
+  status: entered
+  compositions: []
+  rule: "No incumbent is anchored for this profile; a site may add one. Anchors are never ranked; the scorer reports a would-rank position."
+  source:
+    citation: "Owner decision 2026-11-02"
+    url: null
+    access: not_applicable
+  entered_by: owner
+  entered_on: 2026-11-02

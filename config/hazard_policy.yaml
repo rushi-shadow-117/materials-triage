@@ -205,6 +205,28 @@ tiers:
         entered_by: owner
         entered_on: 2026-10-31
 
+  ghs_flag_codes:
+    description: "GHS codes outside the acute exclude and flag sets that keep the candidate ranked at the neutral score with the flag shown. Admin-configurable."
+    codes: [H340, H341, H350, H351, H361, H370]
+    note: "H340/H341 germ cell mutagenicity, H350/H351 carcinogenicity, H361 reproductive toxicity category 2, H370 specific target organ toxicity single exposure category 1. Code meanings cite the UN GHS."
+    status: entered
+    source:
+      citation: "Owner policy decision 2026-11-02, taken on seeing the Al2O3 result before pre-registration; code meanings from United Nations, GHS Rev. 10 (2023), Annex 3"
+      url: https://unece.org/transport/dangerous-goods/ghs-rev10-2023
+      access: open
+    entered_by: owner
+    entered_on: 2026-11-02
+
+  ghs_other_codes_rule:
+    description: "Every GHS code outside the exclude sets and the flag sets (for example H315, H319, H335, H372, H373) becomes a process-hazard caveat; the candidate keeps the allow score of 1.0 and the codes are shown as M of N notifications."
+    status: entered
+    source:
+      citation: "Owner policy decision 2026-11-02: these codes describe respirable powder handling, not film hazards. Taken on seeing the Al2O3 result before pre-registration."
+      url: null
+      access: not_applicable
+    entered_by: owner
+    entered_on: 2026-11-02
+
 unknown_hazard_rule:
   description: "A compound with no PubChem record, or an element with no tier entry, lands in the flag tier with a neutral score and a caveat. Never shown as safe."
   status: entered

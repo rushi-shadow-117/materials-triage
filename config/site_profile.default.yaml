@@ -2,17 +2,17 @@
 schema_version: 0
 
 deposition_methods:
-  status: pending_verification
+  status: entered
   preferred: null
-  methods: [CVD, electron_beam_evaporation, magnetron_sputtering, sol_gel, pulsed_laser_deposition, ALD]
-  note: "Published routes for alumina films, per the owner; no method preferred until the site configures its equipment. The source page returned HTTP 403 to automated checks on 2026-10-31, so the list is not yet tool-confirmed."
+  methods: [ALD, PEALD, sputtering, PLD, CVD, MOCVD, evaporation, sol_gel, MBE]
+  note: "Routes for oxide thin films available at a typical site; no method preferred until the site configures its equipment. The source page returned HTTP 403 to automated checks on 2026-10-31; the list is the owner's reading plus the owner's additions of 2026-11-02."
   source:
-    citation: "Advances in Condensed Matter Physics 2018, article 7598978 (ALD Al2O3 films; lists deposition routes)"
+    citation: "Advances in Condensed Matter Physics 2018, article 7598978 (ALD Al2O3 films; lists deposition routes), plus owner decision 2026-11-02"
     doi: 10.1155/2018/7598978
     url: https://doi.org/10.1155/2018/7598978
     access: open
   entered_by: owner
-  entered_on: 2026-10-31
+  entered_on: 2026-11-02
 
 screen_cannot_tell_you:
   description: "Properties always shown as missing; the screen does not estimate them."
@@ -38,3 +38,49 @@ glossary:
   terms: {}
   entered_by: owner
   entered_on: 2026-10-31
+
+attribution:
+  echa:
+    status: entered
+    text: "Source: European Chemicals Agency, https://echa.europa.eu/"
+    rule: "Shown on every row whose PubChem GHS record lists ECHA among its references."
+    source:
+      citation: "European Chemicals Agency, Legal notice (reuse of information requires the source to be acknowledged)"
+      url: https://echa.europa.eu/legal-notice
+      access: open
+    entered_by: owner
+    entered_on: 2026-11-02
+
+weight_bounds:
+  status: entered
+  description: "Scientists may set any weight in these bounds; requests outside are clamped and shown."
+  bounds:
+    stability: {min: 0.0, max: 1.0}
+    band_gap: {min: 0.0, max: 1.0}
+    hazard: {min: 0.0, max: 1.0}
+    simplicity: {min: 0.0, max: 1.0}
+    evidence: {min: 0.0, max: 1.0}
+    dielectric_constant: {min: 0.0, max: 1.0}
+    deposition_method: {min: 0.0, max: 1.0}
+    cost: {min: 0.0, max: 1.0}
+  source:
+    citation: "Site admin default, owner decision 2026-11-02"
+    url: null
+    access: not_applicable
+  entered_by: owner
+  entered_on: 2026-11-02
+
+defaults:
+  status: entered
+  top_n_max: 50
+  default_view: pi_summary
+  default_verbosity: standard
+  default_terminology: technical
+  radioactive_exclusion_locked: true
+  exclude_non_commercial: true
+  source:
+    citation: "Site admin default, owner decision 2026-11-02; radioactive exclusion admin-locked per internal/PLAN_OVERVIEW.md section 4"
+    url: null
+    access: not_applicable
+  entered_by: owner
+  entered_on: 2026-11-02

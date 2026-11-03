@@ -30,6 +30,9 @@ criteria:
     policy: best_available
     source_order: [experimental, tbmbj, pbe]
     soft_preference_start_ev: 5.0
+    hard_min_ev: null
+    hard_max_ev: null
+    shape: "linear ramp: score gap / soft_preference_start_ev, capped at 1.0; no hard threshold in this profile"
     status: entered
     approval: "Owner approved 2026-10-31 as the application choice for this profile."
     rationale_source_status: pending_verification
@@ -87,10 +90,93 @@ criteria:
     entered_on: 2026-10-31
 
   evidence:
-    status: open
-    note: "Evidence tiers are defined in the Phase 2 round."
+    kind: evidence_tier
+    shape: "ordinal tier of the best verified evidence label for the composition; no usable label is missing (unclassified), never 0"
+    tiers:
+      dielectric_characterized: 1.0
+      thin_film_deposited: 0.75
+      bulk_synthesized: 0.5
+      computed_only: 0.25
+    ignored_labels: [not_relevant, no_abstract, unclassified]
+    status: entered
+    source:
+      citation: "Owner decision 2026-11-02 (Track A planning round): score evidence from classifier labels when present, otherwise missing; a design decision, not a chemistry fact. Recorded in docs/DECISIONS.md."
+      url: null
+      access: not_applicable
     entered_by: owner
-    entered_on: 2026-10-31
+    entered_on: 2026-11-02
+
+  deposition_method:
+    kind: deposition_method_match
+    weight: 0.0
+    shape: "1.0 when any evidence hit names a deposition method in the site profile's list, 0.0 when hits name methods and none match, missing otherwise"
+    status: entered
+    source:
+      citation: "Owner decision 2026-11-02: optional criterion, present at weight 0; design decision"
+      url: null
+      access: not_applicable
+    entered_by: owner
+    entered_on: 2026-11-02
+
+  cost:
+    kind: cost_or_abundance
+    weight: 0.0
+    status: open
+    note: "No public cost or abundance source is wired; the criterion is always missing. Documented extension."
+    entered_by: owner
+    entered_on: 2026-11-02
+
+weights:
+  status: entered
+  values:
+    stability: 1.0
+    band_gap: 1.0
+    hazard: 1.0
+    simplicity: 1.0
+    evidence: 1.0
+    dielectric_constant: 0.0
+    deposition_method: 0.0
+    cost: 0.0
+  shape: "total = sum(normalized * weight) / sum(weight) over criteria that have a value; missing criteria contribute nothing and are listed"
+  source:
+    citation: "Defaults from the Track 0 contract (config/schema.py ScoringProfile) carried into config so the FDE edits them here; optional criteria off per the owner's Track A prompt, 2026-11-02"
+    url: null
+    access: not_applicable
+  entered_by: owner
+  entered_on: 2026-11-02
+
+sensitivity:
+  status: entered
+  perturbation: 0.2
+  shape: "each weighted criterion is rescored at weight x 0.8 and x 1.2, one at a time; the rank range per candidate is reported"
+  source:
+    citation: "Owner decision 2026-11-02 (Track A prompt): +/-20% per weight"
+    url: null
+    access: not_applicable
+  entered_by: owner
+  entered_on: 2026-11-02
+
+synonyms:
+  status: entered
+  description: "FDE-owned search terms per composition for the literature query; curated from the recorded PubChem synonym lists."
+  source:
+    citation: "PubChem synonym lists for the chosen CIDs, recorded 2026-10-31 (fixtures/adapters/pubchem); trivial names chosen by the FDE"
+    url: https://pubchem.ncbi.nlm.nih.gov/
+    access: open
+  terms:
+    HfO2: [hafnia, hafnium dioxide]
+    ZrO2: [zirconia, zirconium dioxide]
+    Al2O3: [alumina, aluminum oxide]
+    SiO2: [silica, silicon dioxide]
+    TiO2: [titania, titanium dioxide]
+    ThO2: [thoria, thorium dioxide]
+    La2O3: [lanthana, lanthanum oxide]
+    BaTiO3: [barium titanate]
+    BeO: [beryllia, beryllium oxide]
+    Y2O3: [yttria, yttrium oxide]
+    Ta2O5: [tantalum pentoxide]
+  entered_by: owner
+  entered_on: 2026-11-02
 
 anchors:
   status: entered

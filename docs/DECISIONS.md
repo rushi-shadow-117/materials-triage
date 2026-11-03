@@ -440,6 +440,93 @@ is unreachable, so store and replay tests skip through `requires_db` instead of 
 erroring in cleanup.
 Reason: parallel tracks run the suite in worktrees that may not have Compose up.
 
+### 2026-11-02 Scoring rules (Track A)
+Decision: the scorer in `src/materials_triage/scoring/` applies these rules; each is a design
+choice recorded here, none is a chemistry claim.
+- Total: weighted mean over criteria that have a value (`sum(normalized * weight) /
+  sum(weight)` over present criteria). A missing criterion contributes nothing and is listed
+  with its reason; weights renormalize. A candidate with no present weighted criterion is
+  excluded with `data.no_scorable_criteria`. Alternative: divide by all weights, which would
+  score missing data as zero.
+- Rank key: `(-total, composition, scored MP id)`. When several rules exclude a candidate the
+  first in a fixed order (hazard, stability, band gap, simplicity, evidence, data) is shown and
+  the rest go in the decision log under `also_excluded_by`.
+- Stability: `1 - hull_mev / cutoff` clamped to 0..1; above the cutoff excluded; within the
+  near-cutoff band on either side flagged. Alternative: a step at the cutoff.
+- Band gap: the experimental pool is the compendium plus entered reference values; point
+  values form the median (minimum as the option), ranges widen the shown range and count as
+  sources but do not enter the aggregate. TBmBJ is the JARVIS value matched onto the scored
+  polymorph; PBE is its MP summary gap. Conflict is checked only when
+  `conflict_tolerance_ev` is set; otherwise the row is flagged `band_gap_sources_uncompared`
+  and both values are shown. The tolerance stays `open` until Track E derives it (twice the
+  TBmBJ-vs-experimental error on the oxide subset). The hard window is the stricter of the
+  profile's and the query's; a looser query value is logged and ignored. Normalized:
+  `min(1, gap / soft_preference_start_ev)`; 1.0 inside a pure window. Alternative: trust the
+  experimental value whenever present (rejected 2026-10-31).
+- Hazard: element rules exclude first (radioactive, exclude tier, acute element tier), then
+  the compound tier, then GHS codes in the acute exclude set. Otherwise `flag` when an element
+  or compound flag applies, any GHS code is present, a process-hazard classification applies,
+  or no PubChem record exists (unknown); `allow` only with a record, no code, and no flag.
+  Scores: allow 1.0, flag and unknown 0.5. A record never fetched is missing, not unknown.
+  Superseded in part by the owner's GHS code decision below.
+- Process hazard: fires only on the policy's per-material classifications (SiO2, TiO2). The
+  particulate GHS code list is unsourced; a TODO in `scoring/hazard.py` names it.
+- Simplicity: element count above `max_elements` excludes; anions are the elements with a
+  negative state in pymatgen's first oxidation-state guess, and `strict_oxide` requires O as
+  the only anion (so hydroxides pass, oxyhalides do not); no guess flags, never excludes.
+  Binary 1.0; ternary `1 - ternary_penalty_size` when entered else
+  `(max_elements + 1 - n) / (max_elements - 1)` (0.5 at max 3). Alternative: a configured
+  anion element list, which would be a chemistry claim without a source.
+- Evidence: ordinal tier of the best verified label (owner decision 2026-11-02); no label is
+  missing with reason `unclassified`. `evidence_tier_min` excludes a classified candidate
+  below it and only flags an unclassified one.
+- Dielectric constant: 1.0 inside the target band, linear decay to 0 one band width outside;
+  the loader refuses weight above 0 while the band is pending.
+- Sensitivity: each weighted criterion rescored at x0.8 and x1.2 one at a time; perturbed
+  weights are not clamped by site bounds (an analysis, not a setting).
+- Polymorph: the ground state is scored unless the PI names an MP id, which is scored as given
+  so the stability rule can exclude it visibly (`polymorph_requested` flag).
+- Thermo enrichment ids: every MP id of compositions ranked in the top K or whose scored hull
+  is within the near-cutoff band of the cutoff on either side.
+- Summary-level groups (discovery before enrichment) score with hazard, dielectric, TBmBJ,
+  and evidence missing and the row flagged `enrichment_missing`; composition-level tables
+  still apply.
+- Golden fixture `fixtures/bundles/scored_bundle.json`: replayed responses carry the fixture
+  time (2026-11-02T12:00Z) instead of the wall clock so the file is byte-identical per build.
+Reason: every number a user sees must come from a rule that can be stated in two sentences
+with its source; these are those rules.
+
+### 2026-11-02 GHS codes outside the exclude sets: flag set and process-hazard caveat
+Decision (owner policy decision, taken on seeing the Al2O3 result in the first scoring pass,
+before pre-registration): GHS codes outside the acute exclude set map in two ways. A flag set
+(admin-configurable, default H340, H341, H350, H351, H361, H370, entered in
+`config/hazard_policy.yaml#tiers.ghs_flag_codes`) keeps the candidate ranked at the neutral
+0.5 with the flag shown, alongside the acute flag codes. Every other code (H315, H319, H335,
+H372, H373, and so on) becomes a process-hazard caveat and the candidate keeps the allow score
+of 1.0, with the codes shown as M of N notifications. Per-material process-hazard
+classifications are likewise caveat only. Unknown (no PubChem record) stays 0.5.
+Reason (owner): these codes describe respirable powder handling, not film hazards; the
+particulate hazard belongs in the caveat the PI reads, not in the rank.
+Consequence on the recorded oxides: Al2O3, La2O3, and Y2O3 move to the allow score and tie
+with HfO2 at 1.0; TiO2 (H351) and SiO2 (H350) stay at 0.5.
+Alternative: any GHS code flags at 0.5 (the first pass).
+
+### 2026-11-02 Photocatalyst window upper edge is 3.3 eV
+Decision (owner): `oxide_photocatalyst.yaml` uses a hard window of 2.0 to 3.3 eV. The upper
+edge was set after the first scoring pass so that the recorded compendium medians of TiO2
+(3.30 eV) and BaTiO3 (3.06 eV) fall inside it. An application choice, recorded with its origin.
+Alternative: 3.0 eV (the Track 0 discovery recording), under which no baseline oxide ranked.
+
+### 2026-11-02 Recorded data versus the owner's directional expectations
+Decision: tests assert what the recorded data gives and the differences are reported, not
+tuned. Under the first photocatalyst profile (2 to 3 eV hard window, best available source) the
+experimental medians of TiO2 (3.30 eV) and BaTiO3 (3.06 eV) fell above the window edge, so no
+baseline oxide ranked; the owner moved the edge to 3.3 eV (decision above).
+With the dielectric weight on (test band 10 to 30), HfO2 and ZrO2 already sit above SiO2's
+would-rank at weight 0, so the test asserts the margin widens. Rocksalt BeO (mp-1794, ICSD
+163825, 481 meV/atom) is excluded by the beryllium rule first and by hull once the hazard
+rules are lifted; both appear in the decision log.
+
 ## Track B: agent, verifier, renderers, CLI
 
 ## Track C: API and web
