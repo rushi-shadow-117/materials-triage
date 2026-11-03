@@ -22,11 +22,12 @@ from uuid import UUID, uuid4
 import yaml
 
 from materials_triage.adapters import expt_gap, jarvis, mp, openalex, pubchem
-from materials_triage.adapters.base import Call, RawResponse
+from materials_triage.adapters.base import Call, NotFetchedError, RawResponse
 from materials_triage.adapters.common import reduced_formula
 from materials_triage.config.schema import (
     CoreConfig,
     EffectiveConfig,
+    QuerySettings,
     ScoringProfile,
     SiteProfile,
     default_paths,
@@ -37,6 +38,7 @@ from materials_triage.records import (
     LiteratureHit,
     LiteratureSearchResult,
     Polymorph,
+    SourceRecord,
 )
 from materials_triage.records.bundle import (
     Clamp,
@@ -55,7 +57,7 @@ from . import classifier, prompts, rationale
 from .llm import LLMClient
 from .loop import Budget
 from .parse import ParseOutcome
-from .scoring_port import Scorer, ScoreRequest
+from .scoring_port import ScoredSet, Scorer, ScoreRequest
 
 ROOT = Path(__file__).resolve().parents[3]
 SNAPSHOTS = ROOT / "fixtures" / "snapshots"
@@ -285,6 +287,132 @@ def _run_metadata(
     )
 
 
+def discovery_filter(query: QuerySettings, profile: ScoringProfile) -> mp.DiscoveryFilter:
+    """The MP query for discovery mode. The stability cutoff is a scoring rule shown as an
+    exclusion, so it is never folded into the API filter."""
+    policy = profile.simplicity.anion_policy
+    elements: tuple[str, ...] = (
+        ("O",) if policy == "strict_oxide" else ("N",) if policy == "strict_nitride" else ()
+    )
+    exclude: tuple[str, ...] = ()
+    if policy == "strict_nitride":
+        exclude = ("O", "F", "Cl", "Br", "I", "S", "Se", "Te", "P", "As", "Sb", "H")
+    return mp.DiscoveryFilter(
+        elements=elements or ("O",),
+        nelements_min=2,
+        nelements_max=query.max_elements or profile.simplicity.max_elements,
+        band_gap_min=query.band_gap_min_ev,
+        band_gap_max=query.band_gap_max_ev,
+        exclude_elements=exclude,
+    )
+
+
+@dataclass
+class Collected:
+    groups: dict[str, CompositionGroup]
+    partial: list[str]
+    log: list[DecisionLogEntry]
+    refused: str | None = None  # discovery above the ceiling
+
+
+def collect_candidate_list(
+    keys: list[str], *, ctx: FetchContext, sources: Sources, synonyms: dict[str, list[str]]
+) -> Collected:
+    out = Collected({}, [], [])
+    for key in keys:
+        group = fetch_composition(key, ctx=ctx, sources=sources, synonyms=synonyms)
+        if group is None:
+            out.partial.append(f"{key}: no Materials Project summary available")
+            continue
+        out.groups[key] = group
+    out.log.append(
+        _log(
+            "fetch",
+            f"fetched {len(out.groups)} of {len(keys)} compositions",
+            events=len(ctx.events),
+        )
+    )
+    return out
+
+
+def summary_groups(records: list[SourceRecord], sources: Sources) -> dict[str, CompositionGroup]:
+    """Groups from summary records alone (pass 1 of discovery): hull and gap from the summary
+    document, experimental gaps from the snapshot, no hazard or literature yet."""
+    polys_by_comp: dict[str, list[Polymorph]] = {}
+    for poly in mp.assemble(records).polymorphs:
+        polys_by_comp.setdefault(poly.composition, []).append(poly)
+    return {
+        comp: build_group(comp, polys, experimental_gaps=sources.gap_aggregates.get(comp))
+        for comp, polys in sorted(polys_by_comp.items())
+    }
+
+
+def collect_discovery(
+    query: QuerySettings,
+    *,
+    profile: ScoringProfile,
+    anchors: list[str],
+    top_k: int,
+    ctx: FetchContext,
+    sources: Sources,
+    score: Callable[[dict[str, CompositionGroup]], list[str]],
+) -> Collected:
+    """Discovery: page every match or refuse above the ceiling; score summary-level groups;
+    enrich the top K with the full cross-checks; the caller scores again."""
+    out = Collected({}, [], [])
+    f = discovery_filter(query, profile)
+
+    def fetch(call: Call) -> RawResponse:
+        raw = ctx.get(call)
+        if raw is None:
+            raise NotFetchedError(call)
+        return raw
+
+    try:
+        result = mp.run_discovery(fetch, f, ceiling=mp.DISCOVERY_CEILING)
+    except NotFetchedError as e:
+        out.partial.append(f"discovery: {e}")
+        out.log.append(_log("discovery", "discovery query not available", params=f.params()))
+        return out
+    if result.refused:
+        out.refused = (
+            f"discovery matched {result.total_available} documents, above the ceiling of "
+            f"{result.ceiling}; narrow the query"
+        )
+        out.log.append(
+            _log("discovery", out.refused, total=result.total_available, ceiling=result.ceiling)
+        )
+        return out
+    groups = summary_groups(result.records, sources)
+    out.log.append(
+        _log(
+            "discovery",
+            f"{result.returned} summary documents in {len(groups)} compositions",
+            params=f.params(),
+            total=result.total_available,
+        )
+    )
+    ranked = score(groups)
+    enrich = list(dict.fromkeys([*ranked[:top_k], *anchors]))
+    enriched = 0
+    for key in enrich:
+        full = fetch_composition(key, ctx=ctx, sources=sources, synonyms=profile.synonyms)
+        if full is None:
+            out.partial.append(f"{key}: enrichment unavailable")
+            continue
+        groups[key] = full
+        enriched += 1
+    out.log.append(
+        _log(
+            "enrich",
+            f"cross-checks fetched for {enriched} of {len(enrich)} top candidates",
+            events=len(ctx.events),
+        )
+    )
+    out.groups = groups
+    return out
+
+
 def run(
     inputs: RunInputs,
     *,
@@ -300,8 +428,6 @@ def run(
     if outcome.query is None or outcome.effective is None:
         raise ValueError("the run needs resolved criteria")
     query, effective = outcome.query, outcome.effective
-    if query.mode != "candidate_list":
-        raise NotImplementedError("discovery mode is not wired yet; use candidate_list")
 
     budget = Budget.from_core(inputs.core)
     log: list[DecisionLogEntry] = [
@@ -310,34 +436,54 @@ def run(
     partial: list[str] = []
     ctx = FetchContext(fetch)
 
-    # 1. fetch, the same for every composition; the MP database version first
+    # 1. the MP database version, then fetch (the same cross-checks for every composition)
     mp_version: str | None = None
     heartbeat = ctx.get(mp.plan_heartbeat())
     if heartbeat is not None:
         mp_version = mp.parse_heartbeat(heartbeat)
     else:
         partial.append("materials_project: database version not available")
-    keys = list(dict.fromkeys([*query.candidate_list, *inputs.profile.anchors]))
-    groups: dict[str, CompositionGroup] = {}
-    for key in keys:
-        group = fetch_composition(key, ctx=ctx, sources=sources, synonyms=inputs.profile.synonyms)
-        if group is None:
-            partial.append(f"{key}: no Materials Project summary available")
-            continue
-        groups[key] = group
-    log.append(
-        _log("fetch", f"fetched {len(groups)} of {len(keys)} compositions", events=len(ctx.events))
-    )
+
+    def score_groups(groups: dict[str, CompositionGroup]) -> ScoredSet:
+        return scorer(
+            ScoreRequest(
+                groups=groups,
+                effective=effective,
+                profile=inputs.profile,
+                hazard_policy=inputs.hazard_policy,
+            )
+        )
+
+    if query.mode == "candidate_list":
+        keys = list(dict.fromkeys([*query.candidate_list, *inputs.profile.anchors]))
+        collected = collect_candidate_list(
+            keys, ctx=ctx, sources=sources, synonyms=inputs.profile.synonyms
+        )
+    else:
+
+        def pass_one(groups: dict[str, CompositionGroup]) -> list[str]:
+            first = score_groups(groups)
+            ranked = sorted(
+                (c for c in first.candidates if c.rank is not None), key=lambda c: c.rank or 0
+            )
+            return [c.composition for c in ranked]
+
+        collected = collect_discovery(
+            query,
+            profile=inputs.profile,
+            anchors=inputs.profile.anchors,
+            top_k=effective.top_n,
+            ctx=ctx,
+            sources=sources,
+            score=pass_one,
+        )
+    log.extend(collected.log)
+    partial.extend(collected.partial)
+    if collected.refused is not None:
+        partial.append(collected.refused)
 
     # 2. score (code only)
-    scored = scorer(
-        ScoreRequest(
-            groups=groups,
-            effective=effective,
-            profile=inputs.profile,
-            hazard_policy=inputs.hazard_policy,
-        )
-    )
+    scored = score_groups(collected.groups) if collected.groups else ScoredSet([], [])
     log.append(
         _log(
             "score",
@@ -347,7 +493,7 @@ def run(
         )
     )
 
-    # 3. classify evidence for ranked candidates (the same K hits for each)
+    # 3. classify evidence for ranked candidates (the same hits for each)
     model = llm.model if llm is not None else None
     provider = llm.provider if llm is not None else None
     hits: list[tuple[str, LiteratureHit]] = []
@@ -376,8 +522,9 @@ def run(
     for c in scored.candidates:
         if c.rank is not None:
             c.rationale_slot = f"candidate:{c.composition}:{rationale.ONE_LINE}"
-    bundle = ProvenanceBundle(
-        run=_run_metadata(
+
+    def metadata(finished: bool) -> RunMetadata:
+        return _run_metadata(
             inputs,
             effective,
             prompt_hash=prompt_hash,
@@ -387,7 +534,11 @@ def run(
             partial_reasons=partial,
             budget=budget,
             note=scored.note,
-        ),
+            finished=finished,
+        )
+
+    bundle = ProvenanceBundle(
+        run=metadata(False),
         criteria=ConfirmedCriteria(
             request_text=inputs.request_text,
             parsed_by=outcome.parsed_by,
@@ -421,20 +572,4 @@ def run(
             failures=[f.kind for f in report.failures],
         )
     )
-    return bundle.model_copy(
-        update={
-            "run": _run_metadata(
-                inputs,
-                effective,
-                prompt_hash=prompt_hash,
-                model=model,
-                provider=provider,
-                source_versions=source_versions,
-                partial_reasons=partial,
-                budget=budget,
-                note=scored.note,
-                finished=True,
-            ),
-            "decision_log": log,
-        }
-    )
+    return bundle.model_copy(update={"run": metadata(True), "decision_log": log})
