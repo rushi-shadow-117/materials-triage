@@ -12,15 +12,7 @@ def test_cli_lists_every_planned_command() -> None:
         assert cmd in result.output
 
 
-def test_cli_stubs_say_not_implemented() -> None:
-    for args in (
-        ["query", "x"],
-        ["rank", "--formulas", "HfO2"],
-        ["replay", "r"],
-        ["diff", "a", "b"],
-        ["eval"],
-        ["export", "r"],
-        ["serve"],
-    ):
-        result = CliRunner().invoke(app, args)
-        assert result.exit_code == 2 and "not implemented" in result.output, args
+def test_serve_stub_says_not_implemented() -> None:
+    """Track B implemented the other six commands (tests/cli); serve waits for Track C."""
+    result = CliRunner().invoke(app, ["serve"])
+    assert result.exit_code == 2 and "not implemented" in result.output
