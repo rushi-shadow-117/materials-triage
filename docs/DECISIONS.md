@@ -529,6 +529,120 @@ rules are lifted; both appear in the decision log.
 
 ## Track B: agent, verifier, renderers, CLI
 
+### 2026-11-02 One bounded conversation per step, one tool offered
+Decision: the agent runs four steps (parse, classify, rationale, relax), each a short
+conversation that offers exactly one of the four tools; the model acts only by calling it. A
+text-only reply is nudged once and then fails the step; refusal and context overflow fail
+without retry; the budget (CoreConfig tool calls, tokens, seconds) is checked before every
+request and a breach ends the step as partial with the reason. Every request appends a
+decision-log entry; the entry for the rationale step records slot ids and lengths, never the
+unverified text.
+Reason: one tool per step makes the contract testable with a scripted fake and keeps the
+model from mixing steps; a loop that offered all four tools would need the code to police
+which one was legal when.
+Alternative: one long conversation with all four tools and tool_choice forcing.
+
+### 2026-11-02 Strict tools with automatic tool choice; the pinned model id has no date
+Decision: every tool is declared `strict: true` with a closed schema (refs inlined, every
+object closed, every property required, optionals nullable, weights as named fields) and
+`tool_choice` is left automatic, because the pinned model rejects forced tool choice. The
+model id is pinned in settings as the exact string the provider serves (`claude-opus-5-5`);
+current ids carry no date suffix, and the id is recorded in every bundle's `model_version`.
+Reason: strict schemas make the model's input validate exactly; the prompt names the tool
+instead of forcing it.
+Alternative: forced tool choice (rejected by the model); a dated alias (none exists).
+
+### 2026-11-02 The model picks a relaxation; code computes it
+Decision: when fewer than top_n candidates rank, code enumerates the admissible threshold
+changes (band_gap_min_ev, band_gap_max_ev, max_elements): for each, the smallest change that
+admits the next excluded candidate with the exact new value and how many already-fetched
+candidates it admits. The model may only pick a choice id and phrase it without digits. The
+CLI shows "lowering X to V adds N" and applies it only on an explicit yes, as a new query
+(new config sha, new run) with the user's approval in the decision log.
+Reason: invariant 3; a number the model proposed would be a number the model computed.
+Alternative: the model proposes the value and code checks it.
+
+### 2026-11-02 Prompt hashes per step; the run records the combination
+Decision: prompts are a fixed-order concatenation of versioned fragments keyed by the
+TEMPLATE_FRAGMENTS ids; only the rationale step reads the query settings. Each step has its
+own sha256 over the system prompt, the provider-neutral tool spec, and the static user-turn
+fragments; `RunMetadata.prompt_hash` is the sha256 of the four joined. The classifier cache
+key uses the classify-step hash with the abstract sha256 and the model id, so a change to the
+rationale prompt or a verbosity setting never invalidates classified abstracts.
+Reason: the bundle has one prompt_hash field; one hash over all steps would make the cache
+depend on prompts it never used.
+Alternative: one hash over everything.
+
+### 2026-11-02 Display precision is one table and number checks are string equality
+Decision: `render/precision.py` holds the places per unit; renderers format through it and
+the verifier accepts a written number only when it equals one of the renderings of a bundle
+value (every precision from zero places up to the unit's, in the stored unit and in meV for
+energies), computed in decimal with half-up rounding. Raw floats are never admitted. The
+allowed set is scoped by slot id to that composition's numbers plus run-level counts.
+Reason: `round()` in binary float is half-even and representation dependent; a renderer must
+never emit a string the verifier rejects, and a round-trip test proves it.
+Alternative: float comparison within a tolerance.
+
+### 2026-11-02 What the verifier consumes before it scans digits
+Decision: per slot, in order: template tokens (validated against the bundle index), record
+ids by shape, GHS hazard codes (only those the bundle reports for the composition),
+oxidation-state tokens such as Cr(VI) (element must occur in the composition), then
+formula-shaped tokens parsed with pymatgen only when they carry a digit or parentheses or
+match a bundle composition exactly. Each pass replaces what it accepts with a placeholder.
+A failing fragment is the whole sentence, removed and logged; a slot emptied this way is
+unverified and the renderer shows the template text. Evidence quotes are exact substrings of
+the stored abstract with no Unicode normalization; fulltext-scope hits are never verified
+and never rise above computed_only.
+Reason: pymatgen parses "CVD", "ALD", and "H335" as formulas; the order keeps acronyms and
+hazard codes out of the formula check and keeps a number hidden in a formula-like token
+(Hf2O5) a formula failure.
+Alternative: a single regex pass over digits.
+
+### 2026-11-02 Caveat text: config for chemistry, code for run state, a marker otherwise
+Decision: caveat ids resolve through `render/caveats.py`: hazard flags, process hazard
+(template plus the per-material classification), unknown hazard, the stability cutoff
+mismatch, band offsets, and the ECHA attribution come from config entries with status
+`entered`; the data-state ids (experimental gap composition level and unreferenced,
+reference value pending, anion undetermined, evidence unclassified, enrichment missing) use
+code-owned text that states what the run did; any id without text renders
+"caveat text not entered: <id>". The deposition-method enum the classifier uses is
+code-owned from the owner's list; the site profile's pending list is not read, and Track A
+enters the identical list there.
+Reason: chemistry claims come only from sourced config; a run-state statement is not a
+chemistry claim; an invented sentence is worse than a visible gap.
+Alternative: all caveat text in config, including run-state text.
+
+### 2026-11-02 Runs are files; cassettes are a fetch path; the scorer is a port
+Decision (owner): completed bundles are JSON files under `<data_cache_dir>/runs/<run_id>.json`
+read by replay, diff, and export. The CLI's `--fetch store` uses the Postgres-backed Runner
+with FETCH_MODE from settings; `--fetch cassettes` serves the recorded interactions by cache
+key through the same URI mapping the seed script uses, with no database. The pipeline scores
+through a port: Track A's `scoring.scorer` when importable, else the sample stand-in that
+copies the sample bundle's scoring by composition and says so in the run note. Replay re-runs
+the stored criteria against stored data under a new run id with the source run logged.
+Reason: the runs table has no bundle column and provenance is frozen; a no-database path is
+what a cold run and CI need; the scorer interface lands after Track B started.
+Alternative: a bundle column (frozen area); a cassette-only CLI.
+
+### 2026-11-02 Diff attributes through evidence labels, policy hashes, and displacement
+Decision: a composition's data fingerprint is every provenance reachable from its summary
+minus fetch time and raw row id. Causes listed in fixed order, all that apply: candidate_set,
+data, config (config sha or hazard policy hash; `RunMetadata.policy_version` is the short
+sha256 of the policy file because its schema_version never changes on an edit), model (only
+when the composition's evidence labels changed; otherwise noted as not causal), and displaced
+by a named changed composition. "unattributed" means scorer code changed; the code version
+is in the decision log's start entry.
+Reason: the model touches rank only through labels; a policy edit was invisible to the
+config sha; a rank shift caused by a neighbour has no cause of its own.
+Alternative: one cause per change by priority.
+
+### 2026-11-02 The OpenAI-compatible provider is tested against a fake only
+Decision: the provider switch covers anthropic and bedrock through the SDK and
+openai_compatible through httpx against a base URL from settings. The last is exercised only
+with a fake transport in tests; no real server was recorded.
+Reason: no OpenAI-compatible server is available to record; the mapping is small and typed.
+Alternative: omit the provider until a server exists.
+
 ## Track C: API and web
 
 ## Track D: deploy and docs

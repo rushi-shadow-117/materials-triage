@@ -1,0 +1,166 @@
+# Audit view: {{ run.profile_name }}
+
+## Run
+
+- Run id: {{ run.run_id }}
+- Started: {{ run.started_at.isoformat() }}{% if run.finished_at %}, finished {{ run.finished_at.isoformat() }}{% endif %}
+
+- Fetch mode: {{ run.fetch_mode.value }}; partial: {{ "yes" if run.partial else "no" }}{% if view.partial_reasons %} ({{ view.partial_reasons | join("; ") }}){% endif %}
+
+- Config sha: {{ run.config_sha }}
+- Profile: {{ run.profile_name }} version {{ run.profile_version }}; hazard policy version {{ run.policy_version }}
+- Prompt hash: {{ run.prompt_hash or "none (no LLM)" }}
+- Model: {{ run.model_version or "none" }}; provider: {{ run.provider or "none" }}
+- Source versions: {% for k, v in run.source_versions.items() %}{{ k }}={{ v }}{% if not loop.last %}, {% endif %}{% else %}none{% endfor %}
+
+- Budgets: {{ view.budgets | join("; ") if view.budgets else "none recorded" }}
+{% if run.note %}
+- Note: {{ run.note }}
+{% endif %}
+{% if view.refusal %}
+
+**Request refused.** {{ view.refusal }}
+{% endif %}
+
+## Criteria
+
+- Request: {{ criteria.request_text }}
+- Parsed by: {{ criteria.parsed_by }}; confirmed: {{ criteria.confirmed_at.isoformat() if criteria.confirmed_at else "not confirmed" }}
+- Mode: {{ criteria.mode }}{% if criteria.candidate_list %}; candidates: {{ criteria.candidate_list | join(", ") }}{% endif %}
+
+- Defaults applied: {{ view.defaults_applied | join("; ") if view.defaults_applied else "none" }}
+- Clamps: {{ view.clamps | join("; ") if view.clamps else "none" }}
+- Units shown: {{ units }}
+{% macro row_block(r) %}
+### {{ r.composition }}: {{ r.rank }}{% if r.total != "excluded" %}, total {{ r.total }}{% endif %}
+
+{% if r.exclusion %}
+- Excluded: {{ r.exclusion }} ({{ r.exclusion_detail }}){% if r.exclusion_ref %}; rule source {{ r.exclusion_ref }}{% endif %}
+
+{% endif %}
+{% if r.rationale %}
+- Rationale{% if r.rationale_verified is false %} (verifier removed text){% endif %}: {{ r.rationale }}
+{% endif %}
+{% for f in r.removed_fragments %}
+- Removed by verifier: {{ f }}
+{% endfor %}
+- Flags: {{ r.flags | join(", ") if r.flags else "none" }}
+{% if r.sensitivity %}
+- Sensitivity: {{ r.sensitivity }}
+{% endif %}
+- Band gap source: {{ r.band_gap_source or "none" }}
+
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+|---|---|---|---|---|---|---|---|
+{% for c in r.criteria %}
+| {{ c.label }} | {{ c.raw }} | {{ c.source }} | {{ c.normalized }} | {{ c.weight }} | {{ c.contribution }} | {% if c.provenance %}{{ c.provenance.source }} {{ c.provenance.record_id }}{% if c.provenance.method %} ({{ c.provenance.method }}){% endif %}{% else %}none{% endif %} | {{ c.provenance.fetched_at if c.provenance else "" }} |
+{% endfor %}
+{% for c in r.criteria if c.notes %}
+- {{ c.label }} notes: {{ c.notes | join("; ") }}
+{% endfor %}
+
+Polymorphs: {{ r.polymorphs.total }} with MP ids ({{ r.polymorphs.observed }} observed, {{ r.polymorphs.theoretical }} theoretical, {{ r.polymorphs.unknown }} unknown).
+{% if r.polymorphs.ground_state %}
+- Ground state: {{ r.polymorphs.ground_state.mp_id }} ({{ r.polymorphs.ground_state.spacegroup }}), hull {{ r.polymorphs.ground_state.hull }}, {{ r.polymorphs.ground_state.observed }}{% if r.polymorphs.ground_state_is_theoretical %}; theoretical ground state{% if r.polymorphs.lowest_observed %}, lowest observed {{ r.polymorphs.lowest_observed.mp_id }} ({{ r.polymorphs.lowest_observed.spacegroup }}) at {{ r.polymorphs.lowest_observed.hull }}{% endif %}{% endif %}
+
+{% else %}
+- Ground state: none with a hull energy
+{% endif %}
+- Scored polymorph is the ground state: {{ "yes" if r.polymorphs.scored_is_ground_state else "no" }}; hull status conflict among functionals: {{ "yes" if r.polymorphs.hull_status_conflict else "no" }}
+{% for p in r.polymorphs.top_by_hull %}
+- {{ p.mp_id }} ({{ p.spacegroup }}): hull {{ p.hull }}, {{ p.observed }}{% if p.excluded_rule %}, excluded by {{ p.excluded_rule }}{% endif %}{% if p.hull_provenance %}; {{ p.hull_provenance.source }} {{ p.hull_provenance.record_id }}{% if p.hull_provenance.method %} ({{ p.hull_provenance.method }}){% endif %} fetched {{ p.hull_provenance.fetched_at }}{% endif %}
+
+{% endfor %}
+
+Experimental gaps: {{ r.gaps }}
+{% for v in r.gap_values %}
+- {{ v.label }}: {{ v.text }}{% if v.provenance %}; {{ v.provenance.source }} {{ v.provenance.record_id }} fetched {{ v.provenance.fetched_at }}{% endif %}
+
+{% endfor %}
+{% for v in r.reference_values %}
+- Reference value {{ v.label }}: {{ v.text }}{% if v.provenance %}; {{ v.provenance.source }} {{ v.provenance.record_id }}{% if v.provenance.url %} {{ v.provenance.url }}{% endif %}{% endif %}
+
+{% endfor %}
+
+Hazard: {{ r.ghs }}{% if r.echa_attribution %} (ECHA attribution applies){% endif %}
+
+Literature: {{ r.literature }}
+{% for e in r.evidence %}
+- {{ e.openalex_id }}{% if e.year %} ({{ e.year }}){% endif %}: {{ e.label }}{% if e.deposition_method %}, {{ e.deposition_method }}{% endif %}; {% if e.verified %}verified quote: "{{ e.quote }}"{% else %}not verified{% if e.note %} ({{ e.note }}){% endif %}{% if e.quote %}; claimed: "{{ e.quote }}"{% endif %}{% endif %}
+
+{% endfor %}
+{% if r.caveats %}
+Caveats:
+{% for c in r.caveats %}
+- {{ c.id.value }}{% if c.subject %} [{{ c.subject }}]{% endif %}: {{ c.text }} (source: {{ c.source }})
+{% endfor %}
+{% endif %}
+{% endmacro %}
+
+## Ranked candidates
+
+{% for r in view.rows %}
+{{ row_block(r) }}
+{% else %}
+No candidate passed the criteria.
+{% endfor %}
+{% if view.hidden_ranked %}
+{{ view.hidden_ranked }} more ranked candidate(s) beyond top_n are not shown; export CSV for every row.
+
+{% endif %}
+
+## Reference anchors (never ranked)
+
+{% for r in view.anchors %}
+{{ row_block(r) }}
+{% else %}
+None configured.
+{% endfor %}
+
+## Excluded
+
+{% for r in view.excluded %}
+{{ row_block(r) }}
+{% else %}
+None.
+{% endfor %}
+{% if view.hidden_excluded %}
+{{ view.hidden_excluded }} more excluded candidate(s) not shown; export CSV for every row.
+
+{% endif %}
+
+## What this screen cannot tell you
+
+{% for m in view.missing_properties %}
+- {{ m }}
+{% else %}
+- (site list not entered)
+{% endfor %}
+
+## Verifier
+
+{% if bundle.verifier %}
+- Checked {{ bundle.verifier.checked_slots }} slot(s) and {{ bundle.verifier.checked_evidence }} evidence hit(s); passed: {{ "yes" if bundle.verifier.passed else "no" }}
+{% for f in bundle.verifier.failures %}
+- {{ f.kind }} at {{ f.location }} ({{ f.action }}): {{ f.fragment }}
+{% endfor %}
+{% else %}
+- Not run (no LLM text in this bundle).
+{% endif %}
+
+## Decision log
+
+{% for d in bundle.decision_log %}
+- {{ d.at.isoformat() }} {{ d.actor }} {{ d.step }}: {{ d.summary }}{% if d.detail %} {{ d.detail | tojson }}{% endif %}
+
+{% else %}
+- empty
+{% endfor %}
+{% if bundle.availability_events %}
+
+## Availability events
+
+{% for e in bundle.availability_events %}
+- {{ e | tojson }}
+{% endfor %}
+{% endif %}

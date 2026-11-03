@@ -9,6 +9,7 @@ from pydantic import SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 FetchMode = Literal["live", "replay", "refresh"]
+LLMProvider = Literal["anthropic", "bedrock", "openai_compatible", "none"]
 
 
 class Settings(BaseSettings):
@@ -25,6 +26,15 @@ class Settings(BaseSettings):
     mp_api_key: SecretStr | None = None
     openalex_api_key: SecretStr | None = None
     openalex_mailto: str | None = None
+
+    # LLM access (Track B). The model id is the exact string the provider serves; it is
+    # recorded in every bundle. Provider "none" runs the pipeline with no LLM step.
+    llm_provider: LLMProvider = "anthropic"
+    llm_model: str = "claude-opus-5-5"
+    anthropic_api_key: SecretStr | None = None
+    llm_base_url: str | None = None  # openai_compatible: the server's /v1 base URL
+    llm_api_key: SecretStr | None = None  # openai_compatible: optional bearer token
+    aws_region: str | None = None  # bedrock
 
     data_cache_dir: Path = Path(".data-cache")
     fetch_mode: FetchMode = "live"
