@@ -468,9 +468,7 @@ choice recorded here, none is a chemistry claim.
   or compound flag applies, any GHS code is present, a process-hazard classification applies,
   or no PubChem record exists (unknown); `allow` only with a record, no code, and no flag.
   Scores: allow 1.0, flag and unknown 0.5. A record never fetched is missing, not unknown.
-  Consequence on the recorded oxides: Al2O3 (H335, H372), La2O3, Y2O3, TiO2, SiO2 score
-  0.5, which places Al2O3 fourth behind Ta2O5. Alternative: codes outside the acute sets
-  shown as caveats only with an allow score; owner to decide.
+  Superseded in part by the owner's GHS code decision below.
 - Process hazard: fires only on the policy's per-material classifications (SiO2, TiO2). The
   particulate GHS code list is unsourced; a TODO in `scoring/hazard.py` names it.
 - Simplicity: element count above `max_elements` excludes; anions are the elements with a
@@ -498,11 +496,32 @@ choice recorded here, none is a chemistry claim.
 Reason: every number a user sees must come from a rule that can be stated in two sentences
 with its source; these are those rules.
 
+### 2026-11-02 GHS codes outside the exclude sets: flag set and process-hazard caveat
+Decision (owner policy decision, taken on seeing the Al2O3 result in the first scoring pass,
+before pre-registration): GHS codes outside the acute exclude set map in two ways. A flag set
+(admin-configurable, default H340, H341, H350, H351, H361, H370, entered in
+`config/hazard_policy.yaml#tiers.ghs_flag_codes`) keeps the candidate ranked at the neutral
+0.5 with the flag shown, alongside the acute flag codes. Every other code (H315, H319, H335,
+H372, H373, and so on) becomes a process-hazard caveat and the candidate keeps the allow score
+of 1.0, with the codes shown as M of N notifications. Per-material process-hazard
+classifications are likewise caveat only. Unknown (no PubChem record) stays 0.5.
+Reason (owner): these codes describe respirable powder handling, not film hazards; the
+particulate hazard belongs in the caveat the PI reads, not in the rank.
+Consequence on the recorded oxides: Al2O3, La2O3, and Y2O3 move to the allow score and tie
+with HfO2 at 1.0; TiO2 (H351) and SiO2 (H350) stay at 0.5.
+Alternative: any GHS code flags at 0.5 (the first pass).
+
+### 2026-11-02 Photocatalyst window upper edge is 3.3 eV
+Decision (owner): `oxide_photocatalyst.yaml` uses a hard window of 2.0 to 3.3 eV. The upper
+edge was set after the first scoring pass so that the recorded compendium medians of TiO2
+(3.30 eV) and BaTiO3 (3.06 eV) fall inside it. An application choice, recorded with its origin.
+Alternative: 3.0 eV (the Track 0 discovery recording), under which no baseline oxide ranked.
+
 ### 2026-11-02 Recorded data versus the owner's directional expectations
 Decision: tests assert what the recorded data gives and the differences are reported, not
-tuned. Under the photocatalyst profile (2 to 3 eV hard window, best available source) the
-experimental medians of TiO2 (3.30 eV) and BaTiO3 (3.06 eV) fall above the window edge, so no
-baseline oxide ranks; `pbe_only` would place TiO2 (2.06 eV) and BaTiO3 (2.29 eV) inside it.
+tuned. Under the first photocatalyst profile (2 to 3 eV hard window, best available source) the
+experimental medians of TiO2 (3.30 eV) and BaTiO3 (3.06 eV) fell above the window edge, so no
+baseline oxide ranked; the owner moved the edge to 3.3 eV (decision above).
 With the dielectric weight on (test band 10 to 30), HfO2 and ZrO2 already sit above SiO2's
 would-rank at weight 0, so the test asserts the margin widens. Rocksalt BeO (mp-1794, ICSD
 163825, 481 meV/atom) is excluded by the beryllium rule first and by hull once the hazard

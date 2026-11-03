@@ -31,11 +31,11 @@ criteria:
     source_order: [experimental, tbmbj, pbe]
     soft_preference_start_ev: null
     hard_min_ev: 2.0
-    hard_max_ev: 3.0
+    hard_max_ev: 3.3
     shape: "hard window: excluded below hard_min_ev or above hard_max_ev; 1.0 inside"
     status: entered
     source:
-      citation: "Owner decision 2026-11-02 (Track A prompt): gap window 2 to 3 eV; the same window as the Track 0 discovery recording oxides_gap_2_to_3 in fixtures/compositions.yaml. An application choice, not a sourced chemistry fact."
+      citation: "Owner decision 2026-11-02: gap window 2.0 to 3.3 eV. The upper edge was set after the first scoring pass so that the recorded compendium medians of TiO2 (3.30 eV) and BaTiO3 (3.06 eV) fall inside it; the Track 0 discovery recording oxides_gap_2_to_3 used 3.0. An application choice, not a sourced chemistry fact."
       url: null
       access: not_applicable
     aggregate_when_several_experimental_values: median

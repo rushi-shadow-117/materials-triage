@@ -15,15 +15,25 @@ def test_baseline_ranking_exclusions_and_anchor(
 ) -> None:  # type: ignore[no-untyped-def]
     r = run(baseline_groups, dielectric_profile, site, policy, references, echa)
     ranked = sorted((c for c in r.candidates if c.rank), key=lambda c: c.rank or 0)
-    assert [c.composition for c in ranked][:3] == ["HfO2", "ZrO2", "Ta2O5"]
+    # four candidates tie at 1.0 and break by composition string
+    assert [c.composition for c in ranked] == [
+        "Al2O3",
+        "HfO2",
+        "La2O3",
+        "Y2O3",
+        "ZrO2",
+        "Ta2O5",
+        "TiO2",
+        "BaTiO3",
+    ]
     assert [c.rank for c in ranked] == list(range(1, 9))
     excluded = {c.composition: c.excluded.rule for c in r.candidates if c.excluded}
     assert excluded == {
         "ThO2": ExclusionRule.HAZARD_RADIOACTIVE,
         "BeO": ExclusionRule.HAZARD_EXCLUDE,
     }
-    hf = ranked[0]
-    assert hf.score is not None and hf.score.total == 1.0
+    hf = ranked[1]
+    assert hf.score is not None and hf.score.total == 1.0 and ranked[0].score.total == 1.0  # type: ignore[union-attr]
     stab = next(c for c in hf.score.criteria if c.criterion == "stability")
     assert stab.raw_value == 0.0 and stab.normalized == 1.0  # exact zero scores 1.0
     assert stab.provenance is not None and stab.provenance.source_record_id == "mp-352"
@@ -34,8 +44,9 @@ def test_baseline_ranking_exclusions_and_anchor(
     assert ev.missing and ev.missing_reason == "unclassified" and ev.contribution == 0.0
     assert Flag.EVIDENCE_UNCLASSIFIED in hf.flags
     [anchor] = r.anchors
-    assert anchor.composition == "SiO2" and anchor.out_of == 8 and anchor.would_rank == 6
+    assert anchor.composition == "SiO2" and anchor.out_of == 8 and anchor.would_rank == 7
     assert anchor.excluded is None and Flag.PROCESS_HAZARD in anchor.flags
+    assert Flag.HAZARD_FLAG in anchor.flags  # H350
     ta = next(c for c in ranked if c.composition == "Ta2O5")
     assert Flag.HULL_STATUS_CONFLICT in ta.flags and ta.score.hull_status_conflict  # type: ignore[union-attr]
     assert {m.property for m in r.missing_properties} >= {
@@ -73,8 +84,8 @@ def test_sensitivity_and_thermo_selector(
     for c in ranked:
         assert c.sensitivity is not None and c.sensitivity.perturbations == 10  # 5 weighted
         assert c.sensitivity.rank_min <= (c.rank or 0) <= c.sensitivity.rank_max
-    hf = next(c for c in ranked if c.composition == "HfO2")
-    assert hf.sensitivity is not None and hf.sensitivity.stable and hf.sensitivity.rank_min == 1
+    al = next(c for c in ranked if c.composition == "Al2O3")
+    assert al.sensitivity is not None and al.sensitivity.stable and al.sensitivity.rank_min == 1
     assert len(r.thermo_enrichment_ids) > 0
     # the default top_n (10) covers every ranked composition; none of the eleven is near cutoff
     thermo_log = next(e for e in r.decision_log if e.step == "thermo_enrichment")
@@ -131,15 +142,15 @@ def test_photocatalyst_window_on_recorded_gaps(
     rules = {c.composition: c.excluded.rule for c in r.candidates if c.excluded}
     assert rules["Al2O3"] is ExclusionRule.BAND_GAP_HARD_MAX
     assert rules["HfO2"] is ExclusionRule.BAND_GAP_HARD_MAX
-    # Recorded data: the experimental medians of TiO2 (3.30 eV) and BaTiO3 (3.06 eV) sit above
-    # the 3.0 eV window edge, so best_available excludes every baseline oxide under this
-    # profile. Reported to the owner with the numbers; not tuned here.
-    assert rules["TiO2"] is ExclusionRule.BAND_GAP_HARD_MAX
-    assert rules["BaTiO3"] is ExclusionRule.BAND_GAP_HARD_MAX
-    assert [c for c in r.candidates if c.rank] == [] and r.anchors == []
-    ti = next(c for c in r.candidates if c.composition == "TiO2")
+    # Owner decision 2026-11-02: the window's upper edge is 3.3 eV so the recorded compendium
+    # medians of TiO2 (3.30) and BaTiO3 (3.06) fall inside it
+    ranked = sorted((c for c in r.candidates if c.rank), key=lambda c: c.rank or 0)
+    assert [c.composition for c in ranked] == ["TiO2", "BaTiO3"]
+    ti = ranked[0]
     gap = next(c for c in ti.score.criteria if c.criterion == "band_gap")  # type: ignore[union-attr]
-    assert gap.raw_value == 3.3 and gap.source == "experimental_median"
+    assert gap.raw_value == 3.3 and gap.source == "experimental_median" and gap.normalized == 1.0
+    assert next(c for c in r.candidates if c.composition == "HfO2").rank is None
+    assert r.anchors == []
 
 
 def test_rocksalt_beo_requested_is_excluded_by_hull_once_be_is_allowed(

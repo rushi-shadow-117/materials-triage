@@ -3,13 +3,13 @@
 Exclusions, in order: radioactive elements (when the effective config excludes them),
 exclude-tier elements, acute-toxicity element tiers, acute-toxicity compound tiers, GHS codes
 in the acute exclude set. Otherwise the tier is `flag` when an element or compound flag
-applies, any GHS code is present, or no PubChem record exists (unknown), and `allow` only when
-a record exists with no hazard code in any notification and no element flag. Scores: allow
-1.0, flag and unknown 0.5 (the owner's unknown-hazard rule: neutral, never shown as safe).
-A hazard record that was never fetched (summary-level pass) is missing, not unknown.
-
-TODO (owner): the list of GHS codes that count as particulate hazards is not sourced; until
-it is, the process-hazard caveat fires only on the policy's per-material classifications.
+applies, a GHS code is in the acute flag set or the policy's `ghs_flag_codes`
+(carcinogenicity, mutagenicity, reproductive category 2, single-exposure organ toxicity), or
+no PubChem record exists (unknown). Every other GHS code (owner decision 2026-11-02: these
+describe respirable powder handling, not film hazards) becomes a process-hazard caveat and the
+candidate keeps the allow score, as does a per-material process-hazard classification. Scores:
+allow 1.0, flag and unknown 0.5 (neutral, never shown as safe). A hazard record that was never
+fetched (summary-level pass) is missing, not unknown.
 """
 
 from __future__ import annotations
@@ -94,8 +94,7 @@ def hazard(
             Caveat(id=CaveatId.HAZARD_FLAG, subject=composition, source_ref=comp_tier.source_ref)
         )
     ref = policy.process_hazard_classifications.get(composition)
-    if ref is not None:
-        flagged = True
+    if ref is not None:  # caveat only; the score is not lowered
         flags.append(Flag.PROCESS_HAZARD)
         caveats.append(Caveat(id=CaveatId.PROCESS_HAZARD, subject=composition, source_ref=ref))
 
@@ -112,23 +111,29 @@ def hazard(
         unknown = True
     else:
         unknown = record.cid is None
-    if codes:
+    flag_set = policy.acute_flag_codes | policy.ghs_flag_codes
+    hit_flag = sorted(codes & flag_set)
+    if hit_flag:
         flagged = True
-        hit_flag = sorted(codes & policy.acute_flag_codes)
-        if hit_flag:
-            flags.append(Flag.HAZARD_FLAG)
-            caveats.append(
-                Caveat(
-                    id=CaveatId.HAZARD_FLAG, subject=composition, source_ref=policy.acute_source_ref
-                )
+        flags.append(Flag.HAZARD_FLAG)
+        ref_flag = (
+            policy.acute_source_ref
+            if codes & policy.acute_flag_codes
+            else policy.ghs_flag_source_ref
+        )
+        caveats.append(Caveat(id=CaveatId.HAZARD_FLAG, subject=composition, source_ref=ref_flag))
+        notes.append(f"GHS flag codes present: {', '.join(hit_flag)}")
+    other = sorted(codes - flag_set - policy.acute_exclude_codes)
+    if other:
+        flags.append(Flag.PROCESS_HAZARD)
+        caveats.append(
+            Caveat(
+                id=CaveatId.PROCESS_HAZARD,
+                subject=composition,
+                source_ref=policy.ghs_other_codes_ref,
             )
-        else:
-            flags.append(Flag.HAZARD_FLAG)
-            caveats.append(
-                Caveat(
-                    id=CaveatId.HAZARD_FLAG, subject=composition, source_ref=policy.acute_source_ref
-                )
-            )
+        )
+        notes.append(f"GHS codes outside the exclude and flag sets: {', '.join(other)}")
     if record is not None:
         total = record.notifications_total
         nc = record.notifications_not_classified

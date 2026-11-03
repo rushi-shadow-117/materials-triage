@@ -49,7 +49,7 @@ def test_dielectric_profile_loads_with_the_owner_values() -> None:
 
 def test_photocatalyst_profile_has_the_window_and_no_anchor() -> None:
     p = load_scoring_profile(PROFILES / "oxide_photocatalyst.yaml").profile
-    assert (p.band_gap.hard_min_ev, p.band_gap.hard_max_ev) == (2.0, 3.0)
+    assert (p.band_gap.hard_min_ev, p.band_gap.hard_max_ev) == (2.0, 3.3)
     assert p.band_gap.soft_preference_start_ev is None and p.anchors == []
 
 
@@ -103,6 +103,8 @@ def test_hazard_policy_loads_only_entered_rules() -> None:
         "Hg": "exclude",
         "Pb": "exclude",
     }
+    assert hp.ghs_flag_codes == {"H340", "H341", "H350", "H351", "H361", "H370"}
+    assert hp.ghs_other_codes_ref == "hazard_policy.yaml#tiers.ghs_other_codes_rule"
     assert set(hp.process_hazard_classifications) == {"SiO2", "TiO2"}
     assert (
         hp.process_hazard_template

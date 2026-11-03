@@ -237,6 +237,9 @@ class HazardPolicy(Strict):
     acute_source_ref: str | None = None
     acute_compound_tiers: dict[str, TierEntry] = Field(default_factory=dict)
     acute_element_tiers: dict[str, TierEntry] = Field(default_factory=dict)
+    ghs_flag_codes: frozenset[str] = frozenset()
+    ghs_flag_source_ref: str | None = None
+    ghs_other_codes_ref: str | None = None  # other codes: process-hazard caveat, allow score
     process_hazard_template: str | None = None
     process_hazard_classifications: dict[str, str] = Field(default_factory=dict)  # comp -> ref
     unknown_rule_ref: str | None = None
@@ -303,6 +306,8 @@ def load_hazard_policy(path: Path) -> HazardPolicy:
         for e in entered(proc.get("material_classifications"))
     }
     unknown = data.get("unknown_hazard_rule") or {}
+    ghs_flag = tiers.get("ghs_flag_codes") or {}
+    ghs_other = tiers.get("ghs_other_codes_rule") or {}
     return HazardPolicy(
         version=str(data.get("schema_version", 0)),
         exclude_elements=exclude,
@@ -314,6 +319,15 @@ def load_hazard_policy(path: Path) -> HazardPolicy:
         acute_source_ref=f"{name}#tiers.acute_toxicity" if acute_ok else None,
         acute_compound_tiers=compound_tiers,
         acute_element_tiers=element_tiers,
+        ghs_flag_codes=frozenset(str(c) for c in ghs_flag.get("codes", []))
+        if _status(ghs_flag) == ENTERED
+        else frozenset(),
+        ghs_flag_source_ref=f"{name}#tiers.ghs_flag_codes"
+        if _status(ghs_flag) == ENTERED
+        else None,
+        ghs_other_codes_ref=f"{name}#tiers.ghs_other_codes_rule"
+        if _status(ghs_other) == ENTERED
+        else None,
         process_hazard_template=str(template["text"])
         if _status(template) == ENTERED and template.get("text")
         else None,

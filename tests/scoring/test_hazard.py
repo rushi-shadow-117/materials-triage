@@ -49,11 +49,23 @@ def test_allow_flag_and_unknown_scores(baseline_groups, policy, echa) -> None:  
     ba = tier(baseline_groups["BaTiO3"], policy, echa)
     assert ba.normalized == NEUTRAL and Flag.HAZARD_FLAG in ba.flags
     assert any(c.id is CaveatId.HAZARD_FLAG and c.subject == "Ba" for c in ba.caveats)
-    si = tier(baseline_groups["SiO2"], policy, echa)
-    assert si.normalized == NEUTRAL and Flag.PROCESS_HAZARD in si.flags
+    si = tier(baseline_groups["SiO2"], policy, echa)  # H350 is in the flag set
+    assert si.normalized == NEUTRAL and Flag.HAZARD_FLAG in si.flags
+    assert Flag.PROCESS_HAZARD in si.flags
     assert any(c.id is CaveatId.PROCESS_HAZARD and c.subject == "SiO2" for c in si.caveats)
+    ti = tier(baseline_groups["TiO2"], policy, echa)  # H351 is in the flag set
+    assert ti.normalized == NEUTRAL and Flag.HAZARD_FLAG in ti.flags
+    assert any("H351" in n for n in ti.notes)
+    # Owner decision 2026-11-02: codes outside the exclude and flag sets (H335, H372 on Al2O3)
+    # are a process-hazard caveat at the allow score, not a flag
     al = tier(baseline_groups["Al2O3"], policy, echa)
-    assert al.normalized == NEUTRAL and Flag.HAZARD_FLAG in al.flags  # H335, H372 present
+    assert al.normalized == ALLOW and Flag.HAZARD_FLAG not in al.flags
+    assert Flag.PROCESS_HAZARD in al.flags
+    al_caveat = next(c for c in al.caveats if c.id is CaveatId.PROCESS_HAZARD)
+    assert al_caveat.source_ref == "hazard_policy.yaml#tiers.ghs_other_codes_rule"
+    assert any("H335, H372" in n for n in al.notes)
+    for comp in ("La2O3", "Y2O3"):
+        assert tier(baseline_groups[comp], policy, echa).normalized == ALLOW
 
 
 def test_no_record_is_unknown_and_not_fetched_is_missing(baseline_groups, policy, echa) -> None:  # type: ignore[no-untyped-def]

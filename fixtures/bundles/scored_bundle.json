@@ -2249,7 +2249,7 @@
     }
    },
    "score": {
-    "total": 0.875,
+    "total": 1.0,
     "criteria": [
      {
       "criterion": "stability",
@@ -2302,12 +2302,12 @@
      },
      {
       "criterion": "hazard",
-      "raw_value": 0.5,
+      "raw_value": 1.0,
       "raw_unit": "tier",
-      "source": "flag",
-      "normalized": 0.5,
+      "source": "allow",
+      "normalized": 1.0,
       "weight": 1.0,
-      "contribution": 0.5,
+      "contribution": 1.0,
       "missing": false,
       "missing_reason": null,
       "provenance": {
@@ -2321,6 +2321,7 @@
        "license": null
       },
       "notes": [
+       "GHS codes outside the exclude and flag sets: H335, H372",
        "GHS codes H335, H372 in 225 of 3142 notifications (CID 9989226)"
       ]
      },
@@ -2407,11 +2408,11 @@
     "ground_state_is_theoretical": false,
     "near_cutoff": false
    },
-   "rank": 4,
+   "rank": 1,
    "excluded": null,
    "flags": [
     "band_gap_sources_uncompared",
-    "hazard_flag",
+    "process_hazard",
     "evidence_unclassified"
    ],
    "caveats": [
@@ -2436,9 +2437,9 @@
      "source_ref": "reference_values.yaml#al2o3_gap_crystalline_robertson2004"
     },
     {
-     "id": "hazard_flag",
+     "id": "process_hazard",
      "subject": "Al2O3",
-     "source_ref": "hazard_policy.yaml#tiers.acute_toxicity"
+     "source_ref": "hazard_policy.yaml#tiers.ghs_other_codes_rule"
     },
     {
      "id": "attribution_echa",
@@ -2452,9 +2453,9 @@
     }
    ],
    "sensitivity": {
-    "rank_min": 4,
-    "rank_max": 4,
-    "rank_median": 4.0,
+    "rank_min": 1,
+    "rank_max": 1,
+    "rank_median": 1.0,
     "perturbations": 10,
     "stable": true
    },
@@ -10123,7 +10124,7 @@
     "ground_state_is_theoretical": false,
     "near_cutoff": false
    },
-   "rank": 1,
+   "rank": 2,
    "excluded": null,
    "flags": [
     "band_gap_sources_uncompared",
@@ -10162,9 +10163,9 @@
     }
    ],
    "sensitivity": {
-    "rank_min": 1,
-    "rank_max": 1,
-    "rank_median": 1.0,
+    "rank_min": 2,
+    "rank_max": 2,
+    "rank_median": 2.0,
     "perturbations": 10,
     "stable": true
    },
@@ -11970,7 +11971,7 @@
     }
    },
    "score": {
-    "total": 0.875,
+    "total": 1.0,
     "criteria": [
      {
       "criterion": "stability",
@@ -12021,12 +12022,12 @@
      },
      {
       "criterion": "hazard",
-      "raw_value": 0.5,
+      "raw_value": 1.0,
       "raw_unit": "tier",
-      "source": "flag",
-      "normalized": 0.5,
+      "source": "allow",
+      "normalized": 1.0,
       "weight": 1.0,
-      "contribution": 0.5,
+      "contribution": 1.0,
       "missing": false,
       "missing_reason": null,
       "provenance": {
@@ -12040,6 +12041,7 @@
        "license": null
       },
       "notes": [
+       "GHS codes outside the exclude and flag sets: H315, H319, H335",
        "GHS codes H315, H319, H335 in 248 of 618 notifications (CID 150906)"
       ]
      },
@@ -12117,11 +12119,11 @@
     "ground_state_is_theoretical": false,
     "near_cutoff": false
    },
-   "rank": 5,
+   "rank": 3,
    "excluded": null,
    "flags": [
     "hull_status_conflict",
-    "hazard_flag",
+    "process_hazard",
     "evidence_unclassified"
    ],
    "caveats": [
@@ -12146,9 +12148,9 @@
      "source_ref": null
     },
     {
-     "id": "hazard_flag",
+     "id": "process_hazard",
      "subject": "La2O3",
-     "source_ref": "hazard_policy.yaml#tiers.acute_toxicity"
+     "source_ref": "hazard_policy.yaml#tiers.ghs_other_codes_rule"
     },
     {
      "id": "attribution_echa",
@@ -12162,9 +12164,9 @@
     }
    ],
    "sensitivity": {
-    "rank_min": 5,
-    "rank_max": 5,
-    "rank_median": 5.0,
+    "rank_min": 3,
+    "rank_max": 3,
+    "rank_median": 3.0,
     "perturbations": 10,
     "stable": true
    },
@@ -14241,7 +14243,7 @@
     "ground_state_is_theoretical": false,
     "near_cutoff": false
    },
-   "rank": 3,
+   "rank": 6,
    "excluded": null,
    "flags": [
     "hull_status_conflict",
@@ -14281,9 +14283,9 @@
     }
    ],
    "sensitivity": {
-    "rank_min": 3,
-    "rank_max": 3,
-    "rank_median": 3.0,
+    "rank_min": 6,
+    "rank_max": 6,
+    "rank_median": 6.0,
     "perturbations": 10,
     "stable": true
    },
@@ -20075,6 +20077,8 @@
        "license": null
       },
       "notes": [
+       "GHS flag codes present: H351",
+       "GHS codes outside the exclude and flag sets: H319, H320, H335, H372, H413",
        "GHS codes H319, H320, H335, H351, H372, H413 in 4157 of 11189 notifications (CID 26042)"
       ]
      },
@@ -20194,7 +20198,7 @@
     {
      "id": "hazard_flag",
      "subject": "TiO2",
-     "source_ref": "hazard_policy.yaml#tiers.acute_toxicity"
+     "source_ref": "hazard_policy.yaml#tiers.ghs_flag_codes"
     },
     {
      "id": "process_hazard",
@@ -22569,7 +22573,7 @@
     }
    },
    "score": {
-    "total": 0.875,
+    "total": 1.0,
     "criteria": [
      {
       "criterion": "stability",
@@ -22620,12 +22624,12 @@
      },
      {
       "criterion": "hazard",
-      "raw_value": 0.5,
+      "raw_value": 1.0,
       "raw_unit": "tier",
-      "source": "flag",
-      "normalized": 0.5,
+      "source": "allow",
+      "normalized": 1.0,
       "weight": 1.0,
-      "contribution": 0.5,
+      "contribution": 1.0,
       "missing": false,
       "missing_reason": null,
       "provenance": {
@@ -22639,6 +22643,7 @@
        "license": null
       },
       "notes": [
+       "GHS codes outside the exclude and flag sets: H315, H319, H320, H335, H413",
        "GHS codes H315, H319, H320, H335, H413 in 274 of 548 notifications (CID 159374)"
       ]
      },
@@ -22716,10 +22721,10 @@
     "ground_state_is_theoretical": false,
     "near_cutoff": false
    },
-   "rank": 6,
+   "rank": 4,
    "excluded": null,
    "flags": [
-    "hazard_flag",
+    "process_hazard",
     "evidence_unclassified"
    ],
    "caveats": [
@@ -22744,9 +22749,9 @@
      "source_ref": null
     },
     {
-     "id": "hazard_flag",
+     "id": "process_hazard",
      "subject": "Y2O3",
-     "source_ref": "hazard_policy.yaml#tiers.acute_toxicity"
+     "source_ref": "hazard_policy.yaml#tiers.ghs_other_codes_rule"
     },
     {
      "id": "attribution_echa",
@@ -22760,9 +22765,9 @@
     }
    ],
    "sensitivity": {
-    "rank_min": 6,
-    "rank_max": 6,
-    "rank_median": 6.0,
+    "rank_min": 4,
+    "rank_max": 4,
+    "rank_median": 4.0,
     "perturbations": 10,
     "stable": true
    },
@@ -25084,7 +25089,7 @@
     "ground_state_is_theoretical": false,
     "near_cutoff": false
    },
-   "rank": 2,
+   "rank": 5,
    "excluded": null,
    "flags": [
     "band_gap_sources_uncompared",
@@ -25123,9 +25128,9 @@
     }
    ],
    "sensitivity": {
-    "rank_min": 2,
-    "rank_max": 2,
-    "rank_median": 2.0,
+    "rank_min": 5,
+    "rank_max": 5,
+    "rank_median": 5.0,
     "perturbations": 10,
     "stable": true
    },
@@ -28756,6 +28761,8 @@
        "license": null
       },
       "notes": [
+       "GHS flag codes present: H341, H350",
+       "GHS codes outside the exclude and flag sets: H315, H319, H320, H335, H350i, H372, H373",
        "GHS codes H315, H319, H320, H335, H341, H350, H350i, H372, H373 in 1403 of 9127 notifications (CID 24261)"
       ]
      },
@@ -28842,7 +28849,7 @@
     "ground_state_is_theoretical": false,
     "near_cutoff": false
    },
-   "would_rank": 6,
+   "would_rank": 7,
    "out_of": 8,
    "excluded": null,
    "flags": [
@@ -28875,7 +28882,7 @@
     {
      "id": "hazard_flag",
      "subject": "SiO2",
-     "source_ref": "hazard_policy.yaml#tiers.acute_toxicity"
+     "source_ref": "hazard_policy.yaml#tiers.ghs_flag_codes"
     },
     {
      "id": "process_hazard",
