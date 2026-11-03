@@ -16,7 +16,7 @@
   ],
   "cassette_manifest": "fixtures/adapters/recording_manifest.json",
   "compositions_total": 61,
-  "git_commit": "686bc5c0b51b268889064ec3070f2a8cd7cf5700",
+  "git_commit": "9cfe8737c281f7f652fcddc1d7c082c24f5575f3",
   "snapshot_shas": {
    "expt_gap": "2d0980e3533c1ba6ad6e392a88f08cfcf2d311d4b7fe6eb0b0c8e876211dfda3",
    "jarvis_dft_3d": "d4c64660e9e1fa45c82bd8868a96ec10162195eed69636445972c05550d8d0d6",
@@ -32,7 +32,6 @@
     {
      "composition": "ThO2",
      "flags": [
-      "band_gap_sources_uncompared",
       "evidence_unclassified"
      ],
      "rank": null,
@@ -145,9 +144,9 @@
   "source": "Owner decision, Track E prompt, 2026-11-02"
  },
  "scorer": {
-  "config_sha": "205256412e5bb9bea6926e180f0c0cb61203bd73f2aa2d64216210d0f4b36c89",
+  "config_sha": "3e7006725575a32f9f5189f6a61d183e6cf8a16a35571c7a17a51c8593d94605",
   "name": "track_a",
-  "note": "VALIDATION RUN: recorded data scored by the Track A scorer under the entered config; no LLM step. Profile notes: band_gap.conflict_tolerance_ev is not set (status open); experimental and TBmBJ gaps are shown side by side but not compared; dielectric_constant target band unusable (status pending_verification); weight stays 0",
+  "note": "VALIDATION RUN: recorded data scored by the Track A scorer under the entered config; no LLM step. Profile notes: dielectric_constant target band unusable (status pending_verification); weight stays 0",
   "profile_name": "oxide_dielectric_thin_film",
   "profile_version": "0"
  },
@@ -657,14 +656,14 @@
   ]
  },
  "yim_like": {
-  "config_sha": "3d2454781d6175ef991ff7facfd7e7467761bece49777c16a4bcd3f16e37a34e",
+  "config_sha": "4975ae5e32dce1bdf0384403718aef95cf8a5260a7038ef2c7b02225ad43f405",
   "dielectric_target_band": [
    10.0,
    30.0
   ],
   "dielectric_target_band_status": "pending_verification",
   "label": "Yim-like configuration: stability, band gap and dielectric constant at weight 1; hazard, simplicity, evidence, deposition method and cost at weight 0. Weights are query-level overrides within site bounds; the default profile file is unchanged. Exclusion rules (hazard, stability cutoff, anion policy) still apply at weight 0.",
-  "note": "VALIDATION RUN (YIM-LIKE): recorded data scored by the Track A scorer with query weight overrides {'stability': 1.0, 'band_gap': 1.0, 'dielectric_constant': 1.0, 'hazard': 0.0, 'simplicity': 0.0, 'evidence': 0.0, 'deposition_method': 0.0, 'cost': 0.0} and the profile file's dielectric target band (10.0, 30.0) (status pending_verification) taken as written; the profile file is unchanged. Scored under the entered config; no LLM step. Profile notes: band_gap.conflict_tolerance_ev is not set (status open); experimental and TBmBJ gaps are shown side by side but not compared; dielectric_constant target band unusable (status pending_verification); weight stays 0; Yim-like run: dielectric target band [10.0, 30.0] (status pending_verification) used for the validation comparison only",
+  "note": "VALIDATION RUN (YIM-LIKE): recorded data scored by the Track A scorer with query weight overrides {'stability': 1.0, 'band_gap': 1.0, 'dielectric_constant': 1.0, 'hazard': 0.0, 'simplicity': 0.0, 'evidence': 0.0, 'deposition_method': 0.0, 'cost': 0.0} and the profile file's dielectric target band (10.0, 30.0) (status pending_verification) taken as written; the profile file is unchanged. Scored under the entered config; no LLM step. Profile notes: dielectric_constant target band unusable (status pending_verification); weight stays 0; Yim-like run: dielectric target band [10.0, 30.0] (status pending_verification) used for the validation comparison only",
   "tables": [
    {
     "absent": [],

@@ -12,7 +12,7 @@ from pathlib import Path
 
 from evals.cases import load_cases, select
 from evals.execute import SampleBundleExecutor
-from evals.judge import agreement_rate, make_judge, write_judge_sample
+from evals.judge import SAMPLE_PATH, agreement_rate, make_judge, write_judge_sample
 from evals.preregistration import PREREG_PATH, preregister
 from evals.runner import RESULTS_DIR, parse_repeats, run_suite, write_results
 
@@ -39,6 +39,9 @@ def main(argv: list[str] | None = None) -> int:
         )
         return 0
     if args.cmd == "agreement":
+        if not SAMPLE_PATH.exists():
+            print(f"no judge sample at {SAMPLE_PATH}; run `python -m evals judge-sample` first")
+            return 1
         print(json.dumps(agreement_rate(), indent=1))
         return 0
 

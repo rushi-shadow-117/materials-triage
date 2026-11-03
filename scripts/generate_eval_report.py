@@ -181,7 +181,7 @@ def validation_sections(val: dict[str, Any] | None, cal: dict[str, Any] | None) 
                 "none" if band is None else f"[{band[0]:g}, {band[1]:g}]"
             ) + f" (status {like['dielectric_target_band_status']})"
             out += [
-                f"Yim-like configuration: {like['label']}",
+                like["label"],
                 "",
                 f"- weights: {weights}",
                 f"- dielectric target band: {band_text}",
@@ -257,6 +257,10 @@ def preregistration_section(pre: dict[str, Any] | None) -> list[str]:
         f"Pre-registered {pre['recorded_at']} for scorer `{pre['scorer']}` at commit "
         f"`{pre['preregistered_commit'] or 'unknown'}`: "
         f"config sha `{pre['preregistered_config_sha'][:12]}`.",
+        "The pre-registered sha is the config resolved with the default query. The run shas in "
+        "the validation section include each run's query (candidate list, top_n, weight "
+        "overrides), so they differ from it by design; only the comparison below says whether "
+        "the config changed.",
     ]
     if pre["config_tuned_after_preregistration"]:
         out.append(
