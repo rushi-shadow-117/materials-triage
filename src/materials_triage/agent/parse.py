@@ -112,9 +112,11 @@ def resolve_outcome(
     missing: list[str],
 ) -> ParseOutcome:
     effective, clamps = resolve(core, site, profile, query)
+    defaults = list(defaults)
     for key in ("verbosity", "terminology", "view"):
-        if getattr(query, key) is None:
-            defaults.append(f"{key}={getattr(effective, key).value}")
+        entry = f"{key}={getattr(effective, key).value}"
+        if getattr(query, key) is None and entry not in defaults:
+            defaults.append(entry)
     missing = list(missing)
     if (
         query.mode == "candidate_list"
