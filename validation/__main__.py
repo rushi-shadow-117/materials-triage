@@ -3,10 +3,10 @@
 from __future__ import annotations
 
 import argparse
-import importlib.util
 import sys
 from pathlib import Path
 
+from validation import track_a
 from validation.report import RESULTS_DIR, run_validation
 
 
@@ -17,12 +17,15 @@ def main(argv: list[str] | None = None) -> int:
     run.add_argument("--out", default=str(RESULTS_DIR))
     args = ap.parse_args(argv)
     if args.cmd == "run":
-        if importlib.util.find_spec("materials_triage.scoring.scorer") is not None:
-            # Wired in Track E step 12, after the rebase on Track A.
-            raise SystemExit("Track A scorer present; wire validation.report to it")
-        from validation.stand_in import score_stand_in
+        if track_a.available():
+            report = run_validation(
+                track_a.score_with_track_a, scorer_name="track_a", out_dir=Path(args.out)
+            )
+        else:
+            from validation.stand_in import score_stand_in
 
-        report = run_validation(score_stand_in, scorer_name="stand_in", out_dir=Path(args.out))
+            report = run_validation(score_stand_in, scorer_name="stand_in", out_dir=Path(args.out))
+        print("scorer:", report["scorer"]["name"])
         yim = report["yim"]
         for t in yim["tables"]:
             print(
