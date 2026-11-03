@@ -1,0 +1,17 @@
+id: B3
+group: B
+kind: normal
+title: Property not in any source
+request: Find oxides with high thermal conductivity and wide band gaps.
+expectation: thermal conductivity reported as unavailable from configured sources; ranking proceeds
+  on gap and the other core criteria; the missing criterion is marked in every row and in the summary;
+  no number invented.
+mode: discovery
+checks:
+- name: run_completed
+- name: missing_markers_present
+- name: no_estimated_values
+- name: text_in_rendered
+  params:
+    view: pi_summary
+    contains: thermal conductivity

@@ -29,7 +29,7 @@ from evals.schema import Case, Message, Observation
 from materials_triage.adapters import openalex
 from materials_triage.adapters.base import Call, RawResponse
 from materials_triage.agent import parse as parse_mod
-from materials_triage.agent import pipeline
+from materials_triage.agent import pipeline, relaxation
 from materials_triage.agent.llm import LLMClient, make_client
 from materials_triage.agent.loop import Budget
 from materials_triage.cli import wiring
@@ -43,7 +43,7 @@ from materials_triage.config.schema import (
     site_profile_from_yaml,
 )
 from materials_triage.records.bundle import FetchMode, ProvenanceBundle
-from materials_triage.render import markdown
+from materials_triage.render import csv_export, markdown
 from materials_triage.settings import Settings
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -149,6 +149,15 @@ class ParseFailureError(Exception):
     pass
 
 
+class ClarificationError(Exception):
+    """The parse step asked for required fields the request and the case file do not give.
+    That is an outcome, not an error: no run starts."""
+
+    def __init__(self, fields: list[str]) -> None:
+        super().__init__(", ".join(fields))
+        self.fields = list(fields)
+
+
 class PipelineExecutor:
     def __init__(
         self,
@@ -162,7 +171,9 @@ class PipelineExecutor:
         self.llm_mode: LlmMode = llm
         self.fetch_source: FetchSource = fetch_source
         self.name = f"pipeline:{llm}:{fetch_source}"
-        self.layers = wiring.load_layers(profile or default_paths()["scoring_profile"].stem)
+        self.default_profile = profile or default_paths()["scoring_profile"].stem
+        self._layers: dict[str, wiring.Layers] = {}
+        self.layers = self.layers_for_profile(self.default_profile)
         self.sources = pipeline.Sources.load()
         self.run_dir = run_dir or DEFAULT_RUN_DIR
         self._settings = settings
@@ -176,10 +187,22 @@ class PipelineExecutor:
             self._settings = Settings()
         return self._settings
 
+    def layers_for_profile(self, name: str) -> wiring.Layers:
+        if name not in self._layers:
+            self._layers[name] = wiring.load_layers(name)
+        return self._layers[name]
+
+    def layers_for(self, case: Case) -> wiring.Layers:
+        return self.layers_for_profile(case.profile or self.default_profile)
+
+    def llm_mode_for(self, case: Case) -> LlmMode:
+        return case.llm or self.llm_mode
+
     def client(self, case: Case) -> LLMClient | None:
-        if self.llm_mode == "none":
+        mode = self.llm_mode_for(case)
+        if mode == "none":
             return None
-        if self.llm_mode == "fake":
+        if mode == "fake":
             return CaseScriptedLLM(case)
         if self._live is None:
             self._live = make_client(self.settings())
@@ -217,7 +240,8 @@ class PipelineExecutor:
     def parse(
         self, case: Case, client: LLMClient | None
     ) -> tuple[parse_mod.ParseOutcome, list[str]]:
-        core, site, profile = self.layers.core, self.layers.site, self.layers.profile
+        layers = self.layers_for(case)
+        core, site, profile = layers.core, layers.site, layers.profile
         log: list[str] = []
         if client is None:
             query = QuerySettings(
@@ -267,7 +291,7 @@ class PipelineExecutor:
                     updates[key] = case.settings[key]
             still = [k for k in outcome.missing_required if k not in updates]
             if still:
-                raise ParseFailureError("missing required: " + ", ".join(still))
+                raise ClarificationError(still)
             outcome = parse_mod.resolve_outcome(
                 outcome.query.model_copy(update=updates),
                 parsed_by=outcome.parsed_by,
@@ -297,16 +321,17 @@ class PipelineExecutor:
         llm_calls = 0
         run_id = f"error-{case.id}-{repeat}"
         client = self.client(case)
+        layers = self.layers_for(case)
         try:
             outcome, parse_log = self.parse(case, client)
             log.extend(parse_log)
             inputs = pipeline.RunInputs(
                 request_text=case.request,
                 parse=outcome,
-                core=self.layers.core,
-                site=self.layers.site,
-                profile=self.layers.profile,
-                hazard_policy=self.layers.hazard_policy,
+                core=layers.core,
+                site=layers.site,
+                profile=layers.profile,
+                hazard_policy=layers.hazard_policy,
                 confirmed_at=datetime.now(UTC),
             )
             fetch, mode, fetch_log = self.fetch_for(case, inputs.run_id)
@@ -333,19 +358,37 @@ class PipelineExecutor:
                 log.append(f"refusal: {case.id} ended at parse; nothing fetched")
             for view in VIEWS:
                 try:
-                    rendered[view] = markdown.render(bundle, view=view, site=self.layers.site)
+                    rendered[view] = markdown.render(bundle, view=view, site=layers.site)
                 except Exception as e:  # noqa: BLE001 - a render failure is an observed error
                     errors.append(f"render {view}: {type(e).__name__}: {e}")
             if bundle.criteria.mode != "refused":
                 transcript.append(Message(role="assistant", content=rendered.get("pi_summary", "")))
+                try:
+                    units, _ = markdown.options_from_bundle(bundle, layers.site)
+                    rendered["csv"] = csv_export.export_csv(bundle, units=units)
+                except Exception as e:  # noqa: BLE001 - observed, not raised
+                    errors.append(f"export csv: {type(e).__name__}: {e}")
+                if outcome.query is not None:
+                    choices = relaxation.enumerate_relaxations(bundle, outcome.query)
+                    log.append(
+                        f"harness: relaxations available (code, not applied): {len(choices)}"
+                        + ("; " + "; ".join(c.describe() for c in choices) if choices else "")
+                    )
             self._save(bundle)
+        except ClarificationError as e:
+            run_id = f"clarification-{case.id}-{repeat}"
+            log.append(f"harness: the parse asked for: {e}; no run started")
+            transcript.append(Message(role="assistant", content=f"Please provide: {e}"))
         except ParseFailureError as e:
             errors.append(str(e))
             log.append(f"harness: {e}")
         if isinstance(client, CaseScriptedLLM):
             llm_calls = len(client.requests)
         elif bundle is not None:
-            llm_calls = int(bundle.run.budgets_used.get("tool_calls", 0))
+            llm_calls = int(
+                sum(v for k, v in bundle.run.budgets_used.items() if k.endswith("requests"))
+                or bundle.run.budgets_used.get("tool_calls", 0)
+            )
         after_sha, after_files = effective_config_sha(case), config_files_sha()
         return Observation(
             case_id=case.id,

@@ -1,0 +1,13 @@
+id: E4
+group: E
+kind: normal
+title: FDE changes a scoring profile (YAML)
+request: FDE changes a scoring profile (YAML).
+expectation: golden-file prompt tests change and must be re-approved; profile version recorded in
+  bundles.
+mode: discovery
+skip_reason: 'a config file edit, not a chat query. Covered elsewhere: every bundle records run.profile_version
+  and run.config_sha, and the pre-registration section of docs/EVAL.md shows a config change after
+  the fact.'
+checks:
+- name: run_completed

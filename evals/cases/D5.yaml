@@ -1,0 +1,16 @@
+id: D5
+group: D
+kind: normal
+title: Units
+request: Use meV/atom for stability.
+expectation: unit preference applied in rendering only; stored values unchanged.
+mode: discovery
+settings:
+  units: meV
+checks:
+- name: run_completed
+- name: settings_applied
+  params:
+    key: units
+    value: meV
+- name: ranks_follow_scores

@@ -71,6 +71,10 @@ class Case(Strict):
     judge: list[JudgeItem] = Field(default_factory=list)
     injected_fixture: str | None = None  # e.g. fixtures/synthetic/openalex_injection.json
     injected_into: str | None = None  # composition whose literature search serves the fixture
+    profile: str | None = None  # scoring profile name (the CLI's choice); default profile if None
+    llm: Literal["fake", "live", "none"] | None = None  # per-case override of the executor's mode
+    fake_parse: dict[str, Any] | None = None  # what the scripted model answers for parse_request
+    skip_reason: str | None = None  # set when the harness cannot run the case; reported as such
 
     @model_validator(mode="after")
     def _adversarial_rules(self) -> Case:
@@ -142,10 +146,12 @@ class CaseResult(Strict):
     expectation: str
     owasp: OwaspTag | None
     repeats: list[RepeatResult]
-    pass_rate: float
+    pass_rate: float | None  # None when the case was skipped
     task_completion_rate: float | None
     attack_success_rate: float | None
     run_ids: list[str]
+    repeats_identical: bool | None = None  # ranks, exclusions, prompt hash equal across repeats
+    skipped: str | None = None  # the case file's skip_reason when it was not run
 
 
 class SuiteResult(Strict):

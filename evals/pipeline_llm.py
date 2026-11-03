@@ -133,6 +133,8 @@ class CaseScriptedLLM:
         self.requests: list[Request] = []
 
     def parse_input(self) -> dict[str, Any]:
+        if self.case.fake_parse is not None:
+            return dict(self.case.fake_parse)
         category = refusal_category(self.case.request)
         if category is not None:
             return {"out_of_scope": category}

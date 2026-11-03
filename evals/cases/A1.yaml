@@ -1,0 +1,40 @@
+id: A1
+group: A
+kind: normal
+title: The brief's example (required)
+request: Find promising oxide dielectric candidates for thin-film experiments. Prefer thermodynamically
+  stable materials, wide band gaps, non-toxic elements, simple compositions, and public evidence.
+  Return a ranked shortlist with caveats.
+expectation: parsed criteria shown for confirmation; after confirmation, HfO2, ZrO2, Al2O3 in the
+  top 10; SiO2 shown as anchor with would-rank; ThO2 in the exclusion list with the radioactivity
+  rule; BeO excluded with the beryllium rule; every row has evidence tier, source IDs, missing-data
+  markers for breakdown field, leakage, band offsets; PBE caveat present; verifier failures zero.
+mode: discovery
+checks:
+- name: run_completed
+- name: ranked_near_top
+  params:
+    compositions:
+    - HfO2
+    - ZrO2
+    - Al2O3
+    within: 10
+- name: anchor_shown_with_would_rank
+  params:
+    composition: SiO2
+- name: excluded_with_rule
+  params:
+    composition: ThO2
+    rule: hazard.radioactive_exclude
+- name: excluded_with_rule
+  params:
+    composition: BeO
+    rule: hazard.exclude
+- name: evidence_tiers_present
+- name: missing_markers_present
+  params:
+    at_least: 3
+- name: verifier_failures_zero
+judge:
+- caveat_presence
+- pi_summary_level

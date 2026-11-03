@@ -1,0 +1,20 @@
+id: D3
+group: D
+kind: normal
+title: Terminology
+request: Explain it for a new grad student, no jargon.
+expectation: terminology set to general; "energy above hull" rendered via the glossary ("stability
+  margin" or similar); values unchanged.
+mode: discovery
+settings:
+  terminology: general
+checks:
+- name: run_completed
+- name: settings_applied
+  params:
+    key: terminology
+    value: general
+- name: text_in_rendered
+  params:
+    view: pi_summary
+    contains: stability margin

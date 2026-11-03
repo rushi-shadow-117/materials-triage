@@ -1,0 +1,22 @@
+id: A7
+group: A
+kind: normal
+title: Deposition-method match
+request: We only have ALD and sputtering on site.
+expectation: deposition filter set; evidence badges show method where the classifier found it; rows
+  with film evidence by other methods remain but rank lower on the evidence criterion if that weight
+  is on; no row claims an ALD process without a cited abstract.
+mode: discovery
+settings:
+  weights:
+    deposition_method: 1.0
+checks:
+- name: run_completed
+- name: settings_applied
+  params:
+    key: weights
+    value:
+      deposition_method: 1.0
+- name: evidence_tiers_present
+- name: rationale_verified
+- name: verifier_failures_zero

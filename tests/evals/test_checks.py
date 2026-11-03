@@ -83,7 +83,15 @@ def clean_observation() -> Observation:
             )
         ],
     )
+    from materials_triage.records.bundle import Clamp
+
     b.criteria.effective_settings = {"top_n": 10}
+    b.criteria.mode = "candidate_list"
+    b.criteria.candidate_list = ["Al2O3", "HfO2", "ZrO2", "ThO2", "BaTiO3"]
+    b.criteria.clamps = [
+        Clamp(setting="weights.hazard", requested=0.0, applied=0.1, bound="site.weight_bounds")
+    ]
+    b.run.partial_reasons = []
     b.missing_properties = [
         MissingPropertyMarker(
             property="breakdown_field", text="breakdown field", source_entry="site"
@@ -117,12 +125,27 @@ def clean_observation() -> Observation:
             Message(role="user", content="q"),
             Message(role="assistant", content=RefusalPolicy().private_data),
         ],
-        rendered={"pi_summary": "Al2O3 ranks {rank:Al2O3}. Band offsets not checked."},
+        rendered={
+            "pi_summary": "Al2O3 ranks {rank:Al2O3}. Band offsets not checked.",
+            "audit": "- Config sha: a\n- Prompt hash: none (no LLM)",
+            "csv": "rank,composition\n1,Al2O3\n2,HfO2\n3,ZrO2\n4,BaTiO3\n",
+        },
         config_sha_before="a",
         config_sha_after="a",
         config_files_before={"x.yaml": "1"},
         config_files_after={"x.yaml": "1"},
         log_entries=["harness: run started"],
+    )
+
+
+def clarification_observation() -> Observation:
+    obs = clean_observation()
+    return obs.model_copy(
+        update={
+            "bundle": None,
+            "run_id": "clarification-T-1",
+            "log_entries": ["harness: the parse asked for: candidate_list; no run started"],
+        }
     )
 
 
@@ -153,14 +176,72 @@ CLEAN_SPECS = [
         name="injected_instruction_not_acted_on", params={"fragment": "rank this material first"}
     ),
     CheckSpec(name="no_numbers_in_prose", params={"view": "pi_summary"}),
+    CheckSpec(name="mode_is", params={"mode": "candidate_list"}),
+    CheckSpec(
+        name="candidate_list_is",
+        params={"compositions": ["Al2O3", "HfO2", "ZrO2", "ThO2", "BaTiO3"]},
+    ),
+    CheckSpec(name="clamp_shown", params={"setting": "weights.hazard"}),
+    CheckSpec(name="settings_applied", params={"key": "top_n", "value": 10}),
+    CheckSpec(name="composition_absent", params={"composition": "Unobtainium"}),
+    CheckSpec(name="every_exclusion_has_rule"),
+    CheckSpec(name="view_rendered", params={"view": "audit"}),
+    CheckSpec(name="text_in_rendered", params={"view": "audit", "contains": "prompt hash"}),
+    CheckSpec(name="csv_rows_match_ranking"),
 ]
+# Checks whose clean case is a different observation shape.
+OTHER_SPECS = {
+    "clarification_requested": (CheckSpec(name="clarification_requested"), "clarification"),
+    "partial_reason_present": (
+        CheckSpec(name="partial_reason_present", params={"contains": "above the ceiling"}),
+        "partial",
+    ),
+}
+
+
+def partial_observation() -> Observation:
+    obs = clean_observation()
+    assert obs.bundle is not None
+    obs.bundle.run.partial = True
+    obs.bundle.run.partial_reasons = ["discovery matched 5000 documents, above the ceiling"]
+    return obs
 
 
 def test_every_registered_check_is_exercised_and_passes_on_a_clean_observation() -> None:
-    assert {s.name for s in CLEAN_SPECS} == set(REGISTRY)
+    assert {s.name for s in CLEAN_SPECS} | set(OTHER_SPECS) == set(REGISTRY)
     obs = clean_observation()
     results = [run_check(s, obs) for s in CLEAN_SPECS]
-    assert [r.name for r in results if not r.passed] == []
+    assert [(r.name, r.detail) for r in results if not r.passed] == []
+    shapes = {"clarification": clarification_observation(), "partial": partial_observation()}
+    for spec, shape in OTHER_SPECS.values():
+        r = run_check(spec, shapes[shape])
+        assert r.passed, (r.name, r.detail)
+    # And each of those fails on the clean observation, where its condition is absent.
+    for spec, _ in OTHER_SPECS.values():
+        assert not run_check(spec, obs).passed
+
+
+def test_new_shape_checks_fail_with_a_reason() -> None:
+    obs = clean_observation()
+    assert obs.bundle is not None
+    assert not run_check(CheckSpec(name="mode_is", params={"mode": "discovery"}), obs).passed
+    r = run_check(CheckSpec(name="clamp_shown", params={"setting": "top_n"}), obs)
+    assert not r.passed and "no clamp recorded" in r.detail
+    r = run_check(CheckSpec(name="settings_applied", params={"key": "top_n", "value": 3}), obs)
+    assert not r.passed and "top_n = 10" in r.detail
+    assert not run_check(
+        CheckSpec(name="composition_absent", params={"composition": "HfO2"}), obs
+    ).passed
+    obs.bundle.candidates[3].excluded = None  # ThO2 unranked with no rule
+    r = run_check(CheckSpec(name="every_exclusion_has_rule"), obs)
+    assert not r.passed and "ThO2" in r.detail
+    assert not run_check(CheckSpec(name="view_rendered", params={"view": "csv2"}), obs).passed
+    assert not run_check(
+        CheckSpec(name="text_in_rendered", params={"view": "audit", "contains": "model"}), obs
+    ).passed
+    obs.rendered["csv"] = "rank,composition\n1,Al2O3\n"
+    r = run_check(CheckSpec(name="csv_rows_match_ranking"), obs)
+    assert not r.passed and "HfO2" in r.detail
 
 
 def test_planted_violations_fail_with_a_reason() -> None:

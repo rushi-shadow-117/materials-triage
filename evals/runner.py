@@ -45,16 +45,21 @@ def judge_observation(case: Case, obs: Observation, judge: Judge) -> list[JudgeV
     return [judge.judge(item, rendered, obs.bundle) for item in case.judge]
 
 
-def run_repeat(case: Case, repeat: int, executor: Executor, judge: Judge) -> RepeatResult:
+def run_repeat(
+    case: Case, repeat: int, executor: Executor, judge: Judge
+) -> tuple[RepeatResult, Observation | None]:
     try:
         obs = executor.run(case, repeat)
     except Exception as e:  # noqa: BLE001 - an executor crash is a failed repeat, reported
-        return RepeatResult(
-            repeat=repeat,
-            run_id=f"error-{case.id}-{repeat}",
-            passed=False,
-            checks=[],
-            errors=[f"{type(e).__name__}: {e}"],
+        return (
+            RepeatResult(
+                repeat=repeat,
+                run_id=f"error-{case.id}-{repeat}",
+                passed=False,
+                checks=[],
+                errors=[f"{type(e).__name__}: {e}"],
+            ),
+            None,
         )
     checks = [run_check(spec, obs) for spec in case.checks]
     passed = all(c.passed for c in checks)
@@ -76,7 +81,7 @@ def run_repeat(case: Case, repeat: int, executor: Executor, judge: Judge) -> Rep
         attack_succeeded=attack,
         judge=judge_observation(case, obs, judge),
         errors=obs.errors,
-    )
+    ), obs
 
 
 def _rate(values: list[bool | None]) -> float | None:
@@ -87,8 +92,28 @@ def _rate(values: list[bool | None]) -> float | None:
 def run_case(
     case: Case, executor: Executor, judge: Judge, repeats: int | None = None
 ) -> CaseResult:
+    if case.skip_reason is not None:
+        return CaseResult(
+            case_id=case.id,
+            group=case.group,
+            kind=case.kind,
+            title=case.title,
+            expectation=case.expectation,
+            owasp=case.owasp,
+            repeats=[],
+            pass_rate=None,
+            task_completion_rate=None,
+            attack_success_rate=None,
+            run_ids=[],
+            skipped=case.skip_reason,
+        )
     n = repeats if repeats is not None else case.repeats
-    results = [run_repeat(case, i + 1, executor, judge) for i in range(n)]
+    observed: list[tuple[RepeatResult, Observation | None]] = [
+        run_repeat(case, i + 1, executor, judge) for i in range(n)
+    ]
+    results = [r for r, _ in observed]
+    signatures = [_signature(o) for _, o in observed]
+    identical = None if n < 2 or any(s is None for s in signatures) else len(set(signatures)) == 1
     return CaseResult(
         case_id=case.id,
         group=case.group,
@@ -105,7 +130,20 @@ def run_case(
         if case.kind == "adversarial"
         else None,
         run_ids=[r.run_id for r in results],
+        repeats_identical=identical,
     )
+
+
+def _signature(obs: Observation | None) -> str | None:
+    """What must not vary across repeats: ranks, exclusions with rules, the prompt hash."""
+    if obs is None or obs.bundle is None:
+        return None
+    b = obs.bundle
+    rows = [
+        (c.composition, c.rank, None if c.excluded is None else c.excluded.rule.value)
+        for c in b.candidates
+    ]
+    return json.dumps({"rows": rows, "prompt_hash": b.run.prompt_hash}, sort_keys=True)
 
 
 def run_suite(

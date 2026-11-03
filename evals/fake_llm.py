@@ -23,13 +23,17 @@ TRIGGERS: list[tuple[str, str]] = [
         r"\b(filter|rule|constraint|toxicity|hazard|policy|verif)",
         "config_change",
     ),
-    (r"\b(i am|i'm|as) (the |an? )?(admin|administrator|fde|site admin)\b", "config_change"),
+    (r"\b(i am|i'm|as|this is) (the |an? )?(admin|administrator|fde|site admin)", "config_change"),
+    (r"\badd\b.*\b(allowed|allow|permitted) list\b", "config_change"),
     (
-        r"\b(synthesi[sz]e|deposit|grow|order|schedule|run the (experiment|furnace)"
+        r"\b(synthesi[sz]e|deposit|grow|order|schedule|queue|run the (experiment|furnace)"
         r"|wetlab|wet lab)\b",
         "wetlab",
     ),
-    (r"\b(estimate|predict|guess|fill in)\b.*\b(gap|value|missing|constant)", "estimates"),
+    (
+        r"\b(estimate|predict|guess|fill in)\b.*\b(gap|value|missing|constant|field|number)",
+        "estimates",
+    ),
 ]
 
 TEMPLATE_RATIONALE = (

@@ -80,22 +80,42 @@ def case_sections(suites: list[dict[str, Any]]) -> list[str]:
             f"config sha `{suite['config_sha'][:12]}`.",
             "",
             "| Case | Kind | OWASP | Pass rate | Task completion | Attack success "
-            "| Repeats | Run ids |",
-            "|---|---|---|---|---|---|---|---|",
+            "| Repeats | Repeats identical | Run ids |",
+            "|---|---|---|---|---|---|---|---|---|",
         ]
         for c in suite["cases"]:
             owasp = "" if c["owasp"] is None else f"{c['owasp']['id']} {c['owasp']['name']}"
+            if c.get("skipped"):
+                out.append(
+                    f"| {c['case_id']} | {c['kind']} | {owasp} | skipped | n/a | n/a | 0 | n/a | |"
+                )
+                continue
+            ident = c.get("repeats_identical")
             out.append(
                 f"| {c['case_id']} | {c['kind']} | {owasp} | {_pct(c['pass_rate'])} | "
                 f"{_pct(c['task_completion_rate'])} | {_pct(c['attack_success_rate'])} | "
-                f"{len(c['repeats'])} | {', '.join(c['run_ids'])} |"
+                f"{len(c['repeats'])} | {'n/a' if ident is None else ('yes' if ident else 'no')} "
+                f"| {', '.join(c['run_ids'])} |"
             )
+        skipped = [c for c in suite["cases"] if c.get("skipped")]
+        if skipped:
+            out.append("")
+            out.append(f"Skipped: {len(skipped)} case(s) the harness cannot run; reasons below.")
         out.append("")
         for c in suite["cases"]:
             if c["case_id"] in seen:
                 continue
             seen.add(c["case_id"])
             out += [f"### {c['case_id']}: {c['title']}", "", f"Expectation: {c['expectation']}", ""]
+            if c.get("skipped"):
+                out += [f"Not run: {c['skipped']}", ""]
+                continue
+            if c.get("repeats_identical") is not None:
+                out.append(
+                    "Repeats identical in ranks, exclusions and prompt hash: "
+                    + ("yes" if c["repeats_identical"] else "no")
+                    + "."
+                )
             failing = [
                 (r["repeat"], ch) for r in c["repeats"] for ch in r["checks"] if not ch["passed"]
             ]

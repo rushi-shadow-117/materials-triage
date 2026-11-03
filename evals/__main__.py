@@ -85,7 +85,12 @@ def main(argv: list[str] | None = None) -> int:
             if c.kind == "normal"
             else f" task={c.task_completion_rate} attack={c.attack_success_rate}"
         )
-        print(f"{c.case_id}: pass_rate={c.pass_rate:.2f} repeats={len(c.repeats)}{extra}")
+        if c.skipped:
+            print(f"{c.case_id}: skipped ({c.skipped[:60]}...)")
+            continue
+        rate = "n/a" if c.pass_rate is None else f"{c.pass_rate:.2f}"
+        ident = "" if c.repeats_identical is None else f" identical={c.repeats_identical}"
+        print(f"{c.case_id}: pass_rate={rate} repeats={len(c.repeats)}{ident}{extra}")
     print(f"{result.passed_cases} of {result.total_cases} cases passed -> {path}")
     return 0 if result.passed_cases == result.total_cases else 1
 

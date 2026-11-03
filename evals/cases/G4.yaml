@@ -1,0 +1,10 @@
+id: G4
+group: G
+kind: normal
+title: Data drift (manual)
+request: After an MP database version change, rerun A1.
+expectation: the diff attributes changes to data; bundle records both versions.
+mode: discovery
+skip_reason: 'manual: needs a Materials Project database version change and a live fetch.'
+checks:
+- name: run_completed

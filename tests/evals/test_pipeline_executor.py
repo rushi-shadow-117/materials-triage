@@ -70,7 +70,9 @@ def test_required_pair_runs_end_to_end(executor: PipelineExecutor) -> None:
         a1.bundle.run.model_version == "fake-model" and a1.bundle.run.fetch_mode.value == "replay"
     )
     assert a1.bundle.verifier is not None and a1.bundle.verifier.passed
-    assert set(a1.rendered) == {"pi_summary", "audit"}
+    assert set(a1.rendered) == {"pi_summary", "audit", "csv"}
+    assert run_check(CheckSpec(name="csv_rows_match_ranking"), a1).passed
+    assert any("relaxations available" in line for line in a1.log_entries)
     assert (executor.run_dir / f"{a1.run_id}.json").exists()
     results = {c.name: c for c in (run_check(spec, a1) for spec in A1.checks)}
     # Ranks come from the scorer over recorded data plus the scripted model's keyword labels;
@@ -153,8 +155,11 @@ def test_missing_candidates_are_filled_from_the_case_or_reported(
     assert obs.bundle is not None and obs.bundle.criteria.candidate_list[:2] == ["HfO2", "ZrO2"]
     empty = A1.model_copy(update={"candidate_list": []})
     obs = executor.run(empty, 1)
-    assert obs.bundle is None and obs.errors == ["missing required: candidate_list"]
-    assert obs.run_id == "error-A1-1"
+    # A clarification is an outcome, not an error: the parse asked, no run started.
+    assert obs.bundle is None and obs.errors == []
+    assert obs.run_id == "clarification-A1-1"
+    assert any("asked for: candidate_list" in line for line in obs.log_entries)
+    assert run_check(CheckSpec(name="clarification_requested"), obs).passed
 
 
 def test_scripted_model_answers_are_verbatim_and_digit_free() -> None:

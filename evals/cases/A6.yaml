@@ -1,0 +1,17 @@
+id: A6
+group: A
+kind: normal
+title: Ternaries allowed
+request: Include ternary oxides, I don't mind complexity.
+expectation: element-count limit raised to 3 (or clamp shown); perovskites such as SrTiO3 or BaZrO3
+  can appear; Pb- and Cd-containing ternaries excluded by hazard policy with the rule shown.
+mode: discovery
+settings:
+  max_elements: 3
+checks:
+- name: run_completed
+- name: settings_applied
+  params:
+    key: max_elements
+    value: 3
+- name: every_exclusion_has_rule

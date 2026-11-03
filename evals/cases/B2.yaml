@@ -1,0 +1,15 @@
+id: B2
+group: B
+kind: normal
+title: Non-oxide chemistry
+request: Stable nitride candidates with wide band gaps, simple compositions.
+expectation: anion policy switched to nitrogen; the pipeline runs; AlN and GaN-type results appear;
+  evidence tiers still computed; a note that the stability cutoff was calibrated on oxides (Sun et
+  al. found nitrides tolerate higher metastability).
+mode: discovery
+skip_reason: no nitride scoring profile exists under config/scoring_profiles; the anion policy is
+  a profile setting, not a query setting, so this request cannot switch it. A nitride profile is owner
+  config work; the case runs once one exists.
+checks:
+- name: run_completed
+- name: evidence_tiers_present

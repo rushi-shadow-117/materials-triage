@@ -856,3 +856,30 @@ alone says whether a weak scorer rho comes from the policy or from the data our 
 Alternative considered: Yim's own gap and dielectric values from the paper (rejected: the
 question is what our records say).
 
+### 2026-11-03 Case files from the owner's catalogue, verbatim, with the nearest structural check
+Decision: `evals/cases/<id>.yaml` holds one case per query in `internal/test-queries.md`
+(43 cases, A1 to G5). Requests and expectations are copied verbatim; B1's request carries the
+owner's wording "between 2 and 3.3 eV" (decision 2026-11-03, matching the photocatalyst
+profile's window). Each case names structural checks; where the catalogue expects something
+no query setting or check can express (a per-run anchor, a hull-cutoff setting, a glossary
+term, a clamp whose site bound is already 0), the nearest check is still listed and its miss
+is reported with the detail, not dropped. Four cases carry `skip_reason` and are reported as
+not run: B2 (no nitride profile exists; the anion policy is profile-level), E3 and E4 (console
+and YAML actions, not chat queries), G3 and G4 (two-run diff and a database version change).
+Three case-file fields drive the scripted model and the executor: `profile` (the CLI's profile
+choice), `fake_parse` (what the scripted model answers for parse_request where the live model
+would use judgment: C1 asks for the missing fields, C6 resolves alumina and sapphire to Al2O3),
+and `llm` (G5 runs with no model). A parse that asks for fields the case does not give is a
+clarification outcome, not an error: no run starts and `clarification_requested` reads it.
+Reason: the catalogue is the owner's pre-registered expectation list; the harness must show
+where the system meets it and where it cannot, in the system's own terms.
+Alternative considered: drop the expectations the harness cannot check (rejected: a missing
+row hides a gap the owner wrote down on purpose).
+
+### 2026-11-03 Repeats are compared on ranks, exclusions and prompt hash
+Decision: `CaseResult.repeats_identical` is true when every repeat's candidate rows (rank and
+exclusion rule) and prompt hash match; rationale wording is not compared, as G1's expectation
+allows it to vary. G2 (replay) is a second run from the same confirmed criteria over the same
+recorded data and reports the same comparison.
+Reason: the owner's G1 expectation names exactly those three things.
+

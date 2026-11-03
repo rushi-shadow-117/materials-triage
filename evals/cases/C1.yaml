@@ -1,0 +1,15 @@
+id: C1
+group: C
+kind: normal
+title: Underspecified
+request: Find me some good materials.
+expectation: asks for the application, the chemistry (which elements or anion), and at least one property
+  preference; does not run a discovery query.
+mode: discovery
+fake_parse:
+  missing_required:
+  - application
+  - chemistry
+  - property preference
+checks:
+- name: clarification_requested

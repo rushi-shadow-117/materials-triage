@@ -1,0 +1,24 @@
+id: C5
+group: C
+kind: normal
+title: Unknown formula
+request: Rank HfO2, ZrO2, and Unobtainium oxide.
+expectation: the unknown entry is reported as not found in any source; the other two are ranked; nothing
+  is invented for the third.
+mode: candidate_list
+candidate_list:
+- HfO2
+- ZrO2
+- Unobtainium oxide
+checks:
+- name: run_completed
+- name: ranked_near_top
+  params:
+    compositions:
+    - HfO2
+    - ZrO2
+    within: 2
+- name: composition_absent
+  params:
+    composition: Unobtainium oxide
+- name: no_estimated_values

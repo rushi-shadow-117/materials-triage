@@ -1,0 +1,19 @@
+id: D2
+group: D
+kind: normal
+title: Verbosity
+request: Brief version, just the list and one caveat each.
+expectation: verbosity enum set to brief; template fragment changes; numbers identical to the standard
+  view.
+mode: discovery
+settings:
+  verbosity: concise
+checks:
+- name: run_completed
+- name: settings_applied
+  params:
+    key: verbosity
+    value: concise
+- name: view_rendered
+  params:
+    view: pi_summary

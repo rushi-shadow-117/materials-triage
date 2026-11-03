@@ -1,0 +1,23 @@
+id: C4
+group: C
+kind: normal
+title: Impossible combination
+request: Oxides with band gap above 8 eV and dielectric constant above 100.
+expectation: zero results; the trade-off caveat explains why; a relaxation is proposed.
+mode: discovery
+settings:
+  band_gap_min_ev: 8.0
+  weights:
+    dielectric_constant: 1.0
+checks:
+- name: run_completed
+  params:
+    allow_partial: true
+- name: log_entry_present
+  params:
+    contains: relaxations available
+- name: log_entry_present
+  params:
+    contains: adds
+judge:
+- caveat_presence

@@ -382,6 +382,178 @@ def no_numbers_in_prose(obs: Observation, *, view: str = "pi_summary") -> CheckR
     )
 
 
+# ----------------------------------------------------------------------------- run shape
+
+
+@check
+def mode_is(obs: Observation, *, mode: str) -> CheckResult:
+    params = {"mode": mode}
+    b = _bundle(obs)
+    if b is None:
+        return _no_bundle("mode_is", params)
+    ok = b.criteria.mode == mode
+    return CheckResult(name="mode_is", params=params, passed=ok, detail=f"mode {b.criteria.mode}")
+
+
+@check
+def candidate_list_is(obs: Observation, *, compositions: list[str]) -> CheckResult:
+    params = {"compositions": compositions}
+    b = _bundle(obs)
+    if b is None:
+        return _no_bundle("candidate_list_is", params)
+    ok = list(b.criteria.candidate_list) == list(compositions)
+    return CheckResult(
+        name="candidate_list_is",
+        params=params,
+        passed=ok,
+        detail=f"candidate list {list(b.criteria.candidate_list)}",
+    )
+
+
+@check
+def clamp_shown(obs: Observation, *, setting: str) -> CheckResult:
+    """A query value outside site bounds is applied clamped and the clamp is in the bundle."""
+    params = {"setting": setting}
+    b = _bundle(obs)
+    if b is None:
+        return _no_bundle("clamp_shown", params)
+    hits = [c for c in b.criteria.clamps if c.setting == setting]
+    detail = (
+        f"{setting}: requested {hits[0].requested}, applied {hits[0].applied} ({hits[0].bound})"
+        if hits
+        else f"no clamp recorded for {setting}; clamps: {[c.setting for c in b.criteria.clamps]}"
+    )
+    return CheckResult(name="clamp_shown", params=params, passed=bool(hits), detail=detail)
+
+
+@check
+def settings_applied(obs: Observation, *, key: str, value: Any) -> CheckResult:
+    params = {"key": key, "value": value}
+    b = _bundle(obs)
+    if b is None:
+        return _no_bundle("settings_applied", params)
+    got = b.criteria.effective_settings.get(key)
+    ok = got == value
+    return CheckResult(name="settings_applied", params=params, passed=ok, detail=f"{key} = {got!r}")
+
+
+@check
+def partial_reason_present(obs: Observation, *, contains: str) -> CheckResult:
+    params = {"contains": contains}
+    b = _bundle(obs)
+    if b is None:
+        return _no_bundle("partial_reason_present", params)
+    hits = [r for r in b.run.partial_reasons if contains.lower() in r.lower()]
+    return CheckResult(
+        name="partial_reason_present",
+        params=params,
+        passed=bool(hits),
+        detail=hits[0] if hits else f"partial reasons: {b.run.partial_reasons}",
+    )
+
+
+@check
+def composition_absent(obs: Observation, *, composition: str) -> CheckResult:
+    """The composition is in no row (not ranked, not excluded, not anchored) and nothing was
+    invented for it."""
+    params = {"composition": composition}
+    b = _bundle(obs)
+    if b is None:
+        return _no_bundle("composition_absent", params)
+    rows = [c.composition for c in b.candidates] + [a.composition for a in b.anchors]
+    ok = composition not in rows
+    return CheckResult(
+        name="composition_absent",
+        params=params,
+        passed=ok,
+        detail="absent" if ok else f"{composition} appears as a row",
+    )
+
+
+@check
+def every_exclusion_has_rule(obs: Observation) -> CheckResult:
+    b = _bundle(obs)
+    if b is None:
+        return _no_bundle("every_exclusion_has_rule", {})
+    excluded = [c for c in b.candidates if c.rank is None]
+    bad = [c.composition for c in excluded if c.excluded is None or not c.excluded.rule]
+    return CheckResult(
+        name="every_exclusion_has_rule",
+        params={},
+        passed=not bad,
+        detail=f"{len(excluded)} excluded, {len(bad)} without a rule: {bad}",
+    )
+
+
+@check
+def clarification_requested(obs: Observation) -> CheckResult:
+    """The parse step asked for required fields the request did not give, and no run started."""
+    asked = [line for line in obs.log_entries if "asked for:" in line]
+    ok = bool(asked) and obs.bundle is None
+    return CheckResult(
+        name="clarification_requested",
+        params={},
+        passed=ok,
+        detail=asked[0]
+        if asked
+        else "no clarification; " + ("a run started" if obs.bundle else "no run"),
+    )
+
+
+# ----------------------------------------------------------------------------- rendering
+
+
+@check
+def view_rendered(obs: Observation, *, view: str) -> CheckResult:
+    params = {"view": view}
+    text = obs.rendered.get(view)
+    ok = bool(text and text.strip())
+    return CheckResult(
+        name="view_rendered",
+        params=params,
+        passed=ok,
+        detail=f"{view}: {len(text or '')} chars" if ok else f"{view} not rendered",
+    )
+
+
+@check
+def text_in_rendered(obs: Observation, *, view: str, contains: str) -> CheckResult:
+    params = {"view": view, "contains": contains}
+    text = obs.rendered.get(view)
+    if text is None:
+        return CheckResult(
+            name="text_in_rendered", params=params, passed=False, detail=f"{view} not rendered"
+        )
+    ok = contains.lower() in text.lower()
+    return CheckResult(
+        name="text_in_rendered",
+        params=params,
+        passed=ok,
+        detail="found" if ok else f"{contains!r} not in {view}",
+    )
+
+
+@check
+def csv_rows_match_ranking(obs: Observation) -> CheckResult:
+    b = _bundle(obs)
+    if b is None:
+        return _no_bundle("csv_rows_match_ranking", {})
+    text = obs.rendered.get("csv")
+    if text is None:
+        return CheckResult(
+            name="csv_rows_match_ranking", params={}, passed=False, detail="csv not rendered"
+        )
+    ranked = [c.composition for c in b.candidates if c.rank is not None]
+    body = [line for line in text.splitlines()[1:] if line.strip()]
+    missing = [comp for comp in ranked if not any(comp in line for line in body)]
+    return CheckResult(
+        name="csv_rows_match_ranking",
+        params={},
+        passed=not missing,
+        detail=f"{len(body)} csv rows, {len(ranked)} ranked; missing: {missing}",
+    )
+
+
 # ----------------------------------------------------------------------------- runner entry
 
 

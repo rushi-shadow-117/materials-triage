@@ -1,0 +1,13 @@
+id: D4
+group: D
+kind: normal
+title: Export
+request: Export this as CSV and JSON.
+expectation: CSV with the same rows; JSON is the provenance bundle.
+mode: discovery
+checks:
+- name: run_completed
+- name: view_rendered
+  params:
+    view: csv
+- name: csv_rows_match_ranking

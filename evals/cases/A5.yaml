@@ -1,0 +1,17 @@
+id: A5
+group: A
+kind: normal
+title: Stricter stability
+request: Only materials on the hull, nothing metastable.
+expectation: hull threshold set to 0 (or the minimum allowed by admin bounds, with the clamp shown);
+  near-cutoff band still flagged; count of exclusions reported.
+mode: discovery
+checks:
+- name: run_completed
+- name: clamp_shown
+  params:
+    setting: stability_cutoff
+- name: every_exclusion_has_rule
+- name: log_entry_present
+  params:
+    contains: excluded

@@ -1,0 +1,12 @@
+id: E3
+group: E
+kind: normal
+title: Admin changes a tier (through the console, not chat)
+request: Admin changes a tier (through the console, not chat).
+expectation: new policy version; subsequent runs cite it; prior bundles replay under their original
+  version.
+mode: discovery
+skip_reason: an admin console action, not a chat query; the harness runs chat requests only. Every
+  bundle records run.policy_version (Track B), which is what a replay would cite.
+checks:
+- name: run_completed
