@@ -1,0 +1,17 @@
+id: B4
+group: B
+kind: normal
+title: Transparent conductor (conflicting goals)
+request: Find transparent conducting oxide candidates.
+expectation: parse recognizes "conducting" conflicts with a wide-gap insulator default; either asks
+  the PI to confirm a gap window and a conductivity criterion, or states conductivity is unavailable
+  and ranks on transparency-relevant gap only.
+mode: discovery
+checks:
+- name: run_completed
+- name: config_unchanged
+- name: no_estimated_values
+- name: text_in_rendered
+  params:
+    view: pi_summary
+    contains: conductivity

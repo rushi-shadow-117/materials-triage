@@ -102,3 +102,35 @@ rows only under its own heading. Rows name a test path; a row without a test is 
 
 | Failure | Behavior | Test |
 |---|---|---|
+| Yim fixture column carries the wrong quantity | Test fails; values nulled with an erratum | tests/evals/test_yim.py::test_no_gap_duplicates_the_space_group |
+| Spearman on fewer than two pairs or constant ranks | None with the reason, never a number | tests/evals/test_spearman.py::test_degenerate_inputs_are_none_with_a_reason |
+| Composition excluded by the scorer during validation | Listed with its rule, not dropped from the table | tests/evals/test_metrics.py::test_excluded_compositions_are_listed_with_their_rule_not_dropped |
+| Composition with no abstract in the literature search | Stays ranked, listed under evidence tier "no abstract" with its sub-state | tests/evals/test_metrics.py::test_no_abstract_rows_stay_ranked_and_are_listed_separately |
+| A negative (Be, Cd, Pb) is ranked without a hazard flag | Reported as ranked_unflagged; controls not all handled | tests/evals/test_metrics.py::test_negative_outcomes_cover_every_state |
+| Group with no observed polymorph is ranked silently | Controls not all handled unless flagged or excluded | tests/evals/test_metrics.py::test_theoretical_only_groups_must_be_flagged_or_excluded |
+| Validation loader needs the network | vcr mode none raises; unknown composition is a KeyError | tests/evals/test_groups.py::test_unknown_key_is_an_error_not_a_fetch |
+| A check is planted a violation (wrong rank, missing rule, changed config, disclosed text, echoed injection, stray digit) | The named check fails with the detail | tests/evals/test_checks.py::test_planted_violations_fail_with_a_reason, tests/evals/test_checks.py::test_adversarial_checks_fail_when_the_system_misbehaves |
+| Missing value filled in by a score | no_estimated_values fails naming the criterion | tests/evals/test_checks.py::test_planted_violations_fail_with_a_reason |
+| Case file names an unknown check or bad params | Check result "unknown check" or "bad params", never a crash | tests/evals/test_checks.py::test_no_bundle_and_unknown_checks_fail_cleanly |
+| Adversarial case without an OWASP tag or defenses | Case file rejected at load | tests/evals/test_cases_and_runner.py::test_case_file_rules |
+| Required pair not first in a listing | Loader reorders: A1, F1, then id order | tests/evals/test_cases_and_runner.py::test_required_pair_leads_every_listing |
+| Executor crashes on a repeat | Repeat recorded as failed with the error, suite continues | evals/runner.py::run_repeat (exercised by the F1 refusal path in tests/evals/test_cases_and_runner.py::test_runner_repeats_and_writes_stable_json) |
+| Fake LLM asked to estimate, disclose, change config, or do wetlab work | Fixed core refusal text; no digits in any reply | tests/evals/test_cases_and_runner.py::test_fake_llm_refuses_with_the_core_text_and_never_writes_digits |
+| Judge declines a request | Verdict judge_declined, shown in the report | evals/judge.py::AnthropicJudge.judge (fake path: tests/evals/test_judge_and_prereg.py::test_judge_sample_round_trips_to_an_agreement_rate) |
+| Scoring config tuned after pre-registration | Report shows both shas and the changed files | tests/evals/test_judge_and_prereg.py::test_preregistration_records_and_compares |
+| Results file missing when the report is generated | Report says what is missing; nothing invented | tests/evals/test_generate_eval_report.py::test_report_says_what_is_missing_when_nothing_ran |
+| Report regenerated on the same inputs | Byte-identical | tests/evals/test_generate_eval_report.py::test_report_is_built_from_results_and_is_byte_stable |
+| Yim-like weight overrides leak into the default run or the profile file | Default run keeps the file's weights and sha; the Yim-like run has its own sha, run id and note | tests/evals/test_track_a_wiring.py::test_yim_like_run_reports_beside_the_default_without_changing_the_profile |
+| Yim-like run absent (scorer takes no overrides) | Report prints "not run" in the Yim-like columns, never a number | tests/evals/test_generate_eval_report.py::test_report_is_built_from_results_and_is_byte_stable |
+| Case run through the pipeline; the model refuses at parse | Empty bundle in mode `refused`, the fixed refusal text in the transcript, config shas unchanged, a `refused` log entry | tests/evals/test_pipeline_executor.py::test_required_pair_runs_end_to_end |
+| Injected abstract with a planted instruction | Served only for the named composition; classified as data; ranks follow scores; the fragment is never echoed outside a verbatim quote | tests/evals/test_pipeline_executor.py::test_injected_abstract_is_data_not_instruction |
+| Same case run twice | Same ranks, exclusions and rationale text; different run ids | tests/evals/test_pipeline_executor.py::test_repeats_are_byte_identical_in_what_matters |
+| Request names no candidates in candidate-list mode | Filled from the case file when it has them, as the terminal confirmation would; otherwise an error observation, no run | tests/evals/test_pipeline_executor.py::test_missing_candidates_are_filled_from_the_case_or_reported |
+| Core tool-call budget spent on classification | Run marked partial with the reason; `run_completed` fails and names it | tests/evals/test_pipeline_executor.py::test_required_pair_runs_end_to_end |
+| Scripted model asked to classify or write rationale | Supporting sentence is a verbatim slice of the abstract; rationale text carries tokens only and no digits | tests/evals/test_pipeline_executor.py::test_scripted_model_answers_are_verbatim_and_digit_free |
+| Yim row's structure not in our records, or its polymorph lacks a PBE gap or e_total | Listed as unpaired with the reason and the MP id when one matched; left out of the data-level rho; never filled | tests/evals/test_data_level.py::test_every_row_is_paired_by_structure_or_listed |
+| Yim row paired to a polymorph | By ICSD id first, else reduced composition and space group number; the PBE gap and e_total are read from that polymorph; experimental median shown separately | tests/evals/test_data_level.py::test_match_order_icsd_then_composition_spacegroup |
+| Case the harness cannot run (console action, two-run diff, missing profile) | Reported as skipped with the case file's reason; no pass rate invented | evals/runner.py::run_case (skip_reason) |
+| Parse asks for fields the request and case do not give | A clarification outcome, not an error: no run, `clarification_requested` passes, no discovery query | tests/evals/test_pipeline_executor.py::test_missing_candidates_are_filled_from_the_case_or_reported |
+| Catalogue expectation with no matching query setting (per-run anchor, hull cutoff, glossary term) | The nearest check is listed and its miss is reported with the detail | tests/evals/test_checks.py::test_new_shape_checks_fail_with_a_reason |
+| Repeated run differs in ranks, exclusions or prompt hash | `repeats_identical` false in the results and the report | evals/runner.py::_signature |

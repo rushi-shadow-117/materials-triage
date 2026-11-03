@@ -46,9 +46,12 @@ criteria:
     note: "The 5 eV start is the owner's approved choice. The Robertson offset statements in the rationale await a check against the primary PDF, which no tool fetch could retrieve (HTTP 403); owner supplies a local copy."
     aggregate_when_several_experimental_values: median
     aggregate_options: [median, minimum]
-    conflict_tolerance_ev: null
-    conflict_tolerance_status: open
-    conflict_tolerance_derivation: "Set in Phase 2 to twice the measured TBmBJ-vs-experimental error on the oxide subset; derivation recorded here when done."
+    conflict_tolerance_ev: 1.345
+    conflict_tolerance_status: entered
+    conflict_tolerance_derivation: "2 x MAE(TBmBJ vs experimental median) = 2 x 0.672 eV over the n=6 recorded baseline oxides with both values (BaTiO3, HfO2, Ta2O5, ThO2, TiO2, ZrO2), rounded to 3 decimals. Computed by validation/calibration.py from the recorded JARVIS slice and the experimental gap snapshots; pairs, per-pair errors and snapshot hashes in validation/results/band_gap_calibration.json. BeO, La2O3 and Y2O3 have no TBmBJ value in the slice and are listed there as without a pair."
+    conflict_tolerance_data_sha256: 9c3ec4a7624ec13c09b42e017ff27f6e2c11896cfd7e25de54b163766bc135e2
+    conflict_tolerance_entered_by: "Track E, per the owner's Track E prompt (2026-11-02)"
+    conflict_tolerance_entered_on: 2026-11-02
     on_conflict: next_source
     on_conflict_options: [next_source, minimum]
     entered_by: owner

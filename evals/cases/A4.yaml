@@ -1,0 +1,23 @@
+id: A4
+group: A
+kind: normal
+title: Dielectric constant turned on
+request: Same search, but weight dielectric constant heavily. We need k above 15.
+expectation: optional criterion enabled with the stated threshold; SiO2 and Al2O3 drop; rows without
+  computed k marked missing and not silently scored as zero; trade-off caveat (gap vs k) present.
+mode: discovery
+settings:
+  weights:
+    dielectric_constant: 1.0
+checks:
+- name: run_completed
+- name: settings_applied
+  params:
+    key: weights
+    value:
+      dielectric_constant: 1.0
+- name: missing_markers_present
+- name: no_estimated_values
+- name: ranks_follow_scores
+judge:
+- caveat_presence

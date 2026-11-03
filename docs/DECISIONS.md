@@ -687,3 +687,199 @@ Alternative: enrich a fixed margin (top 2K) once.
 ## Track D: deploy and docs
 
 ## Track E: eval and validation
+
+### 2026-11-02 Spearman by hand, cross-checked against scipy
+Decision: `validation/spearman.py` computes rho from average ranks (ties share the mean of
+their positions); a test compares it with `scipy.stats.spearmanr` on fixed and random inputs.
+Fewer than two pairs or a constant rank vector returns None with the reason, never a number.
+Reason: the eval adds no dependency (pyproject is frozen; scipy is only transitive through
+pymatgen), and tie handling is visible in twenty lines the reviewer can read.
+Alternative: call scipy directly.
+
+### 2026-11-02 Yim polymorph rows collapse to the best figure of merit per composition
+Decision (owner): Yim 2015 lists one row per ICSD entry; the scorer ranks composition groups.
+For each table, one entry per composition ordered by its highest f_fom in that table; ties
+get average ranks. c-BeO is the BeO group; the phase prefix stays as data. The Spearman is
+taken over the compositions the scorer ranked; every excluded composition is listed with its
+rule, and the compositions whose recorded literature search returned no abstract (ten with no
+match at all, two more with matches but no abstract) stay in the correlation and are listed
+separately under evidence tier "no abstract", never "no support".
+Reason: the paper's polymorph-level numbers cannot be matched to MP ids without a second
+sourcing pass, which the scope rule closes; the best polymorph is the paper's own reason for
+listing the composition.
+Alternative: match rows to the ground-state polymorph by ICSD id and report unmatched rows.
+
+### 2026-11-02 Yim fixture erratum: Tables 2 and 3 band gap column
+Decision (owner): every row from Tables 2 and 3 carried the space group in `band_gap_ev`
+(61 rows). The values are nulled with a `data_errata` block; a test fails if any gap equals
+its space group or if a Table 1 gap is missing. The owner re-enters the column after the
+deadline. The metric reads `f_fom` only, so no result depends on the column.
+Reason: a wrong value shown as data is worse than a null with a note.
+
+### 2026-11-02 Known-dielectric recall list is a validation fixture citing the owner
+Decision (owner): `fixtures/validation/known_dielectrics.yaml` holds HfO2, ZrO2, Al2O3, Y2O3,
+Ta2O5 and K=5, sourced to the owner's Track E prompt; Y2O3 and Ta2O5 are re-sourced to
+Robertson (2004) when the PDF is on disk. The scorer never reads this file.
+Reason: `config/reference_values.yaml` has entries for Al2O3 only among the five; a recall
+expectation is not a scoring input and does not need the config's sourcing bar.
+
+### 2026-11-02 Band gap calibration and the conflict tolerance
+Decision: `validation/calibration.py` pairs each recorded oxide's experimental median with the
+TBmBJ and PBE gaps of its scored polymorph, reports MAE with n and every pair, and derives the
+conflict tolerance as twice the TBmBJ MAE with a sha over the pairs and snapshot hashes. ThO2's
+two conflicting compendium rows stay in the pair as recorded; the owner's note about them is
+beside the value in `config/reference_values.yaml`. The number is written to the scoring
+profile in one separate, labeled commit after the rebase on Track A, since `config/` is Track
+A's directory.
+Reason: the profile itself defines the tolerance this way; the derivation and data hash make
+the number reproducible.
+Alternative: a hand-chosen tolerance.
+
+### 2026-11-02 A temporary stand-in scorer ran the validation path before Track A merged
+Decision: until Track A merged, `validation/stand_in.py` reproduced the sample bundle's
+illustrative normalizations with Track A's vocabularies so the groups-to-report path ran end
+to end. Its run note said it was not scoring and no results from it were committed. It was
+deleted on 2026-11-02 at the rebase onto main after Track A's merge; `validation.track_a`
+is the only scorer the validation run uses.
+Reason: the metrics are tested on synthetic bundles, but only a full run proves the loaders,
+the metrics, and the report agree on 61 compositions.
+
+### 2026-11-02 The judge decides two items and nothing else
+Decision: the LLM judge grades caveat presence and PI-view summary level only, from a rubric
+file, with a per-item reason; structure (ranks, exclusions, flags, refusals, config unchanged,
+verifier failures, missing markers) is decided by named checks in `evals/checks.py`. The fake
+judge is the CI default; the Anthropic judge (`evals/judge.yaml`, `claude-opus-5-5`, effort
+low, structured output) records a declined request as the verdict `judge_declined` rather than
+retrying on another model. A sample of verdicts goes to `evals/judge_sample.md` for the owner
+to grade; the report shows the agreement rate once graded.
+Reason: a judge is the one place a model's opinion enters the eval; keeping it to two
+questions with a graded sample keeps it auditable.
+Alternative: a rubric-wide LLM grade per case.
+
+### 2026-11-02 Adversarial cases report task completion and attack success from named checks
+Decision: an F case carries `task_completion` checks (all must pass) and `defenses` checks;
+the attack succeeded if any defense failed. Each case names one OWASP LLM Top 10 (2025)
+category from a closed table. A1 and F1 lead every listing.
+Reason: "attack success" has to be a definition the reader can open, not a judgment.
+
+### 2026-11-02 Pre-registration of the scoring config
+Decision: `uv run python -m evals prereg` records the effective config sha, the config file
+hashes, the fixture and cassette hashes, and the commit before validation runs; the report
+shows the pre-registered and current shas side by side when they differ and names the files
+that changed.
+Reason: a tuned config after the fact must be visible as such.
+
+### 2026-11-02 A second Yim correlation under a Yim-like configuration
+Decision: the Yim comparison runs twice and both rhos sit side by side in docs/EVAL.md. The
+default column is the profile as entered. The Yim-like column (owner decision 2026-11-02) sets
+query-level weight overrides within site bounds: stability, band gap and dielectric constant at
+1; hazard, simplicity, evidence, deposition method and cost at 0. The profile file is not
+changed, so the default run's config sha is unaffected and the Yim-like run gets its own sha.
+Exclusion rules (hazard, stability cutoff, anion policy) still apply at weight 0. The
+dielectric target band is read from the profile file as written; Track A's strict loader drops
+it while its status is not `entered`, so the results carry the band and its status beside the
+rho, and the run note says it was used for the validation comparison only.
+Reason: the default profile weights evidence and hazard, which Yim's figure of merit does not;
+a rho under weights closer to Yim's inputs says whether a weak default rho comes from those
+criteria or from the scorer's stability and gap handling. Alternative considered: a second
+profile file under config/scoring_profiles (rejected: config is Track A's, and a profile that
+weights a `pending_verification` criterion would fail the strict loader by design).
+
+### 2026-11-02 The band gap conflict tolerance is written to the profile from the calibration
+Decision: `config/scoring_profiles/oxide_dielectric_thin_film.yaml` gets
+`conflict_tolerance_ev: 1.345` with status `entered`, the derivation (2 x the TBmBJ MAE of
+0.672 eV over the six recorded baseline oxides that have both a TBmBJ and an experimental
+value), the data hash from `validation/results/band_gap_calibration.json`, and the entry
+attribution. This is the one Track E change outside its own directories, in its own labeled
+commit, approved by the owner on 2026-11-02. The pre-registration was taken before the write,
+so docs/EVAL.md shows the pre-registered and the current config sha side by side and names
+this file as the one that changed. The validation results are re-run under the new sha so the
+committed results match the committed config.
+Reason: the owner's prompt sets the rule (twice the measured TBmBJ error) and asks for the
+value, its derivation and the data hash in config. ThO2's pair (error 1.613 eV) is kept as
+recorded; dropping it would be a hand choice.
+Alternative: leave the value in the results JSON for Integration to copy (rejected by the
+owner: the commit goes to the profile, separate and labeled).
+
+### 2026-11-02 The eval cases run through Track B's pipeline with a scripted model in CI
+Decision: `evals.execute.PipelineExecutor` runs each case through `agent.pipeline.run` with
+Track B's own parse step, Track A's scorer behind Track B's port, the verifier and the
+renderers. Data comes from recorded cassettes (`--fetch cassettes`, the CI default) or from
+the seeded store with `FETCH_MODE=replay` (`--fetch store`); either way nothing touches the
+network. The model is `evals.pipeline_llm.CaseScriptedLLM` with `--llm fake`: it implements
+Track B's client protocol and answers from the offered tool and the case file (refusal
+category from the harness triggers, otherwise the case's mode and candidate list; keyword
+labels with a verbatim supporting sentence; token-only rationale). `--llm live` uses the
+configured provider; `--llm none` skips the model and takes criteria from the case file. No
+classifier cache, so repeats classify anew. Every bundle is saved under
+`.data-cache/evals/runs/<run id>.json`. An F case with `injected_fixture` has that OpenAlex
+response served for `injected_into`'s literature search in place of the recording.
+Reason: the structural checks must see what the pipeline produces, not a copy of a bundle;
+CI cannot call a model, and a scripted client that goes through the real loop exercises the
+parse, classify, rationale and verify paths. A keyword label is an arbitrary label, so the
+results name the executor as `pipeline:fake:cassettes` and evidence-dependent ranks from CI
+are read with that in mind; live runs are the results.
+Alternative considered: Track B's queue-replaying `FakeLLM` (rejected: the number of
+classify calls depends on the data, so a fixed queue is exhausted or wasted).
+
+### 2026-11-02 Two Track B behaviors the executor surfaced, left as findings
+Finding 1: with the baseline eleven as a candidate list, classifying the top ten candidates'
+hits spends the core budget of 40 tool calls before the rationale step, so the run is partial
+with "rationale not written: max_tool_calls (40) reached" and the rationale is template text.
+The A1 check `run_completed` reports this; the budget lives in the frozen `config/schema.py`
+and is the owner's to raise.
+Finding 2: the classifier accepts a `not_relevant` label without a supporting sentence, but
+the verifier checks a quote on every label except `no_abstract` and `unclassified`, so such a
+hit is dropped as a quote mismatch. The scripted model quotes a sentence on every label so the
+verifier passes; whether the verifier or the classifier should change is the owner's call.
+Unverified whether either behavior is intended.
+
+### 2026-11-03 A data-level Yim correlation, paired by structure, beside the two scorer columns
+Decision: `validation/data_level.py` computes, per Yim table, Spearman rho between Yim's
+figure of merit and (PBE gap x e_total) read from our records, with no scoring policy: no
+weights, normalization or exclusions. Pairing is by structure, row by row: the Yim row's
+ICSD id against the ICSD ids the Materials Project records carry in `database_IDs`; when none
+matches, the MP polymorph of the same reduced composition and the row's space group number
+(lowest hull first when several); otherwise the row is unpaired and listed with the reason.
+The gap is the MP PBE gap on the paired polymorph, one source for every row; e_total is the
+MP DFPT value on it. The experimental median from the expt_gap snapshot is a separate column
+where the composition has one, with a second rho over those rows. Rows without both values
+are listed and left out; nothing is filled. docs/EVAL.md shows the two data-level columns
+beside the default and Yim-like ones, which are unchanged. Owner decision 2026-11-03,
+replacing the first version (2026-11-02) that paired by composition with a best-available
+gap.
+Reason: Yim's rows are structures, and a composition-level pairing can set a row against a
+different polymorph than the paper computed. One gap source keeps the column comparable
+across rows; the experimental column shows where measurement and PBE disagree without
+mixing them. The two scorer columns mix data and policy; a correlation from the records
+alone says whether a weak scorer rho comes from the policy or from the data our sources hold.
+Alternative considered: Yim's own gap and dielectric values from the paper (rejected: the
+question is what our records say).
+
+### 2026-11-03 Case files from the owner's catalogue, verbatim, with the nearest structural check
+Decision: `evals/cases/<id>.yaml` holds one case per query in `internal/test-queries.md`
+(43 cases, A1 to G5). Requests and expectations are copied verbatim; B1's request carries the
+owner's wording "between 2 and 3.3 eV" (decision 2026-11-03, matching the photocatalyst
+profile's window). Each case names structural checks; where the catalogue expects something
+no query setting or check can express (a per-run anchor, a hull-cutoff setting, a glossary
+term, a clamp whose site bound is already 0), the nearest check is still listed and its miss
+is reported with the detail, not dropped. Four cases carry `skip_reason` and are reported as
+not run: B2 (no nitride profile exists; the anion policy is profile-level), E3 and E4 (console
+and YAML actions, not chat queries), G3 and G4 (two-run diff and a database version change).
+Three case-file fields drive the scripted model and the executor: `profile` (the CLI's profile
+choice), `fake_parse` (what the scripted model answers for parse_request where the live model
+would use judgment: C1 asks for the missing fields, C6 resolves alumina and sapphire to Al2O3),
+and `llm` (G5 runs with no model). A parse that asks for fields the case does not give is a
+clarification outcome, not an error: no run starts and `clarification_requested` reads it.
+Reason: the catalogue is the owner's pre-registered expectation list; the harness must show
+where the system meets it and where it cannot, in the system's own terms.
+Alternative considered: drop the expectations the harness cannot check (rejected: a missing
+row hides a gap the owner wrote down on purpose).
+
+### 2026-11-03 Repeats are compared on ranks, exclusions and prompt hash
+Decision: `CaseResult.repeats_identical` is true when every repeat's candidate rows (rank and
+exclusion rule) and prompt hash match; rationale wording is not compared, as G1's expectation
+allows it to vary. G2 (replay) is a second run from the same confirmed criteria over the same
+recorded data and reports the same comparison.
+Reason: the owner's G1 expectation names exactly those three things.
+

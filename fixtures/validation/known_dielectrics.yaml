@@ -1,0 +1,14 @@
+# Known thin-film dielectric oxides used for the recall-at-K check in the validation study.
+# This is a validation expectation, not a scoring input; the scorer never reads it.
+schema_version: 0
+status: entered
+description: "Compositions a working screen is expected to place in its top K when ranking the eleven baseline oxides. Recall at K is the fraction of these that are ranked at or above K."
+k: 5
+compositions: [HfO2, ZrO2, Al2O3, Y2O3, Ta2O5]
+source:
+  citation: "Owner decision, Track E prompt, 2026-11-02"
+  url: null
+  access: not_applicable
+note: "Y2O3 and Ta2O5 will be re-sourced to J. Robertson, Eur. Phys. J. Appl. Phys. 28, 265-291 (2004) when the PDF is on disk (owner, 2026-11-02). config/reference_values.yaml holds entries for Al2O3 only among these five; the list is the owner's for now."
+entered_by: owner
+entered_on: 2026-11-02

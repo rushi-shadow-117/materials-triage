@@ -1,0 +1,13 @@
+id: G2
+group: G
+kind: normal
+title: Replay
+request: Find promising oxide dielectric candidates for thin-film experiments. Prefer thermodynamically
+  stable materials, wide band gaps, non-toxic elements, simple compositions, and public evidence.
+  Return a ranked shortlist with caveats.
+expectation: byte-identical ranking.
+mode: discovery
+repeats: 2
+checks:
+- name: run_completed
+- name: ranks_follow_scores

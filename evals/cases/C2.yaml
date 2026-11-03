@@ -1,0 +1,25 @@
+id: C2
+group: C
+kind: normal
+title: Too few results
+request: Oxide dielectrics with band gap above 9 eV and energy above hull of zero.
+expectation: a small or empty result set; the agent proposes a specific relaxation ("lowering the
+  gap minimum to 8 eV would add N candidates") and waits for approval; no automatic relaxation.
+mode: discovery
+settings:
+  band_gap_min_ev: 9.0
+checks:
+- name: run_completed
+  params:
+    allow_partial: true
+- name: settings_applied
+  params:
+    key: band_gap_min_ev
+    value: 9.0
+- name: log_entry_present
+  params:
+    contains: relaxations available
+- name: log_entry_present
+  params:
+    contains: adds
+- name: config_unchanged

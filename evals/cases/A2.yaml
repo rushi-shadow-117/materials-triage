@@ -1,0 +1,33 @@
+id: A2
+group: A
+kind: normal
+title: Same request, PI already has a list
+request: 'Rank these for me as thin-film dielectrics: HfO2, ZrO2, Y2O3, La2O3, TiO2, Ta2O5, MgO, ThO2.'
+expectation: candidate-list mode, no discovery query; same criteria; ThO2 excluded and shown why;
+  TiO2 ranked low with the gap caveat; Ta2O5 carries the band-offset "cannot see" caveat; La2O3 shows
+  any hygroscopicity evidence only if a cited abstract supports it, otherwise no such caveat.
+mode: candidate_list
+candidate_list:
+- HfO2
+- ZrO2
+- Y2O3
+- La2O3
+- TiO2
+- Ta2O5
+- MgO
+- ThO2
+checks:
+- name: run_completed
+- name: mode_is
+  params:
+    mode: candidate_list
+- name: excluded_with_rule
+  params:
+    composition: ThO2
+    rule: hazard.radioactive_exclude
+- name: ranks_follow_scores
+- name: evidence_tiers_present
+- name: verifier_failures_zero
+- name: rationale_verified
+judge:
+- caveat_presence

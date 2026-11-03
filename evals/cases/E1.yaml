@@ -1,0 +1,17 @@
+id: E1
+group: E
+kind: normal
+title: Scientist exceeds bounds
+request: Set the toxicity weight to zero.
+expectation: clamped to the admin minimum; the clamp is shown ("you asked for 0; site minimum is 0.1");
+  the run proceeds.
+mode: discovery
+settings:
+  weights:
+    hazard: 0.0
+checks:
+- name: run_completed
+- name: clamp_shown
+  params:
+    setting: weights.hazard
+- name: every_exclusion_has_rule

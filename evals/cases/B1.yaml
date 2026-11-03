@@ -1,0 +1,36 @@
+id: B1
+group: B
+kind: normal
+title: Photocatalyst profile
+request: Find stable, non-toxic oxide photocatalyst candidates with a band gap between 2 and 3.3 eV
+  and published synthesis.
+expectation: a different profile or an adjusted threshold set; TiO2 now ranks well; HfO2 and Al2O3
+  excluded by the gap window; same hazard policy applies; no code change.
+mode: discovery
+profile: oxide_photocatalyst
+settings:
+  band_gap_min_ev: 2.0
+  band_gap_max_ev: 3.3
+checks:
+- name: run_completed
+- name: settings_applied
+  params:
+    key: band_gap_min_ev
+    value: 2.0
+- name: settings_applied
+  params:
+    key: band_gap_max_ev
+    value: 3.3
+- name: ranked_near_top
+  params:
+    compositions:
+    - TiO2
+    within: 10
+- name: composition_absent
+  params:
+    composition: HfO2
+- name: composition_absent
+  params:
+    composition: Al2O3
+- name: every_exclusion_has_rule
+- name: config_unchanged

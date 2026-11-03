@@ -1,0 +1,15 @@
+id: C3
+group: C
+kind: normal
+title: Too many results
+request: All stable oxides.
+expectation: count exceeds the hard ceiling; the system refuses to truncate and asks the PI to narrow
+  by element, gap, or element count; the count is reported.
+mode: discovery
+checks:
+- name: partial_reason_present
+  params:
+    contains: ceiling
+- name: log_entry_present
+  params:
+    contains: discovery

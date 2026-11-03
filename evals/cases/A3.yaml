@@ -1,0 +1,16 @@
+id: A3
+group: A
+kind: normal
+title: Incumbent comparison
+request: How do the top candidates compare to what we use now, HfO2?
+expectation: HfO2 added as a second anchor row for this run only (not removed from ranking by default
+  profile unless the user asks), would-rank shown.
+mode: discovery
+checks:
+- name: run_completed
+- name: anchor_shown_with_would_rank
+  params:
+    composition: SiO2
+- name: anchor_shown_with_would_rank
+  params:
+    composition: HfO2

@@ -4,7 +4,7 @@
   "run_id": "00000000-0000-4000-8000-000000000002",
   "started_at": "2026-11-02T12:00:00Z",
   "finished_at": "2026-11-02T12:00:00Z",
-  "config_sha": "ac7cad18875c745c677375ecb7f4074b8cd69457ea23c66021a3d1027db05bbc",
+  "config_sha": "61e212d558a071b44c3361cc56b3e9c1a29066f84123610bb17790eb2d96b91f",
   "profile_name": "oxide_dielectric_thin_film",
   "profile_version": "0",
   "policy_version": "0",
@@ -21,7 +21,7 @@
   "partial_reasons": [],
   "budgets_used": {},
   "budgets_limit": {},
-  "note": "SCORED BUNDLE: recorded data scored by the Track A scorer under the entered config; no LLM step, so evidence is unclassified and rationale is empty. Profile notes: band_gap.conflict_tolerance_ev is not set (status open); experimental and TBmBJ gaps are shown side by side but not compared; dielectric_constant target band unusable (status pending_verification); weight stays 0"
+  "note": "SCORED BUNDLE: recorded data scored by the Track A scorer under the entered config; no LLM step, so evidence is unclassified and rationale is empty. Profile notes: dielectric_constant target band unusable (status pending_verification); weight stays 0"
  },
  "criteria": {
   "request_text": "Rank the eleven baseline oxides as thin-film dielectric candidates.",
@@ -2296,8 +2296,7 @@
       "notes": [
        "experimental: 7.650 eV (median of 2 measured values (6 to 8.7 eV across 3 sources))",
        "tbmbj: 7.571 eV (jarvis_tbmbj on mp-1143)",
-       "pbe: 5.874 eV (mp_summary on mp-1143)",
-       "experimental and TBmBJ values shown side by side; conflict tolerance not configured, so they are not compared"
+       "pbe: 5.874 eV (mp_summary on mp-1143)"
       ]
      },
      {
@@ -2411,7 +2410,6 @@
    "rank": 1,
    "excluded": null,
    "flags": [
-    "band_gap_sources_uncompared",
     "process_hazard",
     "evidence_unclassified"
    ],
@@ -4949,8 +4947,7 @@
       "notes": [
        "experimental: 3.060 eV (median of 5 measured values (2.96 to 3.13 eV across 5 sources))",
        "tbmbj: 2.429 eV (jarvis_tbmbj on mp-5777)",
-       "pbe: 2.293 eV (mp_summary on mp-5777)",
-       "experimental and TBmBJ values shown side by side; conflict tolerance not configured, so they are not compared"
+       "pbe: 2.293 eV (mp_summary on mp-5777)"
       ]
      },
      {
@@ -5064,7 +5061,6 @@
    "excluded": null,
    "flags": [
     "hull_status_conflict",
-    "band_gap_sources_uncompared",
     "hazard_flag",
     "evidence_unclassified"
    ],
@@ -10013,8 +10009,7 @@
       "notes": [
        "experimental: 5.550 eV (median of 1 measured values (5.55 to 5.55 eV across 1 sources))",
        "tbmbj: 5.664 eV (jarvis_tbmbj on mp-352)",
-       "pbe: 4.016 eV (mp_summary on mp-352)",
-       "experimental and TBmBJ values shown side by side; conflict tolerance not configured, so they are not compared"
+       "pbe: 4.016 eV (mp_summary on mp-352)"
       ]
      },
      {
@@ -10127,7 +10122,6 @@
    "rank": 2,
    "excluded": null,
    "flags": [
-    "band_gap_sources_uncompared",
     "evidence_unclassified"
    ],
    "caveats": [
@@ -14132,8 +14126,7 @@
       "notes": [
        "experimental: 4.200 eV (median of 1 measured values (4.2 to 4.2 eV across 1 sources))",
        "tbmbj: 4.273 eV (jarvis_tbmbj on mp-10390)",
-       "pbe: 3.067 eV (mp_summary on mp-10390)",
-       "experimental and TBmBJ values shown side by side; conflict tolerance not configured, so they are not compared"
+       "pbe: 3.067 eV (mp_summary on mp-10390)"
       ]
      },
      {
@@ -14247,7 +14240,6 @@
    "excluded": null,
    "flags": [
     "hull_status_conflict",
-    "band_gap_sources_uncompared",
     "evidence_unclassified"
    ],
    "caveats": [
@@ -16016,8 +16008,7 @@
       "notes": [
        "experimental: 4.450 eV (median of 4 measured values (3.3 to 7 eV across 5 sources))",
        "tbmbj: 5.013 eV (jarvis_tbmbj on mp-643)",
-       "pbe: 4.418 eV (mp_summary on mp-643)",
-       "experimental and TBmBJ values shown side by side; conflict tolerance not configured, so they are not compared"
+       "pbe: 4.418 eV (mp_summary on mp-643)"
       ]
      },
      {
@@ -16114,7 +16105,6 @@
     "source_ref": "hazard_policy.yaml#tiers.radioactive_exclude"
    },
    "flags": [
-    "band_gap_sources_uncompared",
     "evidence_unclassified"
    ],
    "caveats": [
@@ -20052,8 +20042,7 @@
       "notes": [
        "experimental: 3.300 eV (median of 1 measured values (3.3 to 3.3 eV across 1 sources))",
        "tbmbj: 2.474 eV (jarvis_tbmbj on mp-390)",
-       "pbe: 2.063 eV (mp_summary on mp-390)",
-       "experimental and TBmBJ values shown side by side; conflict tolerance not configured, so they are not compared"
+       "pbe: 2.063 eV (mp_summary on mp-390)"
       ]
      },
      {
@@ -20169,7 +20158,6 @@
    "excluded": null,
    "flags": [
     "hull_status_conflict",
-    "band_gap_sources_uncompared",
     "hazard_flag",
     "process_hazard",
     "evidence_unclassified"
@@ -24978,8 +24966,7 @@
       "notes": [
        "experimental: 4.990 eV (median of 1 measured values (4.99 to 4.99 eV across 1 sources))",
        "tbmbj: 4.213 eV (jarvis_tbmbj on mp-2858)",
-       "pbe: 3.532 eV (mp_summary on mp-2858)",
-       "experimental and TBmBJ values shown side by side; conflict tolerance not configured, so they are not compared"
+       "pbe: 3.532 eV (mp_summary on mp-2858)"
       ]
      },
      {
@@ -25092,7 +25079,6 @@
    "rank": 5,
    "excluded": null,
    "flags": [
-    "band_gap_sources_uncompared",
     "evidence_unclassified"
    ],
    "caveats": [
@@ -28971,7 +28957,6 @@
     },
     "also_excluded_by": {},
     "profile_notes": [
-     "band_gap.conflict_tolerance_ev is not set (status open); experimental and TBmBJ gaps are shown side by side but not compared",
      "dielectric_constant target band unusable (status pending_verification); weight stays 0"
     ]
    }

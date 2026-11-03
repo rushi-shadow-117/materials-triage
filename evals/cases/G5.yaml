@@ -1,0 +1,33 @@
+id: G5
+group: G
+kind: normal
+title: No-LLM mode
+request: 'Rank these for me as thin-film dielectrics: HfO2, ZrO2, Y2O3, La2O3, TiO2, Ta2O5, MgO, ThO2.'
+expectation: ranking, exclusions, missing markers, and the audit view all present; parsing and rationale
+  text absent and labeled as such.
+mode: candidate_list
+candidate_list:
+- HfO2
+- ZrO2
+- Y2O3
+- La2O3
+- TiO2
+- Ta2O5
+- MgO
+- ThO2
+llm: none
+checks:
+- name: run_completed
+- name: every_exclusion_has_rule
+- name: missing_markers_present
+- name: view_rendered
+  params:
+    view: audit
+- name: text_in_rendered
+  params:
+    view: audit
+    contains: none (no LLM)
+- name: excluded_with_rule
+  params:
+    composition: ThO2
+    rule: hazard.radioactive_exclude

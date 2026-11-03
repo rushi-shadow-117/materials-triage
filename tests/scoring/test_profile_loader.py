@@ -26,8 +26,9 @@ def test_dielectric_profile_loads_with_the_owner_values() -> None:
     assert (p.stability.cutoff_mev_per_atom, p.stability.near_cutoff_band_mev_per_atom) == (94, 24)
     assert p.band_gap.soft_preference_start_ev == 5.0
     assert p.band_gap.hard_min_ev is None and p.band_gap.hard_max_ev is None
-    assert p.band_gap.conflict_tolerance_ev is None
-    assert any("not compared" in n for n in loaded.notes)
+    # Derived by Track E from the band gap calibration (conflict_tolerance_derivation in the file).
+    assert p.band_gap.conflict_tolerance_ev == 1.345
+    assert not any("not compared" in n for n in loaded.notes)
     assert p.weights == {
         "stability": 1.0,
         "band_gap": 1.0,

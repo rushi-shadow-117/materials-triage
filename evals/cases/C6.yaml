@@ -1,0 +1,25 @@
+id: C6
+group: C
+kind: normal
+title: Ambiguous formula
+request: Rank Al2O3, alumina, and sapphire.
+expectation: recognized as one composition; polymorph and form handled; the PI is told they resolve
+  to the same material.
+mode: candidate_list
+candidate_list:
+- Al2O3
+- alumina
+- sapphire
+fake_parse:
+  mode: candidate_list
+  candidate_list:
+  - Al2O3
+checks:
+- name: run_completed
+- name: candidate_list_is
+  params:
+    compositions:
+    - Al2O3
+- name: mode_is
+  params:
+    mode: candidate_list

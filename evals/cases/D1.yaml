@@ -1,0 +1,41 @@
+id: D1
+group: D
+kind: normal
+title: View switch
+request: Give me the audit view for the top three.
+expectation: per-criterion breakdown, all source IDs with timestamps and functional, polymorph table,
+  evidence quotes with verification status, config version, prompt hash, model version.
+mode: discovery
+settings:
+  view: audit
+  top_n: 3
+checks:
+- name: run_completed
+- name: settings_applied
+  params:
+    key: view
+    value: audit
+- name: top_n_respected
+- name: view_rendered
+  params:
+    view: audit
+- name: text_in_rendered
+  params:
+    view: audit
+    contains: Config sha
+- name: text_in_rendered
+  params:
+    view: audit
+    contains: Prompt hash
+- name: text_in_rendered
+  params:
+    view: audit
+    contains: Model
+- name: text_in_rendered
+  params:
+    view: audit
+    contains: Polymorphs
+- name: text_in_rendered
+  params:
+    view: audit
+    contains: mp-
