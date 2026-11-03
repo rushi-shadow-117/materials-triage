@@ -139,12 +139,6 @@ def validation_sections(val: dict[str, Any] | None, cal: dict[str, Any] | None) 
             f"version `{s['profile_version']}`, config sha `{s['config_sha'][:12]}`, "
             f"commit `{val['inputs']['git_commit'] or 'unknown'}`.",
         ]
-        if s["name"] == "stand_in":
-            out.append("")
-            out.append(
-                "Note: these rows come from the temporary stand-in scorer and are not results. "
-                "They are regenerated once Track A's scorer is wired."
-            )
         yim = val["yim"]
         like = val.get("yim_like")
         like_tables = {} if like is None else {t["table"]: t for t in like["tables"]}

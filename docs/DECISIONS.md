@@ -735,11 +735,12 @@ Reason: the profile itself defines the tolerance this way; the derivation and da
 the number reproducible.
 Alternative: a hand-chosen tolerance.
 
-### 2026-11-02 A temporary stand-in scorer runs the validation path before Track A merges
-Decision: `validation/stand_in.py` reproduces the sample bundle's illustrative normalizations
-with Track A's vocabularies so the groups-to-report path runs end to end. Its run note says
-it is not scoring; `validation/results` from it are never committed; it is deleted when
-`scoring.scorer` is wired.
+### 2026-11-02 A temporary stand-in scorer ran the validation path before Track A merged
+Decision: until Track A merged, `validation/stand_in.py` reproduced the sample bundle's
+illustrative normalizations with Track A's vocabularies so the groups-to-report path ran end
+to end. Its run note said it was not scoring and no results from it were committed. It was
+deleted on 2026-11-02 at the rebase onto main after Track A's merge; `validation.track_a`
+is the only scorer the validation run uses.
 Reason: the metrics are tested on synthetic bundles, but only a full run proves the loaders,
 the metrics, and the report agree on 61 compositions.
 

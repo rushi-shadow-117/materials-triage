@@ -1,16 +1,13 @@
-"""Validation against Track A's scorer. Skips on a branch without the scorer."""
+"""Validation against Track A's scorer on the merged main."""
 
 from pathlib import Path
 
-import pytest
 from validation import track_a
 from validation.groups import load_groups
 from validation.report import YimLikeRun, run_validation
 
 from materials_triage.config import schema as cs
 from materials_triage.config.schema import default_paths
-
-pytestmark = pytest.mark.skipif(not track_a.available(), reason="Track A scorer not merged")
 
 
 def test_track_a_validation_run_is_labeled_and_byte_stable(tmp_path: Path) -> None:

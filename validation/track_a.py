@@ -1,8 +1,7 @@
 """Score validation groups with Track A's scorer (`materials_triage.scoring.scorer.score_run`).
 
-Imported lazily so this package loads on a branch without the scorer; `available()` says
-whether it is present. The bundle assembly mirrors scripts/build_scored_bundle.py (Track A),
-with a fixed run id and time so results are byte-stable.
+The bundle assembly mirrors scripts/build_scored_bundle.py (Track A), with a fixed run id and
+time so results are byte-stable.
 
 Two configurations score the Yim set:
 
@@ -16,7 +15,6 @@ Two configurations score the Yim set:
 
 from __future__ import annotations
 
-import importlib.util
 from dataclasses import replace
 from datetime import UTC, datetime
 from typing import Any
@@ -31,6 +29,14 @@ from materials_triage.records.bundle import (
     ProvenanceBundle,
     RunMetadata,
 )
+from materials_triage.scoring.profile import (
+    echa_attribution,
+    load_hazard_policy,
+    load_reference_values,
+    load_scoring_profile,
+    load_site_profile,
+)
+from materials_triage.scoring.scorer import ScoringInputs, score_run
 from validation.groups import LoadedGroup, load_snapshots
 
 VALIDATION_RUN_ID = UUID("00000000-0000-4000-8000-00000000000a")
@@ -53,10 +59,6 @@ YIM_LIKE_LABEL = (
     "overrides within site bounds; the default profile file is unchanged. Exclusion rules "
     "(hazard, stability cutoff, anion policy) still apply at weight 0."
 )
-
-
-def available() -> bool:
-    return importlib.util.find_spec("materials_triage.scoring.scorer") is not None
 
 
 def yim_like_target_band() -> tuple[tuple[float, float] | None, str | None]:
@@ -86,18 +88,6 @@ def score_with_track_a(
     request_text: str = "validation run",
     yim_like: bool = False,
 ) -> ProvenanceBundle:
-    from materials_triage.scoring.profile import (  # type: ignore[import-not-found,import-untyped,unused-ignore]
-        echa_attribution,
-        load_hazard_policy,
-        load_reference_values,
-        load_scoring_profile,
-        load_site_profile,
-    )
-    from materials_triage.scoring.scorer import (  # type: ignore[import-not-found,import-untyped,unused-ignore]
-        ScoringInputs,
-        score_run,
-    )
-
     paths = default_paths()
     loaded = load_scoring_profile(paths["scoring_profile"])
     site = load_site_profile(paths["site_profile"])

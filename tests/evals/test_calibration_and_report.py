@@ -1,4 +1,4 @@
-"""Band gap calibration on the recorded oxides, and the stand-in validation run end to end."""
+"""Band gap calibration on the recorded oxides, and the validation run end to end."""
 
 import json
 from pathlib import Path
@@ -7,7 +7,7 @@ import pytest
 from validation.calibration import calibrate
 from validation.groups import LoadedGroup, Snapshots, load_groups, load_snapshots
 from validation.report import run_validation
-from validation.stand_in import NOTE, score_stand_in
+from validation.track_a import score_with_track_a
 
 BASELINE = [
     "HfO2",
@@ -60,9 +60,9 @@ def test_calibration_hash_changes_with_the_data(
     assert full.data_sha256 != fewer.data_sha256
 
 
-def test_stand_in_run_is_labeled_and_byte_stable(tmp_path: Path) -> None:
-    first = run_validation(score_stand_in, scorer_name="stand_in", out_dir=tmp_path)
-    assert first["scorer"]["name"] == "stand_in" and NOTE in first["scorer"]["note"]
+def test_validation_run_is_labeled_and_byte_stable(tmp_path: Path) -> None:
+    first = run_validation(score_with_track_a, scorer_name="track_a", out_dir=tmp_path)
+    assert first["scorer"]["name"] == "track_a" and "Track A scorer" in first["scorer"]["note"]
     tables = {t["table"]: t for t in first["yim"]["tables"]}
     assert set(tables) == {1, 2, 3}
     for t in tables.values():
@@ -77,12 +77,12 @@ def test_stand_in_run_is_labeled_and_byte_stable(tmp_path: Path) -> None:
         "ZrPbO3": "excluded",
     }
     assert {r["composition"] for r in first["yim"]["no_abstract"]} >= {"Li4CO4", "NaIO3", "LaYO3"}
-    assert first["yim_like"] is None  # the stand-in takes no weight overrides
+    assert first["yim_like"] is None  # no second configuration was passed
     assert (
         first["recall"]["k"] == 5 and first["negative_controls"]["baseline_oxides"]["all_handled"]
     )
     a = (tmp_path / "validation.json").read_text()
-    run_validation(score_stand_in, scorer_name="stand_in", out_dir=tmp_path)
+    run_validation(score_with_track_a, scorer_name="track_a", out_dir=tmp_path)
     assert (tmp_path / "validation.json").read_text() == a
     cal = json.loads((tmp_path / "band_gap_calibration.json").read_text())
     assert cal["data_sha256"] == first["calibration_sha256"]

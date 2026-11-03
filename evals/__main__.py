@@ -25,7 +25,7 @@ def main(argv: list[str] | None = None) -> int:
     run.add_argument("--repeats", nargs="*", default=[], help="ID=N overrides")
     run.add_argument("--out", default=str(RESULTS_DIR))
     pre = sub.add_parser("prereg", help="record the scoring config sha before validation runs")
-    pre.add_argument("--scorer", default="stand_in")
+    pre.add_argument("--scorer", default="track_a")
     js = sub.add_parser("judge-sample", help="write evals/judge_sample.md for owner grading")
     js.add_argument("--suite", default="all")
     sub.add_parser("agreement", help="report owner agreement with the judge sample")

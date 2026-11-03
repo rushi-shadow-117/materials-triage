@@ -68,7 +68,7 @@ def test_judge_sample_round_trips_to_an_agreement_rate(tmp_path: Path) -> None:
 def test_preregistration_records_and_compares(tmp_path: Path) -> None:
     path = tmp_path / "prereg.json"
     assert compare(path) is None
-    rec = preregister(path, scorer_name="stand_in")
+    rec = preregister(path, scorer_name="track_a")
     data = json.loads(path.read_text())
     assert data["config_sha"] == rec["config_sha"] and len(data["config_sha"]) == 64
     assert set(data["snapshot_shas"]) >= {"jarvis_dft_3d", "expt_gap"}

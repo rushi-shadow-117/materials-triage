@@ -13,7 +13,7 @@ from evals.runner import run_suite, write_results
 from evals.schema import JudgeVerdict
 from scripts.generate_eval_report import build
 from validation.report import run_validation
-from validation.stand_in import score_stand_in
+from validation.track_a import score_with_track_a
 
 from tests.evals.test_cases_and_runner import ADVERSARIAL, NORMAL, write_cases
 
@@ -48,9 +48,9 @@ def test_report_is_built_from_results_and_is_byte_stable(tmp_path: Path) -> None
     results_dir = tmp_path / "results"
     write_results(run_suite(cases, SampleBundleExecutor(), FakeJudge(), suite="all"), results_dir)
     val_dir = tmp_path / "val"
-    run_validation(score_stand_in, scorer_name="stand_in", out_dir=val_dir)
+    run_validation(score_with_track_a, scorer_name="track_a", out_dir=val_dir)
     prereg = tmp_path / "prereg.json"
-    preregister(prereg, scorer_name="stand_in")
+    preregister(prereg, scorer_name="track_a")
     sample = tmp_path / "judge_sample.md"
     write_judge_sample(
         [("A1", 1, JudgeVerdict(item="caveat_presence", verdict="pass", reason="r", judge="fake"))],
@@ -72,8 +72,8 @@ def test_report_is_built_from_results_and_is_byte_stable(tmp_path: Path) -> None
     assert NORMAL["expectation"] in text
     # The planted miss is explained in one line with the check's detail.
     assert "- repeat 1, `ranked_near_top`: ThO2=None" in text
-    # Validation rows, stand-in note, calibration, preregistration, judge.
-    assert "temporary stand-in scorer" in text
+    # Validation rows, calibration, preregistration, judge.
+    assert "Scorer `track_a`" in text
     assert "### Yim 2015 positives (10.1038/am.2015.57)" in text
     assert "Conflict tolerance:" in text and "tbmbj: n=6" in text
     assert "Current config sha matches the pre-registered one." in text

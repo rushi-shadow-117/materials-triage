@@ -17,20 +17,15 @@ def main(argv: list[str] | None = None) -> int:
     run.add_argument("--out", default=str(RESULTS_DIR))
     args = ap.parse_args(argv)
     if args.cmd == "run":
-        if track_a.available():
-            report = run_validation(
-                track_a.score_with_track_a,
-                scorer_name="track_a",
-                out_dir=Path(args.out),
-                yim_like=YimLikeRun(
-                    score=track_a.score_with_track_a_yim_like,
-                    description=track_a.yim_like_description(),
-                ),
-            )
-        else:
-            from validation.stand_in import score_stand_in
-
-            report = run_validation(score_stand_in, scorer_name="stand_in", out_dir=Path(args.out))
+        report = run_validation(
+            track_a.score_with_track_a,
+            scorer_name="track_a",
+            out_dir=Path(args.out),
+            yim_like=YimLikeRun(
+                score=track_a.score_with_track_a_yim_like,
+                description=track_a.yim_like_description(),
+            ),
+        )
         print("scorer:", report["scorer"]["name"])
         yim = report["yim"]
         like = report["yim_like"]

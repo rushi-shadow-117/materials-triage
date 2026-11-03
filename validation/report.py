@@ -1,9 +1,9 @@
 """Run the validation study and write validation/results/*.json.
 
 The scorer is a parameter: `run_validation(score=...)` takes any callable from loaded groups
-to a ProvenanceBundle. Until Track A merges, the stand-in is the only option and the results
-file says so in `scorer.name`. Results carry no timestamps so re-running on the same inputs
-is byte-identical.
+to a ProvenanceBundle; `validation.track_a` provides the real one and the results file names
+it in `scorer.name`. Results carry no timestamps so re-running on the same inputs is
+byte-identical.
 """
 
 from __future__ import annotations
