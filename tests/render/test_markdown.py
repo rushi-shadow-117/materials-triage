@@ -1,0 +1,182 @@
+"""Rendered views match golden files, read the polymorph summary only, and resolve caveats."""
+
+from __future__ import annotations
+
+import csv
+import io
+import os
+from pathlib import Path
+
+import pytest
+
+from materials_triage.config import schema as cs
+from materials_triage.records.bundle import Caveat, CaveatId, ProvenanceBundle
+from materials_triage.render import caveats, csv_export, glossary, markdown
+from materials_triage.verify.verifier import verify
+
+ROOT = Path(__file__).resolve().parents[2]
+SAMPLE = ROOT / "fixtures" / "bundles" / "sample_bundle.json"
+GOLDEN = Path(__file__).parent / "golden"
+REGEN = os.environ.get("REGEN_GOLDEN") == "1"
+
+
+def _golden(name: str, text: str) -> None:
+    path = GOLDEN / name
+    if REGEN or not path.exists():
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(text)
+    assert path.read_text() == text, f"{name} changed; set REGEN_GOLDEN=1 to accept"
+
+
+@pytest.fixture(scope="module")
+def bundle() -> ProvenanceBundle:
+    raw = ProvenanceBundle.model_validate_json(SAMPLE.read_text())
+    verified, _ = verify(raw)
+    return verified
+
+
+@pytest.fixture(scope="module")
+def site() -> cs.SiteProfile:
+    return cs.site_profile_from_yaml(cs.default_paths()["site_profile"])
+
+
+@pytest.fixture(scope="module")
+def caveat_config() -> caveats.CaveatConfig:
+    return caveats.CaveatConfig.load()
+
+
+def _with_settings(bundle: ProvenanceBundle, **settings: str) -> ProvenanceBundle:
+    crit = bundle.criteria.model_copy(
+        update={"effective_settings": {**bundle.criteria.effective_settings, **settings}}
+    )
+    return bundle.model_copy(update={"criteria": crit})
+
+
+@pytest.mark.parametrize("view", ["pi_summary", "audit"])
+@pytest.mark.parametrize("units", ["eV", "meV"])
+@pytest.mark.parametrize("terminology", ["technical", "general"])
+def test_views_match_golden(
+    bundle: ProvenanceBundle,
+    site: cs.SiteProfile,
+    caveat_config: caveats.CaveatConfig,
+    view: str,
+    units: str,
+    terminology: str,
+) -> None:
+    b = _with_settings(bundle, units=units, terminology=terminology)
+    text = markdown.render(b, view=view, site=site, caveats=caveat_config)
+    _golden(f"{view}_{units}_{terminology}.md", text)
+
+
+def test_pi_summary_has_the_planned_sections(
+    bundle: ProvenanceBundle, site: cs.SiteProfile
+) -> None:
+    text = markdown.render_pi_summary(bundle, site)
+    assert "| 1 | Al2O3 |" in text and "| 2 | HfO2 |" in text
+    assert "HfO2 ranks 2 on stability (energy above hull) and band gap; see caveats." in text
+    assert "SiO2: would rank 1 of 8" in text
+    assert "ThO2: hazard.radioactive_exclude" in text and "BeO: hazard.exclude" in text
+    assert "band_offsets_not_checked: Band offsets to the substrate are not checked" in text
+    assert "- breakdown field" in text and "leakage current density" in text
+    assert "thin_film_deposited" in text  # HfO2's verified evidence tier
+    assert "failures removed (1 failure(s))" in text
+
+
+def test_audit_view_shows_values_with_provenance_and_the_polymorph_summary_only(
+    bundle: ProvenanceBundle, site: cs.SiteProfile
+) -> None:
+    text = markdown.render_audit(bundle, site)
+    assert "- Config sha: " + bundle.run.config_sha in text
+    assert "Source versions: materials_project=2026.09.28" in text
+    assert "| band gap | 5.55 eV | experimental_median |" in text
+    assert "Polymorphs: 15 with MP ids (5 observed, 10 theoretical, 0 unknown)." in text
+    assert "- Ground state: mp-352 (P2_1/c), hull 0.000 eV/atom, observed" in text
+    assert text.count("- mp-") <= sum(
+        len(c.group.polymorphs.top_by_hull) for c in [*bundle.candidates, *bundle.anchors]
+    )
+    assert "Hazard: no GHS hazard codes in 344 notifications (ECHA attribution applies)" in text
+    assert 'verified quote: "Here, we present a structural study' in text
+    assert "not verified (quote not found verbatim in stored abstract)" in text
+    assert "## Verifier" in text and "quote_mismatch at evidence:" in text
+    assert "## Decision log" in text and "pipeline build_sample" in text
+    excluded_line = (
+        "Excluded: hazard.radioactive_exclude (['Th'] has no stable isotope); "
+        "rule source config/hazard_policy.yaml#tiers.radioactive_exclude"
+    )
+    assert excluded_line in text
+
+
+def test_mev_units_flow_through_the_values(bundle: ProvenanceBundle, site: cs.SiteProfile) -> None:
+    text = markdown.render_audit(_with_settings(bundle, units="meV"), site)
+    assert "| band gap | 5550 meV |" in text and "hull 0 meV/atom" in text
+
+
+def test_glossary_applies_only_in_general_terminology(
+    bundle: ProvenanceBundle, site: cs.SiteProfile
+) -> None:
+    glossed = site.model_copy(
+        update={"glossary": {"band gap": "energy gap", "hull": "stability margin"}}
+    )
+    technical = markdown.render_pi_summary(_with_settings(bundle, terminology="technical"), glossed)
+    general = markdown.render_pi_summary(_with_settings(bundle, terminology="general"), glossed)
+    assert "band gap" in technical and "energy gap" not in technical
+    assert "energy gap" in general and "band gap" not in general
+    assert glossary.apply("the band gap and bandgap", {"band gap": "x"}) == "the x and bandgap"
+    assert glossary.apply("band gap energy", {"band gap": "a", "band gap energy": "b"}) == "b"
+
+
+def test_unverified_llm_bundle_is_refused(site: cs.SiteProfile) -> None:
+    raw = ProvenanceBundle.model_validate_json(SAMPLE.read_text())
+    llm_run = raw.model_copy(
+        update={"run": raw.run.model_copy(update={"model_version": "m"}), "verifier": None}
+    )
+    with pytest.raises(markdown.UnverifiedBundleError):
+        markdown.render_pi_summary(llm_run, site)
+    with pytest.raises(ValueError, match="unknown view"):
+        markdown.render(raw, view="pdf", site=site)
+
+
+def test_caveat_resolver_uses_entered_config_text_and_marks_the_rest(
+    caveat_config: caveats.CaveatConfig,
+) -> None:
+    r = caveat_config.resolve
+    assert r(Caveat(id=CaveatId.BAND_OFFSETS_NOT_CHECKED)).text.startswith("Band offsets")
+    assert r(Caveat(id=CaveatId.STABILITY_CUTOFF_HULL_MISMATCH)).text.startswith("The 94 meV/atom")
+    cr = r(Caveat(id=CaveatId.HAZARD_FLAG, subject="Cr"))
+    assert cr.entered and "Cr(VI)" in cr.text and cr.source.endswith("tiers.flag.Cr")
+    ba = r(Caveat(id=CaveatId.HAZARD_FLAG, subject="Ba"))
+    assert ba.entered and "barium" in ba.text.lower()
+    unknown_el = r(Caveat(id=CaveatId.HAZARD_FLAG, subject="Xx"))
+    assert not unknown_el.entered and unknown_el.text == "caveat text not entered: hazard_flag"
+    assert r(Caveat(id=CaveatId.HAZARD_UNKNOWN)).text.startswith(
+        "A compound with no PubChem record"
+    )
+    sio2 = r(Caveat(id=CaveatId.PROCESS_HAZARD, subject="SiO2"))
+    assert (
+        sio2.text.startswith("Particulate hazard during processing")
+        and "Crystalline silica" in sio2.text
+    )
+    assert "{material_specific_classification}" not in sio2.text
+    hfo2 = r(Caveat(id=CaveatId.PROCESS_HAZARD, subject="HfO2"))
+    assert "Crystalline silica" not in hfo2.text and "  " not in hfo2.text
+    assert r(Caveat(id=CaveatId.EVIDENCE_UNCLASSIFIED)).source == "system"
+    echa = r(Caveat(id=CaveatId.ATTRIBUTION_ECHA))
+    assert echa.entered or echa.text == "caveat text not entered: attribution_echa"
+
+
+def test_csv_has_one_row_per_candidate_and_anchor(bundle: ProvenanceBundle) -> None:
+    text = csv_export.export_csv(bundle)
+    rows = list(csv.DictReader(io.StringIO(text)))
+    assert len(rows) == len(bundle.candidates) + len(bundle.anchors)
+    assert rows[0]["composition"] == "Al2O3" and rows[0]["rank"] == "1"
+    hf = next(r for r in rows if r["composition"] == "HfO2")
+    assert hf["band_gap_raw"] == "5.55" and hf["band_gap_unit"] == "eV"
+    assert hf["stability_raw"] == "0.000" and hf["ground_state_mp_id"] == "mp-352"
+    assert hf["caveats"] == "band_offsets_not_checked" and hf["polymorph_count"] == "15"
+    th = next(r for r in rows if r["composition"] == "ThO2")
+    assert th["rank"] == "" and th["excluded_rule"] == "hazard.radioactive_exclude"
+    si = next(r for r in rows if r["kind"] == "anchor")
+    assert si["would_rank"] == "1" and si["out_of"] == "8"
+    mev = list(csv.DictReader(io.StringIO(csv_export.export_csv(bundle, units="meV"))))
+    assert next(r for r in mev if r["composition"] == "HfO2")["band_gap_unit"] == "meV"
+    _golden("export.csv", text)

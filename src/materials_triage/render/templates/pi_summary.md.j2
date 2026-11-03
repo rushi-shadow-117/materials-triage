@@ -1,0 +1,67 @@
+# Shortlist: {{ run.profile_name }}
+
+Run {{ run.run_id }}, {{ run.fetch_mode.value }} data, started {{ run.started_at.isoformat() }}.
+{% if run.note %}
+Note: {{ run.note }}
+{% endif %}
+{% if view.refusal %}
+
+**Request refused.** {{ view.refusal }}
+{% endif %}
+{% if run.partial %}
+
+**Partial run.** {% for r in view.partial_reasons %}{{ r }}{% if not loop.last %}; {% endif %}{% endfor %}
+
+{% endif %}
+
+Request: {{ criteria.request_text }}
+
+{% if view.rows %}
+| Rank | Material | Why | Key caveat | Evidence | k | Missing |
+|---|---|---|---|---|---|---|
+{% for r in view.rows %}
+| {{ r.rank }} | {{ r.composition }} | {{ r.rationale or "no rationale" }} | {{ r.key_caveat }} | {{ r.evidence_tier }} | {{ r.k }} | {{ r.missing | join(", ") if r.missing else "none" }} |
+{% endfor %}
+{% else %}
+No candidate passed the criteria.
+{% endif %}
+{% if view.anchors %}
+
+## Reference anchors (never ranked)
+
+{% for a in view.anchors %}
+- {{ a.composition }}: {{ a.rank }}{% if a.exclusion %} (excluded: {{ a.exclusion }}){% endif %}
+
+{% endfor %}
+{% endif %}
+{% if view.excluded %}
+
+## Excluded
+
+{% for e in view.excluded %}
+- {{ e.composition }}: {{ e.exclusion }} ({{ e.exclusion_detail }})
+{% endfor %}
+{% endif %}
+{% if view.caveat_texts %}
+
+## Caveats
+
+{% for id, c in view.caveat_texts.items() %}
+- {{ id }}: {{ c.text }}
+{% endfor %}
+{% endif %}
+
+## What this screen cannot tell you
+
+{% for m in view.missing_properties %}
+- {{ m }}
+{% else %}
+- (site list not entered)
+{% endfor %}
+
+## Settings applied
+
+- Defaults: {{ view.defaults_applied | join("; ") if view.defaults_applied else "none" }}
+- Clamps: {{ view.clamps | join("; ") if view.clamps else "none" }}
+- Verifier: {% if bundle.verifier %}{{ "passed" if bundle.verifier.passed else "failures removed" }} ({{ bundle.verifier.failures | length }} failure(s)){% else %}not run (no LLM text){% endif %}
+
