@@ -8,7 +8,7 @@ No eval results found. Run `uv run python -m evals run`.
 
 ## Validation
 
-Scorer `track_a`, profile `oxide_dielectric_thin_film` version `0`, config sha `3e7006725575`, commit `9cfe8737c281f7f652fcddc1d7c082c24f5575f3`.
+Scorer `track_a`, profile `oxide_dielectric_thin_film` version `0`, config sha `3e7006725575`, commit `d5586cad0985c003442ef793f789a28fa147b63e`.
 
 ### Yim 2015 positives (10.1038/am.2015.57)
 
