@@ -77,6 +77,7 @@ def test_stand_in_run_is_labeled_and_byte_stable(tmp_path: Path) -> None:
         "ZrPbO3": "excluded",
     }
     assert {r["composition"] for r in first["yim"]["no_abstract"]} >= {"Li4CO4", "NaIO3", "LaYO3"}
+    assert first["yim_like"] is None  # the stand-in takes no weight overrides
     assert (
         first["recall"]["k"] == 5 and first["negative_controls"]["baseline_oxides"]["all_handled"]
     )

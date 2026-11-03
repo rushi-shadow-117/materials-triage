@@ -768,3 +768,19 @@ shows the pre-registered and current shas side by side when they differ and name
 that changed.
 Reason: a tuned config after the fact must be visible as such.
 
+### 2026-11-02 A second Yim correlation under a Yim-like configuration
+Decision: the Yim comparison runs twice and both rhos sit side by side in docs/EVAL.md. The
+default column is the profile as entered. The Yim-like column (owner decision 2026-11-02) sets
+query-level weight overrides within site bounds: stability, band gap and dielectric constant at
+1; hazard, simplicity, evidence, deposition method and cost at 0. The profile file is not
+changed, so the default run's config sha is unaffected and the Yim-like run gets its own sha.
+Exclusion rules (hazard, stability cutoff, anion policy) still apply at weight 0. The
+dielectric target band is read from the profile file as written; Track A's strict loader drops
+it while its status is not `entered`, so the results carry the band and its status beside the
+rho, and the run note says it was used for the validation comparison only.
+Reason: the default profile weights evidence and hazard, which Yim's figure of merit does not;
+a rho under weights closer to Yim's inputs says whether a weak default rho comes from those
+criteria or from the scorer's stability and gap handling. Alternative considered: a second
+profile file under config/scoring_profiles (rejected: config is Track A's, and a profile that
+weights a `pending_verification` criterion would fail the strict loader by design).
+
