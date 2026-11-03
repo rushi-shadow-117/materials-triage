@@ -17,6 +17,7 @@ from typing import Any
 
 from materials_triage.records.bundle import ProvenanceBundle
 from validation.calibration import calibrate
+from validation.data_level import data_level_report
 from validation.groups import (
     LoadedGroup,
     cassette_manifest_path,
@@ -117,6 +118,7 @@ def run_validation(
         },
         "yim": yim_report(yim_bundle, gt).to_dict(),
         "yim_like": None if yim_like is None else yim_like_block(yim_like, yim_groups, gt),
+        "data_level": data_level_report(yim_groups, gt).to_dict(),
         "recall": recall_at_k(baseline_bundle, known, k, source).to_dict(),
         "negative_controls": {
             "yim_set": asdict(negative_controls(yim_bundle, list(gt.negatives))),

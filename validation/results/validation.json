@@ -1,5 +1,500 @@
 {
  "calibration_sha256": "9c3ec4a7624ec13c09b42e017ff27f6e2c11896cfd7e25de54b163766bc135e2",
+ "data_level": {
+  "definition": "Spearman rho between Yim's figure of merit and (best-available gap x e_total) from our records, no scoring policy. Gap: experimental median (expt_gap snapshot) when present, else JARVIS TBmBJ, else Materials Project PBE, on the polymorph used. e_total: Materials Project DFPT total dielectric constant on that polymorph. Polymorph: the scorer's selected ground state, else the lowest-hull MP polymorph carrying e_total. Compositions without both values are listed and left out; nothing is filled.",
+  "tables": [
+   {
+    "n_in_table": 11,
+    "n_paired": 10,
+    "points": [
+     {
+      "composition": "BeO",
+      "e_total": 7.348809943363005,
+      "gap_ev": 10.39,
+      "gap_source": "experimental",
+      "mp_id": "mp-2542",
+      "product": 76.35413531154163,
+      "yim_best_fom": 2780.0
+     },
+     {
+      "composition": "NbCl3O",
+      "e_total": 5.199237276666667,
+      "gap_ev": 2.8075,
+      "gap_source": "pbe",
+      "mp_id": "mp-556422",
+      "product": 14.596858654241666,
+      "yim_best_fom": 1176.0
+     },
+     {
+      "composition": "AlHO2",
+      "e_total": 8.867470566666666,
+      "gap_ev": 5.5638000000000005,
+      "gap_source": "pbe",
+      "mp_id": "mp-625152",
+      "product": 49.33683273882,
+      "yim_best_fom": 265.0
+     },
+     {
+      "composition": "NaIO3",
+      "e_total": 30.357399873333332,
+      "gap_ev": 3.705,
+      "gap_source": "pbe",
+      "mp_id": "mp-22989",
+      "product": 112.4741665307,
+      "yim_best_fom": 241.0
+     },
+     {
+      "composition": "Na2SO4",
+      "e_total": 5.975601606666619,
+      "gap_ev": 4.9903,
+      "gap_source": "pbe",
+      "mp_id": "mp-4770",
+      "product": 29.820044697748433,
+      "yim_best_fom": 143.0
+     },
+     {
+      "composition": "Sr3(PO4)2",
+      "e_total": 20.861542909999994,
+      "gap_ev": 5.4024,
+      "gap_source": "pbe",
+      "mp_id": "mp-4632",
+      "product": 112.70239941698397,
+      "yim_best_fom": 129.0
+     },
+     {
+      "composition": "CaB4O7",
+      "e_total": 12.291521496666666,
+      "gap_ev": 6.3176,
+      "gap_source": "pbe",
+      "mp_id": "mp-11000",
+      "product": 77.65291620734132,
+      "yim_best_fom": 99.0
+     },
+     {
+      "composition": "Ba3(PO4)2",
+      "e_total": 17.208958276666664,
+      "gap_ev": 5.1422,
+      "gap_source": "pbe",
+      "mp_id": "mp-3857",
+      "product": 88.49190525027532,
+      "yim_best_fom": 85.0
+     },
+     {
+      "composition": "LiAlO2",
+      "e_total": 12.775382866679715,
+      "gap_ev": 6.1183000000000005,
+      "gap_source": "pbe",
+      "mp_id": "mp-8001",
+      "product": 78.16362499320651,
+      "yim_best_fom": 85.0
+     },
+     {
+      "composition": "YBO3",
+      "e_total": 12.70311322,
+      "gap_ev": 5.1696,
+      "gap_source": "pbe",
+      "mp_id": "mp-29205",
+      "product": 65.670014102112,
+      "yim_best_fom": 80.0
+     }
+    ],
+    "reason": null,
+    "rho": -0.35258521533443743,
+    "table": 1,
+    "unpaired": [
+     {
+      "composition": "K2W2O7",
+      "missing": "e_total"
+     }
+    ]
+   },
+   {
+    "n_in_table": 24,
+    "n_paired": 18,
+    "points": [
+     {
+      "composition": "BeO",
+      "e_total": 7.348809943363005,
+      "gap_ev": 10.39,
+      "gap_source": "experimental",
+      "mp_id": "mp-2542",
+      "product": 76.35413531154163,
+      "yim_best_fom": 2780.0
+     },
+     {
+      "composition": "NbCl3O",
+      "e_total": 5.199237276666667,
+      "gap_ev": 2.8075,
+      "gap_source": "pbe",
+      "mp_id": "mp-556422",
+      "product": 14.596858654241666,
+      "yim_best_fom": 1176.0
+     },
+     {
+      "composition": "SrTiO3",
+      "e_total": 7.797491839999125,
+      "gap_ev": 1.8559,
+      "gap_source": "pbe",
+      "mp_id": "mp-4651",
+      "product": 14.471365105854378,
+      "yim_best_fom": 869.0
+     },
+     {
+      "composition": "NaNbO3",
+      "e_total": 38.555950309969234,
+      "gap_ev": 2.7818,
+      "gap_source": "pbe",
+      "mp_id": "mp-4514",
+      "product": 107.25494257227241,
+      "yim_best_fom": 643.0
+     },
+     {
+      "composition": "NaTaO3",
+      "e_total": 346.6199229633333,
+      "gap_ev": 2.5925999999999996,
+      "gap_source": "pbe",
+      "mp_id": "mp-3858",
+      "product": 898.6468122747377,
+      "yim_best_fom": 595.0
+     },
+     {
+      "composition": "TaAgO3",
+      "e_total": 1501.0737042368044,
+      "gap_ev": 1.9158,
+      "gap_source": "pbe",
+      "mp_id": "mp-9890",
+      "product": 2875.7570025768696,
+      "yim_best_fom": 570.0
+     },
+     {
+      "composition": "Li4CO4",
+      "e_total": 7.67788997319586,
+      "gap_ev": 5.0391,
+      "gap_source": "pbe",
+      "mp_id": "mp-550320",
+      "product": 38.689655363931266,
+      "yim_best_fom": 489.0
+     },
+     {
+      "composition": "TiCdO3",
+      "e_total": 23.727993309901994,
+      "gap_ev": 2.9251000000000005,
+      "gap_source": "pbe",
+      "mp_id": "mp-13641",
+      "product": 69.40675323079434,
+      "yim_best_fom": 464.0
+     },
+     {
+      "composition": "KTaO3",
+      "e_total": 8.810066896666672,
+      "gap_ev": 2.0976,
+      "gap_source": "pbe",
+      "mp_id": "mp-3614",
+      "product": 18.47999632244801,
+      "yim_best_fom": 439.0
+     },
+     {
+      "composition": "Ta2Cd2O7",
+      "e_total": 176.46696519666398,
+      "gap_ev": 2.0241999999999996,
+      "gap_source": "pbe",
+      "mp_id": "mp-5548",
+      "product": 357.20443095108715,
+      "yim_best_fom": 399.0
+     },
+     {
+      "composition": "TiO2",
+      "e_total": 63.219099586670545,
+      "gap_ev": 3.3,
+      "gap_source": "experimental",
+      "mp_id": "mp-390",
+      "product": 208.62302863601278,
+      "yim_best_fom": 369.0
+     },
+     {
+      "composition": "AlHO2",
+      "e_total": 8.867470566666666,
+      "gap_ev": 5.5638000000000005,
+      "gap_source": "pbe",
+      "mp_id": "mp-625152",
+      "product": 49.33683273882,
+      "yim_best_fom": 265.0
+     },
+     {
+      "composition": "SrHfO3",
+      "e_total": 32.66451275666667,
+      "gap_ev": 4.1684,
+      "gap_source": "pbe",
+      "mp_id": "mp-3378",
+      "product": 136.15875497488935,
+      "yim_best_fom": 259.0
+     },
+     {
+      "composition": "BaZrO3",
+      "e_total": 73.19557142999996,
+      "gap_ev": 3.0441000000000003,
+      "gap_source": "pbe",
+      "mp_id": "mp-3834",
+      "product": 222.8146389900629,
+      "yim_best_fom": 252.0
+     },
+     {
+      "composition": "ZrPbO3",
+      "e_total": 14.430648766666664,
+      "gap_ev": 2.6727000000000003,
+      "gap_source": "pbe",
+      "mp_id": "mp-20337",
+      "product": 38.56879495867,
+      "yim_best_fom": 249.0
+     },
+     {
+      "composition": "NaIO3",
+      "e_total": 30.357399873333332,
+      "gap_ev": 3.705,
+      "gap_source": "pbe",
+      "mp_id": "mp-22989",
+      "product": 112.4741665307,
+      "yim_best_fom": 241.0
+     },
+     {
+      "composition": "ZrO2",
+      "e_total": 21.280324340000004,
+      "gap_ev": 4.99,
+      "gap_source": "experimental",
+      "mp_id": "mp-2858",
+      "product": 106.18881845660002,
+      "yim_best_fom": 220.0
+     },
+     {
+      "composition": "Sr2Ta2O7",
+      "e_total": 121.76921272666664,
+      "gap_ev": 2.9098000000000006,
+      "gap_source": "pbe",
+      "mp_id": "mp-12286",
+      "product": 354.32405519205463,
+      "yim_best_fom": 214.0
+     }
+    ],
+    "reason": null,
+    "rho": -0.2631578947368421,
+    "table": 2,
+    "unpaired": [
+     {
+      "composition": "Y2Ti2O7",
+      "missing": "e_total"
+     },
+     {
+      "composition": "HfPbO3",
+      "missing": "e_total"
+     },
+     {
+      "composition": "Ta4Ag2O11",
+      "missing": "e_total"
+     },
+     {
+      "composition": "TaBiO4",
+      "missing": "e_total"
+     },
+     {
+      "composition": "HfTe3O8",
+      "missing": "e_total"
+     },
+     {
+      "composition": "K2W2O7",
+      "missing": "e_total"
+     }
+    ]
+   },
+   {
+    "n_in_table": 23,
+    "n_paired": 17,
+    "points": [
+     {
+      "composition": "BeO",
+      "e_total": 7.348809943363005,
+      "gap_ev": 10.39,
+      "gap_source": "experimental",
+      "mp_id": "mp-2542",
+      "product": 76.35413531154163,
+      "yim_best_fom": 2780.0
+     },
+     {
+      "composition": "AlHO2",
+      "e_total": 8.867470566666666,
+      "gap_ev": 5.5638000000000005,
+      "gap_source": "pbe",
+      "mp_id": "mp-625152",
+      "product": 49.33683273882,
+      "yim_best_fom": 264.0
+     },
+     {
+      "composition": "HfO2",
+      "e_total": 18.7477708,
+      "gap_ev": 5.55,
+      "gap_source": "experimental",
+      "mp_id": "mp-352",
+      "product": 104.05012794000001,
+      "yim_best_fom": 210.0
+     },
+     {
+      "composition": "Na2SO4",
+      "e_total": 5.975601606666619,
+      "gap_ev": 4.9903,
+      "gap_source": "pbe",
+      "mp_id": "mp-4770",
+      "product": 29.820044697748433,
+      "yim_best_fom": 143.0
+     },
+     {
+      "composition": "Sr3(PO4)2",
+      "e_total": 20.861542909999994,
+      "gap_ev": 5.4024,
+      "gap_source": "pbe",
+      "mp_id": "mp-4632",
+      "product": 112.70239941698397,
+      "yim_best_fom": 129.0
+     },
+     {
+      "composition": "YAlO3",
+      "e_total": 15.949112836666666,
+      "gap_ev": 5.538999999999999,
+      "gap_source": "pbe",
+      "mp_id": "mp-3792",
+      "product": 88.34213600229664,
+      "yim_best_fom": 119.0
+     },
+     {
+      "composition": "MgSiO3",
+      "e_total": 5.220478423333334,
+      "gap_ev": 4.2049,
+      "gap_source": "pbe",
+      "mp_id": "mp-642210",
+      "product": 21.951589722274335,
+      "yim_best_fom": 116.0
+     },
+     {
+      "composition": "CaB4O7",
+      "e_total": 12.291521496666666,
+      "gap_ev": 6.3176,
+      "gap_source": "pbe",
+      "mp_id": "mp-11000",
+      "product": 77.65291620734132,
+      "yim_best_fom": 99.0
+     },
+     {
+      "composition": "YClO",
+      "e_total": 22.248861189999996,
+      "gap_ev": 5.0892,
+      "gap_source": "pbe",
+      "mp_id": "mp-27985",
+      "product": 113.22890436814798,
+      "yim_best_fom": 99.0
+     },
+     {
+      "composition": "MgAl2O4",
+      "e_total": 8.47648308999978,
+      "gap_ev": 5.1095,
+      "gap_source": "pbe",
+      "mp_id": "mp-3536",
+      "product": 43.31059034835388,
+      "yim_best_fom": 96.0
+     },
+     {
+      "composition": "B2O3",
+      "e_total": 4.803695356649705,
+      "gap_ev": 6.305000000000001,
+      "gap_source": "pbe",
+      "mp_id": "mp-306",
+      "product": 30.287299223676392,
+      "yim_best_fom": 90.0
+     },
+     {
+      "composition": "Mg(HO)2",
+      "e_total": 7.111142526686305,
+      "gap_ev": 4.1796999999999995,
+      "gap_source": "pbe",
+      "mp_id": "mp-30247",
+      "product": 29.722442418790745,
+      "yim_best_fom": 88.0
+     },
+     {
+      "composition": "Ba3(PO4)2",
+      "e_total": 17.208958276666664,
+      "gap_ev": 5.1422,
+      "gap_source": "pbe",
+      "mp_id": "mp-3857",
+      "product": 88.49190525027532,
+      "yim_best_fom": 85.0
+     },
+     {
+      "composition": "LiAlO2",
+      "e_total": 12.775382866679715,
+      "gap_ev": 6.1183000000000005,
+      "gap_source": "pbe",
+      "mp_id": "mp-8001",
+      "product": 78.16362499320651,
+      "yim_best_fom": 85.0
+     },
+     {
+      "composition": "Y2Si2O7",
+      "e_total": 9.252419893333334,
+      "gap_ev": 4.8078,
+      "gap_source": "pbe",
+      "mp_id": "mp-5652",
+      "product": 44.483784363168006,
+      "yim_best_fom": 85.0
+     },
+     {
+      "composition": "YOF",
+      "e_total": 14.682126420112509,
+      "gap_ev": 4.9303,
+      "gap_source": "pbe",
+      "mp_id": "mp-3637",
+      "product": 72.3872878890807,
+      "yim_best_fom": 85.0
+     },
+     {
+      "composition": "SrB4O7",
+      "e_total": 10.030803066666667,
+      "gap_ev": 7.1190999999999995,
+      "gap_source": "pbe",
+      "mp_id": "mp-5540",
+      "product": 71.41029011190666,
+      "yim_best_fom": 82.0
+     }
+    ],
+    "reason": null,
+    "rho": 0.10981128839876997,
+    "table": 3,
+    "unpaired": [
+     {
+      "composition": "LaYO3",
+      "missing": "e_total"
+     },
+     {
+      "composition": "Ba2SiO4",
+      "missing": "e_total"
+     },
+     {
+      "composition": "Ba3P4O13",
+      "missing": "e_total"
+     },
+     {
+      "composition": "Mg4H2O5",
+      "missing": "e_total"
+     },
+     {
+      "composition": "Li3BrO",
+      "missing": "e_total"
+     },
+     {
+      "composition": "BaSO4",
+      "missing": "e_total"
+     }
+    ]
+   }
+  ]
+ },
  "inputs": {
   "baseline_oxides": [
    "Al2O3",
@@ -16,7 +511,7 @@
   ],
   "cassette_manifest": "fixtures/adapters/recording_manifest.json",
   "compositions_total": 61,
-  "git_commit": "d5586cad0985c003442ef793f789a28fa147b63e",
+  "git_commit": "30f459af8d755eaa503c553642cb17388af0a1a6",
   "snapshot_shas": {
    "expt_gap": "2d0980e3533c1ba6ad6e392a88f08cfcf2d311d4b7fe6eb0b0c8e876211dfda3",
    "jarvis_dft_3d": "d4c64660e9e1fa45c82bd8868a96ec10162195eed69636445972c05550d8d0d6",

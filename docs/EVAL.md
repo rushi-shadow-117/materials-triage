@@ -8,25 +8,31 @@ No eval results found. Run `uv run python -m evals run`.
 
 ## Validation
 
-Scorer `track_a`, profile `oxide_dielectric_thin_film` version `0`, config sha `3e7006725575`, commit `d5586cad0985c003442ef793f789a28fa147b63e`.
+Scorer `track_a`, profile `oxide_dielectric_thin_film` version `0`, config sha `3e7006725575`, commit `30f459af8d755eaa503c553642cb17388af0a1a6`.
 
 ### Yim 2015 positives (10.1038/am.2015.57)
 
 Polymorph rule: one entry per composition per table, ordered by its best f_fom in that table; ties share average ranks (owner decision 2026-11-02). Fixture sha `83198d58fe86`.
 
-Spearman rho is the scorer's rank against the Yim figure-of-merit order within each table. The default column is the profile as entered; the Yim-like column is the second configuration described below the table.
+Spearman rho is the scorer's rank against the Yim figure-of-merit order within each table. The default column is the profile as entered; the Yim-like column is the second configuration described below the table; the data-level column is Yim's figure of merit against gap x e_total from our records with no scoring policy, defined below the table.
 
-| Table | In table | Ranked (default) | rho (default) | Ranked (Yim-like) | rho (Yim-like) | Note |
-|---|---|---|---|---|---|---|
-| 1 | 11 | 9 | -0.184 | 9 | -0.686 | excluded: BeO (hazard.exclude), NbCl3O (stability.cutoff) |
-| 2 | 24 | 18 | -0.484 | 18 | -0.587 | excluded: BeO (hazard.exclude), NbCl3O (stability.cutoff), TiCdO3 (hazard.exclude), Ta2Cd2O7 (hazard.exclude), HfPbO3 (hazard.acute_toxicity.element), ZrPbO3 (hazard.acute_toxicity.element) |
-| 3 | 23 | 19 | 0.028 | 19 | -0.232 | excluded: BeO (hazard.exclude), YClO (stability.cutoff), Li3BrO (stability.cutoff), YOF (simplicity.anion_policy) |
+| Table | In table | Ranked (default) | rho (default) | Ranked (Yim-like) | rho (Yim-like) | Paired (data-level) | rho (data-level) | Note |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 11 | 9 | -0.184 | 9 | -0.686 | 10 | -0.353 | excluded: BeO (hazard.exclude), NbCl3O (stability.cutoff) |
+| 2 | 24 | 18 | -0.484 | 18 | -0.587 | 18 | -0.263 | excluded: BeO (hazard.exclude), NbCl3O (stability.cutoff), TiCdO3 (hazard.exclude), Ta2Cd2O7 (hazard.exclude), HfPbO3 (hazard.acute_toxicity.element), ZrPbO3 (hazard.acute_toxicity.element) |
+| 3 | 23 | 19 | 0.028 | 19 | -0.232 | 17 | 0.110 | excluded: BeO (hazard.exclude), YClO (stability.cutoff), Li3BrO (stability.cutoff), YOF (simplicity.anion_policy) |
 
 Yim-like configuration: stability, band gap and dielectric constant at weight 1; hazard, simplicity, evidence, deposition method and cost at weight 0. Weights are query-level overrides within site bounds; the default profile file is unchanged. Exclusion rules (hazard, stability cutoff, anion policy) still apply at weight 0.
 
 - weights: band_gap 1, cost 0, deposition_method 0, dielectric_constant 1, evidence 0, hazard 0, simplicity 0, stability 1
 - dielectric target band: [10, 30] (status pending_verification)
 - config sha `4975ae5e32dc` (default run `3e7006725575`)
+
+Data-level correlation: Spearman rho between Yim's figure of merit and (best-available gap x e_total) from our records, no scoring policy. Gap: experimental median (expt_gap snapshot) when present, else JARVIS TBmBJ, else Materials Project PBE, on the polymorph used. e_total: Materials Project DFPT total dielectric constant on that polymorph. Polymorph: the scorer's selected ground state, else the lowest-hull MP polymorph carrying e_total. Compositions without both values are listed and left out; nothing is filled.
+
+- table 1: 10 of 11 paired, rho -0.353; gap sources used: experimental, pbe; unpaired: K2W2O7 (e_total)
+- table 2: 18 of 24 paired, rho -0.263; gap sources used: experimental, pbe; unpaired: Y2Ti2O7 (e_total), HfPbO3 (e_total), Ta4Ag2O11 (e_total), TaBiO4 (e_total), HfTe3O8 (e_total), K2W2O7 (e_total)
+- table 3: 17 of 23 paired, rho 0.110; gap sources used: experimental, pbe; unpaired: LaYO3 (e_total), Ba2SiO4 (e_total), Ba3P4O13 (e_total), Mg4H2O5 (e_total), Li3BrO (e_total), BaSO4 (e_total)
 
 Negatives (must be excluded or flagged with the rule shown):
 

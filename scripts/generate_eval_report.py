@@ -150,12 +150,16 @@ def validation_sections(val: dict[str, Any] | None, cal: dict[str, Any] | None) 
             "",
             "Spearman rho is the scorer's rank against the Yim figure-of-merit order within each "
             "table. The default column is the profile as entered; the Yim-like column is the "
-            "second configuration described below the table.",
+            "second configuration described below the table; the data-level column is Yim's "
+            "figure of merit against gap x e_total from our records with no scoring policy, "
+            "defined below the table.",
             "",
             "| Table | In table | Ranked (default) | rho (default) "
-            "| Ranked (Yim-like) | rho (Yim-like) | Note |",
-            "|---|---|---|---|---|---|---|",
+            "| Ranked (Yim-like) | rho (Yim-like) | Paired (data-level) | rho (data-level) "
+            "| Note |",
+            "|---|---|---|---|---|---|---|---|---|",
         ]
+        data_tables = {t["table"]: t for t in val.get("data_level", {}).get("tables", [])}
         for t in yim["tables"]:
             note = _table_note(t)
             lt = like_tables.get(t["table"])
@@ -165,9 +169,13 @@ def validation_sections(val: dict[str, Any] | None, cal: dict[str, Any] | None) 
                 like_cells = f"| {lt['n_ranked']} | {_num(lt['rho'])} "
                 if lt["excluded"] != t["excluded"] or lt["absent"] != t["absent"]:
                     note = (note + "; " if note else "") + "Yim-like " + _table_note(lt)
+            dl = data_tables.get(t["table"])
+            data_cells = (
+                "| not run | not run " if dl is None else f"| {dl['n_paired']} | {_num(dl['rho'])} "
+            )
             out.append(
                 f"| {t['table']} | {t['n_in_table']} | {t['n_ranked']} "
-                f"| {_num(t['rho'])} {like_cells}| {note} |"
+                f"| {_num(t['rho'])} {like_cells}{data_cells}| {note} |"
             )
         out.append("")
         if like is None:
@@ -187,6 +195,22 @@ def validation_sections(val: dict[str, Any] | None, cal: dict[str, Any] | None) 
                 f"- dielectric target band: {band_text}",
                 f"- config sha `{like['config_sha'][:12]}` (default run `{s['config_sha'][:12]}`)",
             ]
+        dl_report = val.get("data_level")
+        out.append("")
+        if dl_report is None:
+            out.append("Data-level correlation: not run.")
+        else:
+            out += [f"Data-level correlation: {dl_report['definition']}", ""]
+            for dt in dl_report["tables"]:
+                sources = sorted({p["gap_source"] for p in dt["points"]})
+                unpaired = ", ".join(f"{u['composition']} ({u['missing']})" for u in dt["unpaired"])
+                out.append(
+                    f"- table {dt['table']}: {dt['n_paired']} of {dt['n_in_table']} paired, "
+                    f"rho {_num(dt['rho'])}"
+                    + (f" ({dt['reason']})" if dt["reason"] else "")
+                    + f"; gap sources used: {', '.join(sources) or 'none'}"
+                    + (f"; unpaired: {unpaired}" if unpaired else "")
+                )
         out += ["", "Negatives (must be excluded or flagged with the rule shown):", ""]
         for n in yim["negatives"]:
             rule = n["rule"] or (", ".join(n["flags"]) if n["flags"] else "none")

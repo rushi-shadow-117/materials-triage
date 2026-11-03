@@ -30,6 +30,7 @@ def main(argv: list[str] | None = None) -> int:
         yim = report["yim"]
         like = report["yim_like"]
         like_tables = {} if like is None else {t["table"]: t for t in like["tables"]}
+        data_tables = {t["table"]: t for t in report["data_level"]["tables"]}
         for t in yim["tables"]:
             line = (
                 f"table {t['table']}: ranked {t['n_ranked']} of {t['n_in_table']}, rho={t['rho']}"
@@ -37,6 +38,9 @@ def main(argv: list[str] | None = None) -> int:
             lt = like_tables.get(t["table"])
             if lt is not None:
                 line += f"; Yim-like: ranked {lt['n_ranked']}, rho={lt['rho']}"
+            dl = data_tables.get(t["table"])
+            if dl is not None:
+                line += f"; data-level: paired {dl['n_paired']}, rho={dl['rho']}"
             print(line)
         print("recall:", report["recall"]["recall"], "misses:", report["recall"]["misses"])
         print("wrote", Path(args.out) / "validation.json")
