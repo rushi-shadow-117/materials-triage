@@ -54,9 +54,15 @@ def _entered(node: Any) -> bool:
 class CaveatConfig:
     """The two config files that hold caveat text, loaded once."""
 
-    def __init__(self, hazard_policy: dict[str, Any], profile: dict[str, Any]) -> None:
+    def __init__(
+        self,
+        hazard_policy: dict[str, Any],
+        profile: dict[str, Any],
+        site: dict[str, Any] | None = None,
+    ) -> None:
         self.hazard = hazard_policy
         self.profile = profile
+        self.site = site or {}
 
     @classmethod
     def load(cls, profile_path: Path | None = None) -> CaveatConfig:
@@ -64,6 +70,7 @@ class CaveatConfig:
         return cls(
             load_yaml(paths["hazard_policy"]),
             load_yaml(profile_path or paths["scoring_profile"]),
+            load_yaml(paths["site_profile"]),
         )
 
     def _profile_criterion(self, name: str, key: str) -> str | None:
@@ -104,6 +111,13 @@ class CaveatConfig:
         return " ".join(text.split()), "hazard_policy.yaml#tiers.process_hazard"
 
     def _echa(self) -> tuple[str, str] | None:
+        site_entry = (self.site.get("attribution") or {}).get("echa")
+        if (
+            isinstance(site_entry, dict)
+            and _entered(site_entry)
+            and isinstance(site_entry.get("text"), str)
+        ):
+            return str(site_entry["text"]), "site_profile.default.yaml#attribution.echa"
         for key in ("attribution_echa", "echa_attribution", "attribution"):
             node = self.hazard.get(key)
             if isinstance(node, dict) and key == "attribution":

@@ -65,15 +65,20 @@ def _inputs(layers: Layers, tmp_path: Path, formulas: list[str]) -> pipeline.Run
     )
 
 
-def test_candidate_list_run_matches_the_sample_bundle(
+SCORED_BUNDLE = ROOT / "fixtures" / "bundles" / "scored_bundle.json"
+
+
+def test_candidate_list_run_matches_the_golden_bundle(
     layers: Layers, tmp_path: Path, transport: CassetteTransport, sources: pipeline.Sources
 ) -> None:
-    sample = ProvenanceBundle.model_validate_json(scoring_port.SAMPLE_BUNDLE.read_text())
+    """Against Track A's golden scored bundle once its scorer is importable, else the sample."""
+    scorer = scoring_port.default_scorer()
+    stand_in = isinstance(scorer, scoring_port.SampleBundleScorer)
+    golden_path = scoring_port.SAMPLE_BUNDLE if stand_in else SCORED_BUNDLE
+    sample = ProvenanceBundle.model_validate_json(golden_path.read_text())
     formulas = [c.composition for c in sample.candidates]
     inputs = _inputs(layers, tmp_path, formulas)
-    bundle = pipeline.run(
-        inputs, fetch=transport, sources=sources, scorer=scoring_port.default_scorer()
-    )
+    bundle = pipeline.run(inputs, fetch=transport, sources=sources, scorer=scorer)
     assert transport.misses == []
     assert bundle.bundle_version == 2 and bundle.run.finished_at is not None
     assert [(c.rank, c.composition) for c in bundle.ranked()] == [
@@ -85,7 +90,12 @@ def test_candidate_list_run_matches_the_sample_bundle(
     assert bundle.run.source_versions["materials_project"] == "2026.09.28"
     assert bundle.run.model_version is None and bundle.run.prompt_hash is None
     assert bundle.run.policy_version == pipeline.policy_version()
-    assert bundle.run.note is not None and "Track A scorer not merged" in bundle.run.note
+    if stand_in:
+        assert bundle.run.note is not None and "Track A scorer not merged" in bundle.run.note
+    else:
+        assert bundle.run.note is None
+        assert [a.would_rank for a in bundle.anchors] == [a.would_rank for a in sample.anchors]
+        assert any(d.actor == "scorer" and d.step == "sensitivity" for d in bundle.decision_log)
     hf = next(c for c in bundle.candidates if c.composition == "HfO2")
     assert hf.group.polymorphs.total == 15 and hf.group.polymorphs.ground_state is not None
     assert hf.group.polymorphs.ground_state.mp_id == "mp-352"

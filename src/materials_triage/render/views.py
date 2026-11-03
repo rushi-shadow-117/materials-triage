@@ -24,6 +24,7 @@ from materials_triage.render.tokens import (
     render_text,
 )
 
+MAX_EXCLUDED_SHOWN = 50  # the CSV export carries every row
 TIER_ORDER = (
     EvidenceLabel.DIELECTRIC_CHARACTERIZED,
     EvidenceLabel.THIN_FILM_DEPOSITED,
@@ -160,6 +161,8 @@ class RunView:
     defaults_applied: list[str] = field(default_factory=list)
     budgets: list[str] = field(default_factory=list)
     caveat_texts: dict[str, CaveatText] = field(default_factory=dict)
+    hidden_ranked: int = 0  # ranked rows beyond top_n, not shown
+    hidden_excluded: int = 0
 
 
 def _fmt(value: float | int | None, unit: str | None, units: str) -> str:
@@ -282,7 +285,7 @@ def _row_view(
         for cs in row.score.criteria:
             if cs.criterion == "dielectric_constant" and cs.raw_value is not None:
                 k = precision.fmt(cs.raw_value, cs.raw_unit, units)
-    missing = [c.label for c in criteria if c.missing and c.criterion != "dielectric_constant"]
+    missing = [c.label for c in criteria if c.missing and c.weight != "0.000"]
     g = row.group
     gaps = "none in the public gap tables"
     gap_values: list[ValueView] = []
@@ -387,8 +390,14 @@ def _row_view(
 
 def build(bundle: ProvenanceBundle, caveats: CaveatConfig, *, units: str) -> RunView:
     index = BundleIndex.build(bundle)
-    rows = [_row_view(c, bundle, index, caveats, units) for c in bundle.ranked()]
-    excluded = [_row_view(c, bundle, index, caveats, units) for c in bundle.excluded()]
+    top_n = bundle.criteria.effective_settings.get("top_n")
+    limit = int(top_n) if isinstance(top_n, int) and top_n > 0 else None
+    ranked_all = bundle.ranked()
+    excluded_all = bundle.excluded()
+    shown_ranked = ranked_all[:limit] if limit else ranked_all
+    shown_excluded = excluded_all[:MAX_EXCLUDED_SHOWN]
+    rows = [_row_view(c, bundle, index, caveats, units) for c in shown_ranked]
+    excluded = [_row_view(c, bundle, index, caveats, units) for c in shown_excluded]
     anchors = [_row_view(a, bundle, index, caveats, units) for a in bundle.anchors]
     texts: dict[str, CaveatText] = {}
     for r in [*rows, *excluded, *anchors]:
@@ -417,4 +426,6 @@ def build(bundle: ProvenanceBundle, caveats: CaveatConfig, *, units: str) -> Run
         defaults_applied=list(bundle.criteria.defaults_applied),
         budgets=budgets,
         caveat_texts=texts,
+        hidden_ranked=len(ranked_all) - len(shown_ranked),
+        hidden_excluded=len(excluded_all) - len(shown_excluded),
     )

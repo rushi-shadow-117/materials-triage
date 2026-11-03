@@ -22,6 +22,10 @@ Request: {{ criteria.request_text }}
 {% for r in view.rows %}
 | {{ r.rank }} | {{ r.composition }} | {{ r.rationale or "no rationale" }} | {{ r.key_caveat }} | {{ r.evidence_tier }} | {{ r.k }} | {{ r.missing | join(", ") if r.missing else "none" }} |
 {% endfor %}
+{% if view.hidden_ranked %}
+
+{{ view.hidden_ranked }} more ranked candidate(s) beyond top_n are not shown; export CSV for every row.
+{% endif %}
 {% else %}
 No candidate passed the criteria.
 {% endif %}
@@ -41,6 +45,9 @@ No candidate passed the criteria.
 {% for e in view.excluded %}
 - {{ e.composition }}: {{ e.exclusion }} ({{ e.exclusion_detail }})
 {% endfor %}
+{% if view.hidden_excluded %}
+- {{ view.hidden_excluded }} more excluded candidate(s) not shown; export CSV for every row.
+{% endif %}
 {% endif %}
 {% if view.caveat_texts %}
 

@@ -104,6 +104,10 @@ Caveats:
 {% else %}
 No candidate passed the criteria.
 {% endfor %}
+{% if view.hidden_ranked %}
+{{ view.hidden_ranked }} more ranked candidate(s) beyond top_n are not shown; export CSV for every row.
+
+{% endif %}
 
 ## Reference anchors (never ranked)
 
@@ -120,6 +124,10 @@ None configured.
 {% else %}
 None.
 {% endfor %}
+{% if view.hidden_excluded %}
+{{ view.hidden_excluded }} more excluded candidate(s) not shown; export CSV for every row.
+
+{% endif %}
 
 ## What this screen cannot tell you
 
