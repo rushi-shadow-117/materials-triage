@@ -1,0 +1,371 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=Sb2O3+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 109, "db_response_time_ms": 18, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Sb2O3 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (Sb2O3 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "Sb2O3
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:Sb2O3
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2147514083",
+        "doi": "https://doi.org/10.1002/crat.200610730", "title": "Structure and electrical
+        conduction of Sb2O3 thin films", "publication_year": 2006, "abstract_inverted_index":
+        {"Antimony": [0], "trioxide": [1, 150], "(Sb2O3)": [2], "thin": [3, 151],
+        "films": [4, 41], "have": [5, 55, 138], "been": [6, 56, 139], "deposited":
+        [7, 39], "onto": [8], "glass": [9], "substrates": [10], "using": [11, 47],
+        "thermal": [12], "evaporation": [13], "technique": [14], "at": [15, 58, 70,
+        82], "room": [16], "temperature.": [17], "The": [18], "structural": [19],
+        "feature": [20], "and": [21, 31, 129, 141], "surface": [22], "morphology":
+        [23], "were": [24, 38], "characterized": [25], "by": [26], "transmission":
+        [27], "electron": [28, 33], "microscopy": [29, 34], "(TEM)": [30], "scanning":
+        [32], "(SEM).": [35], "Sandwich-type": [36], "structures": [37, 147], "with":
+        [40, 143], "thickness": [42], "d": [43], "=": [44], "0.55": [45], "\u03bcm":
+        [46], "evaporated": [48], "electrodes": [49], "of": [50, 95, 104, 132, 148],
+        "silver.": [51], "Current-voltage": [52], "(J-U)": [53], "characteristics":
+        [54], "measured": [57], "various": [59], "fixed": [60], "temperatures": [61],
+        "in": [62, 101, 145], "the": [63, 96, 102, 108, 119, 123, 130, 146], "range":
+        [64, 103], "293-473": [65], "K.": [66], "In": [67], "all": [68], "cases,":
+        [69], "low": [71], "electric": [72, 84, 106], "field": [73, 85], "(E": [74,
+        86], "<104": [75], "V/cm),": [76, 88], "ohmic": [77], "behavior": [78, 90],
+        "is": [79, 91, 112], "observed.": [80, 92], "However,": [81], "high": [83],
+        ">104": [87], "non-ohmic": [89], "An": [93], "analysis": [94], "experimental":
+        [97], "data": [98], "indicates": [99], "that": [100], "high-applied": [105],
+        "field,": [107], "dominant": [109], "conduction": [110], "mechanism": [111],
+        "space": [113], "charge": [114, 134, 137], "limited": [115], "currents": [116],
+        "(SCLC).": [117], "Using": [118], "relevant": [120], "SCLC": [121], "theory,":
+        [122], "carrier": [124], "concentration,": [125], "total": [126], "trap":
+        [127], "concentration": [128], "ratio": [131], "free": [133], "to": [135],
+        "trapped": [136], "calculated": [140], "correlated": [142], "changes": [144],
+        "antimony": [149], "films.": [152], "(\u00a9": [153], "2006": [154], "WILEY-VCH":
+        [155], "Verlag": [156], "GmbH": [157], "&": [158], "Co.": [159], "KGaA,":
+        [160], "Weinheim)": [161]}, "primary_location": {"id": "doi:10.1002/crat.200610730",
+        "doi": "https://doi.org/10.1002/crat.200610730", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1002/crat.200610730", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S85849776", "display_name": "Crystal Research and Technology",
+        "issn_l": "0232-1300", "issn": ["0232-1300", "1521-4079"], "is_oa": false,
+        "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core", "dongbi-d",
+        "jufo-1", "poland-40", "russia-white-list-2"], "host_organization": "https://openalex.org/P4310320595",
+        "host_organization_name": "Wiley", "host_organization_lineage": ["https://openalex.org/P4310320595"],
+        "host_organization_lineage_names": ["Wiley"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Crystal Research and Technology",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W3081646087",
+        "doi": "https://doi.org/10.29196/jubpas.v26i10.1881", "title": "Preparation
+        and Studying the Optical Properties of (Sb2o3) Thin Films", "publication_year":
+        2018, "abstract_inverted_index": {"In": [0], "this": [1], "paper": [2], "I":
+        [3], "present": [4], "the": [5, 40, 87, 118, 121, 139], "preparation": [6],
+        "of": [7, 42, 83, 89, 96, 105, 138], "(Sb2o3)": [8], "thin": [9, 65], "films":
+        [10, 66, 102], "using": [11, 27], "thermal": [12, 50], "evaporation": [13,
+        51], "in": [14, 36, 47, 52, 103], "vacuum,": [15], "procedure": [16], "with":
+        [17, 67], "different": [18], "thickness": [19], "(100": [20], ",150": [21],
+        ",200": [22], ",and": [23], "250)": [24], "nm,": [25], "by": [26, 74], "(":
+        [28, 37], "hot": [29], "plate)": [30], "from": [31], "Molybdenum": [32], "matter":
+        [33], "at": [34], "temperature": [35, 82], "9000c)": [38], "and": [39, 55,
+        86, 126, 135], "period": [41], "time": [43], "(15mint)": [44], ",the": [45],
+        "prepared": [46, 101], "a": [48, 53], "manner": [49], "vacuum": [54, 88],
+        "precipitated": [56], "on": [57, 76], "glass": [58, 77], "bases,": [59], "pure":
+        [60], "Antimony": [61], "Trioxide": [62], "(sb2o3": [63], ")": [64], "various":
+        [68], "condition": [69], "have": [70, 115], "been": [71, 116], "successfully":
+        [72], "deposited": [73], "(T.E.V)": [75], "slide": [78], "substrates.": [79],
+        "The": [80, 111], "substrates": [81], "about": [84, 90], "100oC": [85], "10-6":
+        [91], "torr,": [92], "to": [93], "investigated": [94], "oxidation": [95],
+        "evaporated,": [97], "measure": [98], "spectra": [99], "for": [100, 124],
+        "arrange": [104], "wavelength": [106], "(250": [107], "\u2013": [108], "1100":
+        [109], "nm).": [110], "following": [112], "optical": [113], "properties":
+        [114], "calculated:": [117], "absorption": [119], "coefficient,": [120, 133],
+        "forbidden": [122], "(Eg)": [123], "direct": [125], "indirect": [127], "transitions":
+        [128], "\"absorbance,": [129], "refractive": [130], "index,": [131], "extinction":
+        [132], "real": [134], "imaginary": [136], "parts\"": [137], "dielectric":
+        [140], "constant.": [141]}, "primary_location": {"id": "doi:10.29196/jubpas.v26i10.1881",
+        "doi": "https://doi.org/10.29196/jubpas.v26i10.1881", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.29196/jubpas.v26i10.1881", "pdf_url": "https://journalofbabylon.com/index.php/JUBPAS/article/download/1881/1482",
+        "source": {"id": "https://openalex.org/S2737731412", "display_name": "Journal
+        of University of Babylon for Pure and Applied Sciences", "issn_l": "1992-0652",
+        "issn": ["1992-0652", "2312-8135"], "is_oa": true, "is_in_doaj": false, "is_core":
+        false, "listed_in": [], "host_organization": "https://openalex.org/P4310319176",
+        "host_organization_name": "University of Babylon", "host_organization_lineage":
+        ["https://openalex.org/P4310319176"], "host_organization_lineage_names": ["University
+        of Babylon"], "type": "journal"}, "license": "cc-by", "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "JOURNAL OF UNIVERSITY OF BABYLON for Pure and Applied
+        Sciences", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W3038351564",
+        "doi": "https://doi.org/10.1088/2632-959x/aba103", "title": "Ag nanoparticle
+        decorated Sb2O3 thin film: synthesis, characterizations and application",
+        "publication_year": 2020, "abstract_inverted_index": {"Abstract": [0], "The":
+        [1, 158, 226], "property": [2, 31], "modifications": [3, 32, 51], "in": [4,
+        16, 147, 188, 205, 231], "a": [5, 12, 77, 249, 269], "thin": [6, 55, 87, 105,
+        116, 133, 186, 210], "film": [7, 88, 106, 117, 134, 187, 211, 255], "when":
+        [8, 40], "its": [9, 19, 37], "surface": [10, 20, 42, 101, 159], "undergoes":
+        [11], "nanoparticle": [13, 98, 124], "decoration": [14, 69], "process": [15,
+        70], "addition": [17], "to": [18, 53, 64, 127, 176, 220], "nanostructuring":
+        [21], "are": [22, 203], "investigated": [23], "this": [24, 68], "paper.":
+        [25], "In": [26], "specific,": [27], "it": [28, 268], "describes": [29], "the":
+        [30, 50, 54, 57, 100, 111, 143, 148, 151, 156, 163, 169, 177, 182, 189, 194,
+        221, 232, 235, 241, 254], "of": [33, 80, 86, 96, 102, 113, 122, 137, 142,
+        155, 171, 179, 184, 223, 228, 265], "antimony": [34, 172], "trioxide": [35,
+        173], "and": [36, 89, 118, 201, 215, 262], "annealed": [38, 131], "variant,":
+        [39], "their": [41], "is": [43, 71, 125, 212], "decorated": [44], "with":
+        [45, 49], "Ag": [46, 65, 97, 123, 144, 180, 224, 229], "nanoparticles.": [47,
+        90], "Along": [48], "brought": [52], "films,": [56], "morphology": [58, 81],
+        "variations": [59], "or": [60], "agglomeration": [61], "effects": [62], "happening":
+        [63], "nanoparticles": [66, 145, 230], "through/after": [67], "also": [72],
+        "discussed": [73], "here.": [74], "We": [75], "observe": [76], "mutual": [78],
+        "tuning": [79], "as": [82, 84, 166, 168], "well": [83, 167], "properties":
+        [85], "A": [91], "fractal": [92, 139], "like": [93, 153], "cluster": [94],
+        "formation": [95], "on": [99, 110, 253], "nanostructured": [103], "Sb2O3":
+        [104, 114, 132, 185, 209], "was": [107], "witnessed.": [108], "Whereas": [109],
+        "surfaces": [112], "(annealed)": [115], "glass": [119], "plate,": [120], "clustering":
+        [121], "found": [126], "be": [128], "different.": [129], "On": [130], "surface,":
+        [135], "instead": [136], "forming": [138], "clusters": [140], "most": [141],
+        "fill": [146], "voids": [149, 233], "between": [150, 234], "thorns": [152],
+        "structure": [154], "film.": [157], "modification": [160], "highly": [161],
+        "influences": [162], "optical": [164], "absorption": [165, 183], "hydrophilicity":
+        [170], "samples.": [174], "Due": [175], "introduction": [178, 222], "nanoparticle,":
+        [181], "visible": [190], "region": [191], "increased.": [192], "All": [193],
+        "synthesized": [195], "films": [196], "have": [197, 239], "roughness": [198],
+        "coefficient": [199], ">1": [200], "all": [202], "hydrophilic": [204, 214,
+        218], "nature.": [206], "Nano": [207], "structured": [208], "extremely": [213],
+        "they": [216], "become": [217], "due": [219], "nanoparticle.": [225], "filling":
+        [227], "thorn": [236], "structures": [237], "might": [238], "prevented": [240],
+        "water": [242], "droplet": [243], "penetration": [244], "into": [245], "these":
+        [246], "voids.": [247], "Consequently,": [248], "partial": [250], "wetting":
+        [251], "occurs": [252], "surface.": [256], "High": [257], "SERS": [258, 273],
+        "efficiency": [259], "factor": [260], "(EF)": [261], "good": [263, 270], "reproducibility":
+        [264], "Ag/Sb2O3/Glass": [266], "make": [267], "candidate": [271], "for":
+        [272], "application.": [274]}, "primary_location": {"id": "doi:10.1088/2632-959x/aba103",
+        "doi": "https://doi.org/10.1088/2632-959x/aba103", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.1088/2632-959x/aba103", "pdf_url": "https://iopscience.iop.org/article/10.1088/2632-959X/aba103/pdf",
+        "source": {"id": "https://openalex.org/S4210215939", "display_name": "Nano
+        Express", "issn_l": "2632-959X", "issn": ["2632-959X"], "is_oa": true, "is_in_doaj":
+        true, "is_core": true, "listed_in": ["cwts-core", "doaj", "dongbi-d", "jufo-1",
+        "oarl", "poland-20", "russia-white-list-2"], "host_organization": "https://openalex.org/P4310320083",
+        "host_organization_name": "IOP Publishing", "host_organization_lineage": ["https://openalex.org/P4310320083",
+        "https://openalex.org/P4310311669"], "host_organization_lineage_names": ["IOP
+        Publishing", "Institute of Physics"], "type": "journal"}, "license": "cc-by",
+        "license_id": "https://openalex.org/licenses/cc-by", "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Nano Express",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W197656131",
+        "doi": null, "title": "Characterization of the Sb2O3 Thin Films by X-Ray Scattering",
+        "publication_year": 2001, "abstract_inverted_index": {"Thin": [0], "films":
+        [1, 23], "of": [2, 13, 31, 48, 55, 58, 70, 95, 104, 110, 116, 125, 132, 173,
+        217, 233], "Sb2O3": [3, 22, 106, 203], "have": [4, 197, 225], "been": [5],
+        "prepared": [6], "by": [7], "thermal": [8], "sputtering": [9], "on": [10,
+        39, 52, 67, 108, 184, 190], "a": [11, 27, 35, 44, 68, 157, 206], "substrate":
+        [12, 97], "SiO2.": [14], "The": [15, 114, 141, 194, 210], "X": [16], "ray":
+        [17], "scattering": [18, 77, 146], "experiment": [19], "from": [20, 148],
+        "the": [21, 40, 49, 53, 56, 59, 65, 71, 82, 96, 99, 105, 111, 117, 126, 130,
+        136, 149, 185, 191, 218], "was": [24, 119, 139], "accomplished": [25], "using":
+        [26], "reflectometer.": [28], "It": [29, 85, 179], "consists": [30], "an":
+        [32, 122], "X-ray": [33, 76, 127, 145], "source,": [34], "curbed": [36], "multilayer":
+        [37], "monochromator": [38], "incident": [41], "beam": [42, 73], "side,":
+        [43], "slit": [45], "in": [46, 129, 215], "front": [47], "sample": [50, 83],
+        "mounted": [51], "center": [54], "circle": [57, 69], "goniometer": [60], "and":
+        [61, 93, 98, 102, 135, 143, 165, 176, 188, 230], "two": [62], "slits": [63],
+        "preceding": [64], "detector": [66], "diffracted": [72], "side.": [74], "Specular":
+        [75], "is": [78, 128, 160, 180], "sensitive": [79, 161], "normal": [80], "to":
+        [81, 162, 170, 182, 226], "surface.": [84], "provides": [86], "vertical":
+        [87], "structural": [88], "structure": [89], "parameters": [90], "(the": [91],
+        "density": [92, 163], "roughness": [94, 103], "density,": [100], "thickness":
+        [101, 222], "layers": [107, 204, 220], "top": [109], "SiO2": [112], "substrate).":
+        [113], "scanning": [115], "surface": [118], "done": [120], "at": [121, 200],
+        "incidence": [123], "angle": [124], "range": [131], "0-8": [133], "degrees":
+        [134], "reflected": [137], "intensity": [138], "recorded.": [140], "specular":
+        [142], "diffuse": [144], "obtained": [147, 195], "deposed": [150], "thin":
+        [151, 219], "films,": [152], "having": [153], "different": [154], "thickness,":
+        [155], "represent": [156], "method": [158], "that": [159, 199, 224], "contrasts":
+        [164], "can": [166, 212], "therefore": [167], "be": [168, 213], "applied":
+        [169], "all": [171], "sorts": [172], "unpatterned": [174], "surfaces": [175],
+        "layered": [177], "structures.": [178], "applicable": [181], "structures":
+        [183], "nanometer": [186], "scale": [187], "roughnesses": [189], "subnanometer":
+        [192], "scale.": [193], "data": [196], "shown": [198], "lest": [201], "ultrathin":
+        [202], "reveals": [205], "gradated": [207], "layer": [208], "structure.":
+        [209], "results": [211], "used": [214], "controlling": [216], "fabrication,":
+        [221], "determination": [223], "rely": [227], "upon": [228], "densities":
+        [229], "optical": [231], "constant": [232], "layers.": [234]}, "primary_location":
+        {"id": "pmh:ADP011562", "doi": null, "is_oa": false, "landing_page_url": "http://oai.dtic.mil/oai/oai?&amp;verb=getRecord&amp;metadataPrefix=html&amp;identifier=ADP011562",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4406923043", "display_name":
+        "Defense Technical Information Center (DTIC)", "issn_l": null, "issn": null,
+        "is_oa": false, "is_in_doaj": false, "is_core": false, "listed_in": [], "host_organization":
+        null, "host_organization_name": null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "repository"}, "license": null, "license_id": null, "version":
+        "submittedVersion", "is_accepted": false, "is_published": false, "raw_source_name":
+        "DTIC AND NTIS", "raw_type": "Text"}}, {"id": "https://openalex.org/W2953016859",
+        "doi": "https://doi.org/10.1002/chin.199033014", "title": "ChemInform Abstract:
+        Dielectric Properties of Sb2O3 Thin Film Capacitors.", "publication_year":
+        1990, "abstract_inverted_index": {"Abstract": [0], "Thin": [1], "films": [2],
+        "of": [3, 10, 16], "Sb2O3": [4, 18], "are": [5], "prepared": [6], "in": [7],
+        "the": [8], "form": [9], "metal\u2010insulator\u2010metal": [11], "structures":
+        [12], "by": [13], "vacuum": [14], "evaporation": [15], "high\u2010purity":
+        [17], "powder.": [19]}, "primary_location": {"id": "doi:10.1002/chin.199033014",
+        "doi": "https://doi.org/10.1002/chin.199033014", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1002/chin.199033014", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S41354064", "display_name": "ChemInform", "issn_l":
+        "0009-2975", "issn": ["0009-2975", "0931-7597", "1431-5890", "1522-2667",
+        "2199-2924"], "is_oa": false, "is_in_doaj": false, "is_core": false, "listed_in":
+        [], "host_organization": "https://openalex.org/P4310320595", "host_organization_name":
+        "Wiley", "host_organization_lineage": ["https://openalex.org/P4310320595"],
+        "host_organization_lineage_names": ["Wiley"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "ChemInform", "raw_type": "journal-article"}}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54da6b6befb7040-IAD
+      connection:
+      - keep-alive
+      content-length:
+      - '16718'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 19:05:34 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=loykHrCyWKmqqiH%2BGxzwzjcUEnXpyrUA%2FyIUnBPkLME%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793732734"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=loykHrCyWKmqqiH%2BGxzwzjcUEnXpyrUA%2FyIUnBPkLME%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793732734"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9510'
+      x-ratelimit-remaining-usd:
+      - '0.951'
+      x-ratelimit-reset:
+      - '17666'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=Sb2O3+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 182, "db_response_time_ms": 13, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (Sb2O3 thin film)
+        in the title or abstract", "x_new_oql": "get works with (Sb2O3 thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "Sb2O3 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:Sb2O3 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W2042375681"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54da6b7ec517040-IAD
+      connection:
+      - keep-alive
+      content-length:
+      - '615'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 19:05:34 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=loykHrCyWKmqqiH%2BGxzwzjcUEnXpyrUA%2FyIUnBPkLME%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793732734"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=loykHrCyWKmqqiH%2BGxzwzjcUEnXpyrUA%2FyIUnBPkLME%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793732734"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9500'
+      x-ratelimit-remaining-usd:
+      - '0.95'
+      x-ratelimit-reset:
+      - '17666'
+    status:
+      code: 200
+      message: OK
+version: 1

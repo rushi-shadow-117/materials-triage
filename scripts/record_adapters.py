@@ -182,9 +182,9 @@ def main() -> int:
 
     pubchem_targets = {
         **{
-            f: spec["common_names"][f]
-            for f in spec["groups"]["baseline_oxides"]
-            if f in spec["common_names"]
+            display: spec["common_names"][display]
+            for display, _ in comps
+            if display in spec["common_names"]
         },
         **spec["hazard_probes"],
     }

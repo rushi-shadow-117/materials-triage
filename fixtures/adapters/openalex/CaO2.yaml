@@ -1,0 +1,372 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=CaO2+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 4, "db_response_time_ms": 371, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (CaO2 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (CaO2 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "CaO2
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:CaO2
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W7217120914",
+        "doi": null, "title": "Effect of Substrate Temperature on the Structural and
+        Optical Properties of CuO-CaO2 Composite Thin Film Prepared by PSP", "publication_year":
+        2024, "abstract_inverted_index": {"This": [0], "studying": [1], "hand": [2],
+        "deals": [3], "with": [4, 45, 122, 174], "the": [5, 8, 60, 90, 98, 104, 168],
+        "investigation": [6], "of": [7, 10, 13, 38, 56, 93, 103, 177], "deposition":
+        [9], "a": [11, 175], "combination": [12], "copper": [14, 39], "oxide": [15,
+        18], "and": [16, 33, 41, 66, 81, 95, 111, 138, 146, 159], "calcium": [17,
+        42], "thin": [19], "films": [20, 61, 105, 119], "through": [21, 108], "pneumatic":
+        [22], "spray": [23], "pyrolysis": [24], "(PSP)": [25], "at": [26, 171], "varying":
+        [27], "substrate": [28, 57, 124], "temperatures": [29], "(450,": [30], "500,":
+        [31], "550,": [32], "600\u00b15": [34], "\u00b0C).": [35], "Two": [36], "sources":
+        [37], "chloride": [40], "chloride,": [43], "both": [44], "equal": [46], "molarity":
+        [47], "dissolved": [48], "in": [49, 130], "distilled": [50], "water": [51],
+        "were": [52, 106, 120, 153], "utilized.": [53], "The": [54, 85, 100, 114,
+        149, 162], "impact": [55], "temperature": [58, 125], "on": [59, 97], "structural,":
+        [62], "morphological,": [63], "optical,": [64], "electrical,": [65], "dielectric":
+        [67, 163], "properties": [68], "was": [69], "assessed": [70], "using": [71],
+        "several": [72], "analytical": [73], "techniques,": [74], "including": [75],
+        "X-ray": [76, 86], "diffraction,": [77], "scanning": [78], "electron": [79],
+        "microscopy,": [80], "energy": [82], "dispersive": [83], "spectroscopy.":
+        [84], "diffraction": [87], "results": [88, 115], "revealed": [89], "simultaneous":
+        [91], "growth": [92], "CuO": [94], "CaO2": [96], "substrate.": [99], "band":
+        [101, 151], "gaps": [102, 152], "determined": [107], "UV-visible": [109],
+        "transmission": [110], "reflection": [112], "measurements.": [113], "showed":
+        [116], "that": [117], "all": [118], "polycrystalline,": [121], "increasing":
+        [123], "leading": [126], "to": [127, 135, 155], "an": [128, 139], "increase":
+        [129], "film": [131, 169], "thickness": [132], "from": [133], "641,79": [134],
+        "735,87": [136], "nm": [137], "average": [140], "calculated": [141], "grain":
+        [142], "size": [143], "between": [144, 157], "33.71": [145], "63.73": [147],
+        "nm.": [148], "optical": [150], "found": [154], "range": [156], "1.63": [158],
+        "2.80": [160], "eV.": [161], "constant": [164], "is": [165], "obtained": [166],
+        "for": [167], "deposited": [170], "600": [172], "\u00b0C": [173], "value":
+        [176], "about": [178], "6.5.": [179]}, "primary_location": {"id": "pmh:oai:ojs2.nano-ntp.com:article/3055",
+        "doi": null, "is_oa": true, "landing_page_url": "https://nano-ntp.com/index.php/nano/article/view/3055",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S104949663", "display_name":
+        "Nanotechnology Perceptions", "issn_l": "1660-6795", "issn": ["1660-6795",
+        "2235-2074"], "is_oa": true, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "poland-20", "russia-white-list-4"], "host_organization":
+        null, "host_organization_name": null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "journal"}, "license": "cc-by", "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "1660-6795", "raw_type": "info:eu-repo/semantics/article"}},
+        {"id": "https://openalex.org/W1996188369", "doi": "https://doi.org/10.4028/www.scientific.net/kem.330-332.1285",
+        "title": "The Corrosion Behavior of Titanium in Hydrogen Peroxide Solution
+        with Various Additives", "publication_year": 2007, "abstract_inverted_index":
+        {"The": [0, 19, 42, 97], "corrosion": [1, 36, 54, 94, 102], "behavior": [2,
+        37], "of": [3, 21, 38, 86, 95, 99, 106, 116, 122], "titanium": [4, 14, 39,
+        53, 79, 101], "in": [5, 55, 103], "hydrogen": [6, 56], "peroxide": [7, 57],
+        "solutions": [8], "was": [9, 40, 70, 75, 109], "studied": [10], "by": [11,
+        112], "measuring": [12], "the": [13, 35, 48, 52, 67, 73, 78, 93, 100, 104,
+        113], "ions": [15], "concentration": [16], "using": [17], "spectrophotometer.":
+        [18], "influence": [20], "additives": [22], "(K+": [23], "\uff0c": [24], "Ca2+":
+        [25, 46, 74], "\uff0cNa+": [26], "\uff0cMg2+": [27], "\uff0cCl-": [28], "\uff0cHPO4":
+        [29], "2-,": [30], "H2PO4": [31], "-": [32], ")": [33], "on": [34, 77], "examined.":
+        [41], "results": [43], "indicated": [44], "that": [45, 72], "exhibited": [47],
+        "highest": [49], "inhibition": [50], "to": [51, 66, 81], "solutions,": [58],
+        "while": [59], "HPO4": [60, 107, 123], "2-": [61, 108, 124], "behaved": [62],
+        "as": [63], "an": [64], "accelerator": [65], "corrosion.": [68], "It": [69],
+        "suggested": [71], "absorbed": [76], "surface": [80, 117], "form": [82], "a":
+        [83], "thin": [84], "film": [85], "CaTiO3": [87], "or": [88], "CaO2,": [89],
+        "and": [90], "consequently,": [91], "inhibited": [92], "titanium.": [96],
+        "acceleration": [98], "present": [105], "caused": [110], "probably": [111],
+        "increased": [114], "defect": [115], "oxide": [118], "films": [119], "after":
+        [120], "absorption": [121], "ions.": [125]}, "primary_location": {"id": "doi:10.4028/www.scientific.net/kem.330-332.1285",
+        "doi": "https://doi.org/10.4028/www.scientific.net/kem.330-332.1285", "is_oa":
+        true, "landing_page_url": "https://doi.org/10.4028/www.scientific.net/kem.330-332.1285",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S75411654", "display_name":
+        "Key engineering materials", "issn_l": "1013-9826", "issn": ["1013-9826",
+        "1662-9795", "1662-9809"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["cwts-core", "jufo-1", "norway-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310317839", "host_organization_name": "Trans Tech
+        Publications", "host_organization_lineage": ["https://openalex.org/P4310317839"],
+        "host_organization_lineage_names": ["Trans Tech Publications"], "type": "book
+        series"}, "license": "cc-by", "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Key Engineering Materials", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W3183290781", "doi": "https://doi.org/10.1149/ma2021-01512002mtgabs",
+        "title": "Investigations on the Mechanism of Oxygen Reduction in Ca(ClO4)2/DMSO-Electrolytes",
+        "publication_year": 2021, "abstract_inverted_index": {"Within": [0], "the":
+        [1, 10, 33, 56, 79, 86, 90, 106, 122, 129, 133, 135, 140, 144, 170, 188, 200,
+        233, 243, 261, 264, 268, 277, 294, 297, 300], "context": [2], "of": [3, 89,
+        180, 235, 250, 263, 270, 280, 293, 299], "our": [4, 176], "mechanistic": [5],
+        "research": [6], "on": [7, 32, 78, 105, 242, 267], "processes": [8], "in":
+        [9, 16, 116, 143, 175, 194, 257, 296], "Ca/": [11], "air": [12], "battery,":
+        [13], "we": [14, 29, 112, 198, 247], "studied": [15], "detail": [17], "oxygen":
+        [18, 141, 207], "reduction": [19, 269], "using": [20], "RRDE": [21, 134],
+        "and": [22, 43, 52, 101, 148, 254, 282], "DEMS.": [23], "From": [24], "an":
+        [25], "earlier": [26], "DEMS": [27, 171], "study": [28], "know": [30], "that":
+        [31, 45, 72, 85], "Au": [34, 80, 130], "electrode": [35, 54], "first": [36],
+        "a": [37, 46, 73, 224, 227, 236, 241], "two": [38, 218], "electron": [39,
+        48, 58, 229], "transfer": [40, 230], "takes": [41], "place": [42, 127], "after":
+        [44, 96], "one": [47, 57], "transfer.": [49], "On": [50], "Pt": [51], "GC":
+        [53], "only": [55, 162], "process": [59], "is": [60, 125, 208, 291], "taking":
+        [61, 126], "place.": [62], "[": [63, 108, 183], "1": [64, 228], "]": [65,
+        110, 185], "In": [66, 245], "Addition": [67, 246], "XPS": [68], "\u2013":
+        [69], "measurements": [70, 115], "show": [71], "thin": [74, 237], "film":
+        [75, 91], "was": [76, 83, 103, 138, 146, 173], "formed": [77], "electrode.":
+        [81, 131, 244], "It": [82], "described,": [84], "top": [87], "layer": [88,
+        240], "contains": [92], "decomposition": [93], "products": [94], "but": [95,
+        165], "Ar+": [97], "etching": [98], "Ca(O2)2,": [99], "CaO2": [100], "CaO":
+        [102], "found": [104], "surface.": [107], "2": [109], "Here,": [111], "performed":
+        [113], "further": [114], "this": [117, 287], "electrolyte": [118, 145], "system":
+        [119], "to": [120, 186, 210, 226, 259], "clarify": [121], "mechanism": [123],
+        "which": [124, 213], "at": [128, 204, 221], "With": [132], "ring": [136],
+        "potential": [137, 149], "varied,": [139], "content": [142], "varied": [147],
+        "jump": [150], "experiments": [151], "were": [152], "performed.": [153], "To":
+        [154], "elucidate": [155], "how": [156], "many": [157], "electrons": [158],
+        "are": [159], "flowing": [160], "not": [161], "during": [163, 167], "ORR,":
+        [164], "also": [166], "product": [168], "reoxidation,": [169], "measurement":
+        [172], "repeated": [174], "6-electrode-thin-layer-flow-through-cell": [177],
+        "(flow": [178], "rate": [179], "5": [181], "\u00b5L/s)": [182], "3": [184],
+        "confirm": [187], "supposed": [189], "reaction": [190, 202], "model.": [191],
+        "At": [192], "Au-electrodes": [193], "Ca2+": [195, 253, 265], "containing":
+        [196], "DMSO": [197, 258], "established": [199], "following": [201], "pathway:":
+        [203], "low": [205], "overpotentials": [206], "reduced": [209], "soluble":
+        [211], "peroxide,": [212], "can": [214], "be": [215], "reoxidized": [216],
+        "with": [217, 232], "electrons;": [219], "then,": [220], "higher": [222],
+        "overpotentials,": [223], "transition": [225], "occurs": [231], "formation":
+        [234], "(adsorbed)": [238], "Ca(O2)2": [239], "used": [248], "mixtures": [249],
+        "TBA+": [251], "/": [252], "Li+/Ca2+": [255], "cations": [256], "investigate":
+        [260], "influence": [262], "cation": [266], "oxygen.": [271], "Acknowledgement:":
+        [272], "The": [273], "authors": [274], "gratefully": [275], "acknowledge":
+        [276], "Federal": [278], "Ministry": [279], "Education": [281], "Research":
+        [283], "(BMBF)": [284], "for": [285], "funding": [286], "work.": [288], "This":
+        [289], "work": [290], "part": [292], "MeLuBatt-project": [295], "framework":
+        [298], "\u201cFrischer": [301], "Wind": [302], "f\u00fcr": [303], "Metall-Luftsauerstoff-Batterien\u201d-initiative":
+        [304], "(03XP0110D).": [305], "[1]": [306], "P.": [307, 322, 323, 325, 342],
+        "Reinsberg,": [308, 327], "C.": [309, 330, 339], "J.": [310, 314, 331, 340],
+        "Bondue,": [311, 332, 341], "H.": [312, 326, 333, 344], "Baltruschat,": [313,
+        334, 345], "Phys.": [315], "Chem.": [316], "C": [317], "2016,": [318, 348],
+        "120,": [319], "22179-22185.": [320], "[2]": [321], "Bawol,": [324], "A.":
+        [328], "Koellisch-Mirbach,": [329], "ChemRxiv": [335], "(Preprint)": [336],
+        "2020.": [337], "[3]": [338], "K\u00f6nigshoven,": [343], "Electrochim.":
+        [346], "Acta": [347], "214,": [349], "241\u2013252.": [350]}, "primary_location":
+        {"id": "doi:10.1149/ma2021-01512002mtgabs", "doi": "https://doi.org/10.1149/ma2021-01512002mtgabs",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1149/ma2021-01512002mtgabs",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4210168594", "display_name":
+        "ECS Meeting Abstracts", "issn_l": "1091-8213", "issn": ["1091-8213", "2151-2035",
+        "2151-2043", "2152-8365"], "is_oa": false, "is_in_doaj": false, "is_core":
+        false, "listed_in": [], "host_organization": "https://openalex.org/P4310311669",
+        "host_organization_name": "Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310311669"], "host_organization_lineage_names": ["Institute
+        of Physics"], "type": "journal"}, "license": null, "license_id": null, "version":
+        "publishedVersion", "is_accepted": true, "is_published": true, "raw_source_name":
+        "ECS Meeting Abstracts", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2070314047",
+        "doi": "https://doi.org/10.1002/(sici)1097-010x(19970301)277:4<293::aid-jez3>3.0.co;2-k",
+        "title": "Effects of chronic hypobaric hypoxia on blood oxygen binding in
+        pigeons", "publication_year": 1997, "abstract_inverted_index": {"Effects":
+        [0], "of": [1, 14, 233, 246], "chronic": [2], "hypobaric": [3], "hypoxia":
+        [4, 181], "on": [5, 185, 249], "blood": [6, 48, 240], "O2": [7, 49, 169, 241],
+        "transport": [8], "were": [9, 22, 38, 53, 81, 105, 219], "studied": [10],
+        "using": [11, 64], "two": [12, 191], "groups": [13, 157, 189], "domestic":
+        [15], "pigeons": [16, 37, 59, 120, 234], "(Columba": [17], "livia).": [18],
+        "High-altitude": [19], "(HA)": [20], "birds": [21, 80, 218], "acclimated":
+        [23], "for": [24, 40, 55, 76, 154, 208], "6": [25], "wk": [26, 42], "at":
+        [27, 43, 60, 143, 146, 158], "7": [28], "km": [29], "simulated": [30], "altitude":
+        [31, 231], "(308": [32], "Torr,": [33, 95, 115, 203], "25\u00b0C);": [34],
+        "sea-level": [35], "(SL)": [36], "maintained": [39], "5\u20136": [41], "758":
+        [44], "Torr": [45], "(25\u00b0C).": [46], "Whole": [47], "equilibrium": [50],
+        "curves": [51], "(O2ECs)": [52], "generated": [54], "HA": [56, 77, 117, 209],
+        "and": [57, 62, 71, 78, 90, 100, 110, 118, 133, 160, 172, 177, 213, 223, 243],
+        "SL": [58, 79, 119, 214], "37\u00b0C": [61, 159], "41\u00b0C": [63], "thin":
+        [65], "film": [66], "techniques.": [67], "At": [68, 97, 199], "pH": [69, 98,
+        211, 216], "7.50": [70], "41\u00b0C,": [72], "half-saturation": [73], "PO2s":
+        [74], "(P50)": [75], "32.9": [82], "\u00b1": [83, 87, 92, 107, 112], "1.4":
+        [84], "(6);": [85], "(mean": [86], "S.E.M.": [88], "[N])": [89], "35.6": [91],
+        "0.6": [93, 113], "(6)": [94], "respectively.": [96, 116, 179, 227], "7.56":
+        [99], "37\u00b0C,": [101], "the": [102, 238, 244], "corresponding": [103],
+        "P50s": [104], "26.5": [106], "1.8": [108], "(4)": [109], "29.0": [111], "(5)":
+        [114], "exhibited": [121, 190], "similar": [122], "Hb-O2": [123, 250], "temperature":
+        [124], "coefficients": [125], "(\u0394H": [126], "=": [127, 139, 201], "\u22129.8":
+        [128], "to": [129, 141], "\u221210.6": [130], "kcal/mole": [131], "O2)": [132],
+        "CO2": [134], "(Bohr": [135], "slopes": [136], "(\u0394log": [137], "P50/\u0394pH":
+        [138], "\u2212.43": [140], "\u2212.44": [142], "37\u00b0C;": [144], "\u2212.41":
+        [145], "41\u00b0C).": [147], "Hill''s": [148], "n": [149], "increased": [150,
+        174, 239], "with": [151], "increasing": [152], "saturation": [153], "both":
+        [155, 188], "animal": [156], "41\u00b0C.": [161], "Hypoxic": [162], "acclimation":
+        [163], "elicited": [164], "a": [165, 195], "significant": [166], "increase":
+        [167], "in": [168, 194, 205], "capacity;": [170], "%Hct": [171], "[Hb]": [173],
+        "by": [175, 237], "38%": [176], "43%,": [178], "Chronic": [180], "had": [182],
+        "no": [183], "effect": [184, 245], "isohemoglobin": [186], "composition;":
+        [187], "isoHb": [192], "fractions": [193], "9:1": [196], "molar": [197], "ratio.":
+        [198], "PaO2": [200], "30": [202], "calculated": [204], "vivo": [206], "CaO2":
+        [207], "(39.2\u00b0C,": [210], "7.53)": [212], "(41\u00b0C,": [215], "7.50)":
+        [217], "14.2": [220], "vol": [221, 225], "%": [222], "7.6": [224], "%,": [226],
+        "Results": [228], "suggest": [229], "that": [230], "tolerance": [232], "is":
+        [235], "enhanced": [236], "capacity": [242], "hypoxia-induced": [247], "hypothermia":
+        [248], "affinity.": [251], "J.": [252], "Exp.": [253], "Zool.": [254], "277:293\u2013300,":
+        [255], "1997.": [256], "\u00a9": [257], "1997": [258], "Wiley-Liss,": [259],
+        "Inc.": [260]}, "primary_location": {"id": "doi:10.1002/(sici)1097-010x(19970301)277:4<293::aid-jez3>3.0.co;2-k",
+        "doi": "https://doi.org/10.1002/(sici)1097-010x(19970301)277:4<293::aid-jez3>3.0.co;2-k",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1002/(sici)1097-010x(19970301)277:4<293::aid-jez3>3.0.co;2-k",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4210222064", "display_name":
+        "Journal of Experimental Zoology", "issn_l": "0022-104X", "issn": ["0022-104X",
+        "1097-010X"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core"], "host_organization": "https://openalex.org/P4310320595", "host_organization_name":
+        "Wiley", "host_organization_lineage": ["https://openalex.org/P4310320595"],
+        "host_organization_lineage_names": ["Wiley"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "The Journal of Experimental Zoology",
+        "raw_type": "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a548028d6f7deae4-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '16870'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:39:42 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=VCxhB5bf9O1Dd2n9eXzmsRSxTdOHZLXuzZcZ54l1SAw%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793673581"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=VCxhB5bf9O1Dd2n9eXzmsRSxTdOHZLXuzZcZ54l1SAw%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793673581"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9750'
+      x-ratelimit-remaining-usd:
+      - '0.975'
+      x-ratelimit-reset:
+      - '76818'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=CaO2+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 4, "db_response_time_ms": 482, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (CaO2 thin film)
+        in the title or abstract", "x_new_oql": "get works with (CaO2 thin film) in
+        the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "CaO2 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:CaO2 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W7217120914"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54802911d86eae4-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '610'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:39:42 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=JkWVVMNG47Cmql%2BLC6uQHVEhtac545sgvaujLhHF9uI%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793673582"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=JkWVVMNG47Cmql%2BLC6uQHVEhtac545sgvaujLhHF9uI%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793673582"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9740'
+      x-ratelimit-remaining-usd:
+      - '0.974'
+      x-ratelimit-reset:
+      - '76818'
+    status:
+      code: 200
+      message: OK
+version: 1

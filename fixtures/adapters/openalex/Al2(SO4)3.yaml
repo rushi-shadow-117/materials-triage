@@ -1,0 +1,364 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=Al2%28SO4%293+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 21, "db_response_time_ms": 27, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Al2 SO4 3 thin
+        film) in the title or abstract where it has an abstract", "x_new_oql": "get
+        works with (Al2 SO4 3 thin film) in the title or abstract where it has an
+        abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "Al2(SO4)3
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:Al2%28SO4%293
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2158420611",
+        "doi": "https://doi.org/10.1002/pssa.201200558", "title": "Structural and
+        optical properties of electrochemically deposited ZnO films in electrolyte
+        containing Al2(SO4)3", "publication_year": 2013, "abstract_inverted_index":
+        {"Abstract": [0], "The": [1, 52, 97, 116, 132], "present": [2], "work": [3],
+        "concerns": [4], "the": [5, 55, 59, 63, 91, 95, 105, 120, 130, 135, 139, 144],
+        "electrochemical": [6, 29], "deposition": [7, 56], "of": [8, 54, 62, 90, 109,
+        114, 129, 134, 147], "aluminum\u2010doped": [9], "ZnO": [10, 22], "nanostructured":
+        [11, 21], "thin": [12, 149], "films": [13, 24, 107, 150], "on": [14, 58, 138],
+        "SnO2:F\u2010covered": [15], "glass": [16], "substrates.": [17], "Doped":
+        [18], "with": [19, 36, 111], "Al": [20, 92, 136], "(ZnO:Al)": [23], "are":
+        [25, 151], "obtained": [26, 64], "by": [27, 69], "an": [28], "process": [30],
+        "using": [31], "a": [32, 37, 112], "three\u2010electrode": [33], "potentiostatic":
+        [34], "system": [35], "saturated": [38], "calomel": [39], "electrode": [40],
+        "as": [41], "reference": [42], "electrode,": [43], "in": [44, 94], "aqueous":
+        [45], "solution": [46], "containing": [47], "ZnCl2,": [48], "KCl,": [49],
+        "and": [50, 77, 100, 126, 143, 153], "Al2(SO4)3.": [51], "influence": [53,
+        133], "parameters": [57], "structural": [60], "properties": [61], "ZnO:Al":
+        [65, 106, 148], "layers": [66], "is": [67, 86], "investigated": [68], "scanning":
+        [70], "electron": [71], "microscopy": [72, 80], "(SEM),": [73], "X\u2010ray":
+        [74, 83], "diffraction": [75], "(XRD)": [76], "atomic": [78], "force": [79],
+        "(AFM).": [81], "Energy\u2010dispersive": [82], "analysis": [84], "(EDAX)":
+        [85], "applied": [87], "for": [88], "measurement": [89], "content": [93],
+        "films.": [96], "SEM": [98], "micrographs": [99], "AFM": [101], "pictures":
+        [102], "show": [103], "that": [104], "consist": [108], "nanograins": [110],
+        "shape": [113], "walls.": [115], "XRD": [117], "spectra": [118, 142], "demonstrate":
+        [119], "characteristic": [121], "(100),": [122], "(002),": [123], "(101),":
+        [124], "(110),": [125], "(103)": [127], "reflections": [128], "ZnO.": [131],
+        "concentration": [137], "IR": [140], "reflectance": [141], "haze": [145],
+        "ratio": [146], "presented": [152], "discussed.": [154]}, "primary_location":
+        {"id": "doi:10.1002/pssa.201200558", "doi": "https://doi.org/10.1002/pssa.201200558",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1002/pssa.201200558",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4210228582", "display_name":
+        "physica status solidi (a)", "issn_l": "0031-8965", "issn": ["0031-8965",
+        "1521-396X", "1862-6300", "1862-6319"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d",
+        "jufo-1", "ki-jl-1", "norway-1", "poland-70", "russia-white-list-2", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320595", "host_organization_name":
+        "Wiley", "host_organization_lineage": ["https://openalex.org/P4310320595"],
+        "host_organization_lineage_names": ["Wiley"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "physica status solidi (a)", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W1971987980", "doi": "https://doi.org/10.1088/1742-6596/398/1/012018",
+        "title": "Structural and optical properties of electrochemically deposited
+        ZnO films in electrolyte containing Al2(SO4)3", "publication_year": 2012,
+        "abstract_inverted_index": {"The": [0, 63, 109, 128], "present": [1], "work":
+        [2], "concerns": [3], "the": [4, 66, 70, 74, 103, 107, 117, 138, 142, 146,
+        150], "electrochemical": [5, 32], "deposition": [6, 67], "of": [7, 65, 73,
+        102, 121, 126, 141, 145, 157], "aluminium": [8], "doped": [9], "ZnO": [10,
+        25], "nanostructured": [11, 24], "thin": [12, 159], "films": [13, 27, 119,
+        160], "on": [14, 69, 149], "SnO": [15], "2": [16, 52, 57], ":F": [17], "covered":
+        [18], "glass": [19], "substrates.": [20], "Doped": [21], "with": [22, 39,
+        123], "Al": [23, 56, 104, 147], "(ZnO:Al)": [26], "are": [28, 161], "obtained":
+        [29, 75], "by": [30, 80], "an": [31], "process": [33], "using": [34], "a":
+        [35, 40, 124], "three-electrode": [36], "potentiostatic": [37], "system":
+        [38], "saturated": [41], "calomel": [42], "electrode": [43], "as": [44], "reference":
+        [45], "electrode,": [46], "in": [47, 106], "aqueous": [48], "solution": [49],
+        "containing": [50], "ZnCl": [51], ",": [53], "KCl": [54], "and": [55, 88,
+        112, 136, 154, 163], "(SO": [58], "4": [59], ")": [60], "3": [61], ".": [62],
+        "influence": [64], "parameters": [68], "structural": [71], "properties": [72],
+        "ZnO:Al": [76, 118, 158], "layers": [77], "is": [78, 98], "investigated":
+        [79], "Scanning": [81], "Electron": [82], "Microscopy": [83, 91], "(SEM),":
+        [84], "X-ray": [85, 95], "Diffraction": [86], "(XRD)": [87], "Atomic": [89],
+        "Force": [90], "(AFM).": [92], "Energy": [93], "Dispersive": [94], "Analysis":
+        [96], "(EDAX)": [97], "applied": [99], "for": [100], "measurement": [101],
+        "content": [105], "films.": [108], "SEM": [110], "micrographs": [111], "AFM":
+        [113], "pictures": [114], "show": [115], "that": [116], "consist": [120],
+        "nanograins": [122], "shape": [125], "walls.": [127], "XRD": [129], "spectra":
+        [130, 153], "demonstrate": [131], "(100),": [132], "(002),": [133], "(101),":
+        [134], "(110)": [135], "(103)": [137], "characteristic": [139], "reflexes":
+        [140], "ZnO.": [143], "Influence": [144], "concentration": [148], "IR": [151],
+        "reflectance": [152], "haze": [155], "ratio": [156], "presented": [162], "discussed.":
+        [164]}, "primary_location": {"id": "doi:10.1088/1742-6596/398/1/012018", "doi":
+        "https://doi.org/10.1088/1742-6596/398/1/012018", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.1088/1742-6596/398/1/012018", "pdf_url": "https://iopscience.iop.org/article/10.1088/1742-6596/398/1/012018/pdf",
+        "source": {"id": "https://openalex.org/S4210187594", "display_name": "Journal
+        of Physics Conference Series", "issn_l": "1742-6588", "issn": ["1742-6588",
+        "1742-6596"], "is_oa": true, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-class-a", "anvur-scientific", "cwts-core", "jufo-1", "norway-1", "poland-40",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310320083", "host_organization_name":
+        "IOP Publishing", "host_organization_lineage": ["https://openalex.org/P4310320083",
+        "https://openalex.org/P4310311669"], "host_organization_lineage_names": ["IOP
+        Publishing", "Institute of Physics"], "type": "journal"}, "license": null,
+        "license_id": null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Journal of Physics: Conference Series", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W2368505612", "doi": null,
+        "title": "Impact of Al~(3+)-doped TiO_2 Thin Film Prepared on Different Substrates
+        on Photocatalytic Activity", "publication_year": 2005, "abstract_inverted_index":
+        {"Al3+-doped": [0], "TiO2": [1, 34, 62, 83, 92], "thin": [2, 35, 63, 93],
+        "film": [3, 36, 64, 94], "was": [4], "prepared": [5, 37], "by": [6, 104],
+        "sol-gel": [7], "method": [8], "using": [9, 47], "Al2": [10], "(SO4)3.": [11],
+        "18H2O": [12], "and": [13, 27, 72, 112], "tetra-n-butyl": [14], "titanate":
+        [15], "as": [16, 51], "precursors": [17], "on": [18], "Ti": [19, 109], "flake,":
+        [20, 110], "glass,": [21], "ceramic": [22, 105, 111], "tile,": [23, 106],
+        "ceramic,": [24], "stainless": [25, 113], "steel": [26], "Al": [28, 107],
+        "flake.": [29, 108], "The": [30], "photocatalytic": [31, 101], "activities":
+        [32], "of": [33, 58, 70, 79], "in": [38, 61, 82, 95], "different": [39, 42,
+        74], "substrates": [40], "with": [41, 68, 73], "Al3+": [43, 60, 80, 90], "concentration":
+        [44, 78], "were": [45], "discussed": [46], "a": [48], "methylic": [49], "orange":
+        [50], "decomposition": [52], "objective.": [53], "Results": [54], "showed":
+        [55], "the": [56, 76, 96, 99], "effect": [57], "doping": [59, 89], "are":
+        [65], "closely": [66], "related": [67], "type": [69], "carrier,": [71, 75],
+        "optimal": [77], "doped": [81], "thin-film": [84], "is": [85], "also": [86],
+        "different.": [87], "After": [88], ".": [91], "glass": [97], "got": [98],
+        "most": [100], "activities,": [102], "following": [103], "steel.": [114]},
+        "primary_location": {"id": "mag:2368505612", "doi": null, "is_oa": false,
+        "landing_page_url": "http://en.cnki.com.cn/Article_en/CJFDTOTAL-FJKS200504013.htm",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S13479253", "display_name":
+        "Environmental Science & Technology", "issn_l": "0013-936X", "issn": ["0013-936X",
+        "1520-5851"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-class-a", "anvur-scientific", "cwts-core", "dongbi-a", "fnege-4",
+        "jufo-2", "ki-jl-2", "medline", "norway-2", "poland-140", "russia-white-list-1",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310320006", "host_organization_name":
+        "American Chemical Society", "host_organization_lineage": ["https://openalex.org/P4310320006"],
+        "host_organization_lineage_names": ["American Chemical Society"], "type":
+        "journal"}, "license": null, "license_id": null, "version": null, "is_accepted":
+        false, "is_published": false, "raw_source_name": "Environmental Science &
+        Technology", "raw_type": null}}, {"id": "https://openalex.org/W4200412528",
+        "doi": "https://doi.org/10.1246/cl.210667", "title": "Problems with the Adhesion
+        of Chemical-solution-deposited Films? Solving the Problem of CdS Thin Film
+        Adhesion with a Very Simple and Green Chemical Procedure", "publication_year":
+        2021, "abstract_inverted_index": {"Abstract": [0], "A": [1], "novel,": [2],
+        "very": [3], "simple,": [4], "and": [5, 27, 58, 106, 149], "environmentally":
+        [6], "friendly": [7], "chemical": [8, 94, 144], "procedure": [9], "is": [10,
+        55, 88, 103, 121], "presented": [11], "for": [12, 43], "solving": [13], "the":
+        [14, 30, 59, 64, 73, 79, 84, 96, 124, 134, 140, 143, 147, 153], "problem":
+        [15], "of": [16, 18, 32, 38, 47, 52, 63, 72, 78, 98, 126, 129, 152], "adhesion":
+        [17, 54], "chemical-solution-deposited": [19], "CdS": [20, 155], "thin": [21,
+        156], "films": [22], "to": [23], "tin-free": [24], "glass": [25], "sheets":
+        [26], "silicon": [28], "wafers:": [29], "addition": [31, 97, 125], "a": [33],
+        "single": [34], "drop": [35, 128], "(0.05": [36], "mL)": [37], "0.05": [39,
+        130], "M": [40, 131], "Al2(SO4)3": [41, 132], "solution": [42, 136], "every":
+        [44], "100": [45], "mL": [46], "reaction": [48, 86, 135], "solution.": [49],
+        "The": [50], "issue": [51], "film": [53], "fully": [56], "explained,": [57],
+        "in": [60, 83, 90], "situ": [61], "effect": [62], "added": [65], "Al3+": [66],
+        "ions,": [67], "which": [68], "occurs": [69], "through": [70], "modification":
+        [71], "substrate": [74], "surface": [75], "by": [76], "adsorption": [77],
+        "Al(OH)4\u2212": [80], "ions": [81], "formed": [82], "alkaline": [85], "solution,":
+        [87], "explained": [89], "detail.": [91], "With": [92], "this": [93], "procedure,":
+        [95], "more": [99], "toxic": [100], "cadmium": [101], "salt": [102], "not":
+        [104, 138], "required,": [105], "no": [107], "tedious": [108], "sensitization":
+        [109], "procedures": [110], "or": [111, 146], "slow": [112], "reactions":
+        [113], "at": [114], "low": [115], "temperatures": [116], "are": [117], "needed.":
+        [118], "Also,": [119], "it": [120], "demonstrated": [122], "that": [123],
+        "one": [127], "into": [133], "does": [137], "affect": [139], "growth": [141],
+        "rate,": [142], "composition,": [145], "optical": [148], "electrical": [150],
+        "properties": [151], "resulting": [154], "films.": [157]}, "primary_location":
+        {"id": "doi:10.1246/cl.210667", "doi": "https://doi.org/10.1246/cl.210667",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1246/cl.210667", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S90825563", "display_name": "Chemistry
+        Letters", "issn_l": "0366-7022", "issn": ["0366-7022", "1348-0715"], "is_oa":
+        false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core", "dongbi-d",
+        "jufo-1", "ki-jl-1", "norway-1", "poland-70", "russia-white-list-2"], "host_organization":
+        "https://openalex.org/P4310311648", "host_organization_name": "Oxford University
+        Press", "host_organization_lineage": ["https://openalex.org/P4310311648",
+        "https://openalex.org/P4310311647"], "host_organization_lineage_names": ["Oxford
+        University Press", "University of Oxford"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Chemistry Letters", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W1564390236", "doi": null,
+        "title": "Chemical Liquid Phase Deposition of Thin Aluminum Oxide Films",
+        "publication_year": 2004, "abstract_inverted_index": {"Thin": [0], "aluminum":
+        [1], "oxide": [2], "films": [3, 87], "were": [4, 30], "deposited": [5], "by":
+        [6, 93], "a": [7], "new": [8], "and": [9, 27, 37, 72, 103], "simple": [10],
+        "physicochemical": [11], "method": [12], "called": [13], "chemical": [14],
+        "liquid": [15], "phase": [16], "deposition": [17, 60], "(CLD)": [18], "on":
+        [19], "semiconductor": [20], "materials.": [21], "Aluminum": [22], "sulfate":
+        [23], "with": [24, 58], "crystallized": [25], "water": [26], "sodium": [28],
+        "bicarbonate": [29], "used": [31], "as": [32, 81], "precursors": [33], "for":
+        [34], "film": [35, 79], "growth,": [36], "the": [38, 41, 59, 74], "control":
+        [39], "of": [40, 85], "system''s": [42], "pH": [43], "value": [44], "played":
+        [45], "an": [46], "important": [47], "role": [48], "in": [49, 78, 88], "this":
+        [50, 89], "experiment.": [51], "The": [52], "growth": [53], "rate": [54],
+        "is": [55, 91], "12": [56], "nm/h": [57], "at": [61], "[Al2(SO4)3]=0.0837":
+        [62], "mol\u00b7L^-1,": [63, 65], "[NaHCO3]=0.214": [64], "15\u2103.": [66],
+        "Post-growth": [67], "annealing": [68], "not": [69], "only": [70], "densities":
+        [71], "purifies": [73], "films,": [75], "but": [76], "results": [77], "crystallization":
+        [80], "well.": [82], "Excellent": [83], "quality": [84], "Al2O3": [86], "work":
+        [90], "supported": [92], "electron": [94, 105], "dispersion": [95], "spectroscopy,Fourier":
+        [96], "transform": [97], "infrared": [98], "spectrum,": [99], "X-ray": [100],
+        "diffraction": [101], "spectrum": [102], "scanning": [104], "microscopy":
+        [106], "photograph.": [107]}, "primary_location": {"id": "mag:1564390236",
+        "doi": null, "is_oa": false, "landing_page_url": "http://www.cqvip.com/QK/84126X/200407/10819703.html",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S112006741", "display_name":
+        "Chinese Journal of Chemistry", "issn_l": "1001-604X", "issn": ["1001-604X",
+        "1614-7065"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "dongbi-c", "jufo-1", "norway-1", "poland-70", "russia-white-list-1"],
+        "host_organization": "https://openalex.org/P4310320595", "host_organization_name":
+        "Wiley", "host_organization_lineage": ["https://openalex.org/P4310320595"],
+        "host_organization_lineage_names": ["Wiley"], "type": "journal"}, "license":
+        null, "license_id": null, "version": null, "is_accepted": false, "is_published":
+        false, "raw_source_name": "\u4e2d\u56fd\u5316\u5b66\uff1a\u82f1\u6587\u7248",
+        "raw_type": null}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a547fe3b882d2d2a-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '15895'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:36:44 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=vtLRqtqhfBvc%2BQkliYJMUBHjair24oQ%2BRjpzCqQk8WQ%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793673404"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=vtLRqtqhfBvc%2BQkliYJMUBHjair24oQ%2BRjpzCqQk8WQ%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793673404"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9850'
+      x-ratelimit-remaining-usd:
+      - '0.985'
+      x-ratelimit-reset:
+      - '76996'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=Al2%28SO4%293+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 24, "db_response_time_ms": 25, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (Al2 SO4 3 thin
+        film) in the title or abstract", "x_new_oql": "get works with (Al2 SO4 3 thin
+        film) in the title or abstract", "oqo": {"get_rows": "works", "filter_rows":
+        [{"column_id": "title_and_abstract.search", "value": "Al2(SO4)3 thin film",
+        "operator": "has"}]}, "url": "/works?filter=title_and_abstract.search:Al2%28SO4%293
+        thin film&per_page=1", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2158420611"}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a547fe3c8c4d2d2a-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '634'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:36:44 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=vtLRqtqhfBvc%2BQkliYJMUBHjair24oQ%2BRjpzCqQk8WQ%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793673404"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=vtLRqtqhfBvc%2BQkliYJMUBHjair24oQ%2BRjpzCqQk8WQ%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793673404"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9840'
+      x-ratelimit-remaining-usd:
+      - '0.984'
+      x-ratelimit-reset:
+      - '76996'
+    status:
+      code: 200
+      message: OK
+version: 1

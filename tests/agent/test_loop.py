@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from typing import Any
 
+import pytest
 from pydantic import BaseModel
 
 from materials_triage.agent import llm, loop, prompts, tools
@@ -26,7 +27,7 @@ def _call(input_: dict[str, Any], *, text: str = "") -> dict[str, Any]:
 
 
 def _budget(**kw: Any) -> loop.Budget:
-    b = loop.Budget.from_core(CoreConfig())
+    b = loop.Budget.from_core(CoreConfig(), "classify")
     for k, v in kw.items():
         setattr(b, k, v)
     return b
@@ -108,7 +109,7 @@ def test_refusal_and_context_exceeded_fail_without_retry() -> None:
 
 def test_budget_breach_ends_the_step_as_partial_before_any_request() -> None:
     fake = llm.FakeLLM([_call(GOOD_INPUT)])
-    budget = _budget(tool_calls=CoreConfig().max_tool_calls)
+    budget = _budget(tool_calls=CoreConfig().step_budgets["classify"].max_tool_calls)
     result = _run(fake, budget=budget)
     assert result.status == loop.StepStatus.BUDGET and "max_tool_calls" in (result.reason or "")
     assert fake.requests == []
@@ -125,6 +126,14 @@ def test_budget_counts_requests_and_tokens_and_seconds() -> None:
     assert result.ok and budget.tool_calls == 1 and budget.tokens == 15
     assert "max_tokens" in (budget.breach() or "")
     assert budget.used()["tool_calls"] == 1.0 and budget.limits()["seconds"] == 300.0
+    stepped = loop.Budget.from_core(CoreConfig(), "parse")
+    assert stepped.max_tool_calls == 3 and list(stepped.limits()) == [
+        "parse.tool_calls",
+        "parse.tokens",
+        "parse.seconds",
+    ]
+    with pytest.raises(KeyError):
+        loop.Budget.from_core(CoreConfig(), "fetch")
 
 
 def test_wrong_tool_name_counts_as_no_tool_call() -> None:

@@ -3,6 +3,7 @@ scorer: the pipeline produces a valid bundle whose ranks match the sample."""
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 import pytest
@@ -10,6 +11,7 @@ from scripts.seed_store_from_cassettes import iter_raw
 
 from materials_triage.adapters.base import Call, RawResponse
 from materials_triage.agent import llm, parse, pipeline, scoring_port
+from materials_triage.agent.loop import Budget
 from materials_triage.config import schema as cs
 from materials_triage.records.bundle import EvidenceLabel, ProvenanceBundle
 from materials_triage.render import markdown
@@ -125,12 +127,12 @@ def test_missing_sources_become_events_and_a_partial_run(
             return None
         return transport(call)
 
-    inputs = _inputs(layers, tmp_path, ["HfO2", "Ga2O3"])
+    inputs = _inputs(layers, tmp_path, ["HfO2", "Lu2O3"])
     bundle = pipeline.run(
         inputs, fetch=flaky, sources=sources, scorer=scoring_port.default_scorer()
     )
     assert bundle.run.partial is True
-    assert bundle.run.partial_reasons == ["Ga2O3: no Materials Project summary available"]
+    assert bundle.run.partial_reasons == ["Lu2O3: no Materials Project summary available"]
     assert {e["source"] for e in bundle.availability_events} == {"openalex", "materials_project"}
     hf = next(c for c in bundle.candidates if c.composition == "HfO2")
     assert hf.group.literature is None and bundle.evidence == []
@@ -168,7 +170,11 @@ def test_llm_run_records_model_prompt_hash_and_budgets(
         inputs, fetch=transport, sources=sources, scorer=scoring_port.default_scorer(), llm=fake
     )
     assert bundle.run.model_version == "fake-opus" and bundle.run.provider == "fake"
-    assert bundle.run.prompt_hash is not None and bundle.run.budgets_used["tool_calls"] == 6.0
+    assert bundle.run.prompt_hash is not None
+    assert bundle.run.budgets_used["classify.tool_calls"] == 5.0
+    assert bundle.run.budgets_used["rationale.tool_calls"] == 1.0
+    assert bundle.run.budgets_limit["classify.tool_calls"] == 120.0
+    assert "parse.tool_calls" not in bundle.run.budgets_limit
     assert bundle.rationale["candidate:HfO2:one_line"].text == "{formula:HfO2} leads."
     assert bundle.rationale["candidate:HfO2:one_line"].removed_fragments == [
         "It has a gap of 9.9 eV."
@@ -200,3 +206,34 @@ def test_refused_request_yields_an_empty_bundle_with_the_refusal_logged(
     refused = next(d for d in bundle.decision_log if d.step == "refused")
     assert refused.detail["text"] == core.refusals.wetlab and refused.detail["category"] == "wetlab"
     assert core.refusals.wetlab in markdown.render_pi_summary(bundle, site)
+
+
+def test_at_most_five_abstracts_per_candidate_are_classified_in_search_order(
+    layers: Layers, tmp_path: Path, transport: CassetteTransport, sources: pipeline.Sources
+) -> None:
+    """HfO2 has five recorded hits; a transport that doubles them shows the cap."""
+
+    def doubled(call: Call) -> RawResponse | None:
+        raw = transport(call)
+        if raw is None or call.source.value != "openalex" or call.endpoint != "works":
+            return raw
+        body = json.loads(raw.body)
+        extra = []
+        for i, w in enumerate(body["results"]):
+            copy = dict(w)
+            copy["id"] = w["id"] + f"-dup{i}"
+            extra.append(copy)
+        body["results"] = body["results"] + extra
+        return raw.model_copy(update={"body": json.dumps(body).encode()})
+
+    inputs = _inputs(layers, tmp_path, ["HfO2"])
+    inputs.prior_budgets = [Budget.from_core(layers[0], "parse")]
+    bundle = pipeline.run(
+        inputs, fetch=doubled, sources=sources, scorer=scoring_port.default_scorer()
+    )
+    hf = next(c for c in bundle.candidates if c.composition == "HfO2")
+    assert hf.group.literature is not None and len(hf.group.literature.hits) == 10
+    classified = [e.openalex_id for e in bundle.evidence if e.composition == "HfO2"]
+    assert classified == [h.openalex_id for h in hf.group.literature.hits[:5]]
+    assert layers[0].max_abstracts_per_candidate == 5
+    assert "parse.tool_calls" in bundle.run.budgets_limit

@@ -1,0 +1,333 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=Bi2O3+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 356, "db_response_time_ms": 250, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Bi2O3 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (Bi2O3 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "Bi2O3
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:Bi2O3
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W3146530086",
+        "doi": "https://doi.org/10.1002/pssa.2210640242", "title": "Optical properties
+        of Bi2O3 thin films", "publication_year": 1981, "abstract_inverted_index":
+        {"The": [0], "optical": [1], "absorption": [2], "in": [3, 10, 45, 59], "flash-evaporated":
+        [4], "2O3": [5], "thin": [6], "films": [7], "is": [8, 21, 48], "studied":
+        [9], "the": [11, 46, 51, 55, 57, 74, 78], "photon": [12], "energy": [13, 31],
+        "range": [14], "0.6": [15], "to": [16, 23, 64], "6.2": [17], "eV.": [18],
+        "Tetragonal": [19], "Bi2O3": [20], "found": [22], "be": [24], "an": [25, 30],
+        "indirect": [26], "gap": [27, 32], "insulator": [28], "with": [29], "of":
+        [33, 54, 77], "\u2248": [34], "2.6": [35], "eV": [36, 42], "at": [37], "room":
+        [38], "temperature.": [39], "At": [40], "5.6": [41], "a": [43], "peak": [44],
+        "extinction": [47], "evidenced.": [49], "In": [50], "transparent": [52], "region":
+        [53], "layers": [56], "variations": [58], "transmission": [60, 79], "are":
+        [61, 71], "mainly": [62], "due": [63], "interference": [65], "phenomena.":
+        [66], "Optical": [67], "constants": [68], "and": [69], "thickness": [70],
+        "determined": [72], "from": [73], "fringe": [75], "pattern": [76], "spectrum.":
+        [80]}, "primary_location": {"id": "doi:10.1002/pssa.2210640242", "doi": "https://doi.org/10.1002/pssa.2210640242",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1002/pssa.2210640242",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4210228582", "display_name":
+        "physica status solidi (a)", "issn_l": "0031-8965", "issn": ["0031-8965",
+        "1521-396X", "1862-6300", "1862-6319"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d",
+        "jufo-1", "ki-jl-1", "norway-1", "poland-70", "russia-white-list-2", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320595", "host_organization_name":
+        "Wiley", "host_organization_lineage": ["https://openalex.org/P4310320595"],
+        "host_organization_lineage_names": ["Wiley"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Physica Status Solidi (a)", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W1679317710", "doi": "https://doi.org/10.1063/1.2136351",
+        "title": "Optical properties of \u03b4-Bi2O3 thin films grown by reactive
+        sputtering", "publication_year": 2005, "abstract_inverted_index": {"The":
+        [0, 38, 54], "optical": [1, 13, 47, 55, 75, 89, 92], "properties": [2], "of":
+        [3, 50], "\u03b4-Bi2O3": [4, 16], "thin": [5, 17, 52], "films": [6, 18], "were":
+        [7, 19], "investigated": [8], "using": [9], "spectroscopic": [10], "ellipsometry":
+        [11], "and": [12, 23, 69, 73, 91], "absorption": [14], "spectrum.": [15],
+        "grown": [20], "on": [21], "Si": [22], "quartz": [24], "substrates": [25],
+        "under": [26], "different": [27, 61], "oxygen": [28], "flow": [29], "ratios":
+        [30], "(OFR)": [31], "by": [32, 59], "radio": [33], "frequency": [34], "reactive":
+        [35], "magnetron": [36], "sputtering.": [37], "Tauc-Lorentz": [39], "dispersion":
+        [40, 48], "method": [41], "was": [42, 57, 64], "adopted": [43], "to": [44],
+        "model": [45], "the": [46, 51, 74, 84, 88], "functions": [49], "films.": [53],
+        "bandgap": [56, 76, 93], "obtained": [58], "three": [60], "methods.": [62],
+        "It": [63], "found": [65], "that": [66], "refractive": [67], "index": [68],
+        "extinction": [70], "coefficient": [71], "decrease,": [72], "has": [77], "a":
+        [78], "slight": [79], "blue": [80], "shift": [81], "with": [82], "increasing":
+        [83], "OFR.": [85], "Factors": [86], "influencing": [87], "constants": [90],
+        "are": [94], "discussed.": [95]}, "primary_location": {"id": "doi:10.1063/1.2136351",
+        "doi": "https://doi.org/10.1063/1.2136351", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.2136351", "pdf_url": null, "source": {"id": "https://openalex.org/S105243760",
+        "display_name": "Applied Physics Letters", "issn_l": "0003-6951", "issn":
+        ["0003-6951", "1077-3118", "1520-8842"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-a",
+        "jufo-3", "ki-jl-1", "norway-2", "poland-100", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Applied Physics
+        Letters", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2052652598",
+        "doi": "https://doi.org/10.1002/pssa.2211030234", "title": "Optical Properties
+        of \u03b2-Bi2O3 Thin Films", "publication_year": 1987, "abstract_inverted_index":
+        {"Optical": [0], "properties": [1], "of": [2, 32, 51], "\u03b2-Bi2O3": [3,
+        21, 52], "films": [4], "prepared": [5], "by": [6], "activated": [7], "reactive":
+        [8], "evaporation": [9], "are": [10], "studied": [11], "from": [12], "0.5":
+        [13], "to": [14, 42], "3.5": [15], "eV.": [16, 55], "It": [17], "is": [18,
+        22, 44, 53], "shown": [19], "that": [20], "an": [23, 45], "indirect": [24],
+        "band": [25, 30], "gap": [26, 31, 50], "semiconductor": [27], "with": [28],
+        "a": [29], "(1.74": [33], "\u00b1": [34], "0.5)": [35], "eV": [36], "and":
+        [37], "the": [38], "optical": [39], "transition": [40], "leading": [41], "this":
+        [43], "allowed": [46], "one.": [47], "The": [48], "direct": [49], "2.6": [54]},
+        "primary_location": {"id": "doi:10.1002/pssa.2211030234", "doi": "https://doi.org/10.1002/pssa.2211030234",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1002/pssa.2211030234",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4210228582", "display_name":
+        "physica status solidi (a)", "issn_l": "0031-8965", "issn": ["0031-8965",
+        "1521-396X", "1862-6300", "1862-6319"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d",
+        "jufo-1", "ki-jl-1", "norway-1", "poland-70", "russia-white-list-2", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320595", "host_organization_name":
+        "Wiley", "host_organization_lineage": ["https://openalex.org/P4310320595"],
+        "host_organization_lineage_names": ["Wiley"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Physica Status Solidi (a)", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W2366007807", "doi": null,
+        "title": "Deposition of Bi2O3 Thin Films and Their Resistive Switching Characteristics",
+        "publication_year": 2012, "abstract_inverted_index": {"Resistive": [0], "random":
+        [1], "access": [2], "memory(ReRAM)": [3], "is": [4, 98], "one": [5], "of":
+        [6, 35, 47, 54, 61, 113, 123, 137, 141], "the": [7, 32, 36, 48, 52, 55, 59,
+        62, 71, 102, 111, 118, 121, 135, 142], "most": [8], "promising": [9], "candidates":
+        [10], "for": [11, 117], "next": [12], "generation": [13], "high": [14], "speed":
+        [15], "nonvolatile": [16], "memory": [17], "devices.Bi2O3": [18], "thin":
+        [19, 38, 64, 73, 88, 115], "films": [20, 39, 65, 74, 89], "were": [21, 40,
+        66], "deposited": [22], "on": [23, 58, 110], "heavily": [24], "doped": [25],
+        "silicon": [26], "wafer": [27], "by": [28, 42], "RF": [29], "magnetron": [30],
+        "sputtering,and": [31], "crystalline": [33, 77], "structure": [34, 50], "Bi2O3":
+        [37, 63, 72, 87, 114], "characterized": [41], "XRD.The": [43], "resistive":
+        [44, 95], "switching": [45, 96], "characteristics": [46], "Au/Bi2O3/n+Si/Al":
+        [49], "and": [51, 92], "dependence": [53], "ReRAM": [56], "behavior": [57],
+        "thickness": [60, 112, 122], "studied.XRD": [67], "analysis": [68], "shows":
+        [69], "that": [70, 86, 101], "have": [75], "good": [76], "quality": [78],
+        "with(201)": [79], "preferential": [80], "orientation,while": [81], "I-V":
+        [82], "curves": [83], "results": [84], "indicate": [85], "exhibit": [90],
+        "reversible": [91], "steady": [93], "unipolar": [94], "behaviors.It": [97],
+        "further": [99], "found": [100], "forming": [103], "voltages,set": [104],
+        "voltages,and": [105], "reset": [106], "voltages": [107, 128], "depend": [108],
+        "linearly": [109], "films,and": [116], "device": [119], "with": [120], "31.2":
+        [124], "nm,these": [125], "three": [126], "threshold": [127], "are": [129],
+        "all": [130], "below": [131], "4": [132], "V,which": [133], "meet": [134],
+        "need": [136], "low": [138], "voltage": [139], "operation": [140], "memories.":
+        [143]}, "primary_location": {"id": "mag:2366007807", "doi": null, "is_oa":
+        false, "landing_page_url": "https://en.cnki.com.cn/Article_en/CJFDTOTAL-WGCL201203020.htm",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S145528006", "display_name":
+        "Journal of Inorganic Materials", "issn_l": "1000-324X", "issn": ["1000-324X"],
+        "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core",
+        "jufo-1", "norway-1", "poland-40", "russia-white-list-3"], "host_organization":
+        "https://openalex.org/P4310319982", "host_organization_name": "Science Press",
+        "host_organization_lineage": ["https://openalex.org/P4310319982"], "host_organization_lineage_names":
+        ["Science Press"], "type": "journal"}, "license": null, "license_id": null,
+        "version": null, "is_accepted": false, "is_published": false, "raw_source_name":
+        "Journal of Inorganic Materials", "raw_type": null}}, {"id": "https://openalex.org/W2045135631",
+        "doi": "https://doi.org/10.1002/bbpc.19900940704", "title": "TiO2 and Bi2O3
+        Thin Film Oxygen Sensor Materials", "publication_year": 1990, "abstract_inverted_index":
+        {"Abstract": [0], "The": [1], "electrical": [2], "conductivity": [3, 84, 167],
+        "of": [4, 22, 52, 79, 86, 147, 172], "polycrystalline": [5], "TiO2": [6, 36],
+        "and": [7, 30, 90, 113, 127, 135], "Bi2O3,": [8], "deposited": [9], "on":
+        [10], "sapphire": [11], "substrate": [12, 89, 153], "by": [13, 169], "various":
+        [14], "methods,": [15], "has": [16], "been": [17], "determined": [18], "as":
+        [19, 73, 176], "a": [20, 34, 156], "function": [21], "the": [23, 26, 31, 50,
+        53, 83, 87, 100, 124, 132, 137, 152, 166], "film": [24, 183], "thickness,":
+        [25], "oxygen": [27, 67, 110, 138], "partial": [28], "pressure": [29], "temperature.":
+        [32], "As": [33], "rule,": [35], "films": [37, 58, 146], "with": [38, 64,
+        97, 151, 162], "d": [39], "\u2272": [40], "30": [41], "nm": [42], "are": [43],
+        "incoherent": [44], "after": [45], "heat": [46], "treatment,": [47], "thereby":
+        [48], "restricting": [49], "miniaturization": [51], "planar": [54], "sensor":
+        [55, 184], "device.": [56], "Larger": [57], "essentially": [59], "behave":
+        [60], "like": [61], "bulk": [62, 101], "material": [63, 179], "fully": [65],
+        "ionized": [66, 109], "defects": [68, 115, 129], "V2\u2022o": [69, 112], "(or":
+        [70], "Ti4\u2022i": [71], "interstitials)": [72], "major": [74], "intrinsic":
+        [75, 126], "defects.": [76], "In": [77, 141], "case": [78], "extrinsic": [80,
+        128], "p\u2010type": [81], "films,": [82], "contribution": [85], "TiO2/sapphire":
+        [88], "TiO2/gas": [91], "phase": [92], "interfaces": [93], "is": [94], "clearly":
+        [95], "enhanced": [96], "respect": [98], "to": [99, 105, 122, 143], "contribution,":
+        [102], "mainly": [103], "due": [104], "segregation": [106, 133], "effects.":
+        [107], "Doubly": [108], "vacancies": [111], "M''Ti": [114], "(trivalent":
+        [116], "acceptor": [117], "atoms": [118], "at": [119], "Ti\u2010sites)": [120],
+        "appear": [121], "be": [123], "main": [125], "involved": [130], "in": [131,
+        136], "process": [134], "exchange": [139], "reaction.": [140], "contrast":
+        [142], "TiO2,": [144], "thin": [145, 182], "Bi2O3": [148, 175], "react": [149],
+        "strongly": [150], "ultimately": [154], "forming": [155], "new": [157], "stable":
+        [158], "phase,": [159], "Al4Bi2O9.": [160], "Along": [161], "this": [163],
+        "structural": [164], "change,": [165], "decreases": [168], "several": [170],
+        "orders": [171], "magnitude,": [173], "classifying": [174], "an": [177], "unsuitable":
+        [178], "for": [180], "such": [181], "devices.": [185]}, "primary_location":
+        {"id": "doi:10.1002/bbpc.19900940704", "doi": "https://doi.org/10.1002/bbpc.19900940704",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1002/bbpc.19900940704",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4306504167", "display_name":
+        "Berichte der Bunsengesellschaft f\u00fcr physikalische Chemie", "issn_l":
+        "0005-9021", "issn": ["0005-9021"], "is_oa": false, "is_in_doaj": false, "is_core":
+        false, "listed_in": [], "host_organization": null, "host_organization_name":
+        null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Berichte der
+        Bunsengesellschaft f\u00fcr physikalische Chemie", "raw_type": "journal-article"}}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a548028578faeae4-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '13600'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:39:40 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=n77Y1zTqATU1vSrTyYF3kBvLl4kwo80srto0JW9LZeE%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793673580"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=n77Y1zTqATU1vSrTyYF3kBvLl4kwo80srto0JW9LZeE%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793673580"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9770'
+      x-ratelimit-remaining-usd:
+      - '0.977'
+      x-ratelimit-reset:
+      - '76820'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=Bi2O3+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 613, "db_response_time_ms": 325, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (Bi2O3 thin film)
+        in the title or abstract", "x_new_oql": "get works with (Bi2O3 thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "Bi2O3 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:Bi2O3 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W2005673887"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a5480287e9dbeae4-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '616'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:39:41 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=n77Y1zTqATU1vSrTyYF3kBvLl4kwo80srto0JW9LZeE%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793673580"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=n77Y1zTqATU1vSrTyYF3kBvLl4kwo80srto0JW9LZeE%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793673580"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9760'
+      x-ratelimit-remaining-usd:
+      - '0.976'
+      x-ratelimit-reset:
+      - '76819'
+    status:
+      code: 200
+      message: OK
+version: 1

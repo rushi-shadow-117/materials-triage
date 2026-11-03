@@ -81,6 +81,12 @@ rows only under its own heading. Rows name a test path; a row without a test is 
 | Hazard policy edited between runs | Diff attributes to config through the policy hash | tests/cli/test_diff.py::test_hazard_policy_edit_counts_as_config |
 | Model changed but no evidence label changed | Diff notes "not causal" | tests/cli/test_diff.py::test_model_change_is_causal_only_through_labels |
 | User answers n at the confirmation | Nothing runs, nothing saved | tests/cli/test_cli.py::test_query_prints_criteria_and_an_n_answer_aborts_without_a_run |
+| More than five abstracts for one candidate | Only the first five by search order are classified | tests/agent/test_pipeline.py::test_at_most_five_abstracts_per_candidate_are_classified_in_search_order |
+| One step exhausts its budget | That step ends partial; the other steps keep their own limits | tests/agent/test_loop.py::test_budget_counts_requests_and_tokens_and_seconds |
+| Evidence labeled not_relevant or no_abstract without a sentence | No quote check; stored unverified, no failure | tests/verify/test_verifier.py::test_not_relevant_and_no_abstract_skip_the_quote_check |
+| Evidence tier label without a verbatim sentence | `quote_mismatch`, hit dropped | tests/verify/test_verifier.py::test_the_four_tiers_always_need_a_verbatim_sentence |
+| Enrichment excludes a top-K row and admits an unenriched one | Loop enriches the newcomer and scores again until the top K is enriched | tests/agent/test_discovery.py::test_recorded_discovery_queries_run_offline_end_to_end_with_the_real_scorer |
+| Discovery query without a gap bound | Floor from the profile (hard minimum, else soft preference start) | tests/agent/test_discovery.py::test_discovery_filter_keeps_the_cutoff_out_of_the_api_query |
 
 ## Track C: API and web
 

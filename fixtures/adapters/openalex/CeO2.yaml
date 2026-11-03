@@ -1,0 +1,361 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=CeO2+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 1142, "db_response_time_ms": 538, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (CeO2 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (CeO2 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "CeO2
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:CeO2
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2019897959",
+        "doi": "https://doi.org/10.1116/1.580511", "title": "Preparation and microstructural
+        study of CeO2 thin films", "publication_year": 1997, "abstract_inverted_index":
+        {"Epitaxial": [0], "and": [1, 19, 25, 30, 61, 134, 137, 162, 171], "textured":
+        [2, 128], "ceria": [3, 179, 190], "films": [4, 56, 65, 154, 180, 191], "were":
+        [5, 33, 181, 195], "prepared": [6], "by": [7], "conventional": [8], "electron-beam":
+        [9], "evaporation": [10, 62], "on": [11, 39, 68, 96, 121, 207], "(001)": [12,
+        17, 20, 123, 148], "LaAlO3,": [13], "(11\u030402)": [14], "R-cut": [15], "sapphire,":
+        [16], "Au,": [18], "Pd": [21, 149], "substrates": [22, 60, 209], "using":
+        [23, 85, 116, 183, 197], "ceramic": [24, 87, 161, 185], "metallic": [26, 89,
+        118, 163, 199], "sources.": [27, 63], "Deposition": [28], "temperature": [29,
+        80, 110, 204], "deposition": [31, 72, 100, 109, 139, 166], "rate": [32, 73],
+        "varied": [34, 57], "to": [35, 143, 160, 174, 213], "determine": [36], "their":
+        [37], "effects": [38], "the": [40, 43, 51, 79, 122, 151, 188, 198], "formation":
+        [41, 53], "of": [42, 54, 82, 94, 168, 192, 205], "CeO2": [44, 55, 95, 153,
+        206], "films.": [45], "It": [46], "was": [47, 130, 210], "also": [48], "found":
+        [49, 212], "that": [50], "epitaxial": [52, 92, 178, 202], "with": [58, 70],
+        "different": [59, 157], "Ceria": [64], "grew": [66], "epitaxially": [67],
+        "sapphire": [69], "a": [71, 108, 117, 127, 147, 156, 184], "less": [74], "than":
+        [75], "0.5": [76], "\u00c5/s": [77, 106, 170], "in": [78], "range": [81],
+        "650\u2013750": [83], "\u00b0C": [84, 115, 136, 217], "either": [86], "or":
+        [88], "source.": [90, 200], "The": [91, 177, 201], "growth": [93, 203], "LaAlO3":
+        [97], "occurred": [98], "at": [99, 107, 138, 165], "rates": [101, 140, 167],
+        "as": [102, 104, 111, 113], "high": [103], "1.0": [105, 144], "low": [112],
+        "600": [114], "source,": [119, 186], "while": [120, 187], "Au": [124], "substrate,":
+        [125, 150], "only": [126], "structure": [129], "observed": [131], "between":
+        [132], "580": [133], "700": [135, 173, 216], "from": [141, 172], "0.3": [142],
+        "\u00c5/s.": [145], "On": [146], "deposited": [152], "showed": [155], "microstructure":
+        [158], "corresponding": [159], "sources": [164], "0.2\u20130.5": [169], "750":
+        [175], "\u00b0C.": [176], "achieved": [182], "polycrystalline": [189], "multiple":
+        [193], "twinning": [194], "obtained": [196], "these": [208], "empirically":
+        [211], "be": [214], "around": [215], "(i.e.,": [218], "0.35": [219], "Tm).":
+        [220]}, "primary_location": {"id": "doi:10.1116/1.580511", "doi": "https://doi.org/10.1116/1.580511",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1116/1.580511", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S4210190837", "display_name":
+        "Journal of Vacuum Science & Technology A Vacuum Surfaces and Films", "issn_l":
+        "0734-2101", "issn": ["0734-2101", "1520-8559"], "is_oa": false, "is_in_doaj":
+        false, "is_core": true, "listed_in": ["cwts-core", "dongbi-c", "jufo-1", "ki-jl-1",
+        "norway-1", "poland-70", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Vacuum Science &amp; Technology A: Vacuum, Surfaces, and Films", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W2005567891", "doi": "https://doi.org/10.1007/bf03183935",
+        "title": "Violet/blue photoluminescence from CeO2 thin film", "publication_year":
+        2003, "abstract_inverted_index": {"CeO": [0, 25, 56], "2": [1, 26, 57], "thin":
+        [2, 27], "film": [3], "was": [4, 21, 40, 50, 59], "fabricated": [5], "by":
+        [6, 43], "dual": [7], "ion": [8], "beam": [9], "epitaxial": [10], "technique.":
+        [11], "The": [12], "violet/blue": [13], "PL": [14, 58], "at": [15], "room":
+        [16], "temperature": [17, 20], "and": [18, 35, 46, 71], "lower": [19], "observed":
+        [22], "from": [23, 65], "the": [24, 30, 38, 44, 53, 62, 72, 85], "film.":
+        [28], "After": [29], "analysis": [31], "of": [32, 55, 87], "crystal": [33],
+        "structure": [34], "valence": [36], "in": [37, 84], "compound": [39], "carried":
+        [41], "out": [42], "XRD": [45], "XPS": [47], "technique,": [48], "it": [49],
+        "inferred": [51], "that": [52], "origin": [54], "due": [60], "to": [61, 68,
+        75], "electrons": [63], "transition": [64], "Ce4f": [66, 91], "band": [67,
+        70], "O2p": [69, 76], "defect": [73], "level": [74], "band.": [77, 92], "And":
+        [78], "these": [79], "defects": [80], "levels": [81], "were": [82], "located":
+        [83], "range": [86], "1": [88], "eV": [89], "around": [90]}, "primary_location":
+        {"id": "doi:10.1007/bf03183935", "doi": "https://doi.org/10.1007/bf03183935",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1007/bf03183935",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4210205735", "display_name":
+        "Chinese Science Bulletin", "issn_l": "1001-6538", "issn": ["1001-6538", "1861-9541"],
+        "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core"],
+        "host_organization": "https://openalex.org/P4310319965", "host_organization_name":
+        "Springer Nature", "host_organization_lineage": ["https://openalex.org/P4310319965"],
+        "host_organization_lineage_names": ["Springer Nature"], "type": "journal"},
+        "license": null, "license_id": null, "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "Chinese Science Bulletin",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2580931268",
+        "doi": null, "title": "Characterisation of epitaxial CeO2 thin films", "publication_year":
+        2003, "abstract_inverted_index": {"Y1Ba2Cu3O7-": [0], "superconducting": [1,
+        12], "thin": [2, 35, 74, 131], "films": [3, 36, 116], "are": [4], "desirable":
+        [5], "for": [6], "the": [7, 62, 113, 129], "development": [8], "of": [9, 43,
+        61, 82, 97, 112, 128], "high": [10, 27, 41], "temperature": [11], "wires,":
+        [13], "cables,": [14], "electronic": [15], "devices": [16], "and": [17, 46,
+        95, 109, 115, 124], "others.": [18], "It": [19], "has": [20, 133], "been":
+        [21, 134], "shown,": [22], "using": [23, 76], "vacuum": [24, 88], "techniques,":
+        [25], "that": [26, 59, 142], "critical": [28], "currents": [29], "can": [30,
+        68, 147], "be": [31, 69, 148], "reached": [32], "in": [33, 99], "such": [34],
+        "if": [37], "they": [38], "exhibit": [39], "a": [40, 48, 77, 100], "degree":
+        [42], "in-plane": [44], "orientation,": [45], "provided": [47], "buffer":
+        [49, 65], "layer": [50], "is": [51, 57, 90], "used.": [52], "In": [53], "this":
+        [54, 83], "work": [55], "it": [56], "shown": [58], "one": [60], "most": [63],
+        "interesting": [64], "layers,": [66], "CeO2,": [67], "grown": [70], "as":
+        [71], "an": [72], "oriented": [73, 144], "film": [75, 132], "sol-gel": [78,
+        84, 157], "technique.": [79], "The": [80, 103, 126, 139], "advantage": [81],
+        "method": [85], "compared": [86], "to": [87], "techniques": [89], "its": [91],
+        "low": [92], "investment": [93], "cost": [94], "possibility": [96], "incorporation":
+        [98], "continuous": [101], "system.": [102], "phase": [104], "composition,":
+        [105], "crystallographic": [106], "microstructure,": [107], "orientation":
+        [108, 127], "surface": [110], "morphology": [111], "gels": [114], "were":
+        [117], "characterised": [118], "by": [119, 150], "XRD,": [120], "XPS,": [121],
+        "SEM,": [122], "AFM": [123], "TGA-DTA.": [125], "CeO2": [130, 145], "measured":
+        [135], "via": [136], "pole": [137], "figures.": [138], "results": [140], "show":
+        [141], "highly": [143], "layers": [146], "obtained": [149], "epitaxial": [151],
+        "growth": [152], "on": [153], "textured": [154], "Ni-tapes": [155], "from":
+        [156], "precursors.": [158]}, "primary_location": {"id": "pmh:oai:archive.ugent.be:2154122",
+        "doi": null, "is_oa": false, "landing_page_url": "https://biblio.ugent.be/publication/2154122",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4306400478", "display_name":
+        "Ghent University Academic Bibliography (Ghent University)", "issn_l": null,
+        "issn": null, "is_oa": false, "is_in_doaj": false, "is_core": false, "listed_in":
+        [], "host_organization": "https://openalex.org/I32597200", "host_organization_name":
+        "Ghent University", "host_organization_lineage": ["https://openalex.org/I32597200"],
+        "host_organization_lineage_names": [], "type": "repository"}, "license": null,
+        "license_id": null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "COST Materials Action 528, Meeting, Presentations",
+        "raw_type": "info:eu-repo/semantics/conferenceObject"}}, {"id": "https://openalex.org/W2019730101",
+        "doi": "https://doi.org/10.1002/pssa.200622247", "title": "Effect of samarium
+        doping on electrodeposited CeO2 thin film", "publication_year": 2006, "abstract_inverted_index":
+        {"Abstract": [0], "Samarium\u2010doped": [1], "cerium": [2, 7], "oxide": [3,
+        8], "(CeO2:Sm)": [4], "and": [5, 46, 61, 86, 99, 110, 135, 140], "undoped":
+        [6], "(CeO2)": [9], "thin": [10], "films": [11, 41, 71, 121, 143], "were":
+        [12, 25, 42, 81, 144], "fabricated": [13], "by": [14, 44], "electrodeposition":
+        [15], "on": [16], "biaxially": [17, 124], "textured": [18], "Ni\u20133%":
+        [19], "W": [20], "substrates.": [21], "The": [22, 38, 48, 105], "electrodeposited":
+        [23, 120], "layers": [24], "annealed": [26], "for": [27, 83], "several": [28],
+        "hours": [29], "at": [30], "temperatures": [31], "ranging": [32], "from":
+        [33], "910": [34], "to": [35, 54, 128], "980": [36], "\u00b0C.": [37], "resulting":
+        [39], "crystalline": [40], "investigated": [43], "XRD": [45, 68], "SEM.":
+        [47], "CeO2": [49, 60], "crystallite": [50, 94, 111], "size": [51, 76, 112],
+        "was": [52], "correlated": [53], "the": [55, 64, 93, 133], "formation": [56,
+        101], "of": [57, 67, 77], "microcrack": [58], "in": [59, 102, 132, 138], "CeO2:Sm":
+        [62], "using": [63], "Scherrer": [65], "equation": [66], "analysis.": [69],
+        "Crack\u2010free": [70], "with": [72, 115], "an": [73], "average": [74], "grain":
+        [75], "about": [78], "28": [79], "nm": [80], "obtained": [82], "both": [84],
+        "Ce0.92Sm0.08O2\u2013\u03b4": [85], "Ce0.8Sm0.2O2\u2013\u03b4": [87], "films.":
+        [88, 104], "Sm": [89, 117], "doping": [90], "strongly": [91], "affects": [92],
+        "size,": [95], "crystal": [96], "structure,": [97], "texture,": [98], "crack":
+        [100], "ceria": [103, 142], "lattice": [106], "parameter": [107], "a": [108],
+        "increases": [109], "is": [113], "reduced": [114], "increased": [116], "doping.":
+        [118], "All": [119], "are": [122], "highly": [123], "textured.": [125], "When":
+        [126], "compared": [127], "Ni\u2010based": [129], "substrates,": [130], "improvements":
+        [131], "out\u2010of\u2010plane": [134], "in\u2010plane": [136], "texture":
+        [137], "ceria\u2010": [139], "Sm\u2010doped": [141], "achieved.": [145], "(\u00a9":
+        [146], "2006": [147], "WILEY\u2010VCH": [148], "Verlag": [149], "GmbH": [150],
+        "&": [151], "Co.": [152], "KGaA,": [153], "Weinheim)": [154]}, "primary_location":
+        {"id": "doi:10.1002/pssa.200622247", "doi": "https://doi.org/10.1002/pssa.200622247",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1002/pssa.200622247",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4210228582", "display_name":
+        "physica status solidi (a)", "issn_l": "0031-8965", "issn": ["0031-8965",
+        "1521-396X", "1862-6300", "1862-6319"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d",
+        "jufo-1", "ki-jl-1", "norway-1", "poland-70", "russia-white-list-2", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320595", "host_organization_name":
+        "Wiley", "host_organization_lineage": ["https://openalex.org/P4310320595"],
+        "host_organization_lineage_names": ["Wiley"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "physica status solidi (a)", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W2094928296", "doi": "https://doi.org/10.1002/cvde.200306247",
+        "title": "Nucleation and Growth of Nanophasic CeO2 Thin Films by Plasma\u2010Enhanced
+        CVD", "publication_year": 2003, "abstract_inverted_index": {"Abstract": [0],
+        "Nanophasic": [1], "CeO2\u2010based": [2, 88], "thin": [3], "films": [4],
+        "were": [5, 27, 81, 102], "grown": [6], "at": [7, 34, 104], "low": [8], "temperatures":
+        [9, 35, 105], "on": [10], "SiO2": [11], "and": [12, 39, 53, 61, 72, 97, 125],
+        "Si(100)": [13], "by": [14, 47, 67, 83], "plasma\u2010enhanced": [15], "(PE)":
+        [16], "CVD": [17], "from": [18], "a": [19, 98, 130], "CeIV": [20], "\u03b2\u2010diketonate":
+        [21], "first": [22], "generation": [23], "precursor.": [24], "Film": [25],
+        "depositions": [26], "carried": [28], "out": [29], "in": [30], "low\u2010pressure":
+        [31], "Ar\u2013O2": [32], "plasmas": [33], "between": [36], "150": [37], "\u00b0C":
+        [38], "300": [40], "\u00b0C.": [41], "The": [42], "film": [43], "microstructure":
+        [44], "was": [45, 65], "investigated": [46], "glancing": [48], "incidence":
+        [49], "X\u2010ray": [50, 68], "diffraction": [51], "(GIXRD)": [52], "transmission":
+        [54], "electron": [55], "microscopy": [56], "(TEM),": [57], "while": [58],
+        "the": [59, 133], "surface": [60], "in\u2010depth": [62], "chemical": [63],
+        "composition": [64], "studied": [66], "photoelectron": [69], "spectroscopy":
+        [70], "(XPS),": [71], "secondary": [73], "ion": [74], "mass": [75], "spectrometry":
+        [76], "(SIMS),": [77], "respectively.": [78], "Optical": [79], "properties":
+        [80], "analyzed": [82], "UV\u2010vis": [84], "optical": [85], "absorption.":
+        [86], "Nanostructured": [87], "films,": [89], "with": [90], "crystal": [91],
+        "size": [92], "less": [93], "than": [94, 108], "6": [95], "nm": [96], "controllable":
+        [99], "CeIV/CeIII": [100], "ratio,": [101], "obtained": [103], "even": [106],
+        "lower": [107], "that": [109], "required": [110], "for": [111], "precursor":
+        [112], "vaporization": [113], "(170": [114], "\u00b0C).": [115], "In": [116],
+        "particular,": [117], "TEM": [118], "analyses": [119], "showed": [120], "an":
+        [121], "island": [122], "growth": [123], "mode": [124], "different": [126],
+        "microstructural": [127], "features": [128], "as": [129], "function": [131],
+        "of": [132], "substrate": [134], "used.": [135]}, "primary_location": {"id":
+        "doi:10.1002/cvde.200306247", "doi": "https://doi.org/10.1002/cvde.200306247",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1002/cvde.200306247",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S165206586", "display_name":
+        "Chemical Vapor Deposition", "issn_l": "0948-1907", "issn": ["0948-1907",
+        "1521-3862"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "norway-1"], "host_organization": "https://openalex.org/P4310320595",
+        "host_organization_name": "Wiley", "host_organization_lineage": ["https://openalex.org/P4310320595"],
+        "host_organization_lineage_names": ["Wiley"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Chemical Vapor Deposition", "raw_type":
+        "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54802979da7eae4-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '15914'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:39:44 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=DP0SFTZ%2B%2BgRjGvVsXFd8TOrSPY6mXIT89CVWk9sEhPY%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793673583"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=DP0SFTZ%2B%2BgRjGvVsXFd8TOrSPY6mXIT89CVWk9sEhPY%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793673583"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9730'
+      x-ratelimit-remaining-usd:
+      - '0.973'
+      x-ratelimit-reset:
+      - '76816'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=CeO2+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 2155, "db_response_time_ms": 175, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (CeO2 thin film)
+        in the title or abstract", "x_new_oql": "get works with (CeO2 thin film) in
+        the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "CeO2 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:CeO2 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W1543058772"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a548029dccaeeae4-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '613'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:39:44 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=xRUOq6Hn%2BIoguAZde9%2FSyqDAmxbOv3RqAFra68E%2BzEc%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793673584"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=xRUOq6Hn%2BIoguAZde9%2FSyqDAmxbOv3RqAFra68E%2BzEc%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793673584"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9720'
+      x-ratelimit-remaining-usd:
+      - '0.972'
+      x-ratelimit-reset:
+      - '76816'
+    status:
+      code: 200
+      message: OK
+version: 1

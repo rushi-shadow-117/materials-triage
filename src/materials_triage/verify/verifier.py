@@ -48,6 +48,19 @@ NUMBER_RE = re.compile(r"\d+(?:\.\d+)?")
 ABBREVIATIONS = ("et al.", "e.g.", "i.e.", "vs.", "approx.", "Fig.", "Eq.", "Ref.")
 SENTENCE_SPLIT = re.compile(r"(?<=[.!?])\s+(?=[A-Z{(\x00])")
 FULLTEXT_NOTE = "fulltext scope; quote not verifiable"
+# Labels that make no claim about the material; the quote check is skipped (owner,
+# 2026-11-03). The four evidence tiers always need a verbatim sentence.
+QUOTE_NOT_REQUIRED = frozenset(
+    {EvidenceLabel.NOT_RELEVANT, EvidenceLabel.NO_ABSTRACT, EvidenceLabel.UNCLASSIFIED}
+)
+TIER_LABELS = frozenset(
+    {
+        EvidenceLabel.COMPUTED_ONLY,
+        EvidenceLabel.BULK_SYNTHESIZED,
+        EvidenceLabel.THIN_FILM_DEPOSITED,
+        EvidenceLabel.DIELECTRIC_CHARACTERIZED,
+    }
+)
 POSITIVE_LABELS = frozenset(
     {
         EvidenceLabel.BULK_SYNTHESIZED,
@@ -376,7 +389,7 @@ def verify_evidence(
             ),
             None,
         )
-    if hit.label in (EvidenceLabel.NO_ABSTRACT, EvidenceLabel.UNCLASSIFIED):
+    if hit.label in QUOTE_NOT_REQUIRED:
         return hit.model_copy(update={"verified": False}), None
     result = check_quote(hit.supporting_sentence, abstract)
     if result.ok:

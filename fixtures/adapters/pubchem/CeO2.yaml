@@ -1,0 +1,463 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/cerium(IV)%20oxide/cids/JSON
+  response:
+    body:
+      string: "{\n  \"Fault\": {\n    \"Code\": \"PUGREST.NotFound\",\n    \"Message\":
+        \"No CID found\",\n    \"Details\": [\n      \"No CID found that matches the
+        given name\"\n    ]\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '156'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:41:29 GMT
+      expires:
+      - Tue, 03 Nov 2026 03:41:29 GMT
+      ncbi-phid:
+      - 90C673B5AE949D910000000000000001.m_1
+      ncbi-sid:
+      - 90C64B6DAE6515F1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID; domain=.nih.gov; path=/; expires=Wed, 03
+        Nov 2027 02:41:29 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (1%), Request Time status: Green (0%), Service
+        status: Green (20%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 404
+      message: PUGREST.NotFound
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/fastformula/CeO2/cids/JSON
+  response:
+    body:
+      string: "{\n  \"IdentifierList\": {\n    \"CID\": [\n      73963,\n      10219615,\n
+        \     44144625,\n      161058282,\n      175742650\n    ]\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '127'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:41:29 GMT
+      expires:
+      - Tue, 03 Nov 2026 03:41:30 GMT
+      ncbi-phid:
+      - 95B7B41CAE949D910000000000000001.m_3
+      ncbi-sid:
+      - 90C64B6DAE6515F1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID; domain=.nih.gov; path=/; expires=Wed, 03
+        Nov 2027 02:41:29 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (2%), Request Time status: Green (1%), Service
+        status: Green (27%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug_view/data/compound/73963/JSON?heading=GHS+Classification
+  response:
+    body:
+      string: "{\n  \"Record\": {\n    \"RecordType\": \"CID\",\n    \"RecordNumber\":
+        73963,\n    \"RecordTitle\": \"Ceria\",\n    \"Section\": [\n      {\n        \"TOCHeading\":
+        \"Safety and Hazards\",\n        \"Description\": \"Information on safety
+        and hazards for this compound, including safety/hazards properties, reactivity,
+        incompatibilities, management techniques, first aid treatments, and more.
+        \ For toxicity and related information, please see the Toxicity section.\",\n
+        \       \"Section\": [\n          {\n            \"TOCHeading\": \"Hazards
+        Identification\",\n            \"Description\": \"This section identifies
+        the hazards of the chemical presented on the safety data sheet (SDS) and the
+        appropriate warning information associated with those hazards.  The information
+        in this section includes, but are not limited to, the hazard classification
+        of the chemical, signal word, pictograms, hazard statements and precautionary
+        statements.\",\n            \"URL\": \"https://www.osha.gov/sites/default/files/publications/OSHA3514.pdf\",\n
+        \           \"Section\": [\n              {\n                \"TOCHeading\":
+        \"GHS Classification\",\n                \"Description\": \"GHS (Globally
+        Harmonized System of Classification and Labelling of Chemicals) is a United
+        Nations system to identify hazardous chemicals and to inform users about these
+        hazards. GHS has been adopted by many countries around the world and is now
+        also used as the basis for international and national transport regulations
+        for dangerous goods. The GHS hazard statements, class categories, pictograms,
+        signal words, and the precautionary statements can be found on the PubChem
+        GHS page.\",\n                \"URL\": \"https://pubchem.ncbi.nlm.nih.gov/ghs/\",\n
+        \               \"DisplayControls\": {\n                  \"CreateTable\":
+        {\n                    \"FromInformationIn\": \"ThisSection\",\n                    \"NumberOfColumns\":
+        2,\n                    \"ColumnContents\": [\n                      \"Name\",\n
+        \                     \"Value\"\n                    ]\n                  },\n
+        \                 \"ShowAtMost\": 1\n                },\n                \"Information\":
+        [\n                  {\n                    \"ReferenceNumber\": 16,\n                    \"Name\":
+        \"GHS Hazard Statements\",\n                    \"Value\": {\n                      \"StringWithMarkup\":
+        [\n                        {\n                          \"String\": \"Not
+        Classified\"\n                        },\n                        {\n                          \"String\":
+        \"Reported as not meeting GHS hazard criteria by 565 of 651 companies\"\n
+        \                       }\n                      ]\n                    }\n
+        \                 },\n                  {\n                    \"ReferenceNumber\":
+        16,\n                    \"Name\": \"ECHA C&L Notifications Summary\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"Aggregated GHS information provided
+        per 651 reports by companies from 11 notifications to the ECHA C&L Inventory.\",\n
+        \                         \"Markup\": [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 117,\n                              \"Type\":
+        \"Italics\"\n                            }\n                          ]\n
+        \                       },\n                        {\n                          \"String\":
+        \"Reported as not meeting GHS hazard criteria per 565 of 651 reports by companies.\",\n
+        \                         \"Markup\": [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 80,\n                              \"Type\":
+        \"Italics\"\n                            }\n                          ]\n
+        \                       },\n                        {\n                          \"String\":
+        \"There are 9 notifications provided by 86 of 651 reports by companies with
+        hazard statement code(s).\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 0,\n                              \"Length\":
+        99,\n                              \"Type\": \"Italics\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"Information may vary between notifications
+        depending on impurities, additives, and other factors. The percentage value
+        in parenthesis indicates the notified classification ratio from companies
+        that provide hazard codes. Only hazard codes with percentage values above
+        10% are shown. For more detailed information, please visit  ECHA C&L website.\",\n
+        \                         \"Markup\": [\n                            {\n                              \"Start\":
+        327,\n                              \"Length\": 20,\n                              \"URL\":
+        \"https://chem.echa.europa.eu/substance-search?searchText=215-150-4\"\n                            },\n
+        \                           {\n                              \"Start\": 0,\n
+        \                             \"Length\": 348,\n                              \"Type\":
+        \"Italics\"\n                            }\n                          ]\n
+        \                       }\n                      ]\n                    }\n
+        \                 },\n                  {\n                    \"ReferenceNumber\":
+        22,\n                    \"Name\": \"Pictogram(s)\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"          \",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 1,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/images/ghs/GHS08.svg\",\n                              \"Type\":
+        \"Icon\",\n                              \"Extra\": \"Health Hazard\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        22,\n                    \"Name\": \"Signal\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"Danger\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 6,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSDanger\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        22,\n                    \"Name\": \"GHS Hazard Statements\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"H371: May cause damage to organs [Warning
+        Specific target organ toxicity, single exposure]\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H371\"\n                            },\n
+        \                           {\n                              \"Start\": 34,\n
+        \                             \"Length\": 7,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSWarning\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"H372: Causes damage to organs through
+        prolonged or repeated exposure [Danger Specific target organ toxicity, repeated
+        exposure]\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 0,\n                              \"Length\":
+        4,\n                              \"URL\": \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H372\"\n
+        \                           },\n                            {\n                              \"Start\":
+        70,\n                              \"Length\": 6,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSDanger\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        22,\n                    \"Name\": \"Precautionary Statement Codes\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"P260, P264, P270, P308+P316, P319,
+        P405, and P501 (click each P-code to see the statement)\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P260\"\n                            },\n
+        \                           {\n                              \"Start\": 6,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P264\"\n                            },\n
+        \                           {\n                              \"Start\": 12,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P270\"\n                            },\n
+        \                           {\n                              \"Start\": 18,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P308+P316\"\n                            },\n
+        \                           {\n                              \"Start\": 29,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P319\"\n                            },\n
+        \                           {\n                              \"Start\": 35,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P405\"\n                            },\n
+        \                           {\n                              \"Start\": 45,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P501\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  }\n                ]\n              }\n
+        \           ]\n          }\n        ]\n      }\n    ],\n    \"Reference\":
+        [\n      {\n        \"ReferenceNumber\": 16,\n        \"SourceName\": \"European
+        Chemicals Agency (ECHA)\",\n        \"SourceID\": \"48966\",\n        \"Name\":
+        \"Cerium dioxide (EC: 215-150-4)\",\n        \"Description\": \"The information
+        provided here is aggregated from the \\\"Notified classification and labelling\\\"
+        from ECHA's C&L Inventory. Read more: https://echa.europa.eu/information-on-chemicals/cl-inventory-database\",\n
+        \       \"URL\": \"https://chem.echa.europa.eu/substance-search?searchText=215-150-4\",\n
+        \       \"LicenseNote\": \"Use of the information, documents and data from
+        the ECHA website is subject to the terms and conditions of this Legal Notice,
+        and subject to other binding limitations provided for under applicable law,
+        the information, documents and data made available on the ECHA website may
+        be reproduced, distributed and/or used, totally or in part, for non-commercial
+        purposes provided that ECHA is acknowledged as the source: \\\"Source: European
+        Chemicals Agency, http://echa.europa.eu/\\\". Such acknowledgement must be
+        included in each copy of the material. ECHA permits and encourages organisations
+        and individuals to create links to the ECHA website under the following cumulative
+        conditions: Links can only be made to webpages that provide a link to the
+        Legal Notice page.\",\n        \"LicenseURL\": \"https://echa.europa.eu/web/guest/legal-notice\",\n
+        \       \"ANID\": 1865413,\n        \"SortOrder\": 3651\n      },\n      {\n
+        \       \"ReferenceNumber\": 22,\n        \"SourceName\": \"NITE-CMC\",\n
+        \       \"SourceID\": \"22A4064\",\n        \"Name\": \"Cerium(IV) oxide -
+        FY2010 (New/original classication)\",\n        \"Description\": \"The chemical
+        classification in this section was conducted by the Chemical Management Center
+        (CMC) of Japan National Institute of Technology and Evaluation (NITE) in accordance
+        with GHS Classification Guidance for the Japanese Government, and is intended
+        to provide a reference for preparing GHS labelling and SDS for users.\",\n
+        \       \"URL\": \"https://www.chem-info.nite.go.jp/chem/english/ghs/10-mhlw-0060e.html\",\n
+        \       \"LicenseURL\": \"https://www.chem-info.nite.go.jp/en/chem/chrip/chrip_search/html/condUse.html\",\n
+        \       \"ANID\": 2264585,\n        \"SortOrder\": 2010\n      }\n    ]\n
+        \ }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '12720'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 03 Nov 2026 02:41:30 GMT
+      expires:
+      - Tue, 03 Nov 2026 10:41:30 GMT
+      ncbi-phid:
+      - 90C67595AE949DA10000000000000001.m_1
+      ncbi-sid:
+      - 90C64B6DAE6515F1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID; domain=.nih.gov; path=/; expires=Wed, 03
+        Nov 2027 02:41:30 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (0%), Request Time status: Green (0%), Service
+        status: Green (2%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/73963/synonyms/JSON
+  response:
+    body:
+      string: "{\n  \"InformationList\": {\n    \"Information\": [\n      {\n        \"CID\":
+        73963,\n        \"Synonym\": [\n          \"Ceric oxide\",\n          \"1306-38-3\",\n
+        \         \"Ceria\",\n          \"Ceric dioxide\",\n          \"Cerium(IV)dioxide\",\n
+        \         \"Needlal\",\n          \"Nidoral\",\n          \"Opaline\",\n          \"Cerium(4+)
+        oxide\",\n          \"Needlal U15\",\n          \"Needlal W15\",\n          \"Molycomp
+        5310\",\n          \"CHEBI:79089\",\n          \"619G5K328Y\",\n          \"Cerium
+        Oxydatum\",\n          \"RefChem:58009\",\n          \"DTXCID801509322\",\n
+        \         \"215-150-4\",\n          \"DTXSID4040214\",\n          \"Cerium
+        dioxide\",\n          \"dioxocerium\",\n          \"CeO2\",\n          \"Cerium
+        oxide (CeO2)\",\n          \"Cerium (IV) oxide\",\n          \"cerium(IV)
+        dioxide\",\n          \"MFCD00010933\",\n          \"Needlal W10-01\",\n          \"MFCD00010927\",\n
+        \         \"CCRIS 2288\",\n          \"EINECS 215-150-4\",\n          \"CERAMICS-AEium(IV)
+        oxide\",\n          \"UNII-619G5K328Y\",\n          \"Cerium IV Oxide\",\n
+        \         \"EC 215-150-4\",\n          \"Cerium(IV) oxide, REacton\",\n          \"Cerium(IV)
+        oxide nanopowder\",\n          \"Cerium(IV) oxide, puriss.\",\n          \"Cerium(IV)
+        Oxide, Hydrated\",\n          \"SCHEMBL64883\",\n          \"orb2939721\",\n
+        \         \"CERIC OXIDE, CeO2.XH2O\",\n          \"Cerium oxide powder (~5
+        micron)\",\n          \"Cerium(IV) oxide, >=99.0%\",\n          \"Cerium(IV)
+        oxide, powder, 90%\",\n          \"Cerium oxide powder (1~3 micron)\",\n          \"HY-W076148D\",\n
+        \         \"TYD-00870\",\n          \"AKOS025310685\",\n          \"Cerium
+        oxide nanopowder  (10~30 nm)\",\n          \"385781-69-1\",\n          \"Cerium
+        oxide nanopowder  (100~1000 nm)\",\n          \"Cerium Oxide Powder, 99.9%
+        (REO) Nano\",\n          \"NS00129461\",\n          \"Cerium oxide, 99.99%
+        metals basis, <5 mum\",\n          \"Cerium(IV) oxide, 99.995% (REO), powder\",\n
+        \         \"Cerium oxide nanopowder doped with Gadolinium (<100 nm)\",\n          \"Cerium(IV)
+        oxide, 99.99% (REO), 20-40 nm powder\",\n          \"Cerium(IV) oxide, powder,
+        99.995% trace metals basis\",\n          \"Cerium(IV) oxide, nanopowder, <25
+        nm particle size (BET)\",\n          \"Cerium(IV) oxide, powder, <5 mum, 99.9%
+        trace metals basis\",\n          \"Cerium(IV) oxide, fused, pieces, 3-6 mm,
+        99.9% trace metals basis\",\n          \"Cerium(IV) oxide, NanoArc CE-6440,
+        25% in H2O, colloidal dispersion\",\n          \"Cerium oxide, 20% in H2O,
+        colloidal dispersion, 0.01-0.02 Micron Particles, pH 3.0\",\n          \"Nanoceria,
+        cerium oxide nanoparticles, nCe, CeO2 NPs, cerium oxide nanodispersion\",\n
+        \         \"Cerium(IV) oxide, dispersion, 20 wt. % colloidal dispersion in
+        2.5% acetic acid, 30-50 nm avg. part. size\"\n        ]\n      }\n    ]\n
+        \ }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '2638'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:41:30 GMT
+      expires:
+      - Tue, 03 Nov 2026 03:41:30 GMT
+      ncbi-phid:
+      - 90C675EBAE949DA10000000000000001.m_1
+      ncbi-sid:
+      - 90C64B6DAE6515F1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID; domain=.nih.gov; path=/; expires=Wed, 03
+        Nov 2027 02:41:30 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (2%), Request Time status: Green (0%), Service
+        status: Green (20%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

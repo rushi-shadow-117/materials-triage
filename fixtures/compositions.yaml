@@ -7,6 +7,10 @@ groups:
   negatives: [BeO, CdTiO3, Cd2Ta2O7, PbHfO3, PbZrO3]
   photocatalysts: [TiO2, WO3, BiVO4, Fe2O3, ZnO]
   nitrides: [AlN, GaN, Si3N4, BN]
+  # Owner request, Nov 3: the top 10 of each recorded discovery query, so discovery runs
+  # offline end to end. Names below are PubChem lookup names only.
+  discovery_top10_dielectric: [Al2O3, CO2, H2O, SO3, P2O5, P4O9, B2O3, MgO, "Al(PO3)3", "Al2(SO4)3", Al2SiO5]
+  discovery_top10_photocatalyst: [BaO, BaO2, Bi2O3, CaO2, CeO2, FeO, Ga2O3, Gd2O3, I2O5, K2O2, NO2, OF2, Re2O7, RuO4, SO2, Sb2O3, SbO2, Se2O5]
   yim_positives:
     source: fixtures/validation/yim2015.yaml
     formulas: [Ag2Ta4O11, AgTaO3, AlLiO2, "AlO(OH)", B2O3, Ba2SiO4, "Ba3(PO4)2", Ba3P4O13, BaSO4,
@@ -41,6 +45,33 @@ common_names:
   GaN: gallium nitride
   Si3N4: silicon nitride
   BN: boron nitride
+  CO2: carbon dioxide
+  H2O: water
+  SO3: sulfur trioxide
+  P2O5: phosphorus pentoxide
+  P4O9: tetraphosphorus nonaoxide
+  B2O3: boron trioxide
+  MgO: magnesium oxide
+  "Al(PO3)3": aluminum metaphosphate
+  "Al2(SO4)3": aluminum sulfate
+  Al2SiO5: aluminum silicate
+  BaO2: barium peroxide
+  Bi2O3: bismuth(III) oxide
+  CaO2: calcium peroxide
+  CeO2: cerium(IV) oxide
+  FeO: iron(II) oxide
+  Ga2O3: gallium(III) oxide
+  Gd2O3: gadolinium(III) oxide
+  I2O5: iodine pentoxide
+  K2O2: potassium peroxide
+  NO2: nitrogen dioxide
+  OF2: oxygen difluoride
+  Re2O7: rhenium(VII) oxide
+  RuO4: ruthenium tetroxide
+  SO2: sulfur dioxide
+  Sb2O3: antimony(III) oxide
+  SbO2: antimony dioxide
+  Se2O5: selenium pentoxide
 synonyms:
   HfO2: hafnia
   Al2O3: alumina
@@ -77,3 +108,16 @@ discovery:
     exclude_elements: [O, F, Cl, Br, I, S, Se, Te, P, As, Sb, H]
     nelements: [2, 3]
     band_gap_min: 4.0
+  # Owner request, Nov 3: the two discovery queries the CLI runs offline end to end.
+  # oxides_gap_5_plus is the dielectric profile's default discovery floor (its soft
+  # preference start, 5.0 eV; the profile has no hard gap bounds and every oxide would
+  # exceed the ceiling). oxides_gap_2_to_3_3 is the photocatalyst profile's hard window.
+  oxides_gap_5_plus:
+    elements: [O]
+    nelements: [2, 3]
+    band_gap_min: 5.0
+  oxides_gap_2_to_3_3:
+    elements: [O]
+    nelements: [2, 3]
+    band_gap_min: 2.0
+    band_gap_max: 3.3

@@ -1,0 +1,381 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=K2O2+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 4, "db_response_time_ms": 40, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (K2O2 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (K2O2 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "K2O2
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:K2O2
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2147917354",
+        "doi": "https://doi.org/10.1002/pssa.201300136", "title": "Low work function
+        thin film growth for high efficiency thermionic energy converter: Coupled
+        Kelvin probe and photoemission study of potassium oxide", "publication_year":
+        2014, "abstract_inverted_index": {"Recent": [0], "researches": [1], "in":
+        [2, 157, 201], "thermal": [3], "energy": [4, 13], "harvesting": [5], "have":
+        [6, 76], "revealed": [7], "the": [8, 58, 63, 91, 113, 133, 140, 181, 185,
+        195, 198, 202, 208, 220], "remarkable": [9], "efficiency": [10, 183], "of":
+        [11, 28, 43, 54, 95, 107, 119, 142, 161, 174, 184, 197, 210], "thermionic":
+        [12, 55], "converters": [14], "comprising": [15], "very": [16], "low": [17,
+        32, 66], "work": [18, 67, 172, 199], "function": [19, 68, 118, 173, 200],
+        "electrodes.": [20, 85], "From": [21, 132], "room": [22], "temperature": [23,
+        120], "and": [24, 93, 121, 149, 165, 180, 223], "above,": [25], "this": [26,
+        41], "kind": [27], "converter": [29, 84, 187], "could": [30], "supply": [31],
+        "power": [33], "devices": [34], "such": [35], "as": [36, 79, 116], "autonomous":
+        [37], "sensor": [38], "networks.": [39], "In": [40, 71], "type": [42], "thermoelectric":
+        [44], "converters,": [45], "current": [46], "injection": [47], "is": [48,
+        88, 155, 177, 188, 191, 205], "mainly": [49], "governed": [50], "by": [51,
+        159], "a": [52, 117, 211, 216], "mechanism": [53], "emission": [56], "at":
+        [57], "hot": [59], "electrode": [60], "which": [61, 125, 179], "explains":
+        [62], "interest": [64], "for": [65, 82], "coating": [69, 83], "materials.":
+        [70], "particular,": [72], "alkali": [73, 221], "metal": [74, 222], "oxides":
+        [75, 115], "been": [77], "identified": [78], "excellent": [80], "candidates":
+        [81], "This": [86], "paper": [87], "devoted": [89], "to": [90, 207], "synthesis":
+        [92, 105, 141], "characterization": [94], "potassium": [96, 143], "peroxide":
+        [97], "K2O2": [98], "onto": [99], "silicon": [100], "surfaces.": [101], "To":
+        [102], "determine": [103], "optimal": [104], "conditions": [106], "K2O2,":
+        [108], "we": [109, 136], "present": [110, 137], "diagrams": [111], "showing":
+        [112], "different": [114], "oxygen": [122], "pressure": [123], "from": [124,
+        215], "phase": [126], "stability": [127], "characteristics": [128], "can":
+        [129], "be": [130], "determined.": [131], "experimental": [134], "standpoint,":
+        [135], "results": [138], "on": [139], "oxide": [144], "under": [145], "ultra":
+        [146], "high": [147], "vacuum": [148], "controlled": [150], "temperature.":
+        [151], "The": [152], "resulting": [153, 214], "surface": [154, 212], "characterized":
+        [156], "situ": [158], "means": [160], "photoemission": [162], "spectroscopy":
+        [163], "(PES)": [164], "contact": [166], "potential": [167], "difference":
+        [168], "(CPD)": [169], "measurements.": [170], "A": [171], "1.35": [175],
+        "eV": [176], "measured": [178], "expected": [182], "corresponding": [186],
+        "discussed.": [189], "It": [190], "generally": [192], "assumed": [193], "that":
+        [194], "decrease": [196], "alkali/oxygen/silicon": [203], "system,": [204],
+        "attributed": [206], "creation": [209], "dipole": [213], "charge": [217],
+        "transfer": [218], "between": [219], "oxygen.": [224]}, "primary_location":
+        {"id": "doi:10.1002/pssa.201300136", "doi": "https://doi.org/10.1002/pssa.201300136",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1002/pssa.201300136",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4210228582", "display_name":
+        "physica status solidi (a)", "issn_l": "0031-8965", "issn": ["0031-8965",
+        "1521-396X", "1862-6300", "1862-6319"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d",
+        "jufo-1", "ki-jl-1", "norway-1", "poland-70", "russia-white-list-2", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320595", "host_organization_name":
+        "Wiley", "host_organization_lineage": ["https://openalex.org/P4310320595"],
+        "host_organization_lineage_names": ["Wiley"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "physica status solidi (a)", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W3124763722", "doi": null,
+        "title": "Low work function thin film growth for high efficiency thermionic
+        energy converter : coupled Kelvin probe and photoemission study of potassium
+        oxide", "publication_year": 2013, "abstract_inverted_index": {"Recent": [0],
+        "researches": [1], "in": [2, 157, 201], "thermal": [3], "energy": [4, 13],
+        "harvesting": [5], "have": [6, 76], "revealed": [7], "the": [8, 58, 63, 91,
+        113, 133, 140, 181, 185, 195, 198, 202, 208, 220], "remarkable": [9], "efficiency":
+        [10, 183], "of": [11, 28, 43, 54, 95, 107, 119, 142, 161, 174, 184, 197, 210],
+        "thermionic": [12, 55], "converters": [14], "comprising": [15], "very": [16],
+        "low": [17, 32, 66], "work": [18, 67, 172, 199], "function": [19, 68, 118,
+        173, 200], "electrodes.": [20, 85], "From": [21, 132], "room": [22], "temperature":
+        [23, 120], "and": [24, 93, 121, 149, 165, 180, 223], "above,": [25], "this":
+        [26, 41], "kind": [27], "converter": [29, 84, 187], "could": [30], "supply":
+        [31], "power": [33], "devices": [34], "such": [35], "as": [36, 79, 116], "autonomous":
+        [37], "sensor": [38], "networks.": [39], "In": [40, 71], "type": [42], "thermoelectric":
+        [44], "converters,": [45], "current": [46], "injection": [47], "is": [48,
+        88, 155, 177, 188, 191, 205], "mainly": [49], "governed": [50], "by": [51,
+        159], "a": [52, 117, 211, 216], "mechanism": [53], "emission": [56], "at":
+        [57], "hot": [59], "electrode": [60], "which": [61, 125, 179], "explains":
+        [62], "interest": [64], "for": [65, 82], "coating": [69, 83], "materials.":
+        [70], "particular,": [72], "alkali": [73, 221], "metal": [74, 222], "oxides":
+        [75, 115], "been": [77], "identified": [78], "excellent": [80], "candidates":
+        [81], "This": [86], "paper": [87], "devoted": [89], "to": [90, 207], "synthesis":
+        [92, 105, 141], "characterization": [94], "potassium": [96, 143], "peroxide":
+        [97], "K2O2": [98], "onto": [99], "silicon": [100], "surfaces.": [101], "To":
+        [102], "determine": [103], "optimal": [104], "conditions": [106], "K2O2,":
+        [108], "we": [109, 136], "present": [110, 137], "diagrams": [111], "showing":
+        [112], "different": [114], "oxygen": [122], "pressure": [123], "from": [124,
+        215], "phase": [126], "stability": [127], "characteristics": [128], "can":
+        [129], "be": [130], "determined.": [131], "experimental": [134], "standpoint,":
+        [135], "results": [138], "on": [139], "oxide": [144], "under": [145], "ultra":
+        [146], "high": [147], "vacuum": [148], "controlled": [150], "temperature.":
+        [151], "The": [152], "resulting": [153, 214], "surface": [154, 212], "characterized":
+        [156], "situ": [158], "means": [160], "photoemission": [162], "spectroscopy":
+        [163], "(PES)": [164], "contact": [166], "potential": [167], "difference":
+        [168], "(CPD)": [169], "measurements.": [170], "A": [171], "1.35": [175],
+        "eV": [176], "measured": [178], "expected": [182], "corresponding": [186],
+        "discussed.": [189], "It": [190], "generally": [192], "assumed": [193], "that":
+        [194], "decrease": [196], "alkali/oxygen/silicon": [203], "system,": [204],
+        "attributed": [206], "creation": [209], "dipole": [213], "charge": [217],
+        "transfer": [218], "between": [219], "oxygen.": [224]}, "primary_location":
+        {"id": "pmh:oai:HAL:hal-00819702v1", "doi": null, "is_oa": false, "landing_page_url":
+        "https://hal.science/hal-00819702", "pdf_url": null, "source": {"id": "https://openalex.org/S4306402512",
+        "display_name": "HAL", "issn_l": null, "issn": null, "is_oa": false, "is_in_doaj":
+        false, "is_core": false, "listed_in": [], "host_organization": "https://openalex.org/I4405252976",
+        "host_organization_name": "Centre pour la Communication Scientifique Directe",
+        "host_organization_lineage": ["https://openalex.org/I4405252976"], "host_organization_lineage_names":
+        [], "type": "repository"}, "license": null, "license_id": null, "version":
+        "submittedVersion", "is_accepted": false, "is_published": false, "raw_source_name":
+        "European Materials Research Society Spring Meeting, E-MRS Spring 2013, Symposium
+        C - Advanced thermoelectrics : from materials to devices, 2013, Strasbourg,
+        France", "raw_type": "info:eu-repo/semantics/conferenceObject"}}, {"id": "https://openalex.org/W2759618355",
+        "doi": "https://doi.org/10.13140/rg.2.2.32794.36804", "title": "Synthesis
+        and electrical characterisations of a low work function cesium oxide coating
+        for high efficiency thermionic energy converter", "publication_year": 2014,
+        "abstract_inverted_index": {"One": [0], "main": [1], "challenge": [2], "associated":
+        [3], "with": [4], "solid-state": [5], "thermoelectric": [6, 28], "materials":
+        [7], "is": [8, 30, 180, 188], "to": [9, 21, 56, 108, 123, 143], "combine":
+        [10], "electron-crystal": [11], "electrical": [12, 163], "conductivity": [13],
+        "and": [14, 40, 47, 81, 101, 116, 141, 162, 199], "phonon-glass": [15], "thermal":
+        [16], "properties": [17, 164], "that": [18, 36, 85, 182], "are": [19, 133],
+        "difficult": [20], "conciliate.": [22], "A": [23], "markedly": [24], "different":
+        [25], "principle": [26], "of": [27, 83, 131, 149, 165], "conversion": [29],
+        "based": [31, 190], "on": [32, 159, 191], "the": [33, 79, 127, 137, 160, 177],
+        "micro-thermionic": [34], "generator": [35], "exploits": [37], "electron":
+        [38], "injection": [39], "heat": [41], "rejection": [42], "across": [43],
+        "two": [44], "electrodes,": [45], "hot": [46], "cold,": [48], "immersed":
+        [49], "in": [50, 171], "vacuum": [51], "[1],": [52], "a": [53, 87, 152, 183],
+        "promising": [54], "pathway": [55], "new": [57], "electronic": [58], "devices.":
+        [59], "To": [60, 175], "properly": [61], "operate": [62], "thermionic": [63,
+        196], "emission": [64], "converters": [65], "near": [66], "room": [67], "temperature,":
+        [68], "highly": [69], "efficient": [70], "emitting": [71], "electrodes": [72],
+        "must": [73], "be": [74, 144], "integrated.": [75], "This": [76], "naturally":
+        [77], "motivates": [78], "development": [80], "characterization": [82], "coatings":
+        [84], "feature": [86], "very": [88], "low": [89, 113], "work": [90, 110, 185],
+        "function,": [91], "lower": [92], "than": [93, 97, 147], "1eV.": [94], "Even":
+        [95], "better": [96], "alkalis": [98], "like": [99], "K": [100], "Cs,": [102],
+        "their": [103], "oxides": [104], "have": [105], "been": [106], "reported":
+        [107], "produce": [109], "functions": [111], "as": [112, 114], "0.4": [115],
+        "0.9eV": [117], "[2],": [118], "respectively.": [119], "In": [120, 151], "this":
+        [121], "paper,": [122], "promote": [124], "material": [125], "integration,":
+        [126], "optimal": [128], "synthesis": [129], "conditions": [130], "Cs2O":
+        [132], "first": [134], "determined": [135], "from": [136], "calculated": [138],
+        "volatility": [139], "diagram": [140], "appear": [142], "less": [145], "restrictive":
+        [146], "those": [148], "K2O2.": [150], "second": [153], "part,": [154], "we":
+        [155], "present": [156], "experimental": [157], "results": [158], "composition":
+        [161], "cesium": [166], "oxide": [167], "thin": [168], "film": [169], "synthesized":
+        [170], "ultra": [172], "high": [173], "vacuum.": [174], "finalize": [176],
+        "study,": [178], "it": [179], "shown": [181], "consistent": [184], "function":
+        [186], "value": [187], "extracted": [189], "three": [192], "independent":
+        [193], "techniques,": [194], "namely,": [195], "emission,": [197], "photoemission":
+        [198], "Kelvin": [200], "probe": [201], "measurements.": [202], "[1]": [203],
+        "T.": [204], "Zeng,": [205], "App.": [206], "Phys.": [207], "Lett.": [208],
+        "88,": [209], "153104": [210], "(2006)": [211], "[2]": [212], "J.X.": [213],
+        "Wu": [214], "et": [215], "al,": [216], "Appl.": [217], "Surf.": [218], "Sci.":
+        [219], "173,": [220], "8": [221], "(2001)": [222]}, "primary_location": {"id":
+        "mag:2759618355", "doi": null, "is_oa": true, "landing_page_url": "https://hal.archives-ouvertes.fr/hal-00966136",
+        "pdf_url": null, "source": null, "license": "cc-by", "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "submittedVersion", "is_accepted": false, "is_published": false,
+        "raw_source_name": "HAL (Le Centre pour la Communication Scientifique Directe)",
+        "raw_type": null}}, {"id": "https://openalex.org/W2009745904", "doi": "https://doi.org/10.1063/1.4892805",
+        "title": "Non-adiabatic processes in the charge transfer reaction of O2 molecules
+        with potassium surfaces without dissociation", "publication_year": 2014, "abstract_inverted_index":
+        {"Thin": [0], "potassium": [1, 102, 108], "films": [2], "grown": [3], "on":
+        [4, 25, 224, 257], "Si(001)": [5], "substrates": [6], "are": [7, 81, 124],
+        "used": [8], "to": [9, 84, 106, 181], "measure": [10], "internal": [11, 162],
+        "chemicurrents": [12, 123], "and": [13, 76, 144, 159, 163, 216, 227, 237],
+        "the": [14, 34, 67, 93, 97, 107, 113, 131, 136, 142, 154, 157, 160, 172, 175,
+        185, 191, 194, 202, 208, 219, 232, 239, 251, 254, 258], "external": [15, 164],
+        "emission": [16, 80, 165], "of": [17, 22, 36, 66, 88, 101, 116, 141, 156,
+        174, 184, 188, 207, 234, 242, 253, 260, 263], "exoelectrons": [18], "simultaneously":
+        [19], "during": [20, 70, 218], "adsorption": [21], "molecular": [23, 90],
+        "oxygen": [24, 148, 255], "K": [26], "surfaces": [27], "at": [28, 39, 190],
+        "120": [29], "K.": [30], "The": [31, 139], "experiments": [32], "clarify":
+        [33], "dynamics": [35], "electronic": [37, 186], "excitations": [38], "a":
+        [40, 44, 73, 77, 85, 182, 261, 264], "simple": [41], "metal": [42, 132], "with":
+        [43, 147, 178], "narrow": [45], "valence": [46, 98, 133], "band.": [47], "X-ray":
+        [48], "photoemission": [49], "reveals": [50], "that": [51, 171], "for": [52],
+        "exposures": [53], "below": [54, 92], "5": [55], "L": [56], "almost": [57],
+        "exclusively": [58], "peroxide": [59, 203], "K2O2": [60], "is": [61, 103,
+        118, 169, 205], "formed,": [62], "i.e.,": [63, 250], "no": [64], "dissociation":
+        [65], "molecule": [68, 256], "occurs": [69], "interaction.": [71], "Still":
+        [72], "significant": [74], "chemicurrent": [75, 143, 235], "delayed": [78],
+        "exoelectron": [79], "detected": [82, 125], "due": [83, 180], "rapid": [86,
+        240], "injection": [87, 241], "unoccupied": [89], "levels": [91], "Fermi":
+        [94], "level.": [95, 138], "Since": [96], "band": [99, 134], "width": [100],
+        "approximately": [104], "equal": [105], "work": [109, 195], "function": [110,
+        196], "(2.4": [111], "eV)": [112], "underlying": [114], "mechanism": [115],
+        "exoemission": [117, 145], "an": [119, 247], "Auger": [120], "relaxation":
+        [121], "whereas": [122], "after": [126], "resonant": [127], "charge": [128],
+        "transfer": [129], "from": [130, 153], "into": [135], "injected": [137], "change":
+        [140], "efficiencies": [146, 217], "coverage": [149, 179], "can": [150], "be":
+        [151], "deduced": [152], "kinetics": [155], "reaction": [158, 176, 210], "recorded":
+        [161], "currents": [166], "traces.": [167], "It": [168], "shown": [170], "non-adiabaticity":
+        [173, 215], "increases": [177], "reduction": [183], "density": [187, 228],
+        "states": [189, 245], "surface": [192], "while": [193], "does": [197], "not":
+        [198], "vary": [199], "significantly.": [200], "Therefore,": [201], "formation":
+        [204], "one": [206], "first": [209], "systems": [211], "which": [212], "exhibits":
+        [213], "varying": [214], "reaction.": [220], "Non-adiabatic": [221], "calculations":
+        [222], "based": [223], "model": [225], "Hamiltonians": [226], "functional":
+        [229], "theory": [230], "support": [231], "picture": [233], "generation":
+        [236], "explain": [238], "hot": [243], "hole": [244], "by": [246], "intramolecular":
+        [248], "motion,": [249], "expansion": [252], "timescale": [259], "quarter":
+        [262], "vibrational": [265], "period.": [266]}, "primary_location": {"id":
+        "doi:10.1063/1.4892805", "doi": "https://doi.org/10.1063/1.4892805", "is_oa":
+        false, "landing_page_url": "https://doi.org/10.1063/1.4892805", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S77047749", "display_name": "The
+        Journal of Chemical Physics", "issn_l": "0021-9606", "issn": ["0021-9606",
+        "1089-7690", "1520-9032"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-b", "jufo-1",
+        "ki-jl-1", "medline", "norway-1", "poland-100", "russia-white-list-2", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "The Journal
+        of Chemical Physics", "raw_type": "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54802c06c27eae4-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '17358'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:39:49 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=8aJctXCnshs4C16q1wAg8eNGkOSjzBHLYR1TrVhhK7A%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793673589"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=8aJctXCnshs4C16q1wAg8eNGkOSjzBHLYR1TrVhhK7A%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793673589"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9630'
+      x-ratelimit-remaining-usd:
+      - '0.963'
+      x-ratelimit-reset:
+      - '76811'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=K2O2+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 4, "db_response_time_ms": 325, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (K2O2 thin film)
+        in the title or abstract", "x_new_oql": "get works with (K2O2 thin film) in
+        the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "K2O2 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:K2O2 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W2147917354"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54802c18849eae4-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '610'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:39:50 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=eaiyth2ENtMYJ8Q4nz4yNVBhn04UACs88X6c6aH1H4w%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793673590"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=eaiyth2ENtMYJ8Q4nz4yNVBhn04UACs88X6c6aH1H4w%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793673590"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9620'
+      x-ratelimit-remaining-usd:
+      - '0.962'
+      x-ratelimit-reset:
+      - '76810'
+    status:
+      code: 200
+      message: OK
+version: 1

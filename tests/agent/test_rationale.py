@@ -63,7 +63,10 @@ def test_model_slots_replace_template_text_and_extras_are_dropped(
         ]
     )
     out = rationale.run_rationale(
-        client=fake, bundle=bundle, effective=effective, budget=loop.Budget.from_core(CoreConfig())
+        client=fake,
+        bundle=bundle,
+        effective=effective,
+        budget=loop.Budget.from_core(CoreConfig(), "rationale"),
     )
     assert (
         out.slots["candidate:HfO2:one_line"].text
@@ -82,7 +85,7 @@ def test_model_slots_replace_template_text_and_extras_are_dropped(
 def test_no_llm_and_failed_step_fall_back_to_template_text(
     bundle: ProvenanceBundle, effective: EffectiveConfig
 ) -> None:
-    budget = loop.Budget.from_core(CoreConfig())
+    budget = loop.Budget.from_core(CoreConfig(), "rationale")
     out = rationale.run_rationale(client=None, bundle=bundle, effective=effective, budget=budget)
     assert out.slots == rationale.template_only(bundle) and out.partial_reason is None
     exhausted = loop.Budget(max_tool_calls=0, max_tokens=1, max_seconds=1)

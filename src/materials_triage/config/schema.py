@@ -116,6 +116,26 @@ class RefusalPolicy(Strict):
     )
 
 
+class StepBudget(Strict):
+    """Limits for one agent step: model requests, tokens (input, output, cache), seconds."""
+
+    max_tool_calls: int
+    max_tokens: int
+    max_seconds: int
+
+
+def default_step_budgets() -> dict[str, StepBudget]:
+    """Owner decision 2026-11-03: one budget per step, not one global pool. The classify
+    step covers every abstract in the run (at most max_abstracts_per_candidate for each of
+    the top_n candidates, with one retry each)."""
+    return {
+        "parse": StepBudget(max_tool_calls=3, max_tokens=8_000, max_seconds=60),
+        "classify": StepBudget(max_tool_calls=120, max_tokens=150_000, max_seconds=300),
+        "rationale": StepBudget(max_tool_calls=3, max_tokens=20_000, max_seconds=120),
+        "relax": StepBudget(max_tool_calls=3, max_tokens=8_000, max_seconds=60),
+    }
+
+
 class CoreConfig(Strict):
     """Guardrails that no layer below can change."""
 
@@ -137,9 +157,8 @@ class CoreConfig(Strict):
         "pubchem.ncbi.nlm.nih.gov",
         "www.crystallography.net",
     )
-    max_tool_calls: int = 40
-    max_tokens: int = 60_000
-    max_seconds: int = 300
+    step_budgets: dict[str, StepBudget] = Field(default_factory=default_step_budgets)
+    max_abstracts_per_candidate: int = 5  # in the literature search's result order
 
 
 # ----------------------------------------------------------------------------- site profile (admin)
@@ -441,6 +460,8 @@ def scoring_profile_from_yaml(path: Path) -> tuple[ScoringProfile, list[str]]:
                 for s in gap.get("source_order", ["experimental", "tbmbj", "pbe"])
             ],
             soft_preference_start_ev=usable(gap, "soft_preference_start_ev"),
+            hard_min_ev=usable(gap, "hard_min_ev"),
+            hard_max_ev=usable(gap, "hard_max_ev"),
             aggregate=Aggregate(gap.get("aggregate_when_several_experimental_values", "median")),
             conflict_tolerance_ev=gap.get("conflict_tolerance_ev"),
             on_conflict=OnConflict(gap.get("on_conflict", "next_source")),

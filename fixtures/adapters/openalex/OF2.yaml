@@ -1,0 +1,367 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=OF2+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 10, "db_response_time_ms": 128, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (OF2 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (OF2 thin film) in the title or abstract where it has an abstract", "oqo":
+        {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract", "value":
+        true}, {"column_id": "title_and_abstract.search", "value": "OF2 thin film",
+        "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:OF2
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W863413030",
+        "doi": null, "title": "Hole Mobility in Poly\uff08N\u2014vinylcarbazole\uff09
+        Thin Film Based on Silicium^\u2460\u2461", "publication_year": 1997, "abstract_inverted_index":
+        {"The": [0], "mobilities": [1], "of": [2, 7, 18, 39], "holes": [3], "in":
+        [4], "thin,spin-casting": [5], "films": [6], "poly(N-vinylcarbazole)(PVK)":
+        [8], "based": [9], "on": [10, 24], "silicium": [11], "are": [12], "measured":
+        [13], "using": [14], "a": [15, 43], "time-of-flight(TOF)technique.The": [16],
+        "drift": [17], "hole": [19, 40], "mobility": [20, 38], "is": [21, 41], "strongly":
+        [22], "dependent": [23], "the": [25], "electric": [26, 34], "field": [27,
+        35], "and": [28, 32], "temperature.At": [29], "room": [30], "temperature":
+        [31], "an": [33], "of2\u00d710^5V\u00b7cm^-1,the": [36], "effective": [37],
+        "7.14\u00d710^-6cm^2\u00b7V^-1\u00b7s^-1,in": [42], "200nm": [44], "thick":
+        [45], "sample.": [46]}, "primary_location": {"id": "mag:863413030", "doi":
+        null, "is_oa": false, "landing_page_url": "http://www.cqvip.com/QK/83887X/199704/6659992.html",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4306544925", "display_name":
+        "\u534a\u5bfc\u4f53\u5149\u5b50\u5b66\u4e0e\u6280\u672f\uff1a\u82f1\u6587\u7248",
+        "issn_l": null, "issn": null, "is_oa": false, "is_in_doaj": false, "is_core":
+        false, "listed_in": [], "host_organization": null, "host_organization_name":
+        null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "journal"}, "license": null, "license_id": null, "version": null,
+        "is_accepted": false, "is_published": false, "raw_source_name": "\u534a\u5bfc\u4f53\u5149\u5b50\u5b66\u4e0e\u6280\u672f\uff1a\u82f1\u6587\u7248",
+        "raw_type": null}}, {"id": "https://openalex.org/W2381872619", "doi": null,
+        "title": "Deposition of Cubic Boron Nitride Thin Films with Wide Energy Gap",
+        "publication_year": 2001, "abstract_inverted_index": {"Cubic": [0], "boron":
+        [1, 63], "nitride(": [2], "c-": [3, 118, 132, 159, 168], "BN)": [4], "thin":
+        [5, 172], "film": [6, 134, 161], "s": [7, 135, 162], "were": [8, 30, 44, 86],
+        "deposited": [9], "on": [10], "p-": [11], "type": [12], "Si(": [13], "10":
+        [14], "0": [15, 80, 127, 128], ")": [16], "wafers(": [17], "8\u2014": [18],
+        "15": [19], "\u03a9\u00b7": [20], "cm)": [21], "by": [22, 32, 53, 88], "Radio":
+        [23], "Frequency": [24], "(": [25], "RF)": [26], "sputter.The": [27], "Si":
+        [28], "substrates": [29], "biased": [31], "DC": [33, 106, 124, 148, 181],
+        "voltage": [34], "negatively": [35], "with": [36, 77, 175], "respect": [37],
+        "to": [38], "the": [39, 59, 71, 114, 120, 131, 158, 164, 171, 176], "ground.Before":
+        [40], "deposition,the": [41], "sub-": [42, 121], "strates": [43], "ultrasonically":
+        [45], "cleaned": [46], "using": [47], "a": [48, 54, 96], "triple": [49], "solvent":
+        [50], "procedure": [51], "followed": [52], "distilled": [55], "water": [56],
+        "rinse.The": [57], "targetwas": [58], "hot-": [60], "pressed": [61], "hexagonal":
+        [62], "nitride": [64], "of4N": [65], "purity.": [66], "The": [67], "working":
+        [68], "gas": [69], "was": [70, 108], "mixture": [72], "of": [73, 117, 167,
+        178], "Ar": [74], "and": [75, 102, 163], "N2": [76], "pressure": [78], "of(":
+        [79], ".6": [81], "6\u2014": [82], "1.33Pa)": [83], ".The": [84], "films":
+        [85, 173], "characterized": [87], "Fourier": [89], "Transform": [90], "Infrared":
+        [91], "Spectroscopy(": [92], "FTIR)": [93], ".U": [94], "nder": [95], "definite":
+        [97], "substrate": [98, 147, 179], "tem": [99], "-": [100], "perature": [101],
+        "RF": [103], "power,substrate": [104], "negative": [105, 123, 180], "bias":
+        [107, 125, 149], "an": [109], "important": [110], "factor": [111], "that":
+        [112, 136], "affects": [113], "form": [115], "ation": [116], "BN.At": [119],
+        "strate": [122], "of2": [126], "V,we": [129], "obtained": [130], "BN": [133,
+        160, 169], "contained": [137], "more": [138], "than90": [139], "%": [140],
+        "cubic": [141, 154], "phase.It": [142], "is": [143], "evident": [144], "thatdif-":
+        [145], "ferent": [146], "voltages": [150], "result": [151], "in": [152, 157,
+        170], "different": [153], "phase": [155], "contents": [156], "relative": [165],
+        "content": [166], "increases": [174], "increase": [177], "bias.": [182]},
+        "primary_location": {"id": "mag:2381872619", "doi": null, "is_oa": false,
+        "landing_page_url": "https://en.cnki.com.cn/Article_en/CJFDTOTAL-BDTX200101011.htm",
+        "pdf_url": null, "source": null, "license": null, "license_id": null, "version":
+        null, "is_accepted": false, "is_published": false, "raw_source_name": "Chinese
+        Journal of Semiconductors", "raw_type": null}}, {"id": "https://openalex.org/W2575998619",
+        "doi": "https://doi.org/10.1109/iedm.1967.187853", "title": "Thin films of
+        MnBi for beam addressable beam alterable optical memory applications", "publication_year":
+        1967, "abstract_inverted_index": {"Laser": [0], "Curie-point": [1], "writing":
+        [2, 195, 215], "on": [3, 31, 62, 182], "thin": [4, 44], "magnetic": [5, 196,
+        216], "films": [6, 45, 198], "in": [7, 105, 107, 189, 218], "conjunction":
+        [8], "with": [9, 112, 178], "a": [10, 15, 67, 84, 101, 108, 113, 148, 154,
+        171, 179, 183], "magneto-optic": [11], "readout": [12, 85], "technique": [13],
+        "provides": [14], "number": [16], "of": [17, 35, 46, 87, 100, 147, 175, 199,
+        202], "advantages": [18], "over": [19], "presently": [20], "available": [21,
+        97], "mass": [22], "memory": [23, 38], "systems.": [24], "This": [25], "approach,":
+        [26], "however,": [27], "imposes": [28], "stringent": [29], "requirements":
+        [30], "the": [32, 36, 122, 130, 138, 145, 193, 214], "material": [33], "properties":
+        [34, 52], "film": [37, 111, 188], "plane.": [39], "We": [40], "have": [41,
+        66, 166, 208], "found": [42], "that": [43, 129, 213], "MnBi": [47], "possess":
+        [48], "many": [49], "unusual": [50], "physical": [51], "and": [53, 74, 205,
+        229], "are": [54], "particularly": [55], "suitable": [56], "for": [57], "this":
+        [58, 219], "application.": [59], "Films": [60], "prepared": [61], "mica":
+        [63], "substrates": [64], "typically": [65], "specific": [68], "Faraday":
+        [69], "rotation": [70], "of5": [71], "\\times": [72, 79], "10^{5}degrees/cm,":
+        [73], "an": [75], "absorption": [76], "coefficient": [77], "of2": [78], "10^{5}cm-1for":
+        [80], "6328\u00c5": [81], "wavelength,": [82], "permitting": [83], "rate":
+        [86], "109": [88], "bits/sec": [89], "at": [90, 144, 159], "1": [91], "mw":
+        [92], "laser": [93, 116, 151, 181], "power": [94], "level": [95], "using":
+        [96, 121], "detectors.": [98], "Heating": [99], "spot": [102, 132], "3": [103],
+        "microns": [104], "diameter": [106], "1000\u00c5": [109], "thick": [110],
+        "10-mw": [114, 180], "Gaussian": [115], "beam": [117], "has": [118], "been":
+        [119, 167, 209], "calculated": [120], "heat": [123], "flow": [124], "equation.":
+        [125], "The": [126], "result": [127], "shows": [128], "entire": [131], "can":
+        [133, 221], "be": [134, 222, 237], "raised": [135], "to": [136, 169], "above":
+        [137], "Curie": [139], "temperature": [140], "(345\u00b0C)": [141], "from":
+        [142], "20\u00b0C": [143], "end": [146], "1\u00b5": [149], "sec": [150], "pulse.":
+        [152], "For": [153], "106": [155], "bits/cm2packing": [156], "density,": [157],
+        "heating": [158], "adjacent": [160], "spots": [161], "is": [162], "negligible.":
+        [163], "Experimentally,": [164], "we": [165], "able": [168], "write": [170],
+        "manually": [172], "scanned": [173], "line": [174], "3.7\u00b5": [176], "width":
+        [177], "SiO": [184], "coated": [185], "Mn,": [186], "Bi": [187], "air.": [190],
+        "To": [191], "reduce": [192], "required": [194], "field,": [197], "discrete":
+        [200], "squares": [201], "4\u00b5": [203], "sides": [204], "12\u00b5": [206],
+        "separation": [207], "prepared.": [210], "Calculations": [211], "show": [212],
+        "field": [217], "case": [220], "as": [223, 225, 232], "low": [224], "10":
+        [226], "Oe.": [227], "Analytical": [228], "experimental": [230], "results":
+        [231], "well": [233], "assystem": [234], "considerations": [235], "will":
+        [236], "presented.": [238]}, "primary_location": {"id": "doi:10.1109/iedm.1967.187853",
+        "doi": "https://doi.org/10.1109/iedm.1967.187853", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1109/iedm.1967.187853", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S4210168112", "display_name": "Technical digest - International
+        Electron Devices Meeting/Technical digest", "issn_l": "0163-1918", "issn":
+        ["0163-1918", "2156-017X"], "is_oa": false, "is_in_doaj": false, "is_core":
+        false, "listed_in": [], "host_organization": "https://openalex.org/P4310319808",
+        "host_organization_name": "Institute of Electrical and Electronics Engineers",
+        "host_organization_lineage": ["https://openalex.org/P4310319808"], "host_organization_lineage_names":
+        ["Institute of Electrical and Electronics Engineers"], "type": "conference"},
+        "license": null, "license_id": null, "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "1967 International Electron
+        Devices Meeting", "raw_type": "proceedings-article"}}, {"id": "https://openalex.org/W2153037579",
+        "doi": "https://doi.org/10.1109/tmag.1965.1062970", "title": "Dependence of
+        coercivity on driving field in multilayer films of nickel", "publication_year":
+        1965, "abstract_inverted_index": {"The": [0, 26, 53, 68, 97, 140, 177, 201],
+        "variation": [1], "in": [2, 37, 59, 168, 191, 210], "the": [3, 18, 22, 56,
+        60, 112, 150, 154, 158, 180, 206, 211, 218, 221, 227, 233, 245], "coercivity":
+        [4, 181], "of": [5, 8, 11, 17, 20, 32, 43, 49, 55, 82, 149, 153, 179, 204,
+        208, 220, 229, 239, 244], "magnetization": [6, 231], "loops": [7, 69], "multilayer":
+        [9], "films": [10, 27, 62, 169], "nickel": [12, 33, 57], "was": [13, 109,
+        143], "investigated": [14], "as": [15, 214, 216, 236], "function": [16, 147,
+        187], "rate": [19, 207], "riserin": [21], "applied": [23, 212], "magnetic":
+        [24], "field.": [25], "were": [28, 70, 99], "prepared": [29], "by": [30, 184],
+        "deposition": [31], "and": [34, 198, 243], "copper": [35, 155], "alternately":
+        [36], "a": [38, 80, 144, 172, 185, 237], "vacuum": [39], "of2": [40], "\\times":
+        [41], "10^{-6}mm": [42], "Hg": [44], "on": [45, 171, 217, 226], "to": [46,
+        65, 87, 94, 104, 131, 193], "substrates": [47], "made": [48], "thin": [50,
+        234], "aluminium": [51], "foils.": [52], "thickness": [54, 151], "layersLvaried":
+        [58], "different": [61], "from": [63, 84, 92, 101, 129], "8": [64], "1000":
+        [66], "angstroms.": [67, 200], "cycled": [71], "with": [72, 79, 90, 138],
+        "sinusoidal": [73], "or": [74], "triangular": [75], "waveform": [76], "driving":
+        [77], "fields,": [78], "variety": [81], "amplitudes": [83], "1": [85, 130],
+        "kOe": [86], "4": [88], "kOe,": [89], "frequencies": [91], "0.01": [93], "2":
+        [95], "c/s.": [96], "measurements": [98], "performed": [100], "room": [102,
+        175], "down": [103], "liquid": [105], "hydrogen": [106], "temperatures.":
+        [107], "It": [108], "found": [110], "that": [111], "coercive": [113, 141],
+        "force": [114, 142], "could": [115], "be": [116, 224], "expressed": [117],
+        "byH_{c}": [118], "=": [119, 160], "H_{o}": [120], "+": [121, 162], "Q(\\ln":
+        [122], "r": [123], "-": [124, 165], "\\ln": [125], "r_{o})/T^{1/2}for": [126],
+        "values": [127, 194], "ofrchanging": [128], "5": [132], "Oe/ms,": [133], "whereH_{o},":
+        [134], "Aand": [135], "rovaried": [136], "slightly": [137], "temperatureT.":
+        [139], "very": [145], "sensitive": [146], "ofLand": [148], "\u03b4": [152],
+        "layers,": [156, 222], "having": [157], "formH_{c}": [159], "A(L": [161],
+        "\\delta)": [163], "\\exp": [164], "BLwithBnearly": [166], "constant": [167],
+        "deposited": [170], "substrate": [173], "at": [174], "temperature.": [176],
+        "dependence": [178, 203], "onLwas": [182], "displayed": [183], "nonmonotonical":
+        [186], "showing": [188], "two": [189], "peaks": [190], "Hccorresponding":
+        [192], "ofLof": [195], "about": [196], "35": [197], "400": [199], "observed":
+        [202], "Hcon": [205], "rise": [209], "field,": [213], "well": [215], "thicknesses":
+        [219], "can": [223], "discussed": [225], "assumption": [228], "nonuniform":
+        [230], "within": [232], "layers": [235], "result": [238], "their": [240],
+        "superparamagnetic": [241], "properties": [242], "magneto-statical": [246],
+        "coupling": [247], "between": [248], "neighboring": [249], "layers.": [250]},
+        "primary_location": {"id": "doi:10.1109/tmag.1965.1062970", "doi": "https://doi.org/10.1109/tmag.1965.1062970",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1109/tmag.1965.1062970",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S50523690", "display_name":
+        "IEEE Transactions on Magnetics", "issn_l": "0018-9464", "issn": ["0018-9464",
+        "1941-0069"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-b", "jufo-2", "ki-jl-1", "norway-1",
+        "poland-70", "russia-white-list-2", "vabb-shw"], "host_organization": "https://openalex.org/P4310320755",
+        "host_organization_name": "IEEE Magnetics Society", "host_organization_lineage":
+        ["https://openalex.org/P4310320755", "https://openalex.org/P4310319808"],
+        "host_organization_lineage_names": ["IEEE Magnetics Society", "Institute of
+        Electrical and Electronics Engineers"], "type": "journal"}, "license": null,
+        "license_id": null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "IEEE Transactions on Magnetics", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W1927898283", "doi": "https://doi.org/10.1109/led.2014.2310120",
+        "title": "High Mobility Solution-Processed Hafnium Indium Zinc Oxide TFT With
+        an Al-Doped ${\\rm ZrO}_{2}$ Gate Dielectric", "publication_year": 2014, "abstract_inverted_index":
+        {"In": [0], "this": [1], "letter,": [2], "we": [3], "report": [4], "a": [5,
+        41, 48, 56], "solution-processed": [6], "hafnium": [7], "indium": [8], "zinc":
+        [9], "oxide": [10], "(HIZO)": [11], "thin-film": [12], "transistors": [13],
+        "(TFTs)": [14], "with": [15, 44], "an": [16, 28], "Al-doped": [17], "ZrO2(AZO)":
+        [18], "gate": [19], "dielectric.": [20], "The": [21], "AZO": [22], "thin":
+        [23], "films": [24], "were": [25], "identified": [26], "as": [27], "amorphous":
+        [29], "phase": [30], "up": [31], "to": [32], "the": [33, 65], "annealing":
+        [34], "temperature": [35], "of": [36, 52, 60], "600": [37], "\u00b0C": [38],
+        "and": [39, 55], "had": [40], "smooth": [42], "surface": [43], "root-mean-square":
+        [45], "roughness": [46], "of2/Vs,": [47], "small": [49], "subthreshold": [50],
+        "swing": [51], "0.4": [53], "V/decade,": [54], "high": [57], "ON/OFF": [58],
+        "ratio": [59], "107,": [61], "which": [62], "can": [63], "satisfy": [64],
+        "backplate": [66], "requirements": [67], "for": [68], "flat": [69], "panel":
+        [70], "displays.": [71]}, "primary_location": {"id": "doi:10.1109/led.2014.2310120",
+        "doi": "https://doi.org/10.1109/led.2014.2310120", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1109/led.2014.2310120", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S19887683", "display_name": "IEEE Electron Device Letters",
+        "issn_l": "0741-3106", "issn": ["0741-3106", "1558-0563"], "is_oa": false,
+        "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core", "dongbi-b",
+        "jufo-2", "norway-1", "poland-140", "russia-white-list-1"], "host_organization":
+        "https://openalex.org/P4310319808", "host_organization_name": "Institute of
+        Electrical and Electronics Engineers", "host_organization_lineage": ["https://openalex.org/P4310319808"],
+        "host_organization_lineage_names": ["Institute of Electrical and Electronics
+        Engineers"], "type": "journal"}, "license": null, "license_id": null, "version":
+        "publishedVersion", "is_accepted": true, "is_published": true, "raw_source_name":
+        "IEEE Electron Device Letters", "raw_type": "journal-article"}}], "group_by":
+        []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54da1169b4b4cf6-BOS
+      connection:
+      - keep-alive
+      content-length:
+      - '16279'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 19:01:44 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=8pFibNbWJheW%2BYRub%2F72NSmNqMcQckkmbZ1qWXWntLY%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793732504"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=8pFibNbWJheW%2BYRub%2F72NSmNqMcQckkmbZ1qWXWntLY%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793732504"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9590'
+      x-ratelimit-remaining-usd:
+      - '0.959'
+      x-ratelimit-reset:
+      - '17896'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=OF2+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 10, "db_response_time_ms": 18, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (OF2 thin film)
+        in the title or abstract", "x_new_oql": "get works with (OF2 thin film) in
+        the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "OF2 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:OF2 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W863413030"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54da1184cf54cf6-BOS
+      connection:
+      - keep-alive
+      content-length:
+      - '605'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 19:01:44 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=8pFibNbWJheW%2BYRub%2F72NSmNqMcQckkmbZ1qWXWntLY%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793732504"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=8pFibNbWJheW%2BYRub%2F72NSmNqMcQckkmbZ1qWXWntLY%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793732504"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9580'
+      x-ratelimit-remaining-usd:
+      - '0.958'
+      x-ratelimit-reset:
+      - '17896'
+    status:
+      code: 200
+      message: OK
+version: 1

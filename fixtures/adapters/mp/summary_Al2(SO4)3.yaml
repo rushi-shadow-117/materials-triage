@@ -1,0 +1,90 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - _csrf_token=authenticated; mp-session=tWdGuSYcBtwKT9fVveU9Fw|1794688599|dSAFT28AT-Yx0QkzLbH5Irl_Eoo;
+        __cf_bm=SUJ5E.ILnJRWkz2ahuAcKyXpx8YCy3Tt9jfU4iaNIW4-1793673398.2036865-1.0.1.1-ZPhuQHvbLIA.fbZ3RrkVKQcVDqasGdKNZtSDwtkJbxaRYSc57oJAqoWVLP6._v9oFbf.F0E4kDuyuLh2MpUQMie.lvmD5wjQsORVU2XnvFdVhit6EOD7X2LMtvc74S_6
+      host:
+      - api.materialsproject.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cformula_pretty%2Ccomposition_reduced%2Cnelements%2Cenergy_above_hull%2Cis_stable%2Cband_gap%2Ctheoretical%2Cdeprecated%2Csymmetry%2Cdatabase_IDs%2Clast_updated%2Cbuilder_meta&_limit=1000&formula=Al2%28SO4%293
+  response:
+    body:
+      string: '{"data":[{"theoretical":true,"database_IDs":{},"band_gap":5.6638,"energy_above_hull":0.0063220401960784045,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"nasicons-ouyang-2021","database_version":"2026.09.28","build_date":"2026-09-25T19:10:48.353000","license":"BY-C"},"nelements":3,"composition_reduced":{"Al":2.0,"S":3.0,"O":12.0},"formula_pretty":"Al2(SO4)3","symmetry":{"crystal_system":"Trigonal","symbol":"R-3c","hall":"-R
+        3 2\"c","number":167,"point_group":"-3m","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaafyklc","deprecated":false,"last_updated":"2022-06-29T21:38:02.005000"},{"theoretical":false,"database_IDs":{"icsd":["icsd-73249","icsd-39003","icsd-32589"]},"band_gap":6.0433,"energy_above_hull":0.0,"is_stable":true,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"recover-lost-r2scan-may2022","database_version":"2026.09.28","build_date":"2026-09-25T19:11:13.336000","license":"BY-C"},"nelements":3,"composition_reduced":{"Al":2.0,"S":3.0,"O":12.0},"formula_pretty":"Al2(SO4)3","symmetry":{"crystal_system":"Trigonal","symbol":"R-3","hall":"-R
+        3","number":148,"point_group":"-3","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaaaagnx","deprecated":false,"last_updated":"2022-06-09T20:16:44.237000"}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-03T02:36:44.376211+00:00","total_doc":2,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+    headers:
+      access-control-expose-headers:
+      - X-Api-Key
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a547fe38ae4b863e-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '1622'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:36:44 GMT
+      ratelimit-limit:
+      - '25'
+      ratelimit-remaining:
+      - '24'
+      ratelimit-reset:
+      - '1'
+      server:
+      - cloudflare
+      set-cookie:
+      - _csrf_token=authenticated; Domain=.materialsproject.org; Path=/; SameSite=Strict
+      vary:
+      - Accept-Encoding
+      - Origin
+      via:
+      - kong/2.8.4
+      x-consumer-id:
+      - 58e0b4c2-4c2d-439b-ba0a-648cd568a0fa
+      x-kong-proxy-latency:
+      - '8'
+      x-kong-upstream-latency:
+      - '84'
+      x-ratelimit-limit-day:
+      - '640000'
+      x-ratelimit-limit-hour:
+      - '40000'
+      x-ratelimit-limit-minute:
+      - '1000'
+      x-ratelimit-limit-month:
+      - '12800000'
+      x-ratelimit-limit-second:
+      - '25'
+      x-ratelimit-limit-year:
+      - '100000000'
+      x-ratelimit-remaining-day:
+      - '639969'
+      x-ratelimit-remaining-hour:
+      - '39969'
+      x-ratelimit-remaining-minute:
+      - '978'
+      x-ratelimit-remaining-month:
+      - '12799783'
+      x-ratelimit-remaining-second:
+      - '24'
+      x-ratelimit-remaining-year:
+      - '99999735'
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,0 +1,356 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=Gd2O3+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 186, "db_response_time_ms": 231, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Gd2O3 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (Gd2O3 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "Gd2O3
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:Gd2O3
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W4412549768",
+        "doi": "https://doi.org/10.1007/s00339-025-08747-w", "title": "Laser-ablated
+        Gd2O3 thin films: potential ferromagnetic semiconductors?", "publication_year":
+        2025, "abstract_inverted_index": {"Abstract": [0], "The": [1, 65, 160], "emergence":
+        [2], "of": [3, 11, 34, 42, 54, 68, 84, 96, 156, 188], "room": [4], "temperature":
+        [5], "ferromagnetism": [6], "(RTFM)": [7], "in": [8, 23, 31, 39, 76, 120,
+        164, 191], "thin": [9, 40, 98, 167, 193], "films": [10, 41, 80, 99, 168],
+        "semiconducting": [12], "oxides": [13, 37], "has": [14], "attracted": [15],
+        "significant": [16, 117], "interest": [17], "due": [18], "to": [19, 72, 125,
+        154, 171], "its": [20], "promising": [21], "applications": [22], "spintronic":
+        [24, 200], "and": [25, 38, 51, 57, 93, 140], "multifunctional": [26], "electronic":
+        [27], "devices.": [28], "Ferromagnetism": [29], "(FM)": [30], "ultrathin":
+        [32, 77], "layers": [33], "magnetic": [35, 94], "transition-metal": [36],
+        "undoped": [43], "oxide": [44, 79], "semiconductors": [45], "typically": [46],
+        "arising": [47], "from": [48], "low": [49], "dimensionality": [50], "the":
+        [52, 74, 91, 106, 121, 126, 130, 135, 186, 189], "formation": [53], "surface-related":
+        [55], "vacancies": [56], "defects,": [58], "makes": [59], "them": [60], "attractive":
+        [61], "for": [62, 198], "spintronics": [63], "applications.": [64, 201], "primary":
+        [66], "objective": [67], "this": [69, 87], "research": [70], "is": [71, 151,
+        169], "investigate": [73], "magnetism": [75], "rare-earth": [78], "as": [81,
+        175], "a": [82, 116, 148], "function": [83], "dimensionality.": [85], "In":
+        [86], "study,": [88], "we": [89], "report": [90], "structural": [92], "properties":
+        [95], "Gd2O3": [97, 131, 158, 166, 192], "grown": [100], "on": [101], "LaAlO3":
+        [102], "(LAO)": [103], "substrates": [104], "using": [105], "pulsed": [107],
+        "laser": [108], "deposition": [109], "(PLD)": [110], "technique.": [111],
+        "Room-temperature": [112], "M\u2013H": [113], "measurements": [114], "show":
+        [115], "ferromagnetic": [118, 136], "response": [119], "out-of-plane": [122],
+        "direction": [123], "compared": [124], "in-plane": [127], "direction.": [128],
+        "As": [129], "film": [132], "thickness": [133], "increases,": [134], "features":
+        [137], "gradually": [138], "diminish,": [139], "at": [141], "higher": [142],
+        "thicknesses": [143], "(t": [144], ">": [145], "72": [146], "nm),": [147],
+        "paramagnetic-like": [149], "behavior": [150], "observed,": [152], "similar":
+        [153], "that": [155], "bulk": [157], "samples.": [159], "observed": [161],
+        "RTFM": [162, 190], "behaviour": [163], "PLD-grown": [165], "attributed":
+        [170], "surface": [172], "oxygen": [173], "vacancies,": [174], "revealed":
+        [176], "by": [177], "X-ray": [178], "photoelectron": [179], "spectroscopy":
+        [180], "(XPS)": [181], "analysis.": [182], "This": [183], "study": [184],
+        "highlights": [185], "achievement": [187], "films,": [194], "which": [195],
+        "holds": [196], "potential": [197], "future": [199]}, "primary_location":
+        {"id": "doi:10.1007/s00339-025-08747-w", "doi": "https://doi.org/10.1007/s00339-025-08747-w",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.1007/s00339-025-08747-w",
+        "pdf_url": "https://link.springer.com/content/pdf/10.1007/s00339-025-08747-w.pdf",
+        "source": {"id": "https://openalex.org/S52123058", "display_name": "Applied
+        Physics A", "issn_l": "0947-8396", "issn": ["0947-8396", "1432-0630"], "is_oa":
+        false, "is_in_doaj": false, "is_core": true, "listed_in": ["anvur-class-a",
+        "anvur-scientific", "cwts-core", "dongbi-d", "jufo-1", "ki-jl-1", "norway-1",
+        "poland-70", "russia-white-list-2", "vabb-shw"], "host_organization": "https://openalex.org/P4310319900",
+        "host_organization_name": "Springer Science+Business Media", "host_organization_lineage":
+        ["https://openalex.org/P4310319900", "https://openalex.org/P4310319965"],
+        "host_organization_lineage_names": ["Springer Science+Business Media", "Springer
+        Nature"], "type": "journal"}, "license": "cc-by", "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Applied Physics A", "raw_type": "journal-article"}}, {"id":
+        "https://openalex.org/W1622926454", "doi": "https://doi.org/10.1063/1.3009206",
+        "title": "Effect of domain boundaries on the electrical properties of crystalline
+        Gd2O3 thin films", "publication_year": 2008, "abstract_inverted_index": {"We":
+        [0], "report": [1], "on": [2, 8, 18], "the": [3, 9, 30, 59, 79, 114], "effect":
+        [4], "of": [5, 12, 29, 39, 54, 121, 126], "domain": [6], "boundaries": [7],
+        "electrical": [10, 132], "properties": [11], "epitaxial": [13, 40, 66, 82],
+        "Gd2O3": [14, 41, 67], "thin": [15], "films": [16], "grown": [17, 44], "Si(001)":
+        [19], "substrates": [20], "with": [21, 52, 78, 84], "4\u00b0": [22], "miscut":
+        [23], "along": [24], "[110]": [25], "azimuth.": [26], "Dedicated": [27], "preparation":
+        [28], "substrate": [31, 50], "surfaces": [32], "can": [33, 112], "lead": [34],
+        "to": [35, 62], "two": [36, 85], "different": [37], "microstructures": [38],
+        "layers": [42, 71, 83, 103, 125], "when": [43], "at": [45], "identical": [46],
+        "growth": [47], "conditions.": [48], "A": [49], "surface": [51], "terraces":
+        [53], "biatomic": [55], "steps": [56], "height": [57], "is": [58], "key":
+        [60], "point": [61], "achieve": [63], "single": [64], "crystalline": [65],
+        "layer.": [68], "Such": [69], "epi-Gd2O3": [70], "exhibited": [72, 130], "significantly":
+        [73], "lower": [74], "leakage": [75, 115], "currents": [76], "compared": [77],
+        "commonly": [80], "obtained": [81], "orthogonal": [86], "domains.": [87],
+        "However,": [88], "for": [89, 101], "capacitance": [90], "equivalent": [91],
+        "thickness": [92], "below": [93], "1": [94], "nm,": [95], "this": [96], "difference":
+        [97], "disappears,": [98], "indicating": [99], "that": [100], "ultrathin":
+        [102], "direct": [104], "tunneling": [105], "becomes": [106], "dominating.":
+        [107], "Additionally,": [108], "forming": [109], "gas": [110], "annealing":
+        [111], "reduce": [113], "current": [116], "by": [117], "a": [118], "few":
+        [119], "orders": [120], "magnitude.": [122], "Here,": [123], "thinner": [124],
+        "both": [127], "structural": [128], "types": [129], "similar": [131], "properties.":
+        [133]}, "primary_location": {"id": "doi:10.1063/1.3009206", "doi": "https://doi.org/10.1063/1.3009206",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.3009206", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S105243760", "display_name":
+        "Applied Physics Letters", "issn_l": "0003-6951", "issn": ["0003-6951", "1077-3118",
+        "1520-8842"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Applied Physics Letters", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2131301275", "doi": "https://doi.org/10.1109/essderc.2002.194956",
+        "title": "Electrical Characteristics of Gd2O3 Thin Film Deposited on Si Substrate",
+        "publication_year": 2002, "abstract_inverted_index": {"Gadolinium": [0], "oxide":
+        [1, 57], "(Gd2O3)": [2], "for": [3, 49], "high-k": [4], "gate": [5], "dielectric":
+        [6], "films": [7, 26, 36, 67], "were": [8, 27, 37], "deposited": [9], "on":
+        [10, 58], "n-Si(100)": [11], "substrates": [12], "by": [13, 29, 51], "e-beam":
+        [14], "evaporation": [15], "to": [16], "investigate": [17], "their": [18],
+        "electrical": [19, 22, 70], "characteristics.": [20], "The": [21], "characteristics":
+        [23, 71], "of": [24, 55, 64], "Gd2O3": [25, 34, 66], "evaluated": [28], "fabricating":
+        [30], "Metal-Oxide-Semiconductor": [31], "(MOS)": [32], "capacitors.": [33],
+        "thin": [35], "confirmed": [38], "amorphous": [39], "after": [40], "post":
+        [41], "deposition": [42, 63], "anneal": [43], "in": [44], "oxygen": [45],
+        "ambient": [46], "at": [47], "400oC": [48], "5min": [50], "XRD": [52], "measurement.":
+        [53], "Formation": [54], "chemical": [56], "Si": [59], "substrate": [60],
+        "before": [61], "the": [62, 65, 69], "improved": [68], "and": [72], "surface":
+        [73], "roughness.": [74]}, "primary_location": {"id": "doi:10.1109/essderc.2002.194956",
+        "doi": "https://doi.org/10.1109/essderc.2002.194956", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1109/essderc.2002.194956", "pdf_url": null, "source":
+        {"id": "https://openalex.org/S4306418380", "display_name": "European Solid-State
+        Device Research Conference", "issn_l": "1930-8876", "issn": ["1930-8876",
+        "2378-6558"], "is_oa": false, "is_in_doaj": false, "is_core": false, "listed_in":
+        ["jufo-1", "norway-1"], "host_organization": null, "host_organization_name":
+        null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "conference"}, "license": null, "license_id": null, "version":
+        "publishedVersion", "is_accepted": true, "is_published": true, "raw_source_name":
+        "32nd European Solid-State Device Research Conference", "raw_type": "proceedings-article"}},
+        {"id": "https://openalex.org/W2061498517", "doi": "https://doi.org/10.1063/1.4775688",
+        "title": "Improving dielectric properties of epitaxial Gd2O3 thin films on
+        silicon by nitrogen doping", "publication_year": 2013, "abstract_inverted_index":
+        {"We": [0], "report": [1], "about": [2], "the": [3, 9, 37, 44, 62, 75, 86,
+        90, 96], "effect": [4], "of": [5, 12, 61, 68, 89], "nitrogen": [6, 41, 80],
+        "doping": [7], "on": [8, 23], "electrical": [10], "properties": [11], "epitaxial":
+        [13], "Gd2O3": [14, 83], "thin": [15, 19], "films.": [16], "Epitaxial": [17],
+        "Gd2O3:N": [18, 76], "films": [20], "were": [21], "grown": [22], "Si": [24],
+        "(111)": [25], "substrates": [26], "by": [27, 49], "solid": [28], "source":
+        [29], "molecular": [30], "beam": [31], "epitaxy": [32], "using": [33], "nitrous":
+        [34], "oxide": [35, 97], "as": [36], "nitridation": [38], "agent.": [39],
+        "Substitutional": [40], "incorporation": [42, 81], "into": [43], "dielectric":
+        [45], "layer": [46], "was": [47], "confirmed": [48], "secondary": [50], "ion":
+        [51], "mass": [52], "spectroscopy": [53, 57], "and": [54, 66], "X-ray": [55],
+        "photoelectron": [56], "analysis.": [58], "Substantial": [59], "reduction":
+        [60], "leakage": [63], "current": [64], "density": [65], "disappearance":
+        [67], "hysteresis": [69], "in": [70, 74, 82, 95], "capacitance-voltage": [71],
+        "characteristics": [72], "observed": [73], "layers": [77], "indicate": [78],
+        "that": [79], "effectively": [84], "eliminates": [85], "adverse": [87], "effects":
+        [88], "oxygen": [91], "vacancy": [92], "induced": [93], "defects": [94], "layer.":
+        [98]}, "primary_location": {"id": "doi:10.1063/1.4775688", "doi": "https://doi.org/10.1063/1.4775688",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.4775688", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S105243760", "display_name":
+        "Applied Physics Letters", "issn_l": "0003-6951", "issn": ["0003-6951", "1077-3118",
+        "1520-8842"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Applied Physics Letters", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W1993117932", "doi": "https://doi.org/10.4028/www.scientific.net/kem.442.96",
+        "title": "Substrate Temperature Effect on Optical Constants of Gd2O3 Thin
+        Films", "publication_year": 2010, "abstract_inverted_index": {"Effect": [0],
+        "of": [1, 27, 59, 99, 115], "substrate": [2, 122], "temperature": [3], "on":
+        [4], "lanthanide": [5], "oxide": [6], "material": [7], "Gd2O3": [8], "thin":
+        [9], "films": [10, 30], "deposited": [11, 29], "by": [12, 57, 104], "e-beam":
+        [13], "evaporation": [14], "has": [15], "been": [16, 32, 55], "reported":
+        [17], "in": [18, 67], "the": [19], "present": [20], "work.": [21], "Optical":
+        [22, 41, 71], "properties": [23], "and": [24, 36, 51, 64, 88, 109], "surface":
+        [25], "morphology": [26], "as": [28, 44], "have": [31, 54], "measured": [33],
+        "using": [34], "spectrophotometry": [35], "atomic": [37, 105], "force": [38,
+        106], "microscopy": [39], "respectively.": [40], "constants": [42], "such":
+        [43], "refractive": [45, 89], "index,": [46], "extinction": [47], "coefficient,":
+        [48], "band": [49, 72], "gap": [50, 73], "Urbach": [52, 78], "energy": [53,
+        74, 79], "determined": [56], "analysis": [58], "experimentally": [60], "recorded":
+        [61], "absorption,": [62], "transmittance": [63], "reflection": [65], "data":
+        [66], "wavelength": [68], "range": [69], "200-800nm.": [70], "shows": [75,
+        80], "decreasing": [76], "while": [77], "increasing": [81, 84, 119, 121],
+        "behavior": [82], "with": [83, 91, 120], "temperature.": [85, 123], "Extinction":
+        [86], "coefficient": [87], "index": [90], "varying": [92], "wavelengths":
+        [93], "are": [94, 102], "also": [95], "calculated.": [96], "Surface": [97],
+        "topographies": [98], "all": [100], "samples": [101], "studied": [103], "microscope":
+        [107], "(AFM)": [108], "root": [110], "mean": [111], "square": [112], "(RMS)":
+        [113], "value": [114], "roughness": [116], "is": [117], "observed": [118]},
+        "primary_location": {"id": "doi:10.4028/www.scientific.net/kem.442.96", "doi":
+        "https://doi.org/10.4028/www.scientific.net/kem.442.96", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.4028/www.scientific.net/kem.442.96", "pdf_url": null,
+        "source": {"id": "https://openalex.org/S75411654", "display_name": "Key engineering
+        materials", "issn_l": "1013-9826", "issn": ["1013-9826", "1662-9795", "1662-9809"],
+        "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core",
+        "jufo-1", "norway-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310317839",
+        "host_organization_name": "Trans Tech Publications", "host_organization_lineage":
+        ["https://openalex.org/P4310317839"], "host_organization_lineage_names": ["Trans
+        Tech Publications"], "type": "book series"}, "license": "cc-by", "license_id":
+        "https://openalex.org/licenses/cc-by", "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "Key Engineering Materials",
+        "raw_type": "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54802b50e6beae4-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '15555'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:39:48 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=GcZBTwhq5WCXu%2FvWcEumypHU%2BoJpqR019O8%2FnbOG9o4%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793673588"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=GcZBTwhq5WCXu%2FvWcEumypHU%2BoJpqR019O8%2FnbOG9o4%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793673588"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9670'
+      x-ratelimit-remaining-usd:
+      - '0.967'
+      x-ratelimit-reset:
+      - '76812'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=Gd2O3+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 337, "db_response_time_ms": 167, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (Gd2O3 thin film)
+        in the title or abstract", "x_new_oql": "get works with (Gd2O3 thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "Gd2O3 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:Gd2O3 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W2064846548"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54802b798b0eae4-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '616'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:39:48 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=GcZBTwhq5WCXu%2FvWcEumypHU%2BoJpqR019O8%2FnbOG9o4%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793673588"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=GcZBTwhq5WCXu%2FvWcEumypHU%2BoJpqR019O8%2FnbOG9o4%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793673588"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9660'
+      x-ratelimit-remaining-usd:
+      - '0.966'
+      x-ratelimit-reset:
+      - '76812'
+    status:
+      code: 200
+      message: OK
+version: 1

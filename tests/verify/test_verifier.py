@@ -242,3 +242,23 @@ def test_ghs_codes_are_accepted_only_when_the_bundle_reports_them(
     anchor_scope = v.scope_for(bundle, index, "anchor:SiO2:one_line")
     assert anchor_scope is not None
     assert _check("Codes H315 and H350i appear in the notifications.", anchor_scope, index).ok
+
+
+def test_not_relevant_and_no_abstract_skip_the_quote_check(bundle: ProvenanceBundle) -> None:
+    real = bundle.evidence[0]
+    for label in (EvidenceLabel.NOT_RELEVANT, EvidenceLabel.NO_ABSTRACT):
+        hit = real.model_copy(update={"label": label, "supporting_sentence": None})
+        checked, failure = v.verify_evidence(bundle, hit)
+        assert failure is None and checked.verified is False and checked.label == label
+
+
+def test_the_four_tiers_always_need_a_verbatim_sentence(bundle: ProvenanceBundle) -> None:
+    real = bundle.evidence[0]
+    for label in v.TIER_LABELS:
+        missing = real.model_copy(update={"label": label, "supporting_sentence": None})
+        checked, failure = v.verify_evidence(bundle, missing)
+        assert failure is not None and failure.kind == "quote_mismatch", label
+        assert checked.verified is False and checked.verifier_note == EMPTY
+        verbatim = real.model_copy(update={"label": label})
+        checked, failure = v.verify_evidence(bundle, verbatim)
+        assert failure is None and checked.verified is True, label

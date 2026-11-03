@@ -1,0 +1,350 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=NO2+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 937, "db_response_time_ms": 53, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (NO2 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (NO2 thin film) in the title or abstract where it has an abstract", "oqo":
+        {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract", "value":
+        true}, {"column_id": "title_and_abstract.search", "value": "NO2 thin film",
+        "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:NO2
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2037275402",
+        "doi": "https://doi.org/10.1016/j.snb.2005.03.061", "title": "Novel NO2 gas
+        sensor based on cuprous oxide thin films", "publication_year": 2005, "abstract_inverted_index":
+        {"In": [0], "this": [1], "paper": [2], "we": [3], "present": [4], "the": [5,
+        8, 32, 36, 58, 68, 118, 126], "results": [6, 100], "concerning": [7], "characterization":
+        [9], "of": [10, 31, 57, 62, 70, 125, 128], "cuprous": [11, 39], "oxide": [12,
+        40, 79], "thin": [13, 41, 64], "films": [14, 42], "fabricated": [15], "by":
+        [16, 46], "chemical": [17, 37, 102], "deposition": [18, 104], "and": [19,
+        29, 50, 105, 120], "rapid": [20, 106], "photothermal": [21, 107], "processing":
+        [22, 108], "(RPP)": [23], "method.": [24], "The": [25, 55], "growth": [26],
+        "kinetic": [27], "effects": [28], "influence": [30], "RPP": [33], "temperature":
+        [34], "on": [35], "deposited": [38], "microstructures": [43], "were": [44],
+        "investigated": [45], "scanning": [47], "electron": [48], "microscopy": [49],
+        "energy": [51], "dispersive": [52], "X-ray": [53], "spectrometry.": [54],
+        "effect": [56], "electrical": [59], "resistivity": [60], "change": [61], "Cu2O":
+        [63], "film": [65], "layer": [66], "in": [67, 88], "presence": [69], "NO2":
+        [71, 84], "is": [72], "used": [73, 82], "for": [74, 130], "gas": [75, 85,
+        91], "sensing": [76], "measurements.": [77], "Cuprous": [78], "layers": [80],
+        "are": [81], "as": [83], "sensitive": [86], "material": [87], "a": [89], "novel":
+        [90], "sensor": [92], "element.": [93], "It": [94], "can": [95], "be": [96],
+        "shown": [97], "from": [98], "experimental": [99], "that": [101], "bath":
+        [103], "not": [109], "only": [110], "allows": [111], "green": [112], "materials":
+        [113], "preparation": [114], "but": [115], "also": [116], "improves": [117],
+        "performance": [119], "reliability": [121], "over": [122], "conventional":
+        [123], "methods": [124], "production": [127], "sensors": [129], "continuous":
+        [131], "environmental": [132], "monitoring.": [133]}, "primary_location":
+        {"id": "doi:10.1016/j.snb.2005.03.061", "doi": "https://doi.org/10.1016/j.snb.2005.03.061",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1016/j.snb.2005.03.061",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S98455728", "display_name":
+        "Sensors and Actuators B Chemical", "issn_l": "0925-4005", "issn": ["0925-4005",
+        "1873-3077"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-1", "ki-jl-1", "norway-1",
+        "poland-200", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320990",
+        "host_organization_name": "Elsevier BV", "host_organization_lineage": ["https://openalex.org/P4310320990"],
+        "host_organization_lineage_names": ["Elsevier BV"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Sensors and Actuators B: Chemical",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2018803765",
+        "doi": "https://doi.org/10.1016/j.snb.2004.10.030", "title": "Sensing characteristics
+        of tin-doped ZnO thin films as NO2 gas sensor", "publication_year": 2004,
+        "abstract_inverted_index": {"NO": [0, 45, 70, 126], "2": [1, 46, 71, 127],
+        "gas": [2, 128, 151, 159], "sensor": [3, 39, 76], "was": [4, 78, 85], "fabricated":
+        [5], "by": [6, 144], "successive": [7], "ionic": [8], "layer": [9], "adsorption":
+        [10], "and": [11, 15, 49, 65, 97, 147, 164], "reaction": [12], "(SILAR)":
+        [13], "technique": [14], "rapid": [16], "photothermal": [17], "processing":
+        [18], "(RPP)": [19], "of": [20, 32, 56, 58, 73, 95, 100], "the": [21, 38,
+        51, 62, 66, 93, 104, 119, 125, 136], "Sn-doped": [22], "ZnO": [23, 109], "film.":
+        [24], "The": [25, 54], "experimental": [26], "results": [27], "shows": [28],
+        "that": [29, 154], "tin": [30, 90], "doping": [31], "zinc": [33, 139], "oxide":
+        [34, 140], "thin": [35, 74, 141], "films": [36, 142], "improve": [37], "element":
+        [40], "sensitivity": [41, 72, 84, 129], "to": [42, 124, 134, 157], "1.5":
+        [43], "ppm": [44], "in": [47, 61, 80, 92, 107, 149, 161], "air": [48], "downshift":
+        [50], "operating": [52], "temperature.": [53], "influence": [55], "variation":
+        [57], "Sn": [59, 105], "concentration": [60, 91, 106], "chemical": [63], "bath":
+        [64], "RPP": [67, 98, 148], "temperature": [68, 99], "on": [69], "film": [75],
+        "elements": [77], "investigated": [79], "this": [81], "work.": [82], "Higher":
+        [83], "obtained": [86, 143], "at": [87], "5\u201310": [88], "at.%": [89, 114],
+        "solution": [94], "ions": [96], "550\u2013650": [101], "\u00b0C.": [102],
+        "Increasing": [103], "doped": [108], "samples": [110], "more": [111], "than":
+        [112], "10": [113], "as": [115, 117], "well": [116], "decreasing": [118],
+        "oxygen": [120], "partial": [121], "pressure": [122], "leads": [123], "decrease.":
+        [130], "It": [131], "looks": [132], "promising": [133], "use": [135], "inexpensive":
+        [137], "tin-doped": [138], "SILAR": [145], "method": [146], "smart": [150],
+        "sensing": [152], "devices": [153], "are": [155, 165], "able": [156], "recognize":
+        [158], "species": [160], "low": [162], "concentrations": [163], "demanded":
+        [166], "for": [167], "continuous": [168], "environmental": [169], "monitoring.":
+        [170]}, "primary_location": {"id": "doi:10.1016/j.snb.2004.10.030", "doi":
+        "https://doi.org/10.1016/j.snb.2004.10.030", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1016/j.snb.2004.10.030", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S98455728", "display_name": "Sensors and Actuators B
+        Chemical", "issn_l": "0925-4005", "issn": ["0925-4005", "1873-3077"], "is_oa":
+        false, "is_in_doaj": false, "is_core": true, "listed_in": ["anvur-scientific",
+        "cwts-core", "dongbi-a", "jufo-1", "ki-jl-1", "norway-1", "poland-200", "russia-white-list-1",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310320990", "host_organization_name":
+        "Elsevier BV", "host_organization_lineage": ["https://openalex.org/P4310320990"],
+        "host_organization_lineage_names": ["Elsevier BV"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Sensors and Actuators B: Chemical",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2119925924",
+        "doi": "https://doi.org/10.1063/1.1545166", "title": "Sensors for sub-ppm
+        NO2 gas detection based on carbon nanotube thin films", "publication_year":
+        2003, "abstract_inverted_index": {"Carbon": [0], "nanotubes": [1], "(CNTs)":
+        [2], "deposited": [3], "by": [4], "plasma-enhanced": [5], "chemical": [6],
+        "vapor": [7], "deposition": [8], "on": [9, 78], "Si3N4/Si": [10], "substrates":
+        [11], "have": [12], "been": [13], "investigated": [14], "as": [15, 62, 64],
+        "resistive": [16], "gas": [17, 59], "sensors": [18], "for": [19], "NO2.":
+        [20, 99], "Upon": [21], "exposure": [22], "to": [23, 33, 40, 57, 98], "NO2,":
+        [24], "the": [25, 29, 84, 87, 90, 95], "electrical": [26], "resistance": [27,
+        39, 88], "of": [28, 38, 48, 83, 89], "CNTs": [30], "was": [31, 42], "found":
+        [32, 43], "decrease.": [34], "The": [35, 52], "maximum": [36], "variation":
+        [37], "NO2": [41, 58], "at": [44, 60], "an": [45], "operating": [46], "temperature":
+        [47], "around": [49], "165": [50], "\u00b0C.": [51], "sensor": [53, 91, 96],
+        "exhibited": [54], "high": [55], "sensitivity": [56], "concentrations": [61],
+        "low": [63], "10": [65], "ppb,": [66], "fast": [67], "response": [68, 97],
+        "time,": [69], "and": [70, 81, 93], "good": [71], "selectivity.": [72], "A":
+        [73], "thermal": [74], "treatment": [75], "method,": [76], "based": [77],
+        "repeated": [79], "heating": [80], "cooling": [82], "films,": [85], "adjusted":
+        [86], "film": [92], "optimized": [94]}, "primary_location": {"id": "doi:10.1063/1.1545166",
+        "doi": "https://doi.org/10.1063/1.1545166", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.1545166", "pdf_url": null, "source": {"id": "https://openalex.org/S105243760",
+        "display_name": "Applied Physics Letters", "issn_l": "0003-6951", "issn":
+        ["0003-6951", "1077-3118", "1520-8842"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-a",
+        "jufo-3", "ki-jl-1", "norway-2", "poland-100", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Applied Physics
+        Letters", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W3019786684",
+        "doi": "https://doi.org/10.1021/acsomega.9b04122", "title": "Bilayer Polyaniline\u2013WO3
+        Thin-Film Sensors Sensitive to NO2", "publication_year": 2020, "abstract_inverted_index":
+        {"Abstract": [0], "In": [1], "this": [2], "work,": [3], "a": [4, 70, 139],
+        "novel": [5], "bilayer": [6], "polyaniline\u2013WO3": [7], "(PANI\u2013WO3)":
+        [8], "thin": [9], "film": [10], "on": [11, 44], "the": [12, 41, 45, 79, 82,
+        106, 120], "fluorine-doped": [13], "tin": [14], "oxide": [15], "(FTO)": [16],
+        "glass": [17, 47], "substrate": [18, 48], "was": [19, 117], "prepared": [20],
+        "by": [21, 144], "hydrothermal": [22], "synthesis": [23], "and": [24, 69,
+        92, 128, 138], "in": [25], "situ": [26], "chemical": [27], "oxidative": [28],
+        "polymerization": [29], "methods.": [30], "Until": [31], "now,": [32], "no":
+        [33], "one": [34], "has": [35], "ever": [36], "made": [37], "attempts": [38],
+        "to": [39, 49, 78, 119], "use": [40], "PANI\u2013WO3": [42, 80, 107], "composite":
+        [43, 54], "FTO": [46], "detect": [50], "NO2": [51, 60, 86], "gas.": [52],
+        "The": [53, 112], "showed": [55], "excellent": [56, 110], "sensing": [57,
+        116], "performance": [58], "for": [59, 85, 99], "detection": [61, 71], "at":
+        [62, 87, 102], "an": [63], "operation": [64], "temperature": [65], "of": [66,
+        73, 114, 122, 135], "50": [67, 103], "\u00b0C": [68], "limit": [72], "2":
+        [74], "ppm.": [75], "With": [76], "regard": [77], "hybrid,": [81], "response":
+        [83], "value": [84], "30": [88], "ppm": [89], "is": [90, 93], "60.19": [91],
+        "three": [94], "times": [95], "higher": [96], "than": [97], "that": [98],
+        "pure": [100], "WO3": [101], "\u00b0C.": [104], "Besides,": [105], "hybrid":
+        [108], "had": [109], "stability.": [111], "improvement": [113], "gas": [115],
+        "assigned": [118], "creation": [121], "p\u2013n": [123], "heterojunctions":
+        [124], "between": [125], "p-type": [126], "PANI": [127], "n-type": [129],
+        "WO3,": [130], "larger": [131], "specific": [132], "surface,": [133], "increase":
+        [134], "oxygen": [136], "vacancies,": [137], "wide": [140], "conduction":
+        [141], "channel": [142], "provided": [143], "PANI.": [145]}, "primary_location":
+        {"id": "doi:10.1021/acsomega.9b04122", "doi": "https://doi.org/10.1021/acsomega.9b04122",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.1021/acsomega.9b04122",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4210239500", "display_name":
+        "ACS Omega", "issn_l": "2470-1343", "issn": ["2470-1343"], "is_oa": true,
+        "is_in_doaj": true, "is_core": true, "listed_in": ["cwts-core", "doaj", "dongbi-c",
+        "jufo-1", "ki-jl-1", "norway-1", "oarl", "poland-70", "russia-white-list-1",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310320006", "host_organization_name":
+        "American Chemical Society", "host_organization_lineage": ["https://openalex.org/P4310320006"],
+        "host_organization_lineage_names": ["American Chemical Society"], "type":
+        "journal"}, "license": "other-oa", "license_id": "https://openalex.org/licenses/other-oa",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "ACS Omega", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2325954493",
+        "doi": "https://doi.org/10.1541/ieejsmas.119.636", "title": "NO2 Sensing Characteristics
+        of Thin Film TiO2", "publication_year": 1999, "abstract_inverted_index": {"The":
+        [0], "rutile-type": [1], "TiO2": [2], "thin": [3], "film": [4, 66], "doped":
+        [5, 49], "with": [6], "pentavalent": [7], "additives": [8], "such": [9], "as":
+        [10], "Nb": [11, 50], "or": [12, 51], "Ta,": [13], "prepared": [14], "by":
+        [15], "a": [16], "multi-target": [17], "sputtering": [18], "system,": [19],
+        "exhibited": [20], "fairly": [21], "good": [22], "NO2": [23], "sensing": [24],
+        "characteristics": [25], "over": [26], "the": [27, 37, 48, 59], "range": [28],
+        "from": [29], "0": [30], "to": [31, 36], "300ppm": [32], "at": [33, 83], "600\u00b0C.":
+        [34], "According": [35], "Arrhenius": [38], "plots": [39], "between": [40],
+        "conductivity": [41], "and": [42, 77], "reciprocal": [43], "temperature,":
+        [44], "it": [45], "seems": [46], "that": [47], "Ta": [52], "formed": [53],
+        "some": [54], "impurity": [55], "energy": [56], "level": [57], "in": [58,
+        75], "forbidden": [60], "band": [61], "of": [62], "TiO2,": [63], "while":
+        [64], "V-doped": [65], "showed": [67], "different": [68], "conducting": [69],
+        "mechanism.": [70], "In": [71], "addition,": [72], "high-temperature": [73],
+        "durability": [74], "oxydative": [76], "reductive": [78], "exhaust": [79],
+        "gases": [80], "was": [81], "confirmed": [82], "800\u00b0C.": [84]}, "primary_location":
+        {"id": "doi:10.1541/ieejsmas.119.636", "doi": "https://doi.org/10.1541/ieejsmas.119.636",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1541/ieejsmas.119.636",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S99125377", "display_name":
+        "IEEJ Transactions on Sensors and Micromachines", "issn_l": "1341-8939", "issn":
+        ["1341-8939", "1347-5525"], "is_oa": false, "is_in_doaj": false, "is_core":
+        false, "listed_in": ["poland-20", "russia-white-list-4"], "host_organization":
+        "https://openalex.org/P4320800591", "host_organization_name": "Institute of
+        Electrical Engineers of Japan", "host_organization_lineage": ["https://openalex.org/P4320800591"],
+        "host_organization_lineage_names": ["Institute of Electrical Engineers of
+        Japan"], "type": "journal"}, "license": null, "license_id": null, "version":
+        "publishedVersion", "is_accepted": true, "is_published": true, "raw_source_name":
+        "IEEJ Transactions on Sensors and Micromachines", "raw_type": "journal-article"}}],
+        "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54da110ad824cf6-BOS
+      connection:
+      - keep-alive
+      content-length:
+      - '14987'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 19:01:43 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=rrSEEhrOfM7QHjWgDf3zkQOOQPnvdC17MfrTmy4Dn8M%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793732503"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=rrSEEhrOfM7QHjWgDf3zkQOOQPnvdC17MfrTmy4Dn8M%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793732503"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9610'
+      x-ratelimit-remaining-usd:
+      - '0.961'
+      x-ratelimit-reset:
+      - '17897'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=NO2+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 1779, "db_response_time_ms": 28, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (NO2 thin film)
+        in the title or abstract", "x_new_oql": "get works with (NO2 thin film) in
+        the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "NO2 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:NO2 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W1998453123"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54da113b8814cf6-BOS
+      connection:
+      - keep-alive
+      content-length:
+      - '608'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 19:01:43 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=rrSEEhrOfM7QHjWgDf3zkQOOQPnvdC17MfrTmy4Dn8M%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793732503"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=rrSEEhrOfM7QHjWgDf3zkQOOQPnvdC17MfrTmy4Dn8M%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793732503"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9600'
+      x-ratelimit-remaining-usd:
+      - '0.96'
+      x-ratelimit-reset:
+      - '17897'
+    status:
+      code: 200
+      message: OK
+version: 1

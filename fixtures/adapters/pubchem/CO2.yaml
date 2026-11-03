@@ -1,0 +1,651 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/carbon%20dioxide/cids/JSON
+  response:
+    body:
+      string: "{\n  \"IdentifierList\": {\n    \"CID\": [\n      280\n    ]\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '59'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:37:21 GMT
+      expires:
+      - Tue, 03 Nov 2026 03:37:21 GMT
+      ncbi-phid:
+      - 95B71BC5AE948E110000000000000001.m_1
+      ncbi-sid:
+      - 90C64B6DAE6515F1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID; domain=.nih.gov; path=/; expires=Wed, 03
+        Nov 2027 02:37:21 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (2%), Request Time status: Green (1%), Service
+        status: Green (40%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/fastformula/CO2/cids/JSON
+  response:
+    body:
+      string: "{\n  \"IdentifierList\": {\n    \"CID\": [\n      280,\n      24947461,\n
+        \     12130228,\n      10129882,\n      12415844,\n      6857677,\n      119388,\n
+        \     10197607,\n      9920366,\n      10129881,\n      71309441,\n      9793684,\n
+        \     10285772,\n      71309201,\n      71309202\n    ]\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '278'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:37:21 GMT
+      expires:
+      - Tue, 03 Nov 2026 03:37:22 GMT
+      ncbi-phid:
+      - 90C6D303AE948E110000000000000001.m_3
+      ncbi-sid:
+      - 90C64B6DAE6515F1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID; domain=.nih.gov; path=/; expires=Wed, 03
+        Nov 2027 02:37:21 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (4%), Request Time status: Green (2%), Service
+        status: Green (27%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug_view/data/compound/280/JSON?heading=GHS+Classification
+  response:
+    body:
+      string: "{\n  \"Record\": {\n    \"RecordType\": \"CID\",\n    \"RecordNumber\":
+        280,\n    \"RecordTitle\": \"Carbon Dioxide\",\n    \"Section\": [\n      {\n
+        \       \"TOCHeading\": \"Safety and Hazards\",\n        \"Description\":
+        \"Information on safety and hazards for this compound, including safety/hazards
+        properties, reactivity, incompatibilities, management techniques, first aid
+        treatments, and more.  For toxicity and related information, please see the
+        Toxicity section.\",\n        \"Section\": [\n          {\n            \"TOCHeading\":
+        \"Hazards Identification\",\n            \"Description\": \"This section identifies
+        the hazards of the chemical presented on the safety data sheet (SDS) and the
+        appropriate warning information associated with those hazards.  The information
+        in this section includes, but are not limited to, the hazard classification
+        of the chemical, signal word, pictograms, hazard statements and precautionary
+        statements.\",\n            \"URL\": \"https://www.osha.gov/sites/default/files/publications/OSHA3514.pdf\",\n
+        \           \"Section\": [\n              {\n                \"TOCHeading\":
+        \"GHS Classification\",\n                \"Description\": \"GHS (Globally
+        Harmonized System of Classification and Labelling of Chemicals) is a United
+        Nations system to identify hazardous chemicals and to inform users about these
+        hazards. GHS has been adopted by many countries around the world and is now
+        also used as the basis for international and national transport regulations
+        for dangerous goods. The GHS hazard statements, class categories, pictograms,
+        signal words, and the precautionary statements can be found on the PubChem
+        GHS page.\",\n                \"URL\": \"https://pubchem.ncbi.nlm.nih.gov/ghs/\",\n
+        \               \"DisplayControls\": {\n                  \"CreateTable\":
+        {\n                    \"FromInformationIn\": \"ThisSection\",\n                    \"NumberOfColumns\":
+        2,\n                    \"ColumnContents\": [\n                      \"Name\",\n
+        \                     \"Value\"\n                    ]\n                  },\n
+        \                 \"ShowAtMost\": 1\n                },\n                \"Information\":
+        [\n                  {\n                    \"ReferenceNumber\": 59,\n                    \"Name\":
+        \"Note\",\n                    \"Value\": {\n                      \"StringWithMarkup\":
+        [\n                        {\n                          \"String\": \"This
+        chemical does not meet GHS hazard criteria for 4.9% (77  of 1570) of reports.\",\n
+        \                         \"Markup\": [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 82,\n                              \"Type\":
+        \"Italics\"\n                            }\n                          ]\n
+        \                       }\n                      ]\n                    }\n
+        \                 },\n                  {\n                    \"ReferenceNumber\":
+        59,\n                    \"Name\": \"Pictogram(s)\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"          \",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 1,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/images/ghs/GHS04.svg\",\n                              \"Type\":
+        \"Icon\",\n                              \"Extra\": \"Compressed Gas\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        59,\n                    \"Name\": \"Signal\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"Warning\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 7,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSWarning\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        59,\n                    \"Name\": \"GHS Hazard Statements\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"H280 (82%): Contains gas under pressure;
+        may explode if heated [Warning Gases under pressure]\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H280\"\n                            },\n
+        \                           {\n                              \"Start\": 64,\n
+        \                             \"Length\": 7,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSWarning\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"H281 (20.5%): Contains refrigerated
+        gas; may cause cryogenic burns or injury [Warning Gases under pressure]\",\n
+        \                         \"Markup\": [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H281\"\n                            },\n
+        \                           {\n                              \"Start\": 78,\n
+        \                             \"Length\": 7,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSWarning\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        59,\n                    \"Name\": \"Precautionary Statement Codes\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"P282, P336+P317, P403, and P410+P403
+        (click each P-code to see the statement)\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P282\"\n                            },\n
+        \                           {\n                              \"Start\": 6,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P336+P317\"\n                            },\n
+        \                           {\n                              \"Start\": 17,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P403\"\n                            },\n
+        \                           {\n                              \"Start\": 27,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P410+P403\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        59,\n                    \"Name\": \"ECHA C&L Notifications Summary\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"Aggregated GHS information provided
+        per 1570 reports by companies from 10 notifications to the ECHA C&L Inventory.
+        Each notification may be associated with multiple companies.\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 179,\n                              \"Type\":
+        \"Italics\"\n                            }\n                          ]\n
+        \                       },\n                        {\n                          \"String\":
+        \"Reported as not meeting GHS hazard criteria per 77 of 1570 reports by companies.\",\n
+        \                         \"Markup\": [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 80,\n                              \"Type\":
+        \"Italics\"\n                            }\n                          ]\n
+        \                       },\n                        {\n                          \"String\":
+        \"There are 9 notifications provided by 1493 of 1570 reports by companies
+        with hazard statement code(s).\",\n                          \"Markup\": [\n
+        \                           {\n                              \"Start\": 0,\n
+        \                             \"Length\": 102,\n                              \"Type\":
+        \"Italics\"\n                            }\n                          ]\n
+        \                       },\n                        {\n                          \"String\":
+        \"Information may vary between notifications depending on impurities, additives,
+        and other factors. The percentage value in parenthesis indicates the notified
+        classification ratio from companies that provide hazard codes. Only hazard
+        codes with percentage values above 10% are shown. For more detailed information,
+        please visit  ECHA C&L website.\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        327,\n                              \"Length\": 20,\n                              \"URL\":
+        \"https://chem.echa.europa.eu/substance-search?searchText=204-696-9\"\n                            },\n
+        \                           {\n                              \"Start\": 0,\n
+        \                             \"Length\": 348,\n                              \"Type\":
+        \"Italics\"\n                            }\n                          ]\n
+        \                       }\n                      ]\n                    }\n
+        \                 },\n                  {\n                    \"ReferenceNumber\":
+        62,\n                    \"Name\": \"Note\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"This chemical does not meet GHS hazard
+        criteria for 97.4% (38 of 39) of all reports.\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 84,\n                              \"Type\":
+        \"Italics\"\n                            }\n                          ]\n
+        \                       }\n                      ]\n                    }\n
+        \                 },\n                  {\n                    \"ReferenceNumber\":
+        62,\n                    \"Name\": \"GHS Hazard Statements\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"Not Classified\"\n                        },\n
+        \                       {\n                          \"String\": \"Reported
+        as not meeting GHS hazard criteria by 38 of 39 companies (only 2.6% companies
+        provided GHS information). For more detailed information, please visit  ECHA
+        C&L website.\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 159,\n                              \"Length\":
+        20,\n                              \"URL\": \"https://chem.echa.europa.eu/substance-search?searchText=686-102-1\"\n
+        \                           }\n                          ]\n                        }\n
+        \                     ]\n                    }\n                  },\n                  {\n
+        \                   \"ReferenceNumber\": 62,\n                    \"Name\":
+        \"ECHA C&L Notifications Summary\",\n                    \"Value\": {\n                      \"StringWithMarkup\":
+        [\n                        {\n                          \"String\": \"Aggregated
+        GHS information provided per 39 reports by companies from 2 notifications
+        to the ECHA C&L Inventory.\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 0,\n                              \"Length\":
+        115,\n                              \"Type\": \"Italics\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"Reported as not meeting GHS hazard
+        criteria per 38 of 39 reports by companies.\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 78,\n                              \"Type\":
+        \"Italics\"\n                            }\n                          ]\n
+        \                       },\n                        {\n                          \"String\":
+        \"There is 1 notification provided by 1 of 39 reports by companies with hazard
+        statement code(s).\",\n                          \"Markup\": [\n                            {\n
+        \                             \"Start\": 0,\n                              \"Length\":
+        95,\n                              \"Type\": \"Italics\"\n                            }\n
+        \                         ]\n                        },\n                        {\n
+        \                         \"String\": \"Information may vary between notifications
+        depending on impurities, additives, and other factors. The percentage value
+        in parenthesis indicates the notified classification ratio from companies
+        that provide hazard codes. Only hazard codes with percentage values above
+        10% are shown. For more detailed information, please visit  ECHA C&L website.\",\n
+        \                         \"Markup\": [\n                            {\n                              \"Start\":
+        327,\n                              \"Length\": 20,\n                              \"URL\":
+        \"https://chem.echa.europa.eu/substance-search?searchText=686-102-1\"\n                            },\n
+        \                           {\n                              \"Start\": 0,\n
+        \                             \"Length\": 348,\n                              \"Type\":
+        \"Italics\"\n                            }\n                          ]\n
+        \                       }\n                      ]\n                    }\n
+        \                 },\n                  {\n                    \"ReferenceNumber\":
+        98,\n                    \"Name\": \"Pictogram(s)\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"          \",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 1,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/images/ghs/GHS04.svg\",\n                              \"Type\":
+        \"Icon\",\n                              \"Extra\": \"Compressed Gas\"\n                            },\n
+        \                           {\n                              \"Start\": 1,\n
+        \                             \"Length\": 1,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/images/ghs/GHS07.svg\",\n                              \"Type\":
+        \"Icon\",\n                              \"Extra\": \"Irritant\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        98,\n                    \"Name\": \"Signal\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"Warning\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 7,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSWarning\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        98,\n                    \"Name\": \"GHS Hazard Statements\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"H336: May cause drowsiness or dizziness
+        [Warning Specific target organ toxicity, single exposure; Narcotic effects]\",\n
+        \                         \"Markup\": [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H336\"\n                            },\n
+        \                           {\n                              \"Start\": 41,\n
+        \                             \"Length\": 7,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSWarning\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        98,\n                    \"Name\": \"Precautionary Statement Codes\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"P261, P271, P304+P340, P319, P403+P233,
+        P405, and P501 (click each P-code to see the statement)\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P261\"\n                            },\n
+        \                           {\n                              \"Start\": 6,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P271\"\n                            },\n
+        \                           {\n                              \"Start\": 12,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P304+P340\"\n                            },\n
+        \                           {\n                              \"Start\": 23,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P319\"\n                            },\n
+        \                           {\n                              \"Start\": 29,\n
+        \                             \"Length\": 9,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P403+P233\"\n                            },\n
+        \                           {\n                              \"Start\": 40,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P405\"\n                            },\n
+        \                           {\n                              \"Start\": 50,\n
+        \                             \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P501\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        70,\n                    \"Name\": \"Pictogram(s)\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"          \",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 1,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/images/ghs/GHS04.svg\",\n                              \"Type\":
+        \"Icon\",\n                              \"Extra\": \"Compressed Gas\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        70,\n                    \"Name\": \"Signal\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"Warning\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 7,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSWarning\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        70,\n                    \"Name\": \"GHS Hazard Statements\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"H280: Contains gas under pressure;
+        may explode if heated [Warning Gases under pressure]\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 4,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#H280\"\n                            },\n
+        \                           {\n                              \"Start\": 58,\n
+        \                             \"Length\": 7,\n                              \"Type\":
+        \"Color\",\n                              \"Extra\": \"GHSWarning\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  },\n                  {\n                    \"ReferenceNumber\":
+        70,\n                    \"Name\": \"Precautionary Statement Codes\",\n                    \"Value\":
+        {\n                      \"StringWithMarkup\": [\n                        {\n
+        \                         \"String\": \"P410+P403</a, and a href=\\\"https://pubchem.ncbi.nlm.nih.gov/ghs/#P410+P403\\\">P410+P403
+        (click each P-code to see the statement)\",\n                          \"Markup\":
+        [\n                            {\n                              \"Start\":
+        0,\n                              \"Length\": 84,\n                              \"URL\":
+        \"https://pubchem.ncbi.nlm.nih.gov/ghs/#P410+P403\"\n                            }\n
+        \                         ]\n                        }\n                      ]\n
+        \                   }\n                  }\n                ]\n              }\n
+        \           ]\n          }\n        ]\n      }\n    ],\n    \"Reference\":
+        [\n      {\n        \"ReferenceNumber\": 59,\n        \"SourceName\": \"European
+        Chemicals Agency (ECHA)\",\n        \"SourceID\": \"131271\",\n        \"Name\":
+        \"Carbon dioxide (EC: 204-696-9)\",\n        \"Description\": \"The information
+        provided here is aggregated from the \\\"Notified classification and labelling\\\"
+        from ECHA's C&L Inventory. Read more: https://echa.europa.eu/information-on-chemicals/cl-inventory-database\",\n
+        \       \"URL\": \"https://chem.echa.europa.eu/substance-search?searchText=204-696-9\",\n
+        \       \"LicenseNote\": \"Use of the information, documents and data from
+        the ECHA website is subject to the terms and conditions of this Legal Notice,
+        and subject to other binding limitations provided for under applicable law,
+        the information, documents and data made available on the ECHA website may
+        be reproduced, distributed and/or used, totally or in part, for non-commercial
+        purposes provided that ECHA is acknowledged as the source: \\\"Source: European
+        Chemicals Agency, http://echa.europa.eu/\\\". Such acknowledgement must be
+        included in each copy of the material. ECHA permits and encourages organisations
+        and individuals to create links to the ECHA website under the following cumulative
+        conditions: Links can only be made to webpages that provide a link to the
+        Legal Notice page.\",\n        \"LicenseURL\": \"https://echa.europa.eu/web/guest/legal-notice\",\n
+        \       \"ANID\": 1889626,\n        \"SortOrder\": 4570\n      },\n      {\n
+        \       \"ReferenceNumber\": 62,\n        \"SourceName\": \"European Chemicals
+        Agency (ECHA)\",\n        \"SourceID\": \"216830\",\n        \"Name\": \"Carbon-13
+        dioxide-18O2 (EC: 686-102-1)\",\n        \"Description\": \"The information
+        provided here is aggregated from the \\\"Notified classification and labelling\\\"
+        from ECHA's C&L Inventory. Read more: https://echa.europa.eu/information-on-chemicals/cl-inventory-database\",\n
+        \       \"URL\": \"https://chem.echa.europa.eu/substance-search?searchText=686-102-1\",\n
+        \       \"LicenseNote\": \"Use of the information, documents and data from
+        the ECHA website is subject to the terms and conditions of this Legal Notice,
+        and subject to other binding limitations provided for under applicable law,
+        the information, documents and data made available on the ECHA website may
+        be reproduced, distributed and/or used, totally or in part, for non-commercial
+        purposes provided that ECHA is acknowledged as the source: \\\"Source: European
+        Chemicals Agency, http://echa.europa.eu/\\\". Such acknowledgement must be
+        included in each copy of the material. ECHA permits and encourages organisations
+        and individuals to create links to the ECHA website under the following cumulative
+        conditions: Links can only be made to webpages that provide a link to the
+        Legal Notice page.\",\n        \"LicenseURL\": \"https://echa.europa.eu/web/guest/legal-notice\",\n
+        \       \"ANID\": 37173276,\n        \"SortOrder\": 3039\n      },\n      {\n
+        \       \"ReferenceNumber\": 98,\n        \"SourceName\": \"NITE-CMC\",\n
+        \       \"SourceID\": \"21A3541\",\n        \"Name\": \"Carbon dioxide - FY2009
+        (New/original classication)\",\n        \"Description\": \"The chemical classification
+        in this section was conducted by the Chemical Management Center (CMC) of Japan
+        National Institute of Technology and Evaluation (NITE) in accordance with
+        GHS Classification Guidance for the Japanese Government, and is intended to
+        provide a reference for preparing GHS labelling and SDS for users.\",\n        \"URL\":
+        \"https://www.chem-info.nite.go.jp/chem/english/ghs/09-mhlw-0041e.html\",\n
+        \       \"LicenseURL\": \"https://www.chem-info.nite.go.jp/en/chem/chrip/chrip_search/html/condUse.html\",\n
+        \       \"ANID\": 2264791,\n        \"SortOrder\": 2009\n      },\n      {\n
+        \       \"ReferenceNumber\": 70,\n        \"SourceName\": \"Hazardous Substances
+        Data Bank (HSDB)\",\n        \"SourceID\": \"516\",\n        \"Name\": \"Carbon
+        dioxide\",\n        \"Description\": \"The Hazardous Substances Data Bank
+        (HSDB) is a toxicology database that focuses on the toxicology of potentially
+        hazardous chemicals. It provides information on human exposure, industrial
+        hygiene, emergency handling procedures, environmental fate, regulatory requirements,
+        nanomaterials, and related areas. The information in HSDB has been assessed
+        by a Scientific Review Panel.\",\n        \"URL\": \"https://pubchem.ncbi.nlm.nih.gov/source/hsdb/516\",\n
+        \       \"LicenseURL\": \"https://www.nlm.nih.gov/web_policies.html\",\n        \"IsToxnet\":
+        true,\n        \"ANID\": 452\n      }\n    ]\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '26653'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 03 Nov 2026 02:37:22 GMT
+      expires:
+      - Tue, 03 Nov 2026 10:37:22 GMT
+      ncbi-phid:
+      - 90C6D459AE948E210000000000000001.m_1
+      ncbi-sid:
+      - 90C64B6DAE6515F1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID; domain=.nih.gov; path=/; expires=Wed, 03
+        Nov 2027 02:37:22 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (1%), Request Time status: Green (0%), Service
+        status: Green (2%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID
+      host:
+      - pubchem.ncbi.nlm.nih.gov
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/280/synonyms/JSON
+  response:
+    body:
+      string: "{\n  \"InformationList\": {\n    \"Information\": [\n      {\n        \"CID\":
+        280,\n        \"Synonym\": [\n          \"carbon dioxide\",\n          \"carbonic
+        anhydride\",\n          \"124-38-9\",\n          \"carbonic acid gas\",\n
+        \         \"Carbonic acid anhydride\",\n          \"methanedione\",\n          \"Carbonica\",\n
+        \         \"Kohlendioxyd\",\n          \"Carbon oxide, di-\",\n          \"Kohlensaure\",\n
+        \         \"Khladon 744\",\n          \"After-damp\",\n          \"AER Fixus\",\n
+        \         \"Anhydride carbonique\",\n          \"Dioxido de carbono\",\n          \"Dioxyde
+        de carbone\",\n          \"Carbon oxide (CO2)\",\n          \"R 744\",\n          \"Carbon-12
+        dioxide\",\n          \"INS NO.290\",\n          \"DTXSID4027028\",\n          \"INS-290\",\n
+        \         \"E-290\",\n          \"142M471B3J\",\n          \"E290\",\n          \"CHEBI:16526\",\n
+        \         \"Dioxide, Carbon\",\n          \"Anhydride, Carbonic\",\n          \"Dry
+        ice (solid\",\n          \"Carbon Dioxide Air\",\n          \"Carbon Dioxide
+        Nitrogen\",\n          \"RefChem:6625\",\n          \"Carbon Dioxide Compressed\",\n
+        \         \"Carbon Dioxide Air Mixture\",\n          \"Carbon Dioxide Refrigerated\",\n
+        \         \"CARBON DIOXIDE, USP\",\n          \"DTXCID507028\",\n          \"Air
+        90% Carbon Dioxide 10%\",\n          \"204-696-9\",\n          \"Dry ice\",\n
+        \         \"CO2\",\n          \"Cardice\",\n          \"Drikold\",\n          \"HSDB
+        516\",\n          \"UN1013\",\n          \"UN1845\",\n          \"UN2187\",\n
+        \         \"Dry ice (solid form)\",\n          \"Kohlensaure [German]\",\n
+        \         \"Caswell No. 163\",\n          \"Kohlendioxyd [German]\",\n          \"Dioxyde
+        de carbone [French]\",\n          \"Dioxido de carbono [Spanish]\",\n          \"Anhydride
+        carbonique [French]\",\n          \"CARBON DIOXIDE (13C; 18O2)\",\n          \"Carbon
+        dioxide [USP]\",\n          \"EINECS 204-696-9\",\n          \"EPA Pesticide
+        Chemical Code 016601\",\n          \"dioxidocarbon\",\n          \"epoxyketone\",\n
+        \         \"Dioxomethane\",\n          \"Dricold\",\n          \"carbon dioxid\",\n
+        \         \"dry-ice\",\n          \"Dioxomethane #\",\n          \"methane,
+        dioxo-\",\n          \"UNII-142M471B3J\",\n          \"Carbon dioxide, refrigerated
+        liquid\",\n          \"Carbonic acid, gas\",\n          \"Makr carbon dioxide\",\n
+        \         \"2684-00-6\",\n          \"SCHEMBL916\",\n          \"Carbon dioxide
+        (40-VK)\",\n          \"CARBON DIOXIDE [II]\",\n          \"CARBON DIOXIDE
+        [MI]\",\n          \"CARBON DIOXIDE [FCC]\",\n          \"CARBON DIOXIDE [JAN]\",\n
+        \         \"18923-20-1\",\n          \"Carbon dioxide (JP18/USP)\",\n          \"CARBON
+        DIOXIDE [HSDB]\",\n          \"Carbon dioxide, >=99.8%\",\n          \"CARBON
+        DIOXIDE [VANDF]\",\n          \"CARBON DIOXIDE [MART.]\",\n          \"CARBON
+        DIOXIDE [WHO-DD]\",\n          \"CHEMBL1231871\",\n          \"SCHEMBL12376937\",\n
+        \         \"BDBM10856\",\n          \"Carbon dioxide, solid or dry ice\",\n
+        \         \"[CO2]\",\n          \"CARBON DIOXIDE [GREEN BOOK]\",\n          \"CARBON
+        DIOXIDE [EP IMPURITY]\",\n          \"NSC-81688\",\n          \"CARBON DIOXIDE
+        [EP MONOGRAPH]\",\n          \"CARBON DIOXIDE [USP MONOGRAPH]\",\n          \"DB09157\",\n
+        \         \"UN 1013\",\n          \"UN 1845\",\n          \"UN 2187\",\n          \"Carbon
+        dioxide, puriss., >=99.998%\",\n          \"E 290\",\n          \"NS00076302\",\n
+        \         \"Q1997\",\n          \"R-744\",\n          \"C00011\",\n          \"Carbon
+        dioxide [UN1013]  [Nonflammable gas]\",\n          \"Carbon dioxide, Messer(R)
+        CANgas, 99.995%\",\n          \"D00004\",\n          \"Carbon Dioxide Std
+        CO2 standard 2g/L (2mL ampoules)\",\n          \"Carbon Dioxide Std CO2 standard
+        3g/L (2mL ampoules)\",\n          \"Carbon Dioxide Std CO2 standard 4g/L (2mL
+        ampoules)\",\n          \"Carbon Dioxide Std CO2 standard 6g/L (2mL ampoules)\",\n
+        \         \"Carbon dioxide, solid or dry ice [UN1845]  [Class 9]\",\n          \"Carbon
+        dioxide (99.8%), cylinder of 14 L, analytical standard\",\n          \"Carbon
+        dioxide (99.8%), cylinder of 48 L, analytical standard\",\n          \"Carbon
+        dioxide, refrigerated liquid [UN2187]  [Nonflammable gas]\",\n          \"26796-46-3\"\n
+        \       ]\n      }\n    ]\n  }\n}\n"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      alt-svc:
+      - clear
+      cache-control:
+      - private
+      content-length:
+      - '3902'
+      content-security-policy:
+      - upgrade-insecure-requests
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:37:22 GMT
+      expires:
+      - Tue, 03 Nov 2026 03:37:23 GMT
+      ncbi-phid:
+      - 90C6D4B0AE948E210000000000000001.m_1
+      ncbi-sid:
+      - 90C64B6DAE6515F1_0000SID
+      referrer-policy:
+      - origin-when-cross-origin
+      server:
+      - Apache
+      set-cookie:
+      - ncbi_sid=90C64B6DAE6515F1_0000SID; domain=.nih.gov; path=/; expires=Wed, 03
+        Nov 2027 02:37:22 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      via:
+      - 1.1 google
+      x-throttling-control:
+      - 'Request Count status: Green (4%), Request Time status: Green (2%), Service
+        status: Green (33%)'
+      x-ua-compatible:
+      - IE=Edge
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

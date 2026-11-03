@@ -78,7 +78,7 @@ def test_model_picks_by_id_and_may_not_write_digits(bundle: ProvenanceBundle) ->
         client=fake,
         choices=choices,
         request_text="wide gap oxides",
-        budget=loop.Budget.from_core(CoreConfig()),
+        budget=loop.Budget.from_core(CoreConfig(), "relax"),
     )
     assert out.choice == choices[0]
     assert out.explanation == "Lower the gap floor slightly to admit the next oxide."
@@ -86,5 +86,8 @@ def test_model_picks_by_id_and_may_not_write_digits(bundle: ProvenanceBundle) ->
     assert any("unknown choice_id" in e for e in errors) and any("no digits" in e for e in errors)
     assert "DATA" in (fake.requests[0].turns[0].text or "")
     assert relaxation.run_relax(
-        client=fake, choices=[], request_text="x", budget=loop.Budget.from_core(CoreConfig())
+        client=fake,
+        choices=[],
+        request_text="x",
+        budget=loop.Budget.from_core(CoreConfig(), "relax"),
     ).reason

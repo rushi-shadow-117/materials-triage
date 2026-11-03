@@ -1,0 +1,472 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=CO2+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 3484, "db_response_time_ms": 53, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (CO2 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (CO2 thin film) in the title or abstract where it has an abstract", "oqo":
+        {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract", "value":
+        true}, {"column_id": "title_and_abstract.search", "value": "CO2 thin film",
+        "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:CO2
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2069553871",
+        "doi": "https://doi.org/10.5757/jkvs.2009.18.6.459", "title": "Physical Properties
+        of Cd2GeSe4and Cd2GeSe4:Co2+Thin Films Grown by Thermal Evaporation", "publication_year":
+        2009, "abstract_inverted_index": {"\uc9c4\uacf5\uc99d\ucc29\ubc95\uc73c\ub85c":
+        [0], "$Cd_2GeSe_4$": [1, 26, 72, 90, 107, 139, 164, 179, 206, 253], "\uc640":
+        [2, 27, 34, 91], "$Cd_2GeSe_4:Co^{2+}$": [3, 28, 81, 92, 109, 142, 170, 181,
+        221, 255], "\ubc15\ub9c9\uc744": [4], "ITO(indium": [5], "tin": [6], "oxide)":
+        [7], "\uc720\ub9ac": [8], "\uae30\ud310": [9], "\uc704\uc5d0": [10], "\uc81c\uc791\ud558\uc600\ub2e4.":
+        [11], "\uacb0\uc815\ud654\ub294": [12], "\uc99d\ucc29\ub41c": [13, 25], "\ubc15\ub9c9\ub4e4\uc744":
+        [14], "\uc9c8\uc18c\ubd84\uc704\uae30\uc758": [15], "\uc804\uae30\ub85c\uc5d0\uc11c":
+        [16], "\uc5f4\ucc98\ub9ac\ud568\uc73c\ub85c\uc11c": [17], "\uc774\ub8f0":
+        [18], "\uc218": [19, 49], "\uc788\uc5c8\ub2e4.": [20, 50], "X-\uc120": [21],
+        "\ud68c\uc808": [22], "\ubd84\uc11d\uc5d0": [23], "\uc758\ud558\uc5ec": [24],
+        "\ubc15\ub9c9\uc758": [29, 73, 82], "\uaca9\uc790\uc0c1\uc218\ub294": [30],
+        "$a\\;=\\;7.405\\;{\\AA}$": [31], ",": [32, 36], "$c\\;=\\;36.240\\;{\\AA}$":
+        [33], "$a\\;=\\;7.43\\;{\\AA}$": [35], "$c\\;=\\;36.81\\;{\\AA}$": [37], "\ub85c\uc11c":
+        [38], "\ub2a5\uba74\uccb4(rhombohedral)": [39], "\uad6c\uc870\uc774\uc5c8\uace0,":
+        [40], "\uc5f4\ucc98\ub9ac": [41, 51, 68], "\uc628\ub3c4\ub97c": [42, 52],
+        "\uc99d\uac00\ud568\uc5d0": [43], "\ub530\ub77c": [44, 54, 71], "(113)\ubc29\ud5a5\uc73c\ub85c":
+        [45], "\uc120\ud0dd\uc801\uc73c\ub85c": [46], "\uc131\uc7a5\ub428\uc744":
+        [47], "\uc54c": [48], "\uc99d\uac00\uc2dc\ud0b4\uc5d0": [53], "\uc785\uacc4":
+        [55], "\ud06c\uae30\uac00": [56], "\uc810\ucc28": [57], "\ucee4\uc9c0\uace0":
+        [58], "\ud310\uc0c1\uad6c\uc870\ub85c": [59], "\uacb0\uc815\ud654": [60],
+        "\ub418\uc5c8\ub2e4.": [61], "\uc2e4\uc628\uc5d0\uc11c": [62], "\uce21\uc815\ud55c":
+        [63], "\uad11\ud559\uc801\uc778": [64], "\uc5d0\ub108\uc9c0": [65], "\ub760":
+        [66], "\uac04\uaca9\uc740": [67], "\uc628\ub3c4\uc758": [69], "\uc99d\uac00\uc5d0":
+        [70], "\uacbd\uc6b0": [74, 83], "1.70": [75, 209], "eV": [76, 85, 210, 216,
+        225, 231], "~": [77, 86], "1.74": [78, 87, 215, 230], "eV\ub85c": [79, 88],
+        "\uc99d\uac00\ud558\uc600\uace0,": [80], "1.79": [84, 224], "\uac10\uc18c\ud558\uc600\ub2e4.":
+        [89], "\ubc15\ub9c9": [93], "\ub0b4\uc758": [94], "\uc804\ud558\uc6b4\ubc18\uc790\ub4e4\uc758":
+        [95], "\ub3d9\uc5ed\ud559\uc801": [96], "\uac70\ub3d9\uc744": [97], "\uad11\uc720\uae30":
+        [98], "\ubc29\uc804": [99], "\ud2b9\uc131(PIDC": [100], ":": [101], "photoinduced":
+        [102, 262], "discharge": [103, 263], "characteristics)": [104], "\ubc29\ubc95\uc73c\ub85c":
+        [105], "\uc870\uc0ac\ud558\uc600\ub2e4.": [106], "and": [108, 140, 161, 165,
+        167, 180, 185, 211, 217, 226, 254], "films": [110, 129, 143, 182, 207, 222,
+        256], "were": [111, 144, 183, 257], "prepared": [112], "on": [113], "indium-tin-oxide(ITO)-coated":
+        [114], "glass": [115], "substrates": [116], "by": [117, 125, 259], "using":
+        [118, 260], "thermal": [119], "evaporation.": [120], "The": [121, 151, 194,
+        244], "crystallization": [122], "was": [123, 154, 208, 223], "achieved": [124],
+        "annealing": [126, 192, 233], "the": [127, 138, 141, 148, 173, 178, 186, 204,
+        219, 248, 252, 261], "as-deposited": [128, 205, 220], "in": [130, 234, 251],
+        "flowing": [131, 235], "nitrogen.": [132], "X-ray": [133], "diffraction":
+        [134], "spectra": [135], "showed": [136], "that": [137], "preferentially":
+        [145], "grown": [146], "along": [147], "(113)": [149], "orientation.": [150],
+        "crystal": [152], "structure": [153], "rhomohedral(hexagonal)": [155], "with":
+        [156, 190], "lattice": [157], "constants": [158], "of": [159, 203, 218, 247],
+        "$a=7.405\\;{\\AA}$": [160], "$c=36.240\\;{\\AA}$": [162], "for": [163, 169],
+        "$a=7.43\\;{\\AA}$": [166], "$c=36.81\\;{\\AA}$": [168], "films.": [171],
+        "From": [172], "scanning": [174], "electron": [175], "microscope": [176],
+        "images,": [177], "plated,": [184], "grain": [187], "size": [188], "increased":
+        [189, 212], "increasing": [191], "temperature.": [193], "optical": [195],
+        "energy": [196], "band": [197], "gap,": [198], "measured": [199], "at": [200,
+        237], "room": [201], "temperature,": [202], "to": [213, 228, 241], "about":
+        [214, 229], "decreased": [227], "upon": [232], "nitrogen": [236], "temperatures":
+        [238], "from": [239], "$200^{\\circ}C$": [240], "$500^{\\circ}C$": [242],
+        ".": [243], "dynamical": [245], "behavior": [246], "charge": [249], "carriers":
+        [250], "investigated": [258], "characteristics": [264], "technique.": [265]},
+        "primary_location": {"id": "doi:10.5757/jkvs.2009.18.6.459", "doi": "https://doi.org/10.5757/jkvs.2009.18.6.459",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.5757/jkvs.2009.18.6.459",
+        "pdf_url": "http://koreascience.or.kr:80/article/JAKO200908939909651.pdf",
+        "source": {"id": "https://openalex.org/S2764376652", "display_name": "Applied
+        Science and Convergence Technology", "issn_l": "1225-8822", "issn": ["1225-8822",
+        "2288-6559"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "dongbi-c", "kci-excellent", "poland-20", "russia-white-list-3"],
+        "host_organization": "https://openalex.org/P4353108564", "host_organization_name":
+        "Korean Vacuum Society", "host_organization_lineage": ["https://openalex.org/P4353108564"],
+        "host_organization_lineage_names": ["Korean Vacuum Society"], "type": "journal"},
+        "license": null, "license_id": null, "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "Journal of the Korean Vacuum
+        Society", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W1996775358",
+        "doi": "https://doi.org/10.1063/1.472814", "title": "Sublimation dynamics
+        of CO2 thin films: A high resolution diode laser study of quantum state resolved
+        sticking coefficients", "publication_year": 1996, "abstract_inverted_index":
+        {"Nascent": [0], "quantum": [1, 73, 248, 324], "states": [2, 139], "of": [3,
+        12, 26, 43, 50, 63, 65, 127, 136, 165, 172, 185, 247, 263, 286, 347], "CO2":
+        [4, 7, 228, 234, 348], "subliming": [5, 67, 137, 329], "from": [6, 88, 194,
+        200], "thin": [8, 98, 235], "films": [9], "at": [10, 118], "rates": [11, 193,
+        239, 258], "1": [13], "to": [14, 69, 107, 179, 218, 314, 343, 349], "103":
+        [15], "monolayers": [16], "(ML)": [17], "per": [18], "second": [19], "are":
+        [20, 110, 211, 331], "probed": [21, 141], "via": [22, 142], "direct": [23,
+        187], "infrared": [24], "absorption": [25, 188], "the": [27, 44, 48, 66, 85,
+        89, 97, 103, 108, 128, 159, 162, 170, 180, 186, 190, 195, 201, 220, 242, 261,
+        274, 287, 297, 315, 328, 344, 350], "\u03bd3": [28], "asymmetric": [29], "stretch":
+        [30], "with": [31, 72, 174, 213, 270], "a": [32, 92, 114, 231, 264], "frequency":
+        [33], "ramped": [34], "diode": [35, 45], "laser.": [36], "The": [37, 133,
+        317], "high": [38, 123], "spectral": [39], "resolution": [40, 124], "(\u0394\u03bd\u224a15":
+        [41], "MHz)": [42], "laser": [46], "and": [47, 59, 78, 252, 303, 310, 336],
+        "use": [49], "polarization": [51, 143], "modulation": [52, 144], "techniques":
+        [53], "permit": [54], "individual": [55, 129], "rotational,": [56], "vibrational,":
+        [57], "translational,": [58], "even": [60], "MJ": [61, 134], "degrees": [62],
+        "freedom": [64], "flux": [68, 330], "be": [70, 198], "studied": [71], "state":
+        [74, 325], "resolution.": [75], "Measured": [76], "rotational": [77, 138,
+        163, 250, 275, 311, 337], "\u03bd2": [79], "bend": [80], "vibrational": [81],
+        "distributions": [82, 105, 326], "indicate": [83, 244], "that": [84, 296,
+        322], "molecules": [86, 173], "sublime": [87], "surface": [90, 109, 181, 196],
+        "in": [91, 161, 327], "Boltzmann": [93], "distribution": [94, 117, 135, 164],
+        "characterized": [95], "by": [96, 113, 122, 277], "film": [99], "temperature":
+        [100, 276], "Ts.": [101, 284], "Similarly,": [102], "velocity": [104, 116,
+        254], "parallel": [106, 178], "well": [111], "described": [112], "Maxwell":
+        [115], "Ts,": [119], "as": [120, 278, 280], "determined": [121], "Doppler":
+        [125], "analysis": [126, 319], "rovibrational": [130], "line": [131], "shapes.":
+        [132], "is": [140, 148, 169, 268, 300], "methods;": [145], "no": [146], "alignment":
+        [147], "detected": [149], "within": [150], "experimental": [151], "sensitivity.":
+        [152], "This": [153], "places": [154], "an": [155], "upper": [156], "limit":
+        [157], "on": [158, 230], "anisotropy": [160], "|n\u22a5/n\u2225\u22121|<0.02,":
+        [166], "where": [167], "n\u22a5/n\u2225": [168], "ratio": [171], "J": [175],
+        "perpendicular": [176], "vs": [177], "normal.": [182], "By": [183], "virtue":
+        [184], "technique,": [189], "absolute": [191, 221], "sublimation": [192, 238,
+        257], "can": [197], "obtained": [199], "measured": [202], "column": [203],
+        "integrated": [204], "densities.": [205], "Via": [206], "detailed": [207],
+        "balance,": [208], "these": [209], "fluxes": [210], "compared": [212], "equilibrium":
+        [214], "vapor": [215], "pressure": [216], "measurements": [217], "retrieve":
+        [219], "sticking": [222], "coefficients": [223], "S": [224], "for": [225,
+        334], "gas": [226], "phase": [227, 233], "impinging": [229], "solid": [232],
+        "film.": [236], "For": [237, 256], "<103": [240], "ML/s,": [241, 260], "data":
+        [243], "S=1.0\u00b10.2,": [245], "irrespective": [246], "state,": [249], "alignment,":
+        [251], "tangential": [253], "component.": [255], "\u2273103": [259], "onset":
+        [262], "mild": [265], "supersonic": [266], "expansion": [267], "observed,":
+        [269], "post-desorption": [271], "collisions": [272], "cooling": [273], "much":
+        [279], "15": [281], "K": [282], "below": [283], "Modeling": [285], "gas\u2013surface":
+        [288, 298], "interaction": [289], "using": [290], "realistic": [291], "CO2\u2013CO2":
+        [292], "pair": [293], "potentials": [294], "demonstrates": [295], "potential":
+        [299], "relatively": [301], "\u2018\u2018soft\u2019\u2019": [302], "highly":
+        [304], "corrugated,": [305], "which": [306], "promotes": [307], "efficient":
+        [308], "translational": [309, 335], "energy": [312, 346], "transfer": [313],
+        "surface.": [316, 351], "scattering": [318], "also": [320], "suggests": [321],
+        "nonequilibrium": [323], "not": [332], "expected": [333], "energies": [338],
+        "less": [339], "than": [340], "or": [341], "comparable": [342], "binding":
+        [345]}, "primary_location": {"id": "doi:10.1063/1.472814", "doi": "https://doi.org/10.1063/1.472814",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.472814", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S77047749", "display_name": "The
+        Journal of Chemical Physics", "issn_l": "0021-9606", "issn": ["0021-9606",
+        "1089-7690", "1520-9032"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-b", "jufo-1",
+        "ki-jl-1", "medline", "norway-1", "poland-100", "russia-white-list-2", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "The Journal
+        of Chemical Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W3096740619",
+        "doi": "https://doi.org/10.1021/acs.jpcc.0c07948", "title": "Molecular Dynamics
+        Simulations of Mineral Surface Wettability by Water Versus CO2: Thin Films,
+        Contact Angles, and Capillary Pressure in a Silica Nanopore", "publication_year":
+        2020, "abstract_inverted_index": {"Abstract": [0], "The": [1, 88], "wettability":
+        [2, 34, 72], "of": [3, 35, 67, 120, 134, 136, 143, 153, 185, 208, 234], "mineral":
+        [4, 37, 225], "surfaces": [5, 38, 115, 254], "is": [6, 41, 83], "an": [7],
+        "important": [8], "property": [9, 46], "influencing": [10, 47], "multiphase":
+        [11], "flow": [12], "in": [13, 30, 70, 150, 199, 212, 240], "soils": [14],
+        "and": [15, 49, 92, 102, 108, 129, 131, 158, 161, 195, 215, 227, 231, 244,
+        255], "sedimentary": [16, 31], "rocks.": [17], "In": [18], "particular,":
+        [19], "for": [20, 220, 228], "CO2": [21, 29, 109, 128, 144, 164], "abatement":
+        [22], "technologies": [23], "that": [24, 56, 172, 238], "rely": [25], "on":
+        [26], "trapping": [27], "supercritical": [28], "formations,": [32], "the":
+        [33, 68, 75, 78, 81, 118, 121, 127, 132, 137, 151, 154, 162, 173, 179, 182,
+        187, 191, 196, 200, 206, 242], "relevant": [36, 155], "by": [39, 250], "water":
+        [40, 58, 107, 123, 202, 210], "a": [42, 62, 141, 217, 224], "poorly": [43],
+        "constrained": [44], "fundamental": [45], "stratigraphic": [48], "residual":
+        [50], "trapping.": [51], "Theoretical": [52], "studies": [53], "have": [54],
+        "noted": [55], "adsorbed": [57, 122, 201, 256], "films": [59, 211], "may":
+        [60, 247], "hold": [61], "key": [63], "to": [64, 80, 85, 116, 252], "resolving":
+        [65], "many": [66], "discrepancies": [69, 239], "reported": [71], "data,":
+        [73], "but": [74], "transition": [76], "from": [77], "droplet": [79], "film":
+        [82, 124], "difficult": [84], "observe": [86], "experimentally.": [87], "link":
+        [89], "between": [90, 113, 126, 181, 190], "continuum": [91, 230], "nanoscale":
+        [93, 232], "observations": [94], "can": [95], "be": [96, 248], "elucidated":
+        [97], "using": [98], "molecular": [99], "dynamics": [100], "(MD)": [101],
+        "thermodynamic": [103], "equations.": [104], "We": [105, 170, 204, 236], "simulate":
+        [106], "at": [110, 167], "various": [111, 168], "pressures": [112], "quartz":
+        [114], "probe": [117], "thickness": [119], "observed": [125, 183], "quartz,":
+        [130], "radius": [133, 184], "curvature": [135], "fluid\u2013fluid": [138],
+        "interface": [139, 226], "as": [140], "function": [142], "pressure.": [145],
+        "These": [146], "results": [147], "are": [148], "discussed": [149], "context":
+        [152], "interfacial": [156], "energies": [157], "Young\u2019s": [159], "equation":
+        [160, 176], "Gibbs": [163], "surface": [165], "excesses": [166], "interfaces.":
+        [169], "show": [171], "augmented": [174], "Young\u2013Laplace": [175], "accurately":
+        [177], "captures": [178], "relationship": [180], "curvature,": [186], "capillary":
+        [188], "pressure": [189, 198], "bulk": [192], "fluid": [193], "phases,": [194],
+        "disjoining": [197], "film.": [203], "examine": [205], "thermodynamics": [207],
+        "thin": [209], "novel": [213], "depth": [214], "present": [216], "new": [218],
+        "methodology": [219], "characterizing": [221], "circularity": [222], "approaching":
+        [223], "comparing": [229], "manifestations": [233], "wettability.": [235],
+        "find": [237], "both": [241], "experimental": [243], "MD": [245], "database":
+        [246], "influenced": [249], "proximity": [251], "solid": [253], "wetting":
+        [257], "films.": [258]}, "primary_location": {"id": "doi:10.1021/acs.jpcc.0c07948",
+        "doi": "https://doi.org/10.1021/acs.jpcc.0c07948", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.1021/acs.jpcc.0c07948", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S95739953", "display_name": "The Journal of Physical
+        Chemistry C", "issn_l": "1932-7447", "issn": ["1932-7447", "1932-7455"], "is_oa":
+        false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core", "dongbi-c",
+        "jufo-2", "ki-jl-1", "norway-1", "poland-140", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320006", "host_organization_name":
+        "American Chemical Society", "host_organization_lineage": ["https://openalex.org/P4310320006"],
+        "host_organization_lineage_names": ["American Chemical Society"], "type":
+        "journal"}, "license": "other-oa", "license_id": "https://openalex.org/licenses/other-oa",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "The Journal of Physical Chemistry C", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2328046310", "doi": "https://doi.org/10.1021/jp203916m",
+        "title": "Amorphous Solid Water (ASW): Pulsed Laser Ablation of ASW/CO2 Thin
+        Films", "publication_year": 2011, "abstract_inverted_index": {"Thin": [0],
+        "films": [1], "composed": [2], "of": [3, 7, 34, 46, 66, 119, 122, 128, 136,
+        139, 154, 164, 209, 237, 247], "400\u2013500": [4], "monolayers": [5], "(ML)":
+        [6], "either": [8], "amorphous": [9], "solid": [10], "water": [11, 250], "(ASW)":
+        [12], "or": [13], "ASW/CO": [14, 105, 276], "2": [15, 106, 109, 142, 156,
+        239], "mixtures": [16], "are": [17, 28, 158, 241], "grown": [18], "atop":
+        [19], "a": [20, 63, 72, 147, 282], "MgO(100)": [21], "substrate": [22, 166,
+        183], "under": [23], "ultrahigh": [24], "vacuum": [25], "conditions.": [26],
+        "Samples": [27], "irradiated": [29, 102], "at": [30, 214], "an": [31], "infrared":
+        [32, 94, 189], "frequency": [33], "3424": [35], "cm": [36], "\u20131,": [37],
+        "which": [38], "lies": [39], "within": [40], "the": [41, 92, 101, 120, 123,
+        129, 134, 140, 165, 171, 175, 182, 188, 206, 231, 254, 262, 292], "broad":
+        [42], "OH": [43], "stretch": [44], "band": [45], "condensed": [47], "water.":
+        [48], "Ablation": [49], "is": [50, 60, 83, 87, 110, 114, 167, 184, 257], "achieved":
+        [51], "using": [52, 71], "10": [53], "ns": [54], "pulses": [55], "whose":
+        [56], "energy": [57], "(<2.7": [58], "mJ)": [59], "focused": [61], "to": [62,
+        76, 181, 291], "beam": [64], "waist": [65], "approximately": [67], "0.5":
+        [68], "mm.": [69], "By": [70], "time-of-flight": [73], "mass": [74, 255],
+        "spectrometer": [75], "monitor": [77], "ablated": [78], "material,": [79],
+        "excellent": [80], "single-shot": [81], "detection": [82], "demonstrated.":
+        [84], "This": [85, 113, 192, 226], "capability": [86], "essential": [88],
+        "because,": [89], "in": [90, 117, 143, 217, 253], "general,": [91], "first":
+        [93], "pulse": [95, 190], "can": [96, 132], "induce": [97], "irreversible":
+        [98], "changes": [99], "throughout": [100], "volume.": [103], "With": [104],
+        "samples,": [107, 220], "CO": [108, 141], "released": [111], "preferentially.":
+        [112], "not": [115], "surprising": [116], "light": [118], "metastability":
+        [121], "samples.": [124], "Indeed,": [125], "repeated": [126], "irradiation":
+        [127], "same": [130], "spot": [131], "rid": [133], "sample": [135, 172], "essentially":
+        [137], "all": [138], "as": [144, 146, 200, 259, 275], "little": [145], "few":
+        [148], "pulses,": [149], "whereas": [150], "only": [151, 234], "10\u201320":
+        [152, 235], "ML": [153, 236], "H": [155, 238], "O": [157, 240], "removed":
+        [159, 242], "per": [160, 243], "pulse.": [161, 244], "The": [162, 245], "influence":
+        [163], "profound.": [168], "It": [169], "cools": [170], "efficiently": [173],
+        "because": [174], "characteristic": [176], "time": [177], "for": [178, 230,
+        261], "heat": [179], "transfer": [180], "much": [185], "less": [186], "than":
+        [187], "duration.": [191], "creates": [193], "temperature": [194], "gradients,":
+        [195], "thereby": [196], "quenching": [197, 228], "processes": [198], "such":
+        [199, 274], "explosive": [201], "boiling": [202], "(phase": [203], "explosion)":
+        [204], "and": [205, 270, 287], "heterogeneous": [207], "nucleation": [208],
+        "cavities": [210], "that": [211, 233], "take": [212], "place": [213], "lower":
+        [215], "depths": [216], "significantly": [218], "thicker": [219], "i.e.,":
+        [221], "with": [222], "sufficient": [223], "inertial": [224], "confinement.":
+        [225], "efficient": [227], "accounts": [229], "fact": [232], "presence": [246],
+        "small": [248], "protonated": [249], "cluster": [251], "ions": [252], "spectra":
+        [256], "interpreted": [258], "evidence": [260], "trivial": [263], "fragmentation":
+        [264], "mechanism": [265], "examined": [266], "assiduously": [267], "by":
+        [268], "Lewis": [269], "co-workers.": [271], "Mixed": [272], "samples": [273],
+        "2,": [277], "where": [278], "species": [279], "segregation": [280], "plays":
+        [281], "pivotal": [283], "role,": [284], "add": [285], "interesting": [286],
+        "potentially": [288], "useful": [289], "dimensions": [290], "ablation": [293],
+        "phenomenon.": [294]}, "primary_location": {"id": "doi:10.1021/jp203916m",
+        "doi": "https://doi.org/10.1021/jp203916m", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1021/jp203916m", "pdf_url": null, "source": {"id": "https://openalex.org/S95739953",
+        "display_name": "The Journal of Physical Chemistry C", "issn_l": "1932-7447",
+        "issn": ["1932-7447", "1932-7455"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["cwts-core", "dongbi-c", "jufo-2", "ki-jl-1", "norway-1",
+        "poland-140", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320006",
+        "host_organization_name": "American Chemical Society", "host_organization_lineage":
+        ["https://openalex.org/P4310320006"], "host_organization_lineage_names": ["American
+        Chemical Society"], "type": "journal"}, "license": null, "license_id": null,
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "The Journal of Physical Chemistry C", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2089401290", "doi": "https://doi.org/10.1103/physreve.69.051601",
+        "title": "Polystyrene thin films in CO2", "publication_year": 2004, "abstract_inverted_index":
+        {"In": [0], "air,": [1, 155], "or": [2, 22], "vacuum": [3], "environments,":
+        [4], "liquid": [5, 63, 74], "polystyrene": [6], "(PS)": [7], "thin": [8],
+        "films": [9, 65, 85, 96, 167], "(thickness,": [10], "h<100": [11], "nm": [12,
+        72], ")": [13, 82], "supported": [14], "by": [15, 114], "SiOx": [16, 36],
+        "/Si": [17, 37], "substrates": [18, 38], "are": [19], "structurally": [20],
+        "metastable": [21], "unstable,": [23], "depending": [24], "on": [25, 34],
+        "film": [26, 117], "thickness.": [27], "They": [28], "rupture": [29], "and":
+        [30, 75, 97, 104, 120, 144, 156], "eventually": [31, 105], "form": [32], "droplets":
+        [33], "the": [35, 42, 59, 67, 95, 129, 133, 139, 158, 166], "(dewet)": [39],
+        "due": [40], "to": [41, 57], "influence": [43], "of": [44, 62, 110, 132, 146,
+        160], "destabilizing": [45], "long-ranged": [46], "van": [47], "der": [48],
+        "Waals": [49], "dispersion": [50], "forces.": [51], "We": [52], "used": [53],
+        "scanning": [54], "force": [55], "microscopy": [56], "examine": [58], "structural":
+        [60], "stability": [61], "PS": [64, 163], "in": [66, 73, 76, 86, 128, 148,
+        154, 157], "thickness": [68, 88], "range": [69, 89], "5": [70], "nm<h<100":
+        [71], "supercritical": [77], "carbon": [78], "dioxide": [79], "(": [80], "CO2":
+        [81, 121, 125, 149], "environments.": [83], "All": [84], "this": [87], "were":
+        [90], "metastable;": [91], "holes": [92, 101, 147], "developed": [93], "throughout":
+        [94], "over": [98], "time": [99], "these": [100], "grew,": [102], "impinged,":
+        [103], "formed": [106], "droplets.": [107], "The": [108], "rate": [109], "destabilization":
+        [111], "is": [112, 150], "controlled": [113], "three": [115], "factors:":
+        [116], "thickness,": [118], "temperature,": [119], "pressure": [122], "(which":
+        [123], "dictates": [124], "volume": [126, 164], "fraction": [127, 165], "films).":
+        [130], "Calculations": [131], "effective": [134], "interface": [135], "potentials":
+        [136], "suggest": [137], "that": [138, 153], "energy": [140], "barrier": [141],
+        "for": [142], "nucleation": [143], "growth": [145], "larger": [151], "than":
+        [152], "limit": [159], "vanishingly": [161], "low": [162], "should": [168],
+        "be": [169], "stable.": [170]}, "primary_location": {"id": "doi:10.1103/physreve.69.051601",
+        "doi": "https://doi.org/10.1103/physreve.69.051601", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1103/physreve.69.051601", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S35412551", "display_name": "Physical Review E", "issn_l":
+        "1539-3755", "issn": ["1539-3755", "1550-2376"], "is_oa": false, "is_in_doaj":
+        false, "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320261", "host_organization_name":
+        "American Physical Society", "host_organization_lineage": ["https://openalex.org/P4310320261"],
+        "host_organization_lineage_names": ["American Physical Society"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Physical Review
+        E", "raw_type": "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a547fe16193c2d2a-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '24788'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:36:39 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=ijeYM2qqaCGmtt6pV7SgzmFfCcXHyOYn%2FaBy1tL1tKA%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793673399"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=ijeYM2qqaCGmtt6pV7SgzmFfCcXHyOYn%2FaBy1tL1tKA%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793673399"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9990'
+      x-ratelimit-remaining-usd:
+      - '0.999'
+      x-ratelimit-reset:
+      - '77001'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=CO2+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 5253, "db_response_time_ms": 36, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (CO2 thin film)
+        in the title or abstract", "x_new_oql": "get works with (CO2 thin film) in
+        the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "CO2 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:CO2 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W2062283710"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a547fe196e4f2d2a-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '608'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:36:39 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=ijeYM2qqaCGmtt6pV7SgzmFfCcXHyOYn%2FaBy1tL1tKA%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793673399"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=ijeYM2qqaCGmtt6pV7SgzmFfCcXHyOYn%2FaBy1tL1tKA%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793673399"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9980'
+      x-ratelimit-remaining-usd:
+      - '0.998'
+      x-ratelimit-reset:
+      - '77001'
+    status:
+      code: 200
+      message: OK
+version: 1

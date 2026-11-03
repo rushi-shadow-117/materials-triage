@@ -1,0 +1,361 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=FeO+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 366, "db_response_time_ms": 1088, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (FeO thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (FeO thin film) in the title or abstract where it has an abstract", "oqo":
+        {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract", "value":
+        true}, {"column_id": "title_and_abstract.search", "value": "FeO thin film",
+        "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:FeO
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W1993985575",
+        "doi": "https://doi.org/10.1021/jp8053026", "title": "Self-Assembly of MgPc
+        Molecules on Polar FeO Thin Films", "publication_year": 2008, "abstract_inverted_index":
+        {"The": [0, 20, 52, 63], "spatial": [1], "arrangement": [2], "of": [3, 66],
+        "magnesium": [4], "phthalocyanine": [5], "(MgPc)": [6], "molecules": [7, 54],
+        "has": [8], "been": [9], "investigated": [10], "on": [11, 15, 70], "FeO":
+        [12], "films": [13], "grown": [14], "Pt(111)": [16], "with": [17, 28, 59,
+        79], "low-temperature": [18], "STM.": [19], "polar": [21], "oxide": [22],
+        "film": [23], "forms": [24], "a": [25, 34], "coincidence": [26, 49], "lattice":
+        [27], "the": [29, 38, 48, 67, 71, 80], "Pt": [30], "support": [31], "and":
+        [32, 41], "exhibits": [33], "surface": [35], "dipole": [36, 61], "between":
+        [37], "Fe": [39], "\u03b4+": [40], "O": [42], "\u03b4\u2212": [43], "layers":
+        [44], "that": [45], "varies": [46], "across": [47], "unit": [50], "cell.":
+        [51], "MgPc": [53, 68], "preferentially": [55], "adsorb": [56], "in": [57],
+        "regions": [58], "large": [60], "strength.": [62], "rotational": [64], "orientation":
+        [65], "molecules,": [69], "other": [72], "hand,": [73], "is": [74], "determined":
+        [75], "by": [76], "their": [77], "interaction": [78], "atomic": [81], "Fe\u2212O":
+        [82], "lattice.": [83]}, "primary_location": {"id": "doi:10.1021/jp8053026",
+        "doi": "https://doi.org/10.1021/jp8053026", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1021/jp8053026", "pdf_url": null, "source": {"id": "https://openalex.org/S95739953",
+        "display_name": "The Journal of Physical Chemistry C", "issn_l": "1932-7447",
+        "issn": ["1932-7447", "1932-7455"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["cwts-core", "dongbi-c", "jufo-2", "ki-jl-1", "norway-1",
+        "poland-140", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320006",
+        "host_organization_name": "American Chemical Society", "host_organization_lineage":
+        ["https://openalex.org/P4310320006"], "host_organization_lineage_names": ["American
+        Chemical Society"], "type": "journal"}, "license": null, "license_id": null,
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "The Journal of Physical Chemistry C", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W4400262403", "doi": "https://doi.org/10.33003/fjs-2024-0803-2357",
+        "title": "THE EFFECT OF Mg, Mn, Co DOPING ON THE OPTICAL PROPERTIES OF FeO
+        THIN FILMS", "publication_year": 2024, "abstract_inverted_index": {"Semiconductors":
+        [0], "of": [1, 26, 39, 42, 75, 94, 97, 129], "magnesium,": [2, 44], "cobalt,":
+        [3, 43], "and": [4, 45, 90, 122], "manganese": [5, 46, 136], "have": [6, 105,
+        118], "optical": [7, 28, 80, 107], "properties": [8, 29, 96, 108], "which":
+        [9, 147], "are": [10], "very": [11], "important": [12], "in": [13, 20, 125,
+        151], "many": [14], "applications.However,": [15], "the": [16, 24, 37, 95,
+        98, 115, 126, 130, 142], "major": [17], "constraining": [18], "effect": [19],
+        "its": [21, 27], "development": [22], "is": [23], "uniqueness": [25], "at":
+        [30, 59, 73, 109], "room": [31, 60, 110], "temperature.In": [32], "this":
+        [33], "work,": [34], "we": [35], "studied": [36], "influence": [38], "three":
+        [40, 99, 116], "metals": [41], "when": [47], "doped": [48, 55, 137], "with":
+        [49, 135, 149], "FeO.The": [50], "thin": [51], "films": [52, 70], "were":
+        [53, 71, 82], "successfully": [54], "on": [56], "glass": [57], "substrate":
+        [58], "temperature": [61], "using": [62, 85], "successive": [63], "ionic":
+        [64], "layer": [65], "adsorption": [66], "reaction": [67], "(SILAR)": [68],
+        "method.The": [69], "annealed": [72], "temperatures": [74], "120\u02daC,":
+        [76], "140\u02daC,": [77], "160\u02daC": [78], "respectively.The": [79], "characteristics":
+        [81], "carried": [83], "out": [84], "UV-180": [86], "double": [87], "beam":
+        [88], "spectrophotometer": [89], "a": [91], "comparative": [92], "study":
+        [93], "systems,to": [100], "understand": [101], "their": [102, 119], "ability":
+        [103, 124], "to": [104], "good": [106], "temperature.It": [111], "was": [112],
+        "observed": [113], "that": [114], "systems": [117], "absorbance,": [120],
+        "transmittance": [121], "reflectance": [123], "visible": [127], "region":
+        [128], "spectrum": [131], "along": [132], "300nm": [133], "-800nm,": [134],
+        "Iron": [138], "oxide": [139], "(Mn:FeO)": [140], "having": [141], "strongest":
+        [143], "Absorbance,": [144], "Transmittance,": [145], "Reflection": [146],
+        "decreased": [148], "increase": [150], "annealing": [152], "temperature.":
+        [153]}, "primary_location": {"id": "doi:10.33003/fjs-2024-0803-2357", "doi":
+        "https://doi.org/10.33003/fjs-2024-0803-2357", "is_oa": true, "landing_page_url":
+        "http://dx.doi.org/10.33003/fjs-2024-0803-2357", "pdf_url": "https://fjs.fudutsinma.edu.ng/index.php/fjs/article/download/2357/1886",
+        "source": {"id": "https://openalex.org/S4210224159", "display_name": "FUDMA
+        Journal of Sciences", "issn_l": "2616-1370", "issn": ["2616-1370", "2645-2944"],
+        "is_oa": true, "is_in_doaj": false, "is_core": false, "listed_in": [], "host_organization":
+        "https://openalex.org/P4404662838", "host_organization_name": "Federal University,
+        Dutsin-Ma", "host_organization_lineage": ["https://openalex.org/P4404662838"],
+        "host_organization_lineage_names": ["Federal University, Dutsin-Ma"], "type":
+        "journal"}, "license": "cc-by", "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "FUDMA JOURNAL OF SCIENCES", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2438957914", "doi": "https://doi.org/10.20964/2016.07.39",
+        "title": "One-step Electrochemical Synthesis of Polyaniline/Metallic Oxide
+        Nanoparticle (\u03b3-FeO) Thin Film", "publication_year": 2016, "abstract_inverted_index":
+        {"Polyaniline": [0], "and": [1, 26, 68, 83, 101, 110], "metallic": [2], "oxide":
+        [3, 95, 143], "(\u03b3-Fe": [4, 78, 169], "2": [5, 71, 79, 170], "O": [6,
+        80, 171], "3": [7, 81, 172], ")": [8, 82], "composite": [9, 123, 179], "thin":
+        [10], "film": [11], "was": [12, 40], "simultaneously": [13, 167], "synthesized":
+        [14], "using": [15, 42], "an": [16, 30, 55], "electrochemical": [17], "technique":
+        [18], "in": [19, 29, 85, 114, 198], "a": [20, 46, 86, 181, 185], "solution":
+        [21], "containing": [22], "aniline,": [23], "oxalic": [24], "acid,": [25],
+        "iron(III)": [27], "sulfate": [28], "alkaline": [31], "medium.": [32], "The":
+        [33, 174], "results": [34, 139], "of": [35, 49, 58, 77, 106, 121, 126, 158,
+        164, 177], "the": [36, 59, 75, 93, 99, 115, 122, 127, 138, 161, 178, 193],
+        "reaction": [37], "process,": [38], "which": [39], "monitored": [41], "infrared":
+        [43], "spectra": [44, 90], "at": [45, 129], "specific": [47], "wavelength":
+        [48], "638": [50], "cm": [51], "-1": [52], "along": [53], "with": [54, 98,
+        104, 135, 168], "X-ray": [56], "diffractogram": [57], "respective": [60],
+        "angles": [61], "30.6": [62], "o": [63, 66, 70, 132], ",": [64, 67], "35.4":
+        [65], "60.7": [69], "\u03b8": [72], "degree,": [73], "indicated": [74], "presence":
+        [76], "polyaniline": [84], "single": [87], "step.": [88], "UV-Vis": [89],
+        "suggested": [91], "that": [92, 141, 155, 189], "metal": [94], "interacted":
+        [96], "synergistically": [97], "quinoid": [100], "benzoid": [102], "groups,":
+        [103], "absorption": [105], "approximately": [107, 130], "560": [108], "nm":
+        [109, 112], "280": [111], "present": [113], "polymeric": [116], "matrix.":
+        [117], "Thermogravimetric": [118], "analysis": [119], "(TGA)": [120], "lost":
+        [124], "10%": [125], "weight": [128], "188": [131], "C.": [133], "Together":
+        [134], "TEM": [136], "images,": [137], "showed": [140, 180, 188], "iron":
+        [142], "particles": [144], "are": [145], "nanometer-sized": [146], "(126":
+        [147], "\u00b1": [148], "30": [149], "nm).": [150], "Furthermore,": [151,
+        184], "SEM": [152], "images": [153], "show": [154], "multiple": [156], "cycles":
+        [157], "synthesis": [159], "modify": [160], "mechanical": [162], "properties":
+        [163], "films": [165], "prepared": [166], ").": [173], "voltammetric": [175],
+        "behavior": [176], "reversible": [182], "process.": [183], "preliminary":
+        [186], "test": [187], "our": [190], "material": [191], "has": [192], "potential":
+        [194], "to": [195], "be": [196], "applied": [197], "gas": [199], "sensors.":
+        [200]}, "primary_location": {"id": "doi:10.20964/2016.07.39", "doi": "https://doi.org/10.20964/2016.07.39",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.20964/2016.07.39",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S48583931", "display_name":
+        "International Journal of Electrochemical Science", "issn_l": "1452-3981",
+        "issn": ["1452-3981"], "is_oa": true, "is_in_doaj": true, "is_core": true,
+        "listed_in": ["cwts-core", "doaj", "dongbi-d", "jufo-1", "norway-1", "poland-40",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310320990", "host_organization_name":
+        "Elsevier BV", "host_organization_lineage": ["https://openalex.org/P4310320990"],
+        "host_organization_lineage_names": ["Elsevier BV"], "type": "journal"}, "license":
+        "cc-by-nc-nd", "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "International Journal of Electrochemical Science", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W3130185409", "doi": null,
+        "title": "Zero-bias conductance anomaly in single Au-CO complexes on a FeO
+        thin film on Pt(111)", "publication_year": 2007, "abstract_inverted_index":
+        {"A": [0], "thin": [1], "film": [2], "of": [3, 32, 45, 58, 68, 106, 115, 126,
+        130], "FeO": [4], "grown": [5], "on": [6], "Pt(111)": [7, 40], "forms": [8],
+        "a": [9, 28, 56, 62, 97, 124], "hexagonal": [10, 63], "Moire": [11, 52], "pattern":
+        [12], "(DE)": [13], "due": [14], "to": [15, 38], "the": [16, 21, 33, 39, 51,
+        69, 82, 94, 103, 107, 116, 127, 131], "11%": [17], "lattice": [18], "mismatch":
+        [19], "with": [20, 36], "metal": [22], "support": [23], "that": [24, 119],
+        "is": [25, 111], "characterized": [26], "by": [27, 87, 123], "modulated":
+        [29], "stacking": [30], "sequence": [31], "Fe": [34], "ions": [35], "respect":
+        [37], "lattice.": [41], "The": [42, 109], "spatial": [43], "inhomogeneity":
+        [44], "electronic": [46], "and": [47], "chemical": [48], "properties": [49],
+        "within": [50], "unit": [53], "cell": [54], "stimulates": [55], "self-organization":
+        [57], "Au": [59, 95], "adatoms": [60, 70], "into": [61], "adatom": [64], "network.":
+        [65], "Conductance": [66], "spectra": [67], "reveal": [71], "an": [72], "unoccupied":
+        [73], "resonance": [74], "at": [75], "+0.5": [76], "eV,": [77], "but": [78],
+        "no": [79], "features": [80], "around": [81], "Fermi": [83], "level,": [84],
+        "as": [85], "measured": [86], "low-temperature": [88], "STS.": [89], "After":
+        [90], "CO": [91, 135], "adsorption": [92], "onto": [93], "monomers,": [96],
+        "pronounced": [98], "zero-bias": [99], "anomaly": [100], "appears": [101],
+        "in": [102, 113], "differential": [104], "conductance": [105], "species.":
+        [108], "phenomenon": [110], "discussed": [112], "terms": [114], "Kondo": [117],
+        "effect": [118], "might": [120], "be": [121], "induced": [122], "change":
+        [125], "spin/charge": [128], "distribution": [129], "Au-CO": [132], "complex":
+        [133], "after": [134], "adsorption.": [136]}, "primary_location": {"id": "mag:3130185409",
+        "doi": null, "is_oa": false, "landing_page_url": "https://www.osti.gov/etdeweb/biblio/21040227",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4306534129", "display_name":
+        "Verhandlungen der Deutschen Physikalischen Gesellschaft", "issn_l": null,
+        "issn": null, "is_oa": false, "is_in_doaj": false, "is_core": false, "listed_in":
+        [], "host_organization": null, "host_organization_name": null, "host_organization_lineage":
+        [], "host_organization_lineage_names": [], "type": "journal"}, "license":
+        null, "license_id": null, "version": null, "is_accepted": false, "is_published":
+        false, "raw_source_name": "Verhandlungen der Deutschen Physikalischen Gesellschaft",
+        "raw_type": null}}, {"id": "https://openalex.org/W4394579427", "doi": "https://doi.org/10.4028/p-dz4n68",
+        "title": "A Study of Nanostructured FeO Thin Film-Based Allure Red and Direct
+        Blue 15 Azo Dyes Sensing Scheme", "publication_year": 2024, "abstract_inverted_index":
+        {"This": [0], "study": [1], "reports": [2], "on": [3], "the": [4, 13, 33,
+        50, 61, 120, 124, 130, 133, 140, 161], "amperometric": [5], "sensing": [6,
+        134], "properties": [7, 48, 59], "of": [8, 15, 49, 55, 63, 132, 163], "FeO/Fe2O3":
+        [9, 27, 114, 151], "thin": [10, 28, 81, 115, 152], "films": [11, 29, 116],
+        "for": [12, 60, 71, 123, 160], "detection": [14, 62, 121, 162], "Allura":
+        [16], "Red": [17], "(AR)": [18], "and": [19, 38, 42, 46, 73, 96, 128, 149],
+        "Direct": [20], "Blue": [21], "15": [22], "(DB15)": [23], "Azo": [24], "dyes.":
+        [25, 65], "The": [26, 44, 66, 106, 136], "were": [30, 84], "produced": [31,
+        52], "using": [32], "Sequential": [34], "Ionic": [35], "Layer": [36], "Adsorption":
+        [37], "Reaction": [39], "(SILAR)": [40], "method": [41, 142], "Na+-doping.":
+        [43], "morphological": [45], "structural": [47], "nanocomposites": [51], "at":
+        [53], "pH": [54], "10.5": [56], "showed": [57], "good": [58], "azo": [64,
+        126, 165], "linear": [67], "curve": [68], "fit": [69], "equations": [70],
+        "AR": [72], "DB15": [74], "droplet": [75], "applications": [76], "onto": [77],
+        "Na+-doped": [78], "FeO": [79], "nanocomposite": [80], "film": [82, 153],
+        "samples": [83], "found": [85], "to": [86, 113, 146], "be": [87, 144, 157],
+        "y": [88, 97], "=": [89, 94, 98, 103], "-0.0002x": [90], "+": [91, 100], "0.0043":
+        [92], "(R\u00b2": [93, 102], "0.9143)": [95], "-7E-05x": [99], "0.0005": [101],
+        "0.9809),": [104], "respectively.": [105], "findings": [107], "reveal": [108],
+        "that": [109, 139], "adding": [110], "Na+": [111], "doping": [112], "can":
+        [117, 143, 156], "effectively": [118], "increase": [119], "response": [122],
+        "target": [125], "dyes": [127, 166], "enhance": [129], "sensitivity": [131],
+        "system.": [135], "results": [137], "suggest": [138], "SILAR": [141], "used":
+        [145], "produce": [147], "low-cost": [148], "reusable": [150], "devices,":
+        [154], "which": [155], "promising": [158], "candidates": [159], "toxic": [164],
+        "in": [167], "liquid": [168], "samples.": [169]}, "primary_location": {"id":
+        "doi:10.4028/p-dz4n68", "doi": "https://doi.org/10.4028/p-dz4n68", "is_oa":
+        false, "landing_page_url": "https://doi.org/10.4028/p-dz4n68", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S118227851", "display_name":
+        "Journal of nano research", "issn_l": "1661-9889", "issn": ["1661-9889", "1661-9897",
+        "1662-5250"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-c", "jufo-1", "norway-1", "poland-20",
+        "russia-white-list-2"], "host_organization": null, "host_organization_name":
+        null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Nano Research", "raw_type": "journal-article"}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54802a27ec3eae4-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '15827'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:39:46 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=fVnn3zuU1Fu1n9wHzAYKqBF0j6V6sjNNoa%2BT6SZ7S8c%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793673585"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=fVnn3zuU1Fu1n9wHzAYKqBF0j6V6sjNNoa%2BT6SZ7S8c%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793673585"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9710'
+      x-ratelimit-remaining-usd:
+      - '0.971'
+      x-ratelimit-reset:
+      - '76814'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=FeO+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 605, "db_response_time_ms": 201, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (FeO thin film)
+        in the title or abstract", "x_new_oql": "get works with (FeO thin film) in
+        the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "FeO thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:FeO thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W1964726537"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54802aa4c6beae4-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '608'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:39:46 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=yO2b5KOyIth2oDFn9sFrQQ6P0V%2FBq3ha7PLUzf5O1GE%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793673586"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=yO2b5KOyIth2oDFn9sFrQQ6P0V%2FBq3ha7PLUzf5O1GE%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793673586"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9700'
+      x-ratelimit-remaining-usd:
+      - '0.97'
+      x-ratelimit-reset:
+      - '76814'
+    status:
+      code: 200
+      message: OK
+version: 1

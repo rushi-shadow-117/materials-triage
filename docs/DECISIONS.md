@@ -643,6 +643,45 @@ with a fake transport in tests; no real server was recorded.
 Reason: no OpenAI-compatible server is available to record; the mapping is small and typed.
 Alternative: omit the provider until a server exists.
 
+### 2026-11-03 Budgets are per step; at most five abstracts per candidate
+Decision (owner): `CoreConfig.step_budgets` holds one `StepBudget` (model requests, tokens,
+seconds) for each of parse, classify, rationale, and relax, replacing the single global pool
+(`max_tool_calls`, `max_tokens`, `max_seconds`); `CoreConfig.max_abstracts_per_candidate` is
+5, taken in the literature search's result order. The run records `<step>.<counter>` under
+`budgets_used` and `budgets_limit`, including the CLI's parse step. Editing the budget fields
+in `config/schema.py` was owner-authorized on 2026-11-03.
+Reason: one pool let a long classify phase starve the rationale step; per-step limits make
+a partial run name the step that ran out.
+Alternative: one pool with reservations per step.
+
+### 2026-11-03 The quote check is skipped for not_relevant and no_abstract
+Decision (owner): evidence hits labeled `not_relevant` or `no_abstract` make no claim about
+the material, so the verifier records them unverified without a quote check; the four
+evidence tiers (computed_only, bulk_synthesized, thin_film_deposited,
+dielectric_characterized) always need a verbatim sentence, and a missing one is a
+`quote_mismatch` failure.
+Reason: a sentence cannot support "not about this material"; demanding one produced
+spurious failures.
+Alternative: require a sentence for every label.
+
+### 2026-11-03 Discovery needs a gap floor; enrichment repeats until the top K is enriched
+Decision: every oxide with up to three elements is above the discovery ceiling, so a
+discovery query takes its gap floor from the query, else the profile's hard minimum, else
+its soft preference start (5.0 eV for the dielectric profile), and its gap ceiling from the
+query, else the profile's hard maximum. `scoring_profile_from_yaml` now fills
+`hard_min_ev` and `hard_max_ev`, which the schema declared but the loader skipped (a second
+owner-authorized edit of the frozen loader; the photocatalyst window never reached the
+filter before). After the summary-level scoring pass the pipeline enriches the top K plus
+the anchors, classifies their hits, and scores again; because an exclusion found by
+enrichment admits the next candidate, it repeats until the final top K is enriched, bounded
+by twelve rounds and five times top_n compositions. The two queries the CLI runs offline,
+oxides at or above 5.0 eV (895 documents) and the 2.0 to 3.3 eV window (3835), are
+recorded with the adapters of every composition that reached a top 10 along the way
+(`fixtures/compositions.yaml`, `discovery_top10_*`).
+Reason: the owner asked for discovery to run offline end to end; a single enrichment pass
+left unenriched rows in the shown top 10 as soon as enrichment excluded one.
+Alternative: enrich a fixed margin (top 2K) once.
+
 ## Track C: API and web
 
 ## Track D: deploy and docs

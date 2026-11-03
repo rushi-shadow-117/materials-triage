@@ -1,0 +1,390 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=SO2+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+  response:
+    body:
+      string: '{"meta": {"count": 219, "db_response_time_ms": 26, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (SO2 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (SO2 thin film) in the title or abstract where it has an abstract", "oqo":
+        {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract", "value":
+        true}, {"column_id": "title_and_abstract.search", "value": "SO2 thin film",
+        "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:SO2
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2740447551",
+        "doi": null, "title": "Optical Characteristics of Nanocrystaline Thermal Annealed
+        Tin Oxide (SO2) Thin Film samples Prepared by Chemical Bath Deposition Technique",
+        "publication_year": 2010, "abstract_inverted_index": {"A": [0], "tin": [1],
+        "oxide": [2, 114], "thin": [3], "film": [4, 115], "was": [5], "prepared":
+        [6], "by": [7], "chemical": [8], "bath": [9], "deposition": [10, 42], "technique,":
+        [11], "deposited": [12], "on": [13], "glass": [14], "substrates": [15], "using":
+        [16], "5mls": [17], "of": [18, 20, 24, 26, 108, 112], "1m": [19], "SnCl22H2O":
+        [21], "and": [22, 50, 60, 70, 78, 91, 99], "1ML": [23], "1M": [25], "NaOH":
+        [27], "solution": [28], "with": [29], "triethanolamine": [30], "(TEA)": [31],
+        "as": [32], "the": [33, 58, 73, 106, 113], "complexing": [34], "agent.": [35],
+        "The": [36, 65, 80, 93, 101], "films": [37], "were": [38], "subjected": [39],
+        "to": [40, 53, 57, 62], "post": [41], "annealing": [43], "under": [44, 84],
+        "various": [45, 85], "temperatures,": [46], "100,": [47], "150,": [48], "200,300":
+        [49], "3990C.": [51], "Found": [52], "be": [54], "firmly": [55], "adhered":
+        [56], "substrate": [59], "resistant": [61], "chemicals": [63], "wear.": [64],
+        "transmittance": [66], "is": [67, 75, 96, 104], "between": [68, 76, 89, 97],
+        "57%": [69], "95%": [71], "while": [72], "reflectance": [74], "4%": [77],
+        "19%.": [79], "band": [81], "gaps": [82], "obtained": [83], "thermal": [86],
+        "treatments": [87], "are": [88], "1.40eV": [90], "3.2eV.": [92], "refractive":
+        [94], "index": [95], "0.00": [98], "3.00.": [100], "thickness": [102], "achieved":
+        [103], "in": [105, 121], "range": [107], "0.12-0.14\u03bcm.": [109], "These":
+        [110], "properties": [111], "make": [116], "it": [117], "suitable": [118],
+        "for": [119, 130], "application": [120], "solar": [122], "cell": [123], "fabrication,":
+        [124], "gas": [125], "sensor": [126], "devices,": [127], "transparent": [128],
+        "electrodes": [129], "panel": [131], "displays,": [132], "etc.": [133]}, "primary_location":
+        {"id": "mag:2740447551", "doi": null, "is_oa": false, "landing_page_url":
+        "https://www.imedpub.com/articles/optical-characteristics-of-nanocrystaline-thermal-annealed-tin-oxide-so2-thin-film-samples-prepared-by-chemical-bath-deposition-te.pdf",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S2764538597", "display_name":
+        "Advances in Applied Science Research", "issn_l": "0976-8610", "issn": ["0976-8610"],
+        "is_oa": false, "is_in_doaj": false, "is_core": false, "listed_in": [], "host_organization":
+        "https://openalex.org/P4328143518", "host_organization_name": "Prime Scholars",
+        "host_organization_lineage": ["https://openalex.org/P4328143518"], "host_organization_lineage_names":
+        ["Prime Scholars"], "type": "journal"}, "license": null, "license_id": null,
+        "version": null, "is_accepted": false, "is_published": false, "raw_source_name":
+        "Advances in Applied Science Research", "raw_type": null}}, {"id": "https://openalex.org/W2069489405",
+        "doi": "https://doi.org/10.1021/am201253y", "title": "Spectroscopic Study
+        of the Photofixation of SO2 on Anatase TiO2 Thin Films and Their Oleophobic
+        Properties", "publication_year": 2011, "abstract_inverted_index": {"Photoinduced":
+        [0], "SO(2)": [1, 38, 61, 113, 130, 264], "fixation": [2], "on": [3, 74, 115,
+        154], "anatase": [4, 260], "TiO(2)": [5, 22, 76, 117, 156, 166, 181, 261],
+        "films": [6, 23, 77, 84, 118, 127, 216], "was": [7, 140], "studied": [8],
+        "by": [9, 26, 80, 223, 244, 280], "in": [10, 41, 69, 168, 204, 249, 262],
+        "situ": [11, 138], "Fourier": [12], "transform": [13], "infrared": [14], "(FTIR)":
+        [15], "and": [16, 31, 44, 54, 60, 65, 188, 191, 225], "X-ray": [17], "photoelectron":
+        [18], "spectroscopy": [19], "(XPS).": [20], "The": [21, 103, 214, 231], "were":
+        [24, 32], "prepared": [25], "reactive": [27, 250, 263], "DC": [28], "magnetron":
+        [29], "sputtering": [30], "subsequently": [33], "exposed": [34, 128], "to":
+        [35, 124, 129, 142, 179, 210, 237], "50": [36], "ppm": [37], "gas": [39],
+        "mixed": [40], "synthetic": [42], "air": [43], "irradiated": [45], "with":
+        [46, 134, 185, 274], "UV": [47, 58], "light": [48], "at": [49, 119, 131, 174,
+        252], "substrate": [50, 91, 254], "temperatures": [51, 92, 133, 176], "between":
+        [52, 63], "298": [53], "673": [55], "K.": [56], "Simultaneous": [57], "irradiation":
+        [59, 123], "exposure": [62], "373": [64], "523": [66, 94], "K": [67], "resulted":
+        [68], "significant": [70], "sulfur": [71, 107], "(S)": [72], "deposits": [73,
+        98], "crystalline": [75, 116], "as": [78, 221, 278], "determined": [79], "XPS,":
+        [81], "whereas": [82], "amorphous": [83], "contained": [85], "negligible":
+        [86], "amounts": [87], "of": [88, 106, 147, 165, 171, 207, 228, 246, 259,
+        282], "S.": [89], "At": [90], "above": [93], "K,": [95], "the": [96, 144,
+        148, 155, 180, 198, 211, 229, 257], "S": [97], "readily": [99], "desorbed":
+        [100], "from": [101, 110], "TiO(2).": [102], "oxidation": [104, 170], "state":
+        [105], "successively": [108], "changed": [109], "S(4+)": [111], "for": [112,
+        126], "adsorbed": [114], "room": [120], "temperature": [121], "without": [122],
+        "S(6+)": [125], "elevated": [132, 175, 253], "simultaneous": [135], "irradiation.":
+        [136], "In": [137, 256], "FTIR": [139], "used": [141], "monitor": [143], "temporal":
+        [145], "evolution": [146], "photoinduced": [149, 169, 247], "surface": [150,
+        193, 199], "reaction": [151], "products": [152], "formed": [153], "surfaces.":
+        [157], "It": [158], "is": [159, 202], "shown": [160], "that": [161, 269],
+        "band": [162, 240], "gap": [163, 241], "excitation": [164], "results": [167,
+        232], "SO(2),": [172], "which": [173, 201], "become": [177], "coordinated":
+        [178], "lattice": [182], "through": [183], "interactions": [184], "O": [186],
+        "vacancies": [187], "form": [189], "sulfite": [190], "sulfate": [192], "species.":
+        [194], "These": [195], "species": [196], "makes": [197], "acidic,": [200],
+        "manifested": [203], "nondetectable": [205], "adherence": [206], "stearic":
+        [208, 283], "acid": [209], "modified": [212, 215], "surface.": [213], "show":
+        [217, 268], "good": [218], "chemical": [219], "stability": [220], "evidenced":
+        [222], "sonication": [224], "repeated": [226], "recycling": [227], "films.":
+        [230], "suggest": [233], "a": [234], "new": [235], "method": [236], "functionalize":
+        [238], "wide": [239], "oxide": [242], "surfaces": [243, 273], "means": [245],
+        "reactions": [248], "gases": [251], "temperatures.": [255], "case": [258],
+        "gas,": [265], "we": [266], "here": [267], "such": [270], "functionalization":
+        [271], "yields": [272], "excellent": [275], "oleophobic": [276], "properties,":
+        [277], "probed": [279], "adhesion": [281], "acid.": [284]}, "primary_location":
+        {"id": "doi:10.1021/am201253y", "doi": "https://doi.org/10.1021/am201253y",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1021/am201253y", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S164001016", "display_name":
+        "ACS Applied Materials & Interfaces", "issn_l": "1944-8244", "issn": ["1944-8244",
+        "1944-8252"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "dongbi-b", "jufo-2", "ki-jl-1", "medline", "norway-1", "poland-200",
+        "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320006",
+        "host_organization_name": "American Chemical Society", "host_organization_lineage":
+        ["https://openalex.org/P4310320006"], "host_organization_lineage_names": ["American
+        Chemical Society"], "type": "journal"}, "license": null, "license_id": null,
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "ACS Applied Materials &amp; Interfaces", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2142028547", "doi": "https://doi.org/10.1002/pola.1989.080271026",
+        "title": "Nafion\u2010like thin film plasma\u2010polymerized from perfluorobenzene/SO2
+        mixture", "publication_year": 1989, "abstract_inverted_index": {"Abstract":
+        [0], "Plasma": [1, 17], "polymerization": [2, 27, 33, 87], "of": [3, 28, 53,
+        66, 76, 88], "perfluorobenzene/sulfur": [4], "dioxide": [5], "(PFB/SO2)":
+        [6], "mixture": [7, 69], "was": [8, 80], "investigated": [9], "by": [10],
+        "elemental": [11, 46], "analysis,": [12], "infrared": [13], "spectroscopy,":
+        [14], "and": [15, 41, 49, 60, 84], "XPS.": [16], "polymer": [18], "films":
+        [19], "like": [20], "Nafion": [21], "were": [22, 58, 64], "obtained": [23],
+        "from": [24], "the": [25, 54, 67, 78, 86], "plasma": [26, 32, 56], "PFB/SO2":
+        [29], "mixture.": [30], "The": [31, 45, 71], "deposited": [34], "fluoropolymers":
+        [35], "with": [36], "sulfur": [37], "moieties": [38], "including": [39], "sulfonate":
+        [40], "sulfonic": [42], "acid": [43], "groups.": [44], "composition,": [47],
+        "F/C,": [48], "S/C": [50], "atomic": [51], "ratio": [52], "formed": [55],
+        "polymers": [57, 72], "0.65\u20130.67": [59], "0.24\u20130.27,": [61], "respectively,":
+        [62], "which": [63, 77], "independent": [65], "starting": [68], "composition.":
+        [70], "showed": [73], "cation\u2010exchange": [74], "ability": [75], "capacity":
+        [79], "0.49": [81], "meq/g": [82], "polymer,": [83], "initiated": [85], "pyrrole.":
+        [89]}, "primary_location": {"id": "doi:10.1002/pola.1989.080271026", "doi":
+        "https://doi.org/10.1002/pola.1989.080271026", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1002/pola.1989.080271026", "pdf_url": null, "source":
+        {"id": "https://openalex.org/S92465984", "display_name": "Journal of Polymer
+        Science Part A Polymer Chemistry", "issn_l": "0887-624X", "issn": ["0887-624X",
+        "1099-0518"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "poland-70", "vabb-shw"], "host_organization": "https://openalex.org/P4310320595",
+        "host_organization_name": "Wiley", "host_organization_lineage": ["https://openalex.org/P4310320595"],
+        "host_organization_lineage_names": ["Wiley"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Journal of Polymer Science Part
+        A: Polymer Chemistry", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2002356588",
+        "doi": "https://doi.org/10.1117/1.1357805", "title": "Study of thin-film SO2
+        gas sensors by photometric and ellipsometric methods", "publication_year":
+        2001, "abstract_inverted_index": {"Pt-,": [0], "Pd-,": [1], "and": [2, 7,
+        29, 37, 76, 96], "Zr-doped": [3, 78], "SnO2": [4, 58, 67], "thin": [5], "films":
+        [6, 10, 59, 68, 90], "dopant-free": [8], "VOx": [9, 89], "were": [11, 25,
+        32], "fabricated": [12], "by": [13, 63], "planar": [14], "magnetron": [15],
+        "sputtering.": [16], "Tests": [17], "for": [18, 22, 57, 88], "sensitivity":
+        [19, 71, 101], "to": [20, 105], "SO2": [21], "all": [23], "samples": [24],
+        "conducted": [26], "at": [27, 40], "180\u00b0C,": [28], "the": [30, 47, 53,
+        73, 77, 80, 93, 97, 100, 103, 108, 115], "sensitivities": [31, 49], "investigated":
+        [33], "exsitu": [34], "with": [35, 112], "photometric": [36], "ellipsometric":
+        [38], "methods": [39], "room": [41], "temperature.": [42], "It": [43], "was":
+        [44], "found": [45], "that": [46, 106], "optical": [48], "as": [50, 52], "well":
+        [51], "sensitive": [54, 85], "wavelength": [55, 86], "region": [56, 87], "could":
+        [60], "be": [61], "tuned": [62], "doping.": [64], "The": [65, 83], "Pd-doped":
+        [66], "had": [69], "good": [70], "in": [72, 79, 102, 107, 114], "visible":
+        [74, 94, 104], "range,": [75, 95], "near": [81, 109], "IR.": [82], "dominant":
+        [84], "fell": [91], "into": [92], "ratio": [98], "of": [99], "IR": [110],
+        "increased": [111], "O2/Ar": [113], "depositing": [116], "atmosphere.": [117]},
+        "primary_location": {"id": "doi:10.1117/1.1357805", "doi": "https://doi.org/10.1117/1.1357805",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1117/1.1357805", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S175543413", "display_name":
+        "Optical Engineering", "issn_l": "0091-3286", "issn": ["0091-3286", "1560-2303"],
+        "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core",
+        "dongbi-d", "jufo-1", "ki-jl-1", "norway-1", "poland-40", "russia-white-list-3"],
+        "host_organization": "https://openalex.org/P4310315543", "host_organization_name":
+        "SPIE", "host_organization_lineage": ["https://openalex.org/P4310315543"],
+        "host_organization_lineage_names": ["SPIE"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Optical Engineering", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W160345106", "doi": null,
+        "title": "Spectroscopic study of the photo-fixation of SO2 on anatase TiO2
+        thin films", "publication_year": 2011, "abstract_inverted_index": {"This":
+        [0], "thesis": [1], "focuses": [2], "on": [3, 178, 200], "the": [4, 69, 96,
+        144, 217, 290, 318, 323, 357], "application": [5], "of": [6, 62, 81, 95, 110,
+        123, 143, 172, 197, 283, 317, 322], "nanocrystalline": [7, 111], "transition":
+        [8], "metal": [9], "oxide": [10], "TiO2,": [11, 201], "WO3": [12, 124, 202,
+        243, 271], "and": [13, 29, 57, 86, 101, 125, 140, 161, 170, 175, 180, 203,
+        210, 232, 257, 313, 320, 337], "NiO": [14, 126, 204, 221], "thin": [15, 223],
+        "films": [16, 109, 122, 145, 182, 307, 350], "in": [17, 26, 74, 102, 186,
+        304, 344], "new": [18], "\u201cgreen\u201d": [19], "building": [20, 55, 100],
+        "technologies.": [21], "Specifically,": [22], "their": [23], "physicochemical":
+        [24], "properties": [25, 142, 169, 196, 267, 354], "photocatalytic,": [27],
+        "self-cleaning": [28, 353], "gas": [30, 131, 194, 262, 275, 311], "sensing":
+        [31, 195], "applications": [32], "are": [33, 330], "studied.": [34], "There":
+        [35], "is": [36, 66, 302], "an": [37], "intimate": [38], "connection": [39],
+        "between": [40, 335], "comfort": [41], "issues,": [42], "health,": [43], "with":
+        [44, 246], "connections": [45], "to": [46, 50, 93, 229, 239, 253, 269, 279,
+        356], "energy": [47], "efficiency,": [48], "leading": [49], "a": [51, 99],
+        "need": [52], "for": [53, 216], "intelligent": [54], "materials": [56], "green":
+        [58], "architecture.": [59], "The": [60, 135, 167, 193, 346], "importance":
+        [61], "good": [63], "indoor": [64], "environment": [65], "augmented": [67],
+        "by": [68, 148, 185, 207, 285, 294, 332], "fact": [70], "that": [71, 220,
+        289, 300, 328], "modern": [72], "man": [73], "developed": [75], "countries":
+        [76], "spends": [77], "some": [78], "90": [79], "%": [80], "his": [82], "time":
+        [83, 219], "inside": [84], "buildings": [85], "vehicles.": [87], "Poor": [88],
+        "air": [89], "quality": [90], "may": [91], "lead": [92], "discomfort": [94],
+        "person": [97], "inhabiting": [98], "ultimately": [103], "cause": [104], "adverse":
+        [105], "health": [106], "effects.": [107], "Thin": [108], "TiO2": [112, 273,
+        306, 349], "were": [113, 127, 146, 183, 205, 251, 277, 292], "prepared": [114,
+        128], "using": [115, 129, 149], "reactive": [116], "DC": [117], "magnetron":
+        [118], "sputtering.": [119], "Crystalline": [120], "mesoporous": [121], "advanced":
+        [130], "deposition": [132], "technique": [133], "(AGD).": [134], "crystal":
+        [136], "structure,": [137], "morphology,": [138], "optical": [139], "chemical":
+        [141], "characterized": [147], "grazing": [150], "incidence": [151], "X-ray":
+        [152, 162], "diffraction": [153], "(GIXRD),": [154], "scanning": [155], "electron":
+        [156], "microscopy": [157], "(SEM),": [158], "UV/Vis": [159], "spectroscopy":
+        [160, 164, 191, 287], "photoelectron": [163], "(XPS),": [165], "respectively.":
+        [166], "photocatalytic": [168], "adsorption": [171], "both": [173], "organic":
+        [174], "inorganic": [176], "molecules": [177], "pure": [179, 358], "functionalized":
+        [181, 245], "probed": [184], "situ": [187], "Fourier": [188], "transform":
+        [189], "infrared": [190], "(FTIR).": [192], "sensors": [198, 225, 244, 263,
+        276, 291], "based": [199, 222, 274], "investigated": [206], "conductivity":
+        [208], "measurements": [209], "noise": [211, 286], "spectroscopy.": [212],
+        "It": [213], "was": [214], "found": [215], "first": [218], "film": [224],
+        "can": [226], "be": [227], "used": [228, 252], "detect": [230, 254, 280],
+        "H2S": [231, 284], "NO2": [233], "at": [234, 339], "low": [235, 281], "temperatures":
+        [236], "\u2013": [237], "down": [238], "room": [240], "temperature.": [241],
+        "Hybrid": [242], "multiwalled": [247], "carbon": [248], "nanotubes": [249],
+        "(MWCNTs)": [250], "NO2,": [255], "CO": [256], "NH3": [258], "gases.": [259],
+        "These": [260], "hybrid": [261], "show": [264, 299, 327, 351], "improved":
+        [265], "recovery": [266], "compared": [268, 355], "unmodified": [270], "sensors.":
+        [272], "able": [278], "concentrations": [282], "provided": [288], "irradiated":
+        [293], "UV": [295, 314], "light.": [296], "Furthermore": [297], "we": [298],
+        "sulphur": [301, 325, 347], "photo-fixated": [303, 324], "crystalline": [305],
+        "upon": [308], "simultaneous": [309], "SO2": [310, 338], "exposure": [312],
+        "irradiation.": [315], "Studies": [316], "kinetics": [319], "identity": [321],
+        "complexes": [326], "these": [329], "formed": [331], "photo-induced": [333],
+        "reactions": [334], "oxygen": [336, 340], "surface": [341], "vacancy": [342],
+        "sites": [343], "TiO2.": [345], "modified": [348], "interesting": [352], "films.":
+        [359]}, "primary_location": {"id": "mag:160345106", "doi": null, "is_oa":
+        false, "landing_page_url": "http://www.diva-portal.org/smash/record.jsf?pid=diva2:403195",
+        "pdf_url": null, "source": null, "license": null, "license_id": null, "version":
+        null, "is_accepted": false, "is_published": false, "raw_source_name": null,
+        "raw_type": null}}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54da6b0c8717040-IAD
+      connection:
+      - keep-alive
+      content-length:
+      - '18151'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 19:05:33 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=dBsnHR1g3F8a7rpkBgL%2BJGvRC35JACWR%2BurHRvBKj8I%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793732733"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=dBsnHR1g3F8a7rpkBgL%2BJGvRC35JACWR%2BurHRvBKj8I%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793732733"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9530'
+      x-ratelimit-remaining-usd:
+      - '0.953'
+      x-ratelimit-reset:
+      - '17667'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.openalex.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=SO2+thin+film&select=id
+  response:
+    body:
+      string: '{"meta": {"count": 361, "db_response_time_ms": 17, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (SO2 thin film)
+        in the title or abstract", "x_new_oql": "get works with (SO2 thin film) in
+        the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "SO2 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:SO2 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W2740447551"}], "group_by": []}'
+    headers:
+      access-control-allow-headers:
+      - Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI,
+        X-Impersonate-User
+      access-control-allow-methods:
+      - GET, HEAD, POST, PATCH, DELETE, OPTIONS
+      access-control-allow-origin:
+      - '*'
+      access-control-expose-headers:
+      - Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining,
+        X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset,
+        X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD,
+        X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location,
+        Content-Disposition, X-OpenAlex-UI-Token
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54da6b2cfb57040-IAD
+      connection:
+      - keep-alive
+      content-length:
+      - '607'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 19:05:34 GMT
+      nel:
+      - '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}'
+      report-to:
+      - '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=dBsnHR1g3F8a7rpkBgL%2BJGvRC35JACWR%2BurHRvBKj8I%3D\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\u0026ts=1793732733"}],"max_age":3600}'
+      reporting-endpoints:
+      - heroku-nel="https://nel.heroku.com/reports?s=dBsnHR1g3F8a7rpkBgL%2BJGvRC35JACWR%2BurHRvBKj8I%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1793732733"
+      server:
+      - cloudflare
+      transfer-encoding:
+      - chunked
+      via:
+      - 2.0 heroku-router
+      x-ratelimit-cost-usd:
+      - '0.001'
+      x-ratelimit-credits-used:
+      - '10'
+      x-ratelimit-limit:
+      - '10000'
+      x-ratelimit-limit-usd:
+      - '1'
+      x-ratelimit-onetime-remaining:
+      - '0'
+      x-ratelimit-prepaid-remaining-usd:
+      - '0'
+      x-ratelimit-remaining:
+      - '9520'
+      x-ratelimit-remaining-usd:
+      - '0.952'
+      x-ratelimit-reset:
+      - '17667'
+    status:
+      code: 200
+      message: OK
+version: 1

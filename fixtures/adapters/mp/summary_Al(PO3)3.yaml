@@ -1,0 +1,92 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - _csrf_token=authenticated; mp-session=tWdGuSYcBtwKT9fVveU9Fw|1794688599|dSAFT28AT-Yx0QkzLbH5Irl_Eoo;
+        __cf_bm=SUJ5E.ILnJRWkz2ahuAcKyXpx8YCy3Tt9jfU4iaNIW4-1793673398.2036865-1.0.1.1-ZPhuQHvbLIA.fbZ3RrkVKQcVDqasGdKNZtSDwtkJbxaRYSc57oJAqoWVLP6._v9oFbf.F0E4kDuyuLh2MpUQMie.lvmD5wjQsORVU2XnvFdVhit6EOD7X2LMtvc74S_6
+      host:
+      - api.materialsproject.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cformula_pretty%2Ccomposition_reduced%2Cnelements%2Cenergy_above_hull%2Cis_stable%2Cband_gap%2Ctheoretical%2Cdeprecated%2Csymmetry%2Cdatabase_IDs%2Clast_updated%2Cbuilder_meta&_limit=1000&formula=Al%28PO3%293
+  response:
+    body:
+      string: '{"data":[{"theoretical":false,"database_IDs":{"icsd":["icsd-260723"]},"band_gap":5.8176,"energy_above_hull":0.0,"is_stable":true,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"production-scan-reparse-apr2021","database_version":"2026.09.28","build_date":"2026-09-25T19:11:13.337000","license":"BY-C"},"nelements":3,"composition_reduced":{"Al":1.0,"P":3.0,"O":9.0},"formula_pretty":"Al(PO3)3","symmetry":{"crystal_system":"Monoclinic","symbol":"P2_1/c","hall":"-P
+        2ybc","number":14,"point_group":"2/m","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaacfzyv","deprecated":false,"last_updated":"2022-01-01T02:27:07.246000"},{"theoretical":false,"database_IDs":{"icsd":["icsd-26759"]},"band_gap":5.6283,"energy_above_hull":0.009904427403846228,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"jmunro_static_calculations","database_version":"2026.09.28","build_date":"2026-09-25T19:11:13.337000","license":"BY-C"},"nelements":3,"composition_reduced":{"Al":1.0,"P":3.0,"O":9.0},"formula_pretty":"Al(PO3)3","symmetry":{"crystal_system":"Cubic","symbol":"I-43d","hall":"I
+        -4bd 2c 3","number":220,"point_group":"-43m","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaaaausx","deprecated":false,"last_updated":"2022-01-01T08:05:12.028000"},{"theoretical":false,"database_IDs":{"icsd":["icsd-170"]},"band_gap":5.7002,"energy_above_hull":0.020789314166668404,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"vasp6-statics-jan2021","database_version":"2026.09.28","build_date":"2026-09-25T19:11:13.337000","license":"BY-C"},"nelements":3,"composition_reduced":{"Al":1.0,"P":3.0,"O":9.0},"formula_pretty":"Al(PO3)3","symmetry":{"crystal_system":"Monoclinic","symbol":"Cc","hall":"C
+        -2yc","number":9,"point_group":"m","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaabetqj","deprecated":false,"last_updated":"2021-02-06T16:34:33.145000"},{"theoretical":false,"database_IDs":{"icsd":["icsd-409479"]},"band_gap":5.512499999999999,"energy_above_hull":0.014757739807692793,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"jmunro_static_calculations","database_version":"2026.09.28","build_date":"2026-09-25T19:11:13.337000","license":"BY-C"},"nelements":3,"composition_reduced":{"Al":1.0,"P":3.0,"O":9.0},"formula_pretty":"Al(PO3)3","symmetry":{"crystal_system":"Trigonal","symbol":"P-3c1","hall":"-P
+        3 2\"c","number":165,"point_group":"-3m","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaabfwki","deprecated":false,"last_updated":"2022-01-01T09:42:34.785000"}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-03T02:36:43.639188+00:00","total_doc":4,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+    headers:
+      access-control-expose-headers:
+      - X-Api-Key
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a547fe33db7f863e-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '3108'
+      content-type:
+      - application/json
+      date:
+      - Tue, 03 Nov 2026 02:36:43 GMT
+      ratelimit-limit:
+      - '25'
+      ratelimit-remaining:
+      - '24'
+      ratelimit-reset:
+      - '1'
+      server:
+      - cloudflare
+      set-cookie:
+      - _csrf_token=authenticated; Domain=.materialsproject.org; Path=/; SameSite=Strict
+      vary:
+      - Accept-Encoding
+      - Origin
+      via:
+      - kong/2.8.4
+      x-consumer-id:
+      - 58e0b4c2-4c2d-439b-ba0a-648cd568a0fa
+      x-kong-proxy-latency:
+      - '7'
+      x-kong-upstream-latency:
+      - '115'
+      x-ratelimit-limit-day:
+      - '640000'
+      x-ratelimit-limit-hour:
+      - '40000'
+      x-ratelimit-limit-minute:
+      - '1000'
+      x-ratelimit-limit-month:
+      - '12800000'
+      x-ratelimit-limit-second:
+      - '25'
+      x-ratelimit-limit-year:
+      - '100000000'
+      x-ratelimit-remaining-day:
+      - '639972'
+      x-ratelimit-remaining-hour:
+      - '39972'
+      x-ratelimit-remaining-minute:
+      - '981'
+      x-ratelimit-remaining-month:
+      - '12799786'
+      x-ratelimit-remaining-second:
+      - '24'
+      x-ratelimit-remaining-year:
+      - '99999738'
+    status:
+      code: 200
+      message: OK
+version: 1

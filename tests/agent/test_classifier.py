@@ -48,7 +48,7 @@ def _classify(
     return classifier.classify_hits(
         client=client,
         hits=hits,
-        budget=budget or loop.Budget.from_core(CoreConfig()),
+        budget=budget or loop.Budget.from_core(CoreConfig(), "classify"),
         cache=cache,
         model_version=MODEL if client is not None else None,
     )
