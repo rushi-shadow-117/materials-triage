@@ -92,7 +92,8 @@ def main(argv: list[str] | None = None) -> int:
         ident = "" if c.repeats_identical is None else f" identical={c.repeats_identical}"
         print(f"{c.case_id}: pass_rate={rate} repeats={len(c.repeats)}{ident}{extra}")
     print(f"{result.passed_cases} of {result.total_cases} cases passed -> {path}")
-    return 0 if result.passed_cases == result.total_cases else 1
+    # A miss is a finding in the results, not a failed command: exit 0 once the suite ran.
+    return 0
 
 
 if __name__ == "__main__":

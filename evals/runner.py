@@ -186,3 +186,12 @@ def parse_repeats(specs: list[str]) -> dict[str, int]:
             raise ValueError(f"bad --repeats entry {s!r}; use ID=N")
         out[case_id] = int(n)
     return out
+
+
+def main(suite: str = "all") -> int:
+    """Entry point for `materials-triage eval --suite X` (Track B's CLI): the same run as
+    `python -m evals run --suite X` with the defaults (pipeline executor, scripted model,
+    cassettes)."""
+    from evals.__main__ import main as cli_main
+
+    return cli_main(["run", "--suite", suite])

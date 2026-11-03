@@ -32,7 +32,9 @@ def all_groups() -> dict[str, LoadedGroup]:
 def test_every_recorded_composition_loads_without_network(
     all_groups: dict[str, LoadedGroup],
 ) -> None:
-    assert len(all_groups) == len(recorded_compositions()) == 61
+    # 61 from the Track 0 recordings, plus the compositions Track B recorded for offline
+    # discovery (PR #4); the manifest is the count's source.
+    assert len(all_groups) == len(recorded_compositions()) >= 61
     for key, lg in all_groups.items():
         assert lg.group.composition == key
         assert lg.group.polymorphs, key
@@ -54,10 +56,14 @@ def test_no_abstract_set_matches_the_recording_note(
     all_groups: dict[str, LoadedGroup],
 ) -> None:
     states = no_abstract_compositions(all_groups)
-    assert {k for k, s in states.items() if s == "no_match"} == NO_ABSTRACT_PER_WIRE_FINDINGS
+    no_match = {k for k, s in states.items() if s == "no_match"}
+    assert no_match >= NO_ABSTRACT_PER_WIRE_FINDINGS
+    # Compositions recorded later (Track B's offline discovery, PR #4) with no OpenAlex match.
+    assert no_match - NO_ABSTRACT_PER_WIRE_FINDINGS == {"I2O5", "P4O9", "Se2O5"}
     # Two more compositions matched works that carry no abstract (manifest: LaYO3 2 of 2,
     # NaIO3 3 of 3 without abstract). Same tier, distinct sub-state.
-    assert {k for k, s in states.items() if s == "no_abstract"} == {"LaYO3", "NaIO3"}
+    # SbO2 joined with the PR #4 recordings.
+    assert {k for k, s in states.items() if s == "no_abstract"} == {"LaYO3", "NaIO3", "SbO2"}
 
 
 def test_hazard_is_none_where_no_pubchem_cassette_exists(

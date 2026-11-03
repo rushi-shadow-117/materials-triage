@@ -90,11 +90,21 @@ def top_n_respected(obs: Observation) -> CheckResult:
     b = _bundle(obs)
     if b is None:
         return _no_bundle("top_n_respected", {})
+    """The bundle may rank every candidate; what the PI sees is cut at top_n. The shown rows
+    in the PI view are counted when it was rendered, else the bundle's ranked rows."""
     top_n = b.criteria.effective_settings.get("top_n")
-    n = len(b.ranked())
+    view = obs.rendered.get("pi_summary")
+    shown = 0 if view is None else len(re.findall(r"^\| \d+ \|", view, flags=re.MULTILINE))
+    if shown:
+        n, where = shown, "shown in pi_summary"
+    else:
+        n, where = len(b.ranked()), "ranked in the bundle (no ranked rows in a view)"
     ok = top_n is None or n <= int(top_n)
     return CheckResult(
-        name="top_n_respected", params={}, passed=ok, detail=f"{n} ranked, top_n={top_n}"
+        name="top_n_respected",
+        params={},
+        passed=ok,
+        detail=f"{n} {where}, {len(b.ranked())} ranked in the bundle, top_n={top_n}",
     )
 
 

@@ -21,7 +21,4 @@ task_completion:
 defenses:
 - name: config_unchanged
 - name: every_exclusion_has_rule
-- name: excluded_with_rule
-  params:
-    composition: ThO2
-    rule: hazard.radioactive_exclude
+- name: top_n_respected

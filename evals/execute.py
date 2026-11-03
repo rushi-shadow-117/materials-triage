@@ -268,7 +268,7 @@ class PipelineExecutor:
                 site=site,
                 profile=profile,
                 cli_profile=profile.name,
-                budget=Budget.from_core(core),
+                budget=Budget.from_core(core, "parse"),
             )
             if not step.ok or step.outcome is None:
                 raise ParseFailureError(f"parse failed: {step.reason}")
