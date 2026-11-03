@@ -1,9 +1,10 @@
 """The scorer behind a port.
 
-The pipeline hands the scorer every fetched CompositionGroup and the effective config and
-gets back scored candidates and anchors. Track A's `scoring.scorer` is adapted here when it
-is present; until then `SampleBundleScorer` copies scores, ranks, exclusions, flags, caveats,
-and sensitivity from the sample bundle by composition, and the run note says so.
+The pipeline hands the scorer every fetched CompositionGroup, the effective config, and the
+evidence hits classified so far, and gets back scored candidates and anchors. Track A's
+`scoring.scorer.score_run` is adapted here when it is importable; until then
+`SampleBundleScorer` copies scores, ranks, exclusions, flags, caveats, and sensitivity from
+the sample bundle by composition, and the run note says so.
 """
 
 from __future__ import annotations
@@ -14,9 +15,21 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-from materials_triage.config.schema import EffectiveConfig, ScoringProfile
+from materials_triage.config.schema import (
+    CONFIG_DIR,
+    EffectiveConfig,
+    ScoringProfile,
+    default_paths,
+)
 from materials_triage.records import CompositionGroup, ReferenceValue
-from materials_triage.records.bundle import Anchor, Candidate, ProvenanceBundle
+from materials_triage.records.bundle import (
+    Anchor,
+    Candidate,
+    DecisionLogEntry,
+    EvidenceHit,
+    MissingPropertyMarker,
+    ProvenanceBundle,
+)
 from materials_triage.scoring.polymorphs import select_scored, summarize_group
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -31,6 +44,8 @@ class ScoreRequest:
     hazard_policy: dict[str, Any]
     reference_values: dict[str, list[ReferenceValue]] = field(default_factory=dict)
     requested_mp: dict[str, str] = field(default_factory=dict)  # composition -> MP id the PI named
+    evidence: dict[str, list[EvidenceHit]] = field(default_factory=dict)  # classified so far
+    top_k: int | None = None
 
 
 @dataclass
@@ -38,6 +53,9 @@ class ScoredSet:
     candidates: list[Candidate]
     anchors: list[Anchor]
     note: str | None = None
+    missing_properties: list[MissingPropertyMarker] | None = None  # scorer-owned when given
+    decision_log: list[DecisionLogEntry] = field(default_factory=list)
+    thermo_enrichment_ids: list[str] = field(default_factory=list)
 
 
 Scorer = Callable[[ScoreRequest], ScoredSet]
@@ -47,29 +65,56 @@ class ScorerUnavailableError(RuntimeError):
     pass
 
 
+def profile_path(name: str) -> Path:
+    return CONFIG_DIR / "scoring_profiles" / f"{name}.yaml"
+
+
 def track_a_scorer() -> Scorer:
-    """Adapt Track A's scorer when it has merged. The adapter is the only place that changes
-    on rebase."""
+    """Adapt Track A's `score_run`. Config files are loaded once per profile name."""
     try:
-        module = importlib.import_module("materials_triage.scoring.scorer")
+        scorer_mod = importlib.import_module("materials_triage.scoring.scorer")
+        profile_mod = importlib.import_module("materials_triage.scoring.profile")
     except ImportError as e:
         raise ScorerUnavailableError(
             "Track A scorer (materials_triage.scoring.scorer) is not merged"
         ) from e
-    score = getattr(module, "score", None)
-    if score is None:
-        raise ScorerUnavailableError("materials_triage.scoring.scorer has no score()")
+    paths = default_paths()
+    loaded_cache: dict[str, Any] = {}
+
+    def loaded_for(name: str) -> Any:
+        if name not in loaded_cache:
+            loaded_cache[name] = profile_mod.load_scoring_profile(profile_path(name))
+        return loaded_cache[name]
+
+    site = profile_mod.load_site_profile(paths["site_profile"])
+    policy = profile_mod.load_hazard_policy(paths["hazard_policy"])
+    refs = profile_mod.load_reference_values(paths["reference_values"])
+    echa = profile_mod.echa_attribution(paths["site_profile"])
 
     def adapter(request: ScoreRequest) -> ScoredSet:
-        result = score(
-            groups=request.groups,
+        result = scorer_mod.score_run(
+            scorer_mod.ScoringInputs(
+                groups=list(request.groups.values()),
+                requested_polymorphs=dict(request.requested_mp),
+                reference_values=list(refs.entered),
+                pending_reference_values=list(refs.pending),
+                evidence={k: list(v) for k, v in request.evidence.items()},
+            ),
             effective=request.effective,
-            profile=request.profile,
-            hazard_policy=request.hazard_policy,
-            reference_values=request.reference_values,
-            requested_mp=request.requested_mp,
+            loaded=loaded_for(request.profile.name),
+            hazard_policy=policy,
+            site=site,
+            echa=echa,
+            top_k=request.top_k,
         )
-        return ScoredSet(candidates=list(result.candidates), anchors=list(result.anchors))
+        return ScoredSet(
+            candidates=list(result.candidates),
+            anchors=list(result.anchors),
+            note=None,
+            missing_properties=list(result.missing_properties),
+            decision_log=list(result.decision_log),
+            thermo_enrichment_ids=list(result.thermo_enrichment_ids),
+        )
 
     return adapter
 

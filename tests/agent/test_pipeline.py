@@ -99,7 +99,7 @@ def test_candidate_list_run_matches_the_sample_bundle(
     assert bundle.verifier is not None and bundle.verifier.passed
     assert all(s.verified for s in bundle.rationale.values())
     steps = [d.step for d in bundle.decision_log]
-    assert steps[:4] == ["start", "fetch", "score", "classify"] and steps[-1] == "verify"
+    assert steps[:4] == ["start", "fetch", "classify", "score"] and steps[-1] == "verify"
     assert bundle.decision_log[0].detail["code_version"]
     assert len(bundle.missing_properties) == 7
     text = markdown.render_pi_summary(bundle, layers[1])

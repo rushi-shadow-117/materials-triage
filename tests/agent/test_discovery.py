@@ -131,7 +131,7 @@ def test_discovery_pages_everything_scores_summaries_and_enriches_the_top_k(
     inputs = _inputs(layers, tmp_path, band_gap_min_ev=2.0, band_gap_max_ev=3.0, top_n=3)
     bundle = pipeline.run(inputs, fetch=transport, sources=sources, scorer=gap_scorer)
     steps = [d.step for d in bundle.decision_log]
-    assert steps[:5] == ["start", "discovery", "enrich", "score", "classify"]
+    assert steps[:5] == ["start", "discovery", "enrich", "classify", "score"]
     discovery = next(d for d in bundle.decision_log if d.step == "discovery")
     assert discovery.detail["total"] == 3016 and "3016 summary documents" in discovery.summary
     assert len(bundle.candidates) > 1000 and bundle.criteria.mode == "discovery"

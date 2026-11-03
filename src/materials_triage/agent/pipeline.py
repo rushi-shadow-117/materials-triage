@@ -44,6 +44,7 @@ from materials_triage.records.bundle import (
     Clamp,
     ConfirmedCriteria,
     DecisionLogEntry,
+    EvidenceHit,
     FetchMode,
     MissingPropertyMarker,
     ProvenanceBundle,
@@ -444,13 +445,18 @@ def run(
     else:
         partial.append("materials_project: database version not available")
 
-    def score_groups(groups: dict[str, CompositionGroup]) -> ScoredSet:
+    def score_groups(
+        groups: dict[str, CompositionGroup],
+        evidence: dict[str, list[EvidenceHit]] | None = None,
+    ) -> ScoredSet:
         return scorer(
             ScoreRequest(
                 groups=groups,
                 effective=effective,
                 profile=inputs.profile,
                 hazard_policy=inputs.hazard_policy,
+                evidence=evidence or {},
+                top_k=effective.top_n,
             )
         )
 
@@ -482,25 +488,20 @@ def run(
     if collected.refused is not None:
         partial.append(collected.refused)
 
-    # 2. score (code only)
-    scored = score_groups(collected.groups) if collected.groups else ScoredSet([], [])
-    log.append(
-        _log(
-            "score",
-            f"{len([c for c in scored.candidates if c.rank is not None])} ranked, "
-            f"{len([c for c in scored.candidates if c.excluded is not None])} excluded",
-            actor="scorer",
-        )
-    )
-
-    # 3. classify evidence for ranked candidates (the same hits for each)
+    # 2. score (code only), classify the ranked top K's hits, then score again with the
+    #    evidence so the evidence criterion reads the labels
+    first = score_groups(collected.groups) if collected.groups else ScoredSet([], [])
     model = llm.model if llm is not None else None
     provider = llm.provider if llm is not None else None
+    ranked_first = sorted(
+        (c for c in first.candidates if c.rank is not None), key=lambda c: c.rank or 0
+    )
     hits: list[tuple[str, LiteratureHit]] = []
-    for c in scored.candidates:
-        if c.rank is None or c.group.literature is None:
+    for c in ranked_first[: effective.top_n]:
+        group = collected.groups.get(c.composition)
+        if group is None or group.literature is None:
             continue
-        hits.extend((c.composition, h) for h in c.group.literature.hits)
+        hits.extend((c.composition, h) for h in group.literature.hits)
     classified = classifier.classify_hits(
         client=llm, hits=hits, budget=budget, cache=cache, model_version=model
     )
@@ -511,6 +512,21 @@ def run(
             "classify",
             f"{len(classified.hits)} hits: {classified.llm_calls} classified by the model, "
             f"{classified.cache_hits} from cache",
+        )
+    )
+    evidence_by_comp: dict[str, list[EvidenceHit]] = {}
+    for hit in classified.hits:
+        evidence_by_comp.setdefault(hit.composition, []).append(hit)
+    scored = (
+        score_groups(collected.groups, evidence_by_comp) if collected.groups else ScoredSet([], [])
+    )
+    log.extend(scored.decision_log)
+    log.append(
+        _log(
+            "score",
+            f"{len([c for c in scored.candidates if c.rank is not None])} ranked, "
+            f"{len([c for c in scored.candidates if c.excluded is not None])} excluded",
+            actor="scorer",
         )
     )
 
@@ -552,7 +568,11 @@ def run(
         candidates=scored.candidates,
         anchors=scored.anchors,
         evidence=classified.hits,
-        missing_properties=missing_markers(inputs.site),
+        missing_properties=(
+            scored.missing_properties
+            if scored.missing_properties is not None
+            else missing_markers(inputs.site)
+        ),
         decision_log=log,
         availability_events=ctx.events,
     )
