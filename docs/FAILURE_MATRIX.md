@@ -24,7 +24,7 @@ rows only under its own heading. Rows name a test path; a row without a test is 
 | PubChem record carries codes but no notifier counts | Codes kept, counts None, never a verdict | tests/adapters/test_pubchem.py::test_hgo_codes_without_aggregate_counts |
 | Query setting outside site bounds | Clamped and reported | tests/test_config_schema.py::test_precedence_and_clamping_reports_every_clamp |
 | Credential appears in a recorded request | Test fails | tests/test_fixtures_clean.py::test_no_credential_request_headers |
-| Planted instruction inside a fetched abstract | Treated as data (Track B tests against fixtures/synthetic/openalex_injection.json) | pending Track B |
+| Planted instruction inside a fetched abstract | Treated as data (fixtures/synthetic/openalex_injection.json) | tests/agent/test_classifier.py::test_injected_abstract_is_only_ever_data |
 
 ## Track A: scoring
 
@@ -53,6 +53,34 @@ rows only under its own heading. Rows name a test path; a row without a test is 
 
 | Failure | Behavior | Test |
 |---|---|---|
+| LLM text cites a record id not in the bundle | Sentence removed, `unknown_record_id` logged | tests/verify/test_verifier.py::test_invented_record_id_is_caught |
+| LLM text states a number the bundle does not hold | Sentence removed, `unresolved_number` logged | tests/verify/test_verifier.py::test_wrong_number_is_caught |
+| Number hidden in a formula-like token (Hf2O5, HfO2.5) | Sentence removed, `formula_not_in_bundle` | tests/verify/test_verifier.py::test_number_hidden_in_a_formula_like_token_is_caught |
+| Evidence quote paraphrased | Hit kept with verified=false, `quote_mismatch`, dropped from the PI view | tests/verify/test_verifier.py::test_paraphrased_quote_is_dropped_and_verbatim_quote_passes |
+| Evidence quote empty | Rejected as `empty quote` | tests/verify/test_verifier.py::test_quote_check_is_exact_substring_and_rejects_empty |
+| Fulltext-scope hit labeled above computed_only | Capped at computed_only, never verified | tests/verify/test_verifier.py::test_fulltext_hit_is_never_verified_and_never_above_computed_only |
+| GHS code cited that the bundle does not report | Sentence removed | tests/verify/test_verifier.py::test_ghs_codes_are_accepted_only_when_the_bundle_reports_them |
+| Renderer emits a string the verifier would reject | Cannot happen: one precision table | tests/verify/test_verifier.py::test_renderer_output_round_trips_through_the_verifier |
+| Planted instruction inside a fetched abstract | Reaches the model only inside the data block; stored only as a verbatim quote; ranks unchanged | tests/agent/test_classifier.py::test_injected_abstract_is_only_ever_data |
+| Model replies with text instead of a tool call | Nudged once, then the step fails | tests/agent/test_loop.py::test_no_tool_call_is_nudged_once_then_fails |
+| Model calls a tool that is not offered | Treated as no tool call | tests/agent/test_loop.py::test_wrong_tool_name_counts_as_no_tool_call |
+| Model stop reason refusal or context overflow | Step fails without retry | tests/agent/test_loop.py::test_refusal_and_context_exceeded_fail_without_retry |
+| Budget limit reached | Step ends partial before any request; run labeled partial with the reason | tests/agent/test_loop.py::test_budget_breach_ends_the_step_as_partial_before_any_request, tests/agent/test_classifier.py::test_budget_breach_leaves_the_remaining_hits_unclassified_and_marks_partial |
+| Out-of-scope request (wetlab, private data, estimates, config change) | Fixed CoreConfig refusal text; nothing fetched; refusal logged | tests/agent/test_parse.py::test_out_of_scope_request_gets_the_fixed_refusal_text, tests/cli/test_cli.py::test_query_with_a_fake_llm_parses_refuses_and_logs |
+| Required field missing from the request | Asked on the terminal; `--yes` refuses to guess | tests/agent/test_parse.py::test_candidate_list_mode_without_formulas_is_missing_required, tests/cli/test_cli.py::test_query_with_a_fake_llm_asks_for_missing_candidates |
+| Too few candidates pass | Code enumerates relaxations with exact values and counts; never applied without approval | tests/agent/test_relaxation.py::test_model_picks_by_id_and_may_not_write_digits |
+| Model writes digits into a relaxation explanation | Rejected as a tool error | tests/agent/test_relaxation.py::test_model_picks_by_id_and_may_not_write_digits |
+| Model writes a slot id that was not requested | Dropped with a log entry | tests/agent/test_rationale.py::test_model_slots_replace_template_text_and_extras_are_dropped |
+| Rationale prompt or verbosity changes | Classifier cache key unchanged | tests/agent/test_prompts.py::test_rationale_settings_do_not_change_the_classify_hash |
+| Same settings, second run | Byte-identical prompts and hashes | tests/agent/test_prompts.py::test_same_settings_give_identical_prompts_and_hashes |
+| Caveat id with no entered text | Visible "caveat text not entered" marker | tests/render/test_markdown.py::test_caveat_resolver_uses_entered_config_text_and_marks_the_rest |
+| Bundle from an LLM run rendered before verification | Refused | tests/render/test_markdown.py::test_unverified_llm_bundle_is_refused |
+| Glossary applied in technical terminology | Not applied | tests/render/test_markdown.py::test_glossary_applies_only_in_general_terminology |
+| Upstream source missing during a run | Availability event; run labeled partial; data stays missing | tests/agent/test_pipeline.py::test_missing_sources_become_events_and_a_partial_run |
+| Discovery matches more than the ceiling | Refused with the count; no candidates | tests/agent/test_discovery.py::test_discovery_above_the_ceiling_is_refused_with_the_count |
+| Hazard policy edited between runs | Diff attributes to config through the policy hash | tests/cli/test_diff.py::test_hazard_policy_edit_counts_as_config |
+| Model changed but no evidence label changed | Diff notes "not causal" | tests/cli/test_diff.py::test_model_change_is_causal_only_through_labels |
+| User answers n at the confirmation | Nothing runs, nothing saved | tests/cli/test_cli.py::test_query_prints_criteria_and_an_n_answer_aborts_without_a_run |
 
 ## Track C: API and web
 
