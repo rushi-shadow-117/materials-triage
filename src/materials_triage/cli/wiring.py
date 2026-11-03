@@ -124,9 +124,7 @@ class CassetteFetch:
 
     def __init__(self, root: Path = ADAPTER_CASSETTES) -> None:
         self.by_key: dict[str, RawResponse] = {}
-        for path, raw in iter_cassette_raws(root):
-            if "discovery" in path.name:
-                continue
+        for _path, raw in iter_cassette_raws(root):
             self.by_key.setdefault(raw.call.cache_key, raw)
 
     def __call__(self, call: Call) -> RawResponse | None:

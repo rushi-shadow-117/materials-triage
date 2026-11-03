@@ -17,6 +17,7 @@ from materials_triage.agent import pipeline, relaxation
 from materials_triage.agent.llm import LLMClient
 from materials_triage.agent.loop import Budget
 from materials_triage.agent.parse import ParseOutcome, resolve_outcome
+from materials_triage.agent.scoring_port import ScorerUnavailableError
 from materials_triage.config.schema import QuerySettings
 from materials_triage.records.bundle import DecisionLogEntry, ProvenanceBundle
 from materials_triage.render import csv_export, markdown
@@ -105,14 +106,17 @@ def _run_and_render(
     )
     fetch, mode = wiring.make_fetch(settings, fetch_source, run_id=inputs.run_id)  # type: ignore[arg-type]
     inputs.fetch_mode = mode
-    bundle = pipeline.run(
-        inputs,
-        fetch=fetch,
-        sources=pipeline.Sources.load(),
-        scorer=wiring.make_scorer(),
-        llm=client,
-        cache=wiring.make_cache(settings),
-    )
+    try:
+        bundle = pipeline.run(
+            inputs,
+            fetch=fetch,
+            sources=pipeline.Sources.load(),
+            scorer=wiring.make_scorer(),
+            llm=client,
+            cache=wiring.make_cache(settings),
+        )
+    except ScorerUnavailableError as e:
+        _fail(f"scoring unavailable: {e}")
     if extra_log:
         bundle = bundle.model_copy(update={"decision_log": [*extra_log, *bundle.decision_log]})
     path = wiring.make_run_store(settings).save(bundle)
