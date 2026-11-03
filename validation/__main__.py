@@ -7,7 +7,7 @@ import sys
 from pathlib import Path
 
 from validation import track_a
-from validation.report import RESULTS_DIR, run_validation
+from validation.report import RESULTS_DIR, YimLikeRun, run_validation
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -19,7 +19,13 @@ def main(argv: list[str] | None = None) -> int:
     if args.cmd == "run":
         if track_a.available():
             report = run_validation(
-                track_a.score_with_track_a, scorer_name="track_a", out_dir=Path(args.out)
+                track_a.score_with_track_a,
+                scorer_name="track_a",
+                out_dir=Path(args.out),
+                yim_like=YimLikeRun(
+                    score=track_a.score_with_track_a_yim_like,
+                    description=track_a.yim_like_description(),
+                ),
             )
         else:
             from validation.stand_in import score_stand_in
@@ -27,10 +33,16 @@ def main(argv: list[str] | None = None) -> int:
             report = run_validation(score_stand_in, scorer_name="stand_in", out_dir=Path(args.out))
         print("scorer:", report["scorer"]["name"])
         yim = report["yim"]
+        like = report["yim_like"]
+        like_tables = {} if like is None else {t["table"]: t for t in like["tables"]}
         for t in yim["tables"]:
-            print(
+            line = (
                 f"table {t['table']}: ranked {t['n_ranked']} of {t['n_in_table']}, rho={t['rho']}"
             )
+            lt = like_tables.get(t["table"])
+            if lt is not None:
+                line += f"; Yim-like: ranked {lt['n_ranked']}, rho={lt['rho']}"
+            print(line)
         print("recall:", report["recall"]["recall"], "misses:", report["recall"]["misses"])
         print("wrote", Path(args.out) / "validation.json")
         return 0

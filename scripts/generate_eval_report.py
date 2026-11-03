@@ -44,6 +44,19 @@ def _num(x: float | None, digits: int = 3) -> str:
     return "n/a" if x is None else f"{x:.{digits}f}"
 
 
+def _table_note(t: dict[str, Any]) -> str:
+    note = t["reason"] or ""
+    if t["excluded"]:
+        note = (
+            (note + "; " if note else "")
+            + "excluded: "
+            + ", ".join(f"{e['composition']} ({e['rule']})" for e in t["excluded"])
+        )
+    if t["absent"]:
+        note = (note + "; " if note else "") + "absent: " + ", ".join(t["absent"])
+    return note
+
+
 def _load(path: Path) -> dict[str, Any] | None:
     if not path.exists():
         return None
@@ -133,29 +146,53 @@ def validation_sections(val: dict[str, Any] | None, cal: dict[str, Any] | None) 
                 "They are regenerated once Track A's scorer is wired."
             )
         yim = val["yim"]
+        like = val.get("yim_like")
+        like_tables = {} if like is None else {t["table"]: t for t in like["tables"]}
         out += [
             "",
             f"### Yim 2015 positives ({yim['doi']})",
             "",
             f"Polymorph rule: {yim['polymorph_rule']}. Fixture sha `{yim['fixture_sha256'][:12]}`.",
             "",
-            "| Table | In table | Ranked | Spearman rho | Note |",
-            "|---|---|---|---|---|",
+            "Spearman rho is the scorer's rank against the Yim figure-of-merit order within each "
+            "table. The default column is the profile as entered; the Yim-like column is the "
+            "second configuration described below the table.",
+            "",
+            "| Table | In table | Ranked (default) | rho (default) "
+            "| Ranked (Yim-like) | rho (Yim-like) | Note |",
+            "|---|---|---|---|---|---|---|",
         ]
         for t in yim["tables"]:
-            note = t["reason"] or ""
-            if t["excluded"]:
-                note = (
-                    (note + "; " if note else "")
-                    + "excluded: "
-                    + ", ".join(f"{e['composition']} ({e['rule']})" for e in t["excluded"])
-                )
-            if t["absent"]:
-                note = (note + "; " if note else "") + "absent: " + ", ".join(t["absent"])
+            note = _table_note(t)
+            lt = like_tables.get(t["table"])
+            if lt is None:
+                like_cells = "| not run | not run "
+            else:
+                like_cells = f"| {lt['n_ranked']} | {_num(lt['rho'])} "
+                if lt["excluded"] != t["excluded"] or lt["absent"] != t["absent"]:
+                    note = (note + "; " if note else "") + "Yim-like " + _table_note(lt)
             out.append(
                 f"| {t['table']} | {t['n_in_table']} | {t['n_ranked']} "
-                f"| {_num(t['rho'])} | {note} |"
+                f"| {_num(t['rho'])} {like_cells}| {note} |"
             )
+        out.append("")
+        if like is None:
+            out.append(
+                "Yim-like configuration: not run (the scorer in use takes no weight overrides)."
+            )
+        else:
+            weights = ", ".join(f"{k} {v:g}" for k, v in like["weights"].items())
+            band = like["dielectric_target_band"]
+            band_text = (
+                "none" if band is None else f"[{band[0]:g}, {band[1]:g}]"
+            ) + f" (status {like['dielectric_target_band_status']})"
+            out += [
+                f"Yim-like configuration: {like['label']}",
+                "",
+                f"- weights: {weights}",
+                f"- dielectric target band: {band_text}",
+                f"- config sha `{like['config_sha'][:12]}` (default run `{s['config_sha'][:12]}`)",
+            ]
         out += ["", "Negatives (must be excluded or flagged with the rule shown):", ""]
         for n in yim["negatives"]:
             rule = n["rule"] or (", ".join(n["flags"]) if n["flags"] else "none")

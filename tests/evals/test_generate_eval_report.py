@@ -82,7 +82,35 @@ def test_report_is_built_from_results_and_is_byte_stable(tmp_path: Path) -> None
     val = json.loads((val_dir / "validation.json").read_text())
     for t in val["yim"]["tables"]:
         assert f"| {t['table']} | {t['n_in_table']} | {t['n_ranked']} |" in text
+        assert "| not run | not run |" in text
+    assert val["yim_like"] is None
+    assert "Yim-like configuration: not run" in text
     assert "## Directional tests" in text
+
+    # A Yim-like block renders beside the default column, labeled, with its own config sha.
+    like_tables = [dict(t, rho=0.5) for t in val["yim"]["tables"]]
+    val["yim_like"] = {
+        "label": "Yim-like configuration: planted",
+        "weights": {"stability": 1.0, "band_gap": 1.0, "dielectric_constant": 1.0, "hazard": 0.0},
+        "dielectric_target_band": [10.0, 30.0],
+        "dielectric_target_band_status": "pending_verification",
+        "config_sha": "b" * 64,
+        "note": "planted",
+        "tables": like_tables,
+    }
+    (val_dir / "validation.json").write_text(json.dumps(val))
+    text2 = build(**kwargs)  # type: ignore[arg-type]
+    assert "| Ranked (Yim-like) | rho (Yim-like) |" in text2
+    assert "Yim-like configuration: planted" in text2
+    assert "- weights: stability 1, band_gap 1, dielectric_constant 1, hazard 0" in text2
+    assert "- dielectric target band: [10, 30] (status pending_verification)" in text2
+    assert f"- config sha `{'b' * 12}` (default run `{val['scorer']['config_sha'][:12]}`)" in text2
+    for t in val["yim"]["tables"]:
+        rho = "n/a" if t["rho"] is None else f"{t['rho']:.3f}"
+        assert (
+            f"| {t['table']} | {t['n_in_table']} | {t['n_ranked']} | {rho} "
+            f"| {t['n_ranked']} | 0.500 |"
+        ) in text2
 
 
 def test_case_yaml_round_trip_keeps_expectation_verbatim(tmp_path: Path) -> None:

@@ -68,3 +68,5 @@ rows only under its own heading. Rows name a test path; a row without a test is 
 | Scoring config tuned after pre-registration | Report shows both shas and the changed files | tests/evals/test_judge_and_prereg.py::test_preregistration_records_and_compares |
 | Results file missing when the report is generated | Report says what is missing; nothing invented | tests/evals/test_generate_eval_report.py::test_report_says_what_is_missing_when_nothing_ran |
 | Report regenerated on the same inputs | Byte-identical | tests/evals/test_generate_eval_report.py::test_report_is_built_from_results_and_is_byte_stable |
+| Yim-like weight overrides leak into the default run or the profile file | Default run keeps the file's weights and sha; the Yim-like run has its own sha, run id and note | tests/evals/test_track_a_wiring.py::test_yim_like_run_reports_beside_the_default_without_changing_the_profile |
+| Yim-like run absent (scorer takes no overrides) | Report prints "not run" in the Yim-like columns, never a number | tests/evals/test_generate_eval_report.py::test_report_is_built_from_results_and_is_byte_stable |
