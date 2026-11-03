@@ -785,3 +785,19 @@ criteria or from the scorer's stability and gap handling. Alternative considered
 profile file under config/scoring_profiles (rejected: config is Track A's, and a profile that
 weights a `pending_verification` criterion would fail the strict loader by design).
 
+### 2026-11-02 The band gap conflict tolerance is written to the profile from the calibration
+Decision: `config/scoring_profiles/oxide_dielectric_thin_film.yaml` gets
+`conflict_tolerance_ev: 1.345` with status `entered`, the derivation (2 x the TBmBJ MAE of
+0.672 eV over the six recorded baseline oxides that have both a TBmBJ and an experimental
+value), the data hash from `validation/results/band_gap_calibration.json`, and the entry
+attribution. This is the one Track E change outside its own directories, in its own labeled
+commit, approved by the owner on 2026-11-02. The pre-registration was taken before the write,
+so docs/EVAL.md shows the pre-registered and the current config sha side by side and names
+this file as the one that changed. The validation results are re-run under the new sha so the
+committed results match the committed config.
+Reason: the owner's prompt sets the rule (twice the measured TBmBJ error) and asks for the
+value, its derivation and the data hash in config. ThO2's pair (error 1.613 eV) is kept as
+recorded; dropping it would be a hand choice.
+Alternative: leave the value in the results JSON for Integration to copy (rejected by the
+owner: the commit goes to the profile, separate and labeled).
+

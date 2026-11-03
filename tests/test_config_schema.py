@@ -100,7 +100,7 @@ def test_repo_yaml_files_load_and_only_entered_values_are_usable() -> None:
         and profile.stability.near_cutoff_band_mev_per_atom == 24
     )
     assert profile.band_gap.soft_preference_start_ev == 5.0
-    assert profile.band_gap.conflict_tolerance_ev is None  # open until derived
+    assert profile.band_gap.conflict_tolerance_ev == 1.345  # derived by Track E, see the file
     assert (
         profile.dielectric_constant.target_band is None
         and profile.dielectric_constant.weight == 0.0
