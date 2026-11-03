@@ -1,0 +1,1053 @@
+{
+ "calibration_sha256": "9c3ec4a7624ec13c09b42e017ff27f6e2c11896cfd7e25de54b163766bc135e2",
+ "inputs": {
+  "baseline_oxides": [
+   "Al2O3",
+   "BaTiO3",
+   "BeO",
+   "HfO2",
+   "La2O3",
+   "SiO2",
+   "Ta2O5",
+   "ThO2",
+   "TiO2",
+   "Y2O3",
+   "ZrO2"
+  ],
+  "cassette_manifest": "fixtures/adapters/recording_manifest.json",
+  "compositions_total": 61,
+  "git_commit": "686bc5c0b51b268889064ec3070f2a8cd7cf5700",
+  "snapshot_shas": {
+   "expt_gap": "2d0980e3533c1ba6ad6e392a88f08cfcf2d311d4b7fe6eb0b0c8e876211dfda3",
+   "jarvis_dft_3d": "d4c64660e9e1fa45c82bd8868a96ec10162195eed69636445972c05550d8d0d6",
+   "matbench_expt_gap": "783e7d1461eb83b00b2f2942da4b95fda5e58a0d1ae26b581c24cf8a82ca75b2"
+  },
+  "yim_compositions": 46,
+  "yim_fixture_sha256": "83198d58fe86bf51d972dda83be2e8bb54073db7ad12cd0960fe44670ad9110d"
+ },
+ "negative_controls": {
+  "baseline_oxides": {
+   "all_handled": true,
+   "named": [
+    {
+     "composition": "ThO2",
+     "flags": [
+      "band_gap_sources_uncompared",
+      "evidence_unclassified"
+     ],
+     "rank": null,
+     "rule": "hazard.radioactive_exclude",
+     "status": "excluded"
+    },
+    {
+     "composition": "BeO",
+     "flags": [
+      "evidence_unclassified"
+     ],
+     "rank": null,
+     "rule": "hazard.exclude",
+     "status": "excluded"
+    }
+   ],
+   "theoretical_only": []
+  },
+  "yim_set": {
+   "all_handled": true,
+   "named": [
+    {
+     "composition": "BeO",
+     "flags": [
+      "evidence_unclassified"
+     ],
+     "rank": null,
+     "rule": "hazard.exclude",
+     "status": "excluded"
+    },
+    {
+     "composition": "TiCdO3",
+     "flags": [
+      "band_gap_single_source",
+      "evidence_unclassified"
+     ],
+     "rank": null,
+     "rule": "hazard.exclude",
+     "status": "excluded"
+    },
+    {
+     "composition": "Ta2Cd2O7",
+     "flags": [
+      "band_gap_single_source",
+      "evidence_unclassified"
+     ],
+     "rank": null,
+     "rule": "hazard.exclude",
+     "status": "excluded"
+    },
+    {
+     "composition": "HfPbO3",
+     "flags": [
+      "band_gap_single_source",
+      "evidence_unclassified"
+     ],
+     "rank": null,
+     "rule": "hazard.acute_toxicity.element",
+     "status": "excluded"
+    },
+    {
+     "composition": "ZrPbO3",
+     "flags": [
+      "band_gap_single_source",
+      "evidence_unclassified"
+     ],
+     "rank": null,
+     "rule": "hazard.acute_toxicity.element",
+     "status": "excluded"
+    }
+   ],
+   "theoretical_only": []
+  }
+ },
+ "recall": {
+  "hits": [
+   {
+    "composition": "HfO2",
+    "rank": 2
+   },
+   {
+    "composition": "ZrO2",
+    "rank": 5
+   },
+   {
+    "composition": "Al2O3",
+    "rank": 1
+   },
+   {
+    "composition": "Y2O3",
+    "rank": 4
+   }
+  ],
+  "k": 5,
+  "known": [
+   "HfO2",
+   "ZrO2",
+   "Al2O3",
+   "Y2O3",
+   "Ta2O5"
+  ],
+  "misses": [
+   {
+    "composition": "Ta2O5",
+    "rank": 6,
+    "why": "ranked below 5"
+   }
+  ],
+  "recall": 0.8,
+  "source": "Owner decision, Track E prompt, 2026-11-02"
+ },
+ "scorer": {
+  "config_sha": "205256412e5bb9bea6926e180f0c0cb61203bd73f2aa2d64216210d0f4b36c89",
+  "name": "track_a",
+  "note": "VALIDATION RUN: recorded data scored by the Track A scorer under the entered config; no LLM step. Profile notes: band_gap.conflict_tolerance_ev is not set (status open); experimental and TBmBJ gaps are shown side by side but not compared; dielectric_constant target band unusable (status pending_verification); weight stays 0",
+  "profile_name": "oxide_dielectric_thin_film",
+  "profile_version": "0"
+ },
+ "yim": {
+  "citation": "K. Yim, Y. Yong, J. Lee, K. Lee, H.-H. Nahm, J. Yoo, C. Lee, C. S. Hwang, S. Han, Novel high-k dielectrics for next-generation electronic devices screened by automated ab initio calculations, NPG Asia Materials 7, e190 (2015)",
+  "doi": "10.1038/am.2015.57",
+  "fixture_sha256": "83198d58fe86bf51d972dda83be2e8bb54073db7ad12cd0960fe44670ad9110d",
+  "negatives": [
+   {
+    "composition": "BeO",
+    "flags": [
+     "evidence_unclassified"
+    ],
+    "rank": null,
+    "rule": "hazard.exclude",
+    "status": "excluded"
+   },
+   {
+    "composition": "TiCdO3",
+    "flags": [
+     "band_gap_single_source",
+     "evidence_unclassified"
+    ],
+    "rank": null,
+    "rule": "hazard.exclude",
+    "status": "excluded"
+   },
+   {
+    "composition": "Ta2Cd2O7",
+    "flags": [
+     "band_gap_single_source",
+     "evidence_unclassified"
+    ],
+    "rank": null,
+    "rule": "hazard.exclude",
+    "status": "excluded"
+   },
+   {
+    "composition": "HfPbO3",
+    "flags": [
+     "band_gap_single_source",
+     "evidence_unclassified"
+    ],
+    "rank": null,
+    "rule": "hazard.acute_toxicity.element",
+    "status": "excluded"
+   },
+   {
+    "composition": "ZrPbO3",
+    "flags": [
+     "band_gap_single_source",
+     "evidence_unclassified"
+    ],
+    "rank": null,
+    "rule": "hazard.acute_toxicity.element",
+    "status": "excluded"
+   }
+  ],
+  "no_abstract": [
+   {
+    "composition": "Ba3P4O13",
+    "excluded_rule": null,
+    "rank": 14,
+    "state": "no_match"
+   },
+   {
+    "composition": "CaB4O7",
+    "excluded_rule": null,
+    "rank": 8,
+    "state": "no_match"
+   },
+   {
+    "composition": "HfTe3O8",
+    "excluded_rule": null,
+    "rank": 21,
+    "state": "no_match"
+   },
+   {
+    "composition": "LaYO3",
+    "excluded_rule": null,
+    "rank": 30,
+    "state": "no_abstract"
+   },
+   {
+    "composition": "Li3BrO",
+    "excluded_rule": "stability.cutoff",
+    "rank": null,
+    "state": "no_match"
+   },
+   {
+    "composition": "Li4CO4",
+    "excluded_rule": null,
+    "rank": 35,
+    "state": "no_match"
+   },
+   {
+    "composition": "LiAlO2",
+    "excluded_rule": null,
+    "rank": 9,
+    "state": "no_match"
+   },
+   {
+    "composition": "Mg4H2O5",
+    "excluded_rule": null,
+    "rank": 23,
+    "state": "no_match"
+   },
+   {
+    "composition": "NaIO3",
+    "excluded_rule": null,
+    "rank": 22,
+    "state": "no_abstract"
+   },
+   {
+    "composition": "Ta2Cd2O7",
+    "excluded_rule": "hazard.exclude",
+    "rank": null,
+    "state": "no_match"
+   },
+   {
+    "composition": "Ta4Ag2O11",
+    "excluded_rule": null,
+    "rank": 34,
+    "state": "no_match"
+   },
+   {
+    "composition": "Y2Si2O7",
+    "excluded_rule": null,
+    "rank": 17,
+    "state": "no_match"
+   }
+  ],
+  "polymorph_rule": "one entry per composition per table, ordered by its best f_fom in that table; ties share average ranks (owner decision 2026-11-02)",
+  "tables": [
+   {
+    "absent": [],
+    "excluded": [
+     {
+      "composition": "BeO",
+      "detail": "Be: IARC Group 1: beryllium and beryllium compounds",
+      "rule": "hazard.exclude"
+     },
+     {
+      "composition": "NbCl3O",
+      "detail": "343.2 meV/atom above the hull exceeds the 94 meV/atom cutoff",
+      "rule": "stability.cutoff"
+     }
+    ],
+    "n_in_table": 11,
+    "n_ranked": 9,
+    "pairs": [
+     {
+      "composition": "AlHO2",
+      "scorer_rank": 5,
+      "yim_best_fom": 265.0,
+      "yim_rank": 3.0
+     },
+     {
+      "composition": "NaIO3",
+      "scorer_rank": 22,
+      "yim_best_fom": 241.0,
+      "yim_rank": 4.0
+     },
+     {
+      "composition": "K2W2O7",
+      "scorer_rank": 29,
+      "yim_best_fom": 219.0,
+      "yim_rank": 5.0
+     },
+     {
+      "composition": "Na2SO4",
+      "scorer_rank": 13,
+      "yim_best_fom": 143.0,
+      "yim_rank": 6.0
+     },
+     {
+      "composition": "Sr3(PO4)2",
+      "scorer_rank": 11,
+      "yim_best_fom": 129.0,
+      "yim_rank": 7.0
+     },
+     {
+      "composition": "CaB4O7",
+      "scorer_rank": 8,
+      "yim_best_fom": 99.0,
+      "yim_rank": 8.0
+     },
+     {
+      "composition": "Ba3(PO4)2",
+      "scorer_rank": 6,
+      "yim_best_fom": 85.0,
+      "yim_rank": 9.5
+     },
+     {
+      "composition": "LiAlO2",
+      "scorer_rank": 9,
+      "yim_best_fom": 85.0,
+      "yim_rank": 9.5
+     },
+     {
+      "composition": "YBO3",
+      "scorer_rank": 12,
+      "yim_best_fom": 80.0,
+      "yim_rank": 11.0
+     }
+    ],
+    "reason": null,
+    "rho": -0.18410202992625907,
+    "table": 1
+   },
+   {
+    "absent": [],
+    "excluded": [
+     {
+      "composition": "BeO",
+      "detail": "Be: IARC Group 1: beryllium and beryllium compounds",
+      "rule": "hazard.exclude"
+     },
+     {
+      "composition": "NbCl3O",
+      "detail": "343.2 meV/atom above the hull exceeds the 94 meV/atom cutoff",
+      "rule": "stability.cutoff"
+     },
+     {
+      "composition": "TiCdO3",
+      "detail": "Cd: IARC Group 1: cadmium and cadmium compounds",
+      "rule": "hazard.exclude"
+     },
+     {
+      "composition": "Ta2Cd2O7",
+      "detail": "Cd: IARC Group 1: cadmium and cadmium compounds",
+      "rule": "hazard.exclude"
+     },
+     {
+      "composition": "HfPbO3",
+      "detail": "Pb: PbO (CID 14827) meets the exclude set (H360).",
+      "rule": "hazard.acute_toxicity.element"
+     },
+     {
+      "composition": "ZrPbO3",
+      "detail": "Pb: PbO (CID 14827) meets the exclude set (H360).",
+      "rule": "hazard.acute_toxicity.element"
+     }
+    ],
+    "n_in_table": 24,
+    "n_ranked": 18,
+    "pairs": [
+     {
+      "composition": "SrTiO3",
+      "scorer_rank": 33,
+      "yim_best_fom": 869.0,
+      "yim_rank": 3.0
+     },
+     {
+      "composition": "NaNbO3",
+      "scorer_rank": 27,
+      "yim_best_fom": 643.0,
+      "yim_rank": 4.0
+     },
+     {
+      "composition": "NaTaO3",
+      "scorer_rank": 28,
+      "yim_best_fom": 595.0,
+      "yim_rank": 5.0
+     },
+     {
+      "composition": "TaAgO3",
+      "scorer_rank": 36,
+      "yim_best_fom": 570.0,
+      "yim_rank": 6.0
+     },
+     {
+      "composition": "Li4CO4",
+      "scorer_rank": 35,
+      "yim_best_fom": 489.0,
+      "yim_rank": 7.0
+     },
+     {
+      "composition": "KTaO3",
+      "scorer_rank": 32,
+      "yim_best_fom": 439.0,
+      "yim_rank": 9.0
+     },
+     {
+      "composition": "Y2Ti2O7",
+      "scorer_rank": 31,
+      "yim_best_fom": 410.0,
+      "yim_rank": 10.0
+     },
+     {
+      "composition": "TiO2",
+      "scorer_rank": 4,
+      "yim_best_fom": 369.0,
+      "yim_rank": 12.0
+     },
+     {
+      "composition": "AlHO2",
+      "scorer_rank": 5,
+      "yim_best_fom": 265.0,
+      "yim_rank": 14.0
+     },
+     {
+      "composition": "SrHfO3",
+      "scorer_rank": 19,
+      "yim_best_fom": 259.0,
+      "yim_rank": 15.0
+     },
+     {
+      "composition": "Ta4Ag2O11",
+      "scorer_rank": 34,
+      "yim_best_fom": 254.0,
+      "yim_rank": 16.0
+     },
+     {
+      "composition": "BaZrO3",
+      "scorer_rank": 24,
+      "yim_best_fom": 252.0,
+      "yim_rank": 17.0
+     },
+     {
+      "composition": "NaIO3",
+      "scorer_rank": 22,
+      "yim_best_fom": 241.0,
+      "yim_rank": 19.0
+     },
+     {
+      "composition": "TaBiO4",
+      "scorer_rank": 25,
+      "yim_best_fom": 238.0,
+      "yim_rank": 20.0
+     },
+     {
+      "composition": "HfTe3O8",
+      "scorer_rank": 21,
+      "yim_best_fom": 226.0,
+      "yim_rank": 21.0
+     },
+     {
+      "composition": "ZrO2",
+      "scorer_rank": 2,
+      "yim_best_fom": 220.0,
+      "yim_rank": 22.0
+     },
+     {
+      "composition": "K2W2O7",
+      "scorer_rank": 29,
+      "yim_best_fom": 219.0,
+      "yim_rank": 23.0
+     },
+     {
+      "composition": "Sr2Ta2O7",
+      "scorer_rank": 26,
+      "yim_best_fom": 214.0,
+      "yim_rank": 24.0
+     }
+    ],
+    "reason": null,
+    "rho": -0.4840041279669763,
+    "table": 2
+   },
+   {
+    "absent": [],
+    "excluded": [
+     {
+      "composition": "BeO",
+      "detail": "Be: IARC Group 1: beryllium and beryllium compounds",
+      "rule": "hazard.exclude"
+     },
+     {
+      "composition": "YClO",
+      "detail": "108.4 meV/atom above the hull exceeds the 94 meV/atom cutoff",
+      "rule": "stability.cutoff"
+     },
+     {
+      "composition": "Li3BrO",
+      "detail": "143.9 meV/atom above the hull exceeds the 94 meV/atom cutoff",
+      "rule": "stability.cutoff"
+     },
+     {
+      "composition": "YOF",
+      "detail": "anions ['F', 'O'] under policy strict_oxide",
+      "rule": "simplicity.anion_policy"
+     }
+    ],
+    "n_in_table": 23,
+    "n_ranked": 19,
+    "pairs": [
+     {
+      "composition": "AlHO2",
+      "scorer_rank": 5,
+      "yim_best_fom": 264.0,
+      "yim_rank": 2.0
+     },
+     {
+      "composition": "HfO2",
+      "scorer_rank": 1,
+      "yim_best_fom": 210.0,
+      "yim_rank": 3.0
+     },
+     {
+      "composition": "LaYO3",
+      "scorer_rank": 30,
+      "yim_best_fom": 163.0,
+      "yim_rank": 4.0
+     },
+     {
+      "composition": "Na2SO4",
+      "scorer_rank": 13,
+      "yim_best_fom": 143.0,
+      "yim_rank": 5.0
+     },
+     {
+      "composition": "Sr3(PO4)2",
+      "scorer_rank": 11,
+      "yim_best_fom": 129.0,
+      "yim_rank": 6.0
+     },
+     {
+      "composition": "YAlO3",
+      "scorer_rank": 20,
+      "yim_best_fom": 119.0,
+      "yim_rank": 7.0
+     },
+     {
+      "composition": "MgSiO3",
+      "scorer_rank": 37,
+      "yim_best_fom": 116.0,
+      "yim_rank": 8.0
+     },
+     {
+      "composition": "CaB4O7",
+      "scorer_rank": 8,
+      "yim_best_fom": 99.0,
+      "yim_rank": 9.5
+     },
+     {
+      "composition": "MgAl2O4",
+      "scorer_rank": 10,
+      "yim_best_fom": 96.0,
+      "yim_rank": 11.0
+     },
+     {
+      "composition": "Ba2SiO4",
+      "scorer_rank": 16,
+      "yim_best_fom": 93.0,
+      "yim_rank": 12.0
+     },
+     {
+      "composition": "B2O3",
+      "scorer_rank": 3,
+      "yim_best_fom": 90.0,
+      "yim_rank": 13.0
+     },
+     {
+      "composition": "Ba3P4O13",
+      "scorer_rank": 14,
+      "yim_best_fom": 89.0,
+      "yim_rank": 14.5
+     },
+     {
+      "composition": "Mg4H2O5",
+      "scorer_rank": 23,
+      "yim_best_fom": 89.0,
+      "yim_rank": 14.5
+     },
+     {
+      "composition": "Mg(HO)2",
+      "scorer_rank": 18,
+      "yim_best_fom": 88.0,
+      "yim_rank": 16.5
+     },
+     {
+      "composition": "Ba3(PO4)2",
+      "scorer_rank": 6,
+      "yim_best_fom": 85.0,
+      "yim_rank": 19.5
+     },
+     {
+      "composition": "LiAlO2",
+      "scorer_rank": 9,
+      "yim_best_fom": 85.0,
+      "yim_rank": 19.5
+     },
+     {
+      "composition": "Y2Si2O7",
+      "scorer_rank": 17,
+      "yim_best_fom": 85.0,
+      "yim_rank": 19.5
+     },
+     {
+      "composition": "SrB4O7",
+      "scorer_rank": 15,
+      "yim_best_fom": 82.0,
+      "yim_rank": 22.0
+     },
+     {
+      "composition": "BaSO4",
+      "scorer_rank": 7,
+      "yim_best_fom": 81.0,
+      "yim_rank": 23.0
+     }
+    ],
+    "reason": null,
+    "rho": 0.02813193607528088,
+    "table": 3
+   }
+  ]
+ },
+ "yim_like": {
+  "config_sha": "3d2454781d6175ef991ff7facfd7e7467761bece49777c16a4bcd3f16e37a34e",
+  "dielectric_target_band": [
+   10.0,
+   30.0
+  ],
+  "dielectric_target_band_status": "pending_verification",
+  "label": "Yim-like configuration: stability, band gap and dielectric constant at weight 1; hazard, simplicity, evidence, deposition method and cost at weight 0. Weights are query-level overrides within site bounds; the default profile file is unchanged. Exclusion rules (hazard, stability cutoff, anion policy) still apply at weight 0.",
+  "note": "VALIDATION RUN (YIM-LIKE): recorded data scored by the Track A scorer with query weight overrides {'stability': 1.0, 'band_gap': 1.0, 'dielectric_constant': 1.0, 'hazard': 0.0, 'simplicity': 0.0, 'evidence': 0.0, 'deposition_method': 0.0, 'cost': 0.0} and the profile file's dielectric target band (10.0, 30.0) (status pending_verification) taken as written; the profile file is unchanged. Scored under the entered config; no LLM step. Profile notes: band_gap.conflict_tolerance_ev is not set (status open); experimental and TBmBJ gaps are shown side by side but not compared; dielectric_constant target band unusable (status pending_verification); weight stays 0; Yim-like run: dielectric target band [10.0, 30.0] (status pending_verification) used for the validation comparison only",
+  "tables": [
+   {
+    "absent": [],
+    "excluded": [
+     {
+      "composition": "BeO",
+      "detail": "Be: IARC Group 1: beryllium and beryllium compounds",
+      "rule": "hazard.exclude"
+     },
+     {
+      "composition": "NbCl3O",
+      "detail": "343.2 meV/atom above the hull exceeds the 94 meV/atom cutoff",
+      "rule": "stability.cutoff"
+     }
+    ],
+    "n_in_table": 11,
+    "n_ranked": 9,
+    "pairs": [
+     {
+      "composition": "AlHO2",
+      "scorer_rank": 10,
+      "yim_best_fom": 265.0,
+      "yim_rank": 3.0
+     },
+     {
+      "composition": "NaIO3",
+      "scorer_rank": 18,
+      "yim_best_fom": 241.0,
+      "yim_rank": 4.0
+     },
+     {
+      "composition": "K2W2O7",
+      "scorer_rank": 28,
+      "yim_best_fom": 219.0,
+      "yim_rank": 5.0
+     },
+     {
+      "composition": "Na2SO4",
+      "scorer_rank": 16,
+      "yim_best_fom": 143.0,
+      "yim_rank": 6.0
+     },
+     {
+      "composition": "Sr3(PO4)2",
+      "scorer_rank": 6,
+      "yim_best_fom": 129.0,
+      "yim_rank": 7.0
+     },
+     {
+      "composition": "CaB4O7",
+      "scorer_rank": 3,
+      "yim_best_fom": 99.0,
+      "yim_rank": 8.0
+     },
+     {
+      "composition": "Ba3(PO4)2",
+      "scorer_rank": 1,
+      "yim_best_fom": 85.0,
+      "yim_rank": 9.5
+     },
+     {
+      "composition": "LiAlO2",
+      "scorer_rank": 5,
+      "yim_best_fom": 85.0,
+      "yim_rank": 9.5
+     },
+     {
+      "composition": "YBO3",
+      "scorer_rank": 7,
+      "yim_best_fom": 80.0,
+      "yim_rank": 11.0
+     }
+    ],
+    "reason": null,
+    "rho": -0.6861984751796929,
+    "table": 1
+   },
+   {
+    "absent": [],
+    "excluded": [
+     {
+      "composition": "BeO",
+      "detail": "Be: IARC Group 1: beryllium and beryllium compounds",
+      "rule": "hazard.exclude"
+     },
+     {
+      "composition": "NbCl3O",
+      "detail": "343.2 meV/atom above the hull exceeds the 94 meV/atom cutoff",
+      "rule": "stability.cutoff"
+     },
+     {
+      "composition": "TiCdO3",
+      "detail": "Cd: IARC Group 1: cadmium and cadmium compounds",
+      "rule": "hazard.exclude"
+     },
+     {
+      "composition": "Ta2Cd2O7",
+      "detail": "Cd: IARC Group 1: cadmium and cadmium compounds",
+      "rule": "hazard.exclude"
+     },
+     {
+      "composition": "HfPbO3",
+      "detail": "Pb: PbO (CID 14827) meets the exclude set (H360).",
+      "rule": "hazard.acute_toxicity.element"
+     },
+     {
+      "composition": "ZrPbO3",
+      "detail": "Pb: PbO (CID 14827) meets the exclude set (H360).",
+      "rule": "hazard.acute_toxicity.element"
+     }
+    ],
+    "n_in_table": 24,
+    "n_ranked": 18,
+    "pairs": [
+     {
+      "composition": "SrTiO3",
+      "scorer_rank": 27,
+      "yim_best_fom": 869.0,
+      "yim_rank": 3.0
+     },
+     {
+      "composition": "NaNbO3",
+      "scorer_rank": 31,
+      "yim_best_fom": 643.0,
+      "yim_rank": 4.0
+     },
+     {
+      "composition": "NaTaO3",
+      "scorer_rank": 35,
+      "yim_best_fom": 595.0,
+      "yim_rank": 5.0
+     },
+     {
+      "composition": "TaAgO3",
+      "scorer_rank": 37,
+      "yim_best_fom": 570.0,
+      "yim_rank": 6.0
+     },
+     {
+      "composition": "Li4CO4",
+      "scorer_rank": 34,
+      "yim_best_fom": 489.0,
+      "yim_rank": 7.0
+     },
+     {
+      "composition": "KTaO3",
+      "scorer_rank": 26,
+      "yim_best_fom": 439.0,
+      "yim_rank": 9.0
+     },
+     {
+      "composition": "Y2Ti2O7",
+      "scorer_rank": 30,
+      "yim_best_fom": 410.0,
+      "yim_rank": 10.0
+     },
+     {
+      "composition": "TiO2",
+      "scorer_rank": 33,
+      "yim_best_fom": 369.0,
+      "yim_rank": 12.0
+     },
+     {
+      "composition": "AlHO2",
+      "scorer_rank": 10,
+      "yim_best_fom": 265.0,
+      "yim_rank": 14.0
+     },
+     {
+      "composition": "SrHfO3",
+      "scorer_rank": 19,
+      "yim_best_fom": 259.0,
+      "yim_rank": 15.0
+     },
+     {
+      "composition": "Ta4Ag2O11",
+      "scorer_rank": 32,
+      "yim_best_fom": 254.0,
+      "yim_rank": 16.0
+     },
+     {
+      "composition": "BaZrO3",
+      "scorer_rank": 23,
+      "yim_best_fom": 252.0,
+      "yim_rank": 17.0
+     },
+     {
+      "composition": "NaIO3",
+      "scorer_rank": 18,
+      "yim_best_fom": 241.0,
+      "yim_rank": 19.0
+     },
+     {
+      "composition": "TaBiO4",
+      "scorer_rank": 24,
+      "yim_best_fom": 238.0,
+      "yim_rank": 20.0
+     },
+     {
+      "composition": "HfTe3O8",
+      "scorer_rank": 21,
+      "yim_best_fom": 226.0,
+      "yim_rank": 21.0
+     },
+     {
+      "composition": "ZrO2",
+      "scorer_rank": 8,
+      "yim_best_fom": 220.0,
+      "yim_rank": 22.0
+     },
+     {
+      "composition": "K2W2O7",
+      "scorer_rank": 28,
+      "yim_best_fom": 219.0,
+      "yim_rank": 23.0
+     },
+     {
+      "composition": "Sr2Ta2O7",
+      "scorer_rank": 25,
+      "yim_best_fom": 214.0,
+      "yim_rank": 24.0
+     }
+    ],
+    "reason": null,
+    "rho": -0.587203302373581,
+    "table": 2
+   },
+   {
+    "absent": [],
+    "excluded": [
+     {
+      "composition": "BeO",
+      "detail": "Be: IARC Group 1: beryllium and beryllium compounds",
+      "rule": "hazard.exclude"
+     },
+     {
+      "composition": "YClO",
+      "detail": "108.4 meV/atom above the hull exceeds the 94 meV/atom cutoff",
+      "rule": "stability.cutoff"
+     },
+     {
+      "composition": "Li3BrO",
+      "detail": "143.9 meV/atom above the hull exceeds the 94 meV/atom cutoff",
+      "rule": "stability.cutoff"
+     },
+     {
+      "composition": "YOF",
+      "detail": "anions ['F', 'O'] under policy strict_oxide",
+      "rule": "simplicity.anion_policy"
+     }
+    ],
+    "n_in_table": 23,
+    "n_ranked": 19,
+    "pairs": [
+     {
+      "composition": "AlHO2",
+      "scorer_rank": 10,
+      "yim_best_fom": 264.0,
+      "yim_rank": 2.0
+     },
+     {
+      "composition": "HfO2",
+      "scorer_rank": 4,
+      "yim_best_fom": 210.0,
+      "yim_rank": 3.0
+     },
+     {
+      "composition": "LaYO3",
+      "scorer_rank": 29,
+      "yim_best_fom": 163.0,
+      "yim_rank": 4.0
+     },
+     {
+      "composition": "Na2SO4",
+      "scorer_rank": 16,
+      "yim_best_fom": 143.0,
+      "yim_rank": 5.0
+     },
+     {
+      "composition": "Sr3(PO4)2",
+      "scorer_rank": 6,
+      "yim_best_fom": 129.0,
+      "yim_rank": 6.0
+     },
+     {
+      "composition": "YAlO3",
+      "scorer_rank": 15,
+      "yim_best_fom": 119.0,
+      "yim_rank": 7.0
+     },
+     {
+      "composition": "MgSiO3",
+      "scorer_rank": 36,
+      "yim_best_fom": 116.0,
+      "yim_rank": 8.0
+     },
+     {
+      "composition": "CaB4O7",
+      "scorer_rank": 3,
+      "yim_best_fom": 99.0,
+      "yim_rank": 9.5
+     },
+     {
+      "composition": "MgAl2O4",
+      "scorer_rank": 12,
+      "yim_best_fom": 96.0,
+      "yim_rank": 11.0
+     },
+     {
+      "composition": "Ba2SiO4",
+      "scorer_rank": 13,
+      "yim_best_fom": 93.0,
+      "yim_rank": 12.0
+     },
+     {
+      "composition": "B2O3",
+      "scorer_rank": 17,
+      "yim_best_fom": 90.0,
+      "yim_rank": 13.0
+     },
+     {
+      "composition": "Ba3P4O13",
+      "scorer_rank": 9,
+      "yim_best_fom": 89.0,
+      "yim_rank": 14.5
+     },
+     {
+      "composition": "Mg4H2O5",
+      "scorer_rank": 22,
+      "yim_best_fom": 89.0,
+      "yim_rank": 14.5
+     },
+     {
+      "composition": "Mg(HO)2",
+      "scorer_rank": 20,
+      "yim_best_fom": 88.0,
+      "yim_rank": 16.5
+     },
+     {
+      "composition": "Ba3(PO4)2",
+      "scorer_rank": 1,
+      "yim_best_fom": 85.0,
+      "yim_rank": 19.5
+     },
+     {
+      "composition": "LiAlO2",
+      "scorer_rank": 5,
+      "yim_best_fom": 85.0,
+      "yim_rank": 19.5
+     },
+     {
+      "composition": "Y2Si2O7",
+      "scorer_rank": 14,
+      "yim_best_fom": 85.0,
+      "yim_rank": 19.5
+     },
+     {
+      "composition": "SrB4O7",
+      "scorer_rank": 11,
+      "yim_best_fom": 82.0,
+      "yim_rank": 22.0
+     },
+     {
+      "composition": "BaSO4",
+      "scorer_rank": 2,
+      "yim_best_fom": 81.0,
+      "yim_rank": 23.0
+     }
+    ],
+    "reason": null,
+    "rho": -0.23208847262106724,
+    "table": 3
+   }
+  ],
+  "weights": {
+   "band_gap": 1.0,
+   "cost": 0.0,
+   "deposition_method": 0.0,
+   "dielectric_constant": 1.0,
+   "evidence": 0.0,
+   "hazard": 0.0,
+   "simplicity": 0.0,
+   "stability": 1.0
+  }
+ }
+}

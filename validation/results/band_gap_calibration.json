@@ -1,0 +1,165 @@
+{
+ "conflict_tolerance_ev": 1.345,
+ "data_sha256": "9c3ec4a7624ec13c09b42e017ff27f6e2c11896cfd7e25de54b163766bc135e2",
+ "derivation": "conflict_tolerance_ev = 2 x MAE(TBmBJ vs experimental median) over n=6 recorded oxides with both values; pairs listed; rounded to 3 decimals",
+ "pbe": {
+  "mae": 1.460877777777778,
+  "method": "pbe",
+  "n": 9,
+  "pairs": [
+   {
+    "abs_error": 0.7666000000000004,
+    "composition": "BaTiO3",
+    "computed": 2.2933999999999997,
+    "experimental_median": 3.06,
+    "experimental_n": 5,
+    "method": "pbe",
+    "mp_id": "mp-5777"
+   },
+   {
+    "abs_error": 2.9269000000000016,
+    "composition": "BeO",
+    "computed": 7.463099999999999,
+    "experimental_median": 10.39,
+    "experimental_n": 1,
+    "method": "pbe",
+    "mp_id": "mp-2542"
+   },
+   {
+    "abs_error": 1.5338000000000003,
+    "composition": "HfO2",
+    "computed": 4.0161999999999995,
+    "experimental_median": 5.55,
+    "experimental_n": 1,
+    "method": "pbe",
+    "mp_id": "mp-352"
+   },
+   {
+    "abs_error": 1.5719000000000003,
+    "composition": "La2O3",
+    "computed": 3.8281,
+    "experimental_median": 5.4,
+    "experimental_n": 1,
+    "method": "pbe",
+    "mp_id": "mp-1968"
+   },
+   {
+    "abs_error": 1.1332000000000004,
+    "composition": "Ta2O5",
+    "computed": 3.0667999999999997,
+    "experimental_median": 4.2,
+    "experimental_n": 1,
+    "method": "pbe",
+    "mp_id": "mp-10390"
+   },
+   {
+    "abs_error": 1.0179999999999993,
+    "composition": "ThO2",
+    "computed": 4.417999999999999,
+    "experimental_median": 3.4,
+    "experimental_n": 2,
+    "method": "pbe",
+    "mp_id": "mp-643"
+   },
+   {
+    "abs_error": 1.237,
+    "composition": "TiO2",
+    "computed": 2.0629999999999997,
+    "experimental_median": 3.3,
+    "experimental_n": 1,
+    "method": "pbe",
+    "mp_id": "mp-390"
+   },
+   {
+    "abs_error": 1.502699999999999,
+    "composition": "Y2O3",
+    "computed": 4.097300000000001,
+    "experimental_median": 5.6,
+    "experimental_n": 1,
+    "method": "pbe",
+    "mp_id": "mp-2652"
+   },
+   {
+    "abs_error": 1.4578000000000002,
+    "composition": "ZrO2",
+    "computed": 3.5322,
+    "experimental_median": 4.99,
+    "experimental_n": 1,
+    "method": "pbe",
+    "mp_id": "mp-2858"
+   }
+  ],
+  "without_pair": []
+ },
+ "snapshot_shas": {
+  "expt_gap": "2d0980e3533c1ba6ad6e392a88f08cfcf2d311d4b7fe6eb0b0c8e876211dfda3",
+  "jarvis_dft_3d": "d4c64660e9e1fa45c82bd8868a96ec10162195eed69636445972c05550d8d0d6",
+  "matbench_expt_gap": "783e7d1461eb83b00b2f2942da4b95fda5e58a0d1ae26b581c24cf8a82ca75b2"
+ },
+ "tbmbj": {
+  "mae": 0.6723333333333331,
+  "method": "tbmbj",
+  "n": 6,
+  "pairs": [
+   {
+    "abs_error": 0.6310000000000002,
+    "composition": "BaTiO3",
+    "computed": 2.429,
+    "experimental_median": 3.06,
+    "experimental_n": 5,
+    "method": "tbmbj",
+    "mp_id": "mp-5777"
+   },
+   {
+    "abs_error": 0.11399999999999988,
+    "composition": "HfO2",
+    "computed": 5.664,
+    "experimental_median": 5.55,
+    "experimental_n": 1,
+    "method": "tbmbj",
+    "mp_id": "mp-352"
+   },
+   {
+    "abs_error": 0.07299999999999951,
+    "composition": "Ta2O5",
+    "computed": 4.273,
+    "experimental_median": 4.2,
+    "experimental_n": 1,
+    "method": "tbmbj",
+    "mp_id": "mp-10390"
+   },
+   {
+    "abs_error": 1.613,
+    "composition": "ThO2",
+    "computed": 5.013,
+    "experimental_median": 3.4,
+    "experimental_n": 2,
+    "method": "tbmbj",
+    "mp_id": "mp-643"
+   },
+   {
+    "abs_error": 0.8259999999999996,
+    "composition": "TiO2",
+    "computed": 2.474,
+    "experimental_median": 3.3,
+    "experimental_n": 1,
+    "method": "tbmbj",
+    "mp_id": "mp-390"
+   },
+   {
+    "abs_error": 0.7770000000000001,
+    "composition": "ZrO2",
+    "computed": 4.213,
+    "experimental_median": 4.99,
+    "experimental_n": 1,
+    "method": "tbmbj",
+    "mp_id": "mp-2858"
+   }
+  ],
+  "without_pair": [
+   "BeO",
+   "La2O3",
+   "Y2O3"
+  ]
+ }
+}
