@@ -527,6 +527,31 @@ would-rank at weight 0, so the test asserts the margin widens. Rocksalt BeO (mp-
 163825, 481 meV/atom) is excluded by the beryllium rule first and by hull once the hazard
 rules are lifted; both appear in the decision log.
 
+### 2026-11-03 Excluded rows keep their full breakdown
+Decision (owner): the scorer computes every criterion for every candidate, excluded or not,
+and the bundle carries the full `ScoreBreakdown` (values, sources, flags such as a band gap
+conflict) on excluded rows with `total` None. Only the criterion that raised the exclusion is
+marked missing with the reason "excluded by <rule>", because a hard exclusion has no
+normalized value. The audit view can then show why ThO2 would have scored well and why it is
+out. Alternative: stop at the first exclusion and leave the other criteria empty.
+
+### 2026-11-03 Hazard weight floor of 0.1
+Decision (owner): `site_profile.default.yaml` sets the hazard weight bounds to 0.1 to 1.0 as
+an admin default, so a scientist cannot weight the hazard criterion out of a ranking; a request
+below the floor is clamped and the clamp is shown (test query E1). Exclusions apply at any
+weight. Alternative: a 0.0 floor, under which "set the toxicity weight to zero" silently
+removed the only soft hazard signal.
+
+### 2026-11-03 Non-oxide anion policy carries a calibration caveat
+Decision (owner): when `simplicity.anion_policy` is not `strict_oxide` the scorer emits
+`stability_cutoff_oxide_calibrated` on every row, with the text entered in the profile's
+stability section (the 94 meV/atom cutoff is the Sun 2016 binary-oxide percentile) and the
+renderer resolves it like every other caveat. The trigger is code and the text is config, so
+the LLM cannot drop or reword it; this replaces the idea of a prompt fragment. The
+nitride-specific statement in the owner's notes stays a TODO in the config entry until it is
+sourced. Alternative: a fixed sentence in the rationale prompt, which the verifier could not
+check.
+
 ## Track B: agent, verifier, renderers, CLI
 
 ### 2026-11-02 One bounded conversation per step, one tool offered

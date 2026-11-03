@@ -47,16 +47,17 @@ YIM_LIKE_WEIGHTS: dict[str, float] = {
     "stability": 1.0,
     "band_gap": 1.0,
     "dielectric_constant": 1.0,
-    "hazard": 0.0,
+    "hazard": 0.1,  # the site floor (owner decision 2026-11-03); 0 is no longer admissible
     "simplicity": 0.0,
     "evidence": 0.0,
     "deposition_method": 0.0,
     "cost": 0.0,
 }
 YIM_LIKE_LABEL = (
-    "Yim-like configuration: stability, band gap and dielectric constant at weight 1; hazard, "
-    "simplicity, evidence, deposition method and cost at weight 0. Weights are query-level "
-    "overrides within site bounds; the default profile file is unchanged. Exclusion rules "
+    "Yim-like configuration: stability, band gap and dielectric constant at weight 1; hazard at "
+    "the site floor of 0.1; simplicity, evidence, deposition method and cost at weight 0. "
+    "Weights are query-level overrides within site bounds; the default profile file is "
+    "unchanged. Exclusion rules "
     "(hazard, stability cutoff, anion policy) still apply at weight 0."
 )
 

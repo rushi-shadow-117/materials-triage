@@ -202,3 +202,71 @@ def test_summary_level_groups_score_with_missing_enrichment(
     th = next(c for c in r.candidates if c.composition == "ThO2")
     assert th.excluded is not None and th.excluded.rule is ExclusionRule.HAZARD_RADIOACTIVE
     assert hf.group.polymorphs.total == 15 and hf.group.hazard is None
+
+
+def test_excluded_rows_carry_the_full_breakdown(
+    baseline_groups, dielectric_profile, site, policy, references, echa
+) -> None:  # type: ignore[no-untyped-def]
+    """Every criterion is computed for an excluded row so the audit view shows it. A test
+    tolerance makes the ThO2 experimental-versus-TBmBJ conflict fire while the radioactivity
+    rule excludes the row."""
+    loaded = with_overrides(dielectric_profile, band_gap__conflict_tolerance_ev=0.3)
+    r = run(baseline_groups, loaded, site, policy, references, echa)
+    th = next(c for c in r.candidates if c.composition == "ThO2")
+    assert th.rank is None and th.excluded is not None
+    assert th.excluded.rule is ExclusionRule.HAZARD_RADIOACTIVE
+    assert th.score.total is None
+    by = {c.criterion: c for c in th.score.criteria}
+    assert by["stability"].normalized == 1.0 and by["stability"].provenance is not None
+    assert not by["band_gap"].missing and by["band_gap"].normalized is not None
+    assert by["band_gap"].provenance is not None
+    assert by["simplicity"].normalized == 1.0
+    assert by["hazard"].missing
+    assert by["hazard"].missing_reason == "excluded by hazard.radioactive_exclude"
+    assert th.score.band_gap_conflict and Flag.BAND_GAP_CONFLICT in th.flags
+    assert th.score.band_gap_source is not None and "experimental" not in th.score.band_gap_source
+    be = next(c for c in r.candidates if c.composition == "BeO")
+    assert be.excluded is not None and be.excluded.rule is ExclusionRule.HAZARD_EXCLUDE
+    for name in ("stability", "band_gap", "simplicity"):
+        assert not next(c for c in be.score.criteria if c.criterion == name).missing
+
+
+def test_non_oxide_anion_policy_emits_the_calibration_caveat(
+    baseline_groups, dielectric_profile, site, policy, references, echa
+) -> None:  # type: ignore[no-untyped-def]
+    cid = CaveatId.STABILITY_CUTOFF_OXIDE_CALIBRATED
+    ref = (
+        "scoring_profiles/oxide_dielectric_thin_film.yaml"
+        "#criteria.stability.anion_calibration_caveat"
+    )
+    base = run(baseline_groups, dielectric_profile, site, policy, references, echa)
+    assert not any(c.id is cid for row in base.candidates + base.anchors for c in row.caveats)
+    loose = run(
+        baseline_groups,
+        with_overrides(dielectric_profile, simplicity__anion_policy="any"),
+        site,
+        policy,
+        references,
+        echa,
+    )
+    assert [(c.composition, c.rank) for c in loose.candidates] == [
+        (c.composition, c.rank) for c in base.candidates
+    ]
+    for row in loose.candidates + loose.anchors:
+        [cav] = [c for c in row.caveats if c.id is cid]
+        assert cav.subject == row.composition and cav.source_ref == ref
+    nitride = run(
+        baseline_groups,
+        with_overrides(dielectric_profile, simplicity__anion_policy="strict_nitride"),
+        site,
+        policy,
+        references,
+        echa,
+    )
+    for row in nitride.candidates:
+        assert row.excluded is not None and any(c.id is cid for c in row.caveats)
+    assert {row.excluded.rule for row in nitride.candidates if row.excluded is not None} == {
+        ExclusionRule.SIMPLICITY_ANION_POLICY,
+        ExclusionRule.HAZARD_RADIOACTIVE,
+        ExclusionRule.HAZARD_EXCLUDE,
+    }

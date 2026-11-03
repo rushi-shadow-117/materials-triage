@@ -48,6 +48,9 @@ rows only under its own heading. Rows name a test path; a row without a test is 
 | Group has only summary-level data | Scores with missing criteria, weights renormalize, `enrichment_missing` flag | tests/scoring/test_scorer.py::test_summary_level_groups_score_with_missing_enrichment |
 | Anchor would outrank candidates | Shown as would-rank N of M, never takes a slot | tests/scoring/test_scorer.py::test_baseline_ranking_exclusions_and_anchor |
 | Golden bundle drifts from code or config | Byte comparison fails naming the rebuild command | tests/scoring/test_golden_bundle.py::test_scored_bundle_is_current_and_well_formed |
+| A candidate is excluded by one rule | Every other criterion is still computed and shown; only the excluding criterion is marked "excluded by <rule>" | tests/scoring/test_scorer.py::test_excluded_rows_carry_the_full_breakdown |
+| Scientist sets the hazard weight below the site floor | Clamped to 0.1 and the clamp is reported | tests/scoring/test_profile_loader.py::test_site_hazard_weight_floor_clamps_and_is_reported |
+| Anion policy is not strict oxide | Every row carries `stability_cutoff_oxide_calibrated` with the profile text | tests/scoring/test_scorer.py::test_non_oxide_anion_policy_emits_the_calibration_caveat |
 
 ## Track B: agent, verifier, renderers, CLI
 

@@ -135,6 +135,13 @@ class CaveatConfig:
         elif cid is CaveatId.STABILITY_CUTOFF_HULL_MISMATCH:
             text = self._profile_criterion("stability", "caveat")
             found = (text, "scoring_profile#criteria.stability.caveat") if text else None
+        elif cid is CaveatId.STABILITY_CUTOFF_OXIDE_CALIBRATED:
+            text = self._profile_criterion("stability", "anion_calibration_caveat")
+            found = (
+                (text, "scoring_profile#criteria.stability.anion_calibration_caveat")
+                if text
+                else None
+            )
         elif cid is CaveatId.HAZARD_FLAG:
             found = self._hazard_flag(subject)
         elif cid is CaveatId.HAZARD_UNKNOWN:
