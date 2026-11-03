@@ -377,7 +377,7 @@ def verify_evidence(
             None,
         )
     if hit.label in (EvidenceLabel.NO_ABSTRACT, EvidenceLabel.UNCLASSIFIED):
-        return hit.model_copy(update={"verified": False, "verifier_note": None}), None
+        return hit.model_copy(update={"verified": False}), None
     result = check_quote(hit.supporting_sentence, abstract)
     if result.ok:
         return hit.model_copy(update={"verified": True, "verifier_note": None}), None
