@@ -32,5 +32,18 @@ bash scripts/cold_run.sh /tmp/cold-run        # defaults to the current commit
 Recorded below by Track D from the commit it was run on; rerun the script to refresh.
 
 <!-- cold-run-output -->
-(not yet recorded on this commit)
+Commit d0f7a2a, 2026-11-03, macOS, Python 3.12, Node 20, `bash scripts/cold_run.sh <dir> HEAD`:
+
+```
+1. clone HEAD into /private/tmp/claude-501/-Users-rpate-Desktop-lila/b0df2d3a-4f11-40e2-83f8-e15d6537bdd7/scratchpad/cold-run2PASS
+2. uv sync (locked)                             PASS
+3. web: npm ci and build                        PASS
+4. lint, types, unit tests (no browser, no db)  PASS
+5. serve on :8765 from recorded data            PASS
+6. the web app answers at / and /console        PASS
+7. Rank my list over the API                    PASS
+8. one eval case on the scripted model (A1)     PASS
+cold run complete: /private/tmp/claude-501/-Users-rpate-Desktop-lila/b0df2d3a-4f11-40e2-83f8-e15d6537bdd7/scratchpad/cold-run2
+exit=0
+```
 <!-- /cold-run-output -->

@@ -4,6 +4,8 @@
 #   bash scripts/cold_run.sh /tmp/cold-run [git-ref]
 # Prints PASS or FAIL per step and exits non-zero on the first failure. No Anthropic call.
 set -euo pipefail
+# a developer shell may export the parent checkout's virtualenv; the clone has its own
+unset VIRTUAL_ENV
 DEST="${1:?destination directory}"
 REF="${2:-HEAD}"
 SRC="$(cd "$(dirname "$0")/.." && pwd)"
