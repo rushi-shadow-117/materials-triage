@@ -211,3 +211,11 @@ def test_the_selection_chart_plots_the_shortlist(page, server: str) -> None:  # 
     assert "HfO2" in readout and "band gap" in readout and " k " in readout
     assert "mp-" not in readout  # the PI view names no record ids
     shot(page, "10-chart")
+
+
+def test_parse_and_run_is_offered_only_with_a_model(page, server: str) -> None:  # type: ignore[no-untyped-def]
+    """Track H sweep: the one-click path exists only when a model can parse; this server runs
+    with LLM_PROVIDER=none, so only the hand-filled form is offered."""
+    sign_in(page, server, "scientist")
+    assert page.get_by_role("button", name="Parse and run").count() == 0
+    assert page.get_by_role("button", name="Fill the criteria form by hand").count() == 1

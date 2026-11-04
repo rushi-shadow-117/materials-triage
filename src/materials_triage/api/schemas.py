@@ -18,6 +18,11 @@ class ParseRequest(BaseModel):
     profile: str = "oxide_dielectric_thin_film"  # scoring profile file stem
 
 
+class CoveredProperty(BaseModel):
+    name: str  # as the request named it, normalized
+    criterion: str  # the criterion that covers it
+
+
 class ParseResponse(BaseModel):
     """What the parse produced, for the confirm form. `parse_available` is False when no
     model is configured; the form is then filled by hand."""
@@ -32,6 +37,10 @@ class ParseResponse(BaseModel):
     missing_required: list[str] = Field(default_factory=list)
     unresolved_candidates: list[str] = Field(default_factory=list)
     unavailable_properties: list[str] = Field(default_factory=list)
+    # the properties the request named, as typed, and which criterion covers each (Track H
+    # sweep: the brief's own phrases were reported as unavailable)
+    requested_properties: list[str] = Field(default_factory=list)
+    covered_properties: list[CoveredProperty] = Field(default_factory=list)
     model: str | None = None
     reason: str | None = None  # why a parse failed or is unavailable
 

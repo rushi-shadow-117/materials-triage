@@ -110,6 +110,8 @@ export default function Workspace({ session }: { session: Session }) {
   const [formulas, setFormulas] = useState("");
   const [parsed, setParsed] = useState<ParseResponse | null>(null);
   const [parsing, setParsing] = useState(false);
+  const [parseSeconds, setParseSeconds] = useState(0);
+  const [stoppedAtForm, setStoppedAtForm] = useState<string | null>(null);
   const [form, setForm] = useState<FormSettings | null>(null);
   const [requestedProperties, setRequestedProperties] = useState<string[]>([]);
   const [resolved, setResolved] = useState<ResolveResponse | null>(null);
@@ -145,17 +147,50 @@ export default function Workspace({ session }: { session: Session }) {
     return () => clearTimeout(handle);
   }, [form, profile]);
 
-  async function parse() {
+  /** What keeps a parsed request from running without the confirm step. Empty means the
+   * parse left nothing to confirm: no refusal, nothing missing, no clamp, every named property
+   * covered by a criterion. The decision is the server's data; this only reads it. */
+  function reasonsToStop(r: ParseResponse): string[] {
+    const out: string[] = [];
+    if (!r.parse_available) out.push("no model could parse it");
+    if (r.refusal) out.push("the request was refused");
+    if (r.reason) out.push(r.reason);
+    const missing = r.missing_required ?? [];
+    const clamps = r.clamps ?? [];
+    const uncovered = r.unavailable_properties ?? [];
+    const unmatched = r.unresolved_candidates ?? [];
+    if (missing.length) out.push(`it does not say: ${missing.join(", ")}`);
+    if (clamps.length) out.push(`${clamps.length} value(s) were clamped to site bounds`);
+    if (uncovered.length) out.push(`no source covers: ${uncovered.join(", ")}`);
+    if (unmatched.length) out.push(`not matched: ${unmatched.join(", ")}`);
+    return out;
+  }
+
+  async function parse(andRun = false) {
     setParsing(true);
+    setParseSeconds(0);
     setError(null);
+    setStoppedAtForm(null);
+    const timer = setInterval(() => setParseSeconds((n) => n + 1), 1000);
     try {
       const r = await post<ParseResponse>("/parse", { request_text: requestText, profile });
+      const parsedForm = fromParsed(r.settings) ?? EMPTY;
+      const requested = r.requested_properties ?? [];
       setParsed(r);
-      setForm(fromParsed(r.settings) ?? EMPTY);
-      setRequestedProperties([]);
+      setForm(parsedForm);
+      setRequestedProperties(requested);
+      if (andRun) {
+        const reasons = reasonsToStop(r);
+        if (reasons.length === 0) {
+          await startRun(parsedForm, requested, "llm");
+          return;
+        }
+        setStoppedAtForm(`Stopped at the form because ${reasons.join("; ")}. Check the settings below and press Confirm and run.`);
+      }
     } catch (e) {
       setError(`${String(e instanceof ApiError ? e.detail : e)} You can also fill the criteria form by hand, or use Rank my list.`);
     } finally {
+      clearInterval(timer);
       setParsing(false);
     }
   }
@@ -168,6 +203,10 @@ export default function Workspace({ session }: { session: Session }) {
 
   async function run() {
     if (!form) return;
+    await startRun(form, requestedProperties, parsed?.parsed_by === "llm" ? "llm" : "form");
+  }
+
+  async function startRun(settings: FormSettings, requested: string[], parsedBy: "llm" | "form") {
     setStarting(true);
     setError(null);
     try {
@@ -175,9 +214,9 @@ export default function Workspace({ session }: { session: Session }) {
       const accepted = await post<RunAccepted>("/runs", {
         request_text: mode === "rank" ? `Rank my list: ${matched.join(", ")}` : requestText,
         profile,
-        settings: compact(form),
-        requested_properties: requestedProperties,
-        parsed_by: parsed?.parsed_by === "llm" ? "llm" : "form",
+        settings: compact(settings),
+        requested_properties: requested,
+        parsed_by: parsedBy,
       });
       navigate(`/runs/${accepted.run_id}`);
     } catch (e) {
@@ -234,13 +273,24 @@ export default function Workspace({ session }: { session: Session }) {
               {requestText.length} / {limits.chars} characters
             </small>
             <div className="row">
-              <button className="primary" onClick={parse} disabled={parsing || !requestText.trim() || overChars}>
-                {parsing ? "Parsing…" : "Parse request"}
+              {session.me.llm_status === "ok" && (
+                <button className="primary" onClick={() => void parse(true)} disabled={parsing || starting || !requestText.trim() || overChars} title="Parse, and run at once when nothing needs confirming; otherwise stop at the form">
+                  {parsing ? "Parsing…" : "Parse and run"}
+                </button>
+              )}
+              <button className={session.me.llm_status === "ok" ? "ghost" : "primary"} onClick={() => void parse(false)} disabled={parsing || starting || !requestText.trim() || overChars}>
+                {parsing ? "Parsing…" : "Parse, then confirm"}
               </button>
-              <button className="ghost" onClick={() => { setParsed(null); setForm(EMPTY); }}>
+              <button className="ghost" onClick={() => { setParsed(null); setStoppedAtForm(null); setForm(EMPTY); }}>
                 Fill the criteria form by hand
               </button>
             </div>
+            {parsing && (
+              <div className="panel note" role="status" data-testid="parse-progress">
+                Reading the request with the model: one call, nothing fetched or scored yet. {parseSeconds}s
+              </div>
+            )}
+            {stoppedAtForm && <div className="panel warn" data-testid="stopped-at-form">{stoppedAtForm}</div>}
             {parsed && !parsed.parse_available && (
               <div className="panel note">{parsed.reason}. The form below is empty; fill it by hand.</div>
             )}
@@ -318,6 +368,7 @@ function ConfirmForm(props: {
   const matched: string[] = (resolved?.settings.candidate_list as string[] | undefined) ?? [];
   const nothingLeft = form.mode === "candidate_list" && unresolved.length > 0 && matched.length === 0;
   const unavailable = parsed?.unavailable_properties ?? [];
+  const covered = parsed?.covered_properties ?? [];
   const boundOf = useMemo(() => Object.fromEntries((bounds ?? []).map((b) => [b.criterion, b])), [bounds]);
   const estimate = resolved?.estimated_model_calls ?? null;
   const canRun = !props.starting && missing.length === 0 && !resolveError && (form.mode !== "candidate_list" || matched.length > 0);
@@ -343,6 +394,11 @@ function ConfirmForm(props: {
             ))}
           </ul>
         </div>
+      )}
+      {covered.length > 0 && (
+        <p className="muted" data-testid="understood-as">
+          Understood as: {covered.map((c) => `${c.name} → ${c.criterion.replace(/_/g, " ")}`).join("; ")}.
+        </p>
       )}
       {unavailable.length > 0 && (
         <div className="panel warn">

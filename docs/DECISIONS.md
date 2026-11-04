@@ -1556,3 +1556,29 @@ an empty file ("Invalid JSON: EOF while parsing a value"), which failed one CI r
 local test run at random. A test writes the file 25 times under a concurrent reader.
 Alternative: retry the read on a parse error, which hides the half-written file instead of
 removing it.
+
+### 2026-11-04 Requested properties are matched to criteria by phrase, in code
+Decision: `config/schema.py` maps a requested property to a criterion by the exact table
+first and then by an ordered phrase list (`PROPERTY_PHRASES`: "conductiv" and "thermal" name
+nothing; "dielectric", "band gap", "gap", "toxic", "stab", "simple", "evidence", "public",
+"deposition", "cost" and their neighbours name their criterion), and the parse response
+returns both the names as typed and the criterion each was understood as. Found when the
+brief's own example, parsed by Sonnet, came back with "Not available from configured sources:
+dielectric, thermodynamically stable, wide band gaps, non-toxic elements": the model had
+listed the request's preferences in its own words, as the prompt asks, and the exact table
+did not hold those words. The run request from the web app now also carries the names (it
+sent an empty list before), so the bundle marks a property no source covers. B3's "thermal
+conductivity" and B4's "conductivity" stay unavailable.
+Alternative: ask the model to normalize the names to the table's keys, which moves a code
+decision into the prompt and breaks the next time the wording differs.
+
+### 2026-11-04 Parse and run: one click when nothing needs confirming
+Decision (owner): a "Parse and run" button starts the run as soon as the parse returns, when
+the response carries no refusal, no missing field, no clamp, no unmatched name, and no
+property that no source covers; otherwise the confirm form opens with a sentence naming what
+stopped it. "Parse, then confirm" keeps the plan's confirm-before-fetch path, and the form
+stays editable after a one-click run's parse. The button exists only when a model can parse
+(`llm_status` ok). The decision reads the server's parse response; the browser decides nothing
+about chemistry or settings. A progress panel with a seconds counter shows during the parse.
+Alternative: always auto-run after a parse, which would start a search on clamped or partly
+understood settings without the scientist seeing them.

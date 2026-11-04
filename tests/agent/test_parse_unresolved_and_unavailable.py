@@ -115,3 +115,48 @@ def test_an_all_unmatched_list_is_missing_not_an_error(layers) -> None:  # type:
     assert outcome.unresolved_candidates == ["hafnia??", "sapphire glass"]
     assert outcome.missing_required == ["candidate_list"]
     assert "[" not in parse.nothing_matched(outcome.unresolved_candidates)
+
+
+def test_the_briefs_own_phrases_map_to_criteria_and_true_unknowns_stay_unavailable() -> None:
+    """Track H sweep: the brief's example produced "Not available from configured sources:
+    dielectric, thermodynamically stable, wide band gaps, non-toxic elements"."""
+    brief = ["dielectric", "thermodynamically stable", "wide band gaps", "non-toxic elements"]
+    assert cs.unavailable_properties(brief) == []
+    assert cs.covered_properties(brief) == [
+        ("dielectric", "dielectric_constant"),
+        ("thermodynamically stable", "stability"),
+        ("wide band gaps", "band_gap"),
+        ("non-toxic elements", "hazard"),
+    ]
+    assert cs.criterion_for_property("Simple compositions") == "simplicity"
+    assert cs.criterion_for_property("public evidence") == "evidence"
+    assert cs.criterion_for_property("energy above hull") == "stability"
+    # B3 and B4: no source covers these, whatever words they share with a criterion
+    assert cs.unavailable_properties(["thermal conductivity", "conductivity"]) == [
+        "thermal conductivity",
+        "conductivity",
+    ]
+    assert cs.criterion_for_property("thermal expansion") is None
+    assert cs.criterion_for_property("") is None
+    assert {c for _, c in cs.PROPERTY_PHRASES if c} <= set(cs.CRITERIA)
+
+
+def test_handler_carries_the_requested_names_for_the_confirm_form() -> None:
+    paths = cs.default_paths()
+    profile, _ = cs.scoring_profile_from_yaml(paths["scoring_profile"])
+    site = cs.site_profile_from_yaml(paths["site_profile"])
+    handler = parse.make_handler(
+        core=cs.CoreConfig(), site=site, profile=profile, cli_profile=profile.name
+    )
+    out = handler(
+        ParsedRequest(
+            mode="discovery",
+            requested_chemistry=["oxide"],
+            requested_properties=["wide band gaps", "thermal conductivity"],
+        )
+    )
+    outcome = out.data
+    assert isinstance(outcome, parse.ParseOutcome)
+    assert outcome.requested_properties == ["wide band gaps", "thermal conductivity"]
+    assert outcome.unavailable_properties == ["thermal conductivity"]
+    assert outcome.missing_required == []  # a chemistry and a property were named
