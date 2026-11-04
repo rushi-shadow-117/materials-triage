@@ -3,6 +3,7 @@ scorer: the pipeline produces a valid bundle whose ranks match the sample."""
 
 from __future__ import annotations
 
+import dataclasses
 import json
 from pathlib import Path
 
@@ -13,7 +14,7 @@ from materials_triage.adapters.base import Call, RawResponse
 from materials_triage.agent import llm, parse, pipeline, scoring_port
 from materials_triage.agent.loop import Budget
 from materials_triage.config import schema as cs
-from materials_triage.records.bundle import EvidenceLabel, ProvenanceBundle
+from materials_triage.records.bundle import EvidenceLabel, FetchMode, ProvenanceBundle
 from materials_triage.render import markdown
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -133,7 +134,17 @@ def test_missing_sources_become_events_and_a_partial_run(
         inputs, fetch=flaky, sources=sources, scorer=scoring_port.default_scorer()
     )
     assert bundle.run.partial is True
-    assert bundle.run.partial_reasons == ["XeF2: no Materials Project summary available"]
+    # offline (replay): never says the source lacks it (human test session, item 12)
+    offline = "Not in the recorded data (offline mode); available with live fetching"
+    assert bundle.run.partial_reasons == [f"XeF2: {offline}"]
+    assert bundle.criteria.not_fetched == {"XeF2": offline}
+    live = pipeline.run(
+        dataclasses.replace(inputs, fetch_mode=FetchMode.LIVE),
+        fetch=flaky,
+        sources=sources,
+        scorer=scoring_port.default_scorer(),
+    )
+    assert live.run.partial_reasons == ["XeF2: no Materials Project summary available"]
     assert {e["source"] for e in bundle.availability_events} == {"openalex", "materials_project"}
     hf = next(c for c in bundle.candidates if c.composition == "HfO2")
     assert hf.group.literature is None and bundle.evidence == []

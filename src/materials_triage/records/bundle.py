@@ -48,6 +48,12 @@ class FetchMode(StrEnum):
 # ----------------------------------------------------------------------------- vocabularies
 
 
+# Why a named composition has no data. Offline (cassettes or a no-network store replay) the
+# source was never asked, so the reason never says the source lacks it.
+OFFLINE_MISS = "Not in the recorded data (offline mode); available with live fetching"
+LIVE_MISS = "no Materials Project summary available"
+
+
 # The reason shown on the chip of a typed entry that matched no formula or known name.
 UNRESOLVED_REASON = "not a chemical formula or a name in the profile's synonym table"
 
@@ -168,6 +174,8 @@ class ConfirmedCriteria(Strict):
     unresolved_candidates: list[str] = Field(default_factory=list)  # not a chemical formula
     stability_cutoff_mev: float | None = None  # effective hull cutoff after site bounds
     unavailable_properties: list[str] = Field(default_factory=list)  # no configured source
+    # a named composition no source returned, with why (offline: not in the recorded data)
+    not_fetched: dict[str, str] = Field(default_factory=dict)
 
 
 # ----------------------------------------------------------------------------- summaries

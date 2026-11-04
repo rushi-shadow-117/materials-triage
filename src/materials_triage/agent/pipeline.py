@@ -42,6 +42,8 @@ from materials_triage.records import (
     SourceRecord,
 )
 from materials_triage.records.bundle import (
+    LIVE_MISS,
+    OFFLINE_MISS,
     Clamp,
     ConfirmedCriteria,
     DecisionLogEntry,
@@ -376,16 +378,28 @@ class Collected:
     partial: list[str]
     log: list[DecisionLogEntry]
     refused: str | None = None  # discovery above the ceiling
+    not_fetched: dict[str, str] = field(default_factory=dict)  # composition: why
+
+
+def miss_reason(mode: FetchMode) -> str:
+    """Offline, a composition missing from the recordings was never asked of the source."""
+    return OFFLINE_MISS if mode == FetchMode.REPLAY else LIVE_MISS
 
 
 def collect_candidate_list(
-    keys: list[str], *, ctx: FetchContext, sources: Sources, synonyms: dict[str, list[str]]
+    keys: list[str],
+    *,
+    ctx: FetchContext,
+    sources: Sources,
+    synonyms: dict[str, list[str]],
+    reason: str = LIVE_MISS,
 ) -> Collected:
     out = Collected({}, [], [])
     for key in keys:
         group = fetch_composition(key, ctx=ctx, sources=sources, synonyms=synonyms)
         if group is None:
-            out.partial.append(f"{key}: no Materials Project summary available")
+            out.partial.append(f"{key}: {reason}")
+            out.not_fetched[key] = reason
             continue
         out.groups[key] = group
     out.log.append(
@@ -527,7 +541,11 @@ def run(
             dict.fromkeys([*query.candidate_list, *inputs.profile.anchors, *query.extra_anchors])
         )
         collected = collect_candidate_list(
-            keys, ctx=ctx, sources=sources, synonyms=inputs.profile.synonyms
+            keys,
+            ctx=ctx,
+            sources=sources,
+            synonyms=inputs.profile.synonyms,
+            reason=miss_reason(inputs.fetch_mode),
         )
         enriched.update(keys)
     else:
@@ -548,7 +566,9 @@ def run(
                 key, ctx=ctx, sources=sources, synonyms=inputs.profile.synonyms
             )
             if group is None:
-                collected.partial.append(f"{key}: no Materials Project summary available")
+                reason = miss_reason(inputs.fetch_mode)
+                collected.partial.append(f"{key}: {reason}")
+                collected.not_fetched[key] = reason
             else:
                 collected.groups[key] = group
                 enriched.add(key)
@@ -729,6 +749,7 @@ def run(
             defaults_applied=list(outcome.defaults_applied),
             unresolved_candidates=list(outcome.unresolved_candidates),
             unavailable_properties=list(outcome.unavailable_properties),
+            not_fetched=dict(collected.not_fetched),
         ),
         candidates=scored.candidates,
         anchors=scored.anchors,

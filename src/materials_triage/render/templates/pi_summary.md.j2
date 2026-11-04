@@ -21,9 +21,9 @@ Request: {{ criteria.request_text }}
 
 {{ view.overview }}
 {% endif %}
-{% if view.unresolved_candidates %}
+{% if view.unresolved %}
 
-Not matched, so nothing is shown for them:{% for u in view.unresolved %} {{ u.text }} ({{ u.reason }}){{ ";" if not loop.last else "." }}{% endfor %}
+Nothing is shown for:{% for u in view.unresolved %} {{ u.text }} ({{ u.reason }}){{ ";" if not loop.last else "." }}{% endfor %}
 {% endif %}
 {% if view.unavailable_properties %}
 

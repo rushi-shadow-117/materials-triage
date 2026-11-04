@@ -33,7 +33,7 @@
 {% if view.hull_cutoff %}
 - Energy above hull cutoff: {{ view.hull_cutoff }}
 {% endif %}
-- Not matched: {% if view.unresolved %}{% for u in view.unresolved %}{{ u.text }} ({{ u.reason }}){{ "; " if not loop.last else "" }}{% endfor %}{% else %}none{% endif %}
+- Nothing shown for: {% if view.unresolved %}{% for u in view.unresolved %}{{ u.text }} ({{ u.reason }}){{ "; " if not loop.last else "" }}{% endfor %}{% else %}none{% endif %}
 - Not available from configured sources: {{ view.unavailable_properties | join(", ") if view.unavailable_properties else "none" }}
 - Units shown: {{ units }}
 {% macro row_block(r) %}

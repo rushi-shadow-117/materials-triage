@@ -498,7 +498,11 @@ def build(
         overview=_overview(bundle, index, units, hide_ids),
         unresolved_candidates=list(bundle.criteria.unresolved_candidates),
         unresolved=[
-            {"text": t, "reason": UNRESOLVED_REASON} for t in bundle.criteria.unresolved_candidates
+            *(
+                {"text": t, "reason": UNRESOLVED_REASON}
+                for t in bundle.criteria.unresolved_candidates
+            ),
+            *({"text": k, "reason": r} for k, r in bundle.criteria.not_fetched.items()),
         ],
         unavailable_properties=list(bundle.criteria.unavailable_properties),
         ties_note=TIES_NOTE if any(r.tied for r in rows) else None,

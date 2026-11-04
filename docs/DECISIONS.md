@@ -1410,3 +1410,11 @@ for, never an error with a Python list, and starting a run with nothing to rank 
 sentence. The model's parse tool still gets a tool error for an all-unmatched list so it can
 ask. Eval case C5's rendered-text check follows the new wording.
 Alternative: guess element capitalization ("co" as Co or CO), which invents chemistry.
+
+### 2026-11-04 Offline misses say they are offline
+Decision (owner): when a run reads recorded data (cassettes, or the store with no network),
+a named composition with no recorded response reads "Not in the recorded data (offline
+mode); available with live fetching". Only a live miss says the source has no summary. The
+bundle records each miss with its reason (`criteria.not_fetched`), and the results page shows
+it as a chip beside the unmatched names.
+Alternative: one wording for both, which told the scientist Materials Project lacks CaO.

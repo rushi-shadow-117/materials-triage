@@ -156,9 +156,9 @@ function Results({ data, view, setView, runId }: { data: RunViewJson; view: "pi_
           <strong>Partial results.</strong> {data.partial_reasons.join("; ")}
         </div>
       )}
-      {data.unresolved_candidates.length > 0 && (
+      {data.unresolved.length > 0 && (
         <div className="panel bad" data-testid="unresolved">
-          <p style={{ margin: "0 0 6px" }}>Not matched, so nothing is shown for them:</p>
+          <p style={{ margin: "0 0 6px" }}>Nothing is shown for these:</p>
           {data.unresolved.map((u) => (
             <span key={u.text} className="chip bad" title={u.reason}>{u.text} <small>{u.reason}</small></span>
           ))}

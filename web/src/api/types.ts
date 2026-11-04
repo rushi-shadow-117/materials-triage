@@ -529,6 +529,10 @@ export interface components {
             };
             /** Mode */
             mode: string;
+            /** Not Fetched */
+            not_fetched?: {
+                [key: string]: string;
+            };
             /** Parsed By */
             parsed_by: string;
             /** Request Text */

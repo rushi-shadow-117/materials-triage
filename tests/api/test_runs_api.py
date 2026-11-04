@@ -48,10 +48,7 @@ def test_candidate_list_run_end_to_end(client: TestClient, tmp_path: Path) -> No
     assert [r["composition"] for r in pi["rows"]] == ["Al2O3", "HfO2", "ZrO2"]
     assert pi["anchors"][0]["rank"].startswith("would place") or pi["anchors"][0]["is_anchor"]
     assert "mp-" not in json.dumps(pi["rows"]) and "mp-" not in pi["markdown"]
-    assert (
-        "Not matched, so nothing is shown for them: Unobtainium oxide (not a chemical"
-        in pi["markdown"]
-    )
+    assert "Nothing is shown for: Unobtainium oxide (not a chemical" in pi["markdown"]
     assert pi["unresolved"][0]["text"] == "Unobtainium oxide"
     audit = client.get(f"/api/runs/{run_id}/view", params={"view": "audit"}).json()
     assert "mp-352" in json.dumps(audit["rows"])  # HfO2's ground state record
