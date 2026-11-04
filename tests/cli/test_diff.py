@@ -98,7 +98,9 @@ def test_candidate_set_and_exclusion_transitions(a: ProvenanceBundle) -> None:
     text = d.to_markdown(report)
     assert "| Al2O3 | 1 | absent | n/a | candidate_set |" in text
     assert "| ZrO2 | 5 | stability.cutoff | n/a |" in text
-    assert "Anchors:" in text and "SiO2: would rank 1 of 8 -> 1 of 8" in text
+    assert "Anchors:" in text and (
+        "SiO2: would place 1st of 9, above Al2O3 -> would place 1st of 9, above Al2O3" in text
+    )
 
 
 def test_hazard_policy_edit_counts_as_config(a: ProvenanceBundle) -> None:

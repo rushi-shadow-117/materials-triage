@@ -39,6 +39,28 @@
             "title": "Out Of",
             "type": "integer"
           },
+          "ranked_above": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ranked Above"
+          },
+          "ranked_below": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ranked Below"
+          },
           "score": {
             "anyOf": [
               {

@@ -60,7 +60,7 @@ No candidate passed the criteria.
 ## Reference anchors (never ranked)
 
 {% for a in view.anchors %}
-- {{ a.composition }}: {{ a.rank }}{% if a.exclusion %} (excluded: {{ a.exclusion }}){% endif %}
+- {{ a.composition }} (reference): {{ a.rank }}{% if a.exclusion %} (excluded: {{ a.exclusion }}){% endif %}
 
 {% endfor %}
 {% endif %}

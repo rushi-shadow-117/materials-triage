@@ -44,7 +44,7 @@ def test_baseline_ranking_exclusions_and_anchor(
     assert ev.missing and ev.missing_reason == "unclassified" and ev.contribution == 0.0
     assert Flag.EVIDENCE_UNCLASSIFIED in hf.flags
     [anchor] = r.anchors
-    assert anchor.composition == "SiO2" and anchor.out_of == 8 and anchor.would_rank == 7
+    assert anchor.composition == "SiO2" and anchor.out_of == 9 and anchor.would_rank == 7
     assert anchor.excluded is None and Flag.PROCESS_HAZARD in anchor.flags
     assert Flag.HAZARD_FLAG in anchor.flags  # H350
     ta = next(c for c in ranked if c.composition == "Ta2O5")
@@ -299,4 +299,4 @@ def test_query_cutoff_and_per_run_anchor(
     by_anchor = {a.composition: a for a in r.anchors}
     assert set(by_anchor) == {"SiO2", "HfO2"}
     assert by_anchor["HfO2"].would_rank == hf.rank
-    assert by_anchor["HfO2"].out_of == len([c for c in r.candidates if c.rank])
+    assert by_anchor["HfO2"].out_of == len([c for c in r.candidates if c.rank]) + 1

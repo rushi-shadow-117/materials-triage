@@ -442,6 +442,10 @@ export interface components {
             group: components["schemas"]["CompositionSummary"];
             /** Out Of */
             out_of: number;
+            /** Ranked Above */
+            ranked_above?: string | null;
+            /** Ranked Below */
+            ranked_below?: string | null;
             score: components["schemas"]["ScoreBreakdown"] | null;
             /** Would Rank */
             would_rank: number | null;

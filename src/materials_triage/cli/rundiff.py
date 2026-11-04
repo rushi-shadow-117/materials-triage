@@ -8,6 +8,7 @@ from dataclasses import dataclass, field
 
 from materials_triage.records import Provenance
 from materials_triage.records.bundle import Anchor, Candidate, ProvenanceBundle
+from materials_triage.render.tokens import anchor_placement
 
 CAUSE_ORDER = ("candidate_set", "data", "config", "model", "displaced")
 
@@ -196,8 +197,8 @@ def diff(a: ProvenanceBundle, b: ProvenanceBundle) -> DiffReport:
     for x in a.anchors:
         y = anchors_b.get(x.composition)
         anchors.append(
-            f"{x.composition}: would rank {x.would_rank} of {x.out_of} -> "
-            + (f"{y.would_rank} of {y.out_of}" if y else "absent")
+            f"{x.composition}: {anchor_placement(x) or 'unranked'} -> "
+            + ((anchor_placement(y) or "unranked") if y else "absent")
         )
     return DiffReport(
         run_a=str(a.run.run_id),

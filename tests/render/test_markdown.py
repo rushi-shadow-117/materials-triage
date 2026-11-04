@@ -75,7 +75,7 @@ def test_pi_summary_has_the_planned_sections(
     assert "| 1= | Al2O3 |" in text and "| 1= | HfO2 |" in text
     assert "Equal scores are tied; tied rows are listed alphabetically." in text
     assert "HfO2 ranks 1= on stability (energy above hull) and band gap; see caveats." in text
-    assert "SiO2: would rank 1 of 8" in text
+    assert "SiO2 (reference): would place 1st of 9, above Al2O3" in text
     assert "ThO2: hazard.radioactive_exclude" in text and "BeO: hazard.exclude" in text
     assert "band_offsets_not_checked: Band offsets to the substrate are not checked" in text
     assert "- breakdown field" in text and "leakage current density" in text
@@ -193,7 +193,7 @@ def test_csv_has_one_row_per_candidate_and_anchor(bundle: ProvenanceBundle) -> N
     th = next(r for r in rows if r["composition"] == "ThO2")
     assert th["rank"] == "" and th["excluded_rule"] == "hazard.radioactive_exclude"
     si = next(r for r in rows if r["kind"] == "anchor")
-    assert si["would_rank"] == "1" and si["out_of"] == "8"
+    assert si["would_rank"] == "1" and si["out_of"] == "9"  # the anchor counts itself
     mev = list(csv.DictReader(io.StringIO(csv_export.export_csv(bundle, units="meV"))))
     assert next(r for r in mev if r["composition"] == "HfO2")["band_gap_unit"] == "meV"
     _golden("export.csv", text)

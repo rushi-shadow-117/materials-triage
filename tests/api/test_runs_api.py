@@ -148,3 +148,30 @@ def test_gan_under_the_nitride_profile(client: TestClient) -> None:
     assert gan["excluded"]["rule"] == "band_gap.hard_min"
     assert "1.738 eV (pbe) is below the 4 eV minimum" in gan["excluded"]["detail"]
     assert "pbe_only_below_window" not in gan["flags"]
+
+
+def test_anchor_placement_reads_correctly(client: TestClient) -> None:
+    """Human test session, item 9: "would rank 5 of 5" read as last while SiO2 outscored
+    TiO2. The count includes the anchor, and the neighbours are named."""
+    body = {
+        "request_text": "rank my list",
+        "settings": {
+            "mode": "candidate_list",
+            "candidate_list": [
+                "HfO2",
+                "ZrO2",
+                "Al2O3",
+                "SiO2",
+                "TiO2",
+                "ThO2",
+                "BeO",
+                "Y2O3",
+                "Unobtainium",
+            ],
+        },
+    }
+    run_id = client.post("/api/runs", json=body).json()["run_id"]
+    assert wait_for_run(client, run_id)["status"] == "completed"
+    pi = client.get(f"/api/runs/{run_id}/view", params={"view": "pi_summary"}).json()
+    assert [a["rank"] for a in pi["anchors"]] == ["would place 5th of 6, between ZrO2 and TiO2"]
+    assert "- SiO2 (reference): would place 5th of 6, between ZrO2 and TiO2" in pi["markdown"]

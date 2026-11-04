@@ -87,7 +87,7 @@ def test_candidate_list_run_matches_the_golden_bundle(
         (c.rank, c.composition) for c in sample.ranked()
     ]
     assert {c.composition for c in bundle.excluded()} == {"ThO2", "BeO"}
-    assert [a.composition for a in bundle.anchors] == ["SiO2"] and bundle.anchors[0].out_of == 8
+    assert [a.composition for a in bundle.anchors] == ["SiO2"] and bundle.anchors[0].out_of == 9
     assert bundle.run.partial is False and bundle.availability_events == []
     assert bundle.run.source_versions["materials_project"] == "2026.09.28"
     assert bundle.run.model_version is None and bundle.run.prompt_hash is None

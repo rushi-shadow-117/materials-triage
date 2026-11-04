@@ -85,6 +85,25 @@ class ShownRank:
         return f"{self.rank}=" if self.tied else str(self.rank)
 
 
+def ordinal(n: int) -> str:
+    suffix = "th" if 10 <= n % 100 <= 20 else {1: "st", 2: "nd", 3: "rd"}.get(n % 10, "th")
+    return f"{n}{suffix}"
+
+
+def anchor_placement(a: Anchor) -> str | None:
+    """ "would place 5th of 6, between ZrO2 and TiO2"; None for an unranked anchor."""
+    if a.would_rank is None:
+        return None
+    text = f"would place {ordinal(a.would_rank)} of {a.out_of}"
+    if a.ranked_above and a.ranked_below:
+        return f"{text}, between {a.ranked_above} and {a.ranked_below}"
+    if a.ranked_below:
+        return f"{text}, above {a.ranked_below}"
+    if a.ranked_above:
+        return f"{text}, below {a.ranked_above}"
+    return text
+
+
 def shown_ranks(bundle: ProvenanceBundle) -> dict[str, ShownRank]:
     """Equal totals at display precision are a tie."""
     first_rank: dict[str, int] = {}
@@ -227,9 +246,7 @@ def resolve(
     if kind == "rank":
         row = index.row(arg)
         if isinstance(row, Anchor):
-            if row.would_rank is None:
-                return "unranked anchor"
-            return f"would rank {row.would_rank} of {row.out_of}"
+            return anchor_placement(row) or "unranked anchor"
         if row.rank is None:
             return "excluded" if row.excluded is not None else "unranked"
         shown = index.ranks.get(arg)

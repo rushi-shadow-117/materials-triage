@@ -441,15 +441,20 @@ def score_run(
     anchors = []
     for r in anchor_rows:
         would = None
+        above = below = None
         if r.exclusion is None:
             would = 1 + sum(1 for c in ranked_rows if c.key < r.key)
+            above = ranked_rows[would - 2].composition if would > 1 else None
+            below = ranked_rows[would - 1].composition if would - 1 < len(ranked_rows) else None
         anchors.append(
             Anchor(
                 composition=r.composition,
                 group=summary(r),
                 score=r.breakdown,
                 would_rank=would,
-                out_of=len(ranked_rows),
+                out_of=len(ranked_rows) + 1,  # the anchor counts in its own placement
+                ranked_above=above,
+                ranked_below=below,
                 excluded=r.exclusion,
                 flags=r.flags,
                 caveats=r.caveats,

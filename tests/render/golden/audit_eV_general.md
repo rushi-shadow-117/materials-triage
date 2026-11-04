@@ -323,7 +323,7 @@ Equal scores are tied; tied rows are listed alphabetically.
 
 ## Reference anchors (never ranked)
 
-### SiO2: would rank 1 of 8, total 1.000
+### SiO2: would place 1st of 9, above Al2O3, total 1.000
 ## Applies to every row
 
 - Band offsets to the substrate are not checked by this screen.

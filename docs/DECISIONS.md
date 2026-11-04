@@ -1379,3 +1379,13 @@ the stability cutoff notes, unclassified evidence, the ECHA attribution) show on
 "Applies to every row" panel above the table and leave the rows.
 Alternative: keep the enum order, which put the standing band offsets sentence first on
 every thin-film row and hid TiO2's hazard flag.
+
+### 2026-11-04 Anchor placement names its place and neighbours
+Decision (owner): a reference anchor reads "SiO2 (reference): would place 5th of 6, between
+ZrO2 and TiO2". The count includes the anchor (`out_of` is the ranked candidates plus one),
+and the anchor records the candidates just above and below its place (`ranked_above`,
+`ranked_below`, defaulted fields). First and last places read "above X" and "below X".
+Bundles written before this keep their stored count, which excluded the anchor; the sample
+bundle's anchor fields were updated in place.
+Alternative: keep "would rank N of M" with M the ranked count, which read as last place when
+the anchor outscored the last candidate.

@@ -156,9 +156,13 @@ class SampleBundleScorer:
         for i, c in enumerate(ranked, start=1):
             c.rank = i
         for a in anchors:
-            a.out_of = len(ranked)
+            a.out_of = len(ranked) + 1
             if a.would_rank is not None:
                 a.would_rank = min(a.would_rank, len(ranked) + 1)
+                a.ranked_above = ranked[a.would_rank - 2].composition if a.would_rank > 1 else None
+                a.ranked_below = (
+                    ranked[a.would_rank - 1].composition if a.would_rank - 1 < len(ranked) else None
+                )
         return ScoredSet(candidates=candidates, anchors=anchors, note=self.NOTE)
 
 

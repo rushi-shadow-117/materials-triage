@@ -28,6 +28,7 @@ from materials_triage.render.tokens import (
     TIES_NOTE,
     BundleIndex,
     TokenError,
+    anchor_placement,
     ghs_text,
     hide_record_ids,
     render_text,
@@ -373,9 +374,7 @@ def _row_view(
         )
     if is_anchor:
         assert isinstance(row, Anchor)
-        rank = (
-            "anchor" if row.would_rank is None else f"would rank {row.would_rank} of {row.out_of}"
-        )
+        rank = anchor_placement(row) or "anchor"
         excluded = row.excluded
     else:
         assert isinstance(row, Candidate)

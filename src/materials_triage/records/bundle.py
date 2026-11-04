@@ -271,9 +271,11 @@ class Anchor(Strict):
     composition: str
     group: CompositionSummary
     score: ScoreBreakdown | None
-    would_rank: int | None  # position it would take among ranked candidates
-    out_of: int
+    would_rank: int | None  # the place it would take if ranked, counting itself
+    out_of: int  # ranked candidates plus this anchor
     excluded: Exclusion | None = None
+    ranked_above: str | None = None  # the candidate just above that place
+    ranked_below: str | None = None  # the candidate just below it
     flags: list[Flag] = Field(default_factory=list)
     caveats: list[Caveat] = Field(default_factory=list)
 

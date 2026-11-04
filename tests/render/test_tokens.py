@@ -36,7 +36,7 @@ def test_each_token_kind_resolves(index: tokens.BundleIndex) -> None:
     assert r("formula", "HfO2") == "HfO2"
     assert r("rank", "HfO2") == "1="  # tied with Al2O3 at the shown precision
     assert r("rank", "ThO2") == "excluded"
-    assert r("rank", "SiO2") == "would rank 1 of 8"
+    assert r("rank", "SiO2") == "would place 1st of 9, above Al2O3"
     assert r("value", "HfO2:band_gap") == "5.55 eV"
     assert r("value", "HfO2:band_gap", units="meV") == "5550 meV"
     assert r("value", "HfO2:stability") == "0.000 eV/atom"

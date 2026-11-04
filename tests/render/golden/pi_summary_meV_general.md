@@ -24,7 +24,7 @@ Equal scores are tied; tied rows are listed alphabetically.
 
 ## Reference anchors (never ranked)
 
-- SiO2: would rank 1 of 8
+- SiO2 (reference): would place 1st of 9, above Al2O3
 
 ## Excluded
 
