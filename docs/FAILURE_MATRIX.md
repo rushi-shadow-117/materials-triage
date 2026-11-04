@@ -89,7 +89,7 @@ rows only under its own heading. Rows name a test path; a row without a test is 
 | Evidence labeled not_relevant or no_abstract without a sentence | No quote check; stored unverified, no failure | tests/verify/test_verifier.py::test_not_relevant_and_no_abstract_skip_the_quote_check |
 | Evidence tier label without a verbatim sentence | `quote_mismatch`, hit dropped | tests/verify/test_verifier.py::test_the_four_tiers_always_need_a_verbatim_sentence |
 | Enrichment excludes a top-K row and admits an unenriched one | Loop enriches the newcomer and scores again until the top K is enriched | tests/agent/test_discovery.py::test_recorded_discovery_queries_run_offline_end_to_end_with_the_real_scorer |
-| Discovery query without a gap bound | Floor from the profile (hard minimum, else soft preference start) | tests/agent/test_discovery.py::test_discovery_filter_keeps_the_cutoff_out_of_the_api_query |
+| Discovery query without a gap bound | Floor from the profile (hard minimum, else soft preference start) | tests/agent/test_discovery.py::test_discovery_filter_sends_only_hard_rules_at_their_loosest_value |
 
 ## Track C: API and web
 
@@ -154,3 +154,16 @@ rows only under its own heading. Rows name a test path; a row without a test is 
 | A request names a property no source provides | Carried as unavailable, logged, and stated in both views; no value shown | tests/agent/test_parse_unresolved_and_unavailable.py::test_handler_carries_both_lists_to_the_outcome |
 | A config change moves which rows are enriched | The run diff attributes the change to config, not data | tests/cli/test_diff.py::test_cross_checks_fetched_in_one_run_follow_the_config_change |
 | Two eval runs differ in data, model, or nothing | diff_causes_only fails naming the row | tests/evals/test_checks_track_f.py::test_diff_causes_only |
+
+## Track G: molecular solids, egress, fetch default, fixes
+
+| Failure | Behavior | Test |
+|---|---|---|
+| Scored polymorph is a molecular crystal (dimensionality 0) | Excluded by `structure.molecular`, shown after the hazard rules, value and MP record on the row | tests/scoring/test_structure.py::test_dimensionality_zero_excludes_after_the_hazard_rules |
+| Structure not fetched or not analysable | Dimensionality missing with a reason; never excludes | tests/scoring/test_structure.py::test_missing_dimensionality_never_excludes |
+| Same structure analysed twice | Same dimensionality | tests/scoring/test_structure.py::test_recorded_structures_give_molecular_and_network_dimensionality |
+| A call to a host off the allowlist | Refused before sending; nothing reaches the network | tests/adapters/test_egress.py::test_a_host_off_the_list_is_refused_before_sending |
+| The LLM client is pointed at another host | The request hook refuses it | tests/adapters/test_egress.py::test_llm_clients_refuse_other_hosts |
+| Postgres down on a CLI run | `--fetch auto` uses the cassettes and logs why | tests/cli/test_cli.py::test_auto_fetch_uses_the_store_only_when_postgres_answers |
+| An evidence quote fails the verifier | The hit leaves `bundle.evidence`; the verifier record keeps it | tests/verify/test_verifier.py::test_paraphrased_quote_is_dropped_and_verbatim_quote_passes |
+| A second pre-registration after tuning | Both entries kept; the report compares against the latest and lists both | tests/evals/test_judge_and_prereg.py::test_preregistration_records_and_compares |

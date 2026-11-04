@@ -86,6 +86,20 @@ criteria:
     entered_by: owner
     entered_on: 2026-10-31
 
+  structure:
+    kind: structural_dimensionality
+    exclude_dimensionality: [0]
+    rule: "structure.molecular: the scored polymorph's structural dimensionality (Larsen method on CrystalNN bonds, pymatgen get_dimensionality_larsen) is 0, so the crystal is built from isolated molecules or clusters, not an extended solid; excluded from thin-film candidates. Computed only for enriched rows (the scored polymorph's MP structure); missing never excludes."
+    method: "pymatgen.analysis.dimensionality.get_dimensionality_larsen on CrystalNN().get_bonded_structure (the bonding route pymatgen's docstring gives)"
+    status: entered
+    source:
+      citation: "P. M. Larsen, M. Pandey, M. Strange, K. W. Jacobsen, Definition of a scoring parameter to identify low-dimensional materials components, Phys. Rev. Materials 3, 034003 (2019), as cited by pymatgen for get_dimensionality_larsen; owner decision 2026-11-04 (Track G item 1)"
+      url: https://doi.org/10.1103/PhysRevMaterials.3.034003
+      access: unknown
+      note: "The owner's instruction cited npj Comput Mater 5, 26 (2019); pymatgen's docstring cites the Phys. Rev. Materials paper above for this function. The citation is entered as the implementation names it. TODO (owner): confirm which reference to cite; neither publisher page was readable from this session."
+    entered_by: owner
+    entered_on: 2026-11-04
+
   hazard:
     policy_file: config/hazard_policy.yaml
     status: entered

@@ -36,7 +36,10 @@ def _call(input_: dict) -> dict:  # type: ignore[type-arg]
 
 
 def test_parsed_request_resolves_with_every_default_named(layers: Layers) -> None:
-    result, fake = _run(layers, [_call({"band_gap_min_ev": 5.0, "weights": {"band_gap": 2.0}})])
+    result, fake = _run(
+        layers,
+        [_call({"band_gap_min_ev": 5.0, "weights": [{"criterion": "band_gap", "weight": 2.0}]})],
+    )
     assert result.ok and result.outcome is not None
     outcome = result.outcome.data
     assert isinstance(outcome, parse.ParseOutcome) and outcome.ready

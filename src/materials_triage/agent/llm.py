@@ -16,6 +16,7 @@ import anthropic
 import httpx
 from anthropic.types import MessageParam, ToolParam
 
+from materials_triage.adapters import egress
 from materials_triage.settings import MissingSettingError, Settings
 
 StopReason = Literal[
@@ -300,7 +301,12 @@ class OpenAICompatibleClient:
         client: httpx.Client | None = None,
     ) -> None:
         headers = {"Authorization": f"Bearer {api_key}"} if api_key else {}
-        self._client = client or httpx.Client(base_url=base_url, headers=headers, timeout=120.0)
+        self._client = client or httpx.Client(
+            base_url=base_url,
+            headers=headers,
+            timeout=120.0,
+            event_hooks={"request": [egress.request_hook({egress.host_of(base_url) or ""})]},
+        )
         self.model = model
 
     def complete(
@@ -387,16 +393,29 @@ class FakeLLM:
 # ------------------------------------------------------------------------ factory
 
 
+def anthropic_sdk(settings: Settings) -> anthropic.Anthropic:
+    """An Anthropic SDK client keyed from settings (.env), whose HTTP client refuses every
+    host but its own endpoint (adapters/egress.py). Shared by the provider client and the
+    eval judge."""
+    allowed: set[str] = set()
+    guarded = anthropic.DefaultHttpxClient(event_hooks={"request": [egress.request_hook(allowed)]})
+    sdk = anthropic.Anthropic(api_key=settings.require("anthropic_api_key"), http_client=guarded)
+    allowed.add(egress.host_of(sdk.base_url) or "")
+    return sdk
+
+
 def make_client(settings: Settings) -> LLMClient | None:
     """Build the configured provider's client, or None for provider "none"."""
     provider = settings.llm_provider
     if provider == "none":
         return None
+    # Egress: the SDK's HTTP client refuses any host but the provider's own endpoint, which is
+    # read from the built client (adapters/egress.py).
+    allowed: set[str] = set()
+    guarded = anthropic.DefaultHttpxClient(event_hooks={"request": [egress.request_hook(allowed)]})
     if provider == "anthropic":
         return AnthropicClient(
-            anthropic.Anthropic(api_key=settings.require("anthropic_api_key")),
-            model=settings.llm_model,
-            provider="anthropic",
+            anthropic_sdk(settings), model=settings.llm_model, provider="anthropic"
         )
     if provider == "bedrock":
         if settings.aws_region is None:
@@ -404,11 +423,11 @@ def make_client(settings: Settings) -> LLMClient | None:
         model = settings.llm_model
         if not model.startswith("anthropic."):
             model = f"anthropic.{model}"
-        return AnthropicClient(
-            anthropic.AnthropicBedrockMantle(aws_region=settings.aws_region),
-            model=model,
-            provider="bedrock",
+        bedrock = anthropic.AnthropicBedrockMantle(
+            aws_region=settings.aws_region, http_client=guarded
         )
+        allowed.add(egress.host_of(bedrock.base_url) or "")
+        return AnthropicClient(bedrock, model=model, provider="bedrock")
     if settings.llm_base_url is None:
         raise MissingSettingError("LLM_BASE_URL")
     key = settings.llm_api_key.get_secret_value() if settings.llm_api_key else None

@@ -1,5 +1,5 @@
 # Narrow judge configuration (Track E). The judge decides two rubric items only; see judge_rubric.md.
-model: claude-opus-5-5
+model: claude-sonnet-5-5  # owner rule Nov 4: no Opus calls in evals
 effort: low
 max_tokens: 1024
 selected_by: "EVAL_LLM=anthropic selects this judge; the default is the deterministic fake used in CI."

@@ -1,0 +1,88 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - _csrf_token=authenticated; mp-session=tWdGuSYcBtwKT9fVveU9Fw|1794688599|dSAFT28AT-Yx0QkzLbH5Irl_Eoo;
+        __cf_bm=ytdw77lXXTDyQRV3XGV4iX2oAKZ_hsaxgT2tk36sLv0-1793755682.108176-1.0.1.1-udF91aNo3Fw9FHbPFrPVzlM0GOjyyULhX5Xz9Ch.Rn05uNSYgqRg2G1QiY9k9oqv1VB01WTIert69_T_IKSgxgzf.c5ChFyUZ2FXPnAgcGWxoir2vs1L5yg9N9607T_9
+      host:
+      - api.materialsproject.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cstructure&_limit=1000&material_ids=mp-29205
+  response:
+    body:
+      string: '{"data":[{"material_id":"mp-aaaabrfh","structure":{"@module":"pymatgen.core.structure","@class":"Structure","charge":0.0,"lattice":{"matrix":[[3.26719568,-5.66822903,-0.0],[3.26719568,5.66822903,-0.0],[-0.0,0.0,8.82893208]],"pbc":[true,true,true],"a":6.542429819871621,"b":6.542429819871621,"c":8.82893208,"alpha":90.0,"beta":90.0,"gamma":120.08127124373081,"volume":327.0097545684276},"properties":{},"sites":[{"species":[{"element":"Y","occu":1.0}],"abc":[0.32954829,0.67045171,0.5],"properties":{"magmom":-0.0},"label":"Y","xyz":[3.26719568,1.9323186616702828,4.41446604]},{"species":[{"element":"Y","occu":1.0}],"abc":[0.32954829,0.67045171,0.0],"properties":{"magmom":-0.0},"label":"Y","xyz":[3.26719568,1.9323186616702828,0.0]},{"species":[{"element":"Y","occu":1.0}],"abc":[0.0,0.0,0.5],"properties":{"magmom":0.0},"label":"Y","xyz":[0.0,0.0,4.41446604]},{"species":[{"element":"Y","occu":1.0}],"abc":[0.0,0.0,0.0],"properties":{"magmom":0.0},"label":"Y","xyz":[0.0,0.0,0.0]},{"species":[{"element":"Y","occu":1.0}],"abc":[0.67045171,0.32954829,0.5],"properties":{"magmom":-0.0},"label":"Y","xyz":[3.2671956800000004,-1.9323186616702825,4.41446604]},{"species":[{"element":"Y","occu":1.0}],"abc":[0.67045171,0.32954829,0.0],"properties":{"magmom":-0.0},"label":"Y","xyz":[3.2671956800000004,-1.9323186616702825,0.0]},{"species":[{"element":"B","occu":1.0}],"abc":[0.33425861,0.09305122,0.75],"properties":{"magmom":0.0},"label":"B","xyz":[1.3961048305975343,-1.3672187302485317,6.621699059999999]},{"species":[{"element":"B","occu":1.0}],"abc":[0.09305122,0.33425861,0.75],"properties":{"magmom":0.0},"label":"B","xyz":[1.3961048305975343,1.3672187302485317,6.621699059999999]},{"species":[{"element":"B","occu":1.0}],"abc":[0.57629118,0.57629118,0.75],"properties":{"magmom":0.0},"label":"B","xyz":[3.765712107436205,-6.6044556356899875e-18,6.621699059999999]},{"species":[{"element":"B","occu":1.0}],"abc":[0.42370882,0.42370882,0.25],"properties":{"magmom":0.0},"label":"B","xyz":[2.768679252563795,6.6044556356899875e-18,2.20723302]},{"species":[{"element":"B","occu":1.0}],"abc":[0.66574139,0.90694878,0.25],"properties":{"magmom":0.0},"label":"B","xyz":[5.138286529402466,1.3672187302485317,2.20723302]},{"species":[{"element":"B","occu":1.0}],"abc":[0.90694878,0.66574139,0.25],"properties":{"magmom":0.0},"label":"B","xyz":[5.138286529402466,-1.3672187302485317,2.20723302]},{"species":[{"element":"O","occu":1.0}],"abc":[0.44800454,0.66523018,0.25],"properties":{"magmom":0.0},"label":"O","xyz":[3.6371556680100094,1.2312846787083294,2.20723302]},{"species":[{"element":"O","occu":1.0}],"abc":[0.66523018,0.44800454,0.25],"properties":{"magmom":0.0},"label":"O","xyz":[3.6371556680100094,-1.231284678708329,2.20723302]},{"species":[{"element":"O","occu":1.0}],"abc":[0.88205587,0.88205587,0.25],"properties":{"magmom":-0.0},"label":"O","xyz":[5.7636982559652825,4.2332698474502592e-16,2.20723302]},{"species":[{"element":"O","occu":1.0}],"abc":[0.11794413,0.11794413,0.75],"properties":{"magmom":-0.0},"label":"O","xyz":[0.7706931040347168,6.8193908567661054e-18,6.621699059999999]},{"species":[{"element":"O","occu":1.0}],"abc":[0.55199546,0.33476982,0.75],"properties":{"magmom":0.0},"label":"O","xyz":[2.8972356919899904,-1.2312846787083294,6.621699059999999]},{"species":[{"element":"O","occu":1.0}],"abc":[0.33476982,0.55199546,0.75],"properties":{"magmom":0.0},"label":"O","xyz":[2.8972356919899904,1.2312846787083291,6.621699059999999]},{"species":[{"element":"O","occu":1.0}],"abc":[0.0167455,0.66631003,0.10830563],"properties":{"magmom":-0.0},"label":"O","xyz":[2.23167607681611,3.681880525804306,0.9562230511516103]},{"species":[{"element":"O","occu":1.0}],"abc":[0.0167455,0.66631003,0.39169437],"properties":{"magmom":-0.0},"label":"O","xyz":[2.23167607681611,3.681880525804306,3.4582429888483897]},{"species":[{"element":"O","occu":1.0}],"abc":[0.66631003,0.0167455,0.10830563],"properties":{"magmom":-0.0},"label":"O","xyz":[2.23167607681611,-3.681880525804306,0.9562230511516103]},{"species":[{"element":"O","occu":1.0}],"abc":[0.66631003,0.0167455,0.39169437],"properties":{"magmom":-0.0},"label":"O","xyz":[2.23167607681611,-3.681880525804306,3.4582429888483897]},{"species":[{"element":"O","occu":1.0}],"abc":[0.31524383,0.31524383,0.10637291],"properties":{"magmom":0.0},"label":"O","xyz":[2.0599265590453086,7.595237173243277e-17,0.9391591975419528]},{"species":[{"element":"O","occu":1.0}],"abc":[0.31524383,0.31524383,0.39362709],"properties":{"magmom":0.0},"label":"O","xyz":[2.0599265590453086,7.595237173243277e-17,3.475306842458047]},{"species":[{"element":"O","occu":1.0}],"abc":[0.68475617,0.68475617,0.60637291],"properties":{"magmom":0.0},"label":"O","xyz":[4.474464800954691,-7.595237173243277e-17,5.353625237541953]},{"species":[{"element":"O","occu":1.0}],"abc":[0.68475617,0.68475617,0.89362709],"properties":{"magmom":0.0},"label":"O","xyz":[4.474464800954691,-7.595237173243277e-17,7.889772882458046]},{"species":[{"element":"O","occu":1.0}],"abc":[0.9832545,0.33368997,0.60830563],"properties":{"magmom":-0.0},"label":"O","xyz":[4.30271528318389,-3.6818805258043064,5.37068909115161]},{"species":[{"element":"O","occu":1.0}],"abc":[0.9832545,0.33368997,0.89169437],"properties":{"magmom":-0.0},"label":"O","xyz":[4.30271528318389,-3.6818805258043064,7.872709028848389]},{"species":[{"element":"O","occu":1.0}],"abc":[0.33368997,0.9832545,0.60830563],"properties":{"magmom":-0.0},"label":"O","xyz":[4.30271528318389,3.681880525804306,5.37068909115161]},{"species":[{"element":"O","occu":1.0}],"abc":[0.33368997,0.9832545,0.89169437],"properties":{"magmom":-0.0},"label":"O","xyz":[4.30271528318389,3.681880525804306,7.872709028848389]}]}}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T01:28:37.967573+00:00","total_doc":1,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+    headers:
+      access-control-expose-headers:
+      - X-Api-Key
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54fd7d21ecb105c-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '5850'
+      content-type:
+      - application/json
+      date:
+      - Wed, 04 Nov 2026 01:28:37 GMT
+      ratelimit-limit:
+      - '25'
+      ratelimit-remaining:
+      - '24'
+      ratelimit-reset:
+      - '1'
+      server:
+      - cloudflare
+      set-cookie:
+      - _csrf_token=authenticated; Domain=.materialsproject.org; Path=/; SameSite=Strict
+      vary:
+      - Accept-Encoding
+      - Origin
+      via:
+      - kong/2.8.4
+      x-consumer-id:
+      - 58e0b4c2-4c2d-439b-ba0a-648cd568a0fa
+      x-kong-proxy-latency:
+      - '8'
+      x-kong-upstream-latency:
+      - '478'
+      x-ratelimit-limit-day:
+      - '640000'
+      x-ratelimit-limit-hour:
+      - '40000'
+      x-ratelimit-limit-minute:
+      - '1000'
+      x-ratelimit-limit-month:
+      - '12800000'
+      x-ratelimit-limit-second:
+      - '25'
+      x-ratelimit-limit-year:
+      - '100000000'
+      x-ratelimit-remaining-day:
+      - '639848'
+      x-ratelimit-remaining-hour:
+      - '39914'
+      x-ratelimit-remaining-minute:
+      - '955'
+      x-ratelimit-remaining-month:
+      - '12799572'
+      x-ratelimit-remaining-second:
+      - '24'
+      x-ratelimit-remaining-year:
+      - '99999524'
+    status:
+      code: 200
+      message: OK
+version: 1

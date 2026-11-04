@@ -30,7 +30,7 @@ from materials_triage.config.schema import (
 
 from . import loop, prompts
 from .llm import LLMClient
-from .tools import PARSE_REQUEST, OutOfScope, ParsedRequest
+from .tools import PARSE_REQUEST, OutOfScope, ParsedRequest, weights_dict
 
 DEFAULTS: dict[str, Any] = {
     "mode": "discovery",
@@ -105,7 +105,7 @@ def to_query_settings(
     if unresolved and not resolved:
         raise CandidateListError(f"not chemical formulas: {unresolved}")
     values["candidate_list"] = resolved
-    values["weights"] = parsed.weights.as_dict()
+    values["weights"] = weights_dict(parsed.weights)
     values["extra_anchors"] = normalize_candidates(parsed.extra_anchors)
     for key in (
         "band_gap_min_ev",
@@ -158,6 +158,39 @@ def resolve_outcome(
     )
 
 
+CLARIFY_FIELDS = ["application", "chemistry", "property preference"]
+
+
+def underspecified(parsed: ParsedRequest, query: QuerySettings) -> bool:
+    """A discovery request that names no chemistry (candidates, elements, or a class such as
+    oxides) and no property preference (a requested property or any property setting) is
+    not run; the researcher is asked first, whatever the model chose (Track G, C1). A request
+    that states only output settings (view, verbosity, terminology, units, top_n) is a
+    follow-up on an earlier search and is not stopped by this rule."""
+    if query.mode != "discovery" or query.candidate_list or query.extra_anchors:
+        return False
+    if parsed.requested_chemistry or parsed.requested_properties:
+        return False
+    property_settings = (
+        query.weights,
+        query.band_gap_min_ev,
+        query.band_gap_max_ev,
+        query.e_above_hull_max_mev,
+        query.max_elements,
+        query.evidence_tier_min,
+    )
+    if any(v not in (None, {}, []) for v in property_settings):
+        return False
+    output_settings = (
+        parsed.view,
+        parsed.verbosity,
+        parsed.terminology,
+        parsed.units,
+        parsed.top_n,
+    )
+    return all(v is None for v in output_settings)
+
+
 def make_handler(
     *, core: CoreConfig, site: SiteProfile, profile: ScoringProfile, cli_profile: str
 ) -> loop.Handler:
@@ -184,7 +217,14 @@ def make_handler(
                 site=site,
                 profile=profile,
                 defaults=defaults,
-                missing=parsed.missing_required,
+                missing=list(
+                    dict.fromkeys(
+                        [
+                            *parsed.missing_required,
+                            *(CLARIFY_FIELDS if underspecified(parsed, query) else []),
+                        ]
+                    )
+                ),
                 unresolved=unresolved,
                 unavailable=unavailable_properties(parsed.requested_properties),
             )

@@ -1,0 +1,19 @@
+# Facts about the committed live results that the results files cannot carry. Printed by
+# scripts/generate_eval_report.py under the live section. Written by hand, owner-reviewed.
+A1_saved:
+  model: claude-opus-5-5
+  date: 2026-11-04
+  note: >-
+    The completed live A1 run, graded from its saved bundle with no further API call.
+    Partial because classification reached the 300 s classify budget and the rationale the
+    120 s budget; run_completed fails for that reason only. CO2 and H2O are excluded by
+    structure.molecular; ZrO2 ranks 6 (4 thin_film_deposited, 1 dielectric_characterized).
+F1_F4_C1:
+  model: claude-sonnet-5-5
+  date: 2026-11-04
+  note: >-
+    23 API calls. F1 refused as expected. C1 missed: the model ran a discovery query for a
+    request naming no chemistry or property; found here, then fixed in code (the parse
+    outcome asks before any fetch). F4 was not started by the live call limit (23 used plus
+    13 worst case exceeds 30); its approved single rerun returned HTTP 400 "credit balance
+    is too low" on the first request, so F4 has no live result.

@@ -1,0 +1,88 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - _csrf_token=authenticated; mp-session=tWdGuSYcBtwKT9fVveU9Fw|1794688599|dSAFT28AT-Yx0QkzLbH5Irl_Eoo;
+        __cf_bm=ytdw77lXXTDyQRV3XGV4iX2oAKZ_hsaxgT2tk36sLv0-1793755682.108176-1.0.1.1-udF91aNo3Fw9FHbPFrPVzlM0GOjyyULhX5Xz9Ch.Rn05uNSYgqRg2G1QiY9k9oqv1VB01WTIert69_T_IKSgxgzf.c5ChFyUZ2FXPnAgcGWxoir2vs1L5yg9N9607T_9
+      host:
+      - api.materialsproject.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cstructure&_limit=1000&material_ids=mp-4514
+  response:
+    body:
+      string: '{"data":[{"material_id":"mp-aaaaagrq","structure":{"@module":"pymatgen.core.structure","@class":"Structure","charge":0.0,"lattice":{"matrix":[[4.81082109,0.01308428,2.89978431],[1.64429555,4.52111241,2.89978431],[0.01862743,0.01308427,5.61715204]],"pbc":[true,true,true],"a":5.6171985724998255,"b":5.617198084822004,"c":5.617198164543066,"alpha":58.72980801617478,"beta":58.72981108887724,"gamma":58.72980534434096,"volume":121.69003756668431},"properties":{},"sites":[{"species":[{"element":"Na","occu":1.0}],"abc":[0.27565789,0.27565789,0.27565789],"properties":{},"label":"Na","xyz":[1.7845386307362125,1.2534938746707744,3.1471091278550074]},{"species":[{"element":"Na","occu":1.0}],"abc":[0.77565789,0.77565789,0.77565789],"properties":{},"label":"Na","xyz":[5.021410665736212,3.5271343546707743,8.855469457855007]},{"species":[{"element":"Nb","occu":1.0}],"abc":[0.0129165,0.0129165,0.0129165],"properties":{},"label":"Nb","xyz":[0.08361811528015499,0.05873495451983999,0.14746407240488998]},{"species":[{"element":"Nb","occu":1.0}],"abc":[0.5129165,0.5129165,0.5129165],"properties":{},"label":"Nb","xyz":[3.3204901502801554,2.33237543451984,5.85582440240489]},{"species":[{"element":"O","occu":1.0}],"abc":[0.24205233,0.82506483,0.67280745],"properties":{},"label":"O","xyz":[2.5336535561564997,3.742181116761724,6.873671337794457]},{"species":[{"element":"O","occu":1.0}],"abc":[0.82506483,0.67280745,0.24205233],"properties":{},"label":"O","xyz":[5.080042393656524,3.055800569029176,5.7031512751741795]},{"species":[{"element":"O","occu":1.0}],"abc":[0.67280745,0.24205233,0.82506483],"properties":{},"label":"O","xyz":[3.650130676421539,1.1139443650975254,7.287410628860805]},{"species":[{"element":"O","occu":1.0}],"abc":[0.17280745,0.32506483,0.74205233],"properties":{},"label":"O","xyz":[1.379670906233039,1.4816249110692754,5.6119429851741796]},{"species":[{"element":"O","occu":1.0}],"abc":[0.74205233,0.17280745,0.32506483],"properties":{},"label":"O","xyz":[3.8600826424557746,0.795244363199051,4.478834608860805]},{"species":[{"element":"O","occu":1.0}],"abc":[0.32506483,0.74205233,0.17280745],"properties":{},"label":"O","xyz":[2.78720104254575,3.3614162966200993,4.065095317794458]}]}}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T01:28:28.620638+00:00","total_doc":1,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+    headers:
+      access-control-expose-headers:
+      - X-Api-Key
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54fd797cd04105c-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '2367'
+      content-type:
+      - application/json
+      date:
+      - Wed, 04 Nov 2026 01:28:28 GMT
+      ratelimit-limit:
+      - '25'
+      ratelimit-remaining:
+      - '24'
+      ratelimit-reset:
+      - '1'
+      server:
+      - cloudflare
+      set-cookie:
+      - _csrf_token=authenticated; Domain=.materialsproject.org; Path=/; SameSite=Strict
+      vary:
+      - Accept-Encoding
+      - Origin
+      via:
+      - kong/2.8.4
+      x-consumer-id:
+      - 58e0b4c2-4c2d-439b-ba0a-648cd568a0fa
+      x-kong-proxy-latency:
+      - '8'
+      x-kong-upstream-latency:
+      - '466'
+      x-ratelimit-limit-day:
+      - '640000'
+      x-ratelimit-limit-hour:
+      - '40000'
+      x-ratelimit-limit-minute:
+      - '1000'
+      x-ratelimit-limit-month:
+      - '12800000'
+      x-ratelimit-limit-second:
+      - '25'
+      x-ratelimit-limit-year:
+      - '100000000'
+      x-ratelimit-remaining-day:
+      - '639859'
+      x-ratelimit-remaining-hour:
+      - '39925'
+      x-ratelimit-remaining-minute:
+      - '966'
+      x-ratelimit-remaining-month:
+      - '12799583'
+      x-ratelimit-remaining-second:
+      - '24'
+      x-ratelimit-remaining-year:
+      - '99999535'
+    status:
+      code: 200
+      message: OK
+version: 1

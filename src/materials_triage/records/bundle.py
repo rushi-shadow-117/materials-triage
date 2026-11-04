@@ -59,6 +59,7 @@ class ExclusionRule(StrEnum):
     HAZARD_ACUTE_ELEMENT = "hazard.acute_toxicity.element"
     HAZARD_ACUTE_COMPOUND = "hazard.acute_toxicity.compound"
     HAZARD_ACUTE_GHS = "hazard.acute_toxicity.ghs"
+    STRUCTURE_MOLECULAR = "structure.molecular"  # dimensionality 0 (Larsen 2019): molecules
     SIMPLICITY_MAX_ELEMENTS = "simplicity.max_elements"
     SIMPLICITY_ANION_POLICY = "simplicity.anion_policy"
     EVIDENCE_TIER_MIN = "evidence.tier_min"
@@ -177,6 +178,7 @@ class PolymorphSummaryRow(Strict):
     band_gap: dict[str, Value[float]] = Field(default_factory=dict)
     dielectric: dict[str, Value[float]] = Field(default_factory=dict)
     excluded_rule: ExclusionRule | None = None  # stability.cutoff, license, deprecated
+    dimensionality: Value[int] | None = None  # Larsen 2019; None = structure not fetched
 
 
 class PolymorphSummary(Strict):
@@ -240,6 +242,9 @@ class ScoreBreakdown(Strict):
     hull_status_conflict: bool = False
     ground_state_is_theoretical: bool | None = None
     near_cutoff: bool = False
+    # The scored polymorph's structural dimensionality, or why it is missing (Track G)
+    dimensionality: Value[int] | None = None
+    dimensionality_note: str | None = None
 
 
 class Candidate(Strict):

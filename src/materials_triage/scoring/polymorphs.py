@@ -82,6 +82,7 @@ def summary_row(
         band_gap=dict(p.band_gap),
         dielectric=dict(p.dielectric),
         excluded_rule=polymorph_exclusion(p, cutoff_mev=cutoff_mev, hull_key=hull_key),
+        dimensionality=p.dimensionality,
     )
 
 

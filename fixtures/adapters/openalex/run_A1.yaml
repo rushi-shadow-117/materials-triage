@@ -246,4 +246,723 @@ interactions:
         "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
         "results": [{"id": "https://openalex.org/W4411396426"}], "group_by": []}'
   recorded_at: '2026-11-04T00:00:20+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=Lu2O3+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 55, "db_response_time_ms": 12, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Lu2O3 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (Lu2O3 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "Lu2O3
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:Lu2O3
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W4389051765",
+        "doi": "https://doi.org/10.4236/ampc.2023.1311014", "title": "Investigation
+        of Sprayed Lu2O3 Thin Films Using XPS", "publication_year": 2023, "abstract_inverted_index":
+        {"Spray": [0], "pyrolysis": [1], "method": [2], "was": [3, 24, 60, 64], "used":
+        [4], "to": [5], "deposit": [6], "Lutetium": [7], "Oxide": [8], "(Lu2O3)":
+        [9], "thin": [10, 50], "films": [11, 71], "using": [12, 55], "lutetium": [13],
+        "(III)": [14], "chloride": [15], "as": [16, 21], "source": [17], "material":
+        [18], "and": [19, 42, 47, 69, 74], "water": [20], "oxidizer.": [22], "Annealing":
+        [23], "carried": [25], "out": [26], "in": [27, 72], "argon": [28], "atmosphere":
+        [29], "at": [30], "450\u00b0C": [31], "for": [32, 66], "60": [33], "minutes":
+        [34], "of": [35, 44], "the": [36, 40], "films.": [37], "To": [38], "investigate":
+        [39], "composition": [41], "stoichiometry": [43], "sprayed": [45], "as-deposited":
+        [46, 70], "annealed": [48, 68], "Lu2O3": [49], "films,": [51], "depth": [52],
+        "profile": [53], "studies": [54], "X-ray": [56], "photoelectron": [57], "spectroscopy":
+        [58], "(XPS)": [59], "done.": [61], "Nearly": [62], "stoichiometric": [63],
+        "observed": [65], "both": [67], "inner": [73], "surface": [75], "layers.":
+        [76]}, "primary_location": {"id": "doi:10.4236/ampc.2023.1311014", "doi":
+        "https://doi.org/10.4236/ampc.2023.1311014", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.4236/ampc.2023.1311014", "pdf_url": "http://www.scirp.org/journal/PaperDownload.aspx?paperID=129378",
+        "source": {"id": "https://openalex.org/S2764622858", "display_name": "Advances
+        in Materials Physics and Chemistry", "issn_l": "2162-531X", "issn": ["2162-531X",
+        "2162-5328"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core"], "host_organization": "https://openalex.org/P4310320480", "host_organization_name":
+        "Scientific Research Publishing", "host_organization_lineage": ["https://openalex.org/P4310320480"],
+        "host_organization_lineage_names": ["Scientific Research Publishing"], "type":
+        "journal"}, "license": "cc-by", "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Advances in Materials Physics and Chemistry", "raw_type":
+        "journal-article"}}, {"id": "https://openalex.org/W2172158167", "doi": "https://doi.org/10.1186/1556-276x-9-3",
+        "title": "Resistive switching behavior in Lu2O3 thin film for advanced flexible
+        memory applications", "publication_year": 2014, "abstract_inverted_index":
+        {"In": [0], "this": [1], "article,": [2], "the": [3, 50, 92], "resistive":
+        [4], "switching": [5, 83, 87, 130], "(RS)": [6], "behaviors": [7], "in": [8,
+        91, 121, 142], "Lu2O3": [9, 21, 51, 93, 122], "thin": [10, 22, 52, 94, 123],
+        "film": [11, 53, 95], "for": [12, 118], "advanced": [13, 144], "flexible":
+        [14, 40, 69], "nonvolatile": [15], "memory": [16, 70, 126], "applications":
+        [17, 141], "are": [18], "investigated.": [19], "Amorphous": [20], "films":
+        [23], "with": [24, 76, 101], "a": [25], "thickness": [26], "of": [27, 49,
+        82, 104, 106, 129], "20": [28], "nm": [29], "were": [30, 54], "deposited":
+        [31], "at": [32], "room": [33], "temperature": [34], "by": [35, 56], "radio-frequency":
+        [36], "magnetron": [37], "sputtering": [38], "on": [39], "polyethylene": [41],
+        "terephthalate": [42], "substrate.": [43], "The": [44, 67, 85, 109, 125],
+        "structural": [45], "and": [46, 62, 79, 136], "morphological": [47], "changes":
+        [48], "characterized": [55], "x-ray": [57, 63], "diffraction,": [58], "atomic":
+        [59], "force": [60], "microscopy,": [61], "photoelectron": [64], "spectroscopy":
+        [65], "analyses.": [66], "Ru/Lu2O3/ITO": [68], "device": [71], "shows": [72],
+        "promising": [73, 140], "RS": [74, 119], "behavior": [75, 120], "low-voltage":
+        [77], "operation": [78], "small": [80], "distribution": [81], "parameters.":
+        [84], "dominant": [86], "current": [88], "conduction": [89, 114], "mechanism":
+        [90], "was": [96, 116], "determined": [97], "as": [98], "bulk-controlled":
+        [99], "space-charge-limited-current": [100], "activation": [102], "energy":
+        [103], "traps": [105], "0.33": [107], "eV.": [108], "oxygen": [110], "vacancies":
+        [111], "assisted": [112], "filament": [113], "model": [115], "described":
+        [117], "film.": [124], "reliability": [127], "characteristics": [128], "endurance,":
+        [131], "data": [132], "retention,": [133], "good": [134], "flexibility,":
+        [135], "mechanical": [137], "endurance": [138], "show": [139], "future": [143],
+        "memory.": [145]}, "primary_location": {"id": "doi:10.1186/1556-276x-9-3",
+        "doi": "https://doi.org/10.1186/1556-276x-9-3", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.1186/1556-276x-9-3", "pdf_url": "https://link.springer.com/content/pdf/10.1186/1556-276X-9-3.pdf",
+        "source": {"id": "https://openalex.org/S55093224", "display_name": "Nanoscale
+        Research Letters", "issn_l": "1556-276X", "issn": ["1556-276X", "1931-7573"],
+        "is_oa": true, "is_in_doaj": true, "is_core": true, "listed_in": ["anvur-scientific",
+        "cwts-core", "doaj", "ki-jl-1", "poland-20"], "host_organization": "https://openalex.org/P4310319900",
+        "host_organization_name": "Springer Science+Business Media", "host_organization_lineage":
+        ["https://openalex.org/P4310319900", "https://openalex.org/P4310319965"],
+        "host_organization_lineage_names": ["Springer Science+Business Media", "Springer
+        Nature"], "type": "journal"}, "license": "cc-by", "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Nanoscale Research Letters", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2056352273", "doi": "https://doi.org/10.1063/1.4858417",
+        "title": "Current conduction and resistive switching characteristics of Sm2O3
+        and Lu2O3 thin films for low-power flexible memory applications", "publication_year":
+        2014, "abstract_inverted_index": {"In": [0], "this": [1], "article,": [2],
+        "the": [3, 47, 56, 60, 68, 101, 108, 120, 171, 175, 192, 197], "current":
+        [4, 64], "conduction": [5, 65, 165], "and": [6, 14, 25, 49, 137, 154, 177],
+        "resistive": [7, 16], "switching": [8, 141, 148], "(RS)": [9], "behavior":
+        [10, 128, 173], "in": [11, 67, 77, 83, 96, 115, 174, 185], "flexible": [12,
+        39, 122], "Sm2O3": [13, 24, 48, 78, 97, 176, 186], "Lu2O3": [15, 26, 50, 116,
+        178], "random": [17], "access": [18], "memories": [19], "(ReRAM)": [20], "are":
+        [21], "investigated.": [22], "Amorphous": [23], "thin": [27, 51, 98, 117,
+        187, 198], "films": [28, 52], "were": [29], "deposited": [30], "at": [31],
+        "room": [32], "temperature": [33], "by": [34], "radio-frequency": [35], "magnetron":
+        [36], "sputtering": [37], "on": [38, 55], "polyethylene": [40], "terephthalate":
+        [41], "substrate.": [42], "The": [43, 62, 85, 143, 163, 181], "structural":
+        [44], "morphologies": [45], "of": [46, 59, 104, 133, 140, 147, 196], "strongly":
+        [53], "depend": [54], "lattice": [57], "energy": [58, 103], "oxides.": [61],
+        "dominant": [63], "mechanism": [66], "oxide": [69], "layer": [70], "changes":
+        [71], "from": [72, 89, 107], "electrode": [73], "control": [74], "Schottky":
+        [75, 90], "emission": [76, 91], "to": [79, 169, 191], "bulk": [80], "controlled":
+        [81], "space-charge-limited-current": [82], "Lu2O3.": [84], "barrier": [86],
+        "height": [87], "extracted": [88], "model": [92, 166], "is": [93, 111, 167,
+        189], "0.96": [94], "eV": [95, 114], "film,": [99], "while": [100], "activation":
+        [102], "traps": [105], "calculated": [106], "Arrhenius": [109], "plots": [110],
+        "about": [112], "0.23": [113], "film.": [118], "Additionally,": [119], "Ni/Sm2O3/ITO":
+        [121], "memory": [123, 144, 161], "device": [124], "shows": [125], "promising":
+        [126, 158], "RS": [127, 172, 183], "with": [129], "very": [130], "low": [131],
+        "power": [132], "operation": [134], "(\u223c30": [135], "\u03bcW)": [136],
+        "small": [138], "distribution": [139], "parameters.": [142], "reliability":
+        [145], "characteristics": [146], "endurance,": [149], "data": [150], "retention,":
+        [151], "good": [152], "flexibility,": [153], "mechanical": [155], "endurance":
+        [156], "show": [157], "for": [159], "future": [160], "applications.": [162],
+        "filament": [164], "adopted": [168], "describe": [170], "ReRAM": [179], "devices.":
+        [180], "improved": [182], "performance": [184], "film": [188], "attributed":
+        [190], "different": [193], "physical": [194], "properties": [195], "films.":
+        [199]}, "primary_location": {"id": "doi:10.1063/1.4858417", "doi": "https://doi.org/10.1063/1.4858417",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.4858417", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S187991544", "display_name":
+        "Journal of Applied Physics", "issn_l": "0021-8979", "issn": ["0021-8979",
+        "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1",
+        "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W4293863191",
+        "doi": "https://doi.org/10.1109/siu55565.2022.9864845", "title": "Passively
+        Mode-Locked Fiber Ring Laser using Lu2O3 Thin Film Based Saturable Absorber",
+        "publication_year": 2022, "abstract_inverted_index": {"In": [0], "this": [1],
+        "study,": [2], "a": [3, 40, 55, 62, 109, 153], "stable": [4], "and": [5, 61,
+        73], "compact": [6], "mode-locked": [7, 51, 86, 104, 133], "erbium": [8],
+        "doped": [9], "fiber": [10, 45], "ring": [11], "laser": [12, 52], "(EDFRL)":
+        [13], "operating": [14], "at": [15, 70, 93], "1560.78": [16], "nm": [17, 150],
+        "is": [18], "proposed": [19], "based": [20, 25, 35, 155], "on": [21], "lutetium":
+        [22], "oxide": [23], "(Lu2O3)": [24], "saturable": [26], "absorber": [27],
+        "(SA)": [28], "thin": [29], "film.": [30], "By": [31], "incorporating": [32],
+        "the": [33, 85, 103, 117, 131, 148], "Lu2O3": [34, 154], "SA": [36], "film":
+        [37], "together": [38], "with": [39, 54, 123], "231.5": [41], "m": [42], "long":
+        [43], "single-mode": [44], "(SMF)": [46], "into": [47], "an": [48, 124], "EDFL":
+        [49], "cavity,": [50], "pulses": [53, 87, 107], "repetition": [56], "rate":
+        [57], "of": [58, 65, 77, 84, 113, 130], "0.7315": [59, 118], "MHz": [60, 119],
+        "pulse": [63, 144], "width": [64], "735": [66], "ns": [67], "were": [68, 88],
+        "obtained": [69, 122], "total": [71, 96], "forward": [72], "backward": [74],
+        "pumping": [75], "power": [76, 83], "597.9": [78, 94], "mW.": [79], "The":
+        [80, 128], "mean": [81], "output": [82, 106], "measured": [89], "as": [90],
+        "-6.46": [91], "dBm": [92], "mW": [95], "pump": [97], "power.": [98], "It":
+        [99], "was": [100], "observed": [101], "that": [102, 137], "EDFRL": [105,
+        135], "have": [108], "signal-to-noise": [110], "ratio": [111], "(SNR)": [112],
+        "47.73": [114], "dB": [115], "for": [116, 142], "fundamental": [120], "frequency":
+        [121], "RF": [125], "spectrum": [126], "analyzer.": [127], "performance":
+        [129], "developed": [132], "pulsed": [134], "shows": [136], "it": [138], "can":
+        [139], "be": [140], "used": [141], "nanosecond": [143], "generation": [145],
+        "applications": [146], "in": [147], "1550": [149], "region": [151], "using":
+        [152], "SA.": [156]}, "primary_location": {"id": "doi:10.1109/siu55565.2022.9864845",
+        "doi": "https://doi.org/10.1109/siu55565.2022.9864845", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1109/siu55565.2022.9864845", "pdf_url": null, "source":
+        {"id": "https://openalex.org/S4363607818", "display_name": "Signal Processing
+        and Communications Applications Conference (SIU)", "issn_l": null, "issn":
+        null, "is_oa": false, "is_in_doaj": false, "is_core": false, "listed_in":
+        [], "host_organization": null, "host_organization_name": null, "host_organization_lineage":
+        [], "host_organization_lineage_names": [], "type": "conference"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "2022 30th Signal Processing and
+        Communications Applications Conference (SIU)", "raw_type": "proceedings-article"}},
+        {"id": "https://openalex.org/W1548700259", "doi": "https://doi.org/10.1002/adhm.201500372",
+        "title": "Bright Lu2O3:Eu Thin\u2010Film Scintillators for High\u2010Resolution
+        Radioluminescence Microscopy", "publication_year": 2015, "abstract_inverted_index":
+        {"The": [0, 51, 72, 157], "performance": [1], "of": [2, 18, 55, 77, 86, 138,
+        198], "a": [3, 121, 154], "new": [4], "thin\u2010film": [5, 115, 158, 183],
+        "Lu2O3:Eu": [6, 116, 140, 159], "scintillator": [7, 117, 127, 141, 184], "for":
+        [8, 128], "single\u2010cell": [9], "radionuclide": [10, 46], "imaging": [11,
+        79], "is": [12, 25, 58, 118, 153], "investigated.": [13], "Imaging": [14],
+        "the": [15, 59, 63, 78, 84, 87, 91, 134, 139, 177, 182, 196], "metabolic":
+        [16], "properties": [17, 137], "heterogeneous": [19], "cell": [20], "populations":
+        [21], "in": [22, 48], "real": [23], "time": [24], "an": [26], "important":
+        [27, 53], "challenge": [28], "with": [29, 148, 176, 181], "clinical": [30],
+        "implications.": [31], "An": [32], "innovative": [33], "technique": [34, 57],
+        "called": [35], "radioluminescence": [36, 129, 163, 186], "microscopy": [37,
+        187], "has": [38], "been": [39], "developed": [40], "to": [41, 120, 144],
+        "quantitatively": [42], "and": [43, 74, 94, 106, 170, 191], "sensitively":
+        [44], "measure": [45], "uptake": [47], "single": [49, 199], "cells.": [50,
+        200], "most": [52], "component": [54], "this": [56], "scintillator,": [60,
+        88], "which": [61, 152], "converts": [62], "energy": [64], "released": [65],
+        "during": [66], "radioactive": [67], "decay": [68], "into": [69], "luminescent":
+        [70], "signals.": [71], "sensitivity": [73], "spatial": [75, 112], "resolution":
+        [76], "system": [80], "depend": [81], "critically": [82], "on": [83, 173,
+        195], "characteristics": [85], "that": [89], "is,": [90], "material": [92],
+        "used": [93], "its": [95, 132], "geometrical": [96], "configuration.": [97],
+        "Scintillators": [98], "fabricated": [99], "using": [100], "conventional":
+        [101, 122], "methods": [102], "are": [103], "relatively": [104], "thick":
+        [105, 125], "therefore": [107], "do": [108], "not": [109], "provide": [110],
+        "optimal": [111], "resolution.": [113], "A": [114], "compared": [119], "500":
+        [123], "\u03bcm": [124], "CdWO4": [126, 178], "imaging.": [130], "Despite":
+        [131], "thinness,": [133], "unique": [135], "scintillation": [136], "allow":
+        [142], "us": [143], "capture": [145], "single\u2010positron": [146], "decays":
+        [147], "fourfold": [149], "higher": [150], "sensitivity,": [151], "significant":
+        [155], "achievement.": [156], "scintillators": [160], "also": [161], "yield":
+        [162, 189], "images": [164], "where": [165], "individual": [166], "cells":
+        [167], "appear": [168], "smaller": [169], "better": [171], "resolved": [172],
+        "average": [174], "than": [175], "scintillators.": [179], "Coupled": [180],
+        "technology,": [185], "can": [188], "valuable": [190], "clinically": [192],
+        "relevant": [193], "data": [194], "metabolism": [197]}, "primary_location":
+        {"id": "doi:10.1002/adhm.201500372", "doi": "https://doi.org/10.1002/adhm.201500372",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1002/adhm.201500372",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S2500736452", "display_name":
+        "Advanced Healthcare Materials", "issn_l": "2192-2640", "issn": ["2192-2640",
+        "2192-2659"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "dongbi-b", "jufo-2", "ki-jl-1", "medline", "poland-140", "russia-white-list-1",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310320595", "host_organization_name":
+        "Wiley", "host_organization_lineage": ["https://openalex.org/P4310320595"],
+        "host_organization_lineage_names": ["Wiley"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Advanced Healthcare Materials",
+        "raw_type": "journal-article"}}], "group_by": []}'
+  recorded_at: '2026-11-04T01:32:25+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=Lu2O3+thin+film&select=id
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 95, "db_response_time_ms": 11, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (Lu2O3 thin film)
+        in the title or abstract", "x_new_oql": "get works with (Lu2O3 thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "Lu2O3 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:Lu2O3 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W4389051765"}], "group_by": []}'
+  recorded_at: '2026-11-04T01:32:25+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=Tm2O3+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 11, "db_response_time_ms": 12, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Tm2O3 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (Tm2O3 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "Tm2O3
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:Tm2O3
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W3109321276",
+        "doi": "https://doi.org/10.1016/j.tsf.2020.138450", "title": "Optical and
+        structural characterization of Tm2O3, TmN, and TmOxNy thin films grown by
+        direct-current reactive magnetron sputtering", "publication_year": 2020, "abstract_inverted_index":
+        {"This": [0], "paper": [1], "reports": [2], "the": [3, 24, 29, 33, 40, 52,
+        72, 78, 103, 131], "fabrication": [4], "and": [5, 11, 56, 81, 88, 96, 145],
+        "characterization": [6], "of": [7, 23, 28, 35, 47, 63, 102], "several": [8],
+        "thulium": [9], "oxide": [10, 104], "nitride": [12, 85], "thin": [13], "films":
+        [14, 105, 114], "grown": [15], "by": [16, 76, 93, 108, 148], "reactive": [17],
+        "magnetron": [18], "direct-current": [19], "sputtering.": [20], "Hysteresis":
+        [21], "curves": [22, 74], "Tm": [25], "emission": [26, 68], "spectra": [27,
+        46], "sputtering": [30], "plasma": [31, 67], "versus": [32], "flow": [34],
+        "N2": [36], "or": [37], "O2": [38], "around": [39], "Tm-metal": [41], "target":
+        [42, 82], "were": [43, 59, 91], "monitored.": [44], "Emission": [45], "atomic":
+        [48], "transition": [49], "lines": [50], "in": [51], "region": [53], "between":
+        [54], "370": [55], "420": [57], "nm": [58], "identified": [60], "to": [61,
+        71], "be": [62], "neutral": [64], "thulium.": [65], "The": [66, 84, 100, 113,
+        125], "was": [69, 106], "compared": [70], "hysteresis": [73], "generated":
+        [75], "monitoring": [77], "sputter": [79], "rate": [80], "voltage.": [83],
+        "films''": [86], "composition": [87, 101], "optical": [89, 97, 126], "properties":
+        [90], "determined": [92, 107], "X-Ray": [94], "Diffraction,": [95], "transmission":
+        [98], "spectroscopy.": [99, 112], "energy": [109], "dispersive": [110], "X-ray":
+        [111], "are": [115, 134], "initially": [116], "amorphous": [117], "but": [118],
+        "crystallize": [119], "after": [120], "thermal": [121], "treatment": [122],
+        "at": [123], "800\u00b0C.": [124], "bandgap": [127], "values": [128], "obtained":
+        [129], "using": [130], "Tauc": [132], "method": [133], "consistent": [135],
+        "with": [136], "what": [137], "has": [138], "been": [139], "previously": [140],
+        "reported": [141], "for": [142], "both": [143], "Tm2O3": [144], "TmN": [146],
+        "prepared": [147], "other": [149], "methods.": [150]}, "primary_location":
+        {"id": "doi:10.1016/j.tsf.2020.138450", "doi": "https://doi.org/10.1016/j.tsf.2020.138450",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.1016/j.tsf.2020.138450",
+        "pdf_url": "https://www.sciencedirect.com/science/article/pii/S0040609020306581?via%3Dihub",
+        "source": {"id": "https://openalex.org/S84339699", "display_name": "Thin Solid
+        Films", "issn_l": "0040-6090", "issn": ["0040-6090", "1879-2731"], "is_oa":
+        false, "is_in_doaj": false, "is_core": true, "listed_in": ["anvur-scientific",
+        "cwts-core", "dongbi-b", "jufo-1", "norway-1", "poland-70", "russia-white-list-1"],
+        "host_organization": "https://openalex.org/P4310320990", "host_organization_name":
+        "Elsevier BV", "host_organization_lineage": ["https://openalex.org/P4310320990"],
+        "host_organization_lineage_names": ["Elsevier BV"], "type": "journal"}, "license":
+        "cc-by", "license_id": "https://openalex.org/licenses/cc-by", "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Thin Solid
+        Films", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2240650250",
+        "doi": "https://doi.org/10.4028/www.scientific.net/amr.833.41", "title": "Preparation
+        and Ferroelectric Properties of Bi4-xTmxTi3O12 Thin Films", "publication_year":
+        2013, "abstract_inverted_index": {"Tm2O3-doped": [0], "bismuth": [1], "titanate":
+        [2], "(Bi4-xTmxTi3O12,": [3], "BTT)": [4], "and": [5, 34, 62, 75], "pure":
+        [6], "Bi4Ti3O12": [7], "(BIT)": [8], "thin": [9], "films": [10], "with": [11,
+        41, 70], "random": [12, 42], "orientation": [13], "were": [14, 72], "fabricated":
+        [15], "on": [16], "Pt/Ti/SiO2/Si": [17], "substrates": [18], "by": [19], "rf":
+        [20], "magnetron": [21], "sputtering": [22], "technique.": [23], "These":
+        [24], "samples": [25], "had": [26], "polycrystalline": [27], "Bi-layered":
+        [28], "perovskite": [29], "structure": [30], "without": [31], "preferred":
+        [32], "orientation,": [33], "consisted": [35], "of": [36, 66], "well": [37],
+        "developed": [38], "rod-like": [39], "grains": [40], "orientation.": [43],
+        "The": [44, 60], "experimental": [45], "results": [46, 53], "indicated": [47],
+        "that": [48], "Tm": [49], "doping": [50], "into": [51], "BIT": [52], "in":
+        [54, 57], "remarkable": [55], "improvement": [56], "ferroelectric": [58],
+        "properties.": [59], "Pr": [61], "the": [63, 67], "Ec": [64], "values": [65],
+        "BTT": [68], "film": [69], "x=0.75": [71], "28": [73], "\u03bcC/cm2": [74],
+        "80": [76], "kV/cm,": [77], "respectively.": [78]}, "primary_location": {"id":
+        "doi:10.4028/www.scientific.net/amr.833.41", "doi": "https://doi.org/10.4028/www.scientific.net/amr.833.41",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.4028/www.scientific.net/amr.833.41",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S67425620", "display_name":
+        "Advanced materials research", "issn_l": "1022-6680", "issn": ["1022-6680",
+        "1662-8985"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "jufo-1", "norway-1"], "host_organization": "https://openalex.org/P4310317839",
+        "host_organization_name": "Trans Tech Publications", "host_organization_lineage":
+        ["https://openalex.org/P4310317839"], "host_organization_lineage_names": ["Trans
+        Tech Publications"], "type": "journal"}, "license": "cc-by", "license_id":
+        "https://openalex.org/licenses/cc-by", "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "Advanced Materials Research",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W4310355675",
+        "doi": "https://doi.org/10.1117/12.2640935", "title": "Spectral shift of the
+        plasmon maximum on the rough anodized Ti surface in the presence of PVA films
+        with Bi2O3 and Bi2O3/Tm2O3 complexes", "publication_year": 2022, "abstract_inverted_index":
+        {"The": [0, 24, 91], "effect": [1], "of": [2, 5, 13, 26, 41, 56, 64, 73, 80,
+        87, 93, 100, 115, 119, 125], "the": [3, 6, 11, 14, 18, 53, 57, 61, 65, 70,
+        74, 85, 88, 94, 97, 116, 123], "thickness": [4, 86], "polyvinyl": [7], "alcohol":
+        [8], "film": [9], "on": [10], "position": [12], "plasmon": [15, 58], "maximum":
+        [16, 59], "at": [17], "modified": [19], "titanium-dielectric": [20], "interface":
+        [21], "was": [22, 46, 50], "investigated.": [23], "integration": [25], "bismuth":
+        [27, 104], "oxide,": [28, 30], "thulium": [29, 101, 120], "as": [31, 33, 77],
+        "well": [32], "their": [34], "mixtures": [35], "into": [36, 60], "thin": [37],
+        "polymer": [38], "films": [39], "(thickness": [40], "up": [42], "to": [43,
+        69, 84, 111], "1.3": [44], "\u03bcm)": [45], "carried": [47], "out.": [48],
+        "It": [49], "established": [51], "that": [52], "spectral": [54, 117], "shift":
+        [55], "red": [62], "region": [63, 124], "spectrum": [66], "is": [67], "due":
+        [68, 83], "roughness": [71], "features": [72], "titanium": [75], "surface":
+        [76], "a": [78, 112], "result": [79], "anodizing": [81], "and": [82, 103],
+        "PVA": [89], "film.": [90], "presence": [92], "overlap": [95], "in": [96,
+        122], "reflection": [98], "spectra": [99], "oxide": [102, 105, 121], "has":
+        [106], "been": [107], "established,": [108], "which": [109], "leads": [110],
+        "complete": [113], "leveling": [114], "band": [118], "350": [126], "nm.":
+        [127]}, "primary_location": {"id": "doi:10.1117/12.2640935", "doi": "https://doi.org/10.1117/12.2640935",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1117/12.2640935",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S7407107562", "display_name":
+        "Nanophotonics, Micro/Nano Optics, and Plasmonics", "issn_l": null, "issn":
+        null, "is_oa": false, "is_in_doaj": false, "is_core": false, "listed_in":
+        [], "host_organization": "https://openalex.org/P4310315543", "host_organization_name":
+        "SPIE", "host_organization_lineage": ["https://openalex.org/P4310315543"],
+        "host_organization_lineage_names": ["SPIE"], "type": "conference"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Nanophotonics, Micro/Nano Optics,
+        and Plasmonics VIII", "raw_type": "proceedings-article"}}, {"id": "https://openalex.org/W2913801339",
+        "doi": null, "title": "Preparation of Er, Eu, and Ce Co-doped Ta2O5 Thin Films
+        Using a Simple Co-sputtering Method", "publication_year": 2015, "abstract_inverted_index":
+        {"Many": [0], "studies": [1], "on": [2, 41], "rare-earth-doped": [3], "tantalum":
+        [4], "(V)": [5], "oxide": [6, 32, 59], "(Ta2O5)": [7], "have": [8, 39], "been":
+        [9], "conducted": [10], "because": [11], "Ta2O5": [12, 51, 68, 112], "is":
+        [13], "a": [14, 67, 132], "potential": [15], "host": [16], "material": [17],
+        "for": [18, 123], "new": [19], "phosphors": [20], "due": [21], "to": [22],
+        "its": [23], "low": [24], "phonon": [25], "energy": [26], "(100\u2013450":
+        [27], "cm\u22121)": [28], "compared": [29], "with": [30, 80], "other": [31],
+        "materials": [33], "such": [34], "as": [35], "SiO2": [36], "[1].": [37], "We":
+        [38], "reported": [40, 85], "various": [42], "rare-earth": [43, 58, 94], "(Er,":
+        [44], "Eu,": [45, 108, 114, 134], "Tm,": [46], "and": [47, 63, 66, 82, 87,
+        109, 127], "Y)": [48], "doping": [49], "into": [50], "thin": [52, 116], "films":
+        [53, 117], "using": [54, 118], "simply": [55], "co-sputtering": [56, 121],
+        "of": [57, 90], "(Er2O3,": [60], "Eu2O3,": [61], "Tm2O3,": [62], "Y2O3)":
+        [64], "pellets": [65], "disc": [69], "[2-5].": [70], "Moreover,": [71], "yellow":
+        [72, 129], "light": [73], "emission": [74], "from": [75, 93, 131], "gallium":
+        [76], "nitride": [77], "(GaN)": [78], "co-doped": [79, 111], "Er": [81], "Eu":
+        [83], "was": [84, 99], "[6],": [86], "the": [88, 119, 124], "sensitization":
+        [89], "photoluminescence": [91], "(PL)": [92], "ions": [95], "by": [96], "cerium":
+        [97], "(Ce)": [98], "demonstrated": [100], "[7].": [101], "In": [102], "this":
+        [103], "study,": [104], "we": [105], "fabricated": [106], "Er,": [107], "Ce":
+        [110, 135], "(Ta2O5:Er,": [113], "Ce)": [115], "same": [120], "method": [122],
+        "first": [125], "time,": [126], "observed": [128], "PL": [130], "Ta2O5:Er,":
+        [133], "film.": [136]}, "primary_location": {"id": "mag:2913801339", "doi":
+        null, "is_oa": false, "landing_page_url": "https://www.osapublishing.org/abstract.cfm?uri=CLEO_Europe-2015-CE_P_4",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S4306418073", "display_name":
+        "Conference on Lasers and Electro-Optics", "issn_l": null, "issn": null, "is_oa":
+        false, "is_in_doaj": false, "is_core": false, "listed_in": [], "host_organization":
+        null, "host_organization_name": null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "conference"}, "license": null, "license_id": null, "version":
+        null, "is_accepted": false, "is_published": false, "raw_source_name": "Conference
+        on Lasers and Electro-Optics", "raw_type": null}}, {"id": "https://openalex.org/W2033680706",
+        "doi": "https://doi.org/10.4236/msa.2015.64031", "title": "Photoluminescence
+        Properties of Thulium and Cerium Co-Doped Tantalum-Oxide Films Prepared by
+        Radio-Frequency Co-Sputtering", "publication_year": 2015, "abstract_inverted_index":
+        {"We": [0], "prepared": [1, 72, 88, 99], "thulium": [2], "and": [3, 17, 28,
+        77, 93, 104, 128, 164, 172], "cerium": [4], "co-doped": [5], "tantalum-oxide":
+        [6], "(Ta2O5": [7], ":Tm,": [8], "Ce)": [9], "thin": [10, 144], "films": [11,
+        34, 61, 71, 87, 98, 145], "by": [12], "radiofrequency": [13], "co-sputtering":
+        [14], "of": [15, 32, 52, 70, 86, 152], "Tm2O3": [16, 75, 91, 102], "CeO2":
+        [18, 79, 95, 106], "pellets": [19, 96, 103], "on": [20], "a": [21, 50], "Ta2O5":
+        [22], "disc": [23], "for": [24, 42, 60, 175], "the": [25, 33, 110, 115, 117,
+        129], "first": [26], "time,": [27], "photoluminescence": [29], "(PL)": [30],
+        "properties": [31], "annealed": [35, 62], "at": [36, 63], "700\u00b0C,": [37],
+        "800\u00b0C,": [38], "900\u00b0C,": [39], "or": [40, 65, 97], "1000\u00b0C":
+        [41], "20": [43], "min": [44], "were": [45, 58, 81], "evaluated.": [46], "PL":
+        [47, 112], "peaks": [48], "around": [49, 125, 137], "wavelength": [51], "800":
+        [53], "nm": [54], "due": [55], "to": [56, 123, 135, 160], "Tm3+": [57], "observed":
+        [59], "900\u00b0C": [64], "1000\u00b0C.": [66], "The": [67], "peak": [68],
+        "intensities": [69], "using": [73, 89, 100], "one": [74, 78, 90, 105], "pellet":
+        [76, 80, 92], "much": [82], "stronger": [83], "than": [84], "those": [85],
+        "two": [94, 101], "pellet.": [107], "To": [108], "obtain": [109], "strongest":
+        [111], "intensity": [113], "from": [114], "film,": [116], "proper": [118,
+        130], "Tm": [119], "concentration": [120, 132], "was": [121, 133], "estimated":
+        [122, 134], "be": [124, 136, 147, 158, 168], "1.0": [126], "mol%,": [127],
+        "Ce": [131, 142], "1.3": [138], "mol%.": [139], "Such": [140], "Ta2O5:Tm,":
+        [141], "co-sputtered": [143], "can": [146, 157], "used": [148, 169], "as":
+        [149, 170], "high-refractive-index": [150], "materials": [151], "autocloned":
+        [153], "photonic": [154], "crystals": [155], "that": [156], "applied": [159],
+        "novel": [161], "light-emitting": [162], "devices,": [163], "they": [165],
+        "will": [166], "also": [167], "anti-reflection": [171], "downconversion":
+        [173], "layers": [174], "realizing": [176], "high-efficiency": [177], "silicon":
+        [178], "solar": [179], "cells.": [180]}, "primary_location": {"id": "doi:10.4236/msa.2015.64031",
+        "doi": "https://doi.org/10.4236/msa.2015.64031", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.4236/msa.2015.64031", "pdf_url": "https://content.scirp.org/pdf/msa_2015032614234620.pdf",
+        "source": {"id": "https://openalex.org/S50933641", "display_name": "Materials
+        Sciences and Applications", "issn_l": "2153-117X", "issn": ["2153-117X", "2153-1188"],
+        "is_oa": true, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core"],
+        "host_organization": "https://openalex.org/P4310320480", "host_organization_name":
+        "Scientific Research Publishing", "host_organization_lineage": ["https://openalex.org/P4310320480"],
+        "host_organization_lineage_names": ["Scientific Research Publishing"], "type":
+        "journal"}, "license": "cc-by", "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "Materials Sciences and Applications", "raw_type": "journal-article"}}],
+        "group_by": []}'
+  recorded_at: '2026-11-04T01:32:27+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=Tm2O3+thin+film&select=id
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 21, "db_response_time_ms": 11, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (Tm2O3 thin film)
+        in the title or abstract", "x_new_oql": "get works with (Tm2O3 thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "Tm2O3 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:Tm2O3 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W7160900855"}], "group_by": []}'
+  recorded_at: '2026-11-04T01:32:28+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=Er2O3+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 122, "db_response_time_ms": 14, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Er2O3 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (Er2O3 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "Er2O3
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:Er2O3
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W1631398173",
+        "doi": "https://doi.org/10.1063/1.2712144", "title": "Thermal stability of
+        Er2O3 thin films grown epitaxially on Si substrates", "publication_year":
+        2007, "abstract_inverted_index": {"The": [0, 27], "thermal": [1, 100], "stability":
+        [2, 101], "of": [3, 42, 59, 66], "Er2O3": [4, 74, 92], "thin": [5], "films":
+        [6, 29, 75, 93, 117], "grown": [7, 94, 104], "epitaxially": [8], "on": [9,
+        95, 105, 138, 141], "Si": [10, 35], "substrates": [11, 97], "has": [12], "been":
+        [13], "investigated": [14], "in": [15, 44, 68, 86, 115, 121], "this": [16],
+        "paper": [17], "by": [18], "x-ray": [19], "diffraction": [20], "and": [21,
+        79, 82], "high": [22, 64], "resolution": [23], "transmission": [24], "electron":
+        [25], "microscopy.": [26], "Er2O3\u2215Si(001)": [28], "are": [30, 84], "found":
+        [31], "to": [32, 36, 127, 144], "react": [33, 76], "with": [34, 77], "form":
+        [37], "silicates": [38], "at": [39, 56, 62, 112, 119], "the": [40, 52, 57,
+        87, 91, 113, 116, 129], "temperature": [41, 58, 65], "450\u00b0C": [43, 120],
+        "N2": [45, 70], "ambience,": [46, 73, 123], "whereas": [47], "O2": [48, 72,
+        122], "ambience": [49], "can": [50], "prevent": [51], "silicate": [53, 81],
+        "formation": [54], "even": [55], "600\u00b0C.": [60], "However,": [61], "a":
+        [63], "900\u00b0C": [67], "either": [69], "or": [71], "Si,": [78], "both":
+        [80], "SiO2": [83], "formed": [85, 111, 135], "films.": [88], "In": [89],
+        "addition,": [90], "Si(111)": [96, 139], "show": [98], "poorer": [99], "than":
+        [102, 140], "those": [103], "Si(001)": [106, 142], "substrates;": [107], "Er":
+        [108], "silicide": [109], "is": [110, 125, 134], "interface": [114], "annealed":
+        [118], "which": [124], "attributed": [126], "that": [128], "reaction": [130],
+        "product": [131], "hexagonal": [132], "ErSi2": [133], "more": [136], "easily":
+        [137], "due": [143], "structure": [145], "similarity": [146], "as": [147,
+        149], "well": [148], "small": [150], "lattice": [151], "mismatch.": [152]},
+        "primary_location": {"id": "doi:10.1063/1.2712144", "doi": "https://doi.org/10.1063/1.2712144",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.2712144", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S187991544", "display_name":
+        "Journal of Applied Physics", "issn_l": "0021-8979", "issn": ["0021-8979",
+        "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1",
+        "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W1632587790",
+        "doi": "https://doi.org/10.1063/1.3159833", "title": "Charge conduction mechanisms
+        of atomic-layer-deposited Er2O3 thin films", "publication_year": 2009, "abstract_inverted_index":
+        {"The": [0], "charge": [1, 26], "transport": [2], "mechanism": [3], "through":
+        [4, 28, 51], "atomic-layer-deposited": [5], "erbium": [6], "oxide": [7], "thin":
+        [8], "films": [9, 33], "has": [10], "been": [11], "analyzed": [12], "with":
+        [13], "current-voltage": [14], "(I-V)": [15], "measurements.": [16], "At":
+        [17], "low": [18], "electric": [19, 49], "field,": [20], "i.e.,": [21], "below":
+        [22], "3": [23], "MV/cm,": [24], "the": [25, 52, 61, 67, 76], "conduction":
+        [27], "10": [29], "nm": [30], "thick": [31], "Er2O3": [32], "is": [34], "dominated":
+        [35], "by": [36], "Poole\u2013Frenkel": [37], "electron": [38], "injection.":
+        [39], "However,": [40], "Fowler\u2013Nordheim": [41], "tunneling": [42], "of":
+        [43, 66, 86], "holes": [44], "also": [45], "occurs": [46], "at": [47], "higher":
+        [48], "fields": [50], "oxide.": [53], "Various": [54], "electronic": [55],
+        "and": [56, 69, 78], "material": [57], "parameters": [58], "such": [59], "as":
+        [60, 83], "trap": [62], "density,": [63], "activation": [64], "energy": [65],
+        "traps,": [68], "interface": [70], "defect": [71], "density": [72], "are":
+        [73], "extracted": [74], "from": [75], "I-V": [77], "parallel": [79], "conductance":
+        [80], "(GP)": [81], "measurements": [82], "a": [84], "function": [85], "frequency.":
+        [87]}, "primary_location": {"id": "doi:10.1063/1.3159833", "doi": "https://doi.org/10.1063/1.3159833",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1063/1.3159833", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S105243760", "display_name":
+        "Applied Physics Letters", "issn_l": "0003-6951", "issn": ["0003-6951", "1077-3118",
+        "1520-8842"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2",
+        "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": null, "license_id":
+        null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Applied Physics Letters", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W2415452801", "doi": "https://doi.org/10.1166/jnn.2014.8848",
+        "title": "Nanostructured Er2O3 Thin Films Grown by Metalorganic Chemical Vapour
+        Deposition", "publication_year": 2014, "abstract_inverted_index": {"Metalorganic":
+        [0], "chemical": [1, 72], "vapor": [2], "deposition": [3, 27], "(MOCVD)":
+        [4], "of": [5, 74, 89, 111, 143, 148, 159, 162, 171, 195, 216], "nanostructured":
+        [6], "Er2O3": [7, 112, 197], "thin": [8, 52, 113], "films": [9, 53, 114, 178],
+        "was": [10, 28, 77, 118, 175], "performed": [11, 100], "using": [12], "the":
+        [13, 21, 38, 66, 75, 90, 133, 141, 156, 160, 168, 196, 217], "Er-tris-guanidinate":
+        [14], "precursor": [15], "[Er(DPDMG)3]": [16], "(DPDMG": [17], "=": [18],
+        "diisopropyl-2-dimethylamidoguanidinato)": [19], "as": [20, 115], "Er": [22],
+        "source": [23], "and": [24, 33, 37, 44, 68, 86, 125, 155, 188], "oxygen.":
+        [25], "Film": [26], "carried": [29], "out": [30, 122], "on": [31, 96], "Si(100)":
+        [32], "quartz": [34], "glass": [35, 97], "substrates": [36, 98], "process":
+        [39, 182], "parameters": [40], "namely": [41], "temperature,": [42], "pressure":
+        [43], "oxygen": [45], "flow": [46], "rate": [47], "were": [48, 54, 99, 136,
+        205], "varied.": [49], "The": [50, 71, 109, 184], "resulting": [51], "characterised":
+        [55], "by": [56, 79, 101, 120], "X-ray": [57, 80], "diffraction": [58], "(XRD),":
+        [59], "scanning": [60], "electron": [61], "microscopy": [62], "(SEM)": [63],
+        "for": [64, 177, 200], "investigating": [65], "crystallinity": [67], "morphology,":
+        [69], "respectively.": [70], "composition": [73], "film": [76, 94], "investigated":
+        [78], "photoelectron": [81], "spectroscopy": [82], "(XPS)": [83], "measurements.":
+        [84, 128], "Transmittance": [85], "absorption": [87], "spectra": [88], "600":
+        [91], "degrees": [92], "C": [93], "grown": [95], "UV-vis": [102], "measurements":
+        [103], "revealing": [104], "more": [105], "than": [106], "80%": [107], "transmittance.":
+        [108], "potential": [110], "gate": [116], "dielectrics": [117], "verified":
+        [119], "carrying": [121], "capacitance-voltage": [123], "(C-V)": [124], "current-voltage":
+        [126], "(I-V)": [127], "Dielectric": [129], "constants": [130], "estimated":
+        [131], "from": [132], "accumulation": [134], "capacitance": [135], "found":
+        [137, 206], "to": [138, 152, 207], "be": [139, 208], "in": [140, 145], "range":
+        [142], "10-12": [144], "AC": [146], "frequencies": [147], "1": [149, 172],
+        "MHz": [150], "down": [151], "10": [153], "kHz": [154], "leakage": [157, 186],
+        "current": [158, 187], "order": [161], "2": [163], "x": [164], "10(-8)": [165],
+        "A/cm2": [166], "at": [167], "applied": [169], "field": [170], "MV": [173],
+        "cm(-1)": [174], "measured": [176], "deposited": [179], "under": [180], "optimised":
+        [181], "conditions.": [183], "low": [185], "high": [189], "dielectric": [190],
+        "constant": [191], "implies": [192], "good": [193], "quality": [194], "layers":
+        [198, 204], "relevant": [199], "high-k": [201], "applications.": [202], "These":
+        [203], "paramagnetic": [209], "with": [210], "a": [211], "slightly": [212],
+        "reduced": [213], "magnetic": [214], "moment": [215], "Er3+": [218], "ions.":
+        [219]}, "primary_location": {"id": "doi:10.1166/jnn.2014.8848", "doi": "https://doi.org/10.1166/jnn.2014.8848",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1166/jnn.2014.8848",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S133947007", "display_name":
+        "Journal of Nanoscience and Nanotechnology", "issn_l": "1533-4880", "issn":
+        ["1533-4880", "1533-4899"], "is_oa": false, "is_in_doaj": false, "is_core":
+        true, "listed_in": ["anvur-scientific", "cwts-core", "poland-40"], "host_organization":
+        "https://openalex.org/P4310321646", "host_organization_name": "American Scientific
+        Publishers", "host_organization_lineage": ["https://openalex.org/P4310321646"],
+        "host_organization_lineage_names": ["American Scientific Publishers"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Nanoscience and Nanotechnology", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W1619095121",
+        "doi": "https://doi.org/10.1063/1.1413239", "title": "Characteristics of electron-beam-gun-evaporated
+        Er2O3 thin films as gate dielectrics for silicon", "publication_year": 2001,
+        "abstract_inverted_index": {"Structural": [0], "properties": [1, 11], "of":
+        [2, 12, 22, 73, 86, 138, 146, 151, 162], "an": [3, 40, 87, 115, 135], "ultrathin,":
+        [4], "4.5": [5, 103], "nm,": [6, 123], "erbium-oxide": [7], "film": [8, 105],
+        "and": [9, 32, 141, 160, 177, 193], "electrical": [10], "metal\u2013oxide\u2013semiconductor":
+        [13], "structure": [14], "based": [15], "on": [16], "it": [17, 82], "are":
+        [18, 43, 175], "described.": [19], "The": [20, 45], "evolution": [21], "the":
+        [23, 49, 58, 79, 84, 93, 102, 120, 152, 157, 163, 187, 191], "dielectric":
+        [24, 46, 95], "constant,": [25], "total": [26, 164], "charge": [27, 166, 183],
+        "density,": [28], "breakdown": [29, 143], "electric": [30, 136, 144], "field,":
+        [31], "leakage": [33, 126], "current": [34, 127], "density": [35, 128, 167],
+        "with": [36, 124, 172], "annealing": [37, 107, 173], "temperature": [38, 174],
+        "in": [39, 48, 119], "oxygen": [41], "environment": [42], "reported.": [44],
+        "constant": [47, 96], "as-deposited": [50], "state": [51], "is": [52, 97],
+        "relatively": [53], "low,": [54], "\u223c7,": [55], "possibly": [56], "because":
+        [57], "initial": [59], "deposition": [60], "forms": [61], "ErO": [62, 74],
+        "(with": [63], "low": [64, 130], "polarizibility)": [65], "rather": [66],
+        "than": [67], "Er2O3.": [68], "Annealing": [69], "causes": [70], "a": [71,
+        125, 142, 182], "transformation": [72], "to": [75, 99, 110, 156, 169], "Er2O3":
+        [76], "but": [77], "at": [78, 108, 134, 190], "same": [80], "time": [81],
+        "initiates": [83], "growth": [85], "interfacial": [88], "SiO2": [89], "layer":
+        [90], "so": [91], "that": [92], "effective": [94, 116], "reduced": [98], "5.5.":
+        [100], "Using": [101], "nm": [104], "following": [106], "up": [109], "750":
+        [111], "\u00b0C,": [112], "we": [113], "demonstrate": [114], "oxide": [117],
+        "thickness": [118], "range": [121], "2.4\u20133.2": [122], "as": [129, 131],
+        "1\u20132\u00d710\u22128": [132], "A/cm2": [133], "field": [137, 145], "106":
+        [139], "V/cm": [140], "0.8\u20131.7\u00d7107": [147], "V/cm.": [148], "A":
+        [149], "shift": [150], "flat": [153], "band": [154], "voltage": [155], "positive":
+        [158, 165], "side": [159], "lowering": [161], "down": [168], "1012": [170],
+        "cm\u22122": [171], "observed": [176], "can": [178], "be": [179], "explained":
+        [180], "by": [181], "compensation": [184], "mechanism": [185], "between":
+        [186], "charges": [188], "accumulated": [189], "SiO2/Er2O3": [192], "Si/SiO2":
+        [194], "interface.": [195]}, "primary_location": {"id": "doi:10.1063/1.1413239",
+        "doi": "https://doi.org/10.1063/1.1413239", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.1413239", "pdf_url": null, "source": {"id": "https://openalex.org/S187991544",
+        "display_name": "Journal of Applied Physics", "issn_l": "0021-8979", "issn":
+        ["0021-8979", "1089-7550", "1520-8850"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-d",
+        "jufo-1", "norway-1", "poland-100", "russia-white-list-1", "vabb-shw"], "host_organization":
+        "https://openalex.org/P4310320257", "host_organization_name": "American Institute
+        of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Journal of
+        Applied Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2026996589",
+        "doi": "https://doi.org/10.1063/1.4812294", "title": "Population dynamics
+        in epitaxial Er2O3 thin films grown on Si(111)", "publication_year": 2013,
+        "abstract_inverted_index": {"We": [0, 64], "grow": [1], "single": [2], "crystal":
+        [3, 58], "erbium-oxide": [4], "(Er2O3)": [5], "epitaxially": [6], "on": [7],
+        "a": [8], "Si": [9], "(111)": [10], "substrate": [11], "by": [12, 55], "using":
+        [13], "molecular": [14], "beam": [15], "epitaxy": [16], "and": [17, 35, 117,
+        130], "investigate": [18], "the": [19, 26, 30, 41, 56, 61, 68, 72, 85, 89,
+        92, 99, 103, 108, 138], "population": [20, 31, 74, 90], "dynamics": [21],
+        "in": [22, 32, 91, 102], "Er3+": [23, 115], "ions": [24], "for": [25], "coherent":
+        [27], "manipulation": [28, 86], "of": [29, 40, 60, 71, 88, 98], "Er2O3.":
+        [33, 63], "Sharp": [34], "discrete": [36], "Stark": [37, 100], "energy": [38,
+        109], "levels": [39], "4I13/2": [42, 104], "manifold": [43], "as": [44, 46],
+        "small": [45], "200": [47], "\u03bceV": [48], "are": [49, 119], "observed":
+        [50], "with": [51], "inhomogeneous": [52], "broadening": [53], "caused": [54],
+        "uniform": [57], "field": [59], "epitaxial": [62], "also": [65], "experimentally":
+        [66], "determine": [67], "time": [69, 87], "constant": [70], "resonant": [73],
+        "transfer": [75, 110], "between": [76, 112, 123, 133], "spatially": [77, 113],
+        "distant": [78, 114], "Er3+-ion": [79], "sites,": [80], "which": [81], "is":
+        [82, 128, 137], "limited": [83], "to": [84], "Er2O3": [93], "crystals.": [94],
+        "Using": [95], "selective": [96], "excitation": [97], "level": [101], "manifold,":
+        [105], "we": [106], "obtain": [107], "times": [111], "ions,": [116], "they":
+        [118], "about": [120], "2": [121], "\u03bcs": [122, 132], "sites": [124, 134],
+        "whose": [125, 135], "crystallographic": [126], "symmetry": [127, 136], "different":
+        [129], "10": [131], "same.": [139]}, "primary_location": {"id": "doi:10.1063/1.4812294",
+        "doi": "https://doi.org/10.1063/1.4812294", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.4812294", "pdf_url": null, "source": {"id": "https://openalex.org/S105243760",
+        "display_name": "Applied Physics Letters", "issn_l": "0003-6951", "issn":
+        ["0003-6951", "1077-3118", "1520-8842"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-a",
+        "jufo-3", "ki-jl-1", "norway-2", "poland-100", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Applied Physics
+        Letters", "raw_type": "journal-article"}}], "group_by": []}'
+  recorded_at: '2026-11-04T01:32:31+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=Er2O3+thin+film&select=id
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 195, "db_response_time_ms": 13, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (Er2O3 thin film)
+        in the title or abstract", "x_new_oql": "get works with (Er2O3 thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "Er2O3 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:Er2O3 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W2329786131"}], "group_by": []}'
+  recorded_at: '2026-11-04T01:32:31+00:00'
 version: 1

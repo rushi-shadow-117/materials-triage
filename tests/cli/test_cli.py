@@ -245,3 +245,16 @@ def test_eval_delegates_or_reports_pending(tmp_path: Path, monkeypatch: pytest.M
 def test_serve_is_still_the_track_c_stub() -> None:
     result = RUNNER.invoke(app, ["serve"])
     assert result.exit_code == 2 and "not implemented" in result.output
+
+
+def test_auto_fetch_uses_the_store_only_when_postgres_answers() -> None:
+    from materials_triage.settings import Settings
+
+    settings = Settings(_env_file=None)  # type: ignore[call-arg]
+    up = wiring.resolve_fetch_source(settings, "auto", reachable=lambda url: True)
+    down = wiring.resolve_fetch_source(settings, "auto", reachable=lambda url: False)
+    assert up[0] == "store" and "Postgres reachable" in up[1]
+    assert down[0] == "cassettes" and "not reachable" in down[1]
+    assert wiring.resolve_fetch_source(settings, "cassettes")[0] == "cassettes"
+    with pytest.raises(ValueError):
+        wiring.resolve_fetch_source(settings, "web")

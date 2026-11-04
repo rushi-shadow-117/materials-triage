@@ -44,9 +44,15 @@ def load_cases(directory: Path = CASES_DIR) -> list[Case]:
 
 
 def select(cases: list[Case], suite: str) -> list[Case]:
-    """'all', a group letter, or one case id."""
+    """'all', a group letter, one case id, or a comma list of ids (in case order)."""
     if suite == "all":
         return cases
+    if "," in suite:
+        wanted = [s.strip() for s in suite.split(",") if s.strip()]
+        unknown = sorted(set(wanted) - {c.id for c in cases})
+        if unknown:
+            raise KeyError(f"no case {unknown}")
+        return [c for c in cases if c.id in wanted]
     if len(suite) == 1 and suite.isalpha():
         return [c for c in cases if c.group == suite.upper()]
     chosen = [c for c in cases if c.id == suite]

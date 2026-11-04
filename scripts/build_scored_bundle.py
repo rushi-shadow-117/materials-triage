@@ -24,7 +24,7 @@ from materials_triage.adapters.common import reduced_formula
 from materials_triage.adapters.recording import ADAPTER_CASSETTES, ROOT, make_vcr
 from materials_triage.adapters.transport import TIMEOUT, USER_AGENT, HttpxTransport
 from materials_triage.config.schema import CoreConfig, QuerySettings, default_paths, resolve
-from materials_triage.records import CompositionGroup
+from materials_triage.records import CompositionGroup, SourceRecord
 from materials_triage.records.bundle import (
     ConfirmedCriteria,
     DecisionLogEntry,
@@ -33,6 +33,8 @@ from materials_triage.records.bundle import (
     RunMetadata,
 )
 from materials_triage.records.groups import build_group, merge_matches
+from materials_triage.records.structure import attach_dimensionality
+from materials_triage.scoring.polymorphs import select_scored
 from materials_triage.scoring.profile import (
     echa_attribution,
     load_hazard_policy,
@@ -146,9 +148,21 @@ def assemble_groups(
                     query=q,
                     scope="title_and_abstract",
                 )
-        groups[key] = build_group(
+        group = build_group(
             key, merged, experimental_gaps=gap_aggs.get(key), hazard=hazard, literature=literature
         )
+        if (ADAPTER_CASSETTES / "mp" / f"structure_{key}.yaml").exists():
+
+            def structures(mp_id: str, k: str = key) -> list[SourceRecord]:
+                with cassette("mp", f"structure_{k}"):
+                    return [
+                        r
+                        for c in mp.plan_structure([mp_id])
+                        for r in mp.structure_records(transport.get(c))
+                    ]
+
+            attach_dimensionality(group, select_scored(group), structures)
+        groups[key] = group
     return groups
 
 

@@ -46,7 +46,8 @@ FetchOpt = Annotated[
     str,
     typer.Option(
         "--fetch",
-        help="store (Postgres-backed, FETCH_MODE from .env) | cassettes (recorded, no database)",
+        help="auto (store if Postgres answers, else cassettes) | store (Postgres-backed, "
+        "FETCH_MODE from .env) | cassettes (recorded, no database)",
     ),
 ]
 NoLlmOpt = Annotated[
@@ -92,9 +93,17 @@ def _run_and_render(
     export: str | None,
     out: Path | None,
     extra_log: list[DecisionLogEntry] | None = None,
+    prior_budgets: list[Budget] | None = None,
 ) -> ProvenanceBundle:
-    if fetch_source not in ("store", "cassettes"):
-        _fail("--fetch must be store or cassettes", EXIT_USAGE)
+    try:
+        source, fetch_line = wiring.resolve_fetch_source(settings, fetch_source)
+    except ValueError as e:
+        _fail(str(e), EXIT_USAGE)
+    typer.echo(fetch_line, err=True)
+    fetch_note = DecisionLogEntry(
+        at=datetime.now(UTC), actor="cli", step="fetch_source", summary=fetch_line
+    )
+    extra_log = [*(extra_log or []), fetch_note]
     inputs = pipeline.RunInputs(
         request_text=request_text,
         parse=outcome,
@@ -103,8 +112,9 @@ def _run_and_render(
         profile=layers.profile,
         hazard_policy=layers.hazard_policy,
         confirmed_at=datetime.now(UTC),
+        prior_budgets=list(prior_budgets or []),  # parse (and relax) spent before this run
     )
-    fetch, mode = wiring.make_fetch(settings, fetch_source, run_id=inputs.run_id)  # type: ignore[arg-type]
+    fetch, mode = wiring.make_fetch(settings, source, run_id=inputs.run_id)
     inputs.fetch_mode = mode
     try:
         bundle = pipeline.run(
@@ -166,8 +176,10 @@ def _maybe_relax(
     client: LLMClient | None,
     request_text: str,
     yes: bool,
+    budget: Budget,
 ) -> ParseOutcome | None:
-    """When fewer than top_n ranked: offer one computed relaxation; apply only on approval."""
+    """When fewer than top_n ranked: offer one computed relaxation; apply only on approval.
+    `budget` is the relax step's budget; the caller records what it used."""
     if client is None or outcome.query is None or outcome.effective is None:
         return None
     if len(bundle.ranked()) >= outcome.effective.top_n:
@@ -179,7 +191,7 @@ def _maybe_relax(
         client=client,
         choices=choices,
         request_text=request_text,
-        budget=Budget.from_core(layers.core, "relax"),
+        budget=budget,
     )
     if result.choice is None:
         typer.echo(f"no relaxation proposed ({result.reason})", err=True)
@@ -215,7 +227,7 @@ def query(
     view: ViewOpt = "pi_summary",
     export: ExportOpt = None,
     out: OutOpt = None,
-    fetch: FetchOpt = "store",
+    fetch: FetchOpt = "auto",
 ) -> None:
     """Parse a request, confirm criteria, run the pipeline, render a view."""
     settings = _settings()
@@ -224,6 +236,7 @@ def query(
     except FileNotFoundError as e:
         _fail(str(e), EXIT_USAGE)
     client = _llm(settings, no_llm)
+    spent: list[Budget] = []  # step budgets used before the run (parse, then relax)
     if no_llm:
         if criteria is None:
             _fail("--no-llm needs --criteria FILE", EXIT_USAGE)
@@ -240,6 +253,7 @@ def query(
     else:
         assert client is not None
         parse_budget = Budget.from_core(layers.core, "parse")
+        spent.append(parse_budget)
         step = parse_mod.run_parse(
             client=client,
             request_text=request,
@@ -264,6 +278,7 @@ def query(
             view=view,
             export=None,
             out=None,
+            prior_budgets=spent,
         )
         raise typer.Exit(code=EXIT_REFUSED)
     assert outcome.query is not None
@@ -296,10 +311,28 @@ def query(
         view=view,
         export=export,
         out=out,
+        prior_budgets=spent,
     )
+    relax_budget = Budget.from_core(layers.core, "relax")
     relaxed = _maybe_relax(
-        bundle=bundle, outcome=outcome, layers=layers, client=client, request_text=request, yes=yes
+        bundle=bundle,
+        outcome=outcome,
+        layers=layers,
+        client=client,
+        request_text=request,
+        yes=yes,
+        budget=relax_budget,
     )
+    if any(v for v in relax_budget.used().values()):
+        # the relax step ran after this bundle was saved: add its budget and save again
+        run = bundle.run.model_copy(
+            update={
+                "budgets_used": {**bundle.run.budgets_used, **relax_budget.used()},
+                "budgets_limit": {**bundle.run.budgets_limit, **relax_budget.limits()},
+            }
+        )
+        wiring.make_run_store(settings).save(bundle.model_copy(update={"run": run}))
+        spent.append(relax_budget)
     if relaxed is not None:
         accepted = DecisionLogEntry(
             at=datetime.now(UTC),
@@ -319,6 +352,7 @@ def query(
             export=export,
             out=out,
             extra_log=[accepted],
+            prior_budgets=spent,
         )
 
 
@@ -333,7 +367,7 @@ def rank(
     no_llm: NoLlmOpt = False,
     export: ExportOpt = None,
     out: OutOpt = None,
-    fetch: FetchOpt = "store",
+    fetch: FetchOpt = "auto",
 ) -> None:
     """Rank a PI-supplied candidate list on the same criteria as discovery."""
     settings = _settings()

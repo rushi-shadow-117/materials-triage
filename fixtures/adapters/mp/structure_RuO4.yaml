@@ -1,0 +1,88 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - _csrf_token=authenticated; mp-session=tWdGuSYcBtwKT9fVveU9Fw|1794688599|dSAFT28AT-Yx0QkzLbH5Irl_Eoo;
+        __cf_bm=ytdw77lXXTDyQRV3XGV4iX2oAKZ_hsaxgT2tk36sLv0-1793755682.108176-1.0.1.1-udF91aNo3Fw9FHbPFrPVzlM0GOjyyULhX5Xz9Ch.Rn05uNSYgqRg2G1QiY9k9oqv1VB01WTIert69_T_IKSgxgzf.c5ChFyUZ2FXPnAgcGWxoir2vs1L5yg9N9607T_9
+      host:
+      - api.materialsproject.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cstructure&_limit=1000&material_ids=mp-554791
+  response:
+    body:
+      string: '{"data":[{"material_id":"mp-aaabfosd","structure":{"@module":"pymatgen.core.structure","@class":"Structure","charge":0.0,"lattice":{"matrix":[[8.46675546,-0.0,-0.0],[0.0,8.46675546,-0.0],[-0.0,-0.0,8.46675546]],"pbc":[true,true,true],"a":8.46675546,"b":8.46675546,"c":8.46675546,"alpha":90.0,"beta":90.0,"gamma":90.0,"volume":606.9473917988681},"properties":{},"sites":[{"species":[{"element":"Ru","occu":1.0}],"abc":[0.75,0.5,-0.0],"properties":{},"label":"Ru","xyz":[6.3500665949999995,4.23337773,0.0]},{"species":[{"element":"Ru","occu":1.0}],"abc":[0.5,0.5,0.5],"properties":{},"label":"Ru","xyz":[4.23337773,4.23337773,4.23337773]},{"species":[{"element":"Ru","occu":1.0}],"abc":[0.5,-0.0,0.25],"properties":{},"label":"Ru","xyz":[4.23337773,0.0,2.116688865]},{"species":[{"element":"Ru","occu":1.0}],"abc":[0.0,0.25,0.5],"properties":{},"label":"Ru","xyz":[0.0,2.116688865,4.23337773]},{"species":[{"element":"Ru","occu":1.0}],"abc":[0.0,-0.0,-0.0],"properties":{},"label":"Ru","xyz":[0.0,0.0,0.0]},{"species":[{"element":"Ru","occu":1.0}],"abc":[0.25,0.5,-0.0],"properties":{},"label":"Ru","xyz":[2.116688865,4.23337773,0.0]},{"species":[{"element":"Ru","occu":1.0}],"abc":[0.5,-0.0,0.75],"properties":{},"label":"Ru","xyz":[4.23337773,0.0,6.3500665949999995]},{"species":[{"element":"Ru","occu":1.0}],"abc":[0.0,0.75,0.5],"properties":{},"label":"Ru","xyz":[0.0,6.3500665949999995,4.23337773]},{"species":[{"element":"O","occu":1.0}],"abc":[0.61535784,0.88468163,0.63526662],"properties":{},"label":"O","xyz":[5.210084351673807,7.4903830211642,5.378647123440746]},{"species":[{"element":"O","occu":1.0}],"abc":[0.11531837,0.36473338,0.61535784],"properties":{},"label":"O","xyz":[0.9763724388358003,3.0881083365592548,5.210084351673807]},{"species":[{"element":"O","occu":1.0}],"abc":[0.38468163,0.88464216,0.86473338],"properties":{},"label":"O","xyz":[3.2570052911642,7.490048838326193,7.321486066559254]},{"species":[{"element":"O","occu":1.0}],"abc":[0.61517395,0.38482605,0.61517395],"properties":{},"label":"O","xyz":[5.208527400012267,3.258228059987733,5.208527400012267]},{"species":[{"element":"O","occu":1.0}],"abc":[0.88482605,0.11517395,0.11517395],"properties":{},"label":"O","xyz":[7.491605789987733,0.9751496700122669,0.9751496700122669]},{"species":[{"element":"O","occu":1.0}],"abc":[0.61535784,0.11531837,0.36473338],"properties":{},"label":"O","xyz":[5.210084351673807,0.9763724388358003,3.0881083365592548]},{"species":[{"element":"O","occu":1.0}],"abc":[0.61531837,0.11535784,0.86473338],"properties":{},"label":"O","xyz":[5.2097501688358,0.9767066216738064,7.321486066559254]},{"species":[{"element":"O","occu":1.0}],"abc":[0.11535784,0.86473338,0.61531837],"properties":{},"label":"O","xyz":[0.9767066216738064,7.321486066559254,5.2097501688358]},{"species":[{"element":"O","occu":1.0}],"abc":[0.11517395,0.11517395,0.88482605],"properties":{},"label":"O","xyz":[0.9751496700122669,0.9751496700122669,7.491605789987733]},{"species":[{"element":"O","occu":1.0}],"abc":[0.13526662,0.61531837,0.88464216],"properties":{},"label":"O","xyz":[1.1452693934407452,5.2097501688358,7.490048838326193]},{"species":[{"element":"O","occu":1.0}],"abc":[0.88468163,0.36473338,0.38464216],"properties":{},"label":"O","xyz":[7.4903830211642,3.0881083365592548,3.2566711083261937]},{"species":[{"element":"O","occu":1.0}],"abc":[0.13526662,0.38468163,0.11535784],"properties":{},"label":"O","xyz":[1.1452693934407452,3.2570052911642,0.9767066216738064]},{"species":[{"element":"O","occu":1.0}],"abc":[0.11517395,0.88482605,0.11517395],"properties":{},"label":"O","xyz":[0.9751496700122669,7.491605789987733,0.9751496700122669]},{"species":[{"element":"O","occu":1.0}],"abc":[0.36473338,0.61535784,0.11531837],"properties":{},"label":"O","xyz":[3.0881083365592548,5.210084351673807,0.9763724388358003]},{"species":[{"element":"O","occu":1.0}],"abc":[0.38464216,0.88468163,0.36473338],"properties":{},"label":"O","xyz":[3.2566711083261937,7.4903830211642,3.0881083365592548]},{"species":[{"element":"O","occu":1.0}],"abc":[0.11531837,0.63526662,0.38464216],"properties":{},"label":"O","xyz":[0.9763724388358003,5.378647123440746,3.2566711083261937]},{"species":[{"element":"O","occu":1.0}],"abc":[0.38482605,0.61517395,0.61517395],"properties":{},"label":"O","xyz":[3.258228059987733,5.208527400012267,5.208527400012267]},{"species":[{"element":"O","occu":1.0}],"abc":[0.88464216,0.86473338,0.38468163],"properties":{},"label":"O","xyz":[7.490048838326193,7.321486066559254,3.2570052911642]},{"species":[{"element":"O","occu":1.0}],"abc":[0.63526662,0.61535784,0.88468163],"properties":{},"label":"O","xyz":[5.378647123440746,5.210084351673807,7.4903830211642]},{"species":[{"element":"O","occu":1.0}],"abc":[0.36473338,0.38464216,0.88468163],"properties":{},"label":"O","xyz":[3.0881083365592548,3.2566711083261937,7.4903830211642]},{"species":[{"element":"O","occu":1.0}],"abc":[0.86473338,0.38468163,0.88464216],"properties":{},"label":"O","xyz":[7.321486066559254,3.2570052911642,7.490048838326193]},{"species":[{"element":"O","occu":1.0}],"abc":[0.61531837,0.88464216,0.13526662],"properties":{},"label":"O","xyz":[5.2097501688358,7.490048838326193,1.1452693934407452]},{"species":[{"element":"O","occu":1.0}],"abc":[0.38482605,0.38482605,0.38482605],"properties":{},"label":"O","xyz":[3.258228059987733,3.258228059987733,3.258228059987733]},{"species":[{"element":"O","occu":1.0}],"abc":[0.61517395,0.61517395,0.38482605],"properties":{},"label":"O","xyz":[5.208527400012267,5.208527400012267,3.258228059987733]},{"species":[{"element":"O","occu":1.0}],"abc":[0.63526662,0.38464216,0.11531837],"properties":{},"label":"O","xyz":[5.378647123440746,3.2566711083261937,0.9763724388358003]},{"species":[{"element":"O","occu":1.0}],"abc":[0.88464216,0.13526662,0.61531837],"properties":{},"label":"O","xyz":[7.490048838326193,1.1452693934407452,5.2097501688358]},{"species":[{"element":"O","occu":1.0}],"abc":[0.11535784,0.13526662,0.38468163],"properties":{},"label":"O","xyz":[0.9767066216738064,1.1452693934407452,3.2570052911642]},{"species":[{"element":"O","occu":1.0}],"abc":[0.38464216,0.11531837,0.63526662],"properties":{},"label":"O","xyz":[3.2566711083261937,0.9763724388358003,5.378647123440746]},{"species":[{"element":"O","occu":1.0}],"abc":[0.86473338,0.61531837,0.11535784],"properties":{},"label":"O","xyz":[7.321486066559254,5.2097501688358,0.9767066216738064]},{"species":[{"element":"O","occu":1.0}],"abc":[0.88468163,0.63526662,0.61535784],"properties":{},"label":"O","xyz":[7.4903830211642,5.378647123440746,5.210084351673807]},{"species":[{"element":"O","occu":1.0}],"abc":[0.38468163,0.11535784,0.13526662],"properties":{},"label":"O","xyz":[3.2570052911642,0.9767066216738064,1.1452693934407452]},{"species":[{"element":"O","occu":1.0}],"abc":[0.88482605,0.88482605,0.88482605],"properties":{},"label":"O","xyz":[7.491605789987733,7.491605789987733,7.491605789987733]}]}}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T01:28:05.170221+00:00","total_doc":1,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+    headers:
+      access-control-expose-headers:
+      - X-Api-Key
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54fd7051832105c-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '7067'
+      content-type:
+      - application/json
+      date:
+      - Wed, 04 Nov 2026 01:28:05 GMT
+      ratelimit-limit:
+      - '25'
+      ratelimit-remaining:
+      - '24'
+      ratelimit-reset:
+      - '1'
+      server:
+      - cloudflare
+      set-cookie:
+      - _csrf_token=authenticated; Domain=.materialsproject.org; Path=/; SameSite=Strict
+      vary:
+      - Accept-Encoding
+      - Origin
+      via:
+      - kong/2.8.4
+      x-consumer-id:
+      - 58e0b4c2-4c2d-439b-ba0a-648cd568a0fa
+      x-kong-proxy-latency:
+      - '9'
+      x-kong-upstream-latency:
+      - '483'
+      x-ratelimit-limit-day:
+      - '640000'
+      x-ratelimit-limit-hour:
+      - '40000'
+      x-ratelimit-limit-minute:
+      - '1000'
+      x-ratelimit-limit-month:
+      - '12800000'
+      x-ratelimit-limit-second:
+      - '25'
+      x-ratelimit-limit-year:
+      - '100000000'
+      x-ratelimit-remaining-day:
+      - '639887'
+      x-ratelimit-remaining-hour:
+      - '39953'
+      x-ratelimit-remaining-minute:
+      - '994'
+      x-ratelimit-remaining-month:
+      - '12799611'
+      x-ratelimit-remaining-second:
+      - '24'
+      x-ratelimit-remaining-year:
+      - '99999563'
+    status:
+      code: 200
+      message: OK
+version: 1

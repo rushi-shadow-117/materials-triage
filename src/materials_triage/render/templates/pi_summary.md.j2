@@ -15,6 +15,12 @@ Note: {{ run.note }}
 {% endif %}
 
 Request: {{ criteria.request_text }}
+{% if view.overview %}
+
+## Overview
+
+{{ view.overview }}
+{% endif %}
 {% if view.unresolved_candidates %}
 
 Not found in any source: {{ view.unresolved_candidates | join(", ") }}. These names are not chemical formulas; nothing is shown for them.

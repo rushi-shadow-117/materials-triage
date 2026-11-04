@@ -665,6 +665,7 @@
           "hazard.acute_toxicity.element",
           "hazard.acute_toxicity.compound",
           "hazard.acute_toxicity.ghs",
+          "structure.molecular",
           "simplicity.max_elements",
           "simplicity.anion_policy",
           "evidence.tier_min",
@@ -1252,6 +1253,16 @@
             },
             "title": "Dielectric",
             "type": "object"
+          },
+          "dimensionality": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Value_int_"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "excluded_rule": {
             "anyOf": [
@@ -2078,6 +2089,27 @@
             "title": "Criteria",
             "type": "array"
           },
+          "dimensionality": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Value_int_"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "dimensionality_note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Dimensionality Note"
+          },
           "ground_state_is_theoretical": {
             "anyOf": [
               {
@@ -2224,6 +2256,57 @@
           "provenance"
         ],
         "title": "Value[float]",
+        "type": "object"
+      },
+      "Value_int_": {
+        "additionalProperties": false,
+        "properties": {
+          "method": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Method"
+          },
+          "missing_reason": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MissingReason"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "provenance": {
+            "$ref": "#/components/schemas/Provenance"
+          },
+          "unit": {
+            "title": "Unit",
+            "type": "string"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Value"
+          }
+        },
+        "required": [
+          "value",
+          "unit",
+          "provenance"
+        ],
+        "title": "Value[int]",
         "type": "object"
       },
       "Verbosity": {

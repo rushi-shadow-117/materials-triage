@@ -49,6 +49,7 @@ EXCLUSION_ORDER = (
     ExclusionRule.HAZARD_ACUTE_ELEMENT,
     ExclusionRule.HAZARD_ACUTE_COMPOUND,
     ExclusionRule.HAZARD_ACUTE_GHS,
+    ExclusionRule.STRUCTURE_MOLECULAR,
     ExclusionRule.STABILITY_CUTOFF,
     ExclusionRule.BAND_GAP_HARD_MIN,
     ExclusionRule.BAND_GAP_HARD_MAX,
@@ -187,6 +188,13 @@ def score_group(
 
     scores = [results[c].to_score(c, effective.weights.get(c, 0.0)) for c in CRITERIA]
     exclusions = [r.exclusion for r in results.values() if r.exclusion is not None]
+    dim, dim_note, dim_exclusion = crit.structure(
+        scored,
+        exclude=profile.structure_exclude_dimensionality,
+        source_ref=refs.get("structure", ""),
+    )
+    if dim_exclusion is not None:
+        exclusions.append(dim_exclusion)
     flags: list[Flag] = [f for r in results.values() for f in r.flags]
     caveats: list[Caveat] = [c for r in results.values() for c in r.caveats]
     polys = mp_polymorphs(group)
@@ -244,6 +252,8 @@ def score_group(
         hull_status_conflict=hull_conflict,
         ground_state_is_theoretical=group.ground_state_is_theoretical,
         near_cutoff=Flag.NEAR_CUTOFF in flags,
+        dimensionality=dim,
+        dimensionality_note=dim_note,
     )
     return Scored(
         composition=group.composition,

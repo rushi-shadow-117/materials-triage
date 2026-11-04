@@ -31,6 +31,7 @@
 - Flags: none
 - Sensitivity: rank 1 to 2 over 12 perturbations (stable)
 - Insulating gap source: tbmbj
+- Structural dimensionality: missing (not computed)
 
 | Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
 |---|---|---|---|---|---|---|---|
@@ -63,6 +64,7 @@ Caveats:
 - Flags: none
 - Sensitivity: rank 1 to 3 over 12 perturbations (stable)
 - Insulating gap source: experimental_median
+- Structural dimensionality: missing (not computed)
 
 | Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
 |---|---|---|---|---|---|---|---|
@@ -89,7 +91,6 @@ Experimental gaps: 5.55 eV to 5.55 eV across 1 value(s), median 5.55 eV
 Hazard: no GHS hazard codes in 344 notifications (ECHA attribution applies)
 Literature: 3496 matched, 2469 with abstracts, 5 read (title_and_abstract; query 'HfO2 thin film')
 - https://openalex.org/W2024600253 (2015): thin_film_deposited; verified quote: "Here, we present a structural study on the origin of ferroelectricity in Gd doped HfO2 thin films."
-- https://openalex.org/W2114118400 (2007): dielectric_characterized; not verified (quote not found verbatim in stored abstract); claimed: "This sentence does not appear in the abstract and was planted to show a failed quote check."
 Caveats:
 - band_offsets_not_checked: Band offsets to the substrate are not checked by this screen. (source: scoring_profile#criteria.band_gap.standing_caveat)
 
@@ -98,6 +99,7 @@ Caveats:
 - Flags: hull_status_conflict
 - Sensitivity: rank 2 to 4 over 12 perturbations (stable)
 - Insulating gap source: experimental_median
+- Structural dimensionality: missing (not computed)
 
 | Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
 |---|---|---|---|---|---|---|---|
@@ -131,6 +133,7 @@ Caveats:
 - Flags: none
 - Sensitivity: rank 3 to 5 over 12 perturbations (stable)
 - Insulating gap source: experimental_median
+- Structural dimensionality: missing (not computed)
 
 | Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
 |---|---|---|---|---|---|---|---|
@@ -164,6 +167,7 @@ Caveats:
 - Flags: none
 - Sensitivity: rank 4 to 6 over 12 perturbations (stable)
 - Insulating gap source: experimental_median
+- Structural dimensionality: missing (not computed)
 
 | Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
 |---|---|---|---|---|---|---|---|
@@ -197,6 +201,7 @@ Caveats:
 - Flags: hull_status_conflict
 - Sensitivity: rank 5 to 7 over 12 perturbations (stable)
 - Insulating gap source: experimental_median
+- Structural dimensionality: missing (not computed)
 
 | Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
 |---|---|---|---|---|---|---|---|
@@ -230,6 +235,7 @@ Caveats:
 - Flags: hull_status_conflict
 - Sensitivity: rank 6 to 8 over 12 perturbations (stable)
 - Insulating gap source: experimental_median
+- Structural dimensionality: missing (not computed)
 
 | Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
 |---|---|---|---|---|---|---|---|
@@ -263,6 +269,7 @@ Caveats:
 - Flags: hull_status_conflict
 - Sensitivity: rank 7 to 8 over 12 perturbations (stable)
 - Insulating gap source: experimental_median
+- Structural dimensionality: missing (not computed)
 
 | Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
 |---|---|---|---|---|---|---|---|
@@ -301,6 +308,7 @@ Caveats:
 ### SiO2: would rank 1 of 8, total 1.000
 - Flags: none
 - Insulating gap source: tbmbj
+- Structural dimensionality: missing (not computed)
 
 | Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
 |---|---|---|---|---|---|---|---|
@@ -333,6 +341,7 @@ Literature: 21347 matched, 14434 with abstracts, 5 read (title_and_abstract; que
 - Excluded: hazard.radioactive_exclude (['Th'] has no stable isotope); rule source config/hazard_policy.yaml#tiers.radioactive_exclude
 - Flags: band_gap_conflict
 - Insulating gap source: experimental_median
+- Structural dimensionality: missing (not computed)
 
 | Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
 |---|---|---|---|---|---|---|---|
@@ -363,6 +372,7 @@ Caveats:
 - Excluded: hazard.exclude (IARC Group 1: beryllium and beryllium compounds); rule source config/hazard_policy.yaml#tiers.exclude.Be
 - Flags: none
 - Insulating gap source: experimental_median
+- Structural dimensionality: missing (not computed)
 
 | Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
 |---|---|---|---|---|---|---|---|

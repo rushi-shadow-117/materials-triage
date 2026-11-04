@@ -86,6 +86,8 @@ def load_scoring_profile(path: Path) -> LoadedProfile:
     diel = section("dielectric_constant")
     section("deposition_method")
     section("cost")
+    struct = crit.get("structure") or {}
+    refs["structure"] = f"{rel}#criteria.structure"
     del haz  # the hazard policy file is loaded separately; the section only says it applies
 
     if gap.get("conflict_tolerance_ev") is None:
@@ -144,6 +146,11 @@ def load_scoring_profile(path: Path) -> LoadedProfile:
         sensitivity_perturbation=float(sens.get("perturbation", 0.2))
         if _status(sens) == ENTERED
         else 0.2,
+        structure_exclude_dimensionality=sorted(
+            int(d) for d in (struct.get("exclude_dimensionality") or [])
+        )
+        if _status(struct) == ENTERED
+        else [],
     )
     if weights["stability"] > 0 and profile.stability.cutoff_mev_per_atom is None:
         raise UnusableEntryError(f"{rel}#criteria.stability", ENTERED, "cutoff missing")
@@ -209,7 +216,6 @@ def load_site_profile(path: Path) -> cs.SiteProfile:
             "default_verbosity",
             "default_terminology",
             "radioactive_exclusion_locked",
-            "exclude_non_commercial",
         ):
             if key in defaults:
                 kw[key] = defaults[key]

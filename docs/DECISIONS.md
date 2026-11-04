@@ -1048,3 +1048,134 @@ the config change. With the config unchanged, any provenance difference is still
 1667 rank changes, all attributed to config.
 Alternative: count any provenance difference as data, under which every config change that
 moved the top K also looked like a data change.
+
+## Track G: molecular solids, egress, fetch default, fixes, live eval
+
+### 2026-11-04 Molecular solids are excluded by structural dimensionality
+Decision (owner): every thin-film profile excludes a candidate whose scored polymorph has
+structural dimensionality 0, with the rule `structure.molecular`.
+- **Method:** `pymatgen.analysis.dimensionality.get_dimensionality_larsen`, on the bonded
+  structure from `CrystalNN().get_bonded_structure` with defaults.
+- **Bonding choice:** pymatgen's docstring gives CrystalNN as the bonding route for this
+  function.
+- **Input:** the scored polymorph's MP structure, fetched as enrichment (the top K and the
+  anchors). It is recorded as `structure_<formula>` cassettes for the 88 compositions and in
+  the run-shaped case cassettes.
+- **Display:** every row records the value with its MP record, or why it is missing. Missing
+  never excludes.
+- **Rule order:** after the hazard rules and before the stability cutoff.
+
+Reason: CO2 and H2O ranked inside A1's top 10 on PBE gaps and "thin film" literature hits.
+Nothing in the scorer could tell a molecular crystal from an extended solid.
+
+Citation: entered as pymatgen cites the function: Larsen, Pandey, Strange, Jacobsen, Phys. Rev.
+Materials 3, 034003 (2019). The owner's instruction named npj Comput Mater 5, 26 (2019). The
+mismatch is a TODO for the owner in the config entry; neither publisher page was readable here.
+
+Alternative: a name list of known molecular oxides, which a discovery query would outgrow.
+
+### 2026-11-04 Egress is enforced in code
+Decision (owner): `adapters/egress.py` builds the allowlist from `CoreConfig.allowed_hosts`
+plus the configured LLM endpoint.
+- `HttpxTransport.get` checks every call before sending.
+- The LLM SDK clients get an HTTP client whose request hook allows only the provider's own
+  endpoint, read from the built client:
+  - Anthropic: `api.anthropic.com`
+  - Bedrock Mantle: `bedrock-mantle.<region>.api.aws`
+  - OpenAI-compatible: the `LLM_BASE_URL` host
+- A refused host raises `EgressRefusedError` and nothing is sent.
+
+Alternative: a network-level allowlist in Compose. It is not built, and it would not cover a
+CLI run on a laptop.
+
+### 2026-11-04 The CLI fetch default follows Postgres
+Decision (owner): `query` and `rank` default to `--fetch auto`. That is the Postgres store when
+a 2-second connect to `DATABASE_URL` succeeds, otherwise the recorded cassettes. The choice is
+printed to stderr and written to the decision log (step `fetch_source`).
+Alternative: keep `store`, which failed outright on a machine without Postgres.
+
+### 2026-11-04 Track G fixes
+- The PI view renders the verified `summary:overview` slot as an Overview section.
+- The verifier removes `hit_dropped` hits (unknown record id, quote mismatch) from
+  `bundle.evidence`. The `VerifierFailure` records keep what was dropped.
+- The CLI passes the parse budget into the run's `prior_budgets`. The relax budget is added to
+  the saved bundle's `budgets_used` when the relax step runs, and to the next run's budgets
+  when a relaxation is accepted.
+- `exclude_non_commercial` is removed from the site profile and `SiteProfile`. The BY-NC
+  exclusion stays unconditional in `mp.assemble` and `polymorph_exclusion`. A site switch
+  would let a site turn the license rule off, and no use case needs that.
+- The FAILURE_MATRIX row for the discovery floor names the renamed test.
+- `fixtures/compositions.yaml` no longer calls `oxides_gap_5_plus` the dielectric default.
+- `.env.example` lists `FETCH_MODE` and `EVAL_LLM`.
+- CLAUDE.md (owner-authorized edit of a frozen file) drops Keycloak, `tsc`, and `oqmd`, and no
+  longer calls the CLI commands stubs.
+
+### 2026-11-04 Runs stay JSON files
+Decision (owner): run bundles stay JSON files under `DATA_CACHE_DIR/runs`, not rows in
+`triage.runs`.
+- A bundle is a self-contained, versioned, diffable artifact.
+- `replay`, `diff`, and `export` work without a database.
+- The Postgres store keeps what every number cites: raw responses and fetch events.
+- `triage.runs` stays reserved for the API, which will need queries across runs.
+
+Alternative: write each run to `triage.runs` now, adding a database dependency to the offline
+path for no current reader.
+
+### 2026-11-04 The parse tool schema fits the API's union limit
+Decision: `ParsedRequest.weights` is a list of `{criterion, weight}` items naming only stated
+weights, replacing one nullable field per criterion.
+Reason: the first live run returned HTTP 400 for every case. The Messages API rejects a strict
+tool schema with more than 16 union-typed parameters, and `parse_request` had 21. It now has 13,
+and `tests/agent/test_tools.py` counts the unions in every tool schema so CI catches a
+regression without a live call. Track B's provider tests ran against fakes only, which is why
+this surfaced on the first live run.
+Alternative: drop `strict` from the tool, which would let the model send fields outside the
+schema.
+
+### 2026-11-04 Live-eval cost controls
+Decision (owner): no Opus calls in evals. Live runs use `LLM_MODEL=claude-sonnet-5-5` for the
+run only, and the judge config names Sonnet. Before any call, `python -m evals run --llm live`
+prints each case's expected and worst-case API calls and refuses when the expected total
+exceeds `EVAL_MAX_LIVE_CALLS` (30).
+- A case starts only while calls used plus its worst case fit under that limit.
+- Each live case's classify step is capped at `EVAL_MAX_CLASSIFY_CALLS` (20). A case over the
+  cap is partial, never extended.
+- Live runs read and fill the product's classifier cache.
+- `scripts/cache_from_bundles.py` wrote the paid Opus classifications into that cache.
+- `python -m evals score-saved` grades a saved live bundle with no call.
+
+Reason: an unestimated live run of the discovery cases made about 230 Opus calls (about 3
+dollars), and retries paid for A1 twice because the harness bypassed the cache.
+Alternative: a spend limit on the API key alone, which stops a run without saying what it cost
+per case.
+
+### 2026-11-04 Live results kept beside the scripted ones
+Decision (owner): the committed live results are:
+- **A1** (claude-opus-5-5, graded from its saved bundle with no further call). 7 of 8 checks
+  pass. The run is partial because Opus reached the 300 s classify and 120 s rationale time
+  budgets. ZrO2 ranks 6 with 4 thin_film_deposited and 1 dielectric_characterized labels.
+- **F1** (claude-sonnet-5-5): refused, passed.
+- **C1** (claude-sonnet-5-5): missed. The model ran a discovery query for "Find me some good
+  materials" instead of asking. Found live, then fixed in code (next entry).
+- **F4** (claude-sonnet-5-5): approved but not run. The first request returned HTTP 400
+  "credit balance is too low", so no call completed, and it was not retried.
+
+The gzipped bundles sit in `evals/results/live/bundles/`, and EVAL.md lists the live results in
+their own section.
+Alternative: rerun everything live, which the owner declined on cost.
+
+### 2026-11-04 Clarification is decided in code
+Decision (owner): the parse lists the chemistry a request names (`requested_chemistry`). Code
+asks for application, chemistry, and property preference before any fetch when a discovery
+request names no candidates, no chemistry, no requested property, and no property setting,
+whatever the model chose. `pipeline.run` refuses such an outcome. A request that states only
+output settings (view, verbosity, terminology, units, top_n) is treated as a follow-up and is
+not stopped.
+
+Follow-up cases D4, G3, and F9 ("Export this", "rerun A1", "Also write...") carry A1's request
+as `context`, the earlier turn the parse sees. The harness has no conversation, and without the
+context these cases would correctly be clarified.
+
+Reason: live C1 showed that the parse prompt alone does not stop a vague request (CLAUDE.md:
+if a prompt moves a failure, move the logic into code).
+Alternative: a stronger prompt sentence, which the live miss shows is not a guarantee.

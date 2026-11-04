@@ -13,7 +13,13 @@ from dataclasses import dataclass, field
 from pymatgen.core.composition import Composition
 
 from materials_triage.config.schema import SimplicitySettings
-from materials_triage.records import LiteratureSearchResult, MissingReason, Provenance, Value
+from materials_triage.records import (
+    LiteratureSearchResult,
+    MissingReason,
+    Polymorph,
+    Provenance,
+    Value,
+)
 from materials_triage.records.bundle import (
     Caveat,
     CaveatId,
@@ -121,6 +127,38 @@ def stability(
         flags=flags,
         caveats=(Caveat(id=CaveatId.STABILITY_CUTOFF_HULL_MISMATCH, source_ref=source_ref),),
     )
+
+
+# ----------------------------------------------------------------------------- structure
+
+
+def structure(
+    scored: Polymorph | None, *, exclude: list[int], source_ref: str
+) -> tuple[Value[int] | None, str | None, Exclusion | None]:
+    """The scored polymorph's structural dimensionality (Larsen 2019, computed in
+    records/structure.py) and, when it is in the profile's `exclude` list, the exclusion
+    `structure.molecular`. A missing dimensionality never excludes; the note says why."""
+    if scored is None:
+        return None, "no scored polymorph", None
+    dim = scored.dimensionality
+    if dim is None:
+        return None, "structure not fetched (summary-level row)", None
+    if dim.value is None:
+        return dim, f"dimensionality not computed ({dim.missing_reason})", None
+    if dim.value in exclude:
+        return (
+            dim,
+            None,
+            Exclusion(
+                rule=ExclusionRule.STRUCTURE_MOLECULAR,
+                detail=(
+                    f"structural dimensionality {dim.value} on {scored.ids.mp} "
+                    "(Larsen 2019, CrystalNN bonds): isolated molecules, not an extended solid"
+                ),
+                source_ref=source_ref,
+            ),
+        )
+    return dim, None, None
 
 
 # ----------------------------------------------------------------------------- simplicity

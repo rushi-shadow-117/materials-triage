@@ -61,10 +61,12 @@ completeness.
   Model version is pinned in config. Provider switchable to Bedrock by config.
 - Frontend: Vite, React, TypeScript. Types generated from the FastAPI OpenAPI schema.
   Three screens only: workspace, provenance drill-down, admin/FDE console.
-- Auth: Keycloak (OIDC) in Compose with a seeded realm. Local no-auth mode for dev.
+- Auth: Keycloak is cut (docs/DECISIONS.md). Planned: a pluggable auth dependency with static
+  dev tokens and roles from the token only; not built yet. Local runs are no-auth.
 - Deploy: Docker Compose (primary). Terraform AWS reference module (optional, late).
 - Tests: pytest, vcrpy recorded fixtures, golden-file tests for prompts and views.
-- CI: lint (ruff), types (mypy, tsc), tests, gitleaks.
+- CI: lint and format (ruff), types (mypy), tests (pytest against Postgres 16), gitleaks.
+  No web job until the frontend exists.
 
 ## Conventions
 
@@ -83,7 +85,7 @@ Only commands that work are listed.
   is what CI runs.
 - `docker compose up -d` starts Postgres 16; `docker compose exec postgres pg_isready -U triage`
   checks it.
-- `uv run python scripts/record_wire.py --mode once --sources pubchem,oqmd,mp,openalex,cod`
+- `uv run python scripts/record_wire.py --mode once --sources pubchem,mp,openalex,cod`
   records live responses into `fixtures/wire/`; `--mode none` replays with no network. MP and
   OpenAlex read their keys from `.env`.
 - `uv run python scripts/fetch_snapshots.py` downloads the JARVIS and matbench files into
@@ -102,4 +104,5 @@ Only commands that work are listed.
 - `uv run python scripts/build_sample_bundle.py` regenerates `fixtures/bundles/sample_bundle.json`
   from cassettes (no network); `uv run python scripts/export_openapi.py` writes
   `web/src/api/openapi.json`, then `cd web && npx openapi-typescript@7 src/api/openapi.json -o src/api/types.ts`.
-- `uv run materials-triage --help` lists the CLI commands (stubs until Track B).
+- `uv run materials-triage --help` lists the CLI commands; only `serve` is still a stub.
+  `query` and `rank` default to `--fetch auto` (the store when Postgres answers, else cassettes).

@@ -54,3 +54,26 @@ def test_handler_carries_both_lists_to_the_outcome() -> None:
     assert isinstance(outcome, parse.ParseOutcome)
     assert outcome.unresolved_candidates == ["sapphire glass"]
     assert outcome.unavailable_properties == ["conductivity"]
+
+
+def _handled(**fields: object) -> parse.ParseOutcome:
+    paths = cs.default_paths()
+    profile, _ = cs.scoring_profile_from_yaml(paths["scoring_profile"])
+    site = cs.site_profile_from_yaml(paths["site_profile"])
+    handler = parse.make_handler(
+        core=cs.CoreConfig(), site=site, profile=profile, cli_profile=profile.name
+    )
+    out = handler(ParsedRequest(**fields))  # type: ignore[arg-type]
+    assert isinstance(out.data, parse.ParseOutcome)
+    return out.data
+
+
+def test_a_request_naming_no_chemistry_and_no_property_is_clarified_in_code() -> None:
+    """C1: whatever the model chose, a discovery request with nothing to search on asks."""
+    vague = _handled(mode="discovery")
+    assert vague.missing_required == parse.CLARIFY_FIELDS and not vague.ready
+    assert _handled(mode="discovery", requested_chemistry=["oxide"]).missing_required == []
+    assert _handled(mode="discovery", requested_properties=["band gap"]).missing_required == []
+    assert _handled(mode="discovery", band_gap_min_ev=4.0).missing_required == []
+    assert _handled(mode="discovery", verbosity="concise").missing_required == []  # follow-up
+    assert _handled(mode="candidate_list", candidate_list=["HfO2"]).missing_required == []

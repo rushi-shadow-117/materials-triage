@@ -1,0 +1,88 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - _csrf_token=authenticated; mp-session=tWdGuSYcBtwKT9fVveU9Fw|1794688599|dSAFT28AT-Yx0QkzLbH5Irl_Eoo;
+        __cf_bm=ytdw77lXXTDyQRV3XGV4iX2oAKZ_hsaxgT2tk36sLv0-1793755682.108176-1.0.1.1-udF91aNo3Fw9FHbPFrPVzlM0GOjyyULhX5Xz9Ch.Rn05uNSYgqRg2G1QiY9k9oqv1VB01WTIert69_T_IKSgxgzf.c5ChFyUZ2FXPnAgcGWxoir2vs1L5yg9N9607T_9
+      host:
+      - api.materialsproject.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cstructure&_limit=1000&material_ids=mp-30247
+  response:
+    body:
+      string: '{"data":[{"material_id":"mp-aaaabstj","structure":{"@module":"pymatgen.core.structure","@class":"Structure","charge":0.0,"lattice":{"matrix":[[1.5682416701837,2.719213054684476,-0.1204798979157972],[-1.5682416701837,2.719213054684476,-0.1204798979157972],[0.0,0.2175683351642204,4.607951729448914]],"pbc":[true,true,true],"a":3.1413399973051055,"b":3.1413399973051055,"c":4.613085206388168,"alpha":89.85588688071014,"beta":89.85588688071014,"gamma":59.89774073236859,"volume":39.38235950708314},"properties":{},"sites":[{"species":[{"element":"Mg","occu":1.0}],"abc":[0.0597096888758912,0.9402903111241088,0.0],"properties":{"magmom":-0.0},"label":"Mg","xyz":[-1.3809632257659465,2.719213054684476,-0.1204798979157972]},{"species":[{"element":"H","occu":1.0}],"abc":[0.7314940276049597,0.6042025055162625,0.5656225888924382],"properties":{"magmom":0.0},"label":"H","xyz":[0.19962386920060393,3.755105014956627,2.4454370047453535]},{"species":[{"element":"H","occu":1.0}],"abc":[0.3957974944837375,0.2685059723950403,0.4343774111075618],"properties":{"magmom":0.0},"label":"H","xyz":[0.19962386920060388,1.9008894295765453,1.9215549288719658]},{"species":[{"element":"O","occu":1.0}],"abc":[0.7277857862108448,0.6074019971754083,0.7744904086215385],"properties":{"magmom":-0.0},"label":"O","xyz":[0.18879087437997497,3.7991646398435726,3.407951130008419]},{"species":[{"element":"O","occu":1.0}],"abc":[0.3925980028245917,0.2722142137891552,0.2255095913784615],"properties":{"magmom":-0.0},"label":"O","xyz":[0.1887908743799751,1.8568298046895997,0.9590408036089004]}]}}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T01:28:23.717876+00:00","total_doc":1,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+    headers:
+      access-control-expose-headers:
+      - X-Api-Key
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54fd7790e2d105c-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '1728'
+      content-type:
+      - application/json
+      date:
+      - Wed, 04 Nov 2026 01:28:23 GMT
+      ratelimit-limit:
+      - '25'
+      ratelimit-remaining:
+      - '24'
+      ratelimit-reset:
+      - '1'
+      server:
+      - cloudflare
+      set-cookie:
+      - _csrf_token=authenticated; Domain=.materialsproject.org; Path=/; SameSite=Strict
+      vary:
+      - Accept-Encoding
+      - Origin
+      via:
+      - kong/2.8.4
+      x-consumer-id:
+      - 58e0b4c2-4c2d-439b-ba0a-648cd568a0fa
+      x-kong-proxy-latency:
+      - '9'
+      x-kong-upstream-latency:
+      - '481'
+      x-ratelimit-limit-day:
+      - '640000'
+      x-ratelimit-limit-hour:
+      - '40000'
+      x-ratelimit-limit-minute:
+      - '1000'
+      x-ratelimit-limit-month:
+      - '12800000'
+      x-ratelimit-limit-second:
+      - '25'
+      x-ratelimit-limit-year:
+      - '100000000'
+      x-ratelimit-remaining-day:
+      - '639865'
+      x-ratelimit-remaining-hour:
+      - '39931'
+      x-ratelimit-remaining-minute:
+      - '972'
+      x-ratelimit-remaining-month:
+      - '12799589'
+      x-ratelimit-remaining-second:
+      - '24'
+      x-ratelimit-remaining-year:
+      - '99999541'
+    status:
+      code: 200
+      message: OK
+version: 1

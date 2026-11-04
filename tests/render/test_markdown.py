@@ -96,7 +96,7 @@ def test_audit_view_shows_values_with_provenance_and_the_polymorph_summary_only(
     )
     assert "Hazard: no GHS hazard codes in 344 notifications (ECHA attribution applies)" in text
     assert 'verified quote: "Here, we present a structural study' in text
-    assert "not verified (quote not found verbatim in stored abstract)" in text
+    assert "quote_mismatch" in text  # the dropped hit is listed under Verifier only
     assert "## Verifier" in text and "quote_mismatch at evidence:" in text
     assert "## Decision log" in text and "pipeline build_sample" in text
     excluded_line = (

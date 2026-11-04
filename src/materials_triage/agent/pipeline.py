@@ -53,6 +53,8 @@ from materials_triage.records.bundle import (
     RunMetadata,
 )
 from materials_triage.records.groups import build_group, merge_matches
+from materials_triage.records.structure import attach_dimensionality
+from materials_triage.scoring.polymorphs import select_scored
 from materials_triage.verify.verifier import verify
 
 from . import classifier, prompts, rationale
@@ -175,13 +177,25 @@ def fetch_composition(
         literature = openalex.result(
             search, count, composition=key, query=query, scope="title_and_abstract"
         )
-    return build_group(
+    group = build_group(
         key,
         merged,
         experimental_gaps=sources.gap_aggregates.get(key),
         hazard=hazard,
         literature=literature,
     )
+
+    def structures(mp_id: str) -> list[SourceRecord]:
+        out: list[SourceRecord] = []
+        for call in mp.plan_structure([mp_id]):
+            raw = ctx.get(call)
+            if raw is not None:
+                out.extend(mp.structure_records(raw))
+        return out
+
+    # The structural check runs on the polymorph the scorer scores (the ground state).
+    attach_dimensionality(group, select_scored(group), structures)
+    return group
 
 
 # ----------------------------------------------------------------------------- the run
@@ -436,6 +450,11 @@ def run(
         return refusal_bundle(inputs, outcome.effective)
     if outcome.query is None or outcome.effective is None:
         raise ValueError("the run needs resolved criteria")
+    if outcome.missing_required:
+        # a clarification request: nothing is fetched until the researcher answers
+        raise ValueError(
+            "clarification needed before any fetch: " + ", ".join(outcome.missing_required)
+        )
     query, effective = outcome.query, outcome.effective
 
     budgets = {step: Budget.from_core(inputs.core, step) for step in ("classify", "rationale")}

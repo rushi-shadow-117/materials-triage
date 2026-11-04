@@ -46,6 +46,7 @@ SUMMARY_FIELDS = (
     "band_gap,theoretical,deprecated,symmetry,database_IDs,last_updated,builder_meta"
 )
 THERMO_FIELDS = "material_id,thermo_type,energy_above_hull,is_stable"
+STRUCTURE_FIELDS = "material_id,structure"  # one scored polymorph per enriched composition
 # Discovery pages carry the fields the first-pass filter needs plus the license; full
 # summaries are fetched later for the compositions that survive.
 DISCOVERY_FIELDS = (
@@ -102,6 +103,17 @@ def plan_thermo(ids: list[str]) -> list[Call]:
     return [
         _call(
             "thermo", {"material_ids": ",".join(c), "_fields": THERMO_FIELDS, "_limit": str(PAGE)}
+        )
+        for c in _chunks(ids)
+    ]
+
+
+def plan_structure(ids: list[str]) -> list[Call]:
+    """Summary documents carrying only the crystal structure, for the dimensionality check."""
+    return [
+        _call(
+            "summary",
+            {"material_ids": ",".join(c), "_fields": STRUCTURE_FIELDS, "_limit": str(PAGE)},
         )
         for c in _chunks(ids)
     ]
@@ -229,6 +241,22 @@ def thermo_records(raw: RawResponse) -> list[SourceRecord]:
             SourceRecord(
                 kind="mp_thermo",
                 source_record_id=f"{mp_id}:{ttype}",
+                composition=None,
+                payload={**doc, "material_id": mp_id},
+                provenance=provenance(raw, source_record_id=mp_id),
+            )
+        )
+    return out
+
+
+def structure_records(raw: RawResponse) -> list[SourceRecord]:
+    out = []
+    for doc in docs(raw):
+        mp_id = to_legacy(str(doc["material_id"]))
+        out.append(
+            SourceRecord(
+                kind="mp_structure",
+                source_record_id=mp_id,
                 composition=None,
                 payload={**doc, "material_id": mp_id},
                 provenance=provenance(raw, source_record_id=mp_id),

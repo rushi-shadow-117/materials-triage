@@ -71,6 +71,7 @@ class Case(Strict):
     kind: Literal["normal", "adversarial"]
     title: str
     request: str  # the query, verbatim
+    context: str | None = None  # an earlier turn this request follows up on
     expectation: str  # verbatim from internal/test-queries.md
     mode: Literal["discovery", "candidate_list"] = "discovery"
     candidate_list: list[str] = Field(default_factory=list)

@@ -24,6 +24,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any, Literal, Protocol
 
+from evals import costs
 from evals.fake_llm import FakeLLM
 from evals.pipeline_llm import CaseScriptedLLM
 from evals.schema import Case, Message, Observation
@@ -179,7 +180,8 @@ class PipelineExecutor:
         self.run_dir = run_dir or DEFAULT_RUN_DIR
         self._settings = settings
         self._cassettes: wiring.CassetteFetch | None = None
-        self._live: LLMClient | None = None
+        self._live: costs.CountingClient | None = None
+        self.worst_calls: dict[str, int] = {}  # case id -> worst-case live calls
 
     # -- pieces
 
@@ -206,10 +208,16 @@ class PipelineExecutor:
         if mode == "fake":
             return CaseScriptedLLM(case)
         if self._live is None:
-            self._live = make_client(self.settings())
-            if self._live is None:
+            inner = make_client(self.settings())
+            if inner is None:
                 raise ValueError("--llm live needs LLM_PROVIDER set to a provider, not none")
+            self._live = costs.CountingClient(inner)
         return self._live
+
+    @property
+    def live_calls(self) -> int:
+        """API calls sent so far by this executor's live client (0 for the scripted model)."""
+        return self._live.calls if isinstance(self._live, costs.CountingClient) else 0
 
     def fetch_for(self, case: Case, run_id: Any) -> tuple[pipeline.Fetch, FetchMode, list[str]]:
         log: list[str] = []
@@ -264,7 +272,11 @@ class PipelineExecutor:
         else:
             step = parse_mod.run_parse(
                 client=client,
-                request_text=case.request,
+                request_text=(
+                    f"Earlier request: {case.context}\nThis request: {case.request}"
+                    if case.context
+                    else case.request
+                ),
                 core=core,
                 site=site,
                 profile=profile,
@@ -344,15 +356,48 @@ class PipelineExecutor:
         rendered: dict[str, str] = {}
         llm_calls = 0
         run_id = f"error-{case.id}-{repeat}"
+        live = self.llm_mode_for(case) == "live"
+        worst = self.worst_calls.get(case.id, 0)
+        if live and self.live_calls + worst > costs.max_live_calls():
+            errors.append(
+                f"live call limit: {self.live_calls} used + worst case {worst} for this case "
+                f"exceeds {costs.max_live_calls()}; case not started"
+            )
+            return Observation(
+                case_id=case.id,
+                repeat=repeat,
+                run_id=run_id,
+                executor=self.name,
+                bundle=None,
+                transcript=transcript,
+                config_sha_before=before_sha,
+                config_sha_after=before_sha,
+                config_files_before=before_files,
+                config_files_after=before_files,
+                log_entries=log,
+                errors=errors,
+            )
         client = self.client(case)
+        calls_before = self.live_calls
         layers = self.layers_for(case)
+        core = layers.core
+        if live:
+            # eval-only cap: a case over it is marked partial by the classify budget
+            cap = costs.max_classify_calls()
+            budgets = dict(core.step_budgets)
+            c = budgets["classify"]
+            budgets["classify"] = c.model_copy(
+                update={"max_tool_calls": min(c.max_tool_calls, cap)}
+            )
+            core = core.model_copy(update={"step_budgets": budgets})
+            log.append(f"harness: live run; classify capped at {cap} calls for this case")
         try:
             outcome, parse_log = self.parse(case, client)
             log.extend(parse_log)
             inputs = pipeline.RunInputs(
                 request_text=case.request,
                 parse=outcome,
-                core=layers.core,
+                core=core,
                 site=layers.site,
                 profile=layers.profile,
                 hazard_policy=layers.hazard_policy,
@@ -368,7 +413,8 @@ class PipelineExecutor:
                 sources=self.sources,
                 scorer=wiring.make_scorer(),
                 llm=client,
-                cache=None,
+                # live runs reuse and fill the product's classifier cache (same key)
+                cache=wiring.make_cache(self.settings()) if live else None,
             )
             run_id = str(bundle.run.run_id)
             log.append(
@@ -406,11 +452,8 @@ class PipelineExecutor:
             log.append(f"harness: {e}")
         if isinstance(client, CaseScriptedLLM):
             llm_calls = len(client.requests)
-        elif bundle is not None:
-            llm_calls = int(
-                sum(v for k, v in bundle.run.budgets_used.items() if k.endswith("requests"))
-                or bundle.run.budgets_used.get("tool_calls", 0)
-            )
+        elif live:
+            llm_calls = self.live_calls - calls_before
         after_sha, after_files = effective_config_sha(case), config_files_sha()
         return Observation(
             case_id=case.id,
@@ -438,3 +481,45 @@ class PipelineExecutor:
 
 def observation_to_json(obs: Observation) -> str:
     return json.dumps(obs.model_dump(mode="json"), sort_keys=True)
+
+
+class SavedBundleExecutor:
+    """Grades a bundle a live run already produced, with no API call: the bundle is loaded,
+    rendered, and handed to the same checks. Used to keep a paid live run as a committed
+    result instead of paying for it again (owner rule, Track G)."""
+
+    def __init__(self, bundles: dict[str, Path], *, label: str) -> None:
+        self.bundles = bundles
+        self.name = label
+
+    def run(self, case: Case, repeat: int) -> Observation:
+        bundle = ProvenanceBundle.model_validate_json(self.bundles[case.id].read_text())
+        layers = wiring.load_layers(bundle.run.profile_name)
+        rendered: dict[str, str] = {}
+        errors: list[str] = []
+        for view in ("pi_summary", "audit"):
+            try:
+                rendered[view] = markdown.render(bundle, view=view, site=layers.site)
+            except Exception as e:  # noqa: BLE001 - observed, not raised
+                errors.append(f"render {view}: {type(e).__name__}: {e}")
+        units, _ = markdown.options_from_bundle(bundle, layers.site)
+        rendered["csv"] = csv_export.export_csv(bundle, units=units)
+        sha, files = effective_config_sha(case), config_files_sha()
+        return Observation(
+            case_id=case.id,
+            repeat=repeat,
+            run_id=str(bundle.run.run_id),
+            executor=self.name,
+            bundle=bundle,
+            transcript=[
+                Message(role="user", content=case.request),
+                Message(role="assistant", content=rendered.get("pi_summary", "")),
+            ],
+            rendered=rendered,
+            config_sha_before=sha,
+            config_sha_after=sha,
+            config_files_before=files,
+            config_files_after=files,
+            log_entries=[f"harness: graded saved bundle {self.bundles[case.id].name}; no API call"],
+            errors=errors,
+        )
