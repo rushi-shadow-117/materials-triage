@@ -865,7 +865,7 @@
   ],
   "cassette_manifest": "fixtures/adapters/recording_manifest.json",
   "compositions_total": 88,
-  "git_commit": "e2249f40ea4c2622069ed058de817aa90a017738",
+  "git_commit": "b08204d294c3cdaa979c956222b068bde5f0dddf",
   "snapshot_shas": {
    "expt_gap": "2d0980e3533c1ba6ad6e392a88f08cfcf2d311d4b7fe6eb0b0c8e876211dfda3",
    "jarvis_dft_3d": "d4c64660e9e1fa45c82bd8868a96ec10162195eed69636445972c05550d8d0d6",
@@ -993,7 +993,7 @@
   "source": "Owner decision, Track E prompt, 2026-11-02"
  },
  "scorer": {
-  "config_sha": "d301a0dc3bf40c1540635d484f33ada7280a3670227e3d1c665a3ee337a04997",
+  "config_sha": "bcf340473f002e1beadef8992515653efd9ea8b65161cd14af7bf81e3079dedb",
   "name": "track_a",
   "note": "VALIDATION RUN: recorded data scored by the Track A scorer under the entered config; no LLM step. Profile notes: dielectric_constant target band unusable (status pending_verification); weight stays 0",
   "profile_name": "oxide_dielectric_thin_film",
@@ -1505,14 +1505,14 @@
   ]
  },
  "yim_like": {
-  "config_sha": "89bc9fa5210784f4903bd96e96d59435bcce70f2ad8075f269214ae065637f52",
+  "config_sha": "1740dc1c62d1a7d187edd6956c7d54ec5b423d9bfec42964a36af502f6c3c490",
   "dielectric_target_band": [
    10.0,
    30.0
   ],
   "dielectric_target_band_status": "pending_verification",
-  "label": "Yim-like configuration: stability, band gap and dielectric constant at weight 1; hazard, simplicity, evidence, deposition method and cost at weight 0. Weights are query-level overrides within site bounds; the default profile file is unchanged. Exclusion rules (hazard, stability cutoff, anion policy) still apply at weight 0.",
-  "note": "VALIDATION RUN (YIM-LIKE): recorded data scored by the Track A scorer with query weight overrides {'stability': 1.0, 'band_gap': 1.0, 'dielectric_constant': 1.0, 'hazard': 0.0, 'simplicity': 0.0, 'evidence': 0.0, 'deposition_method': 0.0, 'cost': 0.0} and the profile file's dielectric target band (10.0, 30.0) (status pending_verification) taken as written; the profile file is unchanged. Scored under the entered config; no LLM step. Profile notes: dielectric_constant target band unusable (status pending_verification); weight stays 0; Yim-like run: dielectric target band [10.0, 30.0] (status pending_verification) used for the validation comparison only",
+  "label": "Yim-like configuration: stability, band gap and dielectric constant at weight 1; hazard at the site floor of 0.1; simplicity, evidence, deposition method and cost at weight 0. Weights are query-level overrides within site bounds; the default profile file is unchanged. Exclusion rules (hazard, stability cutoff, anion policy) still apply at weight 0.",
+  "note": "VALIDATION RUN (YIM-LIKE): recorded data scored by the Track A scorer with query weight overrides {'stability': 1.0, 'band_gap': 1.0, 'dielectric_constant': 1.0, 'hazard': 0.1, 'simplicity': 0.0, 'evidence': 0.0, 'deposition_method': 0.0, 'cost': 0.0} and the profile file's dielectric target band (10.0, 30.0) (status pending_verification) taken as written; the profile file is unchanged. Scored under the entered config; no LLM step. Profile notes: dielectric_constant target band unusable (status pending_verification); weight stays 0; Yim-like run: dielectric target band [10.0, 30.0] (status pending_verification) used for the validation comparison only",
   "tables": [
    {
     "absent": [],
@@ -1557,37 +1557,37 @@
      },
      {
       "composition": "Sr3(PO4)2",
-      "scorer_rank": 6,
+      "scorer_rank": 5,
       "yim_best_fom": 129.0,
       "yim_rank": 7.0
      },
      {
       "composition": "CaB4O7",
-      "scorer_rank": 3,
+      "scorer_rank": 8,
       "yim_best_fom": 99.0,
       "yim_rank": 8.0
      },
      {
       "composition": "Ba3(PO4)2",
-      "scorer_rank": 1,
+      "scorer_rank": 3,
       "yim_best_fom": 85.0,
       "yim_rank": 9.5
      },
      {
       "composition": "LiAlO2",
-      "scorer_rank": 5,
+      "scorer_rank": 4,
       "yim_best_fom": 85.0,
       "yim_rank": 9.5
      },
      {
       "composition": "YBO3",
-      "scorer_rank": 7,
+      "scorer_rank": 6,
       "yim_best_fom": 80.0,
       "yim_rank": 11.0
      }
     ],
     "reason": null,
-    "rho": -0.6861984751796929,
+    "rho": -0.7447763937925935,
     "table": 1
    },
    {
@@ -1719,7 +1719,7 @@
      },
      {
       "composition": "ZrO2",
-      "scorer_rank": 8,
+      "scorer_rank": 2,
       "yim_best_fom": 220.0,
       "yim_rank": 22.0
      },
@@ -1775,7 +1775,7 @@
      },
      {
       "composition": "HfO2",
-      "scorer_rank": 4,
+      "scorer_rank": 1,
       "yim_best_fom": 210.0,
       "yim_rank": 3.0
      },
@@ -1793,7 +1793,7 @@
      },
      {
       "composition": "Sr3(PO4)2",
-      "scorer_rank": 6,
+      "scorer_rank": 5,
       "yim_best_fom": 129.0,
       "yim_rank": 6.0
      },
@@ -1811,7 +1811,7 @@
      },
      {
       "composition": "CaB4O7",
-      "scorer_rank": 3,
+      "scorer_rank": 8,
       "yim_best_fom": 99.0,
       "yim_rank": 9.5
      },
@@ -1853,13 +1853,13 @@
      },
      {
       "composition": "Ba3(PO4)2",
-      "scorer_rank": 1,
+      "scorer_rank": 3,
       "yim_best_fom": 85.0,
       "yim_rank": 19.5
      },
      {
       "composition": "LiAlO2",
-      "scorer_rank": 5,
+      "scorer_rank": 4,
       "yim_best_fom": 85.0,
       "yim_rank": 19.5
      },
@@ -1877,13 +1877,13 @@
      },
      {
       "composition": "BaSO4",
-      "scorer_rank": 2,
+      "scorer_rank": 7,
       "yim_best_fom": 81.0,
       "yim_rank": 23.0
      }
     ],
     "reason": null,
-    "rho": -0.23208847262106724,
+    "rho": -0.14593441839051954,
     "table": 3
    }
   ],
@@ -1893,7 +1893,7 @@
    "deposition_method": 0.0,
    "dielectric_constant": 1.0,
    "evidence": 0.0,
-   "hazard": 0.0,
+   "hazard": 0.1,
    "simplicity": 0.0,
    "stability": 1.0
   }
