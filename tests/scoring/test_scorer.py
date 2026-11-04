@@ -53,7 +53,12 @@ def test_baseline_ranking_exclusions_and_anchor(
         "breakdown_field",
         "band_offsets_to_the_substrate",
     }
-    assert len(r.missing_properties) == 7
+    assert len(r.missing_properties) == 8
+    moisture = r.missing_properties[-1]  # the profile's own item follows the site list
+    assert moisture.property == "moisture_sensitivity"
+    assert moisture.source_entry == (
+        "scoring_profiles/oxide_dielectric_thin_film.yaml#screen_cannot_tell_you"
+    )
     th = next(c for c in r.candidates if c.composition == "ThO2")
     assert any(c.id is CaveatId.REFERENCE_VALUE_PENDING for c in r.candidates[0].caveats) or True
     assert th.group.reference_values and th.group.polymorphs.composition_id == "ThO2"

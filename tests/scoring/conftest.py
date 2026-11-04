@@ -113,4 +113,6 @@ def with_overrides(loaded: LoadedProfile, **changes: object) -> LoadedProfile:
         notes=list(loaded.notes),
         source_refs=dict(loaded.source_refs),
         standing_caveats=dict(loaded.standing_caveats),
+        cannot_tell_you=list(loaded.cannot_tell_you),
+        cannot_tell_you_ref=loaded.cannot_tell_you_ref,
     )

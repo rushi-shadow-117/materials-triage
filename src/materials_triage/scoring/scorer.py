@@ -445,6 +445,7 @@ def score_run(
                 caveats=r.caveats,
             )
         )
+    # the site list first, then the profile's own entered items (each cites its config entry)
     missing = [
         MissingPropertyMarker(
             property=item.lower().replace(" ", "_").replace("'", ""),
@@ -452,6 +453,13 @@ def score_run(
             source_entry=SITE_PROFILE_REF,
         )
         for item in site.screen_cannot_tell_you
+    ] + [
+        MissingPropertyMarker(
+            property=item.lower().replace(" ", "_").replace("'", ""),
+            text=item,
+            source_entry=loaded.cannot_tell_you_ref or "",
+        )
+        for item in loaded.cannot_tell_you
     ]
     k = top_k if top_k is not None else effective.top_n
     thermo_ids = thermo_enrichment_ids(

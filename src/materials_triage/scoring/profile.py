@@ -50,6 +50,8 @@ class LoadedProfile:
     notes: list[str] = field(default_factory=list)
     source_refs: dict[str, str] = field(default_factory=dict)  # criterion -> config path
     standing_caveats: dict[str, str] = field(default_factory=dict)  # caveat id -> config path
+    cannot_tell_you: list[str] = field(default_factory=list)  # entered profile items
+    cannot_tell_you_ref: str | None = None  # config path of that entry
 
 
 def load_scoring_profile(path: Path) -> LoadedProfile:
@@ -166,12 +168,16 @@ def load_scoring_profile(path: Path) -> LoadedProfile:
         standing["stability_cutoff_oxide_calibrated"] = (
             f"{rel}#criteria.stability.anion_calibration_caveat"
         )
+    tell = data.get("screen_cannot_tell_you") or {}
+    tell_items = [str(i) for i in (tell.get("items") or [])] if _status(tell) == ENTERED else []
     return LoadedProfile(
         profile=profile,
         evidence_tiers=tiers,
         notes=notes,
         source_refs=refs,
         standing_caveats=standing,
+        cannot_tell_you=tell_items,
+        cannot_tell_you_ref=f"{rel}#screen_cannot_tell_you" if tell_items else None,
     )
 
 

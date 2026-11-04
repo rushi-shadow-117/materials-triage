@@ -108,10 +108,9 @@ criteria:
     method: "pymatgen.analysis.dimensionality.get_dimensionality_larsen on CrystalNN().get_bonded_structure (the bonding route pymatgen's docstring gives)"
     status: entered
     source:
-      citation: "P. M. Larsen, M. Pandey, M. Strange, K. W. Jacobsen, Definition of a scoring parameter to identify low-dimensional materials components, Phys. Rev. Materials 3, 034003 (2019), as cited by pymatgen for get_dimensionality_larsen; owner decision 2026-11-04 (Track G item 1)"
+      citation: "P. M. Larsen, M. Pandey, M. Strange, K. W. Jacobsen, Definition of a scoring parameter to identify low-dimensional materials components, Phys. Rev. Materials 3, 034003 (2019); owner confirmed 2026-11-04 (Track G item 1; the npj Comput Mater reference in the first instruction was a mistake)"
       url: https://doi.org/10.1103/PhysRevMaterials.3.034003
       access: unknown
-      note: "The owner's instruction cited npj Comput Mater 5, 26 (2019); pymatgen's docstring cites the Phys. Rev. Materials paper above for this function. The citation is entered as the implementation names it. TODO (owner): confirm which reference to cite; neither publisher page was readable from this session."
     entered_by: owner
     entered_on: 2026-11-04
 
@@ -209,6 +208,18 @@ synonyms:
     Ta2O5: [tantalum pentoxide]
   entered_by: owner
   entered_on: 2026-11-02
+
+screen_cannot_tell_you:
+  status: entered
+  description: "Profile-specific limits of the screen, shown as missing on every row after the site list. No configured source records these."
+  items:
+    - moisture sensitivity
+  source:
+    citation: "Owner decision 2026-11-04: B2O3 and P2O5 rank as real solids under this profile and both are known to be moisture-sensitive; no structured public source records moisture sensitivity, so the screen says it cannot tell."
+    url: null
+    access: not_applicable
+  entered_by: owner
+  entered_on: 2026-11-04
 
 anchors:
   status: entered
