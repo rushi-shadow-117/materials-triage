@@ -264,3 +264,28 @@ def test_auto_fetch_uses_the_store_only_when_postgres_answers() -> None:
     assert wiring.resolve_fetch_source(settings, "cassettes")[0] == "cassettes"
     with pytest.raises(ValueError):
         wiring.resolve_fetch_source(settings, "web")
+
+
+def test_importing_the_api_module_runs_no_startup_checks() -> None:
+    """`serve` imports api.app before it can catch an auth error; a module-level app built at
+    import raised first, so the usage error became a crash whenever nothing had imported the
+    module earlier in the process."""
+    import os
+    import subprocess
+    import sys
+
+    env = {
+        **os.environ,
+        "AUTH_MODE": "static",
+        "STATIC_TOKENS": "t:scientist",
+        "SITE_MODE": "true",
+        "LLM_PROVIDER": "none",
+    }
+    done = subprocess.run(
+        [sys.executable, "-c", "import materials_triage.api.app"],
+        env=env,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert done.returncode == 0, done.stderr

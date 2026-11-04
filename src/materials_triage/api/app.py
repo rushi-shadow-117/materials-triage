@@ -762,8 +762,15 @@ def _drill(
     )
 
 
-app = create_app()
+def __getattr__(name: str) -> Any:
+    """`app` is built on first use, not at import: importing this module (as `serve` does)
+    must not run the startup checks before the caller can report their errors."""
+    if name == "app":
+        built = create_app()
+        globals()["app"] = built
+        return built
+    raise AttributeError(name)
 
 
 def openapi_schema() -> dict[str, Any]:
-    return app.openapi()
+    return create_app().openapi()
