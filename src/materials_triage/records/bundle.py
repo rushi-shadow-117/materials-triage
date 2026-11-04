@@ -105,6 +105,10 @@ class CaveatId(StrEnum):
     ANION_UNDETERMINED = "anion_undetermined"
     EVIDENCE_UNCLASSIFIED = "evidence_unclassified"
     ENRICHMENT_MISSING = "enrichment_missing"
+    # data-state caveats that carry a row flag's meaning in words (owner text, Nov 4)
+    BAND_GAP_CONFLICT = "band_gap_conflict"
+    NEAR_CUTOFF = "near_cutoff"
+    GROUND_STATE_IS_THEORETICAL = "ground_state_is_theoretical"
 
 
 class Caveat(Strict):

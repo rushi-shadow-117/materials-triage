@@ -191,6 +191,7 @@ export interface RunViewJson {
   unresolved_candidates: string[];
   unavailable_properties: string[];
   ties_note: string | null;
+  profile_caveats: CaveatText[];
   run: RunMeta;
   criteria: Criteria;
   verifier: Verifier | null;

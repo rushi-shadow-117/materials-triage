@@ -60,7 +60,36 @@ SYSTEM_TEXT: dict[CaveatId, str] = {
     CaveatId.ENRICHMENT_MISSING: (
         "Only summary-level data was fetched for this candidate; the cross-checks did not run."
     ),
+    # owner-approved texts, 2026-11-04 (human test session fix batch, item 8)
+    CaveatId.BAND_GAP_CONFLICT: (
+        "The experimental and computed band gaps disagree beyond the profile's tolerance; "
+        "see the audit view."
+    ),
+    CaveatId.NEAR_CUTOFF: "Energy above hull is close to this profile's stability cutoff.",
+    CaveatId.GROUND_STATE_IS_THEORETICAL: (
+        "The lowest-energy polymorph on record is computed, not observed."
+    ),
 }
+
+# The key caveat is the first present in this order, then the row's others in enum order.
+KEY_PRIORITY: tuple[CaveatId, ...] = (
+    CaveatId.HAZARD_FLAG,
+    CaveatId.BAND_GAP_CONFLICT,
+    CaveatId.PBE_ONLY_BELOW_WINDOW,
+    CaveatId.NEAR_CUTOFF,
+    CaveatId.GROUND_STATE_IS_THEORETICAL,
+)
+NO_KEY_CAVEAT = "none specific to this row"
+
+
+def key_caveat(caveats: list[Caveat]) -> Caveat | None:
+    """The most row-specific caveat, or None when the row has only profile-wide ones."""
+    own = row_specific(caveats)
+    for cid in KEY_PRIORITY:
+        hit = next((c for c in own if c.id is cid), None)
+        if hit is not None:
+            return hit
+    return own[0] if own else None
 
 
 @dataclass(frozen=True)

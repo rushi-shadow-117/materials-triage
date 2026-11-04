@@ -29,6 +29,14 @@ Not found in any source: {{ view.unresolved_candidates | join(", ") }}. These na
 
 Not available from configured sources: {{ view.unavailable_properties | join(", ") }}. No configured source provides these properties, so they are not scored and no value is shown.
 {% endif %}
+{% if view.profile_caveats %}
+
+## Applies to every row
+
+{% for c in view.profile_caveats %}
+- {{ c.text }}
+{% endfor %}
+{% endif %}
 
 {% if view.rows %}
 | Rank | Material | Why | Key caveat | Evidence | k | Missing |

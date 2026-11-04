@@ -218,3 +218,44 @@ def test_equal_totals_render_as_tied(bundle: ProvenanceBundle, site: cs.SiteProf
     assert f"| {ranks[tied[0][0]].rank}= | {tied[0][0]} |" in text
     csv_text = csv_export.export_csv(bundle)
     assert ",yes," in csv_text  # the tied column
+
+
+def test_key_caveat_is_the_most_row_specific_one() -> None:
+    """Human test session, item 8: every row's key caveat was the standing band offsets
+    sentence. The key caveat now follows the priority; profile-wide caveats show once above
+    the table and never per row."""
+    from materials_triage.render import views
+    from materials_triage.render.caveats import KEY_PRIORITY, PROFILE_WIDE, key_caveat
+
+    scored = Path(__file__).resolve().parents[2] / "fixtures" / "bundles" / "scored_bundle.json"
+    bundle = ProvenanceBundle.model_validate_json(scored.read_text())
+    cfg = caveats.CaveatConfig.load()
+    view = views.build(bundle, cfg, units="eV", hide_ids=True)
+    tio2 = next(r for r in view.rows if r.composition == "TiO2")
+    assert tio2.key_caveat.startswith("Flagged: a suspected carcinogenic")
+    band_offsets = cfg.resolve(Caveat(id=CaveatId.BAND_OFFSETS_NOT_CHECKED)).text
+    for r in [*view.rows, *view.excluded, *view.anchors]:
+        assert r.key_caveat != band_offsets, r.composition
+        assert all(c.id not in PROFILE_WIDE for c in r.caveats), r.composition
+    assert [c.text for c in view.profile_caveats].count(band_offsets) == 1
+    # priority over a synthetic row: hazard first, then the gap conflict, then the rest
+    row = [Caveat(id=i) for i in (CaveatId.NEAR_CUTOFF, CaveatId.BAND_GAP_CONFLICT)]
+    assert key_caveat(row) == Caveat(id=CaveatId.BAND_GAP_CONFLICT)
+    row.append(Caveat(id=CaveatId.HAZARD_FLAG, subject="Ti"))
+    assert key_caveat(row) is not None and key_caveat(row).id is CaveatId.HAZARD_FLAG  # type: ignore[union-attr]
+    assert key_caveat([Caveat(id=CaveatId.BAND_OFFSETS_NOT_CHECKED)]) is None
+    assert KEY_PRIORITY[0] is CaveatId.HAZARD_FLAG
+
+
+def test_flag_caveats_carry_the_owner_texts() -> None:
+    from materials_triage.scoring.scorer import FLAG_CAVEATS
+
+    cfg = caveats.CaveatConfig.load()
+    texts = {f.value: cfg.resolve(Caveat(id=c)).text for f, c in FLAG_CAVEATS.items()}
+    assert texts == {
+        "band_gap_conflict": "The experimental and computed band gaps disagree beyond the "
+        "profile's tolerance; see the audit view.",
+        "near_cutoff": "Energy above hull is close to this profile's stability cutoff.",
+        "ground_state_is_theoretical": "The lowest-energy polymorph on record is computed, "
+        "not observed.",
+    }

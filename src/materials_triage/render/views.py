@@ -15,7 +15,14 @@ from materials_triage.records.bundle import (
     ProvenanceBundle,
 )
 from materials_triage.render import precision
-from materials_triage.render.caveats import CaveatConfig, CaveatText
+from materials_triage.render.caveats import (
+    NO_KEY_CAVEAT,
+    PROFILE_WIDE,
+    CaveatConfig,
+    CaveatText,
+    key_caveat,
+    row_specific,
+)
 from materials_triage.render.tokens import (
     CRITERION_LABELS,
     TIES_NOTE,
@@ -172,6 +179,8 @@ class RunView:
     unresolved_candidates: list[str] = field(default_factory=list)
     unavailable_properties: list[str] = field(default_factory=list)
     ties_note: str | None = None  # shown under the table when any shown rows are tied
+    # caveats every row carries by construction, shown once above the table
+    profile_caveats: list[CaveatText] = field(default_factory=list)
 
 
 def _fmt(value: float | int | None, unit: str | None, units: str) -> str:
@@ -280,7 +289,9 @@ def _row_view(
     comp = row.composition
     is_anchor = isinstance(row, Anchor)
     hits = [e for e in bundle.evidence if e.composition == comp]
-    resolved = [caveats.resolve(c, row) for c in row.caveats]
+    # the row's own caveats; profile-wide ones show once above the table (RunView.profile_caveats)
+    resolved = [caveats.resolve(c, row) for c in row_specific(row.caveats)]
+    key = key_caveat(row.caveats)
     slot_id = f"candidate:{comp}:one_line"
     slot = bundle.rationale.get(slot_id)
     rationale = ""
@@ -393,7 +404,7 @@ def _row_view(
         rationale=rationale,
         rationale_verified=slot.verified if slot else None,
         removed_fragments=list(slot.removed_fragments) if slot else [],
-        key_caveat=resolved[0].text if resolved else "none",
+        key_caveat=caveats.resolve(key, row).text if key is not None else NO_KEY_CAVEAT,
         caveats=resolved,
         flags=[f.value for f in row.flags],
         evidence_tier=_evidence_tier(hits),
@@ -448,6 +459,14 @@ def build(
     for r in [*rows, *excluded, *anchors]:
         for c in r.caveats:
             texts.setdefault(c.id.value, c)
+    profile_caveats: dict[str, CaveatText] = {}
+    every: list[Candidate | Anchor] = [*shown_ranked, *shown_excluded, *bundle.anchors]
+    for brow in every:
+        for cv in brow.caveats:
+            if cv.id in PROFILE_WIDE and cv.id.value not in profile_caveats:
+                profile_caveats[cv.id.value] = caveats.resolve(cv, brow)
+    for cid, text in profile_caveats.items():
+        texts.setdefault(cid, text)
     run = bundle.run
     budgets = [
         f"{k}: {precision.quantize(run.budgets_used.get(k, 0), 0)} of {precision.quantize(v, 0)}"
@@ -478,6 +497,7 @@ def build(
         unresolved_candidates=list(bundle.criteria.unresolved_candidates),
         unavailable_properties=list(bundle.criteria.unavailable_properties),
         ties_note=TIES_NOTE if any(r.tied for r in rows) else None,
+        profile_caveats=list(profile_caveats.values()),
     )
 
 

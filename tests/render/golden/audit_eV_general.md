@@ -27,6 +27,10 @@
 ## Ranked candidates
 
 ### Al2O3: 1=, total 1.000
+## Applies to every row
+
+- Band offsets to the substrate are not checked by this screen.
+
 - Rationale: Al2O3 ranks 1= on stability (stability margin) and insulating gap; see caveats.
 - Flags: none
 - Sensitivity: rank 1 to 2 over 12 perturbations (stable)
@@ -56,10 +60,12 @@ Experimental gaps: none in the public gap tables
 
 Hazard: GHS codes H335, H372 in 225 of 3142 notifications (ECHA attribution applies)
 Literature: 10698 matched, 7142 with abstracts, 5 read (title_and_abstract; query 'Al2O3 thin film')
-Caveats:
-- band_offsets_not_checked: Band offsets to the substrate are not checked by this screen. (source: scoring_profile#criteria.band_gap.standing_caveat)
 
 ### HfO2: 1=, total 1.000
+## Applies to every row
+
+- Band offsets to the substrate are not checked by this screen.
+
 - Rationale: HfO2 ranks 1= on stability (stability margin) and insulating gap; see caveats.
 - Flags: none
 - Sensitivity: rank 1 to 3 over 12 perturbations (stable)
@@ -91,10 +97,12 @@ Experimental gaps: 5.55 eV to 5.55 eV across 1 value(s), median 5.55 eV
 Hazard: no GHS hazard codes in 344 notifications (ECHA attribution applies)
 Literature: 3496 matched, 2469 with abstracts, 5 read (title_and_abstract; query 'HfO2 thin film')
 - https://openalex.org/W2024600253 (2015): thin_film_deposited; verified quote: "Here, we present a structural study on the origin of ferroelectricity in Gd doped HfO2 thin films."
-Caveats:
-- band_offsets_not_checked: Band offsets to the substrate are not checked by this screen. (source: scoring_profile#criteria.band_gap.standing_caveat)
 
 ### La2O3: 1=, total 1.000
+## Applies to every row
+
+- Band offsets to the substrate are not checked by this screen.
+
 - Rationale: La2O3 ranks 1= on stability (stability margin) and insulating gap; see caveats.
 - Flags: hull_status_conflict
 - Sensitivity: rank 2 to 4 over 12 perturbations (stable)
@@ -125,10 +133,12 @@ Experimental gaps: 5.40 eV to 5.40 eV across 1 value(s), median 5.40 eV
 
 Hazard: GHS codes H315, H319, H335 in 248 of 618 notifications (ECHA attribution applies)
 Literature: 383 matched, 218 with abstracts, 5 read (title_and_abstract; query 'La2O3 thin film')
-Caveats:
-- band_offsets_not_checked: Band offsets to the substrate are not checked by this screen. (source: scoring_profile#criteria.band_gap.standing_caveat)
 
 ### Y2O3: 1=, total 1.000
+## Applies to every row
+
+- Band offsets to the substrate are not checked by this screen.
+
 - Rationale: Y2O3 ranks 1= on stability (stability margin) and insulating gap; see caveats.
 - Flags: none
 - Sensitivity: rank 3 to 5 over 12 perturbations (stable)
@@ -159,10 +169,12 @@ Experimental gaps: 5.60 eV to 5.60 eV across 1 value(s), median 5.60 eV
 
 Hazard: GHS codes H315, H319, H320, H335, H413 in 274 of 548 notifications (ECHA attribution applies)
 Literature: 1480 matched, 839 with abstracts, 5 read (title_and_abstract; query 'Y2O3 thin film')
-Caveats:
-- band_offsets_not_checked: Band offsets to the substrate are not checked by this screen. (source: scoring_profile#criteria.band_gap.standing_caveat)
 
 ### ZrO2: 1=, total 1.000
+## Applies to every row
+
+- Band offsets to the substrate are not checked by this screen.
+
 - Rationale: ZrO2 ranks 1= on stability (stability margin) and insulating gap; see caveats.
 - Flags: none
 - Sensitivity: rank 4 to 6 over 12 perturbations (stable)
@@ -193,10 +205,12 @@ Experimental gaps: 4.99 eV to 4.99 eV across 1 value(s), median 4.99 eV
 
 Hazard: no GHS hazard codes in 1116 notifications (ECHA attribution applies)
 Literature: 3767 matched, 2298 with abstracts, 5 read (title_and_abstract; query 'ZrO2 thin film')
-Caveats:
-- band_offsets_not_checked: Band offsets to the substrate are not checked by this screen. (source: scoring_profile#criteria.band_gap.standing_caveat)
 
 ### Ta2O5: 6, total 0.968
+## Applies to every row
+
+- Band offsets to the substrate are not checked by this screen.
+
 - Rationale: Ta2O5 ranks 6 on stability (stability margin) and insulating gap; see caveats.
 - Flags: hull_status_conflict
 - Sensitivity: rank 5 to 7 over 12 perturbations (stable)
@@ -227,10 +241,12 @@ Experimental gaps: 4.20 eV to 4.20 eV across 1 value(s), median 4.20 eV
 
 Hazard: no GHS hazard codes in 80 notifications (ECHA attribution applies)
 Literature: 1683 matched, 1116 with abstracts, 5 read (title_and_abstract; query 'Ta2O5 thin film')
-Caveats:
-- band_offsets_not_checked: Band offsets to the substrate are not checked by this screen. (source: scoring_profile#criteria.band_gap.standing_caveat)
 
 ### TiO2: 7, total 0.932
+## Applies to every row
+
+- Band offsets to the substrate are not checked by this screen.
+
 - Rationale: TiO2 ranks 7 on stability (stability margin) and insulating gap; see caveats.
 - Flags: hull_status_conflict
 - Sensitivity: rank 6 to 8 over 12 perturbations (stable)
@@ -261,10 +277,12 @@ Experimental gaps: 3.30 eV to 3.30 eV across 1 value(s), median 3.30 eV
 
 Hazard: GHS codes H319, H320, H335, H351, H372, H413 in 4157 of 11189 notifications (ECHA attribution applies)
 Literature: 21132 matched, 13032 with abstracts, 5 read (title_and_abstract; query 'TiO2 thin film')
-Caveats:
-- band_offsets_not_checked: Band offsets to the substrate are not checked by this screen. (source: scoring_profile#criteria.band_gap.standing_caveat)
 
 ### BaTiO3: 8, total 0.822
+## Applies to every row
+
+- Band offsets to the substrate are not checked by this screen.
+
 - Rationale: BaTiO3 ranks 8 on stability (stability margin) and insulating gap; see caveats.
 - Flags: hull_status_conflict
 - Sensitivity: rank 7 to 8 over 12 perturbations (stable)
@@ -299,8 +317,6 @@ Experimental gaps: 2.96 eV to 3.13 eV across 5 value(s), median 3.06 eV
 
 Hazard: no GHS notification counts available; hazard unknown
 Literature: 3181 matched, 2092 with abstracts, 5 read (title_and_abstract; query 'BaTiO3 thin film')
-Caveats:
-- band_offsets_not_checked: Band offsets to the substrate are not checked by this screen. (source: scoring_profile#criteria.band_gap.standing_caveat)
 
 
 Equal scores are tied; tied rows are listed alphabetically.
@@ -308,6 +324,10 @@ Equal scores are tied; tied rows are listed alphabetically.
 ## Reference anchors (never ranked)
 
 ### SiO2: would rank 1 of 8, total 1.000
+## Applies to every row
+
+- Band offsets to the substrate are not checked by this screen.
+
 - Flags: none
 - Insulating gap source: tbmbj
 - Structural dimensionality: missing (not computed)
@@ -340,6 +360,10 @@ Literature: 21347 matched, 14434 with abstracts, 5 read (title_and_abstract; que
 ## Excluded
 
 ### ThO2: excluded
+## Applies to every row
+
+- Band offsets to the substrate are not checked by this screen.
+
 - Excluded: hazard.radioactive_exclude (['Th'] has no stable isotope); rule source config/hazard_policy.yaml#tiers.radioactive_exclude
 - Flags: band_gap_conflict
 - Insulating gap source: experimental_median
@@ -367,10 +391,12 @@ Experimental gaps: 3.30 eV to 3.50 eV across 2 value(s), median 3.40 eV
 
 Hazard: GHS codes H301, H311, H331, H350, H373 in an unreported number of 213 notifications (ECHA attribution applies)
 Literature: 31 matched, 20 with abstracts, 5 read (title_and_abstract; query 'ThO2 thin film')
-Caveats:
-- band_offsets_not_checked: Band offsets to the substrate are not checked by this screen. (source: scoring_profile#criteria.band_gap.standing_caveat)
 
 ### BeO: excluded
+## Applies to every row
+
+- Band offsets to the substrate are not checked by this screen.
+
 - Excluded: hazard.exclude (IARC Group 1: beryllium and beryllium compounds); rule source config/hazard_policy.yaml#tiers.exclude.Be
 - Flags: none
 - Insulating gap source: experimental_median
@@ -400,8 +426,6 @@ Experimental gaps: 10.39 eV to 10.39 eV across 1 value(s), median 10.39 eV
 
 Hazard: GHS codes H301, H305, H315, H317, H319, H330, H334, H335, H350, H350i, H361, H370, H372 in an unreported number of 49 notifications (ECHA attribution applies)
 Literature: 164 matched, 105 with abstracts, 5 read (title_and_abstract; query 'BeO thin film')
-Caveats:
-- band_offsets_not_checked: Band offsets to the substrate are not checked by this screen. (source: scoring_profile#criteria.band_gap.standing_caveat)
 
 
 ## What this screen cannot tell you

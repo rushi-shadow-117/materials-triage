@@ -163,6 +163,12 @@ function Results({ data, view, setView, runId }: { data: RunViewJson; view: "pi_
         <div className="panel warn">Not available from configured sources: {data.unavailable_properties.join(", ")}. Not scored; no value is shown.</div>
       )}
       {data.overview && <p>{data.overview}</p>}
+      {data.profile_caveats.length > 0 && (
+        <div className="panel note" data-testid="every-row">
+          <h3 style={{ marginTop: 0 }}>Applies to every row</h3>
+          <ul>{data.profile_caveats.map((c) => <li key={c.id}>{c.text}</li>)}</ul>
+        </div>
+      )}
 
       {data.relaxations && data.relaxations.length > 0 && (
         <div className="panel note">

@@ -494,7 +494,7 @@ export interface components {
          *     composition the text is about.
          * @enum {string}
          */
-        CaveatId: "band_offsets_not_checked" | "stability_cutoff_hull_mismatch" | "stability_cutoff_oxide_calibrated" | "experimental_gap_composition_level" | "experimental_gap_unreferenced" | "pbe_only_below_window" | "reference_value_pending" | "hazard_flag" | "hazard_unknown" | "process_hazard" | "attribution_echa" | "anion_undetermined" | "evidence_unclassified" | "enrichment_missing";
+        CaveatId: "band_offsets_not_checked" | "stability_cutoff_hull_mismatch" | "stability_cutoff_oxide_calibrated" | "experimental_gap_composition_level" | "experimental_gap_unreferenced" | "pbe_only_below_window" | "reference_value_pending" | "hazard_flag" | "hazard_unknown" | "process_hazard" | "attribution_echa" | "anion_undetermined" | "evidence_unclassified" | "enrichment_missing" | "band_gap_conflict" | "near_cutoff" | "ground_state_is_theoretical";
         /** CompositionSummary */
         CompositionSummary: {
             /** Composition */

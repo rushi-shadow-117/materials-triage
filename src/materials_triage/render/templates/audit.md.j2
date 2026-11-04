@@ -38,6 +38,14 @@
 - Units shown: {{ units }}
 {% macro row_block(r) %}
 ### {{ r.composition }}: {{ r.rank }}{% if r.total != "excluded" %}, total {{ r.total }}{% endif %}
+{% if view.profile_caveats %}
+
+## Applies to every row
+
+{% for c in view.profile_caveats %}
+- {{ c.text }}
+{% endfor %}
+{% endif %}
 
 {% if r.exclusion %}
 - Excluded: {{ r.exclusion }} ({{ r.exclusion_detail }}){% if r.exclusion_ref %}; rule source {{ r.exclusion_ref }}{% endif %}

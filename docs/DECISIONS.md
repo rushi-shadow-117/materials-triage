@@ -1368,3 +1368,14 @@ tie-break stay as they are, so prompts and replays are unchanged; `render/tokens
 is the shown rank, `tied` says yes).
 Alternative: a secondary sort key such as the band gap, which turns a tie into an order the
 profile never asked for.
+
+### 2026-11-04 The key caveat is the most row-specific one; profile-wide caveats show once
+Decision (owner): a row's key caveat is the first present of the hazard flag, the band gap
+conflict, the PBE-only window, near cutoff, and a theoretical ground state, then the row's
+other caveats in enum order; a row with none reads "none specific to this row". Three flags
+gain data-state caveats with the owner's text in `render/caveats.py`: band gap conflict, near
+cutoff, theoretical ground state. Caveats every row carries by construction (band offsets,
+the stability cutoff notes, unclassified evidence, the ECHA attribution) show once in an
+"Applies to every row" panel above the table and leave the rows.
+Alternative: keep the enum order, which put the standing band offsets sentence first on
+every thin-film row and hid TiO2's hazard flag.
