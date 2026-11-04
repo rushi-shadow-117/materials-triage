@@ -393,6 +393,17 @@ class FakeLLM:
 # ------------------------------------------------------------------------ factory
 
 
+def anthropic_sdk(settings: Settings) -> anthropic.Anthropic:
+    """An Anthropic SDK client keyed from settings (.env), whose HTTP client refuses every
+    host but its own endpoint (adapters/egress.py). Shared by the provider client and the
+    eval judge."""
+    allowed: set[str] = set()
+    guarded = anthropic.DefaultHttpxClient(event_hooks={"request": [egress.request_hook(allowed)]})
+    sdk = anthropic.Anthropic(api_key=settings.require("anthropic_api_key"), http_client=guarded)
+    allowed.add(egress.host_of(sdk.base_url) or "")
+    return sdk
+
+
 def make_client(settings: Settings) -> LLMClient | None:
     """Build the configured provider's client, or None for provider "none"."""
     provider = settings.llm_provider
@@ -403,11 +414,9 @@ def make_client(settings: Settings) -> LLMClient | None:
     allowed: set[str] = set()
     guarded = anthropic.DefaultHttpxClient(event_hooks={"request": [egress.request_hook(allowed)]})
     if provider == "anthropic":
-        sdk = anthropic.Anthropic(
-            api_key=settings.require("anthropic_api_key"), http_client=guarded
+        return AnthropicClient(
+            anthropic_sdk(settings), model=settings.llm_model, provider="anthropic"
         )
-        allowed.add(egress.host_of(sdk.base_url) or "")
-        return AnthropicClient(sdk, model=settings.llm_model, provider="anthropic")
     if provider == "bedrock":
         if settings.aws_region is None:
             raise MissingSettingError("AWS_REGION")

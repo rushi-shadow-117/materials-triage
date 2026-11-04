@@ -42,7 +42,20 @@ def judge_observation(case: Case, obs: Observation, judge: Judge) -> list[JudgeV
             )
             for item in case.judge
         ]
-    return [judge.judge(item, rendered, obs.bundle) for item in case.judge]
+    out: list[JudgeVerdict] = []
+    for item in case.judge:
+        try:
+            out.append(judge.judge(item, rendered, obs.bundle))
+        except Exception as e:  # noqa: BLE001 - a judge failure is recorded, never a crash
+            out.append(
+                JudgeVerdict(
+                    item=item,
+                    verdict="judge_declined",
+                    reason=f"judge error: {type(e).__name__}: {str(e)[:160]}",
+                    judge=judge.name,
+                )
+            )
+    return out
 
 
 def run_repeat(

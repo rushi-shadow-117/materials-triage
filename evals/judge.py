@@ -78,7 +78,8 @@ class AnthropicJudge:
     name = "anthropic"
 
     def __init__(self) -> None:
-        import anthropic
+        from materials_triage.agent.llm import anthropic_sdk
+        from materials_triage.settings import Settings
 
         cfg = yaml.safe_load(JUDGE_CONFIG.read_text())
         self.model = str(cfg["model"])
@@ -89,7 +90,7 @@ class AnthropicJudge:
         self.max_tokens = int(cfg.get("max_tokens", 1024))
         self.name = self.model
         self.rubric = RUBRIC.read_text()
-        self.client = anthropic.Anthropic()
+        self.client = anthropic_sdk(Settings())  # keyed from .env, behind the egress check
 
     def judge(self, item: JudgeItem, rendered: str, bundle: ProvenanceBundle) -> JudgeVerdict:
         terms = caveat_terms(bundle)
