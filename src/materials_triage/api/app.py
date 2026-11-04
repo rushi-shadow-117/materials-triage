@@ -169,11 +169,9 @@ def _bundle(request: Request, run_id: str) -> ProvenanceBundle:
 def _summary(request: Request, run_id: str) -> RunSummary:
     runs: RunManager = request.app.state.runs
     state = runs.get(run_id)
-    try:
-        b = runs.load_bundle(run_id)
-    except FileNotFoundError:
-        if state is None:
-            raise HTTPException(status_code=404, detail="run not found") from None
+
+    def from_state() -> RunSummary:
+        assert state is not None
         return RunSummary(
             run_id=run_id,
             status=state.status,
@@ -183,6 +181,17 @@ def _summary(request: Request, run_id: str) -> RunSummary:
             finished_at=state.finished_at.isoformat() if state.finished_at else None,
             error=state.error,
         )
+
+    if state is not None and not state.done.is_set():
+        # in flight: answer from the state and never touch the run file, which the worker
+        # may be writing at this moment (the save is atomic, but this costs nothing)
+        return from_state()
+    try:
+        b = runs.load_bundle(run_id)
+    except FileNotFoundError:
+        if state is None:
+            raise HTTPException(status_code=404, detail="run not found") from None
+        return from_state()
     return RunSummary(
         run_id=run_id,
         status="refused" if b.criteria.mode == "refused" else "completed",
