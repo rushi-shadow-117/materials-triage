@@ -209,6 +209,16 @@ tiers:
     description: "GHS codes outside the acute exclude and flag sets that keep the candidate ranked at the neutral score with the flag shown. Admin-configurable."
     codes: [H340, H341, H350, H351, H361, H370]
     note: "H340/H341 germ cell mutagenicity, H350/H351 carcinogenicity, H361 reproductive toxicity category 2, H370 specific target organ toxicity single exposure category 1. Code meanings cite the UN GHS."
+    caveat_template:
+      text: "Flagged: a suspected carcinogenic, mutagenic, reproductive, or single-exposure organ-toxicity classification (GHS {codes}) appears in {M} of {N} notifications. Check the form and handling requirements with site EHS."
+      placeholders: "{codes}: the record's codes in this flag set; {M}: notifications carrying a classification; {N}: notifications in total. Filled by code from the PubChem record; a missing count renders as an unreported number, never 0."
+      status: entered
+      source:
+        citation: "UN GHS hazard statement definitions (H340, H341, H350, H351, H361, H370); owner decision 2026-11-04. The sentence restates what the codes mean and adds no chemistry claim."
+        url: https://unece.org/transport/dangerous-goods/ghs-rev10-2023
+        access: open
+      entered_by: owner
+      entered_on: 2026-11-04
     status: entered
     source:
       citation: "Owner policy decision 2026-11-02, taken on seeing the Al2O3 result before pre-registration; code meanings from United Nations, GHS Rev. 10 (2023), Annex 3"

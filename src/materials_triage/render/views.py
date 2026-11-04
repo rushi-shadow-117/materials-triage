@@ -277,7 +277,7 @@ def _row_view(
     comp = row.composition
     is_anchor = isinstance(row, Anchor)
     hits = [e for e in bundle.evidence if e.composition == comp]
-    resolved = [caveats.resolve(c) for c in row.caveats]
+    resolved = [caveats.resolve(c, row) for c in row.caveats]
     slot_id = f"candidate:{comp}:one_line"
     slot = bundle.rationale.get(slot_id)
     rationale = ""

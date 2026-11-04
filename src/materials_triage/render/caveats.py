@@ -13,7 +13,7 @@ from pathlib import Path
 from typing import Any
 
 from materials_triage.config.schema import default_paths, load_yaml
-from materials_triage.records.bundle import Caveat, CaveatId
+from materials_triage.records.bundle import Anchor, Candidate, Caveat, CaveatId
 
 NOT_ENTERED = "caveat text not entered: {id}"
 
@@ -98,6 +98,37 @@ class CaveatConfig:
                 return str(text), f"hazard_policy.yaml#acute_toxicity.compound.{subject}"
         return None
 
+    def _ghs_flag_set(self, row: Candidate | Anchor | None) -> tuple[str, str] | None:
+        """A composition flagged through the GHS flag set: the entered template filled from
+        the row's PubChem record (codes in the set, M classified of N notifications)."""
+        tiers = self.hazard.get("tiers") or {}
+        node = tiers.get("ghs_flag_codes") or {}
+        template = node.get("caveat_template") or {}
+        if row is None or not _entered(node) or not _entered(template):
+            return None
+        hazard = row.group.hazard
+        if hazard is None:
+            return None
+        flag_codes = {str(c) for c in node.get("codes") or []}
+        acute = (tiers.get("acute_toxicity") or {}).get("rule") or {}
+        flag_codes |= {str(c) for c in acute.get("flag_if_any") or []}
+        codes = sorted(set(hazard.h_codes) & flag_codes)
+        if not codes:
+            return None
+        total = hazard.notifications_total
+        classified = (
+            total - hazard.notifications_not_classified
+            if total is not None and hazard.notifications_not_classified is not None
+            else None
+        )
+        text = (
+            str(template["text"])
+            .replace("{codes}", ", ".join(codes))
+            .replace("{M}", str(classified) if classified is not None else "an unreported number")
+            .replace("{N}", str(total) if total is not None else "an unreported number")
+        )
+        return text, "hazard_policy.yaml#tiers.ghs_flag_codes.caveat_template"
+
     def _process_hazard(self, subject: str | None) -> tuple[str, str] | None:
         node = (self.hazard.get("tiers") or {}).get("process_hazard") or {}
         template = node.get("caveat_template") or {}
@@ -126,7 +157,8 @@ class CaveatConfig:
                 return str(node["text"]), f"hazard_policy.yaml#{key}"
         return None
 
-    def resolve(self, caveat: Caveat) -> CaveatText:
+    def resolve(self, caveat: Caveat, row: Candidate | Anchor | None = None) -> CaveatText:
+        """`row` lets a template fill in the row's own record (the GHS flag set caveat)."""
         cid, subject = caveat.id, caveat.subject
         found: tuple[str, str] | None = None
         if cid is CaveatId.BAND_OFFSETS_NOT_CHECKED:
@@ -143,7 +175,7 @@ class CaveatConfig:
                 else None
             )
         elif cid is CaveatId.HAZARD_FLAG:
-            found = self._hazard_flag(subject)
+            found = self._hazard_flag(subject) or self._ghs_flag_set(row)
         elif cid is CaveatId.HAZARD_UNKNOWN:
             node = self.hazard.get("unknown_hazard_rule") or {}
             if _entered(node):

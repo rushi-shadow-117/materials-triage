@@ -164,6 +164,22 @@ def test_caveat_resolver_uses_entered_config_text_and_marks_the_rest(
     assert echa.entered or echa.text == "caveat text not entered: attribution_echa"
 
 
+def test_ghs_flag_set_caveat_is_filled_from_the_row_record(
+    caveat_config: caveats.CaveatConfig, bundle: ProvenanceBundle
+) -> None:
+    """SiO2 carries H350 (in the flag set): the owner's sentence names the codes and the
+    notification counts from the PubChem record; without the row there is no text to invent."""
+    sio2 = next(a for a in bundle.anchors if a.composition == "SiO2")
+    assert sio2.group.hazard is not None and "H350" in sio2.group.hazard.h_codes
+    with_row = caveat_config.resolve(Caveat(id=CaveatId.HAZARD_FLAG, subject="SiO2"), sio2)
+    assert with_row.entered and with_row.source.endswith("ghs_flag_codes.caveat_template")
+    assert with_row.text.startswith("Flagged: a suspected carcinogenic") and "H350" in with_row.text
+    total = sio2.group.hazard.notifications_total
+    assert total is not None and f"of {total} notifications" in with_row.text
+    without = caveat_config.resolve(Caveat(id=CaveatId.HAZARD_FLAG, subject="SiO2"))
+    assert not without.entered
+
+
 def test_csv_has_one_row_per_candidate_and_anchor(bundle: ProvenanceBundle) -> None:
     text = csv_export.export_csv(bundle)
     rows = list(csv.DictReader(io.StringIO(text)))
