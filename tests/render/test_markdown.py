@@ -72,8 +72,9 @@ def test_pi_summary_has_the_planned_sections(
     bundle: ProvenanceBundle, site: cs.SiteProfile
 ) -> None:
     text = markdown.render_pi_summary(bundle, site)
-    assert "| 1 | Al2O3 |" in text and "| 2 | HfO2 |" in text
-    assert "HfO2 ranks 2 on stability (energy above hull) and band gap; see caveats." in text
+    assert "| 1= | Al2O3 |" in text and "| 1= | HfO2 |" in text
+    assert "Equal scores are tied; tied rows are listed alphabetically." in text
+    assert "HfO2 ranks 1= on stability (energy above hull) and band gap; see caveats." in text
     assert "SiO2: would rank 1 of 8" in text
     assert "ThO2: hazard.radioactive_exclude" in text and "BeO: hazard.exclude" in text
     assert "band_offsets_not_checked: Band offsets to the substrate are not checked" in text
@@ -196,3 +197,24 @@ def test_csv_has_one_row_per_candidate_and_anchor(bundle: ProvenanceBundle) -> N
     mev = list(csv.DictReader(io.StringIO(csv_export.export_csv(bundle, units="meV"))))
     assert next(r for r in mev if r["composition"] == "HfO2")["band_gap_unit"] == "meV"
     _golden("export.csv", text)
+
+
+def test_equal_totals_render_as_tied(bundle: ProvenanceBundle, site: cs.SiteProfile) -> None:
+    """Human test session, item 7: four rows at 1.000 read as ranks 1 to 4 in name order."""
+    from materials_triage.render.tokens import shown_ranks
+
+    ranks = shown_ranks(bundle)
+    totals: dict[str, list[str]] = {}
+    for c in bundle.ranked():
+        assert c.score is not None and c.score.total is not None
+        totals.setdefault(f"{c.score.total:.3f}", []).append(c.composition)
+    for group in totals.values():
+        first = ranks[group[0]].rank
+        assert all(ranks[g].rank == first for g in group)
+        assert all(ranks[g].tied == (len(group) > 1) for g in group)
+    text = markdown.render_pi_summary(bundle, site)
+    tied = [g for g in totals.values() if len(g) > 1]
+    assert tied, "the sample bundle has a tie"
+    assert f"| {ranks[tied[0][0]].rank}= | {tied[0][0]} |" in text
+    csv_text = csv_export.export_csv(bundle)
+    assert ",yes," in csv_text  # the tied column

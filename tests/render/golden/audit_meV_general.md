@@ -26,8 +26,8 @@
 
 ## Ranked candidates
 
-### Al2O3: 1, total 1.000
-- Rationale: Al2O3 ranks 1 on stability (stability margin) and insulating gap; see caveats.
+### Al2O3: 1=, total 1.000
+- Rationale: Al2O3 ranks 1= on stability (stability margin) and insulating gap; see caveats.
 - Flags: none
 - Sensitivity: rank 1 to 2 over 12 perturbations (stable)
 - Insulating gap source: tbmbj
@@ -59,8 +59,8 @@ Literature: 10698 matched, 7142 with abstracts, 5 read (title_and_abstract; quer
 Caveats:
 - band_offsets_not_checked: Band offsets to the substrate are not checked by this screen. (source: scoring_profile#criteria.band_gap.standing_caveat)
 
-### HfO2: 2, total 1.000
-- Rationale: HfO2 ranks 2 on stability (stability margin) and insulating gap; see caveats.
+### HfO2: 1=, total 1.000
+- Rationale: HfO2 ranks 1= on stability (stability margin) and insulating gap; see caveats.
 - Flags: none
 - Sensitivity: rank 1 to 3 over 12 perturbations (stable)
 - Insulating gap source: experimental_median
@@ -94,8 +94,8 @@ Literature: 3496 matched, 2469 with abstracts, 5 read (title_and_abstract; query
 Caveats:
 - band_offsets_not_checked: Band offsets to the substrate are not checked by this screen. (source: scoring_profile#criteria.band_gap.standing_caveat)
 
-### La2O3: 3, total 1.000
-- Rationale: La2O3 ranks 3 on stability (stability margin) and insulating gap; see caveats.
+### La2O3: 1=, total 1.000
+- Rationale: La2O3 ranks 1= on stability (stability margin) and insulating gap; see caveats.
 - Flags: hull_status_conflict
 - Sensitivity: rank 2 to 4 over 12 perturbations (stable)
 - Insulating gap source: experimental_median
@@ -128,8 +128,8 @@ Literature: 383 matched, 218 with abstracts, 5 read (title_and_abstract; query '
 Caveats:
 - band_offsets_not_checked: Band offsets to the substrate are not checked by this screen. (source: scoring_profile#criteria.band_gap.standing_caveat)
 
-### Y2O3: 4, total 1.000
-- Rationale: Y2O3 ranks 4 on stability (stability margin) and insulating gap; see caveats.
+### Y2O3: 1=, total 1.000
+- Rationale: Y2O3 ranks 1= on stability (stability margin) and insulating gap; see caveats.
 - Flags: none
 - Sensitivity: rank 3 to 5 over 12 perturbations (stable)
 - Insulating gap source: experimental_median
@@ -162,8 +162,8 @@ Literature: 1480 matched, 839 with abstracts, 5 read (title_and_abstract; query 
 Caveats:
 - band_offsets_not_checked: Band offsets to the substrate are not checked by this screen. (source: scoring_profile#criteria.band_gap.standing_caveat)
 
-### ZrO2: 5, total 1.000
-- Rationale: ZrO2 ranks 5 on stability (stability margin) and insulating gap; see caveats.
+### ZrO2: 1=, total 1.000
+- Rationale: ZrO2 ranks 1= on stability (stability margin) and insulating gap; see caveats.
 - Flags: none
 - Sensitivity: rank 4 to 6 over 12 perturbations (stable)
 - Insulating gap source: experimental_median
@@ -302,6 +302,8 @@ Literature: 3181 matched, 2092 with abstracts, 5 read (title_and_abstract; query
 Caveats:
 - band_offsets_not_checked: Band offsets to the substrate are not checked by this screen. (source: scoring_profile#criteria.band_gap.standing_caveat)
 
+
+Equal scores are tied; tied rows are listed alphabetically.
 
 ## Reference anchors (never ranked)
 

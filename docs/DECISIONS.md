@@ -1358,3 +1358,13 @@ PROFILE_WIDE: band offsets, the two stability cutoff notes, unclassified evidenc
 attribution) never enter a row's rationale.
 Alternative: write the caveat text into the slot at run time, which puts config sentences
 with digits and hazard codes through the verifier's number check and fails it.
+
+### 2026-11-04 Equal scores display as tied
+Decision (owner): ranked rows whose totals are equal at display precision show the first
+rank of their group with "=" ("1="), and a note under the table says "Equal scores are tied;
+tied rows are listed alphabetically." The bundle's integer ranks and the alphabetical
+tie-break stay as they are, so prompts and replays are unchanged; `render/tokens.py`
+`shown_ranks` computes the display once for the rank token, the views, and the CSV (`rank`
+is the shown rank, `tied` says yes).
+Alternative: a secondary sort key such as the band gap, which turns a tie into an order the
+profile never asked for.

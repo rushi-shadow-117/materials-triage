@@ -190,6 +190,7 @@ function Results({ data, view, setView, runId }: { data: RunViewJson; view: "pi_
             {data.anchors.map((row) => <Row key={`anchor-${row.composition}`} row={row} runId={runId} audit={view === "audit"} />)}
           </tbody>
         </table>
+        {data.ties_note && <p className="muted" data-testid="ties-note">{data.ties_note}</p>}
         {data.hidden_ranked > 0 && <p className="muted">{data.hidden_ranked} more ranked rows beyond top N; export the CSV or JSON for all of them.</p>}
         <p className="muted">
           Scores are computed in code (weighted mean of normalized criteria). Rationale and caveats are checked against the score table before display. A missing value is shown as missing and never scored as zero.

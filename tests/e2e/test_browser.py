@@ -27,6 +27,9 @@ def test_rank_my_list_runs_end_to_end(page, server: str) -> None:  # type: ignor
     assert rows.count() == 4  # Al2O3, HfO2, ZrO2 and the SiO2 anchor row
     assert rows.nth(0).get_attribute("data-composition") == "Al2O3"
     page.get_by_text("Not found in any source: Unobtainium oxide").wait_for()
+    # tied totals read "1=" with the note (human test session, item 7)
+    assert rows.nth(0).locator("td").first.inner_text().strip() == "1="
+    assert "listed alphabetically" in page.get_by_test_id("ties-note").inner_text()
     body = page.inner_text("body")
     assert "mp-" not in body  # the PI view names no record ids
     page.get_by_role("button", name="Audit view").click()

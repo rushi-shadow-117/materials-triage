@@ -69,6 +69,36 @@ class TokenError(ValueError):
 
 
 CaveatTextFn = Callable[[Caveat, Candidate | Anchor], str]
+TIES_NOTE = "Equal scores are tied; tied rows are listed alphabetically."
+
+
+@dataclass(frozen=True)
+class ShownRank:
+    """A ranked row's rank as the reader sees it: tied rows share the first rank of their
+    group ("1="); the bundle's integer ranks stay as they are (the deterministic order)."""
+
+    rank: int
+    tied: bool
+
+    @property
+    def text(self) -> str:
+        return f"{self.rank}=" if self.tied else str(self.rank)
+
+
+def shown_ranks(bundle: ProvenanceBundle) -> dict[str, ShownRank]:
+    """Equal totals at display precision are a tie."""
+    first_rank: dict[str, int] = {}
+    size: dict[str, int] = {}
+    keyed: list[tuple[str, str]] = []
+    for i, c in enumerate(bundle.ranked()):
+        total = c.score.total if c.score is not None else None
+        key = precision.fmt(total, "score") if total is not None else f"missing:{i}"
+        first_rank.setdefault(key, c.rank or i + 1)
+        size[key] = size.get(key, 0) + 1
+        keyed.append((c.composition, key))
+    return {comp: ShownRank(first_rank[key], size[key] > 1) for comp, key in keyed}
+
+
 CAVEAT_FALLBACK = "a caveat listed below"
 
 
@@ -78,12 +108,13 @@ class BundleIndex:
     ids: set[str] = field(default_factory=set)
     # fills {caveat:...} with config text; the verifier only checks the caveat is on the row
     caveat_text: CaveatTextFn | None = None
+    ranks: dict[str, ShownRank] = field(default_factory=dict)
 
     @classmethod
     def build(
         cls, bundle: ProvenanceBundle, caveat_text: CaveatTextFn | None = None
     ) -> BundleIndex:
-        idx = cls(caveat_text=caveat_text)
+        idx = cls(caveat_text=caveat_text, ranks=shown_ranks(bundle))
         rows: list[Candidate | Anchor] = [*bundle.candidates, *bundle.anchors]
         for row in rows:
             idx.rows[row.composition] = row
@@ -201,7 +232,8 @@ def resolve(
             return f"would rank {row.would_rank} of {row.out_of}"
         if row.rank is None:
             return "excluded" if row.excluded is not None else "unranked"
-        return str(row.rank)
+        shown = index.ranks.get(arg)
+        return shown.text if shown is not None else str(row.rank)
     if kind == "value":
         comp, name = _split(arg, 2, token)
         cs = index.criterion(comp, name)

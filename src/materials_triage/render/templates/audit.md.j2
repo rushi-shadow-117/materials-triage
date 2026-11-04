@@ -110,6 +110,10 @@ Caveats:
 {% else %}
 No candidate passed the criteria.
 {% endfor %}
+{% if view.ties_note %}
+
+{{ view.ties_note }}
+{% endif %}
 {% if view.hidden_ranked %}
 {{ view.hidden_ranked }} more ranked candidate(s) beyond top_n are not shown; export CSV for every row.
 

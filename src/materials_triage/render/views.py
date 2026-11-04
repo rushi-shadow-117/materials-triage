@@ -18,6 +18,7 @@ from materials_triage.render import precision
 from materials_triage.render.caveats import CaveatConfig, CaveatText
 from materials_triage.render.tokens import (
     CRITERION_LABELS,
+    TIES_NOTE,
     BundleIndex,
     TokenError,
     ghs_text,
@@ -149,6 +150,7 @@ class RowView:
     sensitivity: str | None
     band_gap_source: str | None
     dimensionality: str = "missing"
+    tied: bool = False
 
 
 @dataclass
@@ -169,6 +171,7 @@ class RunView:
     overview: str | None = None  # the verified summary:overview rationale slot
     unresolved_candidates: list[str] = field(default_factory=list)
     unavailable_properties: list[str] = field(default_factory=list)
+    ties_note: str | None = None  # shown under the table when any shown rows are tied
 
 
 def _fmt(value: float | int | None, unit: str | None, units: str) -> str:
@@ -365,7 +368,12 @@ def _row_view(
         excluded = row.excluded
     else:
         assert isinstance(row, Candidate)
-        rank = "excluded" if row.rank is None else precision.quantize(row.rank, 0)
+        shown_rank = index.ranks.get(comp)
+        rank = (
+            "excluded"
+            if row.rank is None
+            else (shown_rank.text if shown_rank else precision.quantize(row.rank, 0))
+        )
         excluded = row.excluded
     sensitivity = None
     if isinstance(row, Candidate) and row.sensitivity is not None:
@@ -377,6 +385,7 @@ def _row_view(
     return RowView(
         composition=comp,
         is_anchor=is_anchor,
+        tied=bool(not is_anchor and index.ranks.get(comp) and index.ranks[comp].tied),
         rank=rank,
         total="excluded"
         if row.score is None or row.score.total is None
@@ -468,6 +477,7 @@ def build(
         overview=_overview(bundle, index, units, hide_ids),
         unresolved_candidates=list(bundle.criteria.unresolved_candidates),
         unavailable_properties=list(bundle.criteria.unavailable_properties),
+        ties_note=TIES_NOTE if any(r.tied for r in rows) else None,
     )
 
 

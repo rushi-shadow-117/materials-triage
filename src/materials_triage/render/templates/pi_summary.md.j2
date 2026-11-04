@@ -36,6 +36,10 @@ Not available from configured sources: {{ view.unavailable_properties | join(", 
 {% for r in view.rows %}
 | {{ r.rank }} | {{ r.composition }} | {{ r.rationale or "no rationale" }} | {{ r.key_caveat }} | {{ r.evidence_tier }} | {{ r.k }} | {{ r.missing | join(", ") if r.missing else "none" }} |
 {% endfor %}
+{% if view.ties_note %}
+
+{{ view.ties_note }}
+{% endif %}
 {% if view.hidden_ranked %}
 
 {{ view.hidden_ranked }} more ranked candidate(s) beyond top_n are not shown; export CSV for every row.

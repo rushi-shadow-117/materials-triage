@@ -115,7 +115,7 @@ def test_candidate_list_run_matches_the_golden_bundle(
     assert bundle.decision_log[0].detail["code_version"]
     assert len(bundle.missing_properties) == 8  # site list plus the profile item
     text = markdown.render_pi_summary(bundle, layers[1])
-    assert "| 1 | Al2O3 |" in text
+    assert "| 1= | Al2O3 |" in text  # tied at 1.000 (human test session, item 7)
     ProvenanceBundle.model_validate_json(bundle.model_dump_json())
 
 

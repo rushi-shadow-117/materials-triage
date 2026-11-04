@@ -639,6 +639,7 @@ PI_ROW_FIELDS = (
     "composition",
     "is_anchor",
     "rank",
+    "tied",
     "total",
     "rationale",
     "rationale_verified",
