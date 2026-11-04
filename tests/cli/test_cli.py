@@ -231,8 +231,12 @@ def test_rank_rejects_bad_formulas_and_unknown_profiles() -> None:
     )
 
 
-def test_eval_delegates_or_reports_pending() -> None:
-    result = RUNNER.invoke(app, ["eval"])
+def test_eval_delegates_or_reports_pending(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    """One case, results written under tmp_path: the test never rewrites evals/results."""
+    from evals import __main__ as evals_main
+
+    monkeypatch.setattr(evals_main, "RESULTS_DIR", tmp_path)
+    result = RUNNER.invoke(app, ["eval", "--suite", "F1"])
     assert result.exit_code in (0, 2)
     if result.exit_code == 2:
         assert "eval runner pending" in result.output

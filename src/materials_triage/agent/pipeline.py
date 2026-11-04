@@ -295,11 +295,15 @@ def _run_metadata(
     )
 
 
-def discovery_filter(query: QuerySettings, profile: ScoringProfile) -> mp.DiscoveryFilter:
-    """The MP query for discovery mode. The stability cutoff is a scoring rule shown as an
-    exclusion, so it is never folded into the API filter. A discovery query needs a gap
-    floor (every oxide is above the ceiling): the query's, else the profile's hard minimum,
-    else its soft preference start; the gap ceiling is the query's, else the profile's."""
+def discovery_filter(
+    query: QuerySettings, profile: ScoringProfile, site: SiteProfile
+) -> mp.DiscoveryFilter:
+    """The MP query for discovery mode, under the prefilter principle (docs/DECISIONS.md,
+    Track F): the API receives only hard rules, each at its loosest admissible value. The gap
+    floor is the profile's `discovery_pbe_floor_ev`, the ceiling its hard maximum, the hull
+    limit the site's maximum cutoff. Soft preferences and tighter query settings (a query gap
+    window, a lower cutoff) are scorer exclusions, so excluded rows stay in the fetched set and
+    relaxation proposals can count from it."""
     policy = profile.simplicity.anion_policy
     elements: tuple[str, ...] = (
         ("O",) if policy == "strict_oxide" else ("N",) if policy == "strict_nitride" else ()
@@ -308,16 +312,14 @@ def discovery_filter(query: QuerySettings, profile: ScoringProfile) -> mp.Discov
     if policy == "strict_nitride":
         exclude = ("O", "F", "Cl", "Br", "I", "S", "Se", "Te", "P", "As", "Sb", "H")
     gap = profile.band_gap
-    floor = query.band_gap_min_ev
-    if floor is None:
-        floor = gap.hard_min_ev if gap.hard_min_ev is not None else gap.soft_preference_start_ev
-    ceiling = query.band_gap_max_ev if query.band_gap_max_ev is not None else gap.hard_max_ev
+    bounds = site.stability_cutoff_bounds
     return mp.DiscoveryFilter(
         elements=elements or ("O",),
         nelements_min=2,
         nelements_max=query.max_elements or profile.simplicity.max_elements,
-        band_gap_min=floor,
-        band_gap_max=ceiling,
+        band_gap_min=gap.discovery_pbe_floor_ev,
+        band_gap_max=gap.hard_max_ev,
+        energy_above_hull_max=None if bounds is None else bounds.max / 1000.0,
         exclude_elements=exclude,
     )
 
@@ -366,6 +368,7 @@ def collect_discovery(
     query: QuerySettings,
     *,
     profile: ScoringProfile,
+    site: SiteProfile,
     ctx: FetchContext,
     sources: Sources,
 ) -> Collected:
@@ -373,7 +376,7 @@ def collect_discovery(
     groups. Enrichment happens in the run loop, which repeats until the final top K is
     enriched (an exclusion found by enrichment admits the next candidate)."""
     out = Collected({}, [], [])
-    f = discovery_filter(query, profile)
+    f = discovery_filter(query, profile, site)
 
     def fetch(call: Call) -> RawResponse:
         raw = ctx.get(call)
@@ -461,13 +464,30 @@ def run(
 
     enriched: set[str] = set()  # compositions the full cross-checks were attempted for
     if query.mode == "candidate_list":
-        keys = list(dict.fromkeys([*query.candidate_list, *inputs.profile.anchors]))
+        keys = list(
+            dict.fromkeys([*query.candidate_list, *inputs.profile.anchors, *query.extra_anchors])
+        )
         collected = collect_candidate_list(
             keys, ctx=ctx, sources=sources, synonyms=inputs.profile.synonyms
         )
         enriched.update(keys)
     else:
-        collected = collect_discovery(query, profile=inputs.profile, ctx=ctx, sources=sources)
+        collected = collect_discovery(
+            query, profile=inputs.profile, site=inputs.site, ctx=ctx, sources=sources
+        )
+        # Anchors the discovery query did not return are fetched by name (profile anchors
+        # and this run's extra anchors), so every anchor row carries the same cross-checks.
+        for key in dict.fromkeys([*inputs.profile.anchors, *query.extra_anchors]):
+            if key in collected.groups:
+                continue
+            group = fetch_composition(
+                key, ctx=ctx, sources=sources, synonyms=inputs.profile.synonyms
+            )
+            if group is None:
+                collected.partial.append(f"{key}: no Materials Project summary available")
+            else:
+                collected.groups[key] = group
+                enriched.add(key)
     log.extend(collected.log)
     partial.extend(collected.partial)
     if collected.refused is not None:
@@ -490,7 +510,9 @@ def run(
         )
         top = [c.composition for c in ranked[: effective.top_n]]
         need_enrich = [
-            k for k in [*top, *inputs.profile.anchors] if k in groups and k not in enriched
+            k
+            for k in [*top, *inputs.profile.anchors, *query.extra_anchors]
+            if k in groups and k not in enriched
         ]
         need_classify = [k for k in top if k in groups and k not in classified_keys]
         if not need_enrich and not need_classify:

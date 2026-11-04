@@ -123,6 +123,7 @@ def load_scoring_profile(path: Path) -> LoadedProfile:
             soft_preference_start_ev=_float_or_none(gap.get("soft_preference_start_ev")),
             hard_min_ev=_float_or_none(gap.get("hard_min_ev")),
             hard_max_ev=_float_or_none(gap.get("hard_max_ev")),
+            discovery_pbe_floor_ev=_discovery_floor(gap),
             aggregate=cs.Aggregate(gap.get("aggregate_when_several_experimental_values", "median")),
             conflict_tolerance_ev=_float_or_none(gap.get("conflict_tolerance_ev")),
             on_conflict=cs.OnConflict(gap.get("on_conflict", "next_source")),
@@ -167,6 +168,14 @@ def load_scoring_profile(path: Path) -> LoadedProfile:
     )
 
 
+def _discovery_floor(gap: dict[str, Any]) -> float | None:
+    """The PBE floor the discovery API receives, from an entered `discovery_prefilter` entry."""
+    node = gap.get("discovery_prefilter") or {}
+    if _status(node) != ENTERED:
+        return None
+    return _float_or_none(node.get("pbe_floor_ev"))
+
+
 def _float_or_none(x: Any) -> float | None:
     return None if x is None else float(x)
 
@@ -188,6 +197,11 @@ def load_site_profile(path: Path) -> cs.SiteProfile:
                 raise UnusableEntryError(f"{path.name}#weight_bounds", ENTERED, f"unknown {name}")
             bounds[name] = cs.Bounds(min=float(b["min"]), max=float(b["max"]))
     kw: dict[str, Any] = {}
+    hull = data.get("stability_cutoff_bounds") or {}
+    if _status(hull) == ENTERED:
+        kw["stability_cutoff_bounds"] = cs.Bounds(
+            min=float(hull["min_mev_per_atom"]), max=float(hull["max_mev_per_atom"])
+        )
     if _status(defaults) == ENTERED:
         for key in (
             "top_n_max",

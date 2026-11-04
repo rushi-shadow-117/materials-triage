@@ -112,14 +112,23 @@ def top_n_respected(obs: Observation) -> CheckResult:
 
 
 @check
-def anchor_shown_with_would_rank(obs: Observation, *, composition: str) -> CheckResult:
-    params = {"composition": composition}
+def anchor_shown_with_would_rank(
+    obs: Observation, *, composition: str, may_also_rank: bool = False
+) -> CheckResult:
+    """An anchor row with a would-rank. Profile anchors never take a slot; a per-run anchor
+    (`may_also_rank`, query extra_anchors) also keeps its place in the ranking."""
+    params = {"composition": composition, "may_also_rank": may_also_rank}
     b = _bundle(obs)
     if b is None:
         return _no_bundle("anchor_shown_with_would_rank", params)
     a = next((x for x in b.anchors if x.composition == composition), None)
     in_ranked = any(c.composition == composition and c.rank is not None for c in b.candidates)
-    ok = a is not None and a.would_rank is not None and a.out_of > 0 and not in_ranked
+    ok = (
+        a is not None
+        and a.would_rank is not None
+        and a.out_of > 0
+        and (may_also_rank or not in_ranked)
+    )
     detail = (
         "not an anchor"
         if a is None

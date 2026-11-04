@@ -137,3 +137,13 @@ rows only under its own heading. Rows name a test path; a row without a test is 
 | Parse asks for fields the request and case do not give | A clarification outcome, not an error: no run, `clarification_requested` passes, no discovery query | tests/evals/test_pipeline_executor.py::test_missing_candidates_are_filled_from_the_case_or_reported |
 | Catalogue expectation with no matching query setting (per-run anchor, hull cutoff, glossary term) | The nearest check is listed and its miss is reported with the detail | tests/evals/test_checks.py::test_new_shape_checks_fail_with_a_reason |
 | Repeated run differs in ranks, exclusions or prompt hash | `repeats_identical` false in the results and the report | evals/runner.py::_signature |
+
+## Track F: fixes from the eval run
+
+| Failure | Behavior | Test |
+|---|---|---|
+| A soft preference or a tighter query setting reaches the discovery API | Only hard rules at their loosest admissible value are sent | tests/agent/test_discovery.py::test_discovery_filter_sends_only_hard_rules_at_their_loosest_value |
+| Scientist asks for a hull cutoff outside site bounds | Clamped to the bound and the clamp is shown | tests/test_config_schema.py::test_query_hull_cutoff_is_clamped_to_the_site_bounds |
+| Hull cutoff of 0 | On-hull rows score 1.0, all others excluded, no division by zero | tests/scoring/test_criteria_properties.py::test_zero_cutoff_scores_the_hull_and_excludes_the_rest |
+| A per-run anchor is also a candidate | It keeps its rank and its anchor row shows the same would-rank | tests/scoring/test_scorer.py::test_query_cutoff_and_per_run_anchor |
+| A test runs the eval CLI | Results go to a temporary directory, never evals/results | tests/cli/test_cli.py::test_eval_delegates_or_reports_pending |

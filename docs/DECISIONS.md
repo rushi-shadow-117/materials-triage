@@ -908,3 +908,68 @@ allows it to vary. G2 (replay) is a second run from the same confirmed criteria 
 recorded data and reports the same comparison.
 Reason: the owner's G1 expectation names exactly those three things.
 
+
+## Track F: fixes from the eval run
+
+### 2026-11-03 Principle: the discovery prefilter sends only hard rules, at their loosest admissible value
+Decision (owner): the discovery query to Materials Project receives only hard rules, and
+each at the loosest value any admissible setting could reach. The PBE gap floor is the
+profile's `discovery_pbe_floor_ev`, the gap ceiling the profile's hard maximum, the hull
+limit the site's maximum cutoff (`stability_cutoff_bounds.max`), the element count the query
+or profile maximum. Soft preferences (the 5 eV gap start) and tighter query settings (a query
+gap window, a lower hull cutoff) are scorer exclusions, so excluded rows stay in the fetched
+set and relaxation proposals count from it. `agent/pipeline.py::discovery_filter` is the one
+place this is applied.
+Reason: the 5 eV soft preference sent as `band_gap_min` dropped HfO2 (max PBE gap 4.41 eV),
+ZrO2 (3.96) and ThO2 (4.42) before scoring, so A1 could not rank them or show ThO2's
+exclusion, and a query minimum sent to the API left relaxation nothing to count.
+Alternative: send every setting to the API, which is cheaper per query and hides why a
+material is missing.
+
+### 2026-11-03 Discovery PBE floors per profile
+Decision (owner): `oxide_dielectric_thin_film` sets `discovery_pbe_floor_ev: 3.0`: the 5 eV
+soft preference times 0.6, for the PBE underestimate the Materials Project documentation
+reports ("typically, we find that band gaps are underestimated by about 40%", Electronic
+Structure methodology page, checked 2026-11-03). `oxide_photocatalyst` keeps its hard window
+(floor 2.0, ceiling 3.3). The recorded queries match 3748 and 3082 documents, under the
+10,000 ceiling.
+Alternative: the experimental factor of 1.6 on the same page, giving 3.125 eV.
+
+### 2026-11-03 Hull cutoff is a query setting inside site bounds
+Decision (owner): `QuerySettings.e_above_hull_max_mev` (default the profile cutoff) is
+clamped to `site_profile.default.yaml#stability_cutoff_bounds`, 0 to 94 meV/atom, and the
+clamp is shown (F11 asks for 2000 and gets 94). The effective value is
+`EffectiveConfig.stability_cutoff_mev`, part of the config sha, and the scorer reads it
+instead of the profile value. At a cutoff of 0 there is no ramp: rows on the hull score 1.0
+and every other row is excluded by `stability.cutoff`.
+Alternative: a floor of 24 meV/atom (the DFT accuracy), under which A5's "on the hull only"
+would be clamped.
+
+### 2026-11-03 Per-run anchors stay ranked
+Decision (owner): `QuerySettings.extra_anchors` adds anchor rows for this run (A3: "compare to
+what we use now, HfO2"). A per-run anchor that is also a candidate keeps its rank; its anchor
+row's would-rank equals that rank. Profile anchors (SiO2) still never take a slot. Anchors the
+discovery query did not return are fetched by name, so every anchor row carries the same
+cross-checks.
+Alternative: remove the composition from the ranking like a profile anchor.
+
+### 2026-11-03 One config loader for every path
+Decision: `config.schema.scoring_profile_from_yaml` and `site_profile_from_yaml` delegate to
+the strict loaders in `scoring/profile.py`. Before, the CLI, API and eval path read neither
+weight bounds nor site defaults, so the hazard floor never clamped there (E1).
+Alternative: keep two loaders and copy each new field into both.
+
+### 2026-11-03 Run-shaped recording with a two-round cap
+Decision (owner): `scripts/record_case_gaps.py CASE...` runs an eval case through the real
+pipeline, serves recorded cassettes first, fetches only misses live, and writes them to
+`fixtures/adapters/<source>/run_<case>.yaml`; it then replays the case with no network. At most
+two live rounds per case; anything still unavailable is listed in the report, not recorded
+further. The recording manifest's `_case_recordings` lists what remained per case.
+Reason: the per-composition recorder could not know which compositions a discovery run
+enriches; recording the run records exactly the calls it makes.
+Alternative: widen `fixtures/compositions.yaml` by hand after each replay.
+
+### 2026-11-03 Yim-like validation runs at the hazard floor
+Decision: the Yim-like validation configuration sets hazard to 0.1, the site floor, since 0 is
+no longer admissible. Its label says so.
+Alternative: let validation bypass site bounds, which no other run can.

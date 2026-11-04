@@ -112,7 +112,8 @@ def stability(
             flags=flags,
         )
     return CriterionResult(
-        normalized=clamp01(1.0 - mev / cutoff_mev),
+        # A cutoff of 0 (on the hull only) leaves no ramp: every row that is not excluded scores 1.
+        normalized=1.0 if cutoff_mev <= 0 else clamp01(1.0 - mev / cutoff_mev),
         raw_value=hull.value,
         raw_unit=hull.unit,
         source=hull.method,

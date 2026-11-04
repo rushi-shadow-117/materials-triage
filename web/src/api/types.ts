@@ -579,6 +579,8 @@ export interface components {
             band_gap_min_ev?: number | null;
             /** Candidate List */
             candidate_list?: string[];
+            /** E Above Hull Max Mev */
+            e_above_hull_max_mev?: number | null;
             /** Evidence Tier Min */
             evidence_tier_min?: string | null;
             /**
@@ -586,6 +588,8 @@ export interface components {
              * @default true
              */
             exclude_radioactive: boolean;
+            /** Extra Anchors */
+            extra_anchors?: string[];
             /** Max Elements */
             max_elements?: number | null;
             /**

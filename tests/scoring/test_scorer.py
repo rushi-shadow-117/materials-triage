@@ -270,3 +270,28 @@ def test_non_oxide_anion_policy_emits_the_calibration_caveat(
         ExclusionRule.HAZARD_RADIOACTIVE,
         ExclusionRule.HAZARD_EXCLUDE,
     }
+
+
+def test_query_cutoff_and_per_run_anchor(
+    baseline_groups, dielectric_profile, site, policy, references, echa
+) -> None:  # type: ignore[no-untyped-def]
+    """A cutoff of 0 meV/atom excludes every scored polymorph above the hull; a per-run
+    anchor keeps its rank and also gets an anchor row whose would-rank equals that rank."""
+    q = QuerySettings(
+        profile=dielectric_profile.profile.name,
+        mode="candidate_list",
+        candidate_list=list(baseline_groups),
+        e_above_hull_max_mev=0.0,
+        extra_anchors=["HfO2"],
+    )
+    r = run(baseline_groups, dielectric_profile, site, policy, references, echa, query=q)
+    for c in r.candidates:
+        stab = next(s for s in c.score.criteria if s.criterion == "stability")
+        if stab.raw_value is not None and stab.raw_value > 0:
+            assert c.excluded is not None and c.rank is None, c.composition
+    hf = next(c for c in r.candidates if c.composition == "HfO2")
+    assert hf.rank is not None
+    by_anchor = {a.composition: a for a in r.anchors}
+    assert set(by_anchor) == {"SiO2", "HfO2"}
+    assert by_anchor["HfO2"].would_rank == hf.rank
+    assert by_anchor["HfO2"].out_of == len([c for c in r.candidates if c.rank])

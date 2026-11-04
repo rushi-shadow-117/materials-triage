@@ -51,6 +51,18 @@ attribution:
     entered_by: owner
     entered_on: 2026-11-02
 
+stability_cutoff_bounds:
+  status: entered
+  description: "A scientist may set the energy above hull cutoff for a run in these bounds; requests outside are clamped and shown. The maximum is also the hull prefilter of the discovery query."
+  min_mev_per_atom: 0
+  max_mev_per_atom: 94
+  source:
+    citation: "Site admin default, owner decision 2026-11-03; the maximum equals the profile cutoff from Sun et al. 2016"
+    url: null
+    access: not_applicable
+  entered_by: owner
+  entered_on: 2026-11-03
+
 weight_bounds:
   status: entered
   description: "Scientists may set any weight in these bounds; requests outside are clamped and shown."

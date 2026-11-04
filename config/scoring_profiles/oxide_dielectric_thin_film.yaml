@@ -34,6 +34,19 @@ criteria:
     soft_preference_start_ev: 5.0
     hard_min_ev: null
     hard_max_ev: null
+    discovery_prefilter:
+      pbe_floor_ev: 3.0
+      description: "PBE band gap floor sent to the Materials Project discovery query. The 5 eV soft preference is a score shape, never an API filter."
+      derivation: "5.0 eV soft preference x (1 - 0.40), for the PBE underestimate the Materials Project reports."
+      status: entered
+      source:
+        citation: "Materials Project documentation, Electronic Structure methodology page"
+        url: https://docs.materialsproject.org/methodology/materials-methodology/electronic-structure
+        access: open
+        quote: "typically, we find that band gaps are underestimated by about 40%"
+        checked_on: 2026-11-03
+      entered_by: owner
+      entered_on: 2026-11-03
     shape: "linear ramp: score gap / soft_preference_start_ev, capped at 1.0; no hard threshold in this profile"
     status: entered
     approval: "Owner approved 2026-10-31 as the application choice for this profile."

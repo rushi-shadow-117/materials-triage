@@ -88,11 +88,13 @@ def to_query_settings(parsed: ParsedRequest, *, profile: str) -> tuple[QuerySett
             values[key] = given
     values["candidate_list"] = normalize_candidates(parsed.candidate_list)
     values["weights"] = parsed.weights.as_dict()
+    values["extra_anchors"] = normalize_candidates(parsed.extra_anchors)
     for key in (
         "band_gap_min_ev",
         "band_gap_max_ev",
         "max_elements",
         "evidence_tier_min",
+        "e_above_hull_max_mev",
         "verbosity",
         "terminology",
         "view",

@@ -1555,6 +1555,17 @@
             "title": "Candidate List",
             "type": "array"
           },
+          "e_above_hull_max_mev": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "E Above Hull Max Mev"
+          },
           "evidence_tier_min": {
             "anyOf": [
               {
@@ -1570,6 +1581,13 @@
             "default": true,
             "title": "Exclude Radioactive",
             "type": "boolean"
+          },
+          "extra_anchors": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Extra Anchors",
+            "type": "array"
           },
           "max_elements": {
             "anyOf": [

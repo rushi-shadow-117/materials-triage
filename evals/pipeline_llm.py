@@ -32,6 +32,8 @@ PARSE_KEYS = (
     "band_gap_max_ev",
     "max_elements",
     "evidence_tier_min",
+    "e_above_hull_max_mev",
+    "extra_anchors",
     "exclude_radioactive",
     "verbosity",
     "terminology",

@@ -34,6 +34,16 @@ criteria:
     soft_preference_start_ev: null
     hard_min_ev: 2.0
     hard_max_ev: 3.3
+    discovery_prefilter:
+      pbe_floor_ev: 2.0
+      description: "PBE band gap floor sent to the Materials Project discovery query; the ceiling sent is hard_max_ev. Both equal this profile's hard window, as before Track F."
+      status: entered
+      source:
+        citation: "Owner decision 2026-11-03: the photocatalyst discovery query keeps its hard window"
+        url: null
+        access: not_applicable
+      entered_by: owner
+      entered_on: 2026-11-03
     shape: "hard window: excluded below hard_min_ev or above hard_max_ev; 1.0 inside"
     status: entered
     source:

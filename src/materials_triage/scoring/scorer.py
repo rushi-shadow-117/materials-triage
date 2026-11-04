@@ -133,7 +133,7 @@ def score_group(
     enriched = is_enriched(group)
     results: dict[str, crit.CriterionResult] = {}
 
-    cutoff = profile.stability.cutoff_mev_per_atom
+    cutoff = effective.stability_cutoff_mev
     hull = scored.hull_energy.get(profile.stability.hull) if scored is not None else None
     if cutoff is None:
         results["stability"] = crit.missing(
@@ -366,7 +366,9 @@ def score_run(
     now = now or datetime.now(UTC)
     profile = loaded.profile
     anchor_set = set(profile.anchors)
-    cutoff = profile.stability.cutoff_mev_per_atom
+    # Per-run anchors (query.extra_anchors) get an anchor row and stay in the ranking.
+    extra_anchors = set(effective.query.extra_anchors) - anchor_set
+    cutoff = effective.stability_cutoff_mev
     scored_rows: list[Scored] = []
     anchor_rows: list[Scored] = []
     for group in sorted(inputs.groups, key=lambda g: g.composition):
@@ -383,6 +385,8 @@ def score_run(
             evidence_hits=inputs.evidence.get(group.composition),
         )
         (anchor_rows if group.composition in anchor_set else scored_rows).append(row)
+        if group.composition in extra_anchors:
+            anchor_rows.append(row)
 
     ranked_rows = [r for r in scored_rows if r.exclusion is None]
     ranked_rows.sort(key=lambda r: r.key)
