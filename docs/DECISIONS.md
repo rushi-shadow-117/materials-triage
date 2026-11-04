@@ -1431,3 +1431,20 @@ moisture sensitivity included, in one panel above the table beside the caveats t
 every row, so the limits are read before the ranks. A browser test checks the panel is above
 the table and inside the first screen at 1280 by 900.
 Alternative: keep it after the caveats, below a table that can run to ten rows.
+
+### 2026-11-04 Strict anion policies require the simple anion's oxidation state
+Decision (owner): `strict_oxide` requires every O at -2 and `strict_nitride` every N at -3 in
+some pymatgen oxidation-state guess for the composition, with no other element negative in
+that guess; if no guess gives the required state, the candidate is excluded by
+`simplicity.anion_policy` with the reason "polyatomic or non-oxide/nitride anion (e.g.
+peroxide, azide)". Peroxides and superoxides (BaO2, KO2) have no guess; azides (CaN6, SrN6)
+guess N at -1/3. A composition with no guess at all is now excluded instead of flagged
+`anion_undetermined`. Carbodiimides and dicyanamides (Li2CN2, KC2N3) pass, since pymatgen
+assigns C +4 and N -3; whether they belong is the owner's call.
+Alternative: the first guess's anion list only, which let azides into the nitride top 10.
+
+### 2026-11-04 The composition-level gap note is profile-wide
+Decision (owner): "The experimental band gap is reported for the composition, not for a
+specific polymorph." shows once in the panel above the table and is never a row's key caveat
+or part of its rationale.
+Alternative: keep it per row, where it became the key caveat on most rows.

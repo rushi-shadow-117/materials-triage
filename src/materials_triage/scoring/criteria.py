@@ -170,13 +170,22 @@ def elements_of(composition: str) -> list[str]:
     return sorted(e.symbol for e in Composition(composition).elements)
 
 
-def anions_of(composition: str) -> list[str] | None:
-    """Elements with a negative oxidation state in pymatgen's first oxidation-state guess.
-    None when pymatgen has no guess for the composition."""
-    guesses = Composition(composition).oxi_state_guesses()
-    if not guesses:
-        return None
-    return sorted(el for el, state in guesses[0].items() if state < 0)
+ANION_STATE = {"strict_oxide": ("O", -2.0), "strict_nitride": ("N", -3.0)}
+ANION_REASON = "polyatomic or non-oxide/nitride anion (e.g. peroxide, azide)"
+
+
+def meets_anion_policy(composition: str, policy: str) -> bool:
+    """Owner decision 2026-11-04: strict_oxide needs every O at -2 and strict_nitride every N
+    at -3 in some pymatgen oxidation-state guess for the composition, with no other element
+    negative in that guess. No such guess (none at all, as for peroxides, or N at -1/3, as for
+    azides) fails the policy."""
+    element, state = ANION_STATE[policy]
+    for guess in Composition(composition).oxi_state_guesses():
+        if element not in guess or abs(guess[element] - state) > 1e-6:
+            continue
+        if all(v >= 0 for el, v in guess.items() if el != element):
+            return True
+    return False
 
 
 def simplicity(
@@ -203,25 +212,24 @@ def simplicity(
     flags: tuple[Flag, ...] = ()
     caveats: tuple[Caveat, ...] = ()
     notes: tuple[str, ...] = ()
-    if settings.anion_policy != "any":
-        required = "O" if settings.anion_policy == "strict_oxide" else "N"
-        anions = anions_of(composition)
-        if anions is None:
-            flags = (Flag.ANION_UNDETERMINED,)
-            caveats = (Caveat(id=CaveatId.ANION_UNDETERMINED, subject=composition),)
-            notes = ("pymatgen has no oxidation-state guess; anion policy not evaluated",)
-        elif anions != [required]:
-            return CriterionResult(
-                normalized=None,
-                raw_value=float(n),
-                raw_unit="elements",
-                source="composition",
-                exclusion=Exclusion(
-                    rule=ExclusionRule.SIMPLICITY_ANION_POLICY,
-                    detail=f"anions {anions} under policy {settings.anion_policy}",
-                    source_ref=source_ref,
+    if settings.anion_policy != "any" and not meets_anion_policy(
+        composition, settings.anion_policy
+    ):
+        element, state = ANION_STATE[settings.anion_policy]
+        return CriterionResult(
+            normalized=None,
+            raw_value=float(n),
+            raw_unit="elements",
+            source="composition",
+            exclusion=Exclusion(
+                rule=ExclusionRule.SIMPLICITY_ANION_POLICY,
+                detail=(
+                    f"{ANION_REASON}: no oxidation-state assignment puts every {element} at "
+                    f"{state:g} ({settings.anion_policy})"
                 ),
-            )
+                source_ref=source_ref,
+            ),
+        )
     if n <= 2 or not settings.ternary_penalty:
         score = 1.0
     elif settings.ternary_penalty_size is not None:

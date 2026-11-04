@@ -208,3 +208,4 @@ rows only under its own heading. Rows name a test path; a row without a test is 
 | A composition is missing from the recorded data in an offline run | The reason says offline and that live fetching has it, never that the source lacks it | tests/agent/test_pipeline.py::test_missing_sources_become_events_and_a_partial_run |
 | A refresh is requested with a blank or whitespace note | 422; the audit log stores only stripped, non-empty notes | tests/api/test_auth.py::test_refresh_notes_are_stripped_and_must_have_text |
 | The limits of the screen are below the fold | The cannot-tell-you panel is above the table, inside the first screen | tests/e2e/test_browser.py::test_rank_my_list_runs_end_to_end |
+| A peroxide, superoxide, or azide reaches an oxide or nitride profile | Excluded by simplicity.anion_policy: no oxidation-state guess puts every O at -2 or N at -3 | tests/scoring/test_criteria_properties.py::test_strict_anion_policies_need_the_simple_anion_state |

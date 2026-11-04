@@ -17,11 +17,13 @@ from materials_triage.records.bundle import Anchor, Candidate, Caveat, CaveatId
 
 NOT_ENTERED = "caveat text not entered: {id}"
 
-# Caveats every row of a profile or run carries by construction. They show once above the
-# results table, never per row, and never in a row's rationale or key caveat.
+# Caveats every row of a profile or run carries by construction, or that hold for every
+# experimental gap (owner decision 2026-11-04: the composition-level note). They show once
+# above the results table, never per row, and never in a row's rationale or key caveat.
 PROFILE_WIDE: frozenset[CaveatId] = frozenset(
     {
         CaveatId.BAND_OFFSETS_NOT_CHECKED,
+        CaveatId.EXPERIMENTAL_GAP_COMPOSITION_LEVEL,
         CaveatId.STABILITY_CUTOFF_HULL_MISMATCH,
         CaveatId.STABILITY_CUTOFF_OXIDE_CALIBRATED,
         CaveatId.EVIDENCE_UNCLASSIFIED,
