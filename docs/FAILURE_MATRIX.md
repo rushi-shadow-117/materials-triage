@@ -186,3 +186,13 @@ rows only under its own heading. Rows name a test path; a row without a test is 
 | No model configured | /parse says so; the form is filled by hand | tests/api/test_runs_api.py::test_parse_is_unavailable_without_a_model |
 | A client-side route opened directly | index.html is served; the app routes | tests/e2e/test_browser.py::test_console_by_role |
 | Profile YAML with a weight outside the site bounds | Validation error; save disabled | tests/e2e/test_browser.py::test_console_by_role |
+
+## Track D: deploy and docs
+
+| Failure | Behavior | Test |
+|---|---|---|
+| A guide names a command, script, or path that does not exist | The docs test fails naming it | tests/test_docs.py::test_commands_and_links_in_docs_exist |
+| The README grows past 150 lines | The docs test fails | tests/test_docs.py::test_readme_is_short |
+| The api image does not build or does not serve /health from recorded data | The CI docker job fails | .github/workflows/ci.yml (docker job) |
+| The Terraform module is unformatted or invalid | The CI terraform job fails | .github/workflows/ci.yml (terraform job) |
+| A fresh clone cannot install, build, serve, rank, or run an eval case | scripts/cold_run.sh prints FAIL at that step and exits non-zero | scripts/cold_run.sh |

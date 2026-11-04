@@ -17,6 +17,43 @@ services:
       interval: 5s
       timeout: 3s
       retries: 10
+    networks: [internal]
+
+  # The API, which also serves the built web app. Reads .env (keys, auth mode, model,
+  # classify mode). With FETCH_MODE=replay and no keys it runs from the recorded data in the
+  # image. On the internal network for Postgres and Keycloak, and on the egress network for
+  # the upstream APIs; the host allowlist itself is enforced in code (adapters/egress.py).
+  api:
+    build:
+      context: .
+      target: api
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      DATABASE_URL: postgresql+psycopg://triage_app:triage_app@postgres:5432/triage
+      DATA_CACHE_DIR: /app/.data-cache
+    ports:
+      - "8000:8000"
+    volumes:
+      - datacache:/app/.data-cache
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks: [internal, egress]
+
+  # Optional split front: nginx serves web/dist and proxies /api to the api service. Use it
+  # when the static app and the API are deployed separately; otherwise the api service alone
+  # serves both at :8000. Start with `docker compose --profile split-web up -d`.
+  web:
+    build:
+      context: .
+      target: web-nginx
+    profiles: ["split-web"]
+    ports:
+      - "8081:80"
+    depends_on: [api]
+    networks: [internal]
 
   # Dev identity provider, started only with `docker compose --profile auth up -d keycloak`.
   # Imports deploy/keycloak/realm-materials-triage.json: roles scientist, fde, admin; users
@@ -37,6 +74,14 @@ services:
       - "8080:8080"
     volumes:
       - ./deploy/keycloak:/opt/keycloak/data/import:ro
+    networks: [internal]
+
+# `internal` carries no route to the outside (internal: true); only `api` is also on `egress`.
+networks:
+  internal:
+    internal: true
+  egress: {}
 
 volumes:
   pgdata:
+  datacache:

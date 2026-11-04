@@ -1241,3 +1241,50 @@ as the system really is, not as the wireframe sample text says:
 Finding: a row flagged through the GHS flag set (SiO2, H350) carries `hazard_flag` with no
 config text, so both views show "caveat text not entered". The hazard policy's `ghs_flag_codes`
 entry needs an owner-entered caveat sentence. Not written here (chemistry text is the owner's).
+
+## Track D: deploy and docs
+
+### 2026-11-04 One image serves the API and the web app; the split front is optional
+Decision: the `api` Docker target carries the Python service, the built web app, the config,
+and the recorded fixtures, so one container answers from recorded data with no keys and no
+database. A `web-nginx` target and the Compose profile `split-web` serve the static app
+separately and proxy `/api`, for sites that deploy the front end on its own.
+Alternative: two mandatory images, which doubles what a cold run has to get right.
+
+### 2026-11-04 Compose networks: internal and egress
+Decision: Postgres and Keycloak sit on an internal network with no outside route; only the
+API is also on the egress network. This limits which service can reach the internet. It does
+not filter by hostname: the host allowlist is enforced by the application's egress check
+(`adapters/egress.py`), and a network-level domain allowlist needs an egress proxy or a
+firewall with domain rules, which the repository does not include. ADMIN_GUIDE and
+ARCHITECTURE say exactly this.
+Alternative: claim the network enforces the host list, which it cannot.
+
+### 2026-11-04 Terraform is a validated reference, never applied here
+Decision (owner): `infra/terraform` creates a VPC, private subnets with a NAT gateway, RDS
+Postgres, an ECS Fargate service for the api image, Secrets Manager entries, and an optional
+load balancer off by default. Providers are pinned; CI runs `fmt -check` and `validate`.
+Security groups filter by IP and port, not hostname; the README says the hostname allowlist
+is the application's and that domain filtering needs an egress proxy or AWS Network Firewall.
+Alternative: no Terraform, which the plan allowed as a cut; the validated module costs little
+and shows the shape.
+
+### 2026-11-04 Apptainer recipe written, not built here
+Decision: `apptainer/materials-triage.def` bootstraps from the `api` Docker image. There is
+no Apptainer on the development machine, so the recipe is written against the definition-file
+reference and the guide says the first build on a cluster is the test.
+Alternative: omit it; the plan names it as a deliverable.
+
+### 2026-11-04 Docs are checked against the code
+Decision: `tests/test_docs.py` checks that every CLI command, script, and repository path the
+README and the guides name exists, and that the README stays under 150 lines (owner rule).
+The records (DECISIONS, FAILURE_MATRIX, EVAL, wire-findings) describe what was true when
+written and are not checked. `docs/DESIGN_NOTE.md` is a placeholder link; the owner writes it
+outside this repository and adds it later.
+Alternative: trust the prose; the state report showed how fast it drifts.
+
+### 2026-11-04 The cold run is a script with its output recorded
+Decision: `scripts/cold_run.sh` clones, installs, builds, tests, serves from recorded data,
+runs Rank my list over the API, and runs one eval case, printing PASS or FAIL per step with no
+model call. `docs/COLD_RUN.md` carries the checklist and the last recorded output.
+Alternative: a prose checklist alone, which nobody re-runs.

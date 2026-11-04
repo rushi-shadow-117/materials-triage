@@ -1,0 +1,33 @@
+Bootstrap: docker-daemon
+From: materials-triage:api:latest
+
+# Apptainer recipe beside Compose, for clusters without Docker at run time.
+# Build the Docker image first on a machine with Docker, then:
+#   apptainer build materials-triage.sif apptainer/materials-triage.def
+# Or from a registry copy of the image: change the header to
+#   Bootstrap: docker
+#   From: <registry>/materials-triage:api
+# Written against the Apptainer definition-file reference; not built on the development
+# machine (no Apptainer on macOS). The first build on the target cluster is the test.
+
+%environment
+    export DATA_CACHE_DIR=${DATA_CACHE_DIR:-$HOME/.materials-triage}
+    export AUTH_MODE=${AUTH_MODE:-none}
+    export LLM_PROVIDER=${LLM_PROVIDER:-none}
+    export FETCH_MODE=${FETCH_MODE:-replay}
+    export PATH=/opt/venv/bin:$PATH
+
+%runscript
+    # Serves the API and the web app on the port given as the first argument (default 8000).
+    # Settings come from the environment or an --env-file; see docs/ADMIN_GUIDE.md.
+    PORT="${1:-8000}"
+    mkdir -p "$DATA_CACHE_DIR"
+    cd /app
+    exec materials-triage serve --host 0.0.0.0 --port "$PORT"
+
+%help
+    materials-triage: triage candidate materials from public data.
+      apptainer run materials-triage.sif [port]
+      apptainer run --env-file .env materials-triage.sif 8000
+    The image carries the recorded source data; with no keys and no database it answers from
+    those. Bind a writable directory to DATA_CACHE_DIR to keep run bundles across runs.
