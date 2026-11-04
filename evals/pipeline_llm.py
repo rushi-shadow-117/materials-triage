@@ -169,7 +169,10 @@ class CaseScriptedLLM:
             if key in self.case.settings:
                 out[key] = self.case.settings[key]
         if "weights" in self.case.settings:
-            out["weights"] = dict(self.case.settings["weights"])
+            out["weights"] = [
+                {"criterion": k, "weight": v}
+                for k, v in sorted(self.case.settings["weights"].items())
+            ]
         requested = requested_properties(self.case.request)
         if requested:
             out["requested_properties"] = requested

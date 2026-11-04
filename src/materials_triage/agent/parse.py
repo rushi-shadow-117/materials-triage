@@ -30,7 +30,7 @@ from materials_triage.config.schema import (
 
 from . import loop, prompts
 from .llm import LLMClient
-from .tools import PARSE_REQUEST, OutOfScope, ParsedRequest
+from .tools import PARSE_REQUEST, OutOfScope, ParsedRequest, weights_dict
 
 DEFAULTS: dict[str, Any] = {
     "mode": "discovery",
@@ -105,7 +105,7 @@ def to_query_settings(
     if unresolved and not resolved:
         raise CandidateListError(f"not chemical formulas: {unresolved}")
     values["candidate_list"] = resolved
-    values["weights"] = parsed.weights.as_dict()
+    values["weights"] = weights_dict(parsed.weights)
     values["extra_anchors"] = normalize_candidates(parsed.extra_anchors)
     for key in (
         "band_gap_min_ev",

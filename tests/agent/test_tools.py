@@ -1,6 +1,6 @@
 """Tool contracts: strict schemas, closed inputs, fixed enums."""
 
-from typing import Any
+from typing import Any, get_args
 
 import pytest
 
@@ -55,10 +55,41 @@ def test_inputs_reject_extra_keys_and_unknown_tools() -> None:
         )
 
 
-def test_weights_are_named_fields_covering_every_criterion() -> None:
-    assert tuple(tools.WeightOverrides.model_fields) == CRITERIA
-    w = tools.WeightOverrides(band_gap=0.5)
-    assert w.as_dict() == {"band_gap": 0.5}
+def test_weight_settings_name_every_criterion_and_reject_duplicates() -> None:
+    assert get_args(tools.CriterionName) == CRITERIA
+    w = [tools.WeightSetting(criterion="band_gap", weight=0.5)]
+    assert tools.weights_dict(w) == {"band_gap": 0.5}
+    with pytest.raises(ValueError, match="twice"):
+        tools.weights_dict(w + w)
+
+
+def _union_params(node: object) -> int:
+    """Properties whose schema is a union (anyOf, or a list of types), at any depth."""
+    if isinstance(node, list):
+        return sum(_union_params(v) for v in node)
+    if not isinstance(node, dict):
+        return 0
+    own = 0
+    for prop in (node.get("properties") or {}).values():
+        if isinstance(prop, dict) and ("anyOf" in prop or isinstance(prop.get("type"), list)):
+            own += 1
+    return (
+        own
+        + sum(_union_params(v) for k, v in node.items() if k != "properties")
+        + sum(_union_params(v) for v in (node.get("properties") or {}).values())
+    )
+
+
+def test_every_tool_schema_stays_under_the_api_union_limit() -> None:
+    """The Messages API rejects a strict tool schema with more than 16 union-typed parameters
+    (found on the first live run, Track G)."""
+    for spec in (
+        tools.PARSE_REQUEST,
+        tools.CLASSIFY_ABSTRACT,
+        tools.WRITE_RATIONALE,
+        tools.PROPOSE_RELAXATION,
+    ):
+        assert _union_params(spec.input_schema) <= 16, spec.name
 
 
 def test_out_of_scope_values_are_the_refusal_policy_attributes() -> None:
@@ -90,4 +121,4 @@ def test_deposition_enum_is_the_owner_list() -> None:
 def test_parsed_request_nulls_mean_not_stated() -> None:
     parsed = tools.validate_input("parse_request", {"band_gap_min_ev": 5.0})
     assert isinstance(parsed, tools.ParsedRequest)
-    assert parsed.mode is None and parsed.top_n is None and parsed.weights.as_dict() == {}
+    assert parsed.mode is None and parsed.top_n is None and parsed.weights == []

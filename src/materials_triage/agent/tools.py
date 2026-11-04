@@ -58,20 +58,36 @@ class ClassifierLabel(StrEnum):
 # ------------------------------------------------------------------------------ inputs
 
 
-class WeightOverrides(Strict):
-    """Named fields, not a dict: strict schemas close every object."""
+# The scoring criteria by name; a test keeps this equal to config.schema.CRITERIA.
+CriterionName = Literal[
+    "stability",
+    "band_gap",
+    "hazard",
+    "simplicity",
+    "evidence",
+    "dielectric_constant",
+    "deposition_method",
+    "cost",
+]
 
-    stability: float | None = None
-    band_gap: float | None = None
-    hazard: float | None = None
-    simplicity: float | None = None
-    evidence: float | None = None
-    dielectric_constant: float | None = None
-    deposition_method: float | None = None
-    cost: float | None = None
 
-    def as_dict(self) -> dict[str, float]:
-        return {k: v for k, v in self.model_dump().items() if v is not None}
+class WeightSetting(Strict):
+    """One weight the request states. A list of these replaces one nullable field per
+    criterion: the strict tool schema allows at most 16 union-typed parameters (API limit),
+    and a list states only what the request says (Track G)."""
+
+    criterion: CriterionName
+    weight: float
+
+
+def weights_dict(settings: list[WeightSetting]) -> dict[str, float]:
+    out: dict[str, float] = {}
+    for w in settings:
+        name = str(w.criterion)
+        if name in out:
+            raise ValueError(f"weight for {name} given twice")
+        out[name] = w.weight
+    return out
 
 
 class ParsedRequest(Strict):
@@ -80,7 +96,7 @@ class ParsedRequest(Strict):
     mode: Literal["discovery", "candidate_list"] | None = None
     candidate_list: list[str] = Field(default_factory=list)
     top_n: int | None = None
-    weights: WeightOverrides = Field(default_factory=WeightOverrides)
+    weights: list[WeightSetting] = Field(default_factory=list)  # only weights stated
     band_gap_min_ev: float | None = None
     band_gap_max_ev: float | None = None
     max_elements: int | None = None
