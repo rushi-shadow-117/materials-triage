@@ -157,7 +157,12 @@ function Results({ data, view, setView, runId }: { data: RunViewJson; view: "pi_
         </div>
       )}
       {data.unresolved_candidates.length > 0 && (
-        <div className="panel warn">Not found in any source: {data.unresolved_candidates.join(", ")}. These names are not chemical formulas; nothing is shown for them.</div>
+        <div className="panel bad" data-testid="unresolved">
+          <p style={{ margin: "0 0 6px" }}>Not matched, so nothing is shown for them:</p>
+          {data.unresolved.map((u) => (
+            <span key={u.text} className="chip bad" title={u.reason}>{u.text} <small>{u.reason}</small></span>
+          ))}
+        </div>
       )}
       {data.unavailable_properties.length > 0 && (
         <div className="panel warn">Not available from configured sources: {data.unavailable_properties.join(", ")}. Not scored; no value is shown.</div>

@@ -281,7 +281,10 @@ function ConfirmForm(props: {
 }) {
   const { form, setForm, bounds, clamps, resolved, parsed } = props;
   const missing = resolved?.missing_required ?? parsed?.missing_required ?? [];
-  const unresolved = resolved?.unresolved_candidates ?? parsed?.unresolved_candidates ?? [];
+  const unresolved: { text: string; reason: string }[] =
+    resolved?.unresolved ??
+    (parsed?.unresolved_candidates ?? []).map((text) => ({ text, reason: "not a chemical formula or a known name" }));
+  const nothingLeft = form.mode === "candidate_list" && unresolved.length > 0 && (resolved?.settings.candidate_list as string[] | undefined)?.length === 0;
   const unavailable = parsed?.unavailable_properties ?? [];
   const boundOf = useMemo(() => Object.fromEntries((bounds ?? []).map((b) => [b.criterion, b])), [bounds]);
 
@@ -308,10 +311,23 @@ function ConfirmForm(props: {
         </div>
       )}
       {unresolved.length > 0 && (
-        <div className="panel warn">Not chemical formulas: {unresolved.join(", ")}. They are reported as not found; the rest are ranked.</div>
+        <div className="panel bad" data-testid="unresolved">
+          <p style={{ margin: "0 0 6px" }}>
+            {nothingLeft ? "None of these matched a formula or a known name; there is nothing to rank yet." : "Not matched; the rest are ranked:"}
+          </p>
+          {unresolved.map((u) => (
+            <span key={u.text} className="chip bad" title={u.reason}>
+              {u.text} <small>{u.reason}</small>
+            </span>
+          ))}
+        </div>
       )}
-      {missing.length > 0 && (
-        <div className="panel warn">The request does not say what to search for: {missing.join(", ")}. Add a chemistry or property below, or use Rank my list.</div>
+      {missing.length > 0 && !nothingLeft && (
+        <div className="panel warn">
+          {form.mode === "candidate_list" && missing.includes("candidate_list")
+            ? "Paste at least one formula or name to rank."
+            : `The request does not say what to search for: ${missing.join(", ")}. Add a chemistry or property below, or use Rank my list.`}
+        </div>
       )}
 
       {form.mode === "candidate_list" ? (

@@ -23,7 +23,7 @@ Request: {{ criteria.request_text }}
 {% endif %}
 {% if view.unresolved_candidates %}
 
-Not found in any source: {{ view.unresolved_candidates | join(", ") }}. These names are not chemical formulas; nothing is shown for them.
+Not matched, so nothing is shown for them:{% for u in view.unresolved %} {{ u.text }} ({{ u.reason }}){{ ";" if not loop.last else "." }}{% endfor %}
 {% endif %}
 {% if view.unavailable_properties %}
 

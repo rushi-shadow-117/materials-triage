@@ -189,6 +189,7 @@ export interface RunViewJson {
   hidden_excluded: number;
   hull_cutoff: string | null;
   unresolved_candidates: string[];
+  unresolved: { text: string; reason: string }[];
   unavailable_properties: string[];
   ties_note: string | null;
   profile_caveats: CaveatText[];

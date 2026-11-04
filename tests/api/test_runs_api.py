@@ -8,6 +8,7 @@ from pathlib import Path
 
 from fastapi.testclient import TestClient
 
+from materials_triage.records.bundle import UNRESOLVED_REASON
 from tests.api.conftest import sse_events, wait_for_run
 
 RANK = {
@@ -45,9 +46,13 @@ def test_candidate_list_run_end_to_end(client: TestClient, tmp_path: Path) -> No
     # the PI view carries no record ids; the audit view does
     pi = client.get(f"/api/runs/{run_id}/view", params={"view": "pi_summary"}).json()
     assert [r["composition"] for r in pi["rows"]] == ["Al2O3", "HfO2", "ZrO2"]
-    assert pi["anchors"][0]["rank"].startswith("would rank") or pi["anchors"][0]["is_anchor"]
+    assert pi["anchors"][0]["rank"].startswith("would place") or pi["anchors"][0]["is_anchor"]
     assert "mp-" not in json.dumps(pi["rows"]) and "mp-" not in pi["markdown"]
-    assert "Not found in any source: Unobtainium oxide" in pi["markdown"]
+    assert (
+        "Not matched, so nothing is shown for them: Unobtainium oxide (not a chemical"
+        in pi["markdown"]
+    )
+    assert pi["unresolved"][0]["text"] == "Unobtainium oxide"
     audit = client.get(f"/api/runs/{run_id}/view", params={"view": "audit"}).json()
     assert "mp-352" in json.dumps(audit["rows"])  # HfO2's ground state record
     assert audit["decision_log"] and audit["relaxations"] == []
@@ -205,3 +210,28 @@ def test_every_materials_project_value_links_to_its_page(client: TestClient) -> 
 
     walk(bundle)
     assert missing == []
+
+
+def test_resolve_matches_names_and_reports_the_rest(client: TestClient) -> None:
+    body = {
+        "profile": "oxide_dielectric_thin_film",
+        "settings": {
+            "mode": "candidate_list",
+            "candidate_list": ["hfo2", "hafnia", "zirconia", "xx1"],
+        },
+    }
+    r = client.post("/api/criteria/resolve", json=body)
+    assert r.status_code == 200
+    out = r.json()
+    assert out["settings"]["candidate_list"] == ["HfO2", "ZrO2"]
+    assert out["unresolved"] == [{"text": "xx1", "reason": UNRESOLVED_REASON}]
+    nothing = {
+        "profile": "oxide_dielectric_thin_film",
+        "settings": {"mode": "candidate_list", "candidate_list": ["xx1", "yy"]},
+    }
+    r = client.post("/api/criteria/resolve", json=nothing)
+    assert r.status_code == 200 and r.json()["missing_required"] == ["candidate_list"]
+    started = client.post("/api/runs", json={"request_text": "x", **nothing})
+    assert started.status_code == 422
+    detail = started.json()["detail"]
+    assert detail.startswith("None of these matched") and "[" not in detail

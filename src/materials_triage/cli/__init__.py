@@ -377,7 +377,7 @@ def rank(
     client = _llm(settings, no_llm)
     flat = [f.strip() for chunk in formulas for f in chunk.split(",") if f.strip()]
     try:
-        candidates = parse_mod.normalize_candidates(flat)
+        candidates = parse_mod.normalize_candidates(flat, layers.profile.synonyms)
     except parse_mod.CandidateListError as e:
         _fail(str(e), EXIT_USAGE)
     outcome = resolve_outcome(

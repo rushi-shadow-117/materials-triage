@@ -2635,6 +2635,13 @@
             ],
             "title": "Stability Cutoff Mev"
           },
+          "unresolved": {
+            "items": {
+              "$ref": "#/components/schemas/UnresolvedOut"
+            },
+            "title": "Unresolved",
+            "type": "array"
+          },
           "unresolved_candidates": {
             "items": {
               "type": "string"
@@ -3117,6 +3124,25 @@
           "allowed_host"
         ],
         "title": "SourceHealth",
+        "type": "object"
+      },
+      "UnresolvedOut": {
+        "description": "An entry that matched no formula or known name, with the reason shown on its chip.",
+        "properties": {
+          "reason": {
+            "title": "Reason",
+            "type": "string"
+          },
+          "text": {
+            "title": "Text",
+            "type": "string"
+          }
+        },
+        "required": [
+          "text",
+          "reason"
+        ],
+        "title": "UnresolvedOut",
         "type": "object"
       },
       "ValidationError": {

@@ -52,6 +52,13 @@ class CallEstimateOut(BaseModel):
     basis: str
 
 
+class UnresolvedOut(BaseModel):
+    """An entry that matched no formula or known name, with the reason shown on its chip."""
+
+    text: str
+    reason: str
+
+
 class ResolveResponse(BaseModel):
     settings: dict[str, Any]
     effective_weights: dict[str, float]
@@ -60,6 +67,7 @@ class ResolveResponse(BaseModel):
     defaults_applied: list[str]
     missing_required: list[str]
     unresolved_candidates: list[str]
+    unresolved: list[UnresolvedOut] = Field(default_factory=list)
     config_sha: str
     estimated_model_calls: CallEstimateOut
 

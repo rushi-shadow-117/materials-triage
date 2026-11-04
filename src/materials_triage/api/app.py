@@ -62,6 +62,7 @@ from .schemas import (
     RunAccepted,
     RunRequest,
     RunSummary,
+    UnresolvedOut,
     WeightBoundRow,
 )
 
@@ -277,6 +278,10 @@ def _routes(app: APIRouter) -> None:  # noqa: C901 - one function registers ever
             defaults_applied=list(outcome.defaults_applied),
             missing_required=list(outcome.missing_required),
             unresolved_candidates=list(outcome.unresolved_candidates),
+            unresolved=[
+                UnresolvedOut(text=t, reason=parse_mod.UNRESOLVED_REASON)
+                for t in outcome.unresolved_candidates
+            ],
             config_sha=outcome.effective.config_sha,
             estimated_model_calls=CallEstimateOut(**dataclasses.asdict(calls)),
         )
@@ -299,6 +304,14 @@ def _routes(app: APIRouter) -> None:  # noqa: C901 - one function registers ever
             raise HTTPException(status_code=422, detail=str(e)) from None
         query = outcome.query
         assert query is not None
+        if query.mode == "candidate_list" and not query.candidate_list:
+            # nothing to rank: say why in a sentence, never a Python list
+            raise HTTPException(
+                status_code=422,
+                detail=parse_mod.nothing_matched(outcome.unresolved_candidates)
+                if outcome.unresolved_candidates
+                else "Paste at least one formula or name to rank.",
+            )
         unavailable = unavailable_properties(body.requested_properties)
         outcome = dataclasses.replace(outcome, unavailable_properties=unavailable)
         if query.mode == "discovery" and not body.requested_properties:

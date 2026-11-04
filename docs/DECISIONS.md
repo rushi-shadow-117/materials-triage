@@ -1398,3 +1398,15 @@ a link for every value of the property, the stability one included, and the audi
 prints the link beside each MP record.
 Alternative: link only the summary record, which is how the hull values lost theirs: the
 thermo records overwrite the summary hull with provenance that had no URL.
+
+### 2026-11-04 Typed candidates match names case-insensitively; unmatched entries are chips
+Decision (owner): a typed entry is looked up first, case-insensitively, in the profile's
+synonym table (formula keys and names, FDE-owned config), so "hafnia", "hfo2", and "HFO2"
+are HfO2; otherwise it is parsed as a formula only when every symbol is a real element.
+Pymatgen alone reads unknown capitals as placeholder species, so "SAPPHIRE" became a compound
+and "HFO2" became HO2F. Unmatched entries are listed with a reason (red chips in the web app,
+a sentence in the exports); an all-unmatched list is a missing `candidate_list` the form asks
+for, never an error with a Python list, and starting a run with nothing to rank is a 422 in a
+sentence. The model's parse tool still gets a tool error for an all-unmatched list so it can
+ask. Eval case C5's rendered-text check follows the new wording.
+Alternative: guess element capitalization ("co" as Co or CO), which invents chemistry.

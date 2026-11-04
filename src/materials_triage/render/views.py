@@ -7,6 +7,7 @@ from dataclasses import dataclass, field
 
 from materials_triage.records import Provenance, record_url
 from materials_triage.records.bundle import (
+    UNRESOLVED_REASON,
     Anchor,
     Candidate,
     CriterionScore,
@@ -178,6 +179,8 @@ class RunView:
     hull_cutoff: str | None = None  # the effective energy above hull cutoff
     overview: str | None = None  # the verified summary:overview rationale slot
     unresolved_candidates: list[str] = field(default_factory=list)
+    # each unmatched or unavailable entry with the reason on its chip
+    unresolved: list[dict[str, str]] = field(default_factory=list)
     unavailable_properties: list[str] = field(default_factory=list)
     ties_note: str | None = None  # shown under the table when any shown rows are tied
     # caveats every row carries by construction, shown once above the table
@@ -494,6 +497,9 @@ def build(
         hull_cutoff=_hull_cutoff(bundle, units),
         overview=_overview(bundle, index, units, hide_ids),
         unresolved_candidates=list(bundle.criteria.unresolved_candidates),
+        unresolved=[
+            {"text": t, "reason": UNRESOLVED_REASON} for t in bundle.criteria.unresolved_candidates
+        ],
         unavailable_properties=list(bundle.criteria.unavailable_properties),
         ties_note=TIES_NOTE if any(r.tied for r in rows) else None,
         profile_caveats=list(profile_caveats.values()),

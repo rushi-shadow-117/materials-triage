@@ -48,6 +48,10 @@ class FetchMode(StrEnum):
 # ----------------------------------------------------------------------------- vocabularies
 
 
+# The reason shown on the chip of a typed entry that matched no formula or known name.
+UNRESOLVED_REASON = "not a chemical formula or a name in the profile's synonym table"
+
+
 class ExclusionRule(StrEnum):
     """Why a candidate (or a single polymorph) is out. Values are the strings shown to users."""
 

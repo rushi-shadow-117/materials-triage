@@ -9,12 +9,14 @@ the same QuerySettings from a criteria file.
 from __future__ import annotations
 
 import json
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
 import yaml
 from pydantic import BaseModel, ValidationError
+from pymatgen.core.periodic_table import Element
 
 from materials_triage.adapters.common import try_reduced_formula
 from materials_triage.config.schema import (
@@ -27,6 +29,7 @@ from materials_triage.config.schema import (
     resolve,
     unavailable_properties,
 )
+from materials_triage.records.bundle import UNRESOLVED_REASON as UNRESOLVED_REASON
 
 from . import loop, prompts
 from .llm import LLMClient
@@ -64,12 +67,51 @@ class CandidateListError(ValueError):
     pass
 
 
-def split_candidates(formulas: list[str]) -> tuple[list[str], list[str]]:
-    """(reduced formulas, names that are not chemical formulas), each in input order."""
+def name_table(synonyms: dict[str, list[str]] | None) -> dict[str, str]:
+    """Lowercased formula keys and names from the profile's synonym table, to the formula:
+    "hafnia" and "hfo2" both map to HfO2. The table is FDE-owned config; nothing is guessed."""
+    table: dict[str, str] = {}
+    for formula, names in (synonyms or {}).items():
+        for key in (formula, *names):
+            table.setdefault(" ".join(str(key).lower().split()), formula)
+    return table
+
+
+_SYMBOL = re.compile(r"[A-Z][a-z]?")
+_FORMULA_CHARS = re.compile(r"[A-Za-z0-9().]+")
+
+
+def strict_formula(text: str) -> str | None:
+    """The reduced formula of a typed formula whose every symbol is a real element. Pymatgen
+    alone reads unknown capitals as placeholder species ("SAPPHIRE" parses), so a typed
+    entry must also tokenize into element symbols with no stray lowercase letter."""
+    s = text.strip()
+    if not _FORMULA_CHARS.fullmatch(s) or re.search(r"(?<![A-Z])[a-z]", s):
+        return None
+    symbols = _SYMBOL.findall(s)
+    if not symbols or not all(Element.is_valid_symbol(x) for x in symbols):
+        return None
+    return try_reduced_formula(s)
+
+
+def match_candidate(text: str, table: dict[str, str]) -> str | None:
+    """A typed entry as a reduced formula: the synonym table first, case-insensitively (so
+    "HFO2" is HfO2, not HO2F), then a strict formula parse; None when neither matches."""
+    hit = table.get(" ".join(text.lower().split()))
+    if hit is not None:
+        return try_reduced_formula(hit)
+    return strict_formula(text)
+
+
+def split_candidates(
+    formulas: list[str], synonyms: dict[str, list[str]] | None = None
+) -> tuple[list[str], list[str]]:
+    """(reduced formulas, entries that matched no formula or known name), in input order."""
+    table = name_table(synonyms)
     out: list[str] = []
     bad: list[str] = []
     for f in formulas:
-        reduced = try_reduced_formula(f)
+        reduced = match_candidate(f, table)
         if reduced is None:
             if f not in bad:
                 bad.append(f)
@@ -78,16 +120,26 @@ def split_candidates(formulas: list[str]) -> tuple[list[str], list[str]]:
     return out, bad
 
 
-def normalize_candidates(formulas: list[str]) -> list[str]:
-    """Strict form for typed answers (CLI confirmation): any unparseable entry raises."""
-    out, bad = split_candidates(formulas)
+def nothing_matched(names: list[str]) -> str:
+    return (
+        "None of these matched a chemical formula or a known name: "
+        + ", ".join(names)
+        + ". Check the spelling or use a formula such as HfO2."
+    )
+
+
+def normalize_candidates(
+    formulas: list[str], synonyms: dict[str, list[str]] | None = None
+) -> list[str]:
+    """Strict form for typed answers (CLI confirmation): any unmatched entry raises."""
+    out, bad = split_candidates(formulas, synonyms)
     if bad:
-        raise CandidateListError(f"not chemical formulas: {bad}")
+        raise CandidateListError("Not a chemical formula or a known name: " + ", ".join(bad) + ".")
     return out
 
 
 def to_query_settings(
-    parsed: ParsedRequest, *, profile: str
+    parsed: ParsedRequest, *, profile: str, synonyms: dict[str, list[str]] | None = None
 ) -> tuple[QuerySettings, list[str], list[str]]:
     """QuerySettings from the model's output, the defaults applied, and the candidate names that
     are not chemical formulas (reported as not found; the run proceeds with the rest). Raises
@@ -101,12 +153,13 @@ def to_query_settings(
             defaults.append(f"{key}={default}")
         else:
             values[key] = given
-    resolved, unresolved = split_candidates(parsed.candidate_list)
+    resolved, unresolved = split_candidates(parsed.candidate_list, synonyms)
     if unresolved and not resolved:
-        raise CandidateListError(f"not chemical formulas: {unresolved}")
+        # back to the model as a tool error, so it can ask or correct; never a Python list
+        raise CandidateListError(nothing_matched(unresolved))
     values["candidate_list"] = resolved
     values["weights"] = weights_dict(parsed.weights)
-    values["extra_anchors"] = normalize_candidates(parsed.extra_anchors)
+    values["extra_anchors"] = normalize_candidates(parsed.extra_anchors, synonyms)
     for key in (
         "band_gap_min_ev",
         "band_gap_max_ev",
@@ -206,7 +259,9 @@ def make_handler(
                 log_detail={"out_of_scope": parsed.out_of_scope.value},
             )
         try:
-            query, defaults, unresolved = to_query_settings(parsed, profile=cli_profile)
+            query, defaults, unresolved = to_query_settings(
+                parsed, profile=cli_profile, synonyms=profile.synonyms
+            )
         except CandidateListError as e:
             return loop.ToolOutcome(str(e), is_error=True)
         try:
@@ -289,9 +344,11 @@ def parse_from_settings(
     raw.setdefault("profile", cli_profile)
     unresolved: list[str] = []
     if "candidate_list" in raw:
-        resolved, unresolved = split_candidates([str(c) for c in raw["candidate_list"]])
-        if unresolved and not resolved:
-            raise CandidateListError(f"not chemical formulas: {unresolved}")
+        # never fails the whole list: unmatched entries are reported, and a list with none
+        # left is a missing candidate_list the confirm form asks for
+        resolved, unresolved = split_candidates(
+            [str(c) for c in raw["candidate_list"]], profile.synonyms
+        )
         raw["candidate_list"] = resolved
     try:
         query = QuerySettings.model_validate(raw)

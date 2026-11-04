@@ -1199,6 +1199,8 @@ export interface components {
             };
             /** Stability Cutoff Mev */
             stability_cutoff_mev: number | null;
+            /** Unresolved */
+            unresolved?: components["schemas"]["UnresolvedOut"][];
             /** Unresolved Candidates */
             unresolved_candidates: string[];
         };
@@ -1353,6 +1355,16 @@ export interface components {
             source: string;
             /** Status */
             status: string;
+        };
+        /**
+         * UnresolvedOut
+         * @description An entry that matched no formula or known name, with the reason shown on its chip.
+         */
+        UnresolvedOut: {
+            /** Reason */
+            reason: string;
+            /** Text */
+            text: string;
         };
         /** ValidationError */
         ValidationError: {

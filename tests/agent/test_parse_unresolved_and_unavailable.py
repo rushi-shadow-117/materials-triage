@@ -77,3 +77,41 @@ def test_a_request_naming_no_chemistry_and_no_property_is_clarified_in_code() ->
     assert _handled(mode="discovery", band_gap_min_ev=4.0).missing_required == []
     assert _handled(mode="discovery", verbosity="concise").missing_required == []  # follow-up
     assert _handled(mode="candidate_list", candidate_list=["HfO2"]).missing_required == []
+
+
+def test_names_and_lowercase_formulas_match_the_synonym_table() -> None:
+    """Human test session, item 11: "hafnia" and "hfo2" match HfO2 through the profile's
+    synonym table; anything else is reported with a reason, never as a Python list."""
+    from materials_triage.agent import parse
+
+    synonyms = {"HfO2": ["hafnia", "hafnium dioxide"], "ZrO2": ["zirconia"]}
+    out, bad = parse.split_candidates(
+        ["hfo2", "Hafnia", "HAFNIUM  DIOXIDE", "zirconia", "hafnia??", "sapphire glass"], synonyms
+    )
+    assert out == ["HfO2", "ZrO2"] and bad == ["hafnia??", "sapphire glass"]
+    # capitals that are not element symbols never become an invented compound
+    assert parse.split_candidates(
+        ["SAPPHIRE", "HAFNIA", "HFO2", "Al2O3", "Ba0.5Sr0.5TiO3"], synonyms
+    ) == (
+        ["HfO2", "Al2O3", "Ba0.5Sr0.5Ti1O3"],
+        ["SAPPHIRE"],
+    )
+    with pytest.raises(parse.CandidateListError) as e:
+        parse.normalize_candidates(["hafnia??"], synonyms)
+    assert "[" not in str(e.value) and "hafnia??" in str(e.value)
+
+
+def test_an_all_unmatched_list_is_missing_not_an_error(layers) -> None:  # type: ignore[no-untyped-def]
+    from materials_triage.agent import parse
+
+    core, site, profile = layers
+    outcome = parse.parse_from_settings(
+        {"mode": "candidate_list", "candidate_list": ["hafnia??", "sapphire glass"]},
+        core=core,
+        site=site,
+        profile=profile,
+        cli_profile=profile.name,
+    )
+    assert outcome.unresolved_candidates == ["hafnia??", "sapphire glass"]
+    assert outcome.missing_required == ["candidate_list"]
+    assert "[" not in parse.nothing_matched(outcome.unresolved_candidates)
