@@ -52,17 +52,17 @@ def test_keycloak_tokens_carry_the_realm_role(tmp_path: Path) -> None:
     )
     with TestClient(app) as c:
         for user, role in (("scientist", "scientist"), ("fde", "fde"), ("admin", "admin")):
-            me = c.get("/me", headers={"Authorization": f"Bearer {_token(user)}"})
+            me = c.get("/api/me", headers={"Authorization": f"Bearer {_token(user)}"})
             assert me.status_code == 200, me.text
             assert me.json()["role"] == role and me.json()["auth_mode"] == "oidc"
-        assert c.get("/me").status_code == 401
+        assert c.get("/api/me").status_code == 401
         assert (
             c.get(
-                "/config/layers", headers={"Authorization": f"Bearer {_token('scientist')}"}
+                "/api/config/layers", headers={"Authorization": f"Bearer {_token('scientist')}"}
             ).status_code
             == 403
         )
         assert (
-            c.get("/audit", headers={"Authorization": f"Bearer {_token('admin')}"}).status_code
+            c.get("/api/audit", headers={"Authorization": f"Bearer {_token('admin')}"}).status_code
             == 200
         )

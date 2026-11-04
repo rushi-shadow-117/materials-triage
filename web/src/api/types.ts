@@ -4,7 +4,7 @@
  */
 
 export interface paths {
-    "/admin/profiles": {
+    "/api/admin/profiles": {
         parameters: {
             query?: never;
             header?: never;
@@ -14,14 +14,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Save Profile */
-        post: operations["save_profile_admin_profiles_post"];
+        post: operations["save_profile_api_admin_profiles_post"];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/admin/profiles/validate": {
+    "/api/admin/profiles/validate": {
         parameters: {
             query?: never;
             header?: never;
@@ -31,14 +31,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Validate Profile */
-        post: operations["validate_profile_admin_profiles_validate_post"];
+        post: operations["validate_profile_api_admin_profiles_validate_post"];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/admin/refresh": {
+    "/api/admin/refresh": {
         parameters: {
             query?: never;
             header?: never;
@@ -52,14 +52,14 @@ export interface paths {
          * @description Mark a source for refetch on the next store-backed run. Earlier runs keep their
          *     snapshot and hashes. The note is required and audit-logged.
          */
-        post: operations["admin_refresh_admin_refresh_post"];
+        post: operations["admin_refresh_api_admin_refresh_post"];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/audit": {
+    "/api/audit": {
         parameters: {
             query?: never;
             header?: never;
@@ -67,7 +67,7 @@ export interface paths {
             cookie?: never;
         };
         /** Audit Log */
-        get: operations["audit_log_audit_get"];
+        get: operations["audit_log_api_audit_get"];
         put?: never;
         post?: never;
         delete?: never;
@@ -76,7 +76,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/config/effective": {
+    "/api/config/effective": {
         parameters: {
             query?: never;
             header?: never;
@@ -84,7 +84,7 @@ export interface paths {
             cookie?: never;
         };
         /** Effective Config */
-        get: operations["effective_config_config_effective_get"];
+        get: operations["effective_config_api_config_effective_get"];
         put?: never;
         post?: never;
         delete?: never;
@@ -93,7 +93,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/config/layers": {
+    "/api/config/layers": {
         parameters: {
             query?: never;
             header?: never;
@@ -101,7 +101,7 @@ export interface paths {
             cookie?: never;
         };
         /** Config Layers */
-        get: operations["config_layers_config_layers_get"];
+        get: operations["config_layers_api_config_layers_get"];
         put?: never;
         post?: never;
         delete?: never;
@@ -110,7 +110,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/criteria/resolve": {
+    "/api/criteria/resolve": {
         parameters: {
             query?: never;
             header?: never;
@@ -123,14 +123,14 @@ export interface paths {
          * Resolve Criteria
          * @description Pure: the confirm form's current values through the same clamps a run applies.
          */
-        post: operations["resolve_criteria_criteria_resolve_post"];
+        post: operations["resolve_criteria_api_criteria_resolve_post"];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/hazard-policy": {
+    "/api/hazard-policy": {
         parameters: {
             query?: never;
             header?: never;
@@ -138,7 +138,7 @@ export interface paths {
             cookie?: never;
         };
         /** Hazard Policy */
-        get: operations["hazard_policy_hazard_policy_get"];
+        get: operations["hazard_policy_api_hazard_policy_get"];
         put?: never;
         post?: never;
         delete?: never;
@@ -147,7 +147,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/health": {
+    "/api/health": {
         parameters: {
             query?: never;
             header?: never;
@@ -155,7 +155,7 @@ export interface paths {
             cookie?: never;
         };
         /** Health */
-        get: operations["health_health_get"];
+        get: operations["health_api_health_get"];
         put?: never;
         post?: never;
         delete?: never;
@@ -164,7 +164,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/me": {
+    "/api/me": {
         parameters: {
             query?: never;
             header?: never;
@@ -172,7 +172,7 @@ export interface paths {
             cookie?: never;
         };
         /** Me */
-        get: operations["me_me_get"];
+        get: operations["me_api_me_get"];
         put?: never;
         post?: never;
         delete?: never;
@@ -181,7 +181,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/parse": {
+    "/api/parse": {
         parameters: {
             query?: never;
             header?: never;
@@ -195,14 +195,14 @@ export interface paths {
          * @description Parse a free-text request with the configured model. With LLM_PROVIDER=none the
          *     confirm form is filled by hand (no call is made).
          */
-        post: operations["parse_request_parse_post"];
+        post: operations["parse_request_api_parse_post"];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/profiles": {
+    "/api/profiles": {
         parameters: {
             query?: never;
             header?: never;
@@ -210,7 +210,7 @@ export interface paths {
             cookie?: never;
         };
         /** Profiles */
-        get: operations["profiles_profiles_get"];
+        get: operations["profiles_api_profiles_get"];
         put?: never;
         post?: never;
         delete?: never;
@@ -219,7 +219,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/runs": {
+    "/api/runs": {
         parameters: {
             query?: never;
             header?: never;
@@ -227,21 +227,21 @@ export interface paths {
             cookie?: never;
         };
         /** List Runs */
-        get: operations["list_runs_runs_get"];
+        get: operations["list_runs_api_runs_get"];
         put?: never;
         /**
          * Create Run
          * @description Start a run from confirmed criteria. A request that names nothing to search on is
          *     answered 422 with the fields to supply; nothing is fetched.
          */
-        post: operations["create_run_runs_post"];
+        post: operations["create_run_api_runs_post"];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/runs/{run_id}": {
+    "/api/runs/{run_id}": {
         parameters: {
             query?: never;
             header?: never;
@@ -249,7 +249,7 @@ export interface paths {
             cookie?: never;
         };
         /** Get Run */
-        get: operations["get_run_runs__run_id__get"];
+        get: operations["get_run_api_runs__run_id__get"];
         put?: never;
         post?: never;
         delete?: never;
@@ -258,7 +258,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/runs/{run_id}/cancel": {
+    "/api/runs/{run_id}/cancel": {
         parameters: {
             query?: never;
             header?: never;
@@ -268,14 +268,14 @@ export interface paths {
         get?: never;
         put?: never;
         /** Cancel Run */
-        post: operations["cancel_run_runs__run_id__cancel_post"];
+        post: operations["cancel_run_api_runs__run_id__cancel_post"];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/runs/{run_id}/drill/{composition}/{criterion}": {
+    "/api/runs/{run_id}/drill/{composition}/{criterion}": {
         parameters: {
             query?: never;
             header?: never;
@@ -287,7 +287,7 @@ export interface paths {
          * @description Where one number came from: its record, method, fetch time, raw hash, the other
          *     values of the same property the run holds, and the rule that chose.
          */
-        get: operations["drill_runs__run_id__drill__composition___criterion__get"];
+        get: operations["drill_api_runs__run_id__drill__composition___criterion__get"];
         put?: never;
         post?: never;
         delete?: never;
@@ -296,7 +296,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/runs/{run_id}/events": {
+    "/api/runs/{run_id}/events": {
         parameters: {
             query?: never;
             header?: never;
@@ -307,7 +307,7 @@ export interface paths {
          * Run Events
          * @description Server-sent events: one `step` per decision-log entry as it happens, then `done`.
          */
-        get: operations["run_events_runs__run_id__events_get"];
+        get: operations["run_events_api_runs__run_id__events_get"];
         put?: never;
         post?: never;
         delete?: never;
@@ -316,7 +316,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/runs/{run_id}/export": {
+    "/api/runs/{run_id}/export": {
         parameters: {
             query?: never;
             header?: never;
@@ -324,7 +324,7 @@ export interface paths {
             cookie?: never;
         };
         /** Run Export */
-        get: operations["run_export_runs__run_id__export_get"];
+        get: operations["run_export_api_runs__run_id__export_get"];
         put?: never;
         post?: never;
         delete?: never;
@@ -333,7 +333,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/runs/{run_id}/relax": {
+    "/api/runs/{run_id}/relax": {
         parameters: {
             query?: never;
             header?: never;
@@ -347,14 +347,14 @@ export interface paths {
          * @description Apply one relaxation the pipeline computed and logged, as a new run. The
          *     researcher's click is the approval; nothing is applied without it.
          */
-        post: operations["relax_runs__run_id__relax_post"];
+        post: operations["relax_api_runs__run_id__relax_post"];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/runs/{run_id}/relaxations": {
+    "/api/runs/{run_id}/relaxations": {
         parameters: {
             query?: never;
             header?: never;
@@ -362,7 +362,7 @@ export interface paths {
             cookie?: never;
         };
         /** Relaxations */
-        get: operations["relaxations_runs__run_id__relaxations_get"];
+        get: operations["relaxations_api_runs__run_id__relaxations_get"];
         put?: never;
         post?: never;
         delete?: never;
@@ -371,7 +371,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/runs/{run_id}/status": {
+    "/api/runs/{run_id}/status": {
         parameters: {
             query?: never;
             header?: never;
@@ -379,7 +379,7 @@ export interface paths {
             cookie?: never;
         };
         /** Run Status */
-        get: operations["run_status_runs__run_id__status_get"];
+        get: operations["run_status_api_runs__run_id__status_get"];
         put?: never;
         post?: never;
         delete?: never;
@@ -388,7 +388,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/runs/{run_id}/view": {
+    "/api/runs/{run_id}/view": {
         parameters: {
             query?: never;
             header?: never;
@@ -400,7 +400,7 @@ export interface paths {
          * @description The render package's view model as JSON: every value already formatted, units and
          *     terminology as the run was confirmed with. The PI view carries no record ids.
          */
-        get: operations["run_view_runs__run_id__view_get"];
+        get: operations["run_view_api_runs__run_id__view_get"];
         put?: never;
         post?: never;
         delete?: never;
@@ -409,7 +409,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/weight-bounds": {
+    "/api/weight-bounds": {
         parameters: {
             query?: never;
             header?: never;
@@ -417,7 +417,7 @@ export interface paths {
             cookie?: never;
         };
         /** Weight Bounds */
-        get: operations["weight_bounds_weight_bounds_get"];
+        get: operations["weight_bounds_api_weight_bounds_get"];
         put?: never;
         post?: never;
         delete?: never;
@@ -1458,7 +1458,7 @@ export interface components {
 }
 export type $defs = Record<string, never>;
 export interface operations {
-    save_profile_admin_profiles_post: {
+    save_profile_api_admin_profiles_post: {
         parameters: {
             query?: never;
             header?: never;
@@ -1491,7 +1491,7 @@ export interface operations {
             };
         };
     };
-    validate_profile_admin_profiles_validate_post: {
+    validate_profile_api_admin_profiles_validate_post: {
         parameters: {
             query?: never;
             header?: never;
@@ -1524,7 +1524,7 @@ export interface operations {
             };
         };
     };
-    admin_refresh_admin_refresh_post: {
+    admin_refresh_api_admin_refresh_post: {
         parameters: {
             query?: never;
             header?: never;
@@ -1557,7 +1557,7 @@ export interface operations {
             };
         };
     };
-    audit_log_audit_get: {
+    audit_log_api_audit_get: {
         parameters: {
             query?: {
                 limit?: number;
@@ -1590,7 +1590,7 @@ export interface operations {
             };
         };
     };
-    effective_config_config_effective_get: {
+    effective_config_api_config_effective_get: {
         parameters: {
             query?: {
                 profile?: string;
@@ -1623,7 +1623,7 @@ export interface operations {
             };
         };
     };
-    config_layers_config_layers_get: {
+    config_layers_api_config_layers_get: {
         parameters: {
             query?: {
                 profile?: string;
@@ -1654,7 +1654,7 @@ export interface operations {
             };
         };
     };
-    resolve_criteria_criteria_resolve_post: {
+    resolve_criteria_api_criteria_resolve_post: {
         parameters: {
             query?: never;
             header?: never;
@@ -1687,7 +1687,7 @@ export interface operations {
             };
         };
     };
-    hazard_policy_hazard_policy_get: {
+    hazard_policy_api_hazard_policy_get: {
         parameters: {
             query?: never;
             header?: never;
@@ -1707,7 +1707,7 @@ export interface operations {
             };
         };
     };
-    health_health_get: {
+    health_api_health_get: {
         parameters: {
             query?: never;
             header?: never;
@@ -1727,7 +1727,7 @@ export interface operations {
             };
         };
     };
-    me_me_get: {
+    me_api_me_get: {
         parameters: {
             query?: never;
             header?: never;
@@ -1747,7 +1747,7 @@ export interface operations {
             };
         };
     };
-    parse_request_parse_post: {
+    parse_request_api_parse_post: {
         parameters: {
             query?: never;
             header?: never;
@@ -1780,7 +1780,7 @@ export interface operations {
             };
         };
     };
-    profiles_profiles_get: {
+    profiles_api_profiles_get: {
         parameters: {
             query?: never;
             header?: never;
@@ -1800,7 +1800,7 @@ export interface operations {
             };
         };
     };
-    list_runs_runs_get: {
+    list_runs_api_runs_get: {
         parameters: {
             query?: {
                 limit?: number;
@@ -1831,7 +1831,7 @@ export interface operations {
             };
         };
     };
-    create_run_runs_post: {
+    create_run_api_runs_post: {
         parameters: {
             query?: never;
             header?: never;
@@ -1864,7 +1864,7 @@ export interface operations {
             };
         };
     };
-    get_run_runs__run_id__get: {
+    get_run_api_runs__run_id__get: {
         parameters: {
             query?: never;
             header?: never;
@@ -1895,7 +1895,7 @@ export interface operations {
             };
         };
     };
-    cancel_run_runs__run_id__cancel_post: {
+    cancel_run_api_runs__run_id__cancel_post: {
         parameters: {
             query?: never;
             header?: never;
@@ -1926,7 +1926,7 @@ export interface operations {
             };
         };
     };
-    drill_runs__run_id__drill__composition___criterion__get: {
+    drill_api_runs__run_id__drill__composition___criterion__get: {
         parameters: {
             query?: never;
             header?: never;
@@ -1959,7 +1959,7 @@ export interface operations {
             };
         };
     };
-    run_events_runs__run_id__events_get: {
+    run_events_api_runs__run_id__events_get: {
         parameters: {
             query?: never;
             header?: never;
@@ -1990,7 +1990,7 @@ export interface operations {
             };
         };
     };
-    run_export_runs__run_id__export_get: {
+    run_export_api_runs__run_id__export_get: {
         parameters: {
             query?: {
                 format?: string;
@@ -2024,7 +2024,7 @@ export interface operations {
             };
         };
     };
-    relax_runs__run_id__relax_post: {
+    relax_api_runs__run_id__relax_post: {
         parameters: {
             query?: never;
             header?: never;
@@ -2059,7 +2059,7 @@ export interface operations {
             };
         };
     };
-    relaxations_runs__run_id__relaxations_get: {
+    relaxations_api_runs__run_id__relaxations_get: {
         parameters: {
             query?: never;
             header?: never;
@@ -2090,7 +2090,7 @@ export interface operations {
             };
         };
     };
-    run_status_runs__run_id__status_get: {
+    run_status_api_runs__run_id__status_get: {
         parameters: {
             query?: never;
             header?: never;
@@ -2121,7 +2121,7 @@ export interface operations {
             };
         };
     };
-    run_view_runs__run_id__view_get: {
+    run_view_api_runs__run_id__view_get: {
         parameters: {
             query?: {
                 view?: string;
@@ -2154,7 +2154,7 @@ export interface operations {
             };
         };
     };
-    weight_bounds_weight_bounds_get: {
+    weight_bounds_api_weight_bounds_get: {
         parameters: {
             query?: {
                 profile?: string;

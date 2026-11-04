@@ -57,14 +57,14 @@ def _bare(tmp_path: Path, **overrides: Any) -> TestClient:
 
 def test_missing_key_falls_back_and_the_run_completes(tmp_path: Path) -> None:
     with _bare(tmp_path) as client:
-        health = client.get("/health").json()
+        health = client.get("/api/health").json()
         assert health["llm_status"] == "missing_key"
         assert health["llm_model"] == "claude-sonnet-5-5"
         assert "fill the criteria form by hand" in health["llm_note"]
-        assert client.get("/me").json()["llm_status"] == "missing_key"
-        parsed = client.post("/parse", json={"request_text": "hafnia please"}).json()
+        assert client.get("/api/me").json()["llm_status"] == "missing_key"
+        parsed = client.post("/api/parse", json={"request_text": "hafnia please"}).json()
         assert parsed["parse_available"] is False and "key is not set" in parsed["reason"]
-        run_id = client.post("/runs", json=RANK).json()["run_id"]
+        run_id = client.post("/api/runs", json=RANK).json()["run_id"]
         status = wait_for_run(client, run_id)
         assert status["status"] == "completed", status
         assert status["ranked"] == 3
@@ -105,11 +105,11 @@ def test_rejected_key_or_no_credit_falls_back(
     inner = RaisingClient(_sdk_error(kind))
     monkeypatch.setattr(wiring, "make_client", lambda _settings: inner)
     with _bare(tmp_path, anthropic_api_key="sk-test-not-a-key") as client:
-        assert client.get("/health").json()["llm_status"] == "ok"
-        parsed = client.post("/parse", json={"request_text": "hafnia please"}).json()
+        assert client.get("/api/health").json()["llm_status"] == "ok"
+        parsed = client.post("/api/parse", json={"request_text": "hafnia please"}).json()
         assert parsed["parse_available"] is False
-        assert client.get("/health").json()["llm_status"] == status
-        run_id = client.post("/runs", json=RANK).json()["run_id"]
+        assert client.get("/api/health").json()["llm_status"] == status
+        run_id = client.post("/api/runs", json=RANK).json()["run_id"]
         assert wait_for_run(client, run_id)["status"] == "completed"
     # one rejected request; every later step skipped the provider
     assert inner.calls == 1
@@ -118,15 +118,15 @@ def test_rejected_key_or_no_credit_falls_back(
 def test_resolve_returns_the_estimated_model_calls(tmp_path: Path) -> None:
     body = {"profile": "oxide_dielectric_thin_film", "settings": RANK["settings"]}
     with _bare(tmp_path, anthropic_api_key="sk-test-not-a-key") as client:
-        est = client.post("/criteria/resolve", json=body).json()["estimated_model_calls"]
+        est = client.post("/api/criteria/resolve", json=body).json()["estimated_model_calls"]
         # three candidates, at most five abstracts each, one call per abstract, plus rationale
         assert (est["classify"], est["rationale"], est["total"]) == (15, 1, 16)
         assert est["cap"] == 123 and "fewer when the classifier cache" in est["basis"]
     with _bare(tmp_path, anthropic_api_key="sk-x", classify_mode="cache_only") as client:
-        est = client.post("/criteria/resolve", json=body).json()["estimated_model_calls"]
+        est = client.post("/api/criteria/resolve", json=body).json()["estimated_model_calls"]
         assert (est["classify"], est["total"]) == (0, 1)
     with _bare(tmp_path) as client:  # no key: no model call at all
-        est = client.post("/criteria/resolve", json=body).json()["estimated_model_calls"]
+        est = client.post("/api/criteria/resolve", json=body).json()["estimated_model_calls"]
         assert est["total"] == 0 and "key is not set" in est["basis"]
 
 

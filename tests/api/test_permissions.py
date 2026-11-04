@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import re
 from pathlib import Path
+from typing import Any
 
 from fastapi.routing import APIRoute
 
@@ -40,11 +41,21 @@ def _doc_rows() -> dict[tuple[str, str], tuple[set[str], str]]:
     return rows
 
 
+def _api_routes(routes: list[Any]) -> list[APIRoute]:
+    """Every APIRoute, including those of included routers (FastAPI keeps an included router
+    as one nested route that exposes `original_router`)."""
+    out: list[APIRoute] = []
+    for route in routes:
+        if isinstance(route, APIRoute):
+            out.append(route)
+        elif hasattr(route, "original_router"):
+            out.extend(_api_routes(route.original_router.routes))
+    return out
+
+
 def _app_routes() -> dict[tuple[str, str], str]:
     out: dict[tuple[str, str], str] = {}
-    for route in app.routes:
-        if not isinstance(route, APIRoute) or route.path in ("/openapi.json", "/docs", "/redoc"):
-            continue
+    for route in _api_routes(app.routes):
         names = [
             DEPENDENCY_NAMES.get(id(d.call), "?")
             for d in route.dependant.dependencies
@@ -65,6 +76,7 @@ def _app_routes() -> dict[tuple[str, str], str]:
 def test_permission_matrix_matches_the_app() -> None:
     doc = _doc_rows()
     routes = _app_routes()
+    assert len(routes) == 24 and all(path.startswith("/api/") for _m, path in routes)
     assert set(doc) == set(routes), {
         "only in doc": sorted(set(doc) - set(routes)),
         "only in app": sorted(set(routes) - set(doc)),

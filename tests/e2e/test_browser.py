@@ -43,6 +43,25 @@ def test_rank_my_list_runs_end_to_end(page, server: str) -> None:  # type: ignor
     shot(page, "04-drill")
 
 
+def test_reloading_a_result_and_run_history_shows_the_page(page, server: str) -> None:  # type: ignore[no-untyped-def]
+    """Human test session, breaker 2: a reload or a shared link showed the API's JSON."""
+    sign_in(page, server, "scientist")
+    page.get_by_role("button", name="Rank my list").click()
+    page.get_by_label("formulas").fill("HfO2\nZrO2")
+    page.get_by_role("button", name="Review criteria").click()
+    page.get_by_role("button", name="Confirm and run").click()
+    page.wait_for_url(re.compile(r"/runs/[0-9a-f-]{36}$"))
+    page.reload()  # mid-run or just finished: either way the page, never JSON
+    page.get_by_text("Shown for calibration").wait_for()
+    assert "bundle_version" not in page.inner_text("body")
+    shared = page.url
+    page.goto(server + "/runs")
+    page.reload()
+    page.get_by_role("heading", name="Run history").wait_for()
+    page.goto(shared)  # a shared link opens the result
+    page.get_by_text("Shown for calibration").wait_for()
+
+
 def test_confirm_form_shows_the_clamp(page, server: str) -> None:  # type: ignore[no-untyped-def]
     sign_in(page, server, "scientist")
     page.get_by_role("button", name="Fill the criteria form by hand").click()

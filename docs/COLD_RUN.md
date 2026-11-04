@@ -16,7 +16,7 @@ step. It makes no model call.
 1. Clone and `uv sync --frozen`.
 2. `cd web && npm ci && npm run build`.
 3. `uv run ruff check .`, `uv run mypy src`, `uv run pytest -q -m "not e2e and not keycloak"`.
-4. `uv run materials-triage serve` with no keys; `/health` reports `fetch_source: cassettes`.
+4. `uv run materials-triage serve` with no keys; `/api/health` reports `fetch_source: cassettes`.
 5. `/` and `/console` answer 200 (the app routes).
 6. Rank my list over the API for HfO2, ZrO2, Al2O3, Unobtainium oxide: Al2O3, HfO2, ZrO2
    ranked in that order, SiO2 as the anchor, the fourth name reported as not found, and no

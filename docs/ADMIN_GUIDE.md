@@ -36,12 +36,12 @@ treat the first build on your cluster as the test.
 | `MP_API_KEY`, `OPENALEX_API_KEY`, `OPENALEX_MAILTO` | source credentials, injected at send time, never stored in records |
 | `FETCH_MODE` | unset (default): recorded cassettes only; `live` (store first, network on a miss), `replay` (store only), `refresh` (always network) |
 | `LLM_PROVIDER`, `LLM_MODEL`, `ANTHROPIC_API_KEY`, `LLM_BASE_URL`, `LLM_API_KEY`, `AWS_REGION` | the model: `anthropic`, `bedrock`, `openai_compatible`, or `none` |
-| `CLASSIFY_MODE` | `live` (default; within the classify budget, estimate returned by `/criteria/resolve`) or `cache_only` (never calls the model for an abstract) |
+| `CLASSIFY_MODE` | `live` (default; within the classify budget, estimate returned by `/api/criteria/resolve`) or `cache_only` (never calls the model for an abstract) |
 | `AUTH_MODE`, `DEV_ROLE`, `STATIC_TOKENS`, `SITE_MODE`, `ALLOW_STATIC_TOKENS`, `OIDC_ISSUER`, `OIDC_AUDIENCE`, `OIDC_ROLES_CLAIM` | sign-in, below |
 | `DATA_CACHE_DIR` | run bundles, the classifier cache, the audit log, screenshots |
 
 The default model is `claude-sonnet-5-5`. A missing key, a rejected key, or an exhausted
-credit balance turns the model off for the process: `/health` reports `llm_status`
+credit balance turns the model off for the process: `/api/health` reports `llm_status`
 (`missing_key`, `invalid_key`, `no_credit`), the app shows a banner, and runs complete with
 template rationale and unclassified evidence. Restart after fixing the key. The demo
 configuration (one parse call per request): `LLM_PROVIDER=anthropic`,
@@ -78,7 +78,7 @@ that carries roles; map your groups to the three role names there. Change the de
 or delete the dev users before any shared deployment.
 
 Every refused request (401, 403) and every admin action is appended to
-`DATA_CACHE_DIR/audit.log` as JSON lines; admins read it at `GET /audit`.
+`DATA_CACHE_DIR/audit.log` as JSON lines; admins read it at `GET /api/audit`.
 
 ## The console
 
@@ -132,6 +132,6 @@ hazard record cites ECHA show the required attribution line.
 
 ## Health
 
-`GET /health` reports the fetch source (store or cassettes), fetch mode, model provider and
+`GET /api/health` reports the fetch source (store or cassettes), fetch mode, model provider and
 model, classify mode, auth mode, and per source the record count, last fetch, and allowed
 host. The Docker image's health check calls it.

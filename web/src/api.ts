@@ -28,7 +28,7 @@ export type RelaxChoice = Schemas["RelaxChoice"];
 export type Me = Schemas["Me"];
 export type Clamp = ResolveResponse["clamps"][number];
 
-const BASE = import.meta.env.DEV ? "/api" : "";
+const BASE = "/api"; // the API lives only under /api, in dev and in the built app
 const TOKEN_KEY = "materials-triage.token";
 
 export function getToken(): string | null {

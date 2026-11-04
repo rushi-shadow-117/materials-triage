@@ -41,7 +41,7 @@ class Settings(BaseSettings):
     aws_region: str | None = None  # bedrock
 
     # live (the default): abstracts are classified by the model within the classify budget;
-    # /criteria/resolve returns the run's estimated model calls first. cache_only: labels
+    # /api/criteria/resolve returns the run's estimated model calls first. cache_only: labels
     # come from the classifier cache only and a miss stays unclassified (the demo option).
     classify_mode: ClassifyMode = "live"
 

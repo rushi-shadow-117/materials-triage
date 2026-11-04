@@ -1300,3 +1300,11 @@ serves with the bare defaults. Tests cannot reach a provider: the SDK's request 
 in every test.
 Alternative: keep the store-first and Opus defaults and fail on a missing key, which is what
 broke the README run in the test session.
+
+### 2026-11-04 The API lives only under /api
+Decision (owner): every API route is under `/api`, in `serve`, in the Vite dev server (the
+proxy keeps the prefix), and behind the split nginx front. Every other path is the web app:
+`/runs`, `/runs/<id>`, and the drill-down are client routes with the index.html fallback, so a
+reload or a shared link shows the page. An unknown `/api` path stays a JSON 404.
+Alternative: rename the client routes (for example `/results/<id>`) and keep the API at the
+root; that leaves the next client route one name clash away from the same bug.

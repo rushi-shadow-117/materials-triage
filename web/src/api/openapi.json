@@ -3384,9 +3384,9 @@
   },
   "openapi": "3.1.0",
   "paths": {
-    "/admin/profiles": {
+    "/api/admin/profiles": {
       "post": {
-        "operationId": "save_profile_admin_profiles_post",
+        "operationId": "save_profile_api_admin_profiles_post",
         "requestBody": {
           "content": {
             "application/yaml": {
@@ -3423,9 +3423,9 @@
         "summary": "Save Profile"
       }
     },
-    "/admin/profiles/validate": {
+    "/api/admin/profiles/validate": {
       "post": {
-        "operationId": "validate_profile_admin_profiles_validate_post",
+        "operationId": "validate_profile_api_admin_profiles_validate_post",
         "requestBody": {
           "content": {
             "application/yaml": {
@@ -3462,10 +3462,10 @@
         "summary": "Validate Profile"
       }
     },
-    "/admin/refresh": {
+    "/api/admin/refresh": {
       "post": {
         "description": "Mark a source for refetch on the next store-backed run. Earlier runs keep their\nsnapshot and hashes. The note is required and audit-logged.",
-        "operationId": "admin_refresh_admin_refresh_post",
+        "operationId": "admin_refresh_api_admin_refresh_post",
         "requestBody": {
           "content": {
             "application/json": {
@@ -3501,9 +3501,9 @@
         "summary": "Admin Refresh"
       }
     },
-    "/audit": {
+    "/api/audit": {
       "get": {
-        "operationId": "audit_log_audit_get",
+        "operationId": "audit_log_api_audit_get",
         "parameters": [
           {
             "in": "query",
@@ -3525,7 +3525,7 @@
                     "additionalProperties": true,
                     "type": "object"
                   },
-                  "title": "Response Audit Log Audit Get",
+                  "title": "Response Audit Log Api Audit Get",
                   "type": "array"
                 }
               }
@@ -3546,9 +3546,9 @@
         "summary": "Audit Log"
       }
     },
-    "/config/effective": {
+    "/api/config/effective": {
       "get": {
-        "operationId": "effective_config_config_effective_get",
+        "operationId": "effective_config_api_config_effective_get",
         "parameters": [
           {
             "in": "query",
@@ -3567,7 +3567,7 @@
               "application/json": {
                 "schema": {
                   "additionalProperties": true,
-                  "title": "Response Effective Config Config Effective Get",
+                  "title": "Response Effective Config Api Config Effective Get",
                   "type": "object"
                 }
               }
@@ -3588,9 +3588,9 @@
         "summary": "Effective Config"
       }
     },
-    "/config/layers": {
+    "/api/config/layers": {
       "get": {
-        "operationId": "config_layers_config_layers_get",
+        "operationId": "config_layers_api_config_layers_get",
         "parameters": [
           {
             "in": "query",
@@ -3611,7 +3611,7 @@
                   "items": {
                     "$ref": "#/components/schemas/LayerRow"
                   },
-                  "title": "Response Config Layers Config Layers Get",
+                  "title": "Response Config Layers Api Config Layers Get",
                   "type": "array"
                 }
               }
@@ -3632,10 +3632,10 @@
         "summary": "Config Layers"
       }
     },
-    "/criteria/resolve": {
+    "/api/criteria/resolve": {
       "post": {
         "description": "Pure: the confirm form's current values through the same clamps a run applies.",
-        "operationId": "resolve_criteria_criteria_resolve_post",
+        "operationId": "resolve_criteria_api_criteria_resolve_post",
         "requestBody": {
           "content": {
             "application/json": {
@@ -3671,9 +3671,9 @@
         "summary": "Resolve Criteria"
       }
     },
-    "/hazard-policy": {
+    "/api/hazard-policy": {
       "get": {
-        "operationId": "hazard_policy_hazard_policy_get",
+        "operationId": "hazard_policy_api_hazard_policy_get",
         "responses": {
           "200": {
             "content": {
@@ -3682,7 +3682,7 @@
                   "items": {
                     "$ref": "#/components/schemas/HazardRow"
                   },
-                  "title": "Response Hazard Policy Hazard Policy Get",
+                  "title": "Response Hazard Policy Api Hazard Policy Get",
                   "type": "array"
                 }
               }
@@ -3693,9 +3693,9 @@
         "summary": "Hazard Policy"
       }
     },
-    "/health": {
+    "/api/health": {
       "get": {
-        "operationId": "health_health_get",
+        "operationId": "health_api_health_get",
         "responses": {
           "200": {
             "content": {
@@ -3711,9 +3711,9 @@
         "summary": "Health"
       }
     },
-    "/me": {
+    "/api/me": {
       "get": {
-        "operationId": "me_me_get",
+        "operationId": "me_api_me_get",
         "responses": {
           "200": {
             "content": {
@@ -3729,10 +3729,10 @@
         "summary": "Me"
       }
     },
-    "/parse": {
+    "/api/parse": {
       "post": {
         "description": "Parse a free-text request with the configured model. With LLM_PROVIDER=none the\nconfirm form is filled by hand (no call is made).",
-        "operationId": "parse_request_parse_post",
+        "operationId": "parse_request_api_parse_post",
         "requestBody": {
           "content": {
             "application/json": {
@@ -3768,9 +3768,9 @@
         "summary": "Parse Request"
       }
     },
-    "/profiles": {
+    "/api/profiles": {
       "get": {
-        "operationId": "profiles_profiles_get",
+        "operationId": "profiles_api_profiles_get",
         "responses": {
           "200": {
             "content": {
@@ -3779,7 +3779,7 @@
                   "items": {
                     "$ref": "#/components/schemas/ProfileSummary"
                   },
-                  "title": "Response Profiles Profiles Get",
+                  "title": "Response Profiles Api Profiles Get",
                   "type": "array"
                 }
               }
@@ -3790,9 +3790,9 @@
         "summary": "Profiles"
       }
     },
-    "/runs": {
+    "/api/runs": {
       "get": {
-        "operationId": "list_runs_runs_get",
+        "operationId": "list_runs_api_runs_get",
         "parameters": [
           {
             "in": "query",
@@ -3813,7 +3813,7 @@
                   "items": {
                     "$ref": "#/components/schemas/RunSummary"
                   },
-                  "title": "Response List Runs Runs Get",
+                  "title": "Response List Runs Api Runs Get",
                   "type": "array"
                 }
               }
@@ -3835,7 +3835,7 @@
       },
       "post": {
         "description": "Start a run from confirmed criteria. A request that names nothing to search on is\nanswered 422 with the fields to supply; nothing is fetched.",
-        "operationId": "create_run_runs_post",
+        "operationId": "create_run_api_runs_post",
         "requestBody": {
           "content": {
             "application/json": {
@@ -3871,9 +3871,9 @@
         "summary": "Create Run"
       }
     },
-    "/runs/{run_id}": {
+    "/api/runs/{run_id}": {
       "get": {
-        "operationId": "get_run_runs__run_id__get",
+        "operationId": "get_run_api_runs__run_id__get",
         "parameters": [
           {
             "in": "path",
@@ -3910,9 +3910,9 @@
         "summary": "Get Run"
       }
     },
-    "/runs/{run_id}/cancel": {
+    "/api/runs/{run_id}/cancel": {
       "post": {
-        "operationId": "cancel_run_runs__run_id__cancel_post",
+        "operationId": "cancel_run_api_runs__run_id__cancel_post",
         "parameters": [
           {
             "in": "path",
@@ -3949,10 +3949,10 @@
         "summary": "Cancel Run"
       }
     },
-    "/runs/{run_id}/drill/{composition}/{criterion}": {
+    "/api/runs/{run_id}/drill/{composition}/{criterion}": {
       "get": {
         "description": "Where one number came from: its record, method, fetch time, raw hash, the other\nvalues of the same property the run holds, and the rule that chose.",
-        "operationId": "drill_runs__run_id__drill__composition___criterion__get",
+        "operationId": "drill_api_runs__run_id__drill__composition___criterion__get",
         "parameters": [
           {
             "in": "path",
@@ -4007,10 +4007,10 @@
         "summary": "Drill"
       }
     },
-    "/runs/{run_id}/events": {
+    "/api/runs/{run_id}/events": {
       "get": {
         "description": "Server-sent events: one `step` per decision-log entry as it happens, then `done`.",
-        "operationId": "run_events_runs__run_id__events_get",
+        "operationId": "run_events_api_runs__run_id__events_get",
         "parameters": [
           {
             "in": "path",
@@ -4045,9 +4045,9 @@
         "summary": "Run Events"
       }
     },
-    "/runs/{run_id}/export": {
+    "/api/runs/{run_id}/export": {
       "get": {
-        "operationId": "run_export_runs__run_id__export_get",
+        "operationId": "run_export_api_runs__run_id__export_get",
         "parameters": [
           {
             "in": "path",
@@ -4086,7 +4086,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Response Run Export Runs  Run Id  Export Get"
+                  "title": "Response Run Export Api Runs  Run Id  Export Get"
                 }
               }
             },
@@ -4106,10 +4106,10 @@
         "summary": "Run Export"
       }
     },
-    "/runs/{run_id}/relax": {
+    "/api/runs/{run_id}/relax": {
       "post": {
         "description": "Apply one relaxation the pipeline computed and logged, as a new run. The\nresearcher's click is the approval; nothing is applied without it.",
-        "operationId": "relax_runs__run_id__relax_post",
+        "operationId": "relax_api_runs__run_id__relax_post",
         "parameters": [
           {
             "in": "path",
@@ -4156,9 +4156,9 @@
         "summary": "Relax"
       }
     },
-    "/runs/{run_id}/relaxations": {
+    "/api/runs/{run_id}/relaxations": {
       "get": {
-        "operationId": "relaxations_runs__run_id__relaxations_get",
+        "operationId": "relaxations_api_runs__run_id__relaxations_get",
         "parameters": [
           {
             "in": "path",
@@ -4178,7 +4178,7 @@
                   "items": {
                     "$ref": "#/components/schemas/RelaxChoice"
                   },
-                  "title": "Response Relaxations Runs  Run Id  Relaxations Get",
+                  "title": "Response Relaxations Api Runs  Run Id  Relaxations Get",
                   "type": "array"
                 }
               }
@@ -4199,9 +4199,9 @@
         "summary": "Relaxations"
       }
     },
-    "/runs/{run_id}/status": {
+    "/api/runs/{run_id}/status": {
       "get": {
-        "operationId": "run_status_runs__run_id__status_get",
+        "operationId": "run_status_api_runs__run_id__status_get",
         "parameters": [
           {
             "in": "path",
@@ -4238,10 +4238,10 @@
         "summary": "Run Status"
       }
     },
-    "/runs/{run_id}/view": {
+    "/api/runs/{run_id}/view": {
       "get": {
         "description": "The render package's view model as JSON: every value already formatted, units and\nterminology as the run was confirmed with. The PI view carries no record ids.",
-        "operationId": "run_view_runs__run_id__view_get",
+        "operationId": "run_view_api_runs__run_id__view_get",
         "parameters": [
           {
             "in": "path",
@@ -4287,9 +4287,9 @@
         "summary": "Run View"
       }
     },
-    "/weight-bounds": {
+    "/api/weight-bounds": {
       "get": {
-        "operationId": "weight_bounds_weight_bounds_get",
+        "operationId": "weight_bounds_api_weight_bounds_get",
         "parameters": [
           {
             "in": "query",
@@ -4310,7 +4310,7 @@
                   "items": {
                     "$ref": "#/components/schemas/WeightBoundRow"
                   },
-                  "title": "Response Weight Bounds Weight Bounds Get",
+                  "title": "Response Weight Bounds Api Weight Bounds Get",
                   "type": "array"
                 }
               }

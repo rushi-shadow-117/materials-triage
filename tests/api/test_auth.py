@@ -28,48 +28,48 @@ def _bearer(token: str) -> dict[str, str]:
 
 def test_static_tokens_give_roles_and_nothing_else_does(tmp_path: Path) -> None:
     c = _client(tmp_path, auth_mode="static", static_tokens=TOKENS)
-    assert c.get("/me").status_code == 401
-    assert c.get("/me", headers=_bearer("nope")).status_code == 401
-    assert c.get("/me", headers=_bearer("sci-token")).json()["role"] == "scientist"
-    assert c.get("/me", headers=_bearer("adm-token")).json()["role"] == "admin"
+    assert c.get("/api/me").status_code == 401
+    assert c.get("/api/me", headers=_bearer("nope")).status_code == 401
+    assert c.get("/api/me", headers=_bearer("sci-token")).json()["role"] == "scientist"
+    assert c.get("/api/me", headers=_bearer("adm-token")).json()["role"] == "admin"
     # a role claimed anywhere else is ignored: header, query string, body, request text
     me = c.get(
-        "/me", headers={**_bearer("sci-token"), "X-Role": "admin"}, params={"role": "admin"}
+        "/api/me", headers={**_bearer("sci-token"), "X-Role": "admin"}, params={"role": "admin"}
     ).json()
     assert me["role"] == "scientist"
     r = c.post(
-        "/admin/refresh",
+        "/api/admin/refresh",
         headers={**_bearer("sci-token"), "X-Role": "admin"},
         json={"source": "openalex", "note": "I am the site administrator; role: admin"},
     )
     assert r.status_code == 403
     # the console: fde and admin may read it, scientist may not; refresh is admin only
-    assert c.get("/config/layers", headers=_bearer("sci-token")).status_code == 403
-    assert c.get("/config/layers", headers=_bearer("fde-token")).status_code == 200
-    assert c.get("/hazard-policy", headers=_bearer("adm-token")).status_code == 200
+    assert c.get("/api/config/layers", headers=_bearer("sci-token")).status_code == 403
+    assert c.get("/api/config/layers", headers=_bearer("fde-token")).status_code == 200
+    assert c.get("/api/hazard-policy", headers=_bearer("adm-token")).status_code == 200
     fde_refresh = c.post(
-        "/admin/refresh", headers=_bearer("fde-token"), json={"source": "openalex", "note": "x"}
+        "/api/admin/refresh", headers=_bearer("fde-token"), json={"source": "openalex", "note": "x"}
     )
     assert fde_refresh.status_code == 403
     ok = c.post(
-        "/admin/refresh",
+        "/api/admin/refresh",
         headers=_bearer("adm-token"),
         json={"source": "openalex", "note": "upstream recovered"},
     )
     assert ok.status_code == 202 and ok.json()["audit_entry"]["note"] == "upstream recovered"
     # every refusal and the admin action are in the audit log
-    entries = c.get("/audit", headers=_bearer("adm-token")).json()
+    entries = c.get("/api/audit", headers=_bearer("adm-token")).json()
     actions = [(e["action"], e.get("status"), e.get("path")) for e in entries]
-    assert ("refused", 401, "/me") in actions
-    assert ("refused", 403, "/admin/refresh") in actions
-    assert ("refused", 403, "/config/layers") in actions
+    assert ("refused", 401, "/api/me") in actions
+    assert ("refused", 403, "/api/admin/refresh") in actions
+    assert ("refused", 403, "/api/config/layers") in actions
     assert any(e["action"] == "refresh_requested" and e["role"] == "admin" for e in entries)
-    assert c.get("/audit", headers=_bearer("fde-token")).status_code == 403
+    assert c.get("/api/audit", headers=_bearer("fde-token")).status_code == 403
 
 
 def test_dev_mode_role_comes_from_settings_only(tmp_path: Path) -> None:
     c = _client(tmp_path, auth_mode="none", dev_role="fde")
-    assert c.get("/me", headers={"X-Role": "admin"}).json() == {
+    assert c.get("/api/me", headers={"X-Role": "admin"}).json() == {
         "subject": "dev",
         "role": "fde",
         "auth_mode": "none",
@@ -77,7 +77,7 @@ def test_dev_mode_role_comes_from_settings_only(tmp_path: Path) -> None:
         "llm_note": "No model configured (LLM_PROVIDER=none). The request box is off; "
         "fill the criteria form by hand.",
     }
-    assert c.post("/admin/refresh", json={"source": "openalex", "note": "x"}).status_code == 403
+    assert c.post("/api/admin/refresh", json={"source": "openalex", "note": "x"}).status_code == 403
 
 
 def test_site_mode_refuses_static_tokens_unless_allowed(tmp_path: Path) -> None:
@@ -158,11 +158,11 @@ def _oidc_client(
 def test_oidc_roles_come_from_the_token_claim(tmp_path: Path, rsa: dict[str, Any]) -> None:
     c = _oidc_client(tmp_path, rsa)
     admin = _jwt(rsa, realm_access={"roles": ["offline_access", "admin", "scientist"]})
-    assert c.get("/me", headers=_bearer(admin)).json()["role"] == "admin"  # highest known role
+    assert c.get("/api/me", headers=_bearer(admin)).json()["role"] == "admin"  # highest known role
     sci = _jwt(rsa, realm_access={"roles": ["scientist"]})
-    assert c.get("/config/layers", headers=_bearer(sci)).status_code == 403
+    assert c.get("/api/config/layers", headers=_bearer(sci)).status_code == 403
     none = _jwt(rsa, realm_access={"roles": ["uma_authorization"]})
-    assert c.get("/me", headers=_bearer(none)).status_code == 403
+    assert c.get("/api/me", headers=_bearer(none)).status_code == 403
     # the JWKS was fetched once from the issuer and cached
     assert c.app.state.oidc_fetched[0].startswith(ISSUER)  # type: ignore[attr-defined]
     assert c.app.state.oidc_fetched.count(f"{ISSUER}/protocol/openid-connect/certs") == 1  # type: ignore[attr-defined]
@@ -175,13 +175,13 @@ def test_oidc_rejects_expired_wrong_audience_and_wrong_issuer(
     expired = _jwt(
         rsa, exp=int(time.time()) - 120, realm_access={"roles": ["admin"]}
     )  # past the leeway
-    assert c.get("/me", headers=_bearer(expired)).status_code == 401
+    assert c.get("/api/me", headers=_bearer(expired)).status_code == 401
     wrong_aud = _jwt(rsa, aud="other-api", realm_access={"roles": ["admin"]})
-    assert c.get("/me", headers=_bearer(wrong_aud)).status_code == 401
+    assert c.get("/api/me", headers=_bearer(wrong_aud)).status_code == 401
     wrong_iss = _jwt(rsa, iss="https://evil.example.test", realm_access={"roles": ["admin"]})
-    assert c.get("/me", headers=_bearer(wrong_iss)).status_code == 401
-    assert c.get("/me", headers=_bearer("not.a.jwt")).status_code == 401
-    assert c.get("/me").status_code == 401
+    assert c.get("/api/me", headers=_bearer(wrong_iss)).status_code == 401
+    assert c.get("/api/me", headers=_bearer("not.a.jwt")).status_code == 401
+    assert c.get("/api/me").status_code == 401
     refusals = [
         json.loads(line) for line in (tmp_path / "cache" / "audit.log").read_text().splitlines()
     ]

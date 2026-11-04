@@ -12,7 +12,7 @@ import dataclasses
 from pathlib import Path
 from typing import Any
 
-from fastapi import Body, FastAPI, HTTPException, Query, Request
+from fastapi import APIRouter, Body, FastAPI, HTTPException, Query, Request
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse, PlainTextResponse
 from fastapi.staticfiles import StaticFiles
@@ -65,6 +65,7 @@ from .schemas import (
 
 ROOT = Path(__file__).resolve().parents[3]
 WEB_DIST = ROOT / "web" / "dist"
+API_PREFIX = "/api"  # every API route; everything else is the web app or its files
 
 
 def create_app(settings: Settings | None = None, *, serve_web: bool = False) -> FastAPI:
@@ -78,6 +79,10 @@ def create_app(settings: Settings | None = None, *, serve_web: bool = False) -> 
             "Triage candidate materials from public data. Every number traces to a source "
             "record; roles come only from the bearer token."
         ),
+        docs_url=f"{API_PREFIX}/docs",
+        swagger_ui_oauth2_redirect_url=f"{API_PREFIX}/docs/oauth2-redirect",
+        redoc_url=None,
+        openapi_url=f"{API_PREFIX}/openapi.json",
     )
     app.state.settings = settings
     app.state.audit = auth.AuditLog(settings.data_cache_dir / "audit.log")
@@ -88,7 +93,9 @@ def create_app(settings: Settings | None = None, *, serve_web: bool = False) -> 
         )
     app.state.runs = RunManager(settings, wiring.make_run_store(settings), pipeline.Sources.load())
     app.state.layers = {}
-    _routes(app)
+    router = APIRouter(prefix=API_PREFIX)
+    _routes(router)
+    app.include_router(router)
     if serve_web and WEB_DIST.exists():
         app.mount("/", SpaStaticFiles(directory=WEB_DIST, html=True), name="web")
     return app
@@ -96,13 +103,15 @@ def create_app(settings: Settings | None = None, *, serve_web: bool = False) -> 
 
 class SpaStaticFiles(StaticFiles):
     """The built web app: a client-side route (no file extension) falls back to index.html so
-    deep links such as /runs/<id> and /console load the app; real files are served as is."""
+    deep links and reloads such as /runs/<id> and /console load the app; real files are served
+    as is. An unknown /api path stays a 404 and never becomes the app."""
 
     async def get_response(self, path: str, scope: Any) -> Any:
         try:
             return await super().get_response(path, scope)
         except StarletteHTTPException as e:
-            if e.status_code == 404 and "." not in path.rsplit("/", 1)[-1]:
+            is_api = path == API_PREFIX.strip("/") or path.startswith(API_PREFIX.strip("/") + "/")
+            if e.status_code == 404 and not is_api and "." not in path.rsplit("/", 1)[-1]:
                 return await super().get_response("index.html", scope)
             raise
 
@@ -193,7 +202,7 @@ def _row(bundle: ProvenanceBundle, composition: str) -> Candidate | Anchor:
 # ----------------------------------------------------------------------------- routes
 
 
-def _routes(app: FastAPI) -> None:  # noqa: C901 - one function registers every route
+def _routes(app: APIRouter) -> None:  # noqa: C901 - one function registers every route
     @app.get("/me", response_model=Me)
     def me(principal: auth.Current) -> Me:
         return Me(
