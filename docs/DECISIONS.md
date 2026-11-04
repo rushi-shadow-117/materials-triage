@@ -707,10 +707,6 @@ Reason: the owner asked for discovery to run offline end to end; a single enrich
 left unenriched rows in the shown top 10 as soon as enrichment excluded one.
 Alternative: enrich a fixed margin (top 2K) once.
 
-## Track C: API and web
-
-## Track D: deploy and docs
-
 ## Track E: eval and validation
 
 ### 2026-11-02 Spearman by hand, cross-checked against scipy

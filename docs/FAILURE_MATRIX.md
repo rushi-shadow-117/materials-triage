@@ -91,16 +91,6 @@ rows only under its own heading. Rows name a test path; a row without a test is 
 | Enrichment excludes a top-K row and admits an unenriched one | Loop enriches the newcomer and scores again until the top K is enriched | tests/agent/test_discovery.py::test_recorded_discovery_queries_run_offline_end_to_end_with_the_real_scorer |
 | Discovery query without a gap bound | Floor from the profile (hard minimum, else soft preference start) | tests/agent/test_discovery.py::test_discovery_filter_sends_only_hard_rules_at_their_loosest_value |
 
-## Track C: API and web
-
-| Failure | Behavior | Test |
-|---|---|---|
-
-## Track D: deploy and docs
-
-| Failure | Behavior | Test |
-|---|---|---|
-
 ## Track E: eval and validation
 
 | Failure | Behavior | Test |
