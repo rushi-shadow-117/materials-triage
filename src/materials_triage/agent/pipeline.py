@@ -450,6 +450,11 @@ def run(
         return refusal_bundle(inputs, outcome.effective)
     if outcome.query is None or outcome.effective is None:
         raise ValueError("the run needs resolved criteria")
+    if outcome.missing_required:
+        # a clarification request: nothing is fetched until the researcher answers
+        raise ValueError(
+            "clarification needed before any fetch: " + ", ".join(outcome.missing_required)
+        )
     query, effective = outcome.query, outcome.effective
 
     budgets = {step: Budget.from_core(inputs.core, step) for step in ("classify", "rationale")}

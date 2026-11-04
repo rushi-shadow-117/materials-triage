@@ -45,6 +45,8 @@ PARSE_KEYS = (
 # lowercased request, property name). A keyword inside an earlier match is skipped, so
 # "thermal conductivity" is not also read as "conductivity". Code, not this table, decides
 # which names a configured source covers (config.schema.PROPERTY_CRITERIA).
+CHEMISTRY_WORDS = ("oxide", "nitride")  # scripted stand-in for the model naming chemistry
+
 PROPERTY_KEYWORDS: list[tuple[str, str]] = [
     ("thermal conductivity", "thermal conductivity"),
     ("conduct", "conductivity"),
@@ -173,9 +175,13 @@ class CaseScriptedLLM:
                 {"criterion": k, "weight": v}
                 for k, v in sorted(self.case.settings["weights"].items())
             ]
-        requested = requested_properties(self.case.request)
+        text = f"{self.case.context or ''} {self.case.request}"
+        requested = requested_properties(text)
         if requested:
             out["requested_properties"] = requested
+        chemistry = [w for w in CHEMISTRY_WORDS if w in text.lower()]
+        if chemistry:
+            out["requested_chemistry"] = chemistry
         return out
 
     def complete(

@@ -74,6 +74,20 @@ class FakeJudge:
         )
 
 
+class NoJudge:
+    """For graded saved bundles: no judge call is made; each item is recorded as declined."""
+
+    name = "none"
+
+    def judge(self, item: JudgeItem, rendered: str, bundle: ProvenanceBundle) -> JudgeVerdict:
+        return JudgeVerdict(
+            item=item,
+            verdict="judge_declined",
+            reason="saved bundle graded without a judge call (owner rule: no unapproved calls)",
+            judge=self.name,
+        )
+
+
 class AnthropicJudge:
     name = "anthropic"
 

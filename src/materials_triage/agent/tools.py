@@ -109,6 +109,7 @@ class ParsedRequest(Strict):
     units: Units | None = None
     view: View | None = None
     requested_properties: list[str] = Field(default_factory=list)  # as the request names them
+    requested_chemistry: list[str] = Field(default_factory=list)  # elements, oxides, nitrides
     missing_required: list[str] = Field(default_factory=list)
     out_of_scope: OutOfScope | None = None
 

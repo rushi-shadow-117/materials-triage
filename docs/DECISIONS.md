@@ -1120,3 +1120,61 @@ Decision (owner): run bundles stay JSON files under `DATA_CACHE_DIR/runs`, not r
 
 Alternative: write each run to `triage.runs` now, adding a database dependency to the offline
 path for no current reader.
+
+### 2026-11-04 The parse tool schema fits the API's union limit
+Decision: `ParsedRequest.weights` is a list of `{criterion, weight}` items naming only stated
+weights, replacing one nullable field per criterion.
+Reason: the first live run returned HTTP 400 for every case. The Messages API rejects a strict
+tool schema with more than 16 union-typed parameters, and `parse_request` had 21. It now has 13,
+and `tests/agent/test_tools.py` counts the unions in every tool schema so CI catches a
+regression without a live call. Track B's provider tests ran against fakes only, which is why
+this surfaced on the first live run.
+Alternative: drop `strict` from the tool, which would let the model send fields outside the
+schema.
+
+### 2026-11-04 Live-eval cost controls
+Decision (owner): no Opus calls in evals. Live runs use `LLM_MODEL=claude-sonnet-5-5` for the
+run only, and the judge config names Sonnet. Before any call, `python -m evals run --llm live`
+prints each case's expected and worst-case API calls and refuses when the expected total
+exceeds `EVAL_MAX_LIVE_CALLS` (30).
+- A case starts only while calls used plus its worst case fit under that limit.
+- Each live case's classify step is capped at `EVAL_MAX_CLASSIFY_CALLS` (20). A case over the
+  cap is partial, never extended.
+- Live runs read and fill the product's classifier cache.
+- `scripts/cache_from_bundles.py` wrote the paid Opus classifications into that cache.
+- `python -m evals score-saved` grades a saved live bundle with no call.
+
+Reason: an unestimated live run of the discovery cases made about 230 Opus calls (about 3
+dollars), and retries paid for A1 twice because the harness bypassed the cache.
+Alternative: a spend limit on the API key alone, which stops a run without saying what it cost
+per case.
+
+### 2026-11-04 Live results kept beside the scripted ones
+Decision (owner): the committed live results are:
+- **A1** (claude-opus-5-5, graded from its saved bundle with no further call). 7 of 8 checks
+  pass. The run is partial because Opus reached the 300 s classify and 120 s rationale time
+  budgets. ZrO2 ranks 6 with 4 thin_film_deposited and 1 dielectric_characterized labels.
+- **F1** (claude-sonnet-5-5): refused, passed.
+- **C1** (claude-sonnet-5-5): missed. The model ran a discovery query for "Find me some good
+  materials" instead of asking. Found live, then fixed in code (next entry).
+- **F4** (claude-sonnet-5-5): run once after the fix.
+
+The gzipped bundles sit in `evals/results/live/bundles/`, and EVAL.md lists the live results in
+their own section.
+Alternative: rerun everything live, which the owner declined on cost.
+
+### 2026-11-04 Clarification is decided in code
+Decision (owner): the parse lists the chemistry a request names (`requested_chemistry`). Code
+asks for application, chemistry, and property preference before any fetch when a discovery
+request names no candidates, no chemistry, no requested property, and no property setting,
+whatever the model chose. `pipeline.run` refuses such an outcome. A request that states only
+output settings (view, verbosity, terminology, units, top_n) is treated as a follow-up and is
+not stopped.
+
+Follow-up cases D4, G3, and F9 ("Export this", "rerun A1", "Also write...") carry A1's request
+as `context`, the earlier turn the parse sees. The harness has no conversation, and without the
+context these cases would correctly be clarified.
+
+Reason: live C1 showed that the parse prompt alone does not stop a vague request (CLAUDE.md:
+if a prompt moves a failure, move the logic into code).
+Alternative: a stronger prompt sentence, which the live miss shows is not a guarantee.
