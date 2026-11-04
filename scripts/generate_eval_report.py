@@ -24,6 +24,8 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 from typing import Any
 
+import yaml
+
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
@@ -401,6 +403,8 @@ def build(
 ) -> str:
     suites = [json.loads(p.read_text()) for p in sorted(eval_results.glob("*.json"))]
     live = [json.loads(p.read_text()) for p in sorted((eval_results / "live").glob("*.json"))]
+    notes_path = eval_results / "live" / "notes.yaml"
+    live_notes = yaml.safe_load(notes_path.read_text()) if notes_path.exists() else {}
     lines = [
         "# Evaluation report",
         "",
@@ -417,6 +421,11 @@ def build(
                 "Selected cases run with the configured provider (not the scripted model), "
                 "recorded data from cassettes, and the judge named in the results file. Shown "
                 "beside the scripted results above, never merged into them.",
+                "",
+                *[
+                    f"- `{name}`: {n['model']}, {n['date']}. {n['note']}"
+                    for name, n in sorted((live_notes or {}).items())
+                ],
                 "",
                 *case_sections(live),
             ]

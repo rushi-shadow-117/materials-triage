@@ -1157,7 +1157,8 @@ Decision (owner): the committed live results are:
 - **F1** (claude-sonnet-5-5): refused, passed.
 - **C1** (claude-sonnet-5-5): missed. The model ran a discovery query for "Find me some good
   materials" instead of asking. Found live, then fixed in code (next entry).
-- **F4** (claude-sonnet-5-5): run once after the fix.
+- **F4** (claude-sonnet-5-5): approved but not run. The first request returned HTTP 400
+  "credit balance is too low", so no call completed, and it was not retried.
 
 The gzipped bundles sit in `evals/results/live/bundles/`, and EVAL.md lists the live results in
 their own section.

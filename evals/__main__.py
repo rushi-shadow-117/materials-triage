@@ -129,6 +129,12 @@ def main(argv: list[str] | None = None) -> int:
         executor = SampleBundleExecutor()
     else:
         executor = PipelineExecutor(llm=args.llm, fetch_source=args.fetch)
+        if args.llm == "live":  # live results name the model and the date
+            from datetime import UTC, datetime
+
+            executor.name += (
+                f", {executor.settings().llm_model}, {datetime.now(UTC).date().isoformat()}"
+            )
     judge = make_judge()
     if (
         args.llm == "live"
