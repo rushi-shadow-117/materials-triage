@@ -48,7 +48,9 @@ def render(
     if bundle.run.model_version is not None and bundle.verifier is None:
         raise UnverifiedBundleError("an LLM run must pass the verifier before rendering")
     units, terminology = options_from_bundle(bundle, site)
-    run_view = build(bundle, caveats or CaveatConfig.load(), units=units)
+    run_view = build(
+        bundle, caveats or CaveatConfig.load(), units=units, hide_ids=view == "pi_summary"
+    )
     text = ENV.get_template(f"{view}.md.j2").render(
         bundle=bundle, run=bundle.run, criteria=bundle.criteria, view=run_view, units=units
     )

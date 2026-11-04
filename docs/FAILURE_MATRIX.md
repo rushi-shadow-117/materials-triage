@@ -167,3 +167,22 @@ rows only under its own heading. Rows name a test path; a row without a test is 
 | Postgres down on a CLI run | `--fetch auto` uses the cassettes and logs why | tests/cli/test_cli.py::test_auto_fetch_uses_the_store_only_when_postgres_answers |
 | An evidence quote fails the verifier | The hit leaves `bundle.evidence`; the verifier record keeps it | tests/verify/test_verifier.py::test_paraphrased_quote_is_dropped_and_verbatim_quote_passes |
 | A second pre-registration after tuning | Both entries kept; the report compares against the latest and lists both | tests/evals/test_judge_and_prereg.py::test_preregistration_records_and_compares |
+
+## Track C: API and web
+
+| Failure | Behavior | Test |
+|---|---|---|
+| No bearer token in static or OIDC mode | 401, audit-logged | tests/api/test_auth.py::test_static_tokens_give_roles_and_nothing_else_does |
+| A role claimed in a header, query string, body or request text | Ignored; the token's role applies | tests/api/test_auth.py::test_static_tokens_give_roles_and_nothing_else_does |
+| Scientist calls a console route; FDE calls refresh | 403, audit-logged | tests/api/test_auth.py::test_static_tokens_give_roles_and_nothing_else_does |
+| Static tokens in site mode without the explicit allow | The app refuses to start | tests/api/test_auth.py::test_site_mode_refuses_static_tokens_unless_allowed |
+| Expired, wrong-audience or wrong-issuer JWT | 401 | tests/api/test_auth.py::test_oidc_rejects_expired_wrong_audience_and_wrong_issuer |
+| JWT without a known role | 403 | tests/api/test_auth.py::test_oidc_roles_come_from_the_token_claim |
+| A route missing from the permission matrix, or a matrix row the app contradicts | The matrix test fails naming it | tests/api/test_permissions.py::test_permission_matrix_matches_the_app |
+| Confirm form posts settings outside site bounds | Resolve previews the clamp; the run applies it | tests/api/test_runs_api.py::test_resolve_previews_clamps_and_a_vague_request_is_clarified |
+| A discovery request with nothing to search on | 422 with the fields to supply; nothing fetched | tests/api/test_runs_api.py::test_resolve_previews_clamps_and_a_vague_request_is_clarified |
+| A name that is not a formula in Rank my list | Reported as not found; the rest ranked (browser) | tests/e2e/test_browser.py::test_rank_my_list_runs_end_to_end |
+| The PI view would show a record id | Ids only in the audit view and drill-down | tests/api/test_runs_api.py::test_candidate_list_run_end_to_end |
+| No model configured | /parse says so; the form is filled by hand | tests/api/test_runs_api.py::test_parse_is_unavailable_without_a_model |
+| A client-side route opened directly | index.html is served; the app routes | tests/e2e/test_browser.py::test_console_by_role |
+| Profile YAML with a weight outside the site bounds | Validation error; save disabled | tests/e2e/test_browser.py::test_console_by_role |

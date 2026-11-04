@@ -242,9 +242,15 @@ def test_eval_delegates_or_reports_pending(tmp_path: Path, monkeypatch: pytest.M
         assert "eval runner pending" in result.output
 
 
-def test_serve_is_still_the_track_c_stub() -> None:
-    result = RUNNER.invoke(app, ["serve"])
-    assert result.exit_code == 2 and "not implemented" in result.output
+def test_serve_refuses_static_tokens_in_site_mode(monkeypatch: pytest.MonkeyPatch) -> None:
+    """`serve` builds the real app (tests/test_stubs.py spies uvicorn); a bad auth setup is a
+    usage error before anything binds."""
+    monkeypatch.setenv("AUTH_MODE", "static")
+    monkeypatch.setenv("STATIC_TOKENS", "t:scientist")
+    monkeypatch.setenv("SITE_MODE", "true")
+    monkeypatch.setenv("LLM_PROVIDER", "none")
+    result = RUNNER.invoke(app, ["serve", "--no-web"])
+    assert result.exit_code == 2 and "ALLOW_STATIC_TOKENS" in result.output
 
 
 def test_auto_fetch_uses_the_store_only_when_postgres_answers() -> None:

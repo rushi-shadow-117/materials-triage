@@ -10,7 +10,7 @@ except for `unclassified` evidence and template-only rationale.
 from __future__ import annotations
 
 import json
-from collections.abc import Callable
+from collections.abc import Callable, Iterable
 from dataclasses import asdict, dataclass, field
 from datetime import UTC, datetime
 from hashlib import sha256
@@ -217,6 +217,8 @@ class RunInputs:
     # Documents above which discovery refuses; None = mp.DISCOVERY_CEILING. Set only by the
     # eval harness (case overrides), never by a query.
     discovery_ceiling: int | None = None
+    # cache_only: evidence labels from the classifier cache only; misses stay unclassified
+    classify_mode: str = "live"
 
 
 def code_version() -> str:
@@ -229,6 +231,31 @@ def code_version() -> str:
 def policy_version(path: Path | None = None) -> str:
     """Short content hash of the hazard policy file, so a policy edit changes the run."""
     return sha256((path or default_paths()["hazard_policy"]).read_bytes()).hexdigest()[:12]
+
+
+OnEvent = Callable[[DecisionLogEntry], None]
+
+
+class RunCancelledError(RuntimeError):
+    """Raised from an `on_event` callback to stop a run between steps."""
+
+
+class _EventLog(list[DecisionLogEntry]):
+    """The run's decision log; every entry appended is also handed to `on_event` (the API's
+    progress stream). A callback may raise RunCancelledError."""
+
+    def __init__(self, on_event: OnEvent | None) -> None:
+        super().__init__()
+        self._on_event = on_event
+
+    def append(self, entry: DecisionLogEntry) -> None:
+        super().append(entry)
+        if self._on_event is not None:
+            self._on_event(entry)
+
+    def extend(self, entries: Iterable[DecisionLogEntry]) -> None:
+        for e in entries:
+            self.append(e)
 
 
 def _log(step: str, summary: str, actor: str = "pipeline", **detail: Any) -> DecisionLogEntry:
@@ -444,6 +471,7 @@ def run(
     scorer: Scorer,
     llm: LLMClient | None = None,
     cache: classifier.ClassifierCache | None = None,
+    on_event: OnEvent | None = None,
 ) -> ProvenanceBundle:
     outcome = inputs.parse
     if outcome.refusal is not None:
@@ -459,9 +487,8 @@ def run(
 
     budgets = {step: Budget.from_core(inputs.core, step) for step in ("classify", "rationale")}
     all_budgets = [*inputs.prior_budgets, *budgets.values()]
-    log: list[DecisionLogEntry] = [
-        _log("start", "run started", code_version=code_version(), mode=query.mode)
-    ]
+    log: list[DecisionLogEntry] = _EventLog(on_event)
+    log.append(_log("start", "run started", code_version=code_version(), mode=query.mode))
     for name in outcome.unresolved_candidates:
         log.append(_log("parse", f"not found in any source: {name} is not a chemical formula"))
     for prop in outcome.unavailable_properties:
@@ -591,7 +618,12 @@ def run(
             if group is not None and group.literature is not None:
                 hits.extend((key, h) for h in group.literature.hits[:cap])
         classified = classifier.classify_hits(
-            client=llm, hits=hits, budget=budgets["classify"], cache=cache, model_version=model
+            client=llm,
+            hits=hits,
+            budget=budgets["classify"],
+            cache=cache,
+            model_version=model,
+            cache_only=inputs.classify_mode == "cache_only",
         )
         log.extend(classified.entries)
         partial.extend(classified.partial_reasons)

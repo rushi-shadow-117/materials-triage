@@ -164,8 +164,11 @@ def classify_hits(
     budget: loop.Budget,
     cache: ClassifierCache | None,
     model_version: str | None,
+    cache_only: bool = False,
 ) -> ClassifyResult:
-    """Classify every (composition, hit) in order. Budget breach leaves the rest unclassified."""
+    """Classify every (composition, hit) in order. Budget breach leaves the rest unclassified.
+    `cache_only`: labels come from the cache; a miss stays unclassified and the model is never
+    called (CLASSIFY_MODE=cache_only)."""
     out = ClassifyResult()
     prompt_hash = prompts.step_hash("classify")
     system = prompts.system_prompt("classify")
@@ -184,6 +187,9 @@ def classify_hits(
         assert lit.abstract_text is not None
         key = cache_key(abstract_sha(lit), prompt_hash, model_version)
         cached = cache.get(key) if cache is not None else None
+        if cached is None and cache_only:
+            out.hits.append(unclassified(composition, lit, "cache_only: not in classifier cache"))
+            continue
         if cached is not None:
             out.cache_hits += 1
             out.hits.append(

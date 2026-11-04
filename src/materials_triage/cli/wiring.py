@@ -4,6 +4,7 @@ scorer, the classifier cache, and the run store."""
 
 from __future__ import annotations
 
+import functools
 import time
 from collections.abc import Callable, Iterator
 from dataclasses import dataclass
@@ -95,7 +96,7 @@ def iter_cassette_raws(root: Path) -> Iterator[tuple[Path, RawResponse]]:
         source = SOURCE_BY_DIR.get(path.parent.name)
         if source is None:
             continue
-        cassette = yaml.safe_load(path.read_text())
+        cassette = yaml.load(path.read_text(), Loader=_YAML_LOADER)  # noqa: S506 - trusted fixtures
         for i in cassette.get("interactions", []):
             resp = i["response"]
             body = resp["body"]["string"]
@@ -118,6 +119,16 @@ def iter_cassette_raws(root: Path) -> Iterator[tuple[Path, RawResponse]]:
                     fetched_at=fetched,
                 ),
             )
+
+
+_YAML_LOADER = getattr(yaml, "CSafeLoader", yaml.SafeLoader)  # the C loader is much faster
+
+
+@functools.lru_cache(maxsize=1)
+def cassette_fetch() -> CassetteFetch:
+    """The process-wide cassette index: built once (about 20 MB of YAML), reused by every
+    run, the health page, and the API."""
+    return CassetteFetch()
 
 
 class CassetteFetch:
@@ -169,7 +180,7 @@ def make_fetch(
     settings: Settings, source: FetchSource, *, run_id: UUID | None = None
 ) -> tuple[pipeline.Fetch, FetchMode]:
     if source == "cassettes":
-        return CassetteFetch(), FetchMode.REPLAY
+        return cassette_fetch(), FetchMode.REPLAY
     store = Store(make_engine(settings.database_url))
     mode = settings.fetch_mode
     transport: Any

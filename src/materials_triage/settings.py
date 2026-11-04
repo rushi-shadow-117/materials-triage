@@ -10,6 +10,9 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 FetchMode = Literal["live", "replay", "refresh"]
 LLMProvider = Literal["anthropic", "bedrock", "openai_compatible", "none"]
+ClassifyMode = Literal["live", "cache_only"]
+AuthMode = Literal["none", "static", "oidc"]
+Role = Literal["scientist", "fde", "admin"]
 
 
 class Settings(BaseSettings):
@@ -36,8 +39,24 @@ class Settings(BaseSettings):
     llm_api_key: SecretStr | None = None  # openai_compatible: optional bearer token
     aws_region: str | None = None  # bedrock
 
+    # cache_only: evidence labels come from the classifier cache only; a miss stays
+    # unclassified and the model is never called for it (owner rule, Track C). The demo
+    # configuration is anthropic + claude-sonnet-5-5 + cache_only: one parse call per request.
+    classify_mode: ClassifyMode = "live"
+
     data_cache_dir: Path = Path(".data-cache")
     fetch_mode: FetchMode = "live"
+
+    # Auth (Track C). Roles come only from the bearer token (static or OIDC); in mode "none"
+    # every request carries dev_role. site_mode refuses static tokens unless allowed.
+    auth_mode: AuthMode = "none"
+    dev_role: Role = "scientist"
+    static_tokens: str | None = None  # "token:role,token:role"
+    site_mode: bool = False
+    allow_static_tokens: bool = False
+    oidc_issuer: str | None = None
+    oidc_audience: str | None = None
+    oidc_roles_claim: str = "realm_access.roles"
 
     def require(self, name: str) -> str:
         """Return a secret's value or raise with the variable name, never the value."""
