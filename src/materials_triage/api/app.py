@@ -19,8 +19,9 @@ from fastapi.staticfiles import StaticFiles
 from sse_starlette.sse import EventSourceResponse
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
+from materials_triage.agent import estimate as estimate_mod
+from materials_triage.agent import llm_status, pipeline, relaxation
 from materials_triage.agent import parse as parse_mod
-from materials_triage.agent import pipeline, relaxation
 from materials_triage.agent.loop import Budget
 from materials_triage.cli import wiring
 from materials_triage.config.schema import QuerySettings, resolve, unavailable_properties
@@ -38,6 +39,7 @@ from materials_triage.settings import Settings
 from . import admin, auth
 from .runs import RunManager
 from .schemas import (
+    CallEstimateOut,
     DrillResponse,
     DrillValue,
     HazardRow,
@@ -68,6 +70,7 @@ WEB_DIST = ROOT / "web" / "dist"
 def create_app(settings: Settings | None = None, *, serve_web: bool = False) -> FastAPI:
     settings = settings or Settings()
     auth.check_startup(settings)
+    wiring.initial_llm_status(settings)
     app = FastAPI(
         title="materials-triage",
         version="0.1.0",
@@ -193,7 +196,12 @@ def _row(bundle: ProvenanceBundle, composition: str) -> Candidate | Anchor:
 def _routes(app: FastAPI) -> None:  # noqa: C901 - one function registers every route
     @app.get("/me", response_model=Me)
     def me(principal: auth.Current) -> Me:
-        return Me(subject=principal.subject, role=principal.role, auth_mode=principal.mode)
+        return Me(
+            subject=principal.subject,
+            role=principal.role,
+            auth_mode=principal.mode,
+            **llm_status.describe(),
+        )
 
     @app.get("/profiles", response_model=list[ProfileSummary])
     def profiles(_: auth.AnyRole) -> list[ProfileSummary]:
@@ -205,13 +213,9 @@ def _routes(app: FastAPI) -> None:  # noqa: C901 - one function registers every 
         confirm form is filled by hand (no call is made)."""
         settings: Settings = request.app.state.settings
         layers = _layers(request, body.profile)
-        if settings.llm_provider == "none":
-            return ParseResponse(
-                parse_available=False,
-                reason="no model configured (LLM_PROVIDER=none): fill the criteria form",
-            )
         client = wiring.make_llm(settings, no_llm=False)
-        assert client is not None
+        if client is None:
+            return ParseResponse(parse_available=False, reason=llm_status.note())
         step = parse_mod.run_parse(
             client=client,
             request_text=body.request_text,
@@ -221,6 +225,8 @@ def _routes(app: FastAPI) -> None:  # noqa: C901 - one function registers every 
             cli_profile=layers.profile.name,
             budget=Budget.from_core(layers.core, "parse"),
         )
+        if step.reason == "llm_unavailable":
+            return ParseResponse(parse_available=False, reason=llm_status.note())
         if not step.ok or step.outcome is None:
             return ParseResponse(
                 parse_available=True, reason=f"parse failed: {step.reason}", model=client.model
@@ -244,6 +250,13 @@ def _routes(app: FastAPI) -> None:  # noqa: C901 - one function registers every 
         except (ValueError, parse_mod.CandidateListError) as e:
             raise HTTPException(status_code=422, detail=str(e)) from None
         assert outcome.query is not None and outcome.effective is not None
+        settings: Settings = request.app.state.settings
+        calls = estimate_mod.estimate(
+            query=outcome.query,
+            effective=outcome.effective,
+            core=layers.core,
+            classify_mode=settings.classify_mode,
+        )
         return ResolveResponse(
             settings=outcome.query.model_dump(mode="json"),
             effective_weights=dict(outcome.effective.weights),
@@ -253,6 +266,7 @@ def _routes(app: FastAPI) -> None:  # noqa: C901 - one function registers every 
             missing_required=list(outcome.missing_required),
             unresolved_candidates=list(outcome.unresolved_candidates),
             config_sha=outcome.effective.config_sha,
+            estimated_model_calls=CallEstimateOut(**dataclasses.asdict(calls)),
         )
 
     @app.post("/runs", response_model=RunAccepted, status_code=202)
@@ -577,6 +591,7 @@ def _routes(app: FastAPI) -> None:  # noqa: C901 - one function registers every 
             status="ok",
             fetch_source=fetch_source,
             fetch_mode=settings.fetch_mode,
+            **llm_status.describe(),
             llm_provider=settings.llm_provider,
             llm_model=settings.llm_model if settings.llm_provider != "none" else None,
             classify_mode=settings.classify_mode,

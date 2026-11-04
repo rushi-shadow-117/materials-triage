@@ -41,6 +41,17 @@ class ResolveRequest(BaseModel):
     settings: dict[str, Any] = Field(default_factory=dict)  # QuerySettings fields
 
 
+class CallEstimateOut(BaseModel):
+    """Model calls the run may make (agent/estimate.py): typical count, and the hard cap the
+    step budgets enforce."""
+
+    classify: int
+    rationale: int
+    total: int
+    cap: int
+    basis: str
+
+
 class ResolveResponse(BaseModel):
     settings: dict[str, Any]
     effective_weights: dict[str, float]
@@ -50,6 +61,7 @@ class ResolveResponse(BaseModel):
     missing_required: list[str]
     unresolved_candidates: list[str]
     config_sha: str
+    estimated_model_calls: CallEstimateOut
 
 
 class RunRequest(BaseModel):
@@ -166,7 +178,9 @@ class SourceHealth(BaseModel):
 class HealthResponse(BaseModel):
     status: str
     fetch_source: str
-    fetch_mode: str
+    fetch_mode: str | None  # None: FETCH_MODE unset, recorded data only
+    llm_status: str  # ok, none, missing_key, invalid_key, no_credit (agent/llm_status.py)
+    llm_note: str  # the banner sentence; empty while the model is available
     llm_provider: str
     llm_model: str | None
     classify_mode: str
@@ -221,6 +235,8 @@ class Me(BaseModel):
     subject: str
     role: str
     auth_mode: str
+    llm_status: str
+    llm_note: str
 
 
 BundleOut = ProvenanceBundle

@@ -26,13 +26,19 @@ step "3. web: npm ci and build"
 step "4. lint, types, unit tests (no browser, no db)"
 uv run ruff check -q . && uv run mypy src >/dev/null && uv run pytest -q -p no:cacheprovider -m "not e2e and not keycloak" >/dev/null && ok
 
-step "5. serve on :$PORT from recorded data"
-LLM_PROVIDER=none AUTH_MODE=none FETCH_MODE=replay DATABASE_URL="postgresql+psycopg://x:x@127.0.0.1:1/x" \
+step "5. bare serve on :$PORT (defaults only)"
+# The defaults, nothing else: no .env in a fresh clone, and no setting passed. Keys a
+# developer shell exports are cleared so this is the fresh machine the README describes.
+env -u ANTHROPIC_API_KEY -u LLM_PROVIDER -u LLM_MODEL -u CLASSIFY_MODE -u FETCH_MODE \
+  -u DATABASE_URL -u AUTH_MODE -u MP_API_KEY -u OPENALEX_API_KEY \
   nohup uv run materials-triage serve --port "$PORT" > serve.log 2>&1 &
 SERVE_PID=$!
 trap 'kill $SERVE_PID 2>/dev/null || true' EXIT
 for i in $(seq 1 90); do curl -fsS "http://127.0.0.1:$PORT/health" >/dev/null 2>&1 && break; sleep 2; done
-curl -fsS "http://127.0.0.1:$PORT/health" | grep -q '"fetch_source":"cassettes"' && ok
+curl -fsS "http://127.0.0.1:$PORT/health" | python3 -c '
+import json,sys; h=json.load(sys.stdin)
+assert h["fetch_source"]=="cassettes", h; assert h["llm_status"]=="missing_key", h
+assert h["llm_model"]=="claude-sonnet-5-5", h; assert "fill the criteria form" in h["llm_note"], h' && ok
 
 step "6. the web app answers at / and /console"
 [ "$(curl -s -o /dev/null -w '%{http_code}' "http://127.0.0.1:$PORT/")" = 200 ] \

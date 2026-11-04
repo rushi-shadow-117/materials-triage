@@ -71,6 +71,40 @@
         "title": "Anchor",
         "type": "object"
       },
+      "CallEstimateOut": {
+        "description": "Model calls the run may make (agent/estimate.py): typical count, and the hard cap the\nstep budgets enforce.",
+        "properties": {
+          "basis": {
+            "title": "Basis",
+            "type": "string"
+          },
+          "cap": {
+            "title": "Cap",
+            "type": "integer"
+          },
+          "classify": {
+            "title": "Classify",
+            "type": "integer"
+          },
+          "rationale": {
+            "title": "Rationale",
+            "type": "integer"
+          },
+          "total": {
+            "title": "Total",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "classify",
+          "rationale",
+          "total",
+          "cap",
+          "basis"
+        ],
+        "title": "CallEstimateOut",
+        "type": "object"
+      },
       "Candidate": {
         "additionalProperties": false,
         "properties": {
@@ -1139,8 +1173,15 @@
             "type": "string"
           },
           "fetch_mode": {
-            "title": "Fetch Mode",
-            "type": "string"
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fetch Mode"
           },
           "fetch_source": {
             "title": "Fetch Source",
@@ -1157,8 +1198,16 @@
             ],
             "title": "Llm Model"
           },
+          "llm_note": {
+            "title": "Llm Note",
+            "type": "string"
+          },
           "llm_provider": {
             "title": "Llm Provider",
+            "type": "string"
+          },
+          "llm_status": {
+            "title": "Llm Status",
             "type": "string"
           },
           "sources": {
@@ -1177,6 +1226,8 @@
           "status",
           "fetch_source",
           "fetch_mode",
+          "llm_status",
+          "llm_note",
           "llm_provider",
           "llm_model",
           "classify_mode",
@@ -1479,6 +1530,14 @@
             "title": "Auth Mode",
             "type": "string"
           },
+          "llm_note": {
+            "title": "Llm Note",
+            "type": "string"
+          },
+          "llm_status": {
+            "title": "Llm Status",
+            "type": "string"
+          },
           "role": {
             "title": "Role",
             "type": "string"
@@ -1491,7 +1550,9 @@
         "required": [
           "subject",
           "role",
-          "auth_mode"
+          "auth_mode",
+          "llm_status",
+          "llm_note"
         ],
         "title": "Me",
         "type": "object"
@@ -2492,6 +2553,9 @@
             "title": "Effective Weights",
             "type": "object"
           },
+          "estimated_model_calls": {
+            "$ref": "#/components/schemas/CallEstimateOut"
+          },
           "missing_required": {
             "items": {
               "type": "string"
@@ -2531,7 +2595,8 @@
           "defaults_applied",
           "missing_required",
           "unresolved_candidates",
-          "config_sha"
+          "config_sha",
+          "estimated_model_calls"
         ],
         "title": "ResolveResponse",
         "type": "object"

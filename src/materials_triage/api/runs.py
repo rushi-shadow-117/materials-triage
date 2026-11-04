@@ -109,7 +109,8 @@ class RunManager:
         # everything else through the normal one. Both write to the same store.
         store = Store(make_engine(self.settings.database_url))
         transport = HttpxTransport(self.settings, sleep=time.sleep)
-        normal = Runner(store, transport, mode=self.settings.fetch_mode, run_id=run_id)
+        store_mode = self.settings.fetch_mode or "live"
+        normal = Runner(store, transport, mode=store_mode, run_id=run_id)
         refreshing = Runner(store, transport, mode="refresh", run_id=run_id)
         wanted = {Source(s) for s in refresh}
 
@@ -119,7 +120,7 @@ class RunManager:
             return None if fetched is None else fetched.raw
 
         self.pending_refresh.clear()
-        return routed, FetchMode(self.settings.fetch_mode), line, refresh
+        return routed, FetchMode(store_mode), line, refresh
 
     def _execute(
         self,

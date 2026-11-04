@@ -12,8 +12,8 @@ from typing import Annotated, NoReturn
 
 import typer
 
+from materials_triage.agent import llm_status, pipeline, relaxation
 from materials_triage.agent import parse as parse_mod
-from materials_triage.agent import pipeline, relaxation
 from materials_triage.agent.llm import LLMClient
 from materials_triage.agent.loop import Budget
 from materials_triage.agent.parse import ParseOutcome, resolve_outcome
@@ -21,7 +21,7 @@ from materials_triage.agent.scoring_port import ScorerUnavailableError
 from materials_triage.config.schema import QuerySettings
 from materials_triage.records.bundle import DecisionLogEntry, ProvenanceBundle
 from materials_triage.render import csv_export, markdown
-from materials_triage.settings import MissingSettingError, Settings
+from materials_triage.settings import Settings
 
 from . import confirm as confirm_mod
 from . import rundiff as diff_mod
@@ -72,12 +72,11 @@ def _fail(message: str, code: int = EXIT_FAILED) -> NoReturn:
 
 
 def _llm(settings: Settings, no_llm: bool) -> LLMClient | None:
-    try:
-        client = wiring.make_llm(settings, no_llm=no_llm)
-    except MissingSettingError as e:
-        _fail(f"{e}; set it in .env or pass --no-llm", EXIT_USAGE)
+    client = wiring.make_llm(settings, no_llm=no_llm)
     if client is None and not no_llm:
-        _fail("LLM_PROVIDER=none: pass --no-llm with --criteria", EXIT_USAGE)
+        if settings.llm_provider == "none":
+            _fail("LLM_PROVIDER=none: pass --no-llm with --criteria", EXIT_USAGE)
+        _fail(f"{llm_status.note()} Set the key in .env or pass --no-llm.", EXIT_USAGE)
     return client
 
 

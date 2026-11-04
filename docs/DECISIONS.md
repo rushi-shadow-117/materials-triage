@@ -1284,3 +1284,19 @@ Decision: `scripts/cold_run.sh` clones, installs, builds, tests, serves from rec
 runs Rank my list over the API, and runs one eval case, printing PASS or FAIL per step with no
 model call. `docs/COLD_RUN.md` carries the checklist and the last recorded output.
 Alternative: a prose checklist alone, which nobody re-runs.
+
+## Track H fixes: the human test session (Nov 4)
+
+### 2026-11-04 Fresh-clone defaults: recorded data, Sonnet, model on, fallback to no model
+Decision (owner): a bare `serve` works with no keys and no database. `FETCH_MODE` unset means
+the recorded cassettes, even when Postgres answers; setting it selects the store. The model
+defaults to `claude-sonnet-5-5`, never Opus, and `CLASSIFY_MODE` defaults to `live`. A
+missing key, a rejected key, or an exhausted credit balance sets a process-level status
+(`agent/llm_status.py`): the client is dropped, every step takes its no-model path, the app
+shows a banner, and the run completes. One rejected request is the most a bad key costs.
+`/criteria/resolve` returns the run's estimated model calls (one per abstract for the top
+candidates, plus the rationale) with the step budgets as the hard cap. `scripts/cold_run.sh`
+serves with the bare defaults. Tests cannot reach a provider: the SDK's request method raises
+in every test.
+Alternative: keep the store-first and Opus defaults and fail on a missing key, which is what
+broke the README run in the test session.

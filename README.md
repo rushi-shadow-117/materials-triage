@@ -34,12 +34,16 @@ uv run materials-triage rank --formulas HfO2,ZrO2,Al2O3 --no-llm --fetch cassett
 
 Or with Docker: `docker build --target api -t materials-triage:api . && docker run --rm -p 8000:8000 materials-triage:api`.
 
-Without a model configured the free-text box says so and the criteria form is filled by
-hand; everything else is real. `scripts/cold_run.sh` runs this whole check on a fresh clone.
+The bare defaults read the recorded data and use `claude-sonnet-5-5`. With no key, a banner
+says there is no model and the criteria form is filled by hand; a rejected key or an empty
+credit balance does the same. `scripts/cold_run.sh` runs this whole check on a fresh clone.
 
 ## The demo configuration
 
-One model call per Describe request, none for Rank my list. In `.env`:
+With a key, the model is on by default: it parses Describe requests and classifies
+abstracts (`CLASSIFY_MODE=live`), and the confirm step shows the run's estimated model calls
+before it runs. The demo option makes one call per Describe request and none for Rank my list.
+In `.env`:
 
 ```
 LLM_PROVIDER=anthropic
@@ -49,9 +53,10 @@ CLASSIFY_MODE=cache_only
 ```
 
 `CLASSIFY_MODE=cache_only` reads evidence labels from the classifier cache and marks misses
-unclassified; it never calls the model for an abstract. Live fetching needs `MP_API_KEY` and
-`OPENALEX_API_KEY` plus Postgres (`docker compose up -d`, then `uv run alembic upgrade head`);
-without Postgres, `--fetch auto` uses the recorded data and says so.
+unclassified; it never calls the model for an abstract. Live fetching needs `FETCH_MODE=live`,
+`MP_API_KEY`, and `OPENALEX_API_KEY` plus Postgres (`docker compose up -d`, then `uv run alembic
+upgrade head`); with `FETCH_MODE` unset, or without Postgres, runs use the recorded data and
+say so.
 
 ## Sign-in
 

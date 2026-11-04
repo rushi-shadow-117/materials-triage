@@ -73,6 +73,9 @@ def test_dev_mode_role_comes_from_settings_only(tmp_path: Path) -> None:
         "subject": "dev",
         "role": "fde",
         "auth_mode": "none",
+        "llm_status": "none",
+        "llm_note": "No model configured (LLM_PROVIDER=none). The request box is off; "
+        "fill the criteria form by hand.",
     }
     assert c.post("/admin/refresh", json={"source": "openalex", "note": "x"}).status_code == 403
 

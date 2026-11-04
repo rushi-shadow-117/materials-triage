@@ -31,21 +31,24 @@ class Settings(BaseSettings):
     openalex_mailto: str | None = None
 
     # LLM access (Track B). The model id is the exact string the provider serves; it is
-    # recorded in every bundle. Provider "none" runs the pipeline with no LLM step.
+    # recorded in every bundle. Provider "none" runs the pipeline with no LLM step. A missing,
+    # rejected, or out-of-credit key falls back to no model with a banner (agent/llm_status.py).
     llm_provider: LLMProvider = "anthropic"
-    llm_model: str = "claude-opus-5-5"
+    llm_model: str = "claude-sonnet-5-5"
     anthropic_api_key: SecretStr | None = None
     llm_base_url: str | None = None  # openai_compatible: the server's /v1 base URL
     llm_api_key: SecretStr | None = None  # openai_compatible: optional bearer token
     aws_region: str | None = None  # bedrock
 
-    # cache_only: evidence labels come from the classifier cache only; a miss stays
-    # unclassified and the model is never called for it (owner rule, Track C). The demo
-    # configuration is anthropic + claude-sonnet-5-5 + cache_only: one parse call per request.
+    # live (the default): abstracts are classified by the model within the classify budget;
+    # /criteria/resolve returns the run's estimated model calls first. cache_only: labels
+    # come from the classifier cache only and a miss stays unclassified (the demo option).
     classify_mode: ClassifyMode = "live"
 
     data_cache_dir: Path = Path(".data-cache")
-    fetch_mode: FetchMode = "live"
+    # Unset: every source is the recorded cassettes, so a fresh clone runs with no keys and no
+    # database. Set (live, replay, refresh): the Postgres store when it answers, else cassettes.
+    fetch_mode: FetchMode | None = None
 
     # Auth (Track C). Roles come only from the bearer token (static or OIDC); in mode "none"
     # every request carries dev_role. site_mode refuses static tokens unless allowed.

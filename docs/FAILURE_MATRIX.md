@@ -186,3 +186,11 @@ rows only under its own heading. Rows name a test path; a row without a test is 
 | The api image does not build or does not serve /health from recorded data | The CI docker job fails | .github/workflows/ci.yml (docker job) |
 | The Terraform module is unformatted or invalid | The CI terraform job fails | .github/workflows/ci.yml (terraform job) |
 | A fresh clone cannot install, build, serve, rank, or run an eval case | scripts/cold_run.sh prints FAIL at that step and exits non-zero | scripts/cold_run.sh |
+
+## Track H fixes: the human test session
+
+| Failure | Behavior | Test |
+|---|---|---|
+| A fresh clone has no key and no database | The run completes from recorded data; health reports `missing_key` and the banner shows | tests/api/test_fresh_defaults.py::test_missing_key_falls_back_and_the_run_completes |
+| The provider rejects the key or the account has no credit | One rejected request sets the status; parse falls back to the form and the run completes | tests/api/test_fresh_defaults.py::test_rejected_key_or_no_credit_falls_back |
+| A test reaches the model provider | The SDK's request method raises in every test | tests/api/test_fresh_defaults.py::test_tests_cannot_reach_the_provider |

@@ -446,6 +446,23 @@ export interface components {
             /** Would Rank */
             would_rank: number | null;
         };
+        /**
+         * CallEstimateOut
+         * @description Model calls the run may make (agent/estimate.py): typical count, and the hard cap the
+         *     step budgets enforce.
+         */
+        CallEstimateOut: {
+            /** Basis */
+            basis: string;
+            /** Cap */
+            cap: number;
+            /** Classify */
+            classify: number;
+            /** Rationale */
+            rationale: number;
+            /** Total */
+            total: number;
+        };
         /** Candidate */
         Candidate: {
             /** Caveats */
@@ -750,13 +767,17 @@ export interface components {
             /** Classify Mode */
             classify_mode: string;
             /** Fetch Mode */
-            fetch_mode: string;
+            fetch_mode: string | null;
             /** Fetch Source */
             fetch_source: string;
             /** Llm Model */
             llm_model: string | null;
+            /** Llm Note */
+            llm_note: string;
             /** Llm Provider */
             llm_provider: string;
+            /** Llm Status */
+            llm_status: string;
             /** Sources */
             sources: components["schemas"]["SourceHealth"][];
             /** Status */
@@ -830,6 +851,10 @@ export interface components {
         Me: {
             /** Auth Mode */
             auth_mode: string;
+            /** Llm Note */
+            llm_note: string;
+            /** Llm Status */
+            llm_status: string;
             /** Role */
             role: string;
             /** Subject */
@@ -1155,6 +1180,7 @@ export interface components {
             effective_weights: {
                 [key: string]: number;
             };
+            estimated_model_calls: components["schemas"]["CallEstimateOut"];
             /** Missing Required */
             missing_required: string[];
             /** Settings */
