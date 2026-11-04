@@ -15,9 +15,23 @@ docker compose --profile auth up -d keycloak      # optional: dev identity provi
 docker compose --profile split-web up -d          # optional: nginx front on :8081
 ```
 
+Two Compose files. `compose.yaml` is for development: one network, with Postgres
+(`127.0.0.1:5433`) and Keycloak (`127.0.0.1:8080`) published on the loopback address only, so
+the host's tools, migrations, and the browser's sign-in page reach them. `compose.site.yaml`
+is the site override:
+
+```
+docker compose -f compose.yaml -f compose.site.yaml up -d
+```
+
+It moves Postgres and Keycloak to an internal network (`internal: true`) and removes their
+host ports; the api joins that network and the `egress` network, and the split web front
+joins it and a `front` network for its port. Docker publishes no host port for a service whose
+only network is internal, which is why the split lives in the site file and not the dev one.
+
 The `api` image serves the web app too; `split-web` is for sites that deploy the static app
 separately. The image contains the recorded source data, so it answers from the cassettes
-with no keys when Postgres is not reachable (`--fetch auto`).
+with no keys unless `FETCH_MODE` is set and Postgres answers.
 
 **From source:** `uv sync`, `cd web && npm ci && npm run build`, `uv run materials-triage
 serve`. Postgres 16 on host port 5433 comes from Compose; create the roles with
@@ -34,13 +48,17 @@ treat the first build on your cluster as the test.
 |---|---|
 | `DATABASE_URL`, `DATABASE_URL_MIGRATE`, `DATABASE_URL_MAINT` | the three Postgres roles: app (select and insert), migrate (DDL), maint (select and delete) |
 | `MP_API_KEY`, `OPENALEX_API_KEY`, `OPENALEX_MAILTO` | source credentials, injected at send time, never stored in records |
-| `FETCH_MODE` | `live` (store first, network on a miss), `replay` (store only), `refresh` (always network) |
+| `FETCH_MODE` | unset (default): recorded cassettes only; `live` (store first, network on a miss), `replay` (store only), `refresh` (always network) |
 | `LLM_PROVIDER`, `LLM_MODEL`, `ANTHROPIC_API_KEY`, `LLM_BASE_URL`, `LLM_API_KEY`, `AWS_REGION` | the model: `anthropic`, `bedrock`, `openai_compatible`, or `none` |
-| `CLASSIFY_MODE` | `live` or `cache_only` (never calls the model for an abstract) |
+| `CLASSIFY_MODE` | `live` (default; within the classify budget, estimate returned by `/api/criteria/resolve`) or `cache_only` (never calls the model for an abstract) |
 | `AUTH_MODE`, `DEV_ROLE`, `STATIC_TOKENS`, `SITE_MODE`, `ALLOW_STATIC_TOKENS`, `OIDC_ISSUER`, `OIDC_AUDIENCE`, `OIDC_ROLES_CLAIM` | sign-in, below |
 | `DATA_CACHE_DIR` | run bundles, the classifier cache, the audit log, screenshots |
 
-The demo configuration (one parse call per request): `LLM_PROVIDER=anthropic`,
+The default model is `claude-sonnet-5-5`. A missing key, a rejected key, or an exhausted
+credit balance turns the model off for the process: `/api/health` reports `llm_status`
+(`missing_key`, `invalid_key`, `no_credit`), the app shows a banner, and runs complete with
+template rationale and unclassified evidence. Restart after fixing the key. The demo
+configuration (one parse call per request): `LLM_PROVIDER=anthropic`,
 `LLM_MODEL=claude-sonnet-5-5`, `CLASSIFY_MODE=cache_only`.
 
 ## Sign-in and roles
@@ -74,7 +92,7 @@ that carries roles; map your groups to the three role names there. Change the de
 or delete the dev users before any shared deployment.
 
 Every refused request (401, 403) and every admin action is appended to
-`DATA_CACHE_DIR/audit.log` as JSON lines; admins read it at `GET /audit`.
+`DATA_CACHE_DIR/audit.log` as JSON lines; admins read it at `GET /api/audit`.
 
 ## The console
 
@@ -101,8 +119,8 @@ Two layers:
    `pubchem.ncbi.nlm.nih.gov`, `www.crystallography.net`) plus the configured model endpoint
    (`api.anthropic.com`, the Bedrock Mantle host for the region, or `LLM_BASE_URL`'s host)
    before it is sent. The model's own HTTP client carries the same check.
-2. **Network.** Compose puts Postgres and Keycloak on an internal network with no outside
-   route and only the API on the egress network. That limits which service may reach the
+2. **Network.** With `compose.site.yaml`, Postgres and Keycloak sit on an internal network
+   with no outside route and only the API is on the egress network. That limits which service may reach the
    internet; it does not filter by hostname. A network-level domain allowlist needs an egress
    proxy or a firewall with domain rules (AWS Network Firewall, for example), configured with
    the host list above. The Terraform reference module routes egress through a NAT gateway and
@@ -128,6 +146,6 @@ hazard record cites ECHA show the required attribution line.
 
 ## Health
 
-`GET /health` reports the fetch source (store or cassettes), fetch mode, model provider and
+`GET /api/health` reports the fetch source (store or cassettes), fetch mode, model provider and
 model, classify mode, auth mode, and per source the record count, last fetch, and allowed
 host. The Docker image's health check calls it.

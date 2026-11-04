@@ -10,11 +10,13 @@ Grammar: `{kind:arg}` or `{kind:composition:field}` with kind in TOKEN_KINDS.
 from __future__ import annotations
 
 import re
+from collections.abc import Callable
 from dataclasses import dataclass, field
 
 from materials_triage.records.bundle import (
     Anchor,
     Candidate,
+    Caveat,
     CriterionScore,
     PolymorphSummaryRow,
     ProvenanceBundle,
@@ -31,6 +33,7 @@ TOKEN_KINDS = (
     "ghs",
     "spacegroup",
     "id",
+    "caveat",
 )
 TOKEN_RE = re.compile(r"\{(" + "|".join(TOKEN_KINDS) + r"):([^{}]*)\}")
 
@@ -65,14 +68,72 @@ class TokenError(ValueError):
         self.kind = kind
 
 
+CaveatTextFn = Callable[[Caveat, Candidate | Anchor], str]
+TIES_NOTE = "Equal scores are tied; tied rows are listed alphabetically."
+
+
+@dataclass(frozen=True)
+class ShownRank:
+    """A ranked row's rank as the reader sees it: tied rows share the first rank of their
+    group ("1="); the bundle's integer ranks stay as they are (the deterministic order)."""
+
+    rank: int
+    tied: bool
+
+    @property
+    def text(self) -> str:
+        return f"{self.rank}=" if self.tied else str(self.rank)
+
+
+def ordinal(n: int) -> str:
+    suffix = "th" if 10 <= n % 100 <= 20 else {1: "st", 2: "nd", 3: "rd"}.get(n % 10, "th")
+    return f"{n}{suffix}"
+
+
+def anchor_placement(a: Anchor) -> str | None:
+    """ "would place 5th of 6, between ZrO2 and TiO2"; None for an unranked anchor."""
+    if a.would_rank is None:
+        return None
+    text = f"would place {ordinal(a.would_rank)} of {a.out_of}"
+    if a.ranked_above and a.ranked_below:
+        return f"{text}, between {a.ranked_above} and {a.ranked_below}"
+    if a.ranked_below:
+        return f"{text}, above {a.ranked_below}"
+    if a.ranked_above:
+        return f"{text}, below {a.ranked_above}"
+    return text
+
+
+def shown_ranks(bundle: ProvenanceBundle) -> dict[str, ShownRank]:
+    """Equal totals at display precision are a tie."""
+    first_rank: dict[str, int] = {}
+    size: dict[str, int] = {}
+    keyed: list[tuple[str, str]] = []
+    for i, c in enumerate(bundle.ranked()):
+        total = c.score.total if c.score is not None else None
+        key = precision.fmt(total, "score") if total is not None else f"missing:{i}"
+        first_rank.setdefault(key, c.rank or i + 1)
+        size[key] = size.get(key, 0) + 1
+        keyed.append((c.composition, key))
+    return {comp: ShownRank(first_rank[key], size[key] > 1) for comp, key in keyed}
+
+
+CAVEAT_FALLBACK = "a caveat listed below"
+
+
 @dataclass
 class BundleIndex:
     rows: dict[str, Candidate | Anchor] = field(default_factory=dict)
     ids: set[str] = field(default_factory=set)
+    # fills {caveat:...} with config text; the verifier only checks the caveat is on the row
+    caveat_text: CaveatTextFn | None = None
+    ranks: dict[str, ShownRank] = field(default_factory=dict)
 
     @classmethod
-    def build(cls, bundle: ProvenanceBundle) -> BundleIndex:
-        idx = cls()
+    def build(
+        cls, bundle: ProvenanceBundle, caveat_text: CaveatTextFn | None = None
+    ) -> BundleIndex:
+        idx = cls(caveat_text=caveat_text, ranks=shown_ranks(bundle))
         rows: list[Candidate | Anchor] = [*bundle.candidates, *bundle.anchors]
         for row in rows:
             idx.rows[row.composition] = row
@@ -185,12 +246,11 @@ def resolve(
     if kind == "rank":
         row = index.row(arg)
         if isinstance(row, Anchor):
-            if row.would_rank is None:
-                return "unranked anchor"
-            return f"would rank {row.would_rank} of {row.out_of}"
+            return anchor_placement(row) or "unranked anchor"
         if row.rank is None:
             return "excluded" if row.excluded is not None else "unranked"
-        return str(row.rank)
+        shown = index.ranks.get(arg)
+        return shown.text if shown is not None else str(row.rank)
     if kind == "value":
         comp, name = _split(arg, 2, token)
         cs = index.criterion(comp, name)
@@ -215,6 +275,13 @@ def resolve(
         if gs is None or gs.spacegroup_symbol is None:
             return "space group not reported"
         return gs.spacegroup_symbol
+    if kind == "caveat":
+        comp, cid = _split(arg, 2, token)
+        row = index.row(comp)
+        found = next((c for c in row.caveats if c.id.value == cid), None)
+        if found is None:
+            raise TokenError("unknown_token", f"{cid} is not a caveat of {comp}")
+        return index.caveat_text(found, row) if index.caveat_text else CAVEAT_FALLBACK
     if kind == "id":
         if arg not in index.ids:
             raise TokenError("unknown_record_id", f"{arg} is not a record id in this bundle")

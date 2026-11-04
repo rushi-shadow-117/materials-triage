@@ -77,6 +77,7 @@ export interface RowView {
   composition: string;
   is_anchor: boolean;
   rank: string;
+  tied?: boolean;
   total: string;
   rationale: string;
   rationale_verified: boolean | null;
@@ -188,7 +189,10 @@ export interface RunViewJson {
   hidden_excluded: number;
   hull_cutoff: string | null;
   unresolved_candidates: string[];
+  unresolved: { text: string; reason: string }[];
   unavailable_properties: string[];
+  ties_note: string | null;
+  profile_caveats: CaveatText[];
   run: RunMeta;
   criteria: Criteria;
   verifier: Verifier | null;

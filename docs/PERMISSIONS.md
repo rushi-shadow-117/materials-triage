@@ -12,30 +12,30 @@ this table against the app, so the table cannot drift from the code.
 
 | Route | Scientist | FDE | Admin | Dependency |
 |---|---|---|---|---|
-| GET /me | yes | yes | yes | current_principal |
-| GET /health | yes | yes | yes | none (no identity needed) |
-| GET /profiles | yes | yes | yes | any_role |
-| POST /parse | yes | yes | yes | any_role |
-| POST /criteria/resolve | yes | yes | yes | any_role |
-| POST /runs | yes | yes | yes | any_role |
-| GET /runs | yes | yes | yes | any_role |
-| GET /runs/{run_id} | yes | yes | yes | any_role |
-| GET /runs/{run_id}/status | yes | yes | yes | any_role |
-| GET /runs/{run_id}/events | yes | yes | yes | any_role |
-| POST /runs/{run_id}/cancel | yes | yes | yes | any_role |
-| GET /runs/{run_id}/view | yes | yes | yes | any_role |
-| GET /runs/{run_id}/export | yes | yes | yes | any_role |
-| GET /runs/{run_id}/drill/{composition}/{criterion} | yes | yes | yes | any_role |
-| GET /runs/{run_id}/relaxations | yes | yes | yes | any_role |
-| POST /runs/{run_id}/relax | yes | yes | yes | any_role |
-| GET /config/effective | yes | yes | yes | any_role |
-| GET /config/layers | no | yes | yes | console_roles |
-| GET /hazard-policy | no | yes | yes | console_roles |
-| GET /weight-bounds | yes | yes | yes | any_role |
-| POST /admin/profiles/validate | no | yes | yes | console_roles |
-| POST /admin/profiles | no | yes | yes | console_roles |
-| POST /admin/refresh | no | no | yes | admin_only |
-| GET /audit | no | no | yes | admin_only |
+| GET /api/me | yes | yes | yes | current_principal |
+| GET /api/health | yes | yes | yes | none (no identity needed) |
+| GET /api/profiles | yes | yes | yes | any_role |
+| POST /api/parse | yes | yes | yes | any_role |
+| POST /api/criteria/resolve | yes | yes | yes | any_role |
+| POST /api/runs | yes | yes | yes | any_role |
+| GET /api/runs | yes | yes | yes | any_role |
+| GET /api/runs/{run_id} | yes | yes | yes | any_role |
+| GET /api/runs/{run_id}/status | yes | yes | yes | any_role |
+| GET /api/runs/{run_id}/events | yes | yes | yes | any_role |
+| POST /api/runs/{run_id}/cancel | yes | yes | yes | any_role |
+| GET /api/runs/{run_id}/view | yes | yes | yes | any_role |
+| GET /api/runs/{run_id}/export | yes | yes | yes | any_role |
+| GET /api/runs/{run_id}/drill/{composition}/{criterion} | yes | yes | yes | any_role |
+| GET /api/runs/{run_id}/relaxations | yes | yes | yes | any_role |
+| POST /api/runs/{run_id}/relax | yes | yes | yes | any_role |
+| GET /api/config/effective | yes | yes | yes | any_role |
+| GET /api/config/layers | no | yes | yes | console_roles |
+| GET /api/hazard-policy | no | yes | yes | console_roles |
+| GET /api/weight-bounds | yes | yes | yes | any_role |
+| POST /api/admin/profiles/validate | no | yes | yes | console_roles |
+| POST /api/admin/profiles | no | yes | yes | console_roles |
+| POST /api/admin/refresh | no | no | yes | admin_only |
+| GET /api/audit | no | no | yes | admin_only |
 
 Weight bounds are readable by every role: the workspace shows the sliders' limits to the
 scientist, who can move weights only inside them.

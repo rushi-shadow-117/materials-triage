@@ -3,6 +3,7 @@ scorer: the pipeline produces a valid bundle whose ranks match the sample."""
 
 from __future__ import annotations
 
+import dataclasses
 import json
 from pathlib import Path
 
@@ -13,7 +14,7 @@ from materials_triage.adapters.base import Call, RawResponse
 from materials_triage.agent import llm, parse, pipeline, scoring_port
 from materials_triage.agent.loop import Budget
 from materials_triage.config import schema as cs
-from materials_triage.records.bundle import EvidenceLabel, ProvenanceBundle
+from materials_triage.records.bundle import EvidenceLabel, FetchMode, ProvenanceBundle
 from materials_triage.render import markdown
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -87,7 +88,7 @@ def test_candidate_list_run_matches_the_golden_bundle(
         (c.rank, c.composition) for c in sample.ranked()
     ]
     assert {c.composition for c in bundle.excluded()} == {"ThO2", "BeO"}
-    assert [a.composition for a in bundle.anchors] == ["SiO2"] and bundle.anchors[0].out_of == 8
+    assert [a.composition for a in bundle.anchors] == ["SiO2"] and bundle.anchors[0].out_of == 9
     assert bundle.run.partial is False and bundle.availability_events == []
     assert bundle.run.source_versions["materials_project"] == "2026.09.28"
     assert bundle.run.model_version is None and bundle.run.prompt_hash is None
@@ -115,7 +116,7 @@ def test_candidate_list_run_matches_the_golden_bundle(
     assert bundle.decision_log[0].detail["code_version"]
     assert len(bundle.missing_properties) == 8  # site list plus the profile item
     text = markdown.render_pi_summary(bundle, layers[1])
-    assert "| 1 | Al2O3 |" in text
+    assert "| 1= | Al2O3 |" in text  # tied at 1.000 (human test session, item 7)
     ProvenanceBundle.model_validate_json(bundle.model_dump_json())
 
 
@@ -133,7 +134,17 @@ def test_missing_sources_become_events_and_a_partial_run(
         inputs, fetch=flaky, sources=sources, scorer=scoring_port.default_scorer()
     )
     assert bundle.run.partial is True
-    assert bundle.run.partial_reasons == ["XeF2: no Materials Project summary available"]
+    # offline (replay): never says the source lacks it (human test session, item 12)
+    offline = "Not in the recorded data (offline mode); available with live fetching"
+    assert bundle.run.partial_reasons == [f"XeF2: {offline}"]
+    assert bundle.criteria.not_fetched == {"XeF2": offline}
+    live = pipeline.run(
+        dataclasses.replace(inputs, fetch_mode=FetchMode.LIVE),
+        fetch=flaky,
+        sources=sources,
+        scorer=scoring_port.default_scorer(),
+    )
+    assert live.run.partial_reasons == ["XeF2: no Materials Project summary available"]
     assert {e["source"] for e in bundle.availability_events} == {"openalex", "materials_project"}
     hf = next(c for c in bundle.candidates if c.composition == "HfO2")
     assert hf.group.literature is None and bundle.evidence == []

@@ -5,7 +5,7 @@ from __future__ import annotations
 
 from typing import Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 from materials_triage.config.schema import Clamp, QuerySettings
 from materials_triage.records.bundle import ProvenanceBundle
@@ -41,6 +41,24 @@ class ResolveRequest(BaseModel):
     settings: dict[str, Any] = Field(default_factory=dict)  # QuerySettings fields
 
 
+class CallEstimateOut(BaseModel):
+    """Model calls the run may make (agent/estimate.py): typical count, and the hard cap the
+    step budgets enforce."""
+
+    classify: int
+    rationale: int
+    total: int
+    cap: int
+    basis: str
+
+
+class UnresolvedOut(BaseModel):
+    """An entry that matched no formula or known name, with the reason shown on its chip."""
+
+    text: str
+    reason: str
+
+
 class ResolveResponse(BaseModel):
     settings: dict[str, Any]
     effective_weights: dict[str, float]
@@ -49,7 +67,9 @@ class ResolveResponse(BaseModel):
     defaults_applied: list[str]
     missing_required: list[str]
     unresolved_candidates: list[str]
+    unresolved: list[UnresolvedOut] = Field(default_factory=list)
     config_sha: str
+    estimated_model_calls: CallEstimateOut
 
 
 class RunRequest(BaseModel):
@@ -144,7 +164,15 @@ class ProfileSaved(BaseModel):
 
 class RefreshRequest(BaseModel):
     source: str
-    note: str = Field(min_length=1)
+    note: str = Field(min_length=1)  # the audit note; stripped, and blank is refused
+
+    @field_validator("note")
+    @classmethod
+    def _note_has_text(cls, v: str) -> str:
+        stripped = v.strip()
+        if not stripped:
+            raise ValueError("an audit note is required; whitespace alone is not a note")
+        return stripped
 
 
 class RefreshAccepted(BaseModel):
@@ -166,7 +194,9 @@ class SourceHealth(BaseModel):
 class HealthResponse(BaseModel):
     status: str
     fetch_source: str
-    fetch_mode: str
+    fetch_mode: str | None  # None: FETCH_MODE unset, recorded data only
+    llm_status: str  # ok, none, missing_key, invalid_key, no_credit (agent/llm_status.py)
+    llm_note: str  # the banner sentence; empty while the model is available
     llm_provider: str
     llm_model: str | None
     classify_mode: str
@@ -194,6 +224,8 @@ class DrillValue(BaseModel):
     source: str
     record_id: str | None
     used: bool
+    form: str | None = None  # experimental gaps: the material form (amorphous_film, ...)
+    url: str | None = None  # the record's page (every Materials Project value links)
 
 
 class DrillResponse(BaseModel):
@@ -221,6 +253,8 @@ class Me(BaseModel):
     subject: str
     role: str
     auth_mode: str
+    llm_status: str
+    llm_note: str
 
 
 BundleOut = ProvenanceBundle

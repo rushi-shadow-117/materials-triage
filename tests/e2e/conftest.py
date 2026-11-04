@@ -69,10 +69,10 @@ def server(tmp_path_factory: pytest.TempPathFactory) -> Iterator[str]:
         stderr=subprocess.STDOUT,
     )
     base = f"http://127.0.0.1:{port}"
-    deadline = time.monotonic() + 180  # the first /health builds the cassette index
+    deadline = time.monotonic() + 180  # the first /api/health builds the cassette index
     while time.monotonic() < deadline:
         try:
-            if httpx.get(f"{base}/health", timeout=2.0).status_code == 200:
+            if httpx.get(f"{base}/api/health", timeout=2.0).status_code == 200:
                 break
         except httpx.HTTPError:
             time.sleep(0.3)

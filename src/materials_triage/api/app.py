@@ -12,18 +12,20 @@ import dataclasses
 from pathlib import Path
 from typing import Any
 
-from fastapi import Body, FastAPI, HTTPException, Query, Request
+from fastapi import APIRouter, Body, FastAPI, HTTPException, Query, Request
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse, PlainTextResponse
 from fastapi.staticfiles import StaticFiles
 from sse_starlette.sse import EventSourceResponse
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
+from materials_triage.agent import estimate as estimate_mod
+from materials_triage.agent import llm_status, pipeline, relaxation
 from materials_triage.agent import parse as parse_mod
-from materials_triage.agent import pipeline, relaxation
 from materials_triage.agent.loop import Budget
 from materials_triage.cli import wiring
 from materials_triage.config.schema import QuerySettings, resolve, unavailable_properties
+from materials_triage.records import record_url
 from materials_triage.records.bundle import (
     Anchor,
     Candidate,
@@ -33,11 +35,13 @@ from materials_triage.records.bundle import (
 from materials_triage.render import csv_export, markdown
 from materials_triage.render.caveats import CaveatConfig
 from materials_triage.render.views import build
+from materials_triage.scoring.band_gap import experimental_pool
 from materials_triage.settings import Settings
 
 from . import admin, auth
 from .runs import RunManager
 from .schemas import (
+    CallEstimateOut,
     DrillResponse,
     DrillValue,
     HazardRow,
@@ -58,16 +62,19 @@ from .schemas import (
     RunAccepted,
     RunRequest,
     RunSummary,
+    UnresolvedOut,
     WeightBoundRow,
 )
 
 ROOT = Path(__file__).resolve().parents[3]
 WEB_DIST = ROOT / "web" / "dist"
+API_PREFIX = "/api"  # every API route; everything else is the web app or its files
 
 
 def create_app(settings: Settings | None = None, *, serve_web: bool = False) -> FastAPI:
     settings = settings or Settings()
     auth.check_startup(settings)
+    wiring.initial_llm_status(settings)
     app = FastAPI(
         title="materials-triage",
         version="0.1.0",
@@ -75,6 +82,10 @@ def create_app(settings: Settings | None = None, *, serve_web: bool = False) -> 
             "Triage candidate materials from public data. Every number traces to a source "
             "record; roles come only from the bearer token."
         ),
+        docs_url=f"{API_PREFIX}/docs",
+        swagger_ui_oauth2_redirect_url=f"{API_PREFIX}/docs/oauth2-redirect",
+        redoc_url=None,
+        openapi_url=f"{API_PREFIX}/openapi.json",
     )
     app.state.settings = settings
     app.state.audit = auth.AuditLog(settings.data_cache_dir / "audit.log")
@@ -85,21 +96,26 @@ def create_app(settings: Settings | None = None, *, serve_web: bool = False) -> 
         )
     app.state.runs = RunManager(settings, wiring.make_run_store(settings), pipeline.Sources.load())
     app.state.layers = {}
-    _routes(app)
-    if serve_web and WEB_DIST.exists():
-        app.mount("/", SpaStaticFiles(directory=WEB_DIST, html=True), name="web")
+    router = APIRouter(prefix=API_PREFIX)
+    _routes(router)
+    app.include_router(router)
+    dist = settings.web_dist or WEB_DIST
+    if serve_web and dist.exists():
+        app.mount("/", SpaStaticFiles(directory=dist, html=True), name="web")
     return app
 
 
 class SpaStaticFiles(StaticFiles):
     """The built web app: a client-side route (no file extension) falls back to index.html so
-    deep links such as /runs/<id> and /console load the app; real files are served as is."""
+    deep links and reloads such as /runs/<id> and /console load the app; real files are served
+    as is. An unknown /api path stays a 404 and never becomes the app."""
 
     async def get_response(self, path: str, scope: Any) -> Any:
         try:
             return await super().get_response(path, scope)
         except StarletteHTTPException as e:
-            if e.status_code == 404 and "." not in path.rsplit("/", 1)[-1]:
+            is_api = path == API_PREFIX.strip("/") or path.startswith(API_PREFIX.strip("/") + "/")
+            if e.status_code == 404 and not is_api and "." not in path.rsplit("/", 1)[-1]:
                 return await super().get_response("index.html", scope)
             raise
 
@@ -190,10 +206,15 @@ def _row(bundle: ProvenanceBundle, composition: str) -> Candidate | Anchor:
 # ----------------------------------------------------------------------------- routes
 
 
-def _routes(app: FastAPI) -> None:  # noqa: C901 - one function registers every route
+def _routes(app: APIRouter) -> None:  # noqa: C901 - one function registers every route
     @app.get("/me", response_model=Me)
     def me(principal: auth.Current) -> Me:
-        return Me(subject=principal.subject, role=principal.role, auth_mode=principal.mode)
+        return Me(
+            subject=principal.subject,
+            role=principal.role,
+            auth_mode=principal.mode,
+            **llm_status.describe(),
+        )
 
     @app.get("/profiles", response_model=list[ProfileSummary])
     def profiles(_: auth.AnyRole) -> list[ProfileSummary]:
@@ -205,13 +226,9 @@ def _routes(app: FastAPI) -> None:  # noqa: C901 - one function registers every 
         confirm form is filled by hand (no call is made)."""
         settings: Settings = request.app.state.settings
         layers = _layers(request, body.profile)
-        if settings.llm_provider == "none":
-            return ParseResponse(
-                parse_available=False,
-                reason="no model configured (LLM_PROVIDER=none): fill the criteria form",
-            )
         client = wiring.make_llm(settings, no_llm=False)
-        assert client is not None
+        if client is None:
+            return ParseResponse(parse_available=False, reason=llm_status.note())
         step = parse_mod.run_parse(
             client=client,
             request_text=body.request_text,
@@ -221,6 +238,8 @@ def _routes(app: FastAPI) -> None:  # noqa: C901 - one function registers every 
             cli_profile=layers.profile.name,
             budget=Budget.from_core(layers.core, "parse"),
         )
+        if step.reason == "llm_unavailable":
+            return ParseResponse(parse_available=False, reason=llm_status.note())
         if not step.ok or step.outcome is None:
             return ParseResponse(
                 parse_available=True, reason=f"parse failed: {step.reason}", model=client.model
@@ -244,6 +263,13 @@ def _routes(app: FastAPI) -> None:  # noqa: C901 - one function registers every 
         except (ValueError, parse_mod.CandidateListError) as e:
             raise HTTPException(status_code=422, detail=str(e)) from None
         assert outcome.query is not None and outcome.effective is not None
+        settings: Settings = request.app.state.settings
+        calls = estimate_mod.estimate(
+            query=outcome.query,
+            effective=outcome.effective,
+            core=layers.core,
+            classify_mode=settings.classify_mode,
+        )
         return ResolveResponse(
             settings=outcome.query.model_dump(mode="json"),
             effective_weights=dict(outcome.effective.weights),
@@ -252,7 +278,12 @@ def _routes(app: FastAPI) -> None:  # noqa: C901 - one function registers every 
             defaults_applied=list(outcome.defaults_applied),
             missing_required=list(outcome.missing_required),
             unresolved_candidates=list(outcome.unresolved_candidates),
+            unresolved=[
+                UnresolvedOut(text=t, reason=parse_mod.UNRESOLVED_REASON)
+                for t in outcome.unresolved_candidates
+            ],
             config_sha=outcome.effective.config_sha,
+            estimated_model_calls=CallEstimateOut(**dataclasses.asdict(calls)),
         )
 
     @app.post("/runs", response_model=RunAccepted, status_code=202)
@@ -273,6 +304,14 @@ def _routes(app: FastAPI) -> None:  # noqa: C901 - one function registers every 
             raise HTTPException(status_code=422, detail=str(e)) from None
         query = outcome.query
         assert query is not None
+        if query.mode == "candidate_list" and not query.candidate_list:
+            # nothing to rank: say why in a sentence, never a Python list
+            raise HTTPException(
+                status_code=422,
+                detail=parse_mod.nothing_matched(outcome.unresolved_candidates)
+                if outcome.unresolved_candidates
+                else "Paste at least one formula or name to rank.",
+            )
         unavailable = unavailable_properties(body.requested_properties)
         outcome = dataclasses.replace(outcome, unavailable_properties=unavailable)
         if query.mode == "discovery" and not body.requested_properties:
@@ -577,6 +616,7 @@ def _routes(app: FastAPI) -> None:  # noqa: C901 - one function registers every 
             status="ok",
             fetch_source=fetch_source,
             fetch_mode=settings.fetch_mode,
+            **llm_status.describe(),
             llm_provider=settings.llm_provider,
             llm_model=settings.llm_model if settings.llm_provider != "none" else None,
             classify_mode=settings.classify_mode,
@@ -613,6 +653,7 @@ PI_ROW_FIELDS = (
     "composition",
     "is_anchor",
     "rank",
+    "tied",
     "total",
     "rationale",
     "rationale_verified",
@@ -657,6 +698,7 @@ def _drill(
                         value=precision.fmt(value.value, value.unit, units),
                         source=value.provenance.source,
                         record_id=value.provenance.source_record_id,
+                        url=record_url(value.provenance),
                         used=(
                             p is not None
                             and value.provenance.source_record_id == p.source_record_id
@@ -664,29 +706,30 @@ def _drill(
                         ),
                     )
                 )
-        if row.group.experimental_gaps is not None:
-            for g in row.group.experimental_gaps.values:
-                if g.value_ev.value is not None:
-                    others.append(
-                        DrillValue(
-                            method=f"experimental ({g.table})",
-                            value=precision.fmt(g.value_ev.value, g.value_ev.unit, units),
-                            source=g.value_ev.provenance.source,
-                            record_id=g.value_ev.provenance.source_record_id,
-                            used=score.source == "experimental_median",
-                        )
-                    )
-        for rv in row.group.reference_values:
-            if rv.value is not None and rv.value.value is not None:
-                others.append(
-                    DrillValue(
-                        method=f"reference ({rv.form})",
-                        value=precision.fmt(rv.value.value, rv.value.unit, units),
-                        source=rv.provenance.source,
-                        record_id=rv.provenance.source_record_id,
-                        used=score.source == "experimental_median",
-                    )
+        # every experimental value with its form; used only if it entered this row's score
+        used_ids = set(score.used_record_ids)
+        pool = experimental_pool(
+            row.group.experimental_gaps,
+            row.group.reference_values,
+            loaded.profile.band_gap.preferred_forms,
+        )
+        for e in pool.entries:
+            shown = (
+                precision.fmt(e.value, "eV", units)
+                if e.value is not None
+                else f"{precision.fmt(e.low, 'eV', units)} to {precision.fmt(e.high, 'eV', units)}"
+            )
+            others.append(
+                DrillValue(
+                    method=f"experimental ({e.label})",
+                    value=shown,
+                    source=e.provenance.source,
+                    record_id=e.provenance.source_record_id,
+                    url=record_url(e.provenance),
+                    used=e.provenance.source_record_id in used_ids,
+                    form=e.form,
                 )
+            )
     elif criterion == "stability":
         for prow in polys.top_by_hull:
             if prow.hull_energy is not None and prow.hull_energy.value is not None:
@@ -696,6 +739,7 @@ def _drill(
                         value=precision.fmt(prow.hull_energy.value, prow.hull_energy.unit, units),
                         source=prow.hull_energy.provenance.source,
                         record_id=prow.mp_id,
+                        url=record_url(prow.hull_energy.provenance),
                         used=scored is not None and prow.mp_id == scored.mp_id,
                     )
                 )
@@ -707,6 +751,7 @@ def _drill(
                 value=", ".join(sorted(h.h_codes)) or "none",
                 source=h.provenance.source,
                 record_id=h.provenance.source_record_id,
+                url=record_url(h.provenance),
                 used=True,
             )
         )
@@ -729,15 +774,22 @@ def _drill(
         fetched_at=p.fetched_at.isoformat() if p else None,
         raw_sha256=p.raw_sha256 if p else None,
         source_version=p.source_version if p else None,
-        source_url=p.url if p else None,
+        source_url=record_url(p) if p else None,
         rule_ref=loaded.source_refs.get(criterion),
         notes=list(score.notes),
         other_values=others,
     )
 
 
-app = create_app()
+def __getattr__(name: str) -> Any:
+    """`app` is built on first use, not at import: importing this module (as `serve` does)
+    must not run the startup checks before the caller can report their errors."""
+    if name == "app":
+        built = create_app()
+        globals()["app"] = built
+        return built
+    raise AttributeError(name)
 
 
 def openapi_schema() -> dict[str, Any]:
-    return app.openapi()
+    return create_app().openapi()

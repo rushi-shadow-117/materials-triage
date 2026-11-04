@@ -122,6 +122,11 @@ export default function App() {
           </button>
         )}
       </header>
+      {me.llm_status !== "ok" && (
+        <div className="banner" role="status" data-llm-status={me.llm_status}>
+          {me.llm_note}
+        </div>
+      )}
       <Routes>
         <Route path="/" element={<Workspace session={session} />} />
         <Route path="/runs" element={<History />} />

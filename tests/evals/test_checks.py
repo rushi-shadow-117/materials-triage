@@ -401,3 +401,14 @@ def test_no_bundle_and_unknown_checks_fail_cleanly() -> None:
     )
     assert run_check(CheckSpec(name="not_a_check"), obs).detail == "unknown check"
     assert "bad params" in run_check(CheckSpec(name="flagged", params={"nope": 1}), obs).detail
+
+
+def test_top_n_counts_tied_ranks_in_the_view() -> None:
+    """Tied rows read "1=" (human test session, item 7); the check still counts them."""
+    obs = clean_observation()
+    obs.bundle.criteria.effective_settings = {"top_n": 2}
+    obs.rendered["pi_summary"] = "| 1= | Al2O3 | x |\n| 1= | HfO2 | x |\n| 3 | ZrO2 | x |\n"
+    r = run_check(CheckSpec(name="top_n_respected"), obs)
+    assert not r.passed and r.detail.startswith("3 shown in pi_summary")
+    obs.rendered["pi_summary"] = "| 1= | Al2O3 | x |\n| 1= | HfO2 | x |\n"
+    assert run_check(CheckSpec(name="top_n_respected"), obs).passed

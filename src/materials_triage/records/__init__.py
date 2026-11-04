@@ -9,6 +9,7 @@ applies policy.
 
 from __future__ import annotations
 
+import re
 from datetime import datetime
 from enum import StrEnum
 from typing import Any, Generic, TypeVar
@@ -32,6 +33,20 @@ class Provenance(Strict):
     source_version: str | None = None  # MP db_version, snapshot sha, OpenAlex none, ...
     url: str | None = None  # human-readable link
     license: str | None = None
+
+
+MP_PAGE_URL = "https://next-gen.materialsproject.org/materials/{}"
+_MP_ID = re.compile(r"^(?:mp|mvc)-\d+$")
+
+
+def record_url(p: Provenance) -> str | None:
+    """The page a reader opens for this record: its own URL, or for a Materials Project id
+    the material's page (bundles written before every MP record carried one)."""
+    if p.url:
+        return p.url
+    if p.source == "materials_project" and _MP_ID.match(p.source_record_id):
+        return MP_PAGE_URL.format(p.source_record_id)
+    return None
 
 
 class MissingReason(StrEnum):

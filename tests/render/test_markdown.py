@@ -72,9 +72,10 @@ def test_pi_summary_has_the_planned_sections(
     bundle: ProvenanceBundle, site: cs.SiteProfile
 ) -> None:
     text = markdown.render_pi_summary(bundle, site)
-    assert "| 1 | Al2O3 |" in text and "| 2 | HfO2 |" in text
-    assert "HfO2 ranks 2 on stability (energy above hull) and band gap; see caveats." in text
-    assert "SiO2: would rank 1 of 8" in text
+    assert "| 1= | Al2O3 |" in text and "| 1= | HfO2 |" in text
+    assert "Equal scores are tied; tied rows are listed alphabetically." in text
+    assert "HfO2 ranks 1= on stability (energy above hull) and band gap; see caveats." in text
+    assert "SiO2 (reference): would place 1st of 9, above Al2O3" in text
     assert "ThO2: hazard.radioactive_exclude" in text and "BeO: hazard.exclude" in text
     assert "band_offsets_not_checked: Band offsets to the substrate are not checked" in text
     assert "- breakdown field" in text and "leakage current density" in text
@@ -192,7 +193,91 @@ def test_csv_has_one_row_per_candidate_and_anchor(bundle: ProvenanceBundle) -> N
     th = next(r for r in rows if r["composition"] == "ThO2")
     assert th["rank"] == "" and th["excluded_rule"] == "hazard.radioactive_exclude"
     si = next(r for r in rows if r["kind"] == "anchor")
-    assert si["would_rank"] == "1" and si["out_of"] == "8"
+    assert si["would_rank"] == "1" and si["out_of"] == "9"  # the anchor counts itself
     mev = list(csv.DictReader(io.StringIO(csv_export.export_csv(bundle, units="meV"))))
     assert next(r for r in mev if r["composition"] == "HfO2")["band_gap_unit"] == "meV"
     _golden("export.csv", text)
+
+
+def test_equal_totals_render_as_tied(bundle: ProvenanceBundle, site: cs.SiteProfile) -> None:
+    """Human test session, item 7: four rows at 1.000 read as ranks 1 to 4 in name order."""
+    from materials_triage.render.tokens import shown_ranks
+
+    ranks = shown_ranks(bundle)
+    totals: dict[str, list[str]] = {}
+    for c in bundle.ranked():
+        assert c.score is not None and c.score.total is not None
+        totals.setdefault(f"{c.score.total:.3f}", []).append(c.composition)
+    for group in totals.values():
+        first = ranks[group[0]].rank
+        assert all(ranks[g].rank == first for g in group)
+        assert all(ranks[g].tied == (len(group) > 1) for g in group)
+    text = markdown.render_pi_summary(bundle, site)
+    tied = [g for g in totals.values() if len(g) > 1]
+    assert tied, "the sample bundle has a tie"
+    assert f"| {ranks[tied[0][0]].rank}= | {tied[0][0]} |" in text
+    csv_text = csv_export.export_csv(bundle)
+    assert ",yes," in csv_text  # the tied column
+
+
+def test_key_caveat_is_the_most_row_specific_one() -> None:
+    """Human test session, item 8: every row's key caveat was the standing band offsets
+    sentence. The key caveat now follows the priority; profile-wide caveats show once above
+    the table and never per row."""
+    from materials_triage.render import views
+    from materials_triage.render.caveats import KEY_PRIORITY, PROFILE_WIDE, key_caveat
+
+    scored = Path(__file__).resolve().parents[2] / "fixtures" / "bundles" / "scored_bundle.json"
+    bundle = ProvenanceBundle.model_validate_json(scored.read_text())
+    cfg = caveats.CaveatConfig.load()
+    view = views.build(bundle, cfg, units="eV", hide_ids=True)
+    tio2 = next(r for r in view.rows if r.composition == "TiO2")
+    assert tio2.key_caveat.startswith("Flagged: a suspected carcinogenic")
+    band_offsets = cfg.resolve(Caveat(id=CaveatId.BAND_OFFSETS_NOT_CHECKED)).text
+    for r in [*view.rows, *view.excluded, *view.anchors]:
+        assert r.key_caveat != band_offsets, r.composition
+        assert all(c.id not in PROFILE_WIDE for c in r.caveats), r.composition
+    assert [c.text for c in view.profile_caveats].count(band_offsets) == 1
+    # priority over a synthetic row: hazard first, then the gap conflict, then the rest
+    row = [Caveat(id=i) for i in (CaveatId.NEAR_CUTOFF, CaveatId.BAND_GAP_CONFLICT)]
+    assert key_caveat(row) == Caveat(id=CaveatId.BAND_GAP_CONFLICT)
+    row.append(Caveat(id=CaveatId.HAZARD_FLAG, subject="Ti"))
+    assert key_caveat(row) is not None and key_caveat(row).id is CaveatId.HAZARD_FLAG  # type: ignore[union-attr]
+    assert key_caveat([Caveat(id=CaveatId.BAND_OFFSETS_NOT_CHECKED)]) is None
+    assert KEY_PRIORITY[0] is CaveatId.HAZARD_FLAG
+
+
+def test_flag_caveats_carry_the_owner_texts() -> None:
+    from materials_triage.scoring.scorer import FLAG_CAVEATS
+
+    cfg = caveats.CaveatConfig.load()
+    texts = {f.value: cfg.resolve(Caveat(id=c)).text for f, c in FLAG_CAVEATS.items()}
+    assert texts == {
+        "band_gap_conflict": "The experimental and computed band gaps disagree beyond the "
+        "profile's tolerance; see the audit view.",
+        "near_cutoff": "Energy above hull is close to this profile's stability cutoff.",
+        "ground_state_is_theoretical": "The lowest-energy polymorph on record is computed, "
+        "not observed.",
+    }
+
+
+def test_record_url_links_materials_project_ids_in_older_bundles() -> None:
+    from datetime import UTC, datetime
+
+    from materials_triage.records import Provenance, record_url
+
+    def prov(source: str, rid: str, url: str | None = None) -> Provenance:
+        return Provenance(
+            source=source,
+            source_record_id=rid,
+            raw_response_id=None,
+            raw_sha256="0" * 64,
+            fetched_at=datetime(2026, 11, 4, tzinfo=UTC),
+            url=url,
+        )
+
+    assert record_url(prov("materials_project", "mp-352")) == (
+        "https://next-gen.materialsproject.org/materials/mp-352"
+    )
+    assert record_url(prov("pubchem", "CID:1", "https://x/1")) == "https://x/1"
+    assert record_url(prov("expt_gap", "expt_gap:3:HfO2")) is None

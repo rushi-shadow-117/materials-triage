@@ -50,7 +50,7 @@ def client(tmp_path: Path) -> Iterator[TestClient]:
 def wait_for_run(client: TestClient, run_id: str, timeout_s: float = 120.0) -> dict[str, Any]:
     deadline = time.monotonic() + timeout_s
     while time.monotonic() < deadline:
-        status = client.get(f"/runs/{run_id}/status").json()
+        status = client.get(f"/api/runs/{run_id}/status").json()
         if status["status"] not in ("queued", "running"):
             return status
         time.sleep(0.2)

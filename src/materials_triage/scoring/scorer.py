@@ -262,9 +262,19 @@ def score_group(
         breakdown=breakdown,
         exclusion=exclusions[0] if exclusions else None,
         flags=_ordered_flags(flags),
-        caveats=_dedupe_caveats(caveats),
+        caveats=_dedupe_caveats(
+            [*caveats, *(Caveat(id=FLAG_CAVEATS[f]) for f in flags if f in FLAG_CAVEATS)]
+        ),
         other_exclusions=exclusions[1:],
     )
+
+
+# Flags whose meaning a reader needs in words: each adds its data-state caveat.
+FLAG_CAVEATS: dict[Flag, CaveatId] = {
+    Flag.BAND_GAP_CONFLICT: CaveatId.BAND_GAP_CONFLICT,
+    Flag.NEAR_CUTOFF: CaveatId.NEAR_CUTOFF,
+    Flag.GROUND_STATE_IS_THEORETICAL: CaveatId.GROUND_STATE_IS_THEORETICAL,
+}
 
 
 def _ordered_flags(flags: list[Flag]) -> list[Flag]:
@@ -431,15 +441,20 @@ def score_run(
     anchors = []
     for r in anchor_rows:
         would = None
+        above = below = None
         if r.exclusion is None:
             would = 1 + sum(1 for c in ranked_rows if c.key < r.key)
+            above = ranked_rows[would - 2].composition if would > 1 else None
+            below = ranked_rows[would - 1].composition if would - 1 < len(ranked_rows) else None
         anchors.append(
             Anchor(
                 composition=r.composition,
                 group=summary(r),
                 score=r.breakdown,
                 would_rank=would,
-                out_of=len(ranked_rows),
+                out_of=len(ranked_rows) + 1,  # the anchor counts in its own placement
+                ranked_above=above,
+                ranked_below=below,
                 excluded=r.exclusion,
                 flags=r.flags,
                 caveats=r.caveats,

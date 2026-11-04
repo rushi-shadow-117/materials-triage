@@ -8,12 +8,14 @@ import io
 from materials_triage.config.schema import CRITERIA
 from materials_triage.records.bundle import Anchor, Candidate, ProvenanceBundle
 from materials_triage.render import precision
+from materials_triage.render.tokens import ShownRank, shown_ranks
 
 FIXED = [
     "run_id",
     "composition",
     "kind",
     "rank",
+    "tied",
     "would_rank",
     "out_of",
     "total",
@@ -46,7 +48,12 @@ def _dimensionality(row: Candidate | Anchor) -> list[str]:
     return [value, dim.provenance.source_record_id, reason or note]
 
 
-def _row(bundle: ProvenanceBundle, row: Candidate | Anchor, units: str) -> list[str]:
+def _row(
+    bundle: ProvenanceBundle,
+    row: Candidate | Anchor,
+    units: str,
+    ranks: dict[str, ShownRank],
+) -> list[str]:
     scores = {cs.criterion: cs for cs in row.score.criteria} if row.score else {}
     excluded = row.excluded
     p = row.group.polymorphs
@@ -54,7 +61,12 @@ def _row(bundle: ProvenanceBundle, row: Candidate | Anchor, units: str) -> list[
         str(bundle.run.run_id),
         row.composition,
         "anchor" if isinstance(row, Anchor) else "candidate",
-        "" if isinstance(row, Anchor) or row.rank is None else precision.quantize(row.rank, 0),
+        ""
+        if isinstance(row, Anchor) or row.rank is None
+        else precision.quantize(ranks[row.composition].rank, 0),
+        "yes"
+        if not isinstance(row, Anchor) and row.composition in ranks and ranks[row.composition].tied
+        else "",
         ""
         if not isinstance(row, Anchor) or row.would_rank is None
         else precision.quantize(row.would_rank, 0),
@@ -88,8 +100,9 @@ def export_csv(bundle: ProvenanceBundle, *, units: str = "eV") -> str:
     buf = io.StringIO()
     writer = csv.writer(buf, lineterminator="\n")
     writer.writerow(header())
+    ranks = shown_ranks(bundle)
     for row in [*bundle.ranked(), *bundle.excluded()]:
-        writer.writerow(_row(bundle, row, units))
+        writer.writerow(_row(bundle, row, units, ranks))
     for anchor in bundle.anchors:
-        writer.writerow(_row(bundle, anchor, units))
+        writer.writerow(_row(bundle, anchor, units, ranks))
     return buf.getvalue()

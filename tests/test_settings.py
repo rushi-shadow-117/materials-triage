@@ -7,7 +7,7 @@ def test_defaults_without_env(monkeypatch: pytest.MonkeyPatch) -> None:
     for var in ("MP_API_KEY", "OPENALEX_API_KEY", "DATABASE_URL", "FETCH_MODE"):
         monkeypatch.delenv(var, raising=False)
     s = Settings(_env_file=None)  # type: ignore[call-arg]
-    assert s.fetch_mode == "live"
+    assert s.fetch_mode is None  # recorded data unless FETCH_MODE is set
     assert s.mp_api_key is None
     assert "triage_app" in s.database_url
 

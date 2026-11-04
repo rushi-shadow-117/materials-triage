@@ -105,4 +105,5 @@ Only commands that work are listed.
   from cassettes (no network); `uv run python scripts/export_openapi.py` writes
   `web/src/api/openapi.json`, then `cd web && npx openapi-typescript@7 src/api/openapi.json -o src/api/types.ts`.
 - `uv run materials-triage --help` lists the CLI commands; only `serve` is still a stub.
-  `query` and `rank` default to `--fetch auto` (the store when Postgres answers, else cassettes).
+  `query` and `rank` default to `--fetch auto`: cassettes unless `FETCH_MODE` is set, then the
+  store when Postgres answers.

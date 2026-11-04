@@ -48,6 +48,16 @@ class FetchMode(StrEnum):
 # ----------------------------------------------------------------------------- vocabularies
 
 
+# Why a named composition has no data. Offline (cassettes or a no-network store replay) the
+# source was never asked, so the reason never says the source lacks it.
+OFFLINE_MISS = "Not in the recorded data (offline mode); available with live fetching"
+LIVE_MISS = "no Materials Project summary available"
+
+
+# The reason shown on the chip of a typed entry that matched no formula or known name.
+UNRESOLVED_REASON = "not a chemical formula or a name in the profile's synonym table"
+
+
 class ExclusionRule(StrEnum):
     """Why a candidate (or a single polymorph) is out. Values are the strings shown to users."""
 
@@ -78,6 +88,7 @@ class Flag(StrEnum):
     BAND_GAP_CONFLICT = "band_gap_conflict"
     BAND_GAP_SINGLE_SOURCE = "band_gap_single_source"
     BAND_GAP_SOURCES_UNCOMPARED = "band_gap_sources_uncompared"  # tolerance not configured
+    PBE_ONLY_BELOW_WINDOW = "pbe_only_below_window"  # kept between the PBE floor and the minimum
     HAZARD_FLAG = "hazard_flag"
     HAZARD_UNKNOWN = "hazard_unknown"
     PROCESS_HAZARD = "process_hazard"
@@ -95,6 +106,7 @@ class CaveatId(StrEnum):
     STABILITY_CUTOFF_OXIDE_CALIBRATED = "stability_cutoff_oxide_calibrated"  # anion policy
     EXPERIMENTAL_GAP_COMPOSITION_LEVEL = "experimental_gap_composition_level"
     EXPERIMENTAL_GAP_UNREFERENCED = "experimental_gap_unreferenced"
+    PBE_ONLY_BELOW_WINDOW = "pbe_only_below_window"
     REFERENCE_VALUE_PENDING = "reference_value_pending"
     HAZARD_FLAG = "hazard_flag"
     HAZARD_UNKNOWN = "hazard_unknown"
@@ -103,6 +115,10 @@ class CaveatId(StrEnum):
     ANION_UNDETERMINED = "anion_undetermined"
     EVIDENCE_UNCLASSIFIED = "evidence_unclassified"
     ENRICHMENT_MISSING = "enrichment_missing"
+    # data-state caveats that carry a row flag's meaning in words (owner text, Nov 4)
+    BAND_GAP_CONFLICT = "band_gap_conflict"
+    NEAR_CUTOFF = "near_cutoff"
+    GROUND_STATE_IS_THEORETICAL = "ground_state_is_theoretical"
 
 
 class Caveat(Strict):
@@ -158,6 +174,8 @@ class ConfirmedCriteria(Strict):
     unresolved_candidates: list[str] = Field(default_factory=list)  # not a chemical formula
     stability_cutoff_mev: float | None = None  # effective hull cutoff after site bounds
     unavailable_properties: list[str] = Field(default_factory=list)  # no configured source
+    # a named composition no source returned, with why (offline: not in the recorded data)
+    not_fetched: dict[str, str] = Field(default_factory=dict)
 
 
 # ----------------------------------------------------------------------------- summaries
@@ -217,6 +235,8 @@ class CriterionScore(Strict):
     missing: bool
     missing_reason: str | None = None
     provenance: Provenance | None = None  # the record the raw value came from
+    # every record whose value entered raw_value (an aggregate has several; one otherwise)
+    used_record_ids: list[str] = Field(default_factory=list)
     notes: list[str] = Field(default_factory=list)
 
 
@@ -263,9 +283,11 @@ class Anchor(Strict):
     composition: str
     group: CompositionSummary
     score: ScoreBreakdown | None
-    would_rank: int | None  # position it would take among ranked candidates
-    out_of: int
+    would_rank: int | None  # the place it would take if ranked, counting itself
+    out_of: int  # ranked candidates plus this anchor
     excluded: Exclusion | None = None
+    ranked_above: str | None = None  # the candidate just above that place
+    ranked_below: str | None = None  # the candidate just below it
     flags: list[Flag] = Field(default_factory=list)
     caveats: list[Caveat] = Field(default_factory=list)
 

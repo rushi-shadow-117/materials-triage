@@ -20,6 +20,7 @@ from materials_triage.records.bundle import (
     ProvenanceBundle,
     RationaleSlot,
 )
+from materials_triage.render.caveats import row_specific
 from materials_triage.render.tokens import CRITERION_LABELS
 
 from . import loop, prompts
@@ -50,10 +51,11 @@ def template_only(bundle: ProvenanceBundle) -> dict[str, RationaleSlot]:
             if scored:
                 parts.append("on " + ", ".join(scored))
         text = " ".join(parts) + "."
-        if c.caveats:
-            # ids only: a subject can carry digits (a reference entry id) the verifier
-            # would rightly reject; the renderer lists subjects beside each caveat
-            text += " Caveats: " + ", ".join(dict.fromkeys(cv.id.value for cv in c.caveats)) + "."
+        own = row_specific(c.caveats)
+        if own:
+            # caveat tokens: the renderer fills each with its config text; the verifier checks
+            # only that the row carries the caveat, so no caveat id reaches the reader
+            text += " " + " ".join(f"{{caveat:{c.composition}:{cv.id.value}}}" for cv in own)
         slots[slot] = RationaleSlot(slot=slot, text=text, verified=True)
     ranked = bundle.ranked()
     overview = (

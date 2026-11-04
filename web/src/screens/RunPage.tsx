@@ -156,13 +156,35 @@ function Results({ data, view, setView, runId }: { data: RunViewJson; view: "pi_
           <strong>Partial results.</strong> {data.partial_reasons.join("; ")}
         </div>
       )}
-      {data.unresolved_candidates.length > 0 && (
-        <div className="panel warn">Not found in any source: {data.unresolved_candidates.join(", ")}. These names are not chemical formulas; nothing is shown for them.</div>
+      {data.unresolved.length > 0 && (
+        <div className="panel bad" data-testid="unresolved">
+          <p style={{ margin: "0 0 6px" }}>Nothing is shown for these:</p>
+          {data.unresolved.map((u) => (
+            <span key={u.text} className="chip bad" title={u.reason}>{u.text} <small>{u.reason}</small></span>
+          ))}
+        </div>
       )}
       {data.unavailable_properties.length > 0 && (
         <div className="panel warn">Not available from configured sources: {data.unavailable_properties.join(", ")}. Not scored; no value is shown.</div>
       )}
       {data.overview && <p>{data.overview}</p>}
+      {/* above the table, so the limits are read before the ranks (human test session, item 14) */}
+      <div className="panel note before-table">
+        <div data-testid="cannot-tell">
+          <h3 style={{ marginTop: 0 }}>What this screen cannot tell you</h3>
+          <p className="muted">Not in configured public sources. Measure or consult the literature before committing deposition time.</p>
+          <ul>
+            {data.missing_properties.map((m) => <li key={m}>{m}</li>)}
+            {data.unavailable_properties.map((m) => <li key={`u-${m}`}>{m} (requested; no configured source)</li>)}
+          </ul>
+        </div>
+        {data.profile_caveats.length > 0 && (
+          <div data-testid="every-row">
+            <h3 style={{ marginTop: 0 }}>Applies to every row</h3>
+            <ul>{data.profile_caveats.map((c) => <li key={c.id}>{c.text}</li>)}</ul>
+          </div>
+        )}
+      </div>
 
       {data.relaxations && data.relaxations.length > 0 && (
         <div className="panel note">
@@ -190,6 +212,7 @@ function Results({ data, view, setView, runId }: { data: RunViewJson; view: "pi_
             {data.anchors.map((row) => <Row key={`anchor-${row.composition}`} row={row} runId={runId} audit={view === "audit"} />)}
           </tbody>
         </table>
+        {data.ties_note && <p className="muted" data-testid="ties-note">{data.ties_note}</p>}
         {data.hidden_ranked > 0 && <p className="muted">{data.hidden_ranked} more ranked rows beyond top N; export the CSV or JSON for all of them.</p>}
         <p className="muted">
           Scores are computed in code (weighted mean of normalized criteria). Rationale and caveats are checked against the score table before display. A missing value is shown as missing and never scored as zero.
@@ -233,15 +256,6 @@ function Results({ data, view, setView, runId }: { data: RunViewJson; view: "pi_
           </div>
         </>
       )}
-
-      <h2>What this screen cannot tell you</h2>
-      <div className="panel">
-        <p className="muted">Not in configured public sources. Measure or consult the literature before committing deposition time.</p>
-        <ul>
-          {data.missing_properties.map((m) => <li key={m}>{m}</li>)}
-          {data.unavailable_properties.map((m) => <li key={`u-${m}`}>{m} (requested; no configured source)</li>)}
-        </ul>
-      </div>
 
       <h2>Settings applied</h2>
       <div className="panel">
@@ -330,7 +344,10 @@ function AuditRow({ row, runId }: { row: RowView; runId: string }) {
               <td className="num">{c.normalized}</td>
               <td className="num">{c.weight}</td>
               <td className="num">{c.contribution}</td>
-              <td className="mono">{c.provenance ? `${c.provenance.source} ${c.provenance.record_id}` : ""}</td>
+              <td className="mono">
+                {c.provenance ? `${c.provenance.source} ${c.provenance.record_id}` : ""}
+                {c.provenance?.url && <> · <a href={c.provenance.url} target="_blank" rel="noreferrer">open</a></>}
+              </td>
             </tr>
           ))}
         </tbody>
@@ -343,7 +360,7 @@ function AuditRow({ row, runId }: { row: RowView; runId: string }) {
             <thead><tr><th>MP id</th><th>Space group</th><th>Energy above hull</th><th>Observed</th><th>Excluded</th></tr></thead>
             <tbody>
               {row.polymorphs.top_by_hull.map((p) => (
-                <tr key={p.mp_id}><td className="mono">{p.mp_id}</td><td>{p.spacegroup}</td><td className="num">{p.hull}</td><td>{p.observed}</td><td className="mono">{p.excluded_rule ?? ""}</td></tr>
+                <tr key={p.mp_id}><td className="mono">{p.hull_provenance?.url ? <a href={p.hull_provenance.url} target="_blank" rel="noreferrer">{p.mp_id}</a> : p.mp_id}</td><td>{p.spacegroup}</td><td className="num">{p.hull}</td><td>{p.observed}</td><td className="mono">{p.excluded_rule ?? ""}</td></tr>
               ))}
             </tbody>
           </table>

@@ -85,13 +85,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Both Compose files resolve; site services on the internal network publish no port
+        run: |
+          docker compose --profile auth --profile split-web -f compose.yaml config -q
+          docker compose --profile auth --profile split-web -f compose.yaml -f compose.site.yaml \
+            config --format json | python3 -c '
+          import json, sys
+          s = json.load(sys.stdin)["services"]
+          for name in ("postgres", "keycloak"):
+              assert sorted(s[name]["networks"]) == ["internal"], name
+              assert not s[name].get("ports"), name
+          '
       - name: Build the api image (no push)
         run: docker build --target api -t materials-triage:api .
-      - name: The image serves /health from the recorded data with no keys
+      - name: The image serves /api/health from the recorded data with no keys
         run: |
           docker run -d --rm --name triage -p 8000:8000 materials-triage:api
-          for i in $(seq 1 30); do curl -fsS http://127.0.0.1:8000/health && break; sleep 2; done
-          curl -fsS http://127.0.0.1:8000/health | grep -q '"fetch_source":"cassettes"'
+          for i in $(seq 1 30); do curl -fsS http://127.0.0.1:8000/api/health && break; sleep 2; done
+          curl -fsS http://127.0.0.1:8000/api/health | grep -q '"fetch_source":"cassettes"'
           docker stop triage
 
   terraform:

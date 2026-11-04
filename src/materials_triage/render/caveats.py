@@ -17,6 +17,31 @@ from materials_triage.records.bundle import Anchor, Candidate, Caveat, CaveatId
 
 NOT_ENTERED = "caveat text not entered: {id}"
 
+# Caveats every row of a profile or run carries by construction. They show once above the
+# results table, never per row, and never in a row's rationale or key caveat.
+PROFILE_WIDE: frozenset[CaveatId] = frozenset(
+    {
+        CaveatId.BAND_OFFSETS_NOT_CHECKED,
+        CaveatId.STABILITY_CUTOFF_HULL_MISMATCH,
+        CaveatId.STABILITY_CUTOFF_OXIDE_CALIBRATED,
+        CaveatId.EVIDENCE_UNCLASSIFIED,
+        CaveatId.ATTRIBUTION_ECHA,
+    }
+)
+
+
+def row_specific(caveats: list[Caveat]) -> list[Caveat]:
+    """The row's own caveats, first of each id, in the row's order."""
+    seen: set[CaveatId] = set()
+    out: list[Caveat] = []
+    for c in caveats:
+        if c.id in PROFILE_WIDE or c.id in seen:
+            continue
+        seen.add(c.id)
+        out.append(c)
+    return out
+
+
 SYSTEM_TEXT: dict[CaveatId, str] = {
     CaveatId.EXPERIMENTAL_GAP_COMPOSITION_LEVEL: (
         "The experimental band gap is reported for the composition, not for a specific polymorph."
@@ -35,7 +60,36 @@ SYSTEM_TEXT: dict[CaveatId, str] = {
     CaveatId.ENRICHMENT_MISSING: (
         "Only summary-level data was fetched for this candidate; the cross-checks did not run."
     ),
+    # owner-approved texts, 2026-11-04 (human test session fix batch, item 8)
+    CaveatId.BAND_GAP_CONFLICT: (
+        "The experimental and computed band gaps disagree beyond the profile's tolerance; "
+        "see the audit view."
+    ),
+    CaveatId.NEAR_CUTOFF: "Energy above hull is close to this profile's stability cutoff.",
+    CaveatId.GROUND_STATE_IS_THEORETICAL: (
+        "The lowest-energy polymorph on record is computed, not observed."
+    ),
 }
+
+# The key caveat is the first present in this order, then the row's others in enum order.
+KEY_PRIORITY: tuple[CaveatId, ...] = (
+    CaveatId.HAZARD_FLAG,
+    CaveatId.BAND_GAP_CONFLICT,
+    CaveatId.PBE_ONLY_BELOW_WINDOW,
+    CaveatId.NEAR_CUTOFF,
+    CaveatId.GROUND_STATE_IS_THEORETICAL,
+)
+NO_KEY_CAVEAT = "none specific to this row"
+
+
+def key_caveat(caveats: list[Caveat]) -> Caveat | None:
+    """The most row-specific caveat, or None when the row has only profile-wide ones."""
+    own = row_specific(caveats)
+    for cid in KEY_PRIORITY:
+        hit = next((c for c in own if c.id is cid), None)
+        if hit is not None:
+            return hit
+    return own[0] if own else None
 
 
 @dataclass(frozen=True)
@@ -174,6 +228,9 @@ class CaveatConfig:
                 if text
                 else None
             )
+        elif cid is CaveatId.PBE_ONLY_BELOW_WINDOW:
+            text = self._profile_criterion("band_gap", "pbe_only_caveat")
+            found = (text, "scoring_profile#criteria.band_gap.pbe_only_caveat") if text else None
         elif cid is CaveatId.HAZARD_FLAG:
             found = self._hazard_flag(subject) or self._ghs_flag_set(row)
         elif cid is CaveatId.HAZARD_UNKNOWN:

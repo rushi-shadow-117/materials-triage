@@ -37,12 +37,15 @@ export default function Drill() {
             <h3 style={{ marginTop: 0 }}>Same property, other sources</h3>
             {d.other_values.length === 0 ? <p className="muted">No other value of this property in the run.</p> : (
               <table>
-                <thead><tr><th>Method</th><th>Value</th><th>Source · record</th><th>Used</th></tr></thead>
+                <thead><tr><th>Method</th><th>Form</th><th>Value</th><th>Source · record</th><th>Used</th></tr></thead>
                 <tbody>
                   {d.other_values.map((v, i) => (
                     <tr key={i}>
-                      <td>{v.method}</td><td className="num">{v.value}</td>
-                      <td className="mono">{v.source}{v.record_id ? ` · ${v.record_id}` : ""}</td>
+                      <td>{v.method}</td><td>{v.form ?? ""}</td><td className="num">{v.value}</td>
+                      <td className="mono">
+                        {v.source}{v.record_id ? ` · ${v.record_id}` : ""}
+                        {v.url && <> · <a href={v.url} target="_blank" rel="noreferrer">open</a></>}
+                      </td>
                       <td>{v.used ? <span className="chip ok">used</span> : "no"}</td>
                     </tr>
                   ))}

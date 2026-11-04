@@ -5,8 +5,9 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 
-from materials_triage.records import Provenance
+from materials_triage.records import Provenance, record_url
 from materials_triage.records.bundle import (
+    UNRESOLVED_REASON,
     Anchor,
     Candidate,
     CriterionScore,
@@ -15,11 +16,20 @@ from materials_triage.records.bundle import (
     ProvenanceBundle,
 )
 from materials_triage.render import precision
-from materials_triage.render.caveats import CaveatConfig, CaveatText
+from materials_triage.render.caveats import (
+    NO_KEY_CAVEAT,
+    PROFILE_WIDE,
+    CaveatConfig,
+    CaveatText,
+    key_caveat,
+    row_specific,
+)
 from materials_triage.render.tokens import (
     CRITERION_LABELS,
+    TIES_NOTE,
     BundleIndex,
     TokenError,
+    anchor_placement,
     ghs_text,
     hide_record_ids,
     render_text,
@@ -55,7 +65,7 @@ class ProvenanceView:
             method,
             p.fetched_at.isoformat(),
             p.source_version,
-            p.url,
+            record_url(p),
             p.license,
         )
 
@@ -149,6 +159,7 @@ class RowView:
     sensitivity: str | None
     band_gap_source: str | None
     dimensionality: str = "missing"
+    tied: bool = False
 
 
 @dataclass
@@ -168,7 +179,12 @@ class RunView:
     hull_cutoff: str | None = None  # the effective energy above hull cutoff
     overview: str | None = None  # the verified summary:overview rationale slot
     unresolved_candidates: list[str] = field(default_factory=list)
+    # each unmatched or unavailable entry with the reason on its chip
+    unresolved: list[dict[str, str]] = field(default_factory=list)
     unavailable_properties: list[str] = field(default_factory=list)
+    ties_note: str | None = None  # shown under the table when any shown rows are tied
+    # caveats every row carries by construction, shown once above the table
+    profile_caveats: list[CaveatText] = field(default_factory=list)
 
 
 def _fmt(value: float | int | None, unit: str | None, units: str) -> str:
@@ -277,7 +293,9 @@ def _row_view(
     comp = row.composition
     is_anchor = isinstance(row, Anchor)
     hits = [e for e in bundle.evidence if e.composition == comp]
-    resolved = [caveats.resolve(c, row) for c in row.caveats]
+    # the row's own caveats; profile-wide ones show once above the table (RunView.profile_caveats)
+    resolved = [caveats.resolve(c, row) for c in row_specific(row.caveats)]
+    key = key_caveat(row.caveats)
     slot_id = f"candidate:{comp}:one_line"
     slot = bundle.rationale.get(slot_id)
     rationale = ""
@@ -294,6 +312,18 @@ def _row_view(
                 k = precision.fmt(cs.raw_value, cs.raw_unit, units)
     missing = [c.label for c in criteria if c.missing and c.weight != "0.000"]
     g = row.group
+    gap_score = next(
+        (cs for cs in (row.score.criteria if row.score else []) if cs.criterion == "band_gap"),
+        None,
+    )
+    used_ids = set(gap_score.used_record_ids) if gap_score is not None else set()
+
+    def _use(provenance_id: str) -> str:
+        # bundles written before used_record_ids existed say nothing rather than "not used"
+        if not used_ids:
+            return ""
+        return ", used" if provenance_id in used_ids else ", not used"
+
     gaps = "none in the public gap tables"
     gap_values: list[ValueView] = []
     if g.experimental_gaps is not None:
@@ -305,7 +335,7 @@ def _row_view(
         )
         gap_values = [
             ValueView(
-                v.table,
+                f"{v.table} (compendium{_use(v.value_ev.provenance.source_record_id)})",
                 _fmt(v.value_ev.value, v.value_ev.unit, units),
                 ProvenanceView.build(v.value_ev.provenance, v.value_ev.method),
             )
@@ -313,7 +343,7 @@ def _row_view(
         ]
     refs = [
         ValueView(
-            f"{r.entry_id} ({r.form}, {r.status})",
+            f"{r.entry_id} ({r.form}, {r.status}{_use(r.provenance.source_record_id)})",
             (
                 _fmt(r.value.value, r.value.unit, units)
                 if r.value is not None
@@ -347,13 +377,16 @@ def _row_view(
         )
     if is_anchor:
         assert isinstance(row, Anchor)
-        rank = (
-            "anchor" if row.would_rank is None else f"would rank {row.would_rank} of {row.out_of}"
-        )
+        rank = anchor_placement(row) or "anchor"
         excluded = row.excluded
     else:
         assert isinstance(row, Candidate)
-        rank = "excluded" if row.rank is None else precision.quantize(row.rank, 0)
+        shown_rank = index.ranks.get(comp)
+        rank = (
+            "excluded"
+            if row.rank is None
+            else (shown_rank.text if shown_rank else precision.quantize(row.rank, 0))
+        )
         excluded = row.excluded
     sensitivity = None
     if isinstance(row, Candidate) and row.sensitivity is not None:
@@ -365,6 +398,7 @@ def _row_view(
     return RowView(
         composition=comp,
         is_anchor=is_anchor,
+        tied=bool(not is_anchor and index.ranks.get(comp) and index.ranks[comp].tied),
         rank=rank,
         total="excluded"
         if row.score is None or row.score.total is None
@@ -372,7 +406,7 @@ def _row_view(
         rationale=rationale,
         rationale_verified=slot.verified if slot else None,
         removed_fragments=list(slot.removed_fragments) if slot else [],
-        key_caveat=resolved[0].text if resolved else "none",
+        key_caveat=caveats.resolve(key, row).text if key is not None else NO_KEY_CAVEAT,
         caveats=resolved,
         flags=[f.value for f in row.flags],
         evidence_tier=_evidence_tier(hits),
@@ -413,7 +447,7 @@ def _dimensionality(row: Candidate | Anchor) -> str:
 def build(
     bundle: ProvenanceBundle, caveats: CaveatConfig, *, units: str, hide_ids: bool = False
 ) -> RunView:
-    index = BundleIndex.build(bundle)
+    index = BundleIndex.build(bundle, caveat_text=lambda c, row: caveats.resolve(c, row).text)
     top_n = bundle.criteria.effective_settings.get("top_n")
     limit = int(top_n) if isinstance(top_n, int) and top_n > 0 else None
     ranked_all = bundle.ranked()
@@ -427,6 +461,14 @@ def build(
     for r in [*rows, *excluded, *anchors]:
         for c in r.caveats:
             texts.setdefault(c.id.value, c)
+    profile_caveats: dict[str, CaveatText] = {}
+    every: list[Candidate | Anchor] = [*shown_ranked, *shown_excluded, *bundle.anchors]
+    for brow in every:
+        for cv in brow.caveats:
+            if cv.id in PROFILE_WIDE and cv.id.value not in profile_caveats:
+                profile_caveats[cv.id.value] = caveats.resolve(cv, brow)
+    for cid, text in profile_caveats.items():
+        texts.setdefault(cid, text)
     run = bundle.run
     budgets = [
         f"{k}: {precision.quantize(run.budgets_used.get(k, 0), 0)} of {precision.quantize(v, 0)}"
@@ -455,7 +497,16 @@ def build(
         hull_cutoff=_hull_cutoff(bundle, units),
         overview=_overview(bundle, index, units, hide_ids),
         unresolved_candidates=list(bundle.criteria.unresolved_candidates),
+        unresolved=[
+            *(
+                {"text": t, "reason": UNRESOLVED_REASON}
+                for t in bundle.criteria.unresolved_candidates
+            ),
+            *({"text": k, "reason": r} for k, r in bundle.criteria.not_fetched.items()),
+        ],
         unavailable_properties=list(bundle.criteria.unavailable_properties),
+        ties_note=TIES_NOTE if any(r.tied for r in rows) else None,
+        profile_caveats=list(profile_caveats.values()),
     )
 
 

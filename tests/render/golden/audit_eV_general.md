@@ -20,14 +20,17 @@
 - Mode: candidate_list; candidates: HfO2, ZrO2, Al2O3, SiO2, TiO2, ThO2, La2O3, BaTiO3, BeO, Y2O3, Ta2O5
 - Defaults applied: verbosity=standard; view=pi_summary
 - Clamps: none
-- Not found in any source: none
-- Not available from configured sources: none
+- Nothing shown for: none- Not available from configured sources: none
 - Units shown: eV
 
 ## Ranked candidates
 
-### Al2O3: 1, total 1.000
-- Rationale: Al2O3 ranks 1 on stability (stability margin) and insulating gap; see caveats.
+### Al2O3: 1=, total 1.000
+## Applies to every row
+
+- Band offsets to the substrate are not checked by this screen.
+
+- Rationale: Al2O3 ranks 1= on stability (stability margin) and insulating gap; see caveats.
 - Flags: none
 - Sensitivity: rank 1 to 2 over 12 perturbations (stable)
 - Insulating gap source: tbmbj
@@ -46,21 +49,23 @@
 Polymorphs: 89 with MP ids (7 observed, 85 theoretical, 0 unknown).
 - Ground state: mp-1143 (R-3c), stability reference 0.000 eV/atom, observed
 - Scored crystal form is the ground state: yes; stability reference status conflict among functionals: no
-- mp-1143 (R-3c): stability reference 0.000 eV/atom, observed; materials_project mp-1143 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.219939+00:00
-- mp-7048 (C2/m): stability reference 0.017 eV/atom, observed; materials_project mp-7048 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.219939+00:00
-- mp-2254 (Pna2_1): stability reference 0.021 eV/atom, observed; materials_project mp-2254 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.219939+00:00
-- mp-776475 (Ia-3): stability reference 0.035 eV/atom, not observed; materials_project mp-776475 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.219939+00:00
-- mp-759943 (P2/c): stability reference 0.035 eV/atom, not observed; materials_project mp-759943 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.219939+00:00
+- mp-1143 (R-3c): stability reference 0.000 eV/atom, observed; materials_project mp-1143 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.219939+00:00 https://next-gen.materialsproject.org/materials/mp-1143
+- mp-7048 (C2/m): stability reference 0.017 eV/atom, observed; materials_project mp-7048 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.219939+00:00 https://next-gen.materialsproject.org/materials/mp-7048
+- mp-2254 (Pna2_1): stability reference 0.021 eV/atom, observed; materials_project mp-2254 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.219939+00:00 https://next-gen.materialsproject.org/materials/mp-2254
+- mp-776475 (Ia-3): stability reference 0.035 eV/atom, not observed; materials_project mp-776475 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.219939+00:00 https://next-gen.materialsproject.org/materials/mp-776475
+- mp-759943 (P2/c): stability reference 0.035 eV/atom, not observed; materials_project mp-759943 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.219939+00:00 https://next-gen.materialsproject.org/materials/mp-759943
 
 Experimental gaps: none in the public gap tables
 
 Hazard: GHS codes H335, H372 in 225 of 3142 notifications (ECHA attribution applies)
 Literature: 10698 matched, 7142 with abstracts, 5 read (title_and_abstract; query 'Al2O3 thin film')
-Caveats:
-- band_offsets_not_checked: Band offsets to the substrate are not checked by this screen. (source: scoring_profile#criteria.band_gap.standing_caveat)
 
-### HfO2: 2, total 1.000
-- Rationale: HfO2 ranks 2 on stability (stability margin) and insulating gap; see caveats.
+### HfO2: 1=, total 1.000
+## Applies to every row
+
+- Band offsets to the substrate are not checked by this screen.
+
+- Rationale: HfO2 ranks 1= on stability (stability margin) and insulating gap; see caveats.
 - Flags: none
 - Sensitivity: rank 1 to 3 over 12 perturbations (stable)
 - Insulating gap source: experimental_median
@@ -79,23 +84,25 @@ Caveats:
 Polymorphs: 15 with MP ids (5 observed, 10 theoretical, 0 unknown).
 - Ground state: mp-352 (P2_1/c), stability reference 0.000 eV/atom, observed
 - Scored crystal form is the ground state: yes; stability reference status conflict among functionals: no
-- mp-352 (P2_1/c): stability reference 0.000 eV/atom, observed; materials_project mp-352 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.185807+00:00
-- mp-775757 (Pbca): stability reference 0.010 eV/atom, not observed; materials_project mp-775757 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.185807+00:00
-- mp-1858 (Pbca): stability reference 0.016 eV/atom, observed; materials_project mp-1858 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.185807+00:00
-- mp-685097 (Pca2_1): stability reference 0.022 eV/atom, not observed; materials_project mp-685097 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.185807+00:00
-- mp-776532 (P4_2/mnm): stability reference 0.037 eV/atom, not observed; materials_project mp-776532 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.185807+00:00
+- mp-352 (P2_1/c): stability reference 0.000 eV/atom, observed; materials_project mp-352 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.185807+00:00 https://next-gen.materialsproject.org/materials/mp-352
+- mp-775757 (Pbca): stability reference 0.010 eV/atom, not observed; materials_project mp-775757 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.185807+00:00 https://next-gen.materialsproject.org/materials/mp-775757
+- mp-1858 (Pbca): stability reference 0.016 eV/atom, observed; materials_project mp-1858 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.185807+00:00 https://next-gen.materialsproject.org/materials/mp-1858
+- mp-685097 (Pca2_1): stability reference 0.022 eV/atom, not observed; materials_project mp-685097 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.185807+00:00 https://next-gen.materialsproject.org/materials/mp-685097
+- mp-776532 (P4_2/mnm): stability reference 0.037 eV/atom, not observed; materials_project mp-776532 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.185807+00:00 https://next-gen.materialsproject.org/materials/mp-776532
 
 Experimental gaps: 5.55 eV to 5.55 eV across 1 value(s), median 5.55 eV
-- expt_gap: 5.55 eV; expt_gap expt_gap:3:HfO2 fetched 2026-11-02T12:00:00+00:00
+- expt_gap (compendium): 5.55 eV; expt_gap expt_gap:3:HfO2 fetched 2026-11-02T12:00:00+00:00
 
 Hazard: no GHS hazard codes in 344 notifications (ECHA attribution applies)
 Literature: 3496 matched, 2469 with abstracts, 5 read (title_and_abstract; query 'HfO2 thin film')
 - https://openalex.org/W2024600253 (2015): thin_film_deposited; verified quote: "Here, we present a structural study on the origin of ferroelectricity in Gd doped HfO2 thin films."
-Caveats:
-- band_offsets_not_checked: Band offsets to the substrate are not checked by this screen. (source: scoring_profile#criteria.band_gap.standing_caveat)
 
-### La2O3: 3, total 1.000
-- Rationale: La2O3 ranks 3 on stability (stability margin) and insulating gap; see caveats.
+### La2O3: 1=, total 1.000
+## Applies to every row
+
+- Band offsets to the substrate are not checked by this screen.
+
+- Rationale: La2O3 ranks 1= on stability (stability margin) and insulating gap; see caveats.
 - Flags: hull_status_conflict
 - Sensitivity: rank 2 to 4 over 12 perturbations (stable)
 - Insulating gap source: experimental_median
@@ -114,22 +121,24 @@ Caveats:
 Polymorphs: 6 with MP ids (3 observed, 4 theoretical, 0 unknown).
 - Ground state: mp-1968 (P-3m1), stability reference 0.000 eV/atom, observed
 - Scored crystal form is the ground state: yes; stability reference status conflict among functionals: yes
-- mp-1968 (P-3m1): stability reference 0.000 eV/atom, observed; materials_project mp-1968 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.392371+00:00
-- mp-2292 (Ia-3): stability reference 0.002 eV/atom, observed; materials_project mp-2292 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.392371+00:00
-- mp-557691 (C2/m): stability reference 0.031 eV/atom, observed; materials_project mp-557691 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.392371+00:00
-- mp-1180635 (P6/mmm): stability reference 0.236 eV/atom, not observed, excluded by stability.cutoff; materials_project mp-1180635 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.392371+00:00
-- mp-553347 (P-62m): stability reference 0.242 eV/atom, not observed, excluded by stability.cutoff; materials_project mp-553347 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.392371+00:00
+- mp-1968 (P-3m1): stability reference 0.000 eV/atom, observed; materials_project mp-1968 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.392371+00:00 https://next-gen.materialsproject.org/materials/mp-1968
+- mp-2292 (Ia-3): stability reference 0.002 eV/atom, observed; materials_project mp-2292 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.392371+00:00 https://next-gen.materialsproject.org/materials/mp-2292
+- mp-557691 (C2/m): stability reference 0.031 eV/atom, observed; materials_project mp-557691 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.392371+00:00 https://next-gen.materialsproject.org/materials/mp-557691
+- mp-1180635 (P6/mmm): stability reference 0.236 eV/atom, not observed, excluded by stability.cutoff; materials_project mp-1180635 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.392371+00:00 https://next-gen.materialsproject.org/materials/mp-1180635
+- mp-553347 (P-62m): stability reference 0.242 eV/atom, not observed, excluded by stability.cutoff; materials_project mp-553347 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.392371+00:00 https://next-gen.materialsproject.org/materials/mp-553347
 
 Experimental gaps: 5.40 eV to 5.40 eV across 1 value(s), median 5.40 eV
-- expt_gap: 5.40 eV; expt_gap expt_gap:12:La2O3 fetched 2026-11-02T12:00:00+00:00
+- expt_gap (compendium): 5.40 eV; expt_gap expt_gap:12:La2O3 fetched 2026-11-02T12:00:00+00:00
 
 Hazard: GHS codes H315, H319, H335 in 248 of 618 notifications (ECHA attribution applies)
 Literature: 383 matched, 218 with abstracts, 5 read (title_and_abstract; query 'La2O3 thin film')
-Caveats:
-- band_offsets_not_checked: Band offsets to the substrate are not checked by this screen. (source: scoring_profile#criteria.band_gap.standing_caveat)
 
-### Y2O3: 4, total 1.000
-- Rationale: Y2O3 ranks 4 on stability (stability margin) and insulating gap; see caveats.
+### Y2O3: 1=, total 1.000
+## Applies to every row
+
+- Band offsets to the substrate are not checked by this screen.
+
+- Rationale: Y2O3 ranks 1= on stability (stability margin) and insulating gap; see caveats.
 - Flags: none
 - Sensitivity: rank 3 to 5 over 12 perturbations (stable)
 - Insulating gap source: experimental_median
@@ -148,22 +157,24 @@ Caveats:
 Polymorphs: 14 with MP ids (4 observed, 12 theoretical, 0 unknown).
 - Ground state: mp-2652 (Ia-3), stability reference 0.000 eV/atom, observed
 - Scored crystal form is the ground state: yes; stability reference status conflict among functionals: no
-- mp-2652 (Ia-3): stability reference 0.000 eV/atom, observed; materials_project mp-2652 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.437577+00:00
-- mp-558573 (C2/m): stability reference 0.034 eV/atom, observed; materials_project mp-558573 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.437577+00:00
-- mp-775907 (P2_1/m): stability reference 0.042 eV/atom, not observed; materials_project mp-775907 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.437577+00:00
-- mp-754759 (R-3c): stability reference 0.049 eV/atom, not observed; materials_project mp-754759 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.437577+00:00
-- mp-13061 (P-3m1): stability reference 0.057 eV/atom, observed; materials_project mp-13061 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.437577+00:00
+- mp-2652 (Ia-3): stability reference 0.000 eV/atom, observed; materials_project mp-2652 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.437577+00:00 https://next-gen.materialsproject.org/materials/mp-2652
+- mp-558573 (C2/m): stability reference 0.034 eV/atom, observed; materials_project mp-558573 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.437577+00:00 https://next-gen.materialsproject.org/materials/mp-558573
+- mp-775907 (P2_1/m): stability reference 0.042 eV/atom, not observed; materials_project mp-775907 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.437577+00:00 https://next-gen.materialsproject.org/materials/mp-775907
+- mp-754759 (R-3c): stability reference 0.049 eV/atom, not observed; materials_project mp-754759 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.437577+00:00 https://next-gen.materialsproject.org/materials/mp-754759
+- mp-13061 (P-3m1): stability reference 0.057 eV/atom, observed; materials_project mp-13061 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.437577+00:00 https://next-gen.materialsproject.org/materials/mp-13061
 
 Experimental gaps: 5.60 eV to 5.60 eV across 1 value(s), median 5.60 eV
-- expt_gap: 5.60 eV; expt_gap expt_gap:13:Y2O3 fetched 2026-11-02T12:00:00+00:00
+- expt_gap (compendium): 5.60 eV; expt_gap expt_gap:13:Y2O3 fetched 2026-11-02T12:00:00+00:00
 
 Hazard: GHS codes H315, H319, H320, H335, H413 in 274 of 548 notifications (ECHA attribution applies)
 Literature: 1480 matched, 839 with abstracts, 5 read (title_and_abstract; query 'Y2O3 thin film')
-Caveats:
-- band_offsets_not_checked: Band offsets to the substrate are not checked by this screen. (source: scoring_profile#criteria.band_gap.standing_caveat)
 
-### ZrO2: 5, total 1.000
-- Rationale: ZrO2 ranks 5 on stability (stability margin) and insulating gap; see caveats.
+### ZrO2: 1=, total 1.000
+## Applies to every row
+
+- Band offsets to the substrate are not checked by this screen.
+
+- Rationale: ZrO2 ranks 1= on stability (stability margin) and insulating gap; see caveats.
 - Flags: none
 - Sensitivity: rank 4 to 6 over 12 perturbations (stable)
 - Insulating gap source: experimental_median
@@ -182,21 +193,23 @@ Caveats:
 Polymorphs: 20 with MP ids (6 observed, 14 theoretical, 0 unknown).
 - Ground state: mp-2858 (P2_1/c), stability reference 0.000 eV/atom, observed
 - Scored crystal form is the ground state: yes; stability reference status conflict among functionals: no
-- mp-2858 (P2_1/c): stability reference 0.000 eV/atom, observed; materials_project mp-2858 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.200392+00:00
-- mp-776404 (Pbca): stability reference 0.009 eV/atom, not observed; materials_project mp-776404 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.200392+00:00
-- mp-1190186 (Pbca): stability reference 0.013 eV/atom, observed; materials_project mp-1190186 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.200392+00:00
-- mp-556605 (Pca2_1): stability reference 0.017 eV/atom, observed; materials_project mp-556605 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.200392+00:00
-- mp-2574 (P4_2/nmc): stability reference 0.027 eV/atom, observed; materials_project mp-2574 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.200392+00:00
+- mp-2858 (P2_1/c): stability reference 0.000 eV/atom, observed; materials_project mp-2858 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.200392+00:00 https://next-gen.materialsproject.org/materials/mp-2858
+- mp-776404 (Pbca): stability reference 0.009 eV/atom, not observed; materials_project mp-776404 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.200392+00:00 https://next-gen.materialsproject.org/materials/mp-776404
+- mp-1190186 (Pbca): stability reference 0.013 eV/atom, observed; materials_project mp-1190186 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.200392+00:00 https://next-gen.materialsproject.org/materials/mp-1190186
+- mp-556605 (Pca2_1): stability reference 0.017 eV/atom, observed; materials_project mp-556605 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.200392+00:00 https://next-gen.materialsproject.org/materials/mp-556605
+- mp-2574 (P4_2/nmc): stability reference 0.027 eV/atom, observed; materials_project mp-2574 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.200392+00:00 https://next-gen.materialsproject.org/materials/mp-2574
 
 Experimental gaps: 4.99 eV to 4.99 eV across 1 value(s), median 4.99 eV
-- expt_gap: 4.99 eV; expt_gap expt_gap:0:ZrO2 fetched 2026-11-02T12:00:00+00:00
+- expt_gap (compendium): 4.99 eV; expt_gap expt_gap:0:ZrO2 fetched 2026-11-02T12:00:00+00:00
 
 Hazard: no GHS hazard codes in 1116 notifications (ECHA attribution applies)
 Literature: 3767 matched, 2298 with abstracts, 5 read (title_and_abstract; query 'ZrO2 thin film')
-Caveats:
-- band_offsets_not_checked: Band offsets to the substrate are not checked by this screen. (source: scoring_profile#criteria.band_gap.standing_caveat)
 
 ### Ta2O5: 6, total 0.968
+## Applies to every row
+
+- Band offsets to the substrate are not checked by this screen.
+
 - Rationale: Ta2O5 ranks 6 on stability (stability margin) and insulating gap; see caveats.
 - Flags: hull_status_conflict
 - Sensitivity: rank 5 to 7 over 12 perturbations (stable)
@@ -216,21 +229,23 @@ Caveats:
 Polymorphs: 24 with MP ids (3 observed, 21 theoretical, 0 unknown).
 - Ground state: mp-10390 (C2/c), stability reference 0.000 eV/atom, observed
 - Scored crystal form is the ground state: yes; stability reference status conflict among functionals: yes
-- mp-10390 (C2/c): stability reference 0.000 eV/atom, observed; materials_project mp-10390 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.452757+00:00
-- mp-1539317 (Pmmn): stability reference 0.014 eV/atom, not observed; materials_project mp-1539317 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.452757+00:00
-- mp-1238961 (P2/m): stability reference 0.014 eV/atom, not observed; materials_project mp-1238961 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.452757+00:00
-- mp-1392387 (Pmmn): stability reference 0.015 eV/atom, not observed; materials_project mp-1392387 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.452757+00:00
-- mp-1218312 (Pm): stability reference 0.052 eV/atom, not observed; materials_project mp-1218312 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.452757+00:00
+- mp-10390 (C2/c): stability reference 0.000 eV/atom, observed; materials_project mp-10390 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.452757+00:00 https://next-gen.materialsproject.org/materials/mp-10390
+- mp-1539317 (Pmmn): stability reference 0.014 eV/atom, not observed; materials_project mp-1539317 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.452757+00:00 https://next-gen.materialsproject.org/materials/mp-1539317
+- mp-1238961 (P2/m): stability reference 0.014 eV/atom, not observed; materials_project mp-1238961 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.452757+00:00 https://next-gen.materialsproject.org/materials/mp-1238961
+- mp-1392387 (Pmmn): stability reference 0.015 eV/atom, not observed; materials_project mp-1392387 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.452757+00:00 https://next-gen.materialsproject.org/materials/mp-1392387
+- mp-1218312 (Pm): stability reference 0.052 eV/atom, not observed; materials_project mp-1218312 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.452757+00:00 https://next-gen.materialsproject.org/materials/mp-1218312
 
 Experimental gaps: 4.20 eV to 4.20 eV across 1 value(s), median 4.20 eV
-- expt_gap: 4.20 eV; expt_gap expt_gap:8:Ta2O5 fetched 2026-11-02T12:00:00+00:00
+- expt_gap (compendium): 4.20 eV; expt_gap expt_gap:8:Ta2O5 fetched 2026-11-02T12:00:00+00:00
 
 Hazard: no GHS hazard codes in 80 notifications (ECHA attribution applies)
 Literature: 1683 matched, 1116 with abstracts, 5 read (title_and_abstract; query 'Ta2O5 thin film')
-Caveats:
-- band_offsets_not_checked: Band offsets to the substrate are not checked by this screen. (source: scoring_profile#criteria.band_gap.standing_caveat)
 
 ### TiO2: 7, total 0.932
+## Applies to every row
+
+- Band offsets to the substrate are not checked by this screen.
+
 - Rationale: TiO2 ranks 7 on stability (stability margin) and insulating gap; see caveats.
 - Flags: hull_status_conflict
 - Sensitivity: rank 6 to 8 over 12 perturbations (stable)
@@ -250,21 +265,23 @@ Caveats:
 Polymorphs: 46 with MP ids (17 observed, 37 theoretical, 0 unknown).
 - Ground state: mp-390 (I4_1/amd), stability reference 0.000 eV/atom, observed
 - Scored crystal form is the ground state: yes; stability reference status conflict among functionals: yes
-- mp-390 (I4_1/amd): stability reference 0.000 eV/atom, observed; materials_project mp-390 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.343270+00:00
-- mp-1840 (Pbca): stability reference 0.003 eV/atom, observed; materials_project mp-1840 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.343270+00:00
-- mp-1439 (Pbcn): stability reference 0.005 eV/atom, observed; materials_project mp-1439 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.343270+00:00
-- mp-554278 (C2/m): stability reference 0.006 eV/atom, observed; materials_project mp-554278 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.343270+00:00
-- mp-2657 (P4_2/mnm): stability reference 0.010 eV/atom, observed; materials_project mp-2657 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.343270+00:00
+- mp-390 (I4_1/amd): stability reference 0.000 eV/atom, observed; materials_project mp-390 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.343270+00:00 https://next-gen.materialsproject.org/materials/mp-390
+- mp-1840 (Pbca): stability reference 0.003 eV/atom, observed; materials_project mp-1840 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.343270+00:00 https://next-gen.materialsproject.org/materials/mp-1840
+- mp-1439 (Pbcn): stability reference 0.005 eV/atom, observed; materials_project mp-1439 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.343270+00:00 https://next-gen.materialsproject.org/materials/mp-1439
+- mp-554278 (C2/m): stability reference 0.006 eV/atom, observed; materials_project mp-554278 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.343270+00:00 https://next-gen.materialsproject.org/materials/mp-554278
+- mp-2657 (P4_2/mnm): stability reference 0.010 eV/atom, observed; materials_project mp-2657 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.343270+00:00 https://next-gen.materialsproject.org/materials/mp-2657
 
 Experimental gaps: 3.30 eV to 3.30 eV across 1 value(s), median 3.30 eV
-- expt_gap: 3.30 eV; expt_gap expt_gap:1:TiO2 fetched 2026-11-02T12:00:00+00:00
+- expt_gap (compendium): 3.30 eV; expt_gap expt_gap:1:TiO2 fetched 2026-11-02T12:00:00+00:00
 
 Hazard: GHS codes H319, H320, H335, H351, H372, H413 in 4157 of 11189 notifications (ECHA attribution applies)
 Literature: 21132 matched, 13032 with abstracts, 5 read (title_and_abstract; query 'TiO2 thin film')
-Caveats:
-- band_offsets_not_checked: Band offsets to the substrate are not checked by this screen. (source: scoring_profile#criteria.band_gap.standing_caveat)
 
 ### BaTiO3: 8, total 0.822
+## Applies to every row
+
+- Band offsets to the substrate are not checked by this screen.
+
 - Rationale: BaTiO3 ranks 8 on stability (stability margin) and insulating gap; see caveats.
 - Flags: hull_status_conflict
 - Sensitivity: rank 7 to 8 over 12 perturbations (stable)
@@ -284,28 +301,32 @@ Caveats:
 Polymorphs: 11 with MP ids (11 observed, 1 theoretical, 0 unknown).
 - Ground state: mp-5777 (Amm2), stability reference 0.000 eV/atom, observed
 - Scored crystal form is the ground state: yes; stability reference status conflict among functionals: yes
-- mp-5777 (Amm2): stability reference 0.000 eV/atom, observed; materials_project mp-5777 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.406487+00:00
-- mp-5020 (R3m): stability reference 0.000 eV/atom, observed; materials_project mp-5020 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.406487+00:00
-- mp-558125 (C222_1): stability reference 0.001 eV/atom, observed; materials_project mp-558125 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.406487+00:00
-- mp-5986 (P4mm): stability reference 0.002 eV/atom, observed; materials_project mp-5986 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.406487+00:00
-- mp-5933 (P6_3/mmc): stability reference 0.003 eV/atom, observed; materials_project mp-5933 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.406487+00:00
+- mp-5777 (Amm2): stability reference 0.000 eV/atom, observed; materials_project mp-5777 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.406487+00:00 https://next-gen.materialsproject.org/materials/mp-5777
+- mp-5020 (R3m): stability reference 0.000 eV/atom, observed; materials_project mp-5020 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.406487+00:00 https://next-gen.materialsproject.org/materials/mp-5020
+- mp-558125 (C222_1): stability reference 0.001 eV/atom, observed; materials_project mp-558125 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.406487+00:00 https://next-gen.materialsproject.org/materials/mp-558125
+- mp-5986 (P4mm): stability reference 0.002 eV/atom, observed; materials_project mp-5986 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.406487+00:00 https://next-gen.materialsproject.org/materials/mp-5986
+- mp-5933 (P6_3/mmc): stability reference 0.003 eV/atom, observed; materials_project mp-5933 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.406487+00:00 https://next-gen.materialsproject.org/materials/mp-5933
 
 Experimental gaps: 2.96 eV to 3.13 eV across 5 value(s), median 3.06 eV
-- expt_gap: 3.10 eV; expt_gap expt_gap:2:BaTiO3 fetched 2026-11-02T12:00:00+00:00
-- expt_gap: 3.04 eV; expt_gap expt_gap:4:BaTiO3 fetched 2026-11-02T12:00:00+00:00
-- expt_gap: 2.96 eV; expt_gap expt_gap:6:BaTiO3 fetched 2026-11-02T12:00:00+00:00
-- expt_gap: 3.13 eV; expt_gap expt_gap:7:BaTiO3 fetched 2026-11-02T12:00:00+00:00
-- expt_gap: 3.06 eV; expt_gap expt_gap:10:BaTiO3 fetched 2026-11-02T12:00:00+00:00
+- expt_gap (compendium): 3.10 eV; expt_gap expt_gap:2:BaTiO3 fetched 2026-11-02T12:00:00+00:00
+- expt_gap (compendium): 3.04 eV; expt_gap expt_gap:4:BaTiO3 fetched 2026-11-02T12:00:00+00:00
+- expt_gap (compendium): 2.96 eV; expt_gap expt_gap:6:BaTiO3 fetched 2026-11-02T12:00:00+00:00
+- expt_gap (compendium): 3.13 eV; expt_gap expt_gap:7:BaTiO3 fetched 2026-11-02T12:00:00+00:00
+- expt_gap (compendium): 3.06 eV; expt_gap expt_gap:10:BaTiO3 fetched 2026-11-02T12:00:00+00:00
 
 Hazard: no GHS notification counts available; hazard unknown
 Literature: 3181 matched, 2092 with abstracts, 5 read (title_and_abstract; query 'BaTiO3 thin film')
-Caveats:
-- band_offsets_not_checked: Band offsets to the substrate are not checked by this screen. (source: scoring_profile#criteria.band_gap.standing_caveat)
 
+
+Equal scores are tied; tied rows are listed alphabetically.
 
 ## Reference anchors (never ranked)
 
-### SiO2: would rank 1 of 8, total 1.000
+### SiO2: would place 1st of 9, above Al2O3, total 1.000
+## Applies to every row
+
+- Band offsets to the substrate are not checked by this screen.
+
 - Flags: none
 - Insulating gap source: tbmbj
 - Structural dimensionality: missing (not computed)
@@ -323,11 +344,11 @@ Caveats:
 Polymorphs: 322 with MP ids (209 observed, 238 theoretical, 0 unknown).
 - Ground state: mp-7000 (P3_121), stability reference 0.000 eV/atom, observed
 - Scored crystal form is the ground state: yes; stability reference status conflict among functionals: yes
-- mp-7000 (P3_121): stability reference 0.000 eV/atom, observed; materials_project mp-7000 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.300696+00:00
-- mp-6930 (P3_221): stability reference 0.001 eV/atom, observed; materials_project mp-6930 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.300696+00:00
-- mp-12787 (C2/c): stability reference 0.003 eV/atom, observed; materials_project mp-12787 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.283223+00:00
-- mp-7029 (P4_32_12): stability reference 0.005 eV/atom, observed; materials_project mp-7029 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.300696+00:00
-- mp-6945 (P4_12_12): stability reference 0.005 eV/atom, observed; materials_project mp-6945 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.300696+00:00
+- mp-7000 (P3_121): stability reference 0.000 eV/atom, observed; materials_project mp-7000 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.300696+00:00 https://next-gen.materialsproject.org/materials/mp-7000
+- mp-6930 (P3_221): stability reference 0.001 eV/atom, observed; materials_project mp-6930 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.300696+00:00 https://next-gen.materialsproject.org/materials/mp-6930
+- mp-12787 (C2/c): stability reference 0.003 eV/atom, observed; materials_project mp-12787 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.283223+00:00 https://next-gen.materialsproject.org/materials/mp-12787
+- mp-7029 (P4_32_12): stability reference 0.005 eV/atom, observed; materials_project mp-7029 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.300696+00:00 https://next-gen.materialsproject.org/materials/mp-7029
+- mp-6945 (P4_12_12): stability reference 0.005 eV/atom, observed; materials_project mp-6945 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.300696+00:00 https://next-gen.materialsproject.org/materials/mp-6945
 
 Experimental gaps: none in the public gap tables
 
@@ -338,6 +359,10 @@ Literature: 21347 matched, 14434 with abstracts, 5 read (title_and_abstract; que
 ## Excluded
 
 ### ThO2: excluded
+## Applies to every row
+
+- Band offsets to the substrate are not checked by this screen.
+
 - Excluded: hazard.radioactive_exclude (['Th'] has no stable isotope); rule source config/hazard_policy.yaml#tiers.radioactive_exclude
 - Flags: band_gap_conflict
 - Insulating gap source: experimental_median
@@ -356,19 +381,21 @@ Literature: 21347 matched, 14434 with abstracts, 5 read (title_and_abstract; que
 Polymorphs: 2 with MP ids (2 observed, 0 theoretical, 0 unknown).
 - Ground state: mp-643 (Fm-3m), stability reference 0.000 eV/atom, observed
 - Scored crystal form is the ground state: yes; stability reference status conflict among functionals: no
-- mp-643 (Fm-3m): stability reference 0.000 eV/atom, observed; materials_project mp-643 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.379700+00:00
-- mp-1102569 (Pnma): stability reference 0.150 eV/atom, observed, excluded by stability.cutoff; materials_project mp-1102569 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.379700+00:00
+- mp-643 (Fm-3m): stability reference 0.000 eV/atom, observed; materials_project mp-643 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.379700+00:00 https://next-gen.materialsproject.org/materials/mp-643
+- mp-1102569 (Pnma): stability reference 0.150 eV/atom, observed, excluded by stability.cutoff; materials_project mp-1102569 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.379700+00:00 https://next-gen.materialsproject.org/materials/mp-1102569
 
 Experimental gaps: 3.30 eV to 3.50 eV across 2 value(s), median 3.40 eV
-- expt_gap: 3.50 eV; expt_gap expt_gap:5:ThO2 fetched 2026-11-02T12:00:00+00:00
-- expt_gap: 3.30 eV; expt_gap expt_gap:11:ThO2 fetched 2026-11-02T12:00:00+00:00
+- expt_gap (compendium): 3.50 eV; expt_gap expt_gap:5:ThO2 fetched 2026-11-02T12:00:00+00:00
+- expt_gap (compendium): 3.30 eV; expt_gap expt_gap:11:ThO2 fetched 2026-11-02T12:00:00+00:00
 
 Hazard: GHS codes H301, H311, H331, H350, H373 in an unreported number of 213 notifications (ECHA attribution applies)
 Literature: 31 matched, 20 with abstracts, 5 read (title_and_abstract; query 'ThO2 thin film')
-Caveats:
-- band_offsets_not_checked: Band offsets to the substrate are not checked by this screen. (source: scoring_profile#criteria.band_gap.standing_caveat)
 
 ### BeO: excluded
+## Applies to every row
+
+- Band offsets to the substrate are not checked by this screen.
+
 - Excluded: hazard.exclude (IARC Group 1: beryllium and beryllium compounds); rule source config/hazard_policy.yaml#tiers.exclude.Be
 - Flags: none
 - Insulating gap source: experimental_median
@@ -387,19 +414,17 @@ Caveats:
 Polymorphs: 9 with MP ids (4 observed, 6 theoretical, 0 unknown).
 - Ground state: mp-2542 (P6_3mc), stability reference 0.000 eV/atom, observed
 - Scored crystal form is the ground state: yes; stability reference status conflict among functionals: no
-- mp-2542 (P6_3mc): stability reference 0.000 eV/atom, observed; materials_project mp-2542 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.421036+00:00
-- mp-1778 (F-43m): stability reference 0.007 eV/atom, observed; materials_project mp-1778 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.421036+00:00
-- mp-7599 (P4_2/mnm): stability reference 0.015 eV/atom, observed; materials_project mp-7599 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.421036+00:00
-- mp-1244907 (P1): stability reference 0.257 eV/atom, not observed, excluded by stability.cutoff; materials_project mp-1244907 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.421036+00:00
-- mp-1244919 (P1): stability reference 0.264 eV/atom, not observed, excluded by stability.cutoff; materials_project mp-1244919 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.421036+00:00
+- mp-2542 (P6_3mc): stability reference 0.000 eV/atom, observed; materials_project mp-2542 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.421036+00:00 https://next-gen.materialsproject.org/materials/mp-2542
+- mp-1778 (F-43m): stability reference 0.007 eV/atom, observed; materials_project mp-1778 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.421036+00:00 https://next-gen.materialsproject.org/materials/mp-1778
+- mp-7599 (P4_2/mnm): stability reference 0.015 eV/atom, observed; materials_project mp-7599 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.421036+00:00 https://next-gen.materialsproject.org/materials/mp-7599
+- mp-1244907 (P1): stability reference 0.257 eV/atom, not observed, excluded by stability.cutoff; materials_project mp-1244907 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.421036+00:00 https://next-gen.materialsproject.org/materials/mp-1244907
+- mp-1244919 (P1): stability reference 0.264 eV/atom, not observed, excluded by stability.cutoff; materials_project mp-1244919 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.421036+00:00 https://next-gen.materialsproject.org/materials/mp-1244919
 
 Experimental gaps: 10.39 eV to 10.39 eV across 1 value(s), median 10.39 eV
-- expt_gap: 10.39 eV; expt_gap expt_gap:9:BeO fetched 2026-11-02T12:00:00+00:00
+- expt_gap (compendium): 10.39 eV; expt_gap expt_gap:9:BeO fetched 2026-11-02T12:00:00+00:00
 
 Hazard: GHS codes H301, H305, H315, H317, H319, H330, H334, H335, H350, H350i, H361, H370, H372 in an unreported number of 49 notifications (ECHA attribution applies)
 Literature: 164 matched, 105 with abstracts, 5 read (title_and_abstract; query 'BeO thin film')
-Caveats:
-- band_offsets_not_checked: Band offsets to the substrate are not checked by this screen. (source: scoring_profile#criteria.band_gap.standing_caveat)
 
 
 ## What this screen cannot tell you

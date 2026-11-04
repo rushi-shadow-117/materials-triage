@@ -33,11 +33,19 @@
 {% if view.hull_cutoff %}
 - Energy above hull cutoff: {{ view.hull_cutoff }}
 {% endif %}
-- Not found in any source: {{ view.unresolved_candidates | join(", ") if view.unresolved_candidates else "none" }}
+- Nothing shown for: {% if view.unresolved %}{% for u in view.unresolved %}{{ u.text }} ({{ u.reason }}){{ "; " if not loop.last else "" }}{% endfor %}{% else %}none{% endif %}
 - Not available from configured sources: {{ view.unavailable_properties | join(", ") if view.unavailable_properties else "none" }}
 - Units shown: {{ units }}
 {% macro row_block(r) %}
 ### {{ r.composition }}: {{ r.rank }}{% if r.total != "excluded" %}, total {{ r.total }}{% endif %}
+{% if view.profile_caveats %}
+
+## Applies to every row
+
+{% for c in view.profile_caveats %}
+- {{ c.text }}
+{% endfor %}
+{% endif %}
 
 {% if r.exclusion %}
 - Excluded: {{ r.exclusion }} ({{ r.exclusion_detail }}){% if r.exclusion_ref %}; rule source {{ r.exclusion_ref }}{% endif %}
@@ -59,7 +67,7 @@
 | Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
 |---|---|---|---|---|---|---|---|
 {% for c in r.criteria %}
-| {{ c.label }} | {{ c.raw }} | {{ c.source }} | {{ c.normalized }} | {{ c.weight }} | {{ c.contribution }} | {% if c.provenance %}{{ c.provenance.source }} {{ c.provenance.record_id }}{% if c.provenance.method %} ({{ c.provenance.method }}){% endif %}{% else %}none{% endif %} | {{ c.provenance.fetched_at if c.provenance else "" }} |
+| {{ c.label }} | {{ c.raw }} | {{ c.source }} | {{ c.normalized }} | {{ c.weight }} | {{ c.contribution }} | {% if c.provenance %}{{ c.provenance.source }} {{ c.provenance.record_id }}{% if c.provenance.method %} ({{ c.provenance.method }}){% endif %}{% if c.provenance.url %} {{ c.provenance.url }}{% endif %}{% else %}none{% endif %} | {{ c.provenance.fetched_at if c.provenance else "" }} |
 {% endfor %}
 {% for c in r.criteria if c.notes %}
 - {{ c.label }} notes: {{ c.notes | join("; ") }}
@@ -74,13 +82,13 @@ Polymorphs: {{ r.polymorphs.total }} with MP ids ({{ r.polymorphs.observed }} ob
 {% endif %}
 - Scored polymorph is the ground state: {{ "yes" if r.polymorphs.scored_is_ground_state else "no" }}; hull status conflict among functionals: {{ "yes" if r.polymorphs.hull_status_conflict else "no" }}
 {% for p in r.polymorphs.top_by_hull %}
-- {{ p.mp_id }} ({{ p.spacegroup }}): hull {{ p.hull }}, {{ p.observed }}{% if p.excluded_rule %}, excluded by {{ p.excluded_rule }}{% endif %}{% if p.hull_provenance %}; {{ p.hull_provenance.source }} {{ p.hull_provenance.record_id }}{% if p.hull_provenance.method %} ({{ p.hull_provenance.method }}){% endif %} fetched {{ p.hull_provenance.fetched_at }}{% endif %}
+- {{ p.mp_id }} ({{ p.spacegroup }}): hull {{ p.hull }}, {{ p.observed }}{% if p.excluded_rule %}, excluded by {{ p.excluded_rule }}{% endif %}{% if p.hull_provenance %}; {{ p.hull_provenance.source }} {{ p.hull_provenance.record_id }}{% if p.hull_provenance.method %} ({{ p.hull_provenance.method }}){% endif %} fetched {{ p.hull_provenance.fetched_at }}{% if p.hull_provenance.url %} {{ p.hull_provenance.url }}{% endif %}{% endif %}
 
 {% endfor %}
 
 Experimental gaps: {{ r.gaps }}
 {% for v in r.gap_values %}
-- {{ v.label }}: {{ v.text }}{% if v.provenance %}; {{ v.provenance.source }} {{ v.provenance.record_id }} fetched {{ v.provenance.fetched_at }}{% endif %}
+- {{ v.label }}: {{ v.text }}{% if v.provenance %}; {{ v.provenance.source }} {{ v.provenance.record_id }} fetched {{ v.provenance.fetched_at }}{% if v.provenance.url %} {{ v.provenance.url }}{% endif %}{% endif %}
 
 {% endfor %}
 {% for v in r.reference_values %}
@@ -110,6 +118,10 @@ Caveats:
 {% else %}
 No candidate passed the criteria.
 {% endfor %}
+{% if view.ties_note %}
+
+{{ view.ties_note }}
+{% endif %}
 {% if view.hidden_ranked %}
 {{ view.hidden_ranked }} more ranked candidate(s) beyond top_n are not shown; export CSV for every row.
 

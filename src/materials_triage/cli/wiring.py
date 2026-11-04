@@ -21,13 +21,13 @@ from sqlalchemy import create_engine, text
 from materials_triage.adapters.base import Auth, Call, RawResponse, Source
 from materials_triage.adapters.runner import Runner
 from materials_triage.adapters.transport import TIMEOUT, USER_AGENT, HttpxTransport
-from materials_triage.agent import pipeline, scoring_port
+from materials_triage.agent import llm_status, pipeline, scoring_port
 from materials_triage.agent.classifier import ClassifierCache
 from materials_triage.agent.llm import LLMClient, make_client
 from materials_triage.config import schema as cs
 from materials_triage.provenance.store import Store, make_engine
 from materials_triage.records.bundle import FetchMode
-from materials_triage.settings import Settings
+from materials_triage.settings import MissingSettingError, Settings
 
 from .runs import RunStore
 
@@ -161,14 +161,17 @@ def resolve_fetch_source(
     *,
     reachable: Callable[[str], bool] = postgres_reachable,
 ) -> tuple[FetchSource, str]:
-    """`auto` (the CLI default) uses the store when Postgres answers, else the recorded
-    cassettes. Returns the source and the line logged to stderr and the decision log."""
+    """`auto` (the CLI and API default): the recorded cassettes unless FETCH_MODE is set; with
+    FETCH_MODE set, the store when Postgres answers, else the cassettes. Returns the source
+    and the line logged to stderr and the decision log."""
     if requested == "store":
         return "store", "fetch: store (requested)"
     if requested == "cassettes":
         return "cassettes", "fetch: cassettes (requested)"
     if requested != "auto":
         raise ValueError("--fetch must be auto, store, or cassettes")
+    if settings.fetch_mode is None:
+        return "cassettes", "fetch: cassettes (FETCH_MODE not set: recorded data, no network)"
     parts = urlsplit(settings.database_url)
     where = f"{parts.hostname}:{parts.port}"
     if reachable(settings.database_url):
@@ -182,7 +185,7 @@ def make_fetch(
     if source == "cassettes":
         return cassette_fetch(), FetchMode.REPLAY
     store = Store(make_engine(settings.database_url))
-    mode = settings.fetch_mode
+    mode = settings.fetch_mode or "live"  # --fetch store with FETCH_MODE unset: live
     transport: Any
     if mode == "replay":
         transport = NoNetwork()
@@ -201,8 +204,26 @@ def make_fetch(
     return fetch, FetchMode(mode)
 
 
+def initial_llm_status(settings: Settings) -> None:
+    """Set the process's model status from configuration alone (no request is made)."""
+    llm_status.reset()
+    if settings.llm_provider == "none":
+        llm_status.set_status("none")
+    elif settings.llm_provider == "anthropic" and settings.anthropic_api_key is None:
+        llm_status.set_status("missing_key", "ANTHROPIC_API_KEY")
+
+
 def make_llm(settings: Settings, *, no_llm: bool) -> LLMClient | None:
-    return None if no_llm else make_client(settings)
+    """The configured client wrapped so a rejected key or exhausted credit falls back to no
+    model, or None when no model is configured, the key is missing, or it already failed."""
+    if no_llm or settings.llm_provider == "none" or not llm_status.available():
+        return None
+    try:
+        client = make_client(settings)
+    except MissingSettingError as e:
+        llm_status.set_status("missing_key", e.variable)
+        return None
+    return None if client is None else llm_status.GuardedClient(client)
 
 
 def make_scorer() -> scoring_port.Scorer:

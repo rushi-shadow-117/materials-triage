@@ -110,7 +110,8 @@ def top_n_respected(obs: Observation) -> CheckResult:
     in the PI view are counted when it was rendered, else the bundle's ranked rows."""
     top_n = b.criteria.effective_settings.get("top_n")
     view = obs.rendered.get("pi_summary")
-    shown = 0 if view is None else len(re.findall(r"^\| \d+ \|", view, flags=re.MULTILINE))
+    # a tied rank reads "1=" (human test session, item 7)
+    shown = 0 if view is None else len(re.findall(r"^\| \d+=? \|", view, flags=re.MULTILINE))
     if shown:
         n, where = shown, "shown in pi_summary"
     else:

@@ -22,6 +22,7 @@ from materials_triage.records.bundle import DecisionLogEntry
 
 from . import prompts
 from .llm import LLMClient, ToolCall, ToolResult, ToolSpec, Turn, Usage
+from .llm_status import LLMUnavailableError
 from .tools import ToolInputError, validate_input
 
 MAX_ATTEMPTS = 3
@@ -142,7 +143,13 @@ def run_step(
         if breach is not None:
             entries.append(_entry(step, f"budget: {breach}", {"attempt": attempt}))
             return StepResult(StepStatus.BUDGET, breach, entries=entries, turns=turns)
-        response = client.complete(system=system, turns=turns, tools=[tool], max_tokens=max_tokens)
+        try:
+            response = client.complete(
+                system=system, turns=turns, tools=[tool], max_tokens=max_tokens
+            )
+        except LLMUnavailableError as e:
+            entries.append(_entry(step, "model unavailable", {"attempt": attempt, "note": str(e)}))
+            return StepResult(StepStatus.FAILED, "llm_unavailable", entries=entries, turns=turns)
         budget.charge(response.usage)
         detail: dict[str, Any] = {
             "attempt": attempt,

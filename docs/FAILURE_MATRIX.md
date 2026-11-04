@@ -186,3 +186,25 @@ rows only under its own heading. Rows name a test path; a row without a test is 
 | The api image does not build or does not serve /health from recorded data | The CI docker job fails | .github/workflows/ci.yml (docker job) |
 | The Terraform module is unformatted or invalid | The CI terraform job fails | .github/workflows/ci.yml (terraform job) |
 | A fresh clone cannot install, build, serve, rank, or run an eval case | scripts/cold_run.sh prints FAIL at that step and exits non-zero | scripts/cold_run.sh |
+
+## Track H fixes: the human test session
+
+| Failure | Behavior | Test |
+|---|---|---|
+| A fresh clone has no key and no database | The run completes from recorded data; health reports `missing_key` and the banner shows | tests/api/test_fresh_defaults.py::test_missing_key_falls_back_and_the_run_completes |
+| The provider rejects the key or the account has no credit | One rejected request sets the status; parse falls back to the form and the run completes | tests/api/test_fresh_defaults.py::test_rejected_key_or_no_credit_falls_back |
+| A test reaches the model provider | The SDK's request method raises in every test | tests/api/test_fresh_defaults.py::test_tests_cannot_reach_the_provider |
+| A result page or Run history is reloaded or shared | The app loads; the API answers only under /api, and an unknown /api path is a JSON 404 | tests/api/test_spa_routes.py; tests/e2e/test_browser.py::test_reloading_a_result_and_run_history_shows_the_page |
+| Keycloak or Postgres is unreachable from the host in development | The dev Compose file publishes both on 127.0.0.1; a browser signs in through Keycloak's page | tests/e2e/test_keycloak_browser.py |
+| A site service on the internal network gains a host port | The CI docker job fails on the merged site config | .github/workflows/ci.yml (docker job) |
+| Experimental gaps from different material forms are pooled | Only the first preferred form with a point value is aggregated; the others are shown, not used | tests/scoring/test_band_gap.py::test_tho2_pool_never_aggregates_across_forms; tests/scoring/test_band_gap.py::test_al2o3_thin_film_uses_its_film_value |
+| A PBE-only gap sits between the profile's PBE floor and its hard minimum | Kept, scored, and flagged with the PBE caveat; below the floor or under a scientist's minimum it is excluded | tests/scoring/test_band_gap.py::test_pbe_only_between_floor_and_minimum_is_kept_and_flagged; tests/api/test_runs_api.py::test_gan_under_the_nitride_profile |
+| A template rationale names a caveat by its id | The template carries caveat tokens that render as config text; a test checks no id survives | tests/agent/test_rationale.py::test_template_rationale_renders_caveat_text_never_ids |
+| Equal totals read as distinct ranks in name order | Tied rows show "1=" with a note; the CSV marks them tied | tests/render/test_markdown.py::test_equal_totals_render_as_tied; tests/e2e/test_browser.py::test_rank_my_list_runs_end_to_end |
+| Every row's key caveat is the same profile-wide sentence | The key caveat follows the row-specific priority; profile-wide caveats show once above the table | tests/render/test_markdown.py::test_key_caveat_is_the_most_row_specific_one |
+| An anchor's place reads as last when it outscores the last candidate | The count includes the anchor and its neighbours are named | tests/api/test_runs_api.py::test_anchor_placement_reads_correctly |
+| A Materials Project value has no link to its page | Every MP record carries the page URL, and older bundles derive it | tests/api/test_runs_api.py::test_every_materials_project_value_links_to_its_page; tests/render/test_markdown.py::test_record_url_links_materials_project_ids_in_older_bundles |
+| A typed name, a lowercase formula, or capitals that are not element symbols | Names and case-insensitive formulas match the synonym table; the rest become chips with a reason; nothing fails the whole list | tests/agent/test_parse_unresolved_and_unavailable.py::test_names_and_lowercase_formulas_match_the_synonym_table; tests/api/test_runs_api.py::test_resolve_matches_names_and_reports_the_rest; tests/e2e/test_browser.py::test_names_and_lowercase_match_and_the_rest_become_chips |
+| A composition is missing from the recorded data in an offline run | The reason says offline and that live fetching has it, never that the source lacks it | tests/agent/test_pipeline.py::test_missing_sources_become_events_and_a_partial_run |
+| A refresh is requested with a blank or whitespace note | 422; the audit log stores only stripped, non-empty notes | tests/api/test_auth.py::test_refresh_notes_are_stripped_and_must_have_text |
+| The limits of the screen are below the fold | The cannot-tell-you panel is above the table, inside the first screen | tests/e2e/test_browser.py::test_rank_my_list_runs_end_to_end |

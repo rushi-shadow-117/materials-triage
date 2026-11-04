@@ -21,13 +21,30 @@ Request: {{ criteria.request_text }}
 
 {{ view.overview }}
 {% endif %}
-{% if view.unresolved_candidates %}
+{% if view.unresolved %}
 
-Not found in any source: {{ view.unresolved_candidates | join(", ") }}. These names are not chemical formulas; nothing is shown for them.
+Nothing is shown for:{% for u in view.unresolved %} {{ u.text }} ({{ u.reason }}){{ ";" if not loop.last else "." }}{% endfor %}
 {% endif %}
 {% if view.unavailable_properties %}
 
 Not available from configured sources: {{ view.unavailable_properties | join(", ") }}. No configured source provides these properties, so they are not scored and no value is shown.
+{% endif %}
+
+## What this screen cannot tell you
+
+{% for m in view.missing_properties %}
+- {{ m }}
+{% else %}
+- (site list not entered)
+{% endfor %}
+
+{% if view.profile_caveats %}
+
+## Applies to every row
+
+{% for c in view.profile_caveats %}
+- {{ c.text }}
+{% endfor %}
 {% endif %}
 
 {% if view.rows %}
@@ -36,6 +53,10 @@ Not available from configured sources: {{ view.unavailable_properties | join(", 
 {% for r in view.rows %}
 | {{ r.rank }} | {{ r.composition }} | {{ r.rationale or "no rationale" }} | {{ r.key_caveat }} | {{ r.evidence_tier }} | {{ r.k }} | {{ r.missing | join(", ") if r.missing else "none" }} |
 {% endfor %}
+{% if view.ties_note %}
+
+{{ view.ties_note }}
+{% endif %}
 {% if view.hidden_ranked %}
 
 {{ view.hidden_ranked }} more ranked candidate(s) beyond top_n are not shown; export CSV for every row.
@@ -48,7 +69,7 @@ No candidate passed the criteria.
 ## Reference anchors (never ranked)
 
 {% for a in view.anchors %}
-- {{ a.composition }}: {{ a.rank }}{% if a.exclusion %} (excluded: {{ a.exclusion }}){% endif %}
+- {{ a.composition }} (reference): {{ a.rank }}{% if a.exclusion %} (excluded: {{ a.exclusion }}){% endif %}
 
 {% endfor %}
 {% endif %}
@@ -71,15 +92,6 @@ No candidate passed the criteria.
 - {{ id }}: {{ c.text }}
 {% endfor %}
 {% endif %}
-
-## What this screen cannot tell you
-
-{% for m in view.missing_properties %}
-- {{ m }}
-{% else %}
-- (site list not entered)
-{% endfor %}
-
 ## Settings applied
 
 - Defaults: {{ view.defaults_applied | join("; ") if view.defaults_applied else "none" }}

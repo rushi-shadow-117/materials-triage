@@ -81,7 +81,7 @@ def test_query_no_llm_runs_end_to_end_and_saves_the_bundle(tmp_path: Path) -> No
     )
     assert result.exit_code == 0, result.output
     assert "# Audit view: oxide_dielectric_thin_film" in result.output
-    assert "### Al2O3: 1, total 1.000" in result.output
+    assert "### Al2O3: 1=, total 1.000" in result.output
     assert "Prompt hash: none (no LLM)" in result.output
     runs = _runs(tmp_path)
     assert len(runs) == 1
@@ -176,7 +176,7 @@ def test_query_with_a_fake_llm_asks_for_missing_candidates(
     )
     assert result.exit_code == 0, result.output
     assert "Missing required: candidate_list" in result.output
-    assert "| 1 | HfO2 | HfO2 leads. |" in result.output
+    assert "| 1= | HfO2 | HfO2 leads. |" in result.output
     bundle = ProvenanceBundle.model_validate_json(_runs(tmp_path)[0].read_text())
     assert bundle.run.model_version == "fake-model" and bundle.run.prompt_hash
     assert all(e.label.value == "unclassified" for e in bundle.evidence)
@@ -187,7 +187,7 @@ def test_rank_export_replay_and_diff(tmp_path: Path) -> None:
         app, ["rank", "--formulas", "HfO2,ZrO2,Al2O3", "--no-llm", "--fetch", "cassettes"]
     )
     assert first.exit_code == 0, first.output
-    assert "| 1 | Al2O3 |" in first.output and "| 2 | HfO2 |" in first.output
+    assert "| 1= | Al2O3 |" in first.output and "| 1= | HfO2 |" in first.output
     run_a = _runs(tmp_path)[0].stem
 
     exported = RUNNER.invoke(app, ["export", run_a, "--format", "csv"])
@@ -264,3 +264,28 @@ def test_auto_fetch_uses_the_store_only_when_postgres_answers() -> None:
     assert wiring.resolve_fetch_source(settings, "cassettes")[0] == "cassettes"
     with pytest.raises(ValueError):
         wiring.resolve_fetch_source(settings, "web")
+
+
+def test_importing_the_api_module_runs_no_startup_checks() -> None:
+    """`serve` imports api.app before it can catch an auth error; a module-level app built at
+    import raised first, so the usage error became a crash whenever nothing had imported the
+    module earlier in the process."""
+    import os
+    import subprocess
+    import sys
+
+    env = {
+        **os.environ,
+        "AUTH_MODE": "static",
+        "STATIC_TOKENS": "t:scientist",
+        "SITE_MODE": "true",
+        "LLM_PROVIDER": "none",
+    }
+    done = subprocess.run(
+        [sys.executable, "-c", "import materials_triage.api.app"],
+        env=env,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert done.returncode == 0, done.stderr

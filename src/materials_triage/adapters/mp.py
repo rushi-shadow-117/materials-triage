@@ -23,6 +23,7 @@ from materials_triage.adapters.common import (
 )
 from materials_triage.adapters.mpid import to_legacy
 from materials_triage.records import (
+    MP_PAGE_URL,
     Ids,
     MissingReason,
     ObservationEvidence,
@@ -223,7 +224,7 @@ def summary_records(raw: RawResponse) -> list[SourceRecord]:
                 provenance=provenance(
                     raw,
                     source_record_id=mp_id,
-                    url=f"https://next-gen.materialsproject.org/materials/{mp_id}",
+                    url=MP_PAGE_URL.format(mp_id),
                     license=_license(doc),
                 ),
                 license=_license(doc),
@@ -243,7 +244,7 @@ def thermo_records(raw: RawResponse) -> list[SourceRecord]:
                 source_record_id=f"{mp_id}:{ttype}",
                 composition=None,
                 payload={**doc, "material_id": mp_id},
-                provenance=provenance(raw, source_record_id=mp_id),
+                provenance=provenance(raw, source_record_id=mp_id, url=MP_PAGE_URL.format(mp_id)),
             )
         )
     return out
@@ -259,7 +260,7 @@ def structure_records(raw: RawResponse) -> list[SourceRecord]:
                 source_record_id=mp_id,
                 composition=None,
                 payload={**doc, "material_id": mp_id},
-                provenance=provenance(raw, source_record_id=mp_id),
+                provenance=provenance(raw, source_record_id=mp_id, url=MP_PAGE_URL.format(mp_id)),
             )
         )
     return out
@@ -275,7 +276,12 @@ def dielectric_records(raw: RawResponse) -> list[SourceRecord]:
                 source_record_id=mp_id,
                 composition=None,
                 payload={**doc, "material_id": mp_id},
-                provenance=provenance(raw, source_record_id=mp_id, license=_license(doc)),
+                provenance=provenance(
+                    raw,
+                    source_record_id=mp_id,
+                    url=MP_PAGE_URL.format(mp_id),
+                    license=_license(doc),
+                ),
                 license=_license(doc),
             )
         )

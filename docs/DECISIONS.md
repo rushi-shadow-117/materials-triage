@@ -1284,3 +1284,150 @@ Decision: `scripts/cold_run.sh` clones, installs, builds, tests, serves from rec
 runs Rank my list over the API, and runs one eval case, printing PASS or FAIL per step with no
 model call. `docs/COLD_RUN.md` carries the checklist and the last recorded output.
 Alternative: a prose checklist alone, which nobody re-runs.
+
+## Track H fixes: the human test session (Nov 4)
+
+### 2026-11-04 Fresh-clone defaults: recorded data, Sonnet, model on, fallback to no model
+Decision (owner): a bare `serve` works with no keys and no database. `FETCH_MODE` unset means
+the recorded cassettes, even when Postgres answers; setting it selects the store. The model
+defaults to `claude-sonnet-5-5`, never Opus, and `CLASSIFY_MODE` defaults to `live`. A
+missing key, a rejected key, or an exhausted credit balance sets a process-level status
+(`agent/llm_status.py`): the client is dropped, every step takes its no-model path, the app
+shows a banner, and the run completes. One rejected request is the most a bad key costs.
+`/criteria/resolve` returns the run's estimated model calls (one per abstract for the top
+candidates, plus the rationale) with the step budgets as the hard cap. `scripts/cold_run.sh`
+serves with the bare defaults. Tests cannot reach a provider: the SDK's request method raises
+in every test.
+Alternative: keep the store-first and Opus defaults and fail on a missing key, which is what
+broke the README run in the test session.
+
+### 2026-11-04 The API lives only under /api
+Decision (owner): every API route is under `/api`, in `serve`, in the Vite dev server (the
+proxy keeps the prefix), and behind the split nginx front. Every other path is the web app:
+`/runs`, `/runs/<id>`, and the drill-down are client routes with the index.html fallback, so a
+reload or a shared link shows the page. An unknown `/api` path stays a JSON 404.
+Alternative: rename the client routes (for example `/results/<id>`) and keep the API at the
+root; that leaves the next client route one name clash away from the same bug.
+
+### 2026-11-04 Dev and site Compose files
+Decision (owner): `compose.yaml` is for development: one network, Postgres and Keycloak
+published on 127.0.0.1. `compose.site.yaml` applies the internal and egress split for site
+deployments and removes the internal services' host ports. Docker publishes no host port for a
+service whose only network is `internal: true`, which is why Track D's single file left
+Keycloak and a freshly created Postgres unreachable from the host. The dev realm allows
+`127.0.0.1:8799` for the browser sign-in test, which builds the app with
+`VITE_AUTH_MODE=oidc` into a temporary folder (`WEB_DIST`).
+Alternative: keep one file and attach the internal services to a second, routable network;
+that publishes ports again and quietly undoes the isolation the split exists for.
+
+### 2026-11-04 Experimental gaps never average across material forms
+Decision (owner): each profile lists `criteria.band_gap.experimental_forms.preferred`. The
+thin-film profile prefers `amorphous_film, thin_film, crystalline_bulk, compendium`; the
+photocatalyst and nitride profiles prefer `crystalline_bulk, compendium, thin_film,
+amorphous_film`. The first form with a point value is used and the median is taken within it;
+values in other forms stay in the audit view and the drill-down with their form, marked not
+used. `compendium` is the experimental gap table, whose form is not recorded, so it sorts last
+for thin films. The criterion now records `used_record_ids`, the records that entered its
+value; the drill-down's "used" column reads it. Al2O3 under the thin-film profile scores its
+amorphous-film point (6.6 eV) instead of the 7.65 eV median of a film and a crystal. Rewriting
+the pool also fixed the aggregate's provenance, which could name a range record that never
+entered the median.
+Alternative: a per-form median shown side by side with no rule for which one scores, which
+leaves the choice to whoever reads the table.
+
+### 2026-11-04 PBE-only gaps: the hard minimum excludes only below the PBE floor
+Decision (owner), an extension of the Track F prefilter principle: when PBE is a candidate's
+only gap source, the profile's hard minimum excludes it only below the profile's
+`discovery_pbe_floor_ev`, the loosest PBE value the discovery query admits. Between the floor
+and the minimum the candidate is kept and scored on the profile's shape, flagged
+`pbe_only_below_window`, with the caveat "Only a computed PBE gap is available; PBE typically
+underestimates gaps (Materials Project documentation)." from each profile's band gap block.
+A scientist's own minimum applies to the value as written, so relaxation counts stay exact.
+Under the nitride profile only the window 2.4 to 4.0 eV is affected; GaN's PBE gap of
+1.738 eV is below the floor and stays excluded. The photocatalyst floor equals its minimum,
+so nothing changes there.
+Alternative: apply the window to the scientist's minimum too, which would make an explicit
+9 eV minimum admit 3 eV PBE gaps.
+
+### 2026-11-04 Template rationale carries caveat tokens, not caveat ids
+Decision: the no-model rationale ends with a `{caveat:<composition>:<id>}` token for each of
+the row's own caveats. The verifier checks only that the row carries that caveat; the
+renderer fills the token with the caveat's config text, so chemistry text still comes only
+from config and no id reaches the reader. Profile-wide caveats (`render/caveats.py`
+PROFILE_WIDE: band offsets, the two stability cutoff notes, unclassified evidence, the ECHA
+attribution) never enter a row's rationale.
+Alternative: write the caveat text into the slot at run time, which puts config sentences
+with digits and hazard codes through the verifier's number check and fails it.
+
+### 2026-11-04 Equal scores display as tied
+Decision (owner): ranked rows whose totals are equal at display precision show the first
+rank of their group with "=" ("1="), and a note under the table says "Equal scores are tied;
+tied rows are listed alphabetically." The bundle's integer ranks and the alphabetical
+tie-break stay as they are, so prompts and replays are unchanged; `render/tokens.py`
+`shown_ranks` computes the display once for the rank token, the views, and the CSV (`rank`
+is the shown rank, `tied` says yes).
+Alternative: a secondary sort key such as the band gap, which turns a tie into an order the
+profile never asked for.
+
+### 2026-11-04 The key caveat is the most row-specific one; profile-wide caveats show once
+Decision (owner): a row's key caveat is the first present of the hazard flag, the band gap
+conflict, the PBE-only window, near cutoff, and a theoretical ground state, then the row's
+other caveats in enum order; a row with none reads "none specific to this row". Three flags
+gain data-state caveats with the owner's text in `render/caveats.py`: band gap conflict, near
+cutoff, theoretical ground state. Caveats every row carries by construction (band offsets,
+the stability cutoff notes, unclassified evidence, the ECHA attribution) show once in an
+"Applies to every row" panel above the table and leave the rows.
+Alternative: keep the enum order, which put the standing band offsets sentence first on
+every thin-film row and hid TiO2's hazard flag.
+
+### 2026-11-04 Anchor placement names its place and neighbours
+Decision (owner): a reference anchor reads "SiO2 (reference): would place 5th of 6, between
+ZrO2 and TiO2". The count includes the anchor (`out_of` is the ranked candidates plus one),
+and the anchor records the candidates just above and below its place (`ranked_above`,
+`ranked_below`, defaulted fields). First and last places read "above X" and "below X".
+Bundles written before this keep their stored count, which excluded the anchor; the sample
+bundle's anchor fields were updated in place.
+Alternative: keep "would rank N of M" with M the ranked count, which read as last place when
+the anchor outscored the last candidate.
+
+### 2026-11-04 Every Materials Project value links to its page
+Decision (owner): every Materials Project record (summary, thermo, structure, dielectric)
+carries `https://next-gen.materialsproject.org/materials/<mp-id>` as its URL, and
+`records.record_url` derives the same link for MP ids in older bundles. The drill-down shows
+a link for every value of the property, the stability one included, and the audit view
+prints the link beside each MP record.
+Alternative: link only the summary record, which is how the hull values lost theirs: the
+thermo records overwrite the summary hull with provenance that had no URL.
+
+### 2026-11-04 Typed candidates match names case-insensitively; unmatched entries are chips
+Decision (owner): a typed entry is looked up first, case-insensitively, in the profile's
+synonym table (formula keys and names, FDE-owned config), so "hafnia", "hfo2", and "HFO2"
+are HfO2; otherwise it is parsed as a formula only when every symbol is a real element.
+Pymatgen alone reads unknown capitals as placeholder species, so "SAPPHIRE" became a compound
+and "HFO2" became HO2F. Unmatched entries are listed with a reason (red chips in the web app,
+a sentence in the exports); an all-unmatched list is a missing `candidate_list` the form asks
+for, never an error with a Python list, and starting a run with nothing to rank is a 422 in a
+sentence. The model's parse tool still gets a tool error for an all-unmatched list so it can
+ask. Eval case C5's rendered-text check follows the new wording.
+Alternative: guess element capitalization ("co" as Co or CO), which invents chemistry.
+
+### 2026-11-04 Offline misses say they are offline
+Decision (owner): when a run reads recorded data (cassettes, or the store with no network),
+a named composition with no recorded response reads "Not in the recorded data (offline
+mode); available with live fetching". Only a live miss says the source has no summary. The
+bundle records each miss with its reason (`criteria.not_fetched`), and the results page shows
+it as a chip beside the unmatched names.
+Alternative: one wording for both, which told the scientist Materials Project lacks CaO.
+
+### 2026-11-04 Refresh notes are stripped and must have text
+Decision (owner): the API strips the refresh note and refuses one that is empty after
+stripping (422); the audit log stores the stripped note. The console's button already
+required text; the API now enforces it for every client.
+Alternative: rely on the console's check, which any other client skips.
+
+### 2026-11-04 "What this screen cannot tell you" sits above the table
+Decision (owner): the results page and the PI export show the "cannot tell you" list,
+moisture sensitivity included, in one panel above the table beside the caveats that apply to
+every row, so the limits are read before the ranks. A browser test checks the panel is above
+the table and inside the first screen at 1280 by 900.
+Alternative: keep it after the caveats, below a table that can run to ten rows.

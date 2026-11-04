@@ -5,6 +5,7 @@ from collections.abc import Iterator
 import pytest
 from sqlalchemy import Engine, text
 
+from materials_triage.agent import llm_status
 from materials_triage.provenance.store import make_engine
 from materials_triage.settings import Settings
 
@@ -63,6 +64,25 @@ def clean_tables(request: pytest.FixtureRequest) -> Iterator[None]:
         ):
             conn.execute(text(f"delete from triage.{t}"))
     yield
+
+
+class ModelCallInTestError(AssertionError):
+    """A test reached the model provider's HTTP layer. Tests use fakes only."""
+
+
+@pytest.fixture(autouse=True)
+def no_model_calls(monkeypatch: pytest.MonkeyPatch) -> Iterator[None]:
+    """No test may send a request to a model provider, whatever keys .env holds: the SDK's
+    request method raises. Each test also starts with a fresh model status."""
+    from anthropic._base_client import SyncAPIClient
+
+    def refuse(*_a: object, **_k: object) -> None:
+        raise ModelCallInTestError("a test tried to call the model provider; use a fake")
+
+    monkeypatch.setattr(SyncAPIClient, "request", refuse)
+    llm_status.reset()
+    yield
+    llm_status.reset()
 
 
 def pytest_configure(config: pytest.Config) -> None:

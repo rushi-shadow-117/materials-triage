@@ -34,9 +34,9 @@ def test_index_holds_every_id_shape_the_bundle_carries(index: tokens.BundleIndex
 def test_each_token_kind_resolves(index: tokens.BundleIndex) -> None:
     r = lambda kind, arg, **kw: tokens.resolve(index, kind, arg, **kw)  # noqa: E731
     assert r("formula", "HfO2") == "HfO2"
-    assert r("rank", "HfO2") == "2"
+    assert r("rank", "HfO2") == "1="  # tied with Al2O3 at the shown precision
     assert r("rank", "ThO2") == "excluded"
-    assert r("rank", "SiO2") == "would rank 1 of 8"
+    assert r("rank", "SiO2") == "would place 1st of 9, above Al2O3"
     assert r("value", "HfO2:band_gap") == "5.55 eV"
     assert r("value", "HfO2:band_gap", units="meV") == "5550 meV"
     assert r("value", "HfO2:stability") == "0.000 eV/atom"
@@ -71,6 +71,6 @@ def test_unknown_tokens_raise_with_the_verifier_failure_kind(index: tokens.Bundl
 
 def test_render_text_fills_every_token(index: tokens.BundleIndex) -> None:
     text = "{formula:HfO2} ranks {rank:HfO2} with a gap of {value:HfO2:band_gap}."
-    assert tokens.render_text(index, text) == "HfO2 ranks 2 with a gap of 5.55 eV."
+    assert tokens.render_text(index, text) == "HfO2 ranks 1= with a gap of 5.55 eV."
     with pytest.raises(tokens.TokenError):
         tokens.render_text(index, "{formula:Unobtainium}")

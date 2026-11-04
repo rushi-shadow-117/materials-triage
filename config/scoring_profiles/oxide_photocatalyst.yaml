@@ -50,7 +50,21 @@ criteria:
       citation: "Owner decision 2026-11-02: gap window 2.0 to 3.3 eV. The upper edge was set after the first scoring pass so that the recorded compendium medians of TiO2 (3.30 eV) and BaTiO3 (3.06 eV) fall inside it; the Track 0 discovery recording oxides_gap_2_to_3 used 3.0. An application choice, not a sourced chemistry fact."
       url: null
       access: not_applicable
+    pbe_only_caveat: "Only a computed PBE gap is available; PBE typically underestimates gaps (Materials Project documentation)."
+    pbe_only_caveat_source:
+      citation: "Materials Project documentation, Electronic Structure methodology page; caveat text owner decision 2026-11-04 (human test session fix batch, item 5)"
+      url: https://docs.materialsproject.org/methodology/materials-methodology/electronic-structure
+      access: open
     aggregate_when_several_experimental_values: median
+    experimental_forms:
+      preferred: [crystalline_bulk, compendium, thin_film, amorphous_film]
+      description: "Experimental gaps are never averaged across material forms. The first form in this list with a point value is used and the median is taken within it; values in other forms are shown in the audit view and the drill-down, not used. compendium is the experimental gap table, whose form is not recorded."
+      status: entered
+      source:
+        citation: "Owner decision 2026-11-04 (human test session fix batch, item 4): non-thin-film profiles prefer crystalline values; compendium after them"
+        access: not_applicable
+      entered_by: owner
+      entered_on: 2026-11-04
     aggregate_options: [median, minimum]
     conflict_tolerance_ev: null
     conflict_tolerance_status: open

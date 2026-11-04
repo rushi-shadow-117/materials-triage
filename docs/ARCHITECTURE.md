@@ -51,8 +51,9 @@ that code fills from the bundle.
 
 **Egress.** `adapters/egress.py` refuses, before sending, any host outside
 `CoreConfig.allowed_hosts` plus the configured model endpoint; the transport and the model
-clients both run that check. Compose keeps Postgres and Keycloak on an internal network with
-no outside route and puts only the API on the egress network. The host allowlist itself is
+clients both run that check. The site Compose override (`compose.site.yaml`) keeps Postgres
+and Keycloak on an internal network with no outside route and puts only the API on the
+egress network; the dev file publishes them on 127.0.0.1. The host allowlist itself is
 enforced by the application check; a network-level domain allowlist needs an egress proxy or
 a firewall with domain rules, which this repository does not include (see
 `docs/ADMIN_GUIDE.md`).
