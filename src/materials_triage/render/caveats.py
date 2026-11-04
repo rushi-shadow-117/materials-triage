@@ -174,6 +174,9 @@ class CaveatConfig:
                 if text
                 else None
             )
+        elif cid is CaveatId.PBE_ONLY_BELOW_WINDOW:
+            text = self._profile_criterion("band_gap", "pbe_only_caveat")
+            found = (text, "scoring_profile#criteria.band_gap.pbe_only_caveat") if text else None
         elif cid is CaveatId.HAZARD_FLAG:
             found = self._hazard_flag(subject) or self._ghs_flag_set(row)
         elif cid is CaveatId.HAZARD_UNKNOWN:

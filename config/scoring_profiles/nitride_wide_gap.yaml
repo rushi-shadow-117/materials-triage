@@ -54,6 +54,11 @@ criteria:
       citation: "Owner decision 2026-11-03 (Track F item 9): hard_min_ev 4.0 for the nitride profile; an application choice, not a sourced chemistry fact"
       url: null
       access: not_applicable
+    pbe_only_caveat: "Only a computed PBE gap is available; PBE typically underestimates gaps (Materials Project documentation)."
+    pbe_only_caveat_source:
+      citation: "Materials Project documentation, Electronic Structure methodology page; caveat text owner decision 2026-11-04 (human test session fix batch, item 5)"
+      url: https://docs.materialsproject.org/methodology/materials-methodology/electronic-structure
+      access: open
     aggregate_when_several_experimental_values: median
     experimental_forms:
       preferred: [crystalline_bulk, compendium, thin_film, amorphous_film]

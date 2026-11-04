@@ -78,6 +78,7 @@ class Flag(StrEnum):
     BAND_GAP_CONFLICT = "band_gap_conflict"
     BAND_GAP_SINGLE_SOURCE = "band_gap_single_source"
     BAND_GAP_SOURCES_UNCOMPARED = "band_gap_sources_uncompared"  # tolerance not configured
+    PBE_ONLY_BELOW_WINDOW = "pbe_only_below_window"  # kept between the PBE floor and the minimum
     HAZARD_FLAG = "hazard_flag"
     HAZARD_UNKNOWN = "hazard_unknown"
     PROCESS_HAZARD = "process_hazard"
@@ -95,6 +96,7 @@ class CaveatId(StrEnum):
     STABILITY_CUTOFF_OXIDE_CALIBRATED = "stability_cutoff_oxide_calibrated"  # anion policy
     EXPERIMENTAL_GAP_COMPOSITION_LEVEL = "experimental_gap_composition_level"
     EXPERIMENTAL_GAP_UNREFERENCED = "experimental_gap_unreferenced"
+    PBE_ONLY_BELOW_WINDOW = "pbe_only_below_window"
     REFERENCE_VALUE_PENDING = "reference_value_pending"
     HAZARD_FLAG = "hazard_flag"
     HAZARD_UNKNOWN = "hazard_unknown"

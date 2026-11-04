@@ -131,3 +131,20 @@ def test_unknown_run_and_run_in_progress_states(client: TestClient) -> None:
     assert client.get("/api/runs/nope").status_code == 404
     assert client.get("/api/runs/nope/events").status_code == 404
     assert client.post("/api/runs/nope/cancel").status_code == 409
+
+
+def test_gan_under_the_nitride_profile(client: TestClient) -> None:
+    """Human test session, item 5: GaN's only gap is PBE 1.738 eV, below the nitride profile's
+    2.4 eV PBE floor, so it stays excluded; nothing in the list sits inside the window."""
+    body = {
+        "request_text": "nitrides",
+        "profile": "nitride_wide_gap",
+        "settings": {"mode": "candidate_list", "candidate_list": ["AlN", "GaN", "Si3N4", "BN"]},
+    }
+    run_id = client.post("/api/runs", json=body).json()["run_id"]
+    assert wait_for_run(client, run_id)["status"] == "completed"
+    bundle = client.get(f"/api/runs/{run_id}").json()
+    gan = next(c for c in bundle["candidates"] if c["composition"] == "GaN")
+    assert gan["excluded"]["rule"] == "band_gap.hard_min"
+    assert "1.738 eV (pbe) is below the 4 eV minimum" in gan["excluded"]["detail"]
+    assert "pbe_only_below_window" not in gan["flags"]

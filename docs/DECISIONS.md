@@ -1334,3 +1334,17 @@ the pool also fixed the aggregate's provenance, which could name a range record 
 entered the median.
 Alternative: a per-form median shown side by side with no rule for which one scores, which
 leaves the choice to whoever reads the table.
+
+### 2026-11-04 PBE-only gaps: the hard minimum excludes only below the PBE floor
+Decision (owner), an extension of the Track F prefilter principle: when PBE is a candidate's
+only gap source, the profile's hard minimum excludes it only below the profile's
+`discovery_pbe_floor_ev`, the loosest PBE value the discovery query admits. Between the floor
+and the minimum the candidate is kept and scored on the profile's shape, flagged
+`pbe_only_below_window`, with the caveat "Only a computed PBE gap is available; PBE typically
+underestimates gaps (Materials Project documentation)." from each profile's band gap block.
+A scientist's own minimum applies to the value as written, so relaxation counts stay exact.
+Under the nitride profile only the window 2.4 to 4.0 eV is affected; GaN's PBE gap of
+1.738 eV is below the floor and stays excluded. The photocatalyst floor equals its minimum,
+so nothing changes there.
+Alternative: apply the window to the scientist's minimum too, which would make an explicit
+9 eV minimum admit 3 eV PBE gaps.

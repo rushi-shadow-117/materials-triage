@@ -16,6 +16,12 @@ above it flags `band_gap_conflict` and applies `on_conflict` (next source in ord
 minimum of the two). Without a tolerance the two are shown but not compared, and the row says
 so. One source only flags `band_gap_single_source`. The hard window is the stricter of the
 profile's and the query's; outside it the candidate is excluded.
+
+PBE-only window (owner decision 2026-11-04, extending the Track F prefilter principle): when
+PBE is the only gap source, the profile's hard minimum excludes only below the profile's
+`discovery_pbe_floor_ev`, the loosest admissible PBE value. Between the floor and the minimum
+the candidate is kept, scored, and flagged `pbe_only_below_window`. A scientist's own minimum
+applies to the value as written.
 """
 
 from __future__ import annotations
@@ -255,7 +261,27 @@ def band_gap(
     hard_min = _stricter_min(settings.hard_min_ev, query_min_ev, notes)
     hard_max = _stricter_max(settings.hard_max_ev, query_max_ev, notes)
     exclusion: Exclusion | None = None
-    if hard_min is not None and chosen.value < hard_min:
+    pbe_window = (
+        set(found) == {"pbe"}
+        and chosen.source == "pbe"
+        and hard_min is not None
+        and hard_min == settings.hard_min_ev  # the profile's minimum binds, not the query's
+        and settings.discovery_pbe_floor_ev is not None
+        and settings.discovery_pbe_floor_ev <= chosen.value < hard_min
+    )
+    if pbe_window:
+        flags.append(Flag.PBE_ONLY_BELOW_WINDOW)
+        caveats.append(
+            Caveat(
+                id=CaveatId.PBE_ONLY_BELOW_WINDOW,
+                source_ref=f"{source_ref}.pbe_only_caveat",
+            )
+        )
+        notes.append(
+            f"only a PBE gap ({chosen.value:.3f} eV): below the {hard_min:g} eV minimum but at or "
+            f"above the {settings.discovery_pbe_floor_ev:g} eV PBE floor, so kept and flagged"
+        )
+    elif hard_min is not None and chosen.value < hard_min:
         exclusion = Exclusion(
             rule=ExclusionRule.BAND_GAP_HARD_MIN,
             detail=f"{chosen.value:.3f} eV ({chosen.source}) is below the {hard_min:g} eV minimum",

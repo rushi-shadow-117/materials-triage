@@ -203,3 +203,73 @@ def test_profiles_declare_their_form_order(dielectric_profile) -> None:  # type:
     for name in ("oxide_photocatalyst", "nitride_wide_gap"):
         loaded = load_scoring_profile(PROFILES / f"{name}.yaml")
         assert loaded.profile.band_gap.preferred_forms == CRYSTALLINE
+
+
+def _pbe_only(group: CompositionGroup, gap_ev: float) -> Polymorph:
+    """The group's scored polymorph with every gap but a PBE one of `gap_ev` removed."""
+    p = select_scored(group)
+    assert p is not None
+    pbe = p.band_gap["mp_summary"].model_copy(update={"value": gap_ev})
+    return p.model_copy(update={"band_gap": {"mp_summary": pbe}})
+
+
+def _nitride_like(scored: Polymorph, *, query_min_ev: float | None = None):  # type: ignore[no-untyped-def]
+    return band_gap(
+        scored,
+        experimental=None,
+        references=[],
+        settings=settings(
+            soft_preference_start_ev=None, hard_min_ev=4.0, discovery_pbe_floor_ev=2.4
+        ),
+        query_min_ev=query_min_ev,
+        query_max_ev=None,
+        source_ref="profile#criteria.band_gap",
+        standing_caveat_ref=None,
+    )
+
+
+def test_pbe_only_between_floor_and_minimum_is_kept_and_flagged(baseline_groups) -> None:  # type: ignore[no-untyped-def]
+    """Human test session, item 5: PBE-only gaps are excluded only below the PBE floor."""
+    kept = _nitride_like(_pbe_only(baseline_groups["HfO2"], 3.0))
+    assert kept.result.exclusion is None and kept.result.normalized == 1.0
+    assert Flag.PBE_ONLY_BELOW_WINDOW in kept.result.flags
+    assert [c.id for c in kept.result.caveats] == [CaveatId.PBE_ONLY_BELOW_WINDOW]
+    at_floor = _nitride_like(_pbe_only(baseline_groups["HfO2"], 2.4))
+    assert at_floor.result.exclusion is None
+    below = _nitride_like(_pbe_only(baseline_groups["HfO2"], 2.0))
+    assert below.result.exclusion is not None
+    assert below.result.exclusion.rule is ExclusionRule.BAND_GAP_HARD_MIN
+    assert Flag.PBE_ONLY_BELOW_WINDOW not in below.result.flags
+    above = _nitride_like(_pbe_only(baseline_groups["HfO2"], 4.5))
+    assert above.result.exclusion is None and Flag.PBE_ONLY_BELOW_WINDOW not in above.result.flags
+
+
+def test_pbe_window_never_relaxes_a_scientists_minimum(baseline_groups) -> None:  # type: ignore[no-untyped-def]
+    o = _nitride_like(_pbe_only(baseline_groups["HfO2"], 3.0), query_min_ev=5.0)
+    assert o.result.exclusion is not None and "5 eV minimum" in o.result.exclusion.detail
+
+
+def test_pbe_window_needs_pbe_to_be_the_only_source(baseline_groups) -> None:  # type: ignore[no-untyped-def]
+    """With a TBmBJ or experimental value present, the hard minimum applies as written."""
+    p = select_scored(baseline_groups["HfO2"])
+    assert p is not None and "jarvis_tbmbj" in p.band_gap
+    two = {k: v for k, v in p.band_gap.items() if k in ("mp_summary", "jarvis_tbmbj")}
+    two["jarvis_tbmbj"] = two["jarvis_tbmbj"].model_copy(update={"value": 3.0})
+    o = _nitride_like(p.model_copy(update={"band_gap": two}))
+    assert o.result.exclusion is not None and Flag.PBE_ONLY_BELOW_WINDOW not in o.result.flags
+
+
+def test_pbe_window_caveat_text_comes_from_each_profile() -> None:
+    from materials_triage.records.bundle import Caveat
+    from materials_triage.render.caveats import CaveatConfig
+    from tests.scoring.conftest import PROFILES
+
+    for name in ("oxide_dielectric_thin_film", "oxide_photocatalyst", "nitride_wide_gap"):
+        text = CaveatConfig.load(PROFILES / f"{name}.yaml").resolve(
+            Caveat(id=CaveatId.PBE_ONLY_BELOW_WINDOW)
+        )
+        assert text.entered, name
+        assert text.text == (
+            "Only a computed PBE gap is available; PBE typically underestimates gaps "
+            "(Materials Project documentation)."
+        )

@@ -59,6 +59,11 @@ criteria:
       url: https://doi.org/10.1051/epjap:2004206
       access: unknown
     note: "The 5 eV start is the owner's approved choice. The Robertson offset statements in the rationale await a check against the primary PDF, which no tool fetch could retrieve (HTTP 403); owner supplies a local copy."
+    pbe_only_caveat: "Only a computed PBE gap is available; PBE typically underestimates gaps (Materials Project documentation)."
+    pbe_only_caveat_source:
+      citation: "Materials Project documentation, Electronic Structure methodology page; caveat text owner decision 2026-11-04 (human test session fix batch, item 5)"
+      url: https://docs.materialsproject.org/methodology/materials-methodology/electronic-structure
+      access: open
     aggregate_when_several_experimental_values: median
     experimental_forms:
       preferred: [amorphous_film, thin_film, crystalline_bulk, compendium]
