@@ -175,3 +175,33 @@ def test_anchor_placement_reads_correctly(client: TestClient) -> None:
     pi = client.get(f"/api/runs/{run_id}/view", params={"view": "pi_summary"}).json()
     assert [a["rank"] for a in pi["anchors"]] == ["would place 5th of 6, between ZrO2 and TiO2"]
     assert "- SiO2 (reference): would place 5th of 6, between ZrO2 and TiO2" in pi["markdown"]
+
+
+def test_every_materials_project_value_links_to_its_page(client: TestClient) -> None:
+    """Human test session, item 10: no HfO2 drill-down page linked to Materials Project;
+    the hull records carried no URL."""
+    run_id = client.post("/api/runs", json=RANK).json()["run_id"]
+    assert wait_for_run(client, run_id)["status"] == "completed"
+    page = "https://next-gen.materialsproject.org/materials/"
+    stability = client.get(f"/api/runs/{run_id}/drill/HfO2/stability").json()
+    assert stability["source_url"] == page + "mp-352"
+    assert all(v["url"] == page + v["record_id"] for v in stability["other_values"])
+    gap = client.get(f"/api/runs/{run_id}/drill/HfO2/band_gap").json()
+    mp_rows = [v for v in gap["other_values"] if v["source"] == "materials_project"]
+    assert mp_rows and all(v["url"] == page + v["record_id"] for v in mp_rows)
+    bundle = client.get(f"/api/runs/{run_id}").json()
+    missing: list[str] = []
+
+    def walk(node: object) -> None:
+        if isinstance(node, dict):
+            is_mp = node.get("source") == "materials_project" and "raw_sha256" in node
+            if is_mp and not node.get("url"):
+                missing.append(node["source_record_id"])
+            for v in node.values():
+                walk(v)
+        elif isinstance(node, list):
+            for v in node:
+                walk(v)
+
+    walk(bundle)
+    assert missing == []

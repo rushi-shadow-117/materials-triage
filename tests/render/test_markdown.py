@@ -259,3 +259,25 @@ def test_flag_caveats_carry_the_owner_texts() -> None:
         "ground_state_is_theoretical": "The lowest-energy polymorph on record is computed, "
         "not observed.",
     }
+
+
+def test_record_url_links_materials_project_ids_in_older_bundles() -> None:
+    from datetime import UTC, datetime
+
+    from materials_triage.records import Provenance, record_url
+
+    def prov(source: str, rid: str, url: str | None = None) -> Provenance:
+        return Provenance(
+            source=source,
+            source_record_id=rid,
+            raw_response_id=None,
+            raw_sha256="0" * 64,
+            fetched_at=datetime(2026, 11, 4, tzinfo=UTC),
+            url=url,
+        )
+
+    assert record_url(prov("materials_project", "mp-352")) == (
+        "https://next-gen.materialsproject.org/materials/mp-352"
+    )
+    assert record_url(prov("pubchem", "CID:1", "https://x/1")) == "https://x/1"
+    assert record_url(prov("expt_gap", "expt_gap:3:HfO2")) is None

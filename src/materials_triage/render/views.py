@@ -5,7 +5,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 
-from materials_triage.records import Provenance
+from materials_triage.records import Provenance, record_url
 from materials_triage.records.bundle import (
     Anchor,
     Candidate,
@@ -64,7 +64,7 @@ class ProvenanceView:
             method,
             p.fetched_at.isoformat(),
             p.source_version,
-            p.url,
+            record_url(p),
             p.license,
         )
 

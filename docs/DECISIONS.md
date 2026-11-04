@@ -1389,3 +1389,12 @@ Bundles written before this keep their stored count, which excluded the anchor; 
 bundle's anchor fields were updated in place.
 Alternative: keep "would rank N of M" with M the ranked count, which read as last place when
 the anchor outscored the last candidate.
+
+### 2026-11-04 Every Materials Project value links to its page
+Decision (owner): every Materials Project record (summary, thermo, structure, dielectric)
+carries `https://next-gen.materialsproject.org/materials/<mp-id>` as its URL, and
+`records.record_url` derives the same link for MP ids in older bundles. The drill-down shows
+a link for every value of the property, the stability one included, and the audit view
+prints the link beside each MP record.
+Alternative: link only the summary record, which is how the hull values lost theirs: the
+thermo records overwrite the summary hull with provenance that had no URL.

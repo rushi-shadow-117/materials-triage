@@ -25,6 +25,7 @@ from materials_triage.agent import parse as parse_mod
 from materials_triage.agent.loop import Budget
 from materials_triage.cli import wiring
 from materials_triage.config.schema import QuerySettings, resolve, unavailable_properties
+from materials_triage.records import record_url
 from materials_triage.records.bundle import (
     Anchor,
     Candidate,
@@ -684,6 +685,7 @@ def _drill(
                         value=precision.fmt(value.value, value.unit, units),
                         source=value.provenance.source,
                         record_id=value.provenance.source_record_id,
+                        url=record_url(value.provenance),
                         used=(
                             p is not None
                             and value.provenance.source_record_id == p.source_record_id
@@ -710,6 +712,7 @@ def _drill(
                     value=shown,
                     source=e.provenance.source,
                     record_id=e.provenance.source_record_id,
+                    url=record_url(e.provenance),
                     used=e.provenance.source_record_id in used_ids,
                     form=e.form,
                 )
@@ -723,6 +726,7 @@ def _drill(
                         value=precision.fmt(prow.hull_energy.value, prow.hull_energy.unit, units),
                         source=prow.hull_energy.provenance.source,
                         record_id=prow.mp_id,
+                        url=record_url(prow.hull_energy.provenance),
                         used=scored is not None and prow.mp_id == scored.mp_id,
                     )
                 )
@@ -734,6 +738,7 @@ def _drill(
                 value=", ".join(sorted(h.h_codes)) or "none",
                 source=h.provenance.source,
                 record_id=h.provenance.source_record_id,
+                url=record_url(h.provenance),
                 used=True,
             )
         )
@@ -756,7 +761,7 @@ def _drill(
         fetched_at=p.fetched_at.isoformat() if p else None,
         raw_sha256=p.raw_sha256 if p else None,
         source_version=p.source_version if p else None,
-        source_url=p.url if p else None,
+        source_url=record_url(p) if p else None,
         rule_ref=loaded.source_refs.get(criterion),
         notes=list(score.notes),
         other_values=others,

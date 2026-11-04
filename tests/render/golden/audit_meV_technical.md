@@ -50,11 +50,11 @@
 Polymorphs: 89 with MP ids (7 observed, 85 theoretical, 0 unknown).
 - Ground state: mp-1143 (R-3c), hull 0 meV/atom, observed
 - Scored polymorph is the ground state: yes; hull status conflict among functionals: no
-- mp-1143 (R-3c): hull 0 meV/atom, observed; materials_project mp-1143 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.219939+00:00
-- mp-7048 (C2/m): hull 17 meV/atom, observed; materials_project mp-7048 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.219939+00:00
-- mp-2254 (Pna2_1): hull 21 meV/atom, observed; materials_project mp-2254 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.219939+00:00
-- mp-776475 (Ia-3): hull 35 meV/atom, not observed; materials_project mp-776475 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.219939+00:00
-- mp-759943 (P2/c): hull 35 meV/atom, not observed; materials_project mp-759943 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.219939+00:00
+- mp-1143 (R-3c): hull 0 meV/atom, observed; materials_project mp-1143 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.219939+00:00 https://next-gen.materialsproject.org/materials/mp-1143
+- mp-7048 (C2/m): hull 17 meV/atom, observed; materials_project mp-7048 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.219939+00:00 https://next-gen.materialsproject.org/materials/mp-7048
+- mp-2254 (Pna2_1): hull 21 meV/atom, observed; materials_project mp-2254 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.219939+00:00 https://next-gen.materialsproject.org/materials/mp-2254
+- mp-776475 (Ia-3): hull 35 meV/atom, not observed; materials_project mp-776475 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.219939+00:00 https://next-gen.materialsproject.org/materials/mp-776475
+- mp-759943 (P2/c): hull 35 meV/atom, not observed; materials_project mp-759943 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.219939+00:00 https://next-gen.materialsproject.org/materials/mp-759943
 
 Experimental gaps: none in the public gap tables
 
@@ -85,11 +85,11 @@ Literature: 10698 matched, 7142 with abstracts, 5 read (title_and_abstract; quer
 Polymorphs: 15 with MP ids (5 observed, 10 theoretical, 0 unknown).
 - Ground state: mp-352 (P2_1/c), hull 0 meV/atom, observed
 - Scored polymorph is the ground state: yes; hull status conflict among functionals: no
-- mp-352 (P2_1/c): hull 0 meV/atom, observed; materials_project mp-352 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.185807+00:00
-- mp-775757 (Pbca): hull 10 meV/atom, not observed; materials_project mp-775757 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.185807+00:00
-- mp-1858 (Pbca): hull 16 meV/atom, observed; materials_project mp-1858 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.185807+00:00
-- mp-685097 (Pca2_1): hull 22 meV/atom, not observed; materials_project mp-685097 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.185807+00:00
-- mp-776532 (P4_2/mnm): hull 37 meV/atom, not observed; materials_project mp-776532 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.185807+00:00
+- mp-352 (P2_1/c): hull 0 meV/atom, observed; materials_project mp-352 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.185807+00:00 https://next-gen.materialsproject.org/materials/mp-352
+- mp-775757 (Pbca): hull 10 meV/atom, not observed; materials_project mp-775757 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.185807+00:00 https://next-gen.materialsproject.org/materials/mp-775757
+- mp-1858 (Pbca): hull 16 meV/atom, observed; materials_project mp-1858 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.185807+00:00 https://next-gen.materialsproject.org/materials/mp-1858
+- mp-685097 (Pca2_1): hull 22 meV/atom, not observed; materials_project mp-685097 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.185807+00:00 https://next-gen.materialsproject.org/materials/mp-685097
+- mp-776532 (P4_2/mnm): hull 37 meV/atom, not observed; materials_project mp-776532 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.185807+00:00 https://next-gen.materialsproject.org/materials/mp-776532
 
 Experimental gaps: 5550 meV to 5550 meV across 1 value(s), median 5550 meV
 - expt_gap (compendium): 5550 meV; expt_gap expt_gap:3:HfO2 fetched 2026-11-02T12:00:00+00:00
@@ -122,11 +122,11 @@ Literature: 3496 matched, 2469 with abstracts, 5 read (title_and_abstract; query
 Polymorphs: 6 with MP ids (3 observed, 4 theoretical, 0 unknown).
 - Ground state: mp-1968 (P-3m1), hull 0 meV/atom, observed
 - Scored polymorph is the ground state: yes; hull status conflict among functionals: yes
-- mp-1968 (P-3m1): hull 0 meV/atom, observed; materials_project mp-1968 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.392371+00:00
-- mp-2292 (Ia-3): hull 2 meV/atom, observed; materials_project mp-2292 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.392371+00:00
-- mp-557691 (C2/m): hull 31 meV/atom, observed; materials_project mp-557691 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.392371+00:00
-- mp-1180635 (P6/mmm): hull 236 meV/atom, not observed, excluded by stability.cutoff; materials_project mp-1180635 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.392371+00:00
-- mp-553347 (P-62m): hull 242 meV/atom, not observed, excluded by stability.cutoff; materials_project mp-553347 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.392371+00:00
+- mp-1968 (P-3m1): hull 0 meV/atom, observed; materials_project mp-1968 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.392371+00:00 https://next-gen.materialsproject.org/materials/mp-1968
+- mp-2292 (Ia-3): hull 2 meV/atom, observed; materials_project mp-2292 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.392371+00:00 https://next-gen.materialsproject.org/materials/mp-2292
+- mp-557691 (C2/m): hull 31 meV/atom, observed; materials_project mp-557691 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.392371+00:00 https://next-gen.materialsproject.org/materials/mp-557691
+- mp-1180635 (P6/mmm): hull 236 meV/atom, not observed, excluded by stability.cutoff; materials_project mp-1180635 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.392371+00:00 https://next-gen.materialsproject.org/materials/mp-1180635
+- mp-553347 (P-62m): hull 242 meV/atom, not observed, excluded by stability.cutoff; materials_project mp-553347 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.392371+00:00 https://next-gen.materialsproject.org/materials/mp-553347
 
 Experimental gaps: 5400 meV to 5400 meV across 1 value(s), median 5400 meV
 - expt_gap (compendium): 5400 meV; expt_gap expt_gap:12:La2O3 fetched 2026-11-02T12:00:00+00:00
@@ -158,11 +158,11 @@ Literature: 383 matched, 218 with abstracts, 5 read (title_and_abstract; query '
 Polymorphs: 14 with MP ids (4 observed, 12 theoretical, 0 unknown).
 - Ground state: mp-2652 (Ia-3), hull 0 meV/atom, observed
 - Scored polymorph is the ground state: yes; hull status conflict among functionals: no
-- mp-2652 (Ia-3): hull 0 meV/atom, observed; materials_project mp-2652 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.437577+00:00
-- mp-558573 (C2/m): hull 34 meV/atom, observed; materials_project mp-558573 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.437577+00:00
-- mp-775907 (P2_1/m): hull 42 meV/atom, not observed; materials_project mp-775907 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.437577+00:00
-- mp-754759 (R-3c): hull 49 meV/atom, not observed; materials_project mp-754759 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.437577+00:00
-- mp-13061 (P-3m1): hull 57 meV/atom, observed; materials_project mp-13061 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.437577+00:00
+- mp-2652 (Ia-3): hull 0 meV/atom, observed; materials_project mp-2652 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.437577+00:00 https://next-gen.materialsproject.org/materials/mp-2652
+- mp-558573 (C2/m): hull 34 meV/atom, observed; materials_project mp-558573 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.437577+00:00 https://next-gen.materialsproject.org/materials/mp-558573
+- mp-775907 (P2_1/m): hull 42 meV/atom, not observed; materials_project mp-775907 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.437577+00:00 https://next-gen.materialsproject.org/materials/mp-775907
+- mp-754759 (R-3c): hull 49 meV/atom, not observed; materials_project mp-754759 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.437577+00:00 https://next-gen.materialsproject.org/materials/mp-754759
+- mp-13061 (P-3m1): hull 57 meV/atom, observed; materials_project mp-13061 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.437577+00:00 https://next-gen.materialsproject.org/materials/mp-13061
 
 Experimental gaps: 5600 meV to 5600 meV across 1 value(s), median 5600 meV
 - expt_gap (compendium): 5600 meV; expt_gap expt_gap:13:Y2O3 fetched 2026-11-02T12:00:00+00:00
@@ -194,11 +194,11 @@ Literature: 1480 matched, 839 with abstracts, 5 read (title_and_abstract; query 
 Polymorphs: 20 with MP ids (6 observed, 14 theoretical, 0 unknown).
 - Ground state: mp-2858 (P2_1/c), hull 0 meV/atom, observed
 - Scored polymorph is the ground state: yes; hull status conflict among functionals: no
-- mp-2858 (P2_1/c): hull 0 meV/atom, observed; materials_project mp-2858 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.200392+00:00
-- mp-776404 (Pbca): hull 9 meV/atom, not observed; materials_project mp-776404 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.200392+00:00
-- mp-1190186 (Pbca): hull 13 meV/atom, observed; materials_project mp-1190186 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.200392+00:00
-- mp-556605 (Pca2_1): hull 17 meV/atom, observed; materials_project mp-556605 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.200392+00:00
-- mp-2574 (P4_2/nmc): hull 27 meV/atom, observed; materials_project mp-2574 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.200392+00:00
+- mp-2858 (P2_1/c): hull 0 meV/atom, observed; materials_project mp-2858 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.200392+00:00 https://next-gen.materialsproject.org/materials/mp-2858
+- mp-776404 (Pbca): hull 9 meV/atom, not observed; materials_project mp-776404 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.200392+00:00 https://next-gen.materialsproject.org/materials/mp-776404
+- mp-1190186 (Pbca): hull 13 meV/atom, observed; materials_project mp-1190186 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.200392+00:00 https://next-gen.materialsproject.org/materials/mp-1190186
+- mp-556605 (Pca2_1): hull 17 meV/atom, observed; materials_project mp-556605 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.200392+00:00 https://next-gen.materialsproject.org/materials/mp-556605
+- mp-2574 (P4_2/nmc): hull 27 meV/atom, observed; materials_project mp-2574 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.200392+00:00 https://next-gen.materialsproject.org/materials/mp-2574
 
 Experimental gaps: 4990 meV to 4990 meV across 1 value(s), median 4990 meV
 - expt_gap (compendium): 4990 meV; expt_gap expt_gap:0:ZrO2 fetched 2026-11-02T12:00:00+00:00
@@ -230,11 +230,11 @@ Literature: 3767 matched, 2298 with abstracts, 5 read (title_and_abstract; query
 Polymorphs: 24 with MP ids (3 observed, 21 theoretical, 0 unknown).
 - Ground state: mp-10390 (C2/c), hull 0 meV/atom, observed
 - Scored polymorph is the ground state: yes; hull status conflict among functionals: yes
-- mp-10390 (C2/c): hull 0 meV/atom, observed; materials_project mp-10390 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.452757+00:00
-- mp-1539317 (Pmmn): hull 14 meV/atom, not observed; materials_project mp-1539317 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.452757+00:00
-- mp-1238961 (P2/m): hull 14 meV/atom, not observed; materials_project mp-1238961 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.452757+00:00
-- mp-1392387 (Pmmn): hull 15 meV/atom, not observed; materials_project mp-1392387 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.452757+00:00
-- mp-1218312 (Pm): hull 52 meV/atom, not observed; materials_project mp-1218312 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.452757+00:00
+- mp-10390 (C2/c): hull 0 meV/atom, observed; materials_project mp-10390 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.452757+00:00 https://next-gen.materialsproject.org/materials/mp-10390
+- mp-1539317 (Pmmn): hull 14 meV/atom, not observed; materials_project mp-1539317 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.452757+00:00 https://next-gen.materialsproject.org/materials/mp-1539317
+- mp-1238961 (P2/m): hull 14 meV/atom, not observed; materials_project mp-1238961 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.452757+00:00 https://next-gen.materialsproject.org/materials/mp-1238961
+- mp-1392387 (Pmmn): hull 15 meV/atom, not observed; materials_project mp-1392387 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.452757+00:00 https://next-gen.materialsproject.org/materials/mp-1392387
+- mp-1218312 (Pm): hull 52 meV/atom, not observed; materials_project mp-1218312 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.452757+00:00 https://next-gen.materialsproject.org/materials/mp-1218312
 
 Experimental gaps: 4200 meV to 4200 meV across 1 value(s), median 4200 meV
 - expt_gap (compendium): 4200 meV; expt_gap expt_gap:8:Ta2O5 fetched 2026-11-02T12:00:00+00:00
@@ -266,11 +266,11 @@ Literature: 1683 matched, 1116 with abstracts, 5 read (title_and_abstract; query
 Polymorphs: 46 with MP ids (17 observed, 37 theoretical, 0 unknown).
 - Ground state: mp-390 (I4_1/amd), hull 0 meV/atom, observed
 - Scored polymorph is the ground state: yes; hull status conflict among functionals: yes
-- mp-390 (I4_1/amd): hull 0 meV/atom, observed; materials_project mp-390 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.343270+00:00
-- mp-1840 (Pbca): hull 3 meV/atom, observed; materials_project mp-1840 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.343270+00:00
-- mp-1439 (Pbcn): hull 5 meV/atom, observed; materials_project mp-1439 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.343270+00:00
-- mp-554278 (C2/m): hull 6 meV/atom, observed; materials_project mp-554278 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.343270+00:00
-- mp-2657 (P4_2/mnm): hull 10 meV/atom, observed; materials_project mp-2657 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.343270+00:00
+- mp-390 (I4_1/amd): hull 0 meV/atom, observed; materials_project mp-390 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.343270+00:00 https://next-gen.materialsproject.org/materials/mp-390
+- mp-1840 (Pbca): hull 3 meV/atom, observed; materials_project mp-1840 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.343270+00:00 https://next-gen.materialsproject.org/materials/mp-1840
+- mp-1439 (Pbcn): hull 5 meV/atom, observed; materials_project mp-1439 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.343270+00:00 https://next-gen.materialsproject.org/materials/mp-1439
+- mp-554278 (C2/m): hull 6 meV/atom, observed; materials_project mp-554278 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.343270+00:00 https://next-gen.materialsproject.org/materials/mp-554278
+- mp-2657 (P4_2/mnm): hull 10 meV/atom, observed; materials_project mp-2657 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.343270+00:00 https://next-gen.materialsproject.org/materials/mp-2657
 
 Experimental gaps: 3300 meV to 3300 meV across 1 value(s), median 3300 meV
 - expt_gap (compendium): 3300 meV; expt_gap expt_gap:1:TiO2 fetched 2026-11-02T12:00:00+00:00
@@ -302,11 +302,11 @@ Literature: 21132 matched, 13032 with abstracts, 5 read (title_and_abstract; que
 Polymorphs: 11 with MP ids (11 observed, 1 theoretical, 0 unknown).
 - Ground state: mp-5777 (Amm2), hull 0 meV/atom, observed
 - Scored polymorph is the ground state: yes; hull status conflict among functionals: yes
-- mp-5777 (Amm2): hull 0 meV/atom, observed; materials_project mp-5777 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.406487+00:00
-- mp-5020 (R3m): hull 0 meV/atom, observed; materials_project mp-5020 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.406487+00:00
-- mp-558125 (C222_1): hull 1 meV/atom, observed; materials_project mp-558125 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.406487+00:00
-- mp-5986 (P4mm): hull 2 meV/atom, observed; materials_project mp-5986 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.406487+00:00
-- mp-5933 (P6_3/mmc): hull 3 meV/atom, observed; materials_project mp-5933 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.406487+00:00
+- mp-5777 (Amm2): hull 0 meV/atom, observed; materials_project mp-5777 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.406487+00:00 https://next-gen.materialsproject.org/materials/mp-5777
+- mp-5020 (R3m): hull 0 meV/atom, observed; materials_project mp-5020 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.406487+00:00 https://next-gen.materialsproject.org/materials/mp-5020
+- mp-558125 (C222_1): hull 1 meV/atom, observed; materials_project mp-558125 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.406487+00:00 https://next-gen.materialsproject.org/materials/mp-558125
+- mp-5986 (P4mm): hull 2 meV/atom, observed; materials_project mp-5986 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.406487+00:00 https://next-gen.materialsproject.org/materials/mp-5986
+- mp-5933 (P6_3/mmc): hull 3 meV/atom, observed; materials_project mp-5933 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.406487+00:00 https://next-gen.materialsproject.org/materials/mp-5933
 
 Experimental gaps: 2960 meV to 3130 meV across 5 value(s), median 3060 meV
 - expt_gap (compendium): 3100 meV; expt_gap expt_gap:2:BaTiO3 fetched 2026-11-02T12:00:00+00:00
@@ -345,11 +345,11 @@ Equal scores are tied; tied rows are listed alphabetically.
 Polymorphs: 322 with MP ids (209 observed, 238 theoretical, 0 unknown).
 - Ground state: mp-7000 (P3_121), hull 0 meV/atom, observed
 - Scored polymorph is the ground state: yes; hull status conflict among functionals: yes
-- mp-7000 (P3_121): hull 0 meV/atom, observed; materials_project mp-7000 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.300696+00:00
-- mp-6930 (P3_221): hull 1 meV/atom, observed; materials_project mp-6930 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.300696+00:00
-- mp-12787 (C2/c): hull 3 meV/atom, observed; materials_project mp-12787 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.283223+00:00
-- mp-7029 (P4_32_12): hull 5 meV/atom, observed; materials_project mp-7029 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.300696+00:00
-- mp-6945 (P4_12_12): hull 5 meV/atom, observed; materials_project mp-6945 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.300696+00:00
+- mp-7000 (P3_121): hull 0 meV/atom, observed; materials_project mp-7000 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.300696+00:00 https://next-gen.materialsproject.org/materials/mp-7000
+- mp-6930 (P3_221): hull 1 meV/atom, observed; materials_project mp-6930 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.300696+00:00 https://next-gen.materialsproject.org/materials/mp-6930
+- mp-12787 (C2/c): hull 3 meV/atom, observed; materials_project mp-12787 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.283223+00:00 https://next-gen.materialsproject.org/materials/mp-12787
+- mp-7029 (P4_32_12): hull 5 meV/atom, observed; materials_project mp-7029 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.300696+00:00 https://next-gen.materialsproject.org/materials/mp-7029
+- mp-6945 (P4_12_12): hull 5 meV/atom, observed; materials_project mp-6945 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.300696+00:00 https://next-gen.materialsproject.org/materials/mp-6945
 
 Experimental gaps: none in the public gap tables
 
@@ -382,8 +382,8 @@ Literature: 21347 matched, 14434 with abstracts, 5 read (title_and_abstract; que
 Polymorphs: 2 with MP ids (2 observed, 0 theoretical, 0 unknown).
 - Ground state: mp-643 (Fm-3m), hull 0 meV/atom, observed
 - Scored polymorph is the ground state: yes; hull status conflict among functionals: no
-- mp-643 (Fm-3m): hull 0 meV/atom, observed; materials_project mp-643 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.379700+00:00
-- mp-1102569 (Pnma): hull 150 meV/atom, observed, excluded by stability.cutoff; materials_project mp-1102569 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.379700+00:00
+- mp-643 (Fm-3m): hull 0 meV/atom, observed; materials_project mp-643 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.379700+00:00 https://next-gen.materialsproject.org/materials/mp-643
+- mp-1102569 (Pnma): hull 150 meV/atom, observed, excluded by stability.cutoff; materials_project mp-1102569 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.379700+00:00 https://next-gen.materialsproject.org/materials/mp-1102569
 
 Experimental gaps: 3300 meV to 3500 meV across 2 value(s), median 3400 meV
 - expt_gap (compendium): 3500 meV; expt_gap expt_gap:5:ThO2 fetched 2026-11-02T12:00:00+00:00
@@ -415,11 +415,11 @@ Literature: 31 matched, 20 with abstracts, 5 read (title_and_abstract; query 'Th
 Polymorphs: 9 with MP ids (4 observed, 6 theoretical, 0 unknown).
 - Ground state: mp-2542 (P6_3mc), hull 0 meV/atom, observed
 - Scored polymorph is the ground state: yes; hull status conflict among functionals: no
-- mp-2542 (P6_3mc): hull 0 meV/atom, observed; materials_project mp-2542 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.421036+00:00
-- mp-1778 (F-43m): hull 7 meV/atom, observed; materials_project mp-1778 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.421036+00:00
-- mp-7599 (P4_2/mnm): hull 15 meV/atom, observed; materials_project mp-7599 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.421036+00:00
-- mp-1244907 (P1): hull 257 meV/atom, not observed, excluded by stability.cutoff; materials_project mp-1244907 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.421036+00:00
-- mp-1244919 (P1): hull 264 meV/atom, not observed, excluded by stability.cutoff; materials_project mp-1244919 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.421036+00:00
+- mp-2542 (P6_3mc): hull 0 meV/atom, observed; materials_project mp-2542 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.421036+00:00 https://next-gen.materialsproject.org/materials/mp-2542
+- mp-1778 (F-43m): hull 7 meV/atom, observed; materials_project mp-1778 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.421036+00:00 https://next-gen.materialsproject.org/materials/mp-1778
+- mp-7599 (P4_2/mnm): hull 15 meV/atom, observed; materials_project mp-7599 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.421036+00:00 https://next-gen.materialsproject.org/materials/mp-7599
+- mp-1244907 (P1): hull 257 meV/atom, not observed, excluded by stability.cutoff; materials_project mp-1244907 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.421036+00:00 https://next-gen.materialsproject.org/materials/mp-1244907
+- mp-1244919 (P1): hull 264 meV/atom, not observed, excluded by stability.cutoff; materials_project mp-1244919 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.421036+00:00 https://next-gen.materialsproject.org/materials/mp-1244919
 
 Experimental gaps: 10390 meV to 10390 meV across 1 value(s), median 10390 meV
 - expt_gap (compendium): 10390 meV; expt_gap expt_gap:9:BeO fetched 2026-11-02T12:00:00+00:00

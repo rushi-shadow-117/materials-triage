@@ -633,6 +633,8 @@ export interface components {
             record_id: string | null;
             /** Source */
             source: string;
+            /** Url */
+            url?: string | null;
             /** Used */
             used: boolean;
             /** Value */

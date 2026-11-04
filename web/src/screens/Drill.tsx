@@ -42,7 +42,10 @@ export default function Drill() {
                   {d.other_values.map((v, i) => (
                     <tr key={i}>
                       <td>{v.method}</td><td>{v.form ?? ""}</td><td className="num">{v.value}</td>
-                      <td className="mono">{v.source}{v.record_id ? ` · ${v.record_id}` : ""}</td>
+                      <td className="mono">
+                        {v.source}{v.record_id ? ` · ${v.record_id}` : ""}
+                        {v.url && <> · <a href={v.url} target="_blank" rel="noreferrer">open</a></>}
+                      </td>
                       <td>{v.used ? <span className="chip ok">used</span> : "no"}</td>
                     </tr>
                   ))}

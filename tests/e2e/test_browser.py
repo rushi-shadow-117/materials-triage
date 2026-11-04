@@ -43,6 +43,9 @@ def test_rank_my_list_runs_end_to_end(page, server: str) -> None:  # type: ignor
     page.locator("details", has_text="HfO2").get_by_role("link", name="band gap").first.click()
     page.get_by_text("Where this value came from").wait_for()
     assert "sha256:" in page.inner_text("body")
+    # every Materials Project value links to its page (human test session, item 10)
+    mp = page.locator("a[href='https://next-gen.materialsproject.org/materials/mp-352']")
+    assert mp.count() >= 1
     shot(page, "04-drill")
 
 

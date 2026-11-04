@@ -767,6 +767,17 @@
             "title": "Source",
             "type": "string"
           },
+          "url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Url"
+          },
           "used": {
             "title": "Used",
             "type": "boolean"

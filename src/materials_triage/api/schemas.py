@@ -209,6 +209,7 @@ class DrillValue(BaseModel):
     record_id: str | None
     used: bool
     form: str | None = None  # experimental gaps: the material form (amorphous_film, ...)
+    url: str | None = None  # the record's page (every Materials Project value links)
 
 
 class DrillResponse(BaseModel):

@@ -337,7 +337,10 @@ function AuditRow({ row, runId }: { row: RowView; runId: string }) {
               <td className="num">{c.normalized}</td>
               <td className="num">{c.weight}</td>
               <td className="num">{c.contribution}</td>
-              <td className="mono">{c.provenance ? `${c.provenance.source} ${c.provenance.record_id}` : ""}</td>
+              <td className="mono">
+                {c.provenance ? `${c.provenance.source} ${c.provenance.record_id}` : ""}
+                {c.provenance?.url && <> · <a href={c.provenance.url} target="_blank" rel="noreferrer">open</a></>}
+              </td>
             </tr>
           ))}
         </tbody>
@@ -350,7 +353,7 @@ function AuditRow({ row, runId }: { row: RowView; runId: string }) {
             <thead><tr><th>MP id</th><th>Space group</th><th>Energy above hull</th><th>Observed</th><th>Excluded</th></tr></thead>
             <tbody>
               {row.polymorphs.top_by_hull.map((p) => (
-                <tr key={p.mp_id}><td className="mono">{p.mp_id}</td><td>{p.spacegroup}</td><td className="num">{p.hull}</td><td>{p.observed}</td><td className="mono">{p.excluded_rule ?? ""}</td></tr>
+                <tr key={p.mp_id}><td className="mono">{p.hull_provenance?.url ? <a href={p.hull_provenance.url} target="_blank" rel="noreferrer">{p.mp_id}</a> : p.mp_id}</td><td>{p.spacegroup}</td><td className="num">{p.hull}</td><td>{p.observed}</td><td className="mono">{p.excluded_rule ?? ""}</td></tr>
               ))}
             </tbody>
           </table>
