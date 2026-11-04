@@ -135,3 +135,27 @@ def sign_in_again(page, server: str, role: str) -> None:  # type: ignore[no-unty
     page.goto(server + "/")
     page.get_by_role("button", name="Sign out").click()
     sign_in(page, server, role)
+
+
+def test_input_limits_chips_and_the_call_estimate(page, server: str) -> None:  # type: ignore[no-untyped-def]
+    """Track H item 3 and item 7: the counter, server-side splitting on three separators, the
+    matched chips, Run off while the list is empty, and the estimate sentence."""
+    sign_in(page, server, "scientist")
+    assert page.get_by_test_id("char-count").inner_text().startswith("0 / 2000")
+    page.get_by_label("request").fill("Find stable oxides")
+    assert page.get_by_test_id("char-count").inner_text().startswith("18 / 2000")
+    page.get_by_role("button", name="Rank my list").click()
+    assert page.get_by_role("button", name="Review criteria").is_disabled()
+    page.get_by_label("formulas").fill("HfO2; ZrO2\nAl2O3, hfo2")
+    page.get_by_role("button", name="Review criteria").click()
+    matched = page.get_by_test_id("matched")
+    matched.wait_for()
+    assert [c.strip() for c in matched.locator(".chip").all_inner_texts()] == ["HfO2", "ZrO2", "Al2O3"]
+    estimate = page.get_by_test_id("estimate")
+    assert "No model configured" in estimate.inner_text()  # LLM_PROVIDER=none on this server
+    assert page.get_by_role("button", name="Confirm and run").is_enabled()
+    # an empty list keeps Run off; the form says what to do
+    page.get_by_label("candidates").fill("")
+    page.get_by_text("Paste at least one formula or name to rank.").wait_for()
+    assert page.get_by_role("button", name="Confirm and run").is_disabled()
+    shot(page, "07-limits-and-estimate")

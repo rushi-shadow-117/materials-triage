@@ -24,7 +24,13 @@ from materials_triage.agent import llm_status, pipeline, relaxation
 from materials_triage.agent import parse as parse_mod
 from materials_triage.agent.loop import Budget
 from materials_triage.cli import wiring
-from materials_triage.config.schema import QuerySettings, resolve, unavailable_properties
+from materials_triage.config import limits
+from materials_triage.config.schema import (
+    CoreConfig,
+    QuerySettings,
+    resolve,
+    unavailable_properties,
+)
 from materials_triage.records import record_url
 from materials_triage.records.bundle import (
     Anchor,
@@ -134,6 +140,16 @@ def _layers(request: Request, profile_id: str) -> wiring.Layers:
     return cache[profile_id]
 
 
+def _limits(
+    core: CoreConfig, *, request_text: str | None = None, settings: dict[str, Any] | None = None
+) -> None:
+    """Core input limits as a 422 with a sentence (config/limits.py)."""
+    try:
+        limits.check_request_limits(core, request_text=request_text, settings=settings)
+    except limits.LimitExceededError as e:
+        raise HTTPException(status_code=422, detail=str(e)) from None
+
+
 def _bundle(request: Request, run_id: str) -> ProvenanceBundle:
     runs: RunManager = request.app.state.runs
     try:
@@ -226,6 +242,7 @@ def _routes(app: APIRouter) -> None:  # noqa: C901 - one function registers ever
         confirm form is filled by hand (no call is made)."""
         settings: Settings = request.app.state.settings
         layers = _layers(request, body.profile)
+        _limits(layers.core, request_text=body.request_text)
         client = wiring.make_llm(settings, no_llm=False)
         if client is None:
             return ParseResponse(parse_available=False, reason=llm_status.note())
@@ -252,6 +269,7 @@ def _routes(app: APIRouter) -> None:  # noqa: C901 - one function registers ever
     ) -> ResolveResponse:
         """Pure: the confirm form's current values through the same clamps a run applies."""
         layers = _layers(request, body.profile)
+        _limits(layers.core, settings=body.settings)
         try:
             outcome = parse_mod.parse_from_settings(
                 body.settings,
@@ -291,6 +309,7 @@ def _routes(app: APIRouter) -> None:  # noqa: C901 - one function registers ever
         """Start a run from confirmed criteria. A request that names nothing to search on is
         answered 422 with the fields to supply; nothing is fetched."""
         layers = _layers(request, body.profile)
+        _limits(layers.core, request_text=body.request_text, settings=body.settings)
         try:
             outcome = parse_mod.parse_from_settings(
                 body.settings,
