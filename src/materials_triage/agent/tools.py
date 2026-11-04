@@ -85,11 +85,14 @@ class ParsedRequest(Strict):
     band_gap_max_ev: float | None = None
     max_elements: int | None = None
     evidence_tier_min: str | None = None
+    e_above_hull_max_mev: float | None = None
+    extra_anchors: list[str] = Field(default_factory=list)
     exclude_radioactive: bool | None = None
     verbosity: Verbosity | None = None
     terminology: Terminology | None = None
     units: Units | None = None
     view: View | None = None
+    requested_properties: list[str] = Field(default_factory=list)  # as the request names them
     missing_required: list[str] = Field(default_factory=list)
     out_of_scope: OutOfScope | None = None
 

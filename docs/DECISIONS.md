@@ -527,6 +527,31 @@ would-rank at weight 0, so the test asserts the margin widens. Rocksalt BeO (mp-
 163825, 481 meV/atom) is excluded by the beryllium rule first and by hull once the hazard
 rules are lifted; both appear in the decision log.
 
+### 2026-11-03 Excluded rows keep their full breakdown
+Decision (owner): the scorer computes every criterion for every candidate, excluded or not,
+and the bundle carries the full `ScoreBreakdown` (values, sources, flags such as a band gap
+conflict) on excluded rows with `total` None. Only the criterion that raised the exclusion is
+marked missing with the reason "excluded by <rule>", because a hard exclusion has no
+normalized value. The audit view can then show why ThO2 would have scored well and why it is
+out. Alternative: stop at the first exclusion and leave the other criteria empty.
+
+### 2026-11-03 Hazard weight floor of 0.1
+Decision (owner): `site_profile.default.yaml` sets the hazard weight bounds to 0.1 to 1.0 as
+an admin default, so a scientist cannot weight the hazard criterion out of a ranking; a request
+below the floor is clamped and the clamp is shown (test query E1). Exclusions apply at any
+weight. Alternative: a 0.0 floor, under which "set the toxicity weight to zero" silently
+removed the only soft hazard signal.
+
+### 2026-11-03 Non-oxide anion policy carries a calibration caveat
+Decision (owner): when `simplicity.anion_policy` is not `strict_oxide` the scorer emits
+`stability_cutoff_oxide_calibrated` on every row, with the text entered in the profile's
+stability section (the 94 meV/atom cutoff is the Sun 2016 binary-oxide percentile) and the
+renderer resolves it like every other caveat. The trigger is code and the text is config, so
+the LLM cannot drop or reword it; this replaces the idea of a prompt fragment. The
+nitride-specific statement in the owner's notes stays a TODO in the config entry until it is
+sourced. Alternative: a fixed sentence in the rationale prompt, which the verifier could not
+check.
+
 ## Track B: agent, verifier, renderers, CLI
 
 ### 2026-11-02 One bounded conversation per step, one tool offered
@@ -883,3 +908,143 @@ allows it to vary. G2 (replay) is a second run from the same confirmed criteria 
 recorded data and reports the same comparison.
 Reason: the owner's G1 expectation names exactly those three things.
 
+
+## Track F: fixes from the eval run
+
+### 2026-11-03 Principle: the discovery prefilter sends only hard rules, at their loosest admissible value
+Decision (owner): the discovery query to Materials Project receives only hard rules, and
+each at the loosest value any admissible setting could reach. The PBE gap floor is the
+profile's `discovery_pbe_floor_ev`, the gap ceiling the profile's hard maximum, the hull
+limit the site's maximum cutoff (`stability_cutoff_bounds.max`), the element count the query
+or profile maximum. Soft preferences (the 5 eV gap start) and tighter query settings (a query
+gap window, a lower hull cutoff) are scorer exclusions, so excluded rows stay in the fetched
+set and relaxation proposals count from it. `agent/pipeline.py::discovery_filter` is the one
+place this is applied.
+Reason: the 5 eV soft preference sent as `band_gap_min` dropped HfO2 (max PBE gap 4.41 eV),
+ZrO2 (3.96) and ThO2 (4.42) before scoring, so A1 could not rank them or show ThO2's
+exclusion, and a query minimum sent to the API left relaxation nothing to count.
+Alternative: send every setting to the API, which is cheaper per query and hides why a
+material is missing.
+
+### 2026-11-03 Discovery PBE floors per profile
+Decision (owner): `oxide_dielectric_thin_film` sets `discovery_pbe_floor_ev: 3.0`: the 5 eV
+soft preference times 0.6, for the PBE underestimate the Materials Project documentation
+reports ("typically, we find that band gaps are underestimated by about 40%", Electronic
+Structure methodology page, checked 2026-11-03). `oxide_photocatalyst` keeps its hard window
+(floor 2.0, ceiling 3.3). The recorded queries match 3748 and 3082 documents, under the
+10,000 ceiling.
+Alternative: the experimental factor of 1.6 on the same page, giving 3.125 eV.
+
+### 2026-11-03 Hull cutoff is a query setting inside site bounds
+Decision (owner): `QuerySettings.e_above_hull_max_mev` (default the profile cutoff) is
+clamped to `site_profile.default.yaml#stability_cutoff_bounds`, 0 to 94 meV/atom, and the
+clamp is shown (F11 asks for 2000 and gets 94). The effective value is
+`EffectiveConfig.stability_cutoff_mev`, part of the config sha, and the scorer reads it
+instead of the profile value. At a cutoff of 0 there is no ramp: rows on the hull score 1.0
+and every other row is excluded by `stability.cutoff`.
+Alternative: a floor of 24 meV/atom (the DFT accuracy), under which A5's "on the hull only"
+would be clamped.
+
+### 2026-11-03 Per-run anchors stay ranked
+Decision (owner): `QuerySettings.extra_anchors` adds anchor rows for this run (A3: "compare to
+what we use now, HfO2"). A per-run anchor that is also a candidate keeps its rank; its anchor
+row's would-rank equals that rank. Profile anchors (SiO2) still never take a slot. Anchors the
+discovery query did not return are fetched by name, so every anchor row carries the same
+cross-checks.
+Alternative: remove the composition from the ranking like a profile anchor.
+
+### 2026-11-03 One config loader for every path
+Decision: `config.schema.scoring_profile_from_yaml` and `site_profile_from_yaml` delegate to
+the strict loaders in `scoring/profile.py`. Before, the CLI, API and eval path read neither
+weight bounds nor site defaults, so the hazard floor never clamped there (E1).
+Alternative: keep two loaders and copy each new field into both.
+
+### 2026-11-03 Run-shaped recording with a two-round cap
+Decision (owner): `scripts/record_case_gaps.py CASE...` runs an eval case through the real
+pipeline, serves recorded cassettes first, fetches only misses live, and writes them to
+`fixtures/adapters/<source>/run_<case>.yaml`; it then replays the case with no network. At most
+two live rounds per case; anything still unavailable is listed in the report, not recorded
+further. The recording manifest's `_case_recordings` lists what remained per case.
+Reason: the per-composition recorder could not know which compositions a discovery run
+enriches; recording the run records exactly the calls it makes.
+Alternative: widen `fixtures/compositions.yaml` by hand after each replay.
+
+### 2026-11-03 Yim-like validation runs at the hazard floor
+Decision: the Yim-like validation configuration sets hazard to 0.1, the site floor, since 0 is
+no longer admissible. Its label says so.
+Alternative: let validation bypass site bounds, which no other run can.
+
+### 2026-11-03 Site glossary entered
+Decision (owner): the site glossary maps energy above hull to stability margin, band gap to
+insulating gap, polymorph to crystal form, and hull to stability reference, applied only when
+terminology is general. The longest term wins, and a term also matches with its first letter
+capitalized. Both views print the effective energy above hull cutoff, so D3's general view
+names the stability margin.
+Alternative: a glossary keyed by criterion id, which would miss the term in caveat text.
+
+### 2026-11-03 Relaxation proposals are counted by re-scoring the fetched set
+Decision (owner): when fewer than top_n rows rank, the pipeline lists relaxations of the query's
+gap window, element count, and hull cutoff (inside the site bounds). It re-scores the
+already-fetched groups under each relaxed value, and every proposal states "adds N", the number
+of newly ranked candidates. A value that admits nothing new is dropped. At most three choices
+and eight re-scores are made per setting. When no proposal adds a candidate, the decision log
+says "no relaxation is admissible within site bounds" with the reason. Nothing is applied. The
+CLI offers the logged proposals and the eval harness reads them from the log.
+Alternative: count excluded rows by their raw value (the first pass), which counted rows that
+another rule still excludes.
+
+### 2026-11-03 Discovery ceiling override for evals only
+Decision (owner): `Case.overrides.discovery_ceiling` lowers the refuse-to-truncate ceiling for
+one eval case (C3 sets 500 against the 3748-document dielectric query), through
+`RunInputs.discovery_ceiling`. No query setting reaches it.
+Alternative: record a query that matches more than 10,000 documents, a large fixture that
+shows nothing new.
+
+### 2026-11-03 Unresolved candidate names are reported, the run proceeds
+Decision (owner): a candidate name that is not a chemical formula is listed in
+`ConfirmedCriteria.unresolved_candidates`, logged "not found in any source", and shown in both
+views. The other names are ranked. The parse fails only when no name resolves. Typed answers
+at the CLI confirmation stay strict. The new bundle fields are defaulted, so
+`BUNDLE_VERSION` stays 2 and older bundles still validate.
+Alternative: fail the parse on any bad name (the first pass, C5).
+
+### 2026-11-03 Requested properties without a source are carried as unavailable
+Decision (owner): the parse lists the properties a request names (`requested_properties`). Code
+maps them through `config.schema.PROPERTY_CRITERIA`, a closed table of names. Anything unmapped
+goes to `ConfirmedCriteria.unavailable_properties`, is logged "unavailable from configured
+sources", and both views state it. No row or value changes. The parse prompt gains one sentence,
+so the prompt hash changes.
+Alternative: let the model decide availability, which would put a source claim in model text.
+
+### 2026-11-03 B1 expectation
+Decision (owner): B1 expects TiO2 ranked, not excluded, with its H351 flag, inside the top 5%
+of ranked candidates, and Al2O3 only in the exclusion list by `band_gap.hard_max`. The profile is
+unchanged. `ranked_near_top` gains `within_fraction`, and the new check `only_in_exclusions`
+covers Al2O3.
+Alternative: a fixed rank such as 10, which the 3082-document photocatalyst set does not support.
+
+### 2026-11-03 Nitride profile
+Decision (owner): `config/scoring_profiles/nitride_wide_gap.yaml` uses the dielectric
+machinery with these changes:
+- `anion_policy: strict_nitride`
+- `hard_min_ev: 4.0`
+- no soft preference
+- `discovery_pbe_floor_ev: 2.4` (4.0 x 0.6, the same 40% rule)
+- conflict tolerance open, because the 1.345 eV tolerance was derived on oxides
+- no dielectric target band
+- no anchor
+
+The 94 meV/atom cutoff applies with the oxide-calibration caveat on every row. B2 runs under it.
+Alternative: switch the anion policy per query, which the profile contract does not allow.
+
+### 2026-11-03 G3 is a two-run case; the run diff separates data from enrichment
+Decision (owner): `Case.compare` reruns the case under changed settings (G3: stability weight
+0.5) and `cli/rundiff.diff` joins the two bundles. When the config changed, data is a cause
+only if a source version moved: the run's source versions differ, or a record in both runs
+carries another version. Within one version a record's provenance differs only by the call
+that supplied it. An enriched row carries the per-formula summary and thermo documents, and a
+summary-level row the discovery page. Enrichment follows rank, so that difference follows from
+the config change. With the config unchanged, any provenance difference is still data. G3 gives
+1667 rank changes, all attributed to config.
+Alternative: count any provenance difference as data, under which every config change that
+moved the top K also looked like a data change.

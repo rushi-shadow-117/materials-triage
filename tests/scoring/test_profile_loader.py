@@ -6,6 +6,8 @@ import pytest
 import yaml
 
 from materials_triage.config import schema as cs
+from materials_triage.records.bundle import Caveat, CaveatId
+from materials_triage.render.caveats import CaveatConfig
 from materials_triage.scoring.profile import (
     UnusableEntryError,
     echa_attribution,
@@ -45,6 +47,7 @@ def test_dielectric_profile_loads_with_the_owner_values() -> None:
     assert set(loaded.standing_caveats) == {
         "band_offsets_not_checked",
         "stability_cutoff_hull_mismatch",
+        "stability_cutoff_oxide_calibrated",
     }
 
 
@@ -130,3 +133,27 @@ def test_reference_values_split_by_status_with_deterministic_provenance() -> Non
     assert entered["al2o3_gap_amorphous_ald_range"].value is None
     assert entered["al2o3_gap_amorphous_ald_range"].value_range == (6.0, 7.0)
     assert all(r.provenance.source == "config" for r in a.entered)
+
+
+def test_site_hazard_weight_floor_clamps_and_is_reported() -> None:
+    site = load_site_profile(PATHS["site_profile"])
+    assert site.weight_bounds["hazard"].min == 0.1
+    loaded = load_scoring_profile(PROFILES / "oxide_dielectric_thin_film.yaml")
+    query = cs.QuerySettings(profile=loaded.profile.name, weights={"hazard": 0.0})
+    effective, clamps = cs.resolve(cs.CoreConfig(), site, loaded.profile, query)
+    assert effective.weights["hazard"] == 0.1
+    assert [(c.setting, c.requested, c.applied, c.bound) for c in clamps] == [
+        ("weights.hazard", 0.0, 0.1, "site.weight_bounds.hazard")
+    ]
+
+
+def test_calibration_caveat_is_a_standing_caveat_with_entered_text() -> None:
+    for name in ("oxide_dielectric_thin_film", "oxide_photocatalyst"):
+        loaded = load_scoring_profile(PROFILES / f"{name}.yaml")
+        assert loaded.standing_caveats["stability_cutoff_oxide_calibrated"] == (
+            f"scoring_profiles/{name}.yaml#criteria.stability.anion_calibration_caveat"
+        )
+        text = CaveatConfig.load(PROFILES / f"{name}.yaml").resolve(
+            Caveat(id=CaveatId.STABILITY_CUTOFF_OXIDE_CALIBRATED, subject="AlN")
+        )
+        assert text.entered and text.text.startswith("The 94 meV/atom stability cutoff")

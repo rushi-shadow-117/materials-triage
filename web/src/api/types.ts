@@ -184,7 +184,7 @@ export interface components {
          *     composition the text is about.
          * @enum {string}
          */
-        CaveatId: "band_offsets_not_checked" | "stability_cutoff_hull_mismatch" | "experimental_gap_composition_level" | "experimental_gap_unreferenced" | "reference_value_pending" | "hazard_flag" | "hazard_unknown" | "process_hazard" | "attribution_echa" | "anion_undetermined" | "evidence_unclassified" | "enrichment_missing";
+        CaveatId: "band_offsets_not_checked" | "stability_cutoff_hull_mismatch" | "stability_cutoff_oxide_calibrated" | "experimental_gap_composition_level" | "experimental_gap_unreferenced" | "reference_value_pending" | "hazard_flag" | "hazard_unknown" | "process_hazard" | "attribution_echa" | "anion_undetermined" | "evidence_unclassified" | "enrichment_missing";
         /**
          * Clamp
          * @description A query setting moved into the site's bounds, shown to the user.
@@ -233,6 +233,12 @@ export interface components {
             parsed_by: string;
             /** Request Text */
             request_text: string;
+            /** Stability Cutoff Mev */
+            stability_cutoff_mev?: number | null;
+            /** Unavailable Properties */
+            unavailable_properties?: string[];
+            /** Unresolved Candidates */
+            unresolved_candidates?: string[];
         };
         /** CriterionScore */
         CriterionScore: {
@@ -579,6 +585,8 @@ export interface components {
             band_gap_min_ev?: number | null;
             /** Candidate List */
             candidate_list?: string[];
+            /** E Above Hull Max Mev */
+            e_above_hull_max_mev?: number | null;
             /** Evidence Tier Min */
             evidence_tier_min?: string | null;
             /**
@@ -586,6 +594,8 @@ export interface components {
              * @default true
              */
             exclude_radioactive: boolean;
+            /** Extra Anchors */
+            extra_anchors?: string[];
             /** Max Elements */
             max_elements?: number | null;
             /**

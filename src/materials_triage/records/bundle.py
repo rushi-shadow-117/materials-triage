@@ -91,6 +91,7 @@ class CaveatId(StrEnum):
 
     BAND_OFFSETS_NOT_CHECKED = "band_offsets_not_checked"
     STABILITY_CUTOFF_HULL_MISMATCH = "stability_cutoff_hull_mismatch"
+    STABILITY_CUTOFF_OXIDE_CALIBRATED = "stability_cutoff_oxide_calibrated"  # anion policy
     EXPERIMENTAL_GAP_COMPOSITION_LEVEL = "experimental_gap_composition_level"
     EXPERIMENTAL_GAP_UNREFERENCED = "experimental_gap_unreferenced"
     REFERENCE_VALUE_PENDING = "reference_value_pending"
@@ -152,6 +153,10 @@ class ConfirmedCriteria(Strict):
     effective_settings: dict[str, Any]  # QuerySettings after resolve(), as a dict
     clamps: list[Clamp] = Field(default_factory=list)
     defaults_applied: list[str] = Field(default_factory=list)
+    # Track F; defaulted, so version-2 bundles written before these fields still validate.
+    unresolved_candidates: list[str] = Field(default_factory=list)  # not a chemical formula
+    stability_cutoff_mev: float | None = None  # effective hull cutoff after site bounds
+    unavailable_properties: list[str] = Field(default_factory=list)  # no configured source
 
 
 # ----------------------------------------------------------------------------- summaries

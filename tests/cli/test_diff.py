@@ -108,3 +108,24 @@ def test_hazard_policy_edit_counts_as_config(a: ProvenanceBundle) -> None:
     by = {c.composition: c for c in report.changes}
     assert by["HfO2"].causes == ["config"] and "policy_version: 0 -> abc123" in by["HfO2"].detail[0]
     assert isinstance(EvidenceHit, type)
+
+
+def test_cross_checks_fetched_in_one_run_follow_the_config_change(a: ProvenanceBundle) -> None:
+    """Enrichment follows rank, so a config change can fetch a row's literature in one run
+    only. That is not a data change: no record present in both runs differs."""
+    b = _swap(a, "HfO2", "ZrO2")
+    b.run.config_sha = "different"
+    hf = next(c for c in b.candidates if c.composition == "HfO2")
+    hf.group = hf.group.model_copy(update={"literature": None})
+    by = {c.composition: c for c in d.diff(a, b).changes}
+    assert by["HfO2"].causes == ["config"]
+    assert any("enrichment follows rank" in x for x in by["HfO2"].detail)
+    same_config = _swap(a, "HfO2", "ZrO2")
+    same_config.candidates = [
+        c.model_copy(update={"group": c.group.model_copy(update={"literature": None})})
+        if c.composition == "HfO2"
+        else c
+        for c in same_config.candidates
+    ]
+    by = {c.composition: c for c in d.diff(a, same_config).changes}
+    assert "data" in by["HfO2"].causes

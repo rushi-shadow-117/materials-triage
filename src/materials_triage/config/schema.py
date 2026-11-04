@@ -96,6 +96,46 @@ CRITERIA = (
 )
 OPTIONAL_CRITERIA = ("dielectric_constant", "deposition_method", "cost")  # weight 0 by default
 
+# Names a request may use for a property, mapped to the criterion that covers it. A requested
+# property that is not here has no configured source: the run carries it as unavailable and
+# both views say so (Track F). Names only; no thresholds or chemistry.
+PROPERTY_CRITERIA: dict[str, str] = {
+    "stability": "stability",
+    "thermodynamic stability": "stability",
+    "energy above hull": "stability",
+    "band gap": "band_gap",
+    "gap": "band_gap",
+    "wide band gap": "band_gap",
+    "toxicity": "hazard",
+    "non-toxic": "hazard",
+    "hazard": "hazard",
+    "simplicity": "simplicity",
+    "simple composition": "simplicity",
+    "simple compositions": "simplicity",
+    "element count": "simplicity",
+    "evidence": "evidence",
+    "public evidence": "evidence",
+    "published synthesis": "evidence",
+    "synthesis": "evidence",
+    "dielectric constant": "dielectric_constant",
+    "permittivity": "dielectric_constant",
+    "k": "dielectric_constant",
+    "high-k": "dielectric_constant",
+    "deposition method": "deposition_method",
+    "cost": "cost",
+}
+
+
+def unavailable_properties(requested: list[str]) -> list[str]:
+    """Requested property names no configured criterion covers, normalized and deduplicated."""
+    out: list[str] = []
+    for name in requested:
+        key = " ".join(name.lower().split())
+        if key and key not in PROPERTY_CRITERIA and key not in out:
+            out.append(key)
+    return out
+
+
 # ----------------------------------------------------------------------------- core (code-owned)
 
 
@@ -200,6 +240,8 @@ class SiteProfile(Strict):
     retention_days: int | None = None
     top_n_max: int = 50
     radioactive_exclusion_locked: bool = True
+    # meV/atom; a query cutoff is clamped into these; the max is the discovery hull prefilter
+    stability_cutoff_bounds: Bounds | None = None
 
 
 # ------------------------------------------------------------------- scoring profile (FDE)
@@ -217,6 +259,8 @@ class BandGapSettings(Strict):
     soft_preference_start_ev: float | None
     hard_min_ev: float | None = None
     hard_max_ev: float | None = None
+    # PBE floor sent to the discovery API; the soft preference never is (Track F).
+    discovery_pbe_floor_ev: float | None = None
     aggregate: Aggregate = Aggregate.MEDIAN
     conflict_tolerance_ev: float | None = None  # None until derived (Phase 2 / Track E)
     on_conflict: OnConflict = OnConflict.NEXT_SOURCE
@@ -271,6 +315,8 @@ class QuerySettings(Strict):
     band_gap_max_ev: float | None = None
     max_elements: int | None = None
     evidence_tier_min: str | None = None
+    e_above_hull_max_mev: float | None = None  # None = the profile cutoff; site-bounded
+    extra_anchors: list[str] = Field(default_factory=list)  # this run only; stay ranked
     exclude_radioactive: bool = True
     verbosity: Verbosity | None = None
     terminology: Terminology | None = None
@@ -300,6 +346,7 @@ class EffectiveConfig(Strict):
     view: View
     top_n: int
     exclude_radioactive: bool
+    stability_cutoff_mev: float | None  # query value or profile cutoff, within site bounds
     fragments: dict[str, str]
     config_sha: str
 
@@ -337,6 +384,24 @@ def resolve(
     if top_n < 1:
         clamps.append(Clamp(setting="top_n", requested=top_n, applied=1, bound="min 1"))
         top_n = 1
+    cutoff = (
+        query.e_above_hull_max_mev
+        if query.e_above_hull_max_mev is not None
+        else profile.stability.cutoff_mev_per_atom
+    )
+    hull_bounds = site.stability_cutoff_bounds
+    if cutoff is not None and hull_bounds is not None:
+        applied = min(max(cutoff, hull_bounds.min), hull_bounds.max)
+        if applied != cutoff:
+            clamps.append(
+                Clamp(
+                    setting="e_above_hull_max_mev",
+                    requested=cutoff,
+                    applied=applied,
+                    bound="site.stability_cutoff_bounds",
+                )
+            )
+        cutoff = applied
     exclude_radioactive = query.exclude_radioactive
     if site.radioactive_exclusion_locked and not exclude_radioactive:
         clamps.append(
@@ -365,6 +430,7 @@ def resolve(
         "weights": weights,
         "top_n": top_n,
         "exclude_radioactive": exclude_radioactive,
+        "stability_cutoff_mev": cutoff,
         "fragments": fragments,
     }
     sha = hashlib.sha256(
@@ -382,6 +448,7 @@ def resolve(
         view=view,
         top_n=top_n,
         exclude_radioactive=exclude_radioactive,
+        stability_cutoff_mev=cutoff,
         fragments=fragments,
         config_sha=sha,
     )
@@ -428,78 +495,19 @@ def entries_with_status(node: Any, path: str = "") -> list[tuple[str, Entry]]:
 
 
 def scoring_profile_from_yaml(path: Path) -> tuple[ScoringProfile, list[str]]:
-    """Build a ScoringProfile from a config/scoring_profiles/*.yaml file. Values whose entry
-    is not `entered` become None (unusable) and are listed in the returned notes."""
-    data = load_yaml(path)
-    crit = data.get("criteria", {})
-    notes: list[str] = []
+    """The scoring profile as the scorer loads it (scoring.profile.load_scoring_profile), with
+    its notes. One loader serves the CLI, the API, the evals and the scorer (Track F)."""
+    from materials_triage.scoring.profile import load_scoring_profile
 
-    def usable(section: dict[str, Any], key: str) -> Any:
-        if section.get("status") != "entered":
-            notes.append(f"{key}: status {section.get('status')} -> unusable")
-            return None
-        return section.get(key)
-
-    stab = crit.get("stability", {})
-    gap = crit.get("band_gap", {})
-    diel = crit.get("dielectric_constant", {})
-    simp = crit.get("simplicity", {})
-    anchors = data.get("anchors", {})
-    profile = ScoringProfile(
-        name=str(data.get("profile", path.stem)),
-        version=str(data.get("version", "0")),
-        stability=StabilitySettings(
-            cutoff_mev_per_atom=usable(stab, "cutoff_mev_per_atom"),
-            near_cutoff_band_mev_per_atom=usable(stab, "near_cutoff_band_mev_per_atom"),
-            hull=str(stab.get("hull", "GGA_GGA+U_R2SCAN")).replace("mixed_", ""),
-        ),
-        band_gap=BandGapSettings(
-            policy=BandGapPolicy(gap.get("policy", "best_available")),
-            source_order=[
-                s.replace("tbmbj", "tbmbj")
-                for s in gap.get("source_order", ["experimental", "tbmbj", "pbe"])
-            ],
-            soft_preference_start_ev=usable(gap, "soft_preference_start_ev"),
-            hard_min_ev=usable(gap, "hard_min_ev"),
-            hard_max_ev=usable(gap, "hard_max_ev"),
-            aggregate=Aggregate(gap.get("aggregate_when_several_experimental_values", "median")),
-            conflict_tolerance_ev=gap.get("conflict_tolerance_ev"),
-            on_conflict=OnConflict(gap.get("on_conflict", "next_source")),
-        ),
-        dielectric_constant=DielectricSettings(
-            weight=float(diel.get("weight", 0.0)),
-            target_band=tuple(diel["target_band"])
-            if diel.get("status") == "entered" and diel.get("target_band")
-            else None,
-        ),
-        simplicity=SimplicitySettings(
-            max_elements=int(simp.get("max_elements", 3)),
-            anion_policy=simp.get("anion_policy", "strict_oxide"),
-            ternary_penalty=bool(simp.get("ternary_penalty", True)),
-            ternary_penalty_size=simp.get("ternary_penalty_size"),
-        ),
-        anchors=list(anchors.get("compositions", ["SiO2"]))
-        if anchors.get("status") == "entered"
-        else ["SiO2"],
-    )
-    if diel.get("status") != "entered":
-        notes.append(
-            "dielectric_constant: target band unusable (status not entered); weight stays 0"
-        )
-    return profile, notes
+    loaded = load_scoring_profile(path)
+    return loaded.profile, list(loaded.notes)
 
 
 def site_profile_from_yaml(path: Path) -> SiteProfile:
-    data = load_yaml(path)
-    dep = data.get("deposition_methods", {})
-    tell = data.get("screen_cannot_tell_you", {})
-    return SiteProfile(
-        deposition_methods=list(dep.get("methods", [])) if dep.get("status") == "entered" else [],
-        screen_cannot_tell_you=list(tell.get("items", []))
-        if tell.get("status") == "entered"
-        else [],
-        glossary=dict((data.get("glossary") or {}).get("terms", {}) or {}),
-    )
+    """The site profile as the scorer loads it (scoring.profile.load_site_profile)."""
+    from materials_triage.scoring.profile import load_site_profile
+
+    return load_site_profile(path)
 
 
 def default_paths() -> dict[str, Path]:

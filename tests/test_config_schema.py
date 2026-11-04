@@ -113,3 +113,25 @@ def test_repo_yaml_files_load_and_only_entered_values_are_usable() -> None:
         entries = cs.entries_with_status(cs.load_yaml(paths[name]))
         assert entries and all(e.status in cs.EntryStatus for _, e in entries)
         assert any(e.usable for _, e in entries)
+
+
+def test_query_hull_cutoff_is_clamped_to_the_site_bounds() -> None:
+    paths = cs.default_paths()
+    profile, _ = cs.scoring_profile_from_yaml(paths["scoring_profile"])
+    site = cs.site_profile_from_yaml(paths["site_profile"])
+    assert site.stability_cutoff_bounds == cs.Bounds(min=0.0, max=94.0)
+    assert site.weight_bounds["hazard"].min == 0.1  # the CLI and eval path reads the bounds
+    default, clamps = cs.resolve(cs.CoreConfig(), site, profile, cs.QuerySettings(profile="p"))
+    assert default.stability_cutoff_mev == 94.0 and clamps == []
+    on_hull, clamps = cs.resolve(
+        cs.CoreConfig(), site, profile, cs.QuerySettings(profile="p", e_above_hull_max_mev=0.0)
+    )
+    assert on_hull.stability_cutoff_mev == 0.0 and clamps == []
+    assert on_hull.config_sha != default.config_sha
+    loose, clamps = cs.resolve(
+        cs.CoreConfig(), site, profile, cs.QuerySettings(profile="p", e_above_hull_max_mev=2000.0)
+    )
+    assert loose.stability_cutoff_mev == 94.0
+    assert [(c.setting, c.requested, c.applied, c.bound) for c in clamps] == [
+        ("e_above_hull_max_mev", 2000.0, 94.0, "site.stability_cutoff_bounds")
+    ]

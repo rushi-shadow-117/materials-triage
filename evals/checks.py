@@ -6,6 +6,7 @@ A check never computes a score or a rank; it reads what the pipeline wrote and c
 
 from __future__ import annotations
 
+import math
 import re
 from collections.abc import Callable
 from typing import Any
@@ -51,14 +52,29 @@ def run_completed(obs: Observation, *, allow_partial: bool = False) -> CheckResu
 
 
 @check
-def ranked_near_top(obs: Observation, *, compositions: list[str], within: int) -> CheckResult:
-    params = {"compositions": compositions, "within": within}
+def ranked_near_top(
+    obs: Observation,
+    *,
+    compositions: list[str],
+    within: int | None = None,
+    within_fraction: float | None = None,
+) -> CheckResult:
+    """Each composition is ranked at or above `within`, or inside the top `within_fraction` of
+    ranked candidates (rank <= ceil(fraction x ranked count)); with both, the looser holds."""
+    params = {"compositions": compositions, "within": within, "within_fraction": within_fraction}
     b = _bundle(obs)
     if b is None:
         return _no_bundle("ranked_near_top", params)
+    ranked = len(b.ranked())
+    limits = [x for x in (within,) if x is not None]
+    if within_fraction is not None:
+        limits.append(math.ceil(within_fraction * ranked))
+    limit = max(limits) if limits else ranked
     ranks = {c.composition: c.rank for c in b.candidates}
-    missing = [c for c in compositions if ranks.get(c) is None or (ranks[c] or 0) > within]
-    detail = ", ".join(f"{c}={ranks.get(c)}" for c in compositions)
+    missing = [c for c in compositions if ranks.get(c) is None or (ranks[c] or 0) > limit]
+    detail = (
+        ", ".join(f"{c}={ranks.get(c)}" for c in compositions) + f" (limit {limit} of {ranked})"
+    )
     return CheckResult(name="ranked_near_top", params=params, passed=not missing, detail=detail)
 
 
@@ -112,14 +128,23 @@ def top_n_respected(obs: Observation) -> CheckResult:
 
 
 @check
-def anchor_shown_with_would_rank(obs: Observation, *, composition: str) -> CheckResult:
-    params = {"composition": composition}
+def anchor_shown_with_would_rank(
+    obs: Observation, *, composition: str, may_also_rank: bool = False
+) -> CheckResult:
+    """An anchor row with a would-rank. Profile anchors never take a slot; a per-run anchor
+    (`may_also_rank`, query extra_anchors) also keeps its place in the ranking."""
+    params = {"composition": composition, "may_also_rank": may_also_rank}
     b = _bundle(obs)
     if b is None:
         return _no_bundle("anchor_shown_with_would_rank", params)
     a = next((x for x in b.anchors if x.composition == composition), None)
     in_ranked = any(c.composition == composition and c.rank is not None for c in b.candidates)
-    ok = a is not None and a.would_rank is not None and a.out_of > 0 and not in_ranked
+    ok = (
+        a is not None
+        and a.would_rank is not None
+        and a.out_of > 0
+        and (may_also_rank or not in_ranked)
+    )
     detail = (
         "not an anchor"
         if a is None
@@ -478,6 +503,58 @@ def composition_absent(obs: Observation, *, composition: str) -> CheckResult:
         passed=ok,
         detail="absent" if ok else f"{composition} appears as a row",
     )
+
+
+@check
+def only_in_exclusions(
+    obs: Observation, *, composition: str, rule: str | None = None
+) -> CheckResult:
+    """The composition appears only in the exclusion list (not ranked, not an anchor), with
+    the given rule when one is named."""
+    params = {"composition": composition, "rule": rule}
+    b = _bundle(obs)
+    if b is None:
+        return _no_bundle("only_in_exclusions", params)
+    rows = [c for c in b.candidates if c.composition == composition]
+    anchored = any(a.composition == composition for a in b.anchors)
+    ok = (
+        bool(rows)
+        and not anchored
+        and all(c.rank is None and c.excluded is not None for c in rows)
+        and (rule is None or all(c.excluded and c.excluded.rule.value == rule for c in rows))
+    )
+    detail = (
+        "absent"
+        if not rows
+        else "; ".join(
+            f"rank {c.rank}, excluded {c.excluded.rule.value if c.excluded else None}" for c in rows
+        )
+        + ("; anchored" if anchored else "")
+    )
+    return CheckResult(name="only_in_exclusions", params=params, passed=ok, detail=detail)
+
+
+@check
+def diff_causes_only(obs: Observation, *, allowed: list[str]) -> CheckResult:
+    """Every rank change between the case's two runs has causes, all in `allowed` (G3)."""
+    params = {"allowed": allowed}
+    if obs.diff is None:
+        return CheckResult(
+            name="diff_causes_only", params=params, passed=False, detail="no compare run"
+        )
+    changes = obs.diff.get("changes", [])
+    bad = [
+        f"{c['composition']}: {c['causes']}"
+        for c in changes
+        if not c["causes"] or any(x not in allowed for x in c["causes"])
+    ]
+    detail = (
+        f"{len(changes)} rank changes, causes {sorted({x for c in changes for x in c['causes']})}"
+        if not bad
+        else "; ".join(bad[:5])
+    )
+    ok = not bad and bool(changes)
+    return CheckResult(name="diff_causes_only", params=params, passed=ok, detail=detail)
 
 
 @check

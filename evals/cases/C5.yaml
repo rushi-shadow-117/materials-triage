@@ -22,3 +22,10 @@ checks:
   params:
     composition: Unobtainium oxide
 - name: no_estimated_values
+- name: log_entry_present
+  params:
+    contains: 'not found in any source: Unobtainium oxide'
+- name: text_in_rendered
+  params:
+    view: pi_summary
+    contains: 'Not found in any source: Unobtainium oxide'

@@ -118,3 +118,10 @@ def test_cost_is_always_missing() -> None:
     assert r.normalized is None and r.missing_reason == "no source wired"
     score = r.to_score("cost", 0.0)
     assert score.missing and score.contribution == 0.0 and score.normalized is None
+
+
+def test_zero_cutoff_scores_the_hull_and_excludes_the_rest() -> None:
+    on = criteria.stability(hull(0.0), cutoff_mev=0.0, near_cutoff_band_mev=24.0, source_ref="s")
+    assert on.normalized == 1.0 and on.exclusion is None and Flag.NEAR_CUTOFF in on.flags
+    off = criteria.stability(hull(0.001), cutoff_mev=0.0, near_cutoff_band_mev=24.0, source_ref="s")
+    assert off.exclusion is not None and off.exclusion.rule is ExclusionRule.STABILITY_CUTOFF

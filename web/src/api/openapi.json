@@ -198,6 +198,7 @@
         "enum": [
           "band_offsets_not_checked",
           "stability_cutoff_hull_mismatch",
+          "stability_cutoff_oxide_calibrated",
           "experimental_gap_composition_level",
           "experimental_gap_unreferenced",
           "reference_value_pending",
@@ -351,6 +352,31 @@
           "request_text": {
             "title": "Request Text",
             "type": "string"
+          },
+          "stability_cutoff_mev": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Stability Cutoff Mev"
+          },
+          "unavailable_properties": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Unavailable Properties",
+            "type": "array"
+          },
+          "unresolved_candidates": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Unresolved Candidates",
+            "type": "array"
           }
         },
         "required": [
@@ -1554,6 +1580,17 @@
             "title": "Candidate List",
             "type": "array"
           },
+          "e_above_hull_max_mev": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "E Above Hull Max Mev"
+          },
           "evidence_tier_min": {
             "anyOf": [
               {
@@ -1569,6 +1606,13 @@
             "default": true,
             "title": "Exclude Radioactive",
             "type": "boolean"
+          },
+          "extra_anchors": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Extra Anchors",
+            "type": "array"
           },
           "max_elements": {
             "anyOf": [

@@ -15,6 +15,14 @@ Note: {{ run.note }}
 {% endif %}
 
 Request: {{ criteria.request_text }}
+{% if view.unresolved_candidates %}
+
+Not found in any source: {{ view.unresolved_candidates | join(", ") }}. These names are not chemical formulas; nothing is shown for them.
+{% endif %}
+{% if view.unavailable_properties %}
+
+Not available from configured sources: {{ view.unavailable_properties | join(", ") }}. No configured source provides these properties, so they are not scored and no value is shown.
+{% endif %}
 
 {% if view.rows %}
 | Rank | Material | Why | Key caveat | Evidence | k | Missing |
@@ -70,5 +78,8 @@ No candidate passed the criteria.
 
 - Defaults: {{ view.defaults_applied | join("; ") if view.defaults_applied else "none" }}
 - Clamps: {{ view.clamps | join("; ") if view.clamps else "none" }}
+{% if view.hull_cutoff %}
+- Energy above hull cutoff: {{ view.hull_cutoff }}
+{% endif %}
 - Verifier: {% if bundle.verifier %}{{ "passed" if bundle.verifier.passed else "failures removed" }} ({{ bundle.verifier.failures | length }} failure(s)){% else %}not run (no LLM text){% endif %}
 

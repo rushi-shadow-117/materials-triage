@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+from dataclasses import asdict
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any, Literal, Protocol
@@ -29,10 +30,10 @@ from evals.schema import Case, Message, Observation
 from materials_triage.adapters import openalex
 from materials_triage.adapters.base import Call, RawResponse
 from materials_triage.agent import parse as parse_mod
-from materials_triage.agent import pipeline, relaxation
+from materials_triage.agent import pipeline
 from materials_triage.agent.llm import LLMClient, make_client
 from materials_triage.agent.loop import Budget
-from materials_triage.cli import wiring
+from materials_triage.cli import rundiff, wiring
 from materials_triage.config.schema import (
     CONFIG_DIR,
     CoreConfig,
@@ -312,6 +313,29 @@ class PipelineExecutor:
     # -- the run
 
     def run(self, case: Case, repeat: int) -> Observation:
+        obs = self._run_once(case, repeat)
+        if case.compare is None or obs.bundle is None:
+            return obs
+        settings = dict(case.settings)
+        for key, value in case.compare.settings.items():
+            if key == "weights":
+                settings["weights"] = {**settings.get("weights", {}), **value}
+            else:
+                settings[key] = value
+        variant = case.model_copy(update={"settings": settings, "compare": None})
+        other = self._run_once(variant, repeat)
+        if other.bundle is None:
+            obs.errors.append("compare run produced no bundle: " + "; ".join(other.errors))
+            return obs
+        report = rundiff.diff(obs.bundle, other.bundle)
+        obs.diff = asdict(report)
+        obs.log_entries.append(
+            f"harness: compare run {other.bundle.run.run_id} under {case.compare.settings}; "
+            f"{len(report.changes)} rank changes, {report.unchanged} unchanged"
+        )
+        return obs
+
+    def _run_once(self, case: Case, repeat: int) -> Observation:
         before_sha, before_files = effective_config_sha(case), config_files_sha()
         transcript = [Message(role="user", content=case.request)]
         log: list[str] = []
@@ -333,6 +357,7 @@ class PipelineExecutor:
                 profile=layers.profile,
                 hazard_policy=layers.hazard_policy,
                 confirmed_at=datetime.now(UTC),
+                discovery_ceiling=case.overrides.discovery_ceiling,
             )
             fetch, mode, fetch_log = self.fetch_for(case, inputs.run_id)
             inputs.fetch_mode = mode
@@ -368,12 +393,9 @@ class PipelineExecutor:
                     rendered["csv"] = csv_export.export_csv(bundle, units=units)
                 except Exception as e:  # noqa: BLE001 - observed, not raised
                     errors.append(f"export csv: {type(e).__name__}: {e}")
-                if outcome.query is not None:
-                    choices = relaxation.enumerate_relaxations(bundle, outcome.query)
-                    log.append(
-                        f"harness: relaxations available (code, not applied): {len(choices)}"
-                        + ("; " + "; ".join(c.describe() for c in choices) if choices else "")
-                    )
+                for entry in bundle.decision_log:
+                    if entry.step == "relaxation":
+                        log.append(f"pipeline relaxation (code, not applied): {entry.summary}")
             self._save(bundle)
         except ClarificationError as e:
             run_id = f"clarification-{case.id}-{repeat}"

@@ -172,7 +172,7 @@ def _maybe_relax(
         return None
     if len(bundle.ranked()) >= outcome.effective.top_n:
         return None
-    choices = relaxation.enumerate_relaxations(bundle, outcome.query)
+    choices = relaxation.relaxations_from_bundle(bundle)  # counted by the pipeline
     if not choices:
         return None
     result = relaxation.run_relax(

@@ -1,0 +1,249 @@
+interactions:
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=Li2O+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 142, "db_response_time_ms": 21, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Li2O thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (Li2O thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "Li2O
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:Li2O
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W4411396426",
+        "doi": "https://doi.org/10.38124/ijisrt/25jun455", "title": "Molarity-Driven
+        Modulation of Li2O Thin Films for UV-Sensitive Photovoltaic Devices", "publication_year":
+        2025, "abstract_inverted_index": {"Li2O": [0, 137], "powders": [1, 75], "were":
+        [2, 40, 58, 76], "synthesized": [3], "by": [4, 42, 84], "the": [5, 22, 38,
+        61, 105, 115, 123], "sol\u2013gel": [6], "method": [7], "using": [8], "lithium":
+        [9], "nitrate": [10], "solutions": [11], "of": [12, 24, 37, 101, 122], "1.0":
+        [13, 106], "M,": [14, 16], "0.9": [15], "and": [17, 29, 35, 55, 60, 78, 88,
+        94, 118, 143], "0.7": [18], "M": [19, 107], "to": [20, 71, 151], "analyze":
+        [21], "effect": [23], "precursor": [25], "concentration": [26, 67, 128], "on":
+        [27], "photovoltaic": [28, 131], "optical": [30, 141], "properties.": [31],
+        "Reflux": [32], "heating,": [33], "filtration,": [34], "calcination": [36],
+        "samples": [39], "followed": [41], "analysis": [43], "through": [44], "UV\u2013VIS":
+        [45], "spectroscopy.": [46], "Optical": [47], "properties": [48, 142], "such":
+        [49], "as": [50], "absorption": [51, 117], "coefficient,": [52, 54], "extinction":
+        [53], "band": [56, 62, 120], "gap": [57, 63, 121], "determined,": [59], "increased":
+        [64], "with": [65, 90, 126], "increasing": [66], "from": [68, 114], "3.410":
+        [69], "eV": [70], "3.573": [72], "eV.": [73], "The": [74], "pasted": [77],
+        "coated": [79], "onto": [80], "FTO": [81], "substrates,": [82], "sensitized":
+        [83], "Blue": [85], "Nile": [86], "dye,": [87], "packaged": [89], "graphite-coated":
+        [91], "counter": [92], "electrode": [93], "iodine": [95], "electrolyte.":
+        [96], "I\u2013V": [97], "measurements": [98], "under": [99], "illumination":
+        [100], "0.55": [102], "W\u00b7m\u22122": [103], "showed": [104], "sample":
+        [108], "reached": [109], "maximum": [110], "efficiency": [111], "(0.903%),":
+        [112], "resulting": [113], "stronger": [116], "narrower": [119], "sample.":
+        [124], "Films": [125], "lower": [127], "had": [129], "decreased": [130], "performance.":
+        [132], "These": [133], "findings": [134], "show": [135], "that": [136], "content":
+        [138], "significantly": [139], "impacts": [140], "solar": [144], "cell": [145],
+        "efficiency,": [146], "offering": [147], "a": [148], "direct": [149], "route":
+        [150], "improving": [152], "Li-based": [153], "material": [154], "performance":
+        [155], "in": [156], "low-light": [157], "photovoltaics.": [158]}, "primary_location":
+        {"id": "doi:10.38124/ijisrt/25jun455", "doi": "https://doi.org/10.38124/ijisrt/25jun455",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.38124/ijisrt/25jun455",
+        "pdf_url": "https://www.ijisrt.com/assets/upload/files/IJISRT25JUN455.pdf",
+        "source": null, "license": "cc-by-nc", "license_id": "https://openalex.org/licenses/cc-by-nc",
+        "version": "publishedVersion", "is_accepted": true, "is_published": true,
+        "raw_source_name": "International Journal of Innovative Science and Research
+        Technology", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W2318888639",
+        "doi": "https://doi.org/10.1021/cm200899k", "title": "Atomic Layer Deposition
+        of Li2O\u2013Al2O3 Thin Films", "publication_year": 2011, "abstract_inverted_index":
+        {"Energy": [0], "and": [1, 61, 78, 105, 190, 240], "power": [2], "densities":
+        [3], "of": [4, 32, 84, 112, 133, 162, 205, 226, 249], "all-solid-state": [5],
+        "lithium": [6, 41, 103], "ion": [7], "batteries": [8], "can": [9], "be": [10],
+        "improved": [11], "by": [12, 50, 93, 98, 125, 152, 172], "moving": [13], "from":
+        [14], "planar": [15], "battery": [16, 35], "structures": [17], "to": [18,
+        229, 236], "three-dimensional": [19, 34], "structures.": [20, 36], "Atomic":
+        [21], "layer": [22, 110], "deposition": [23, 83, 250], "(ALD)": [24], "is":
+        [25, 52, 69, 116, 143, 185, 208, 218, 223], "a": [26, 72, 224], "very": [27],
+        "suitable": [28], "technique": [29], "for": [30, 102], "fabrication": [31],
+        "such": [33], "The": [37, 82, 108, 159, 177, 203], "solid-state": [38], "electrolyte":
+        [39], "material": [40, 74], "lanthanum": [42], "titanate": [43], "(LLT)":
+        [44], "that": [45, 181, 191], "we": [46], "have": [47], "previously": [48],
+        "made": [49], "ALD": [51, 94, 100], "unstable": [53], "in": [54, 139], "direct":
+        [55], "contact": [56], "with": [57, 196, 246], "many": [58], "anode": [59,
+        77], "materials,": [60], "therefore,": [62], "Li": [63, 85, 117, 144, 163],
+        "2": [64, 66, 86, 88, 164, 166], "O\u2013Al": [65, 87, 165], "O": [67, 89,
+        121, 148, 167], "3": [68, 90, 142, 168], "proposed": [70], "as": [71, 123,
+        137, 150], "barrier": [73], "between": [75], "the": [76, 79, 113, 131, 134,
+        188, 192, 197, 211, 215, 230, 233, 241], "LLT": [80], "electrolyte.": [81],
+        "thin": [91], "films": [92, 115, 169, 189], "has": [95], "been": [96], "accomplished":
+        [97], "combining": [99], "processes": [101], "oxide/hydroxide": [104], "aluminum":
+        [106], "oxide.": [107], "surface": [109], "composition": [111, 132], "obtained":
+        [114], "2.2": [118], "Al": [119, 146], "1.0": [120, 147], "z": [122, 149],
+        "analyzed": [124, 151], "X-ray": [126], "photoelectron": [127], "spectroscopy":
+        [128, 157], "(XPS)": [129], "while": [130], "bulk": [135], "film": [136, 231,
+        242], "dissolved": [138], "10%": [140], "HNO": [141], "1.6": [145], "inductively":
+        [153], "coupled": [154], "plasma": [155], "mass": [156], "(ICP-MS).": [158],
+        "growth": [160, 234], "mechanisms": [161], "were": [170], "studied": [171],
+        "quartz": [173], "crystal": [174], "microbalance": [175], "(QCM).": [176],
+        "QCM": [178], "data": [179], "indicates": [180], "some": [182], "absorbed":
+        [183, 193, 206, 227], "water": [184, 194, 207, 216, 228], "left": [186], "inside":
+        [187], "reacts": [195], "metal": [198], "precursor": [199], "during": [200],
+        "subsequent": [201], "pulses.": [202], "amount": [204], "reduced": [209],
+        "when": [210], "purge": [212], "time": [213], "after": [214], "pulse": [217],
+        "increased.": [219], "Even": [220], "if": [221], "there": [222], "contribution":
+        [225], "growth,": [232], "saturates": [235], "about": [237], "2.8": [238],
+        "\u00c5/cycle": [239], "thickness": [243], "increases": [244], "linearly":
+        [245], "increasing": [247], "number": [248], "cycles.": [251]}, "primary_location":
+        {"id": "doi:10.1021/cm200899k", "doi": "https://doi.org/10.1021/cm200899k",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1021/cm200899k", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S66104727", "display_name": "Chemistry
+        of Materials", "issn_l": "0897-4756", "issn": ["0897-4756", "1520-5002"],
+        "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in": ["anvur-scientific",
+        "cwts-core", "dongbi-a", "jufo-3", "ki-jl-1", "norway-2", "poland-200", "russia-white-list-1",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310320006", "host_organization_name":
+        "American Chemical Society", "host_organization_lineage": ["https://openalex.org/P4310320006"],
+        "host_organization_lineage_names": ["American Chemical Society"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Chemistry of
+        Materials", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W1539336258",
+        "doi": "https://doi.org/10.1143/jjap.28.2264", "title": "Preparation and Electrical
+        Conductivity of Li2O-V2O5-SiO2 Thin Films", "publication_year": 1989, "abstract_inverted_index":
+        {"Li2O-V2O5-SiO2,": [0], "thin": [1], "films": [2], "were": [3], "fabricated":
+        [4], "by": [5], "the": [6, 15, 22, 34, 39, 45, 53, 64], "rf": [7], "sputtering":
+        [8], "method.": [9], "The": [10, 27, 41, 56, 70], "X-ray": [11], "diffraction":
+        [12], "patterns": [13], "of": [14, 33, 44, 52], "film": [16, 29, 47], "annealed":
+        [17, 46], "at": [18, 61], "500\u2013600\u00b0C": [19], "agreed": [20], "with":
+        [21], "\u03b3-Li3VO4": [23], "phase": [24], "powder": [25], "pattern.": [26],
+        "as-sputtered": [28, 54], "had": [30], "an": [31], "orientation": [32], "(001)":
+        [35], "plane": [36], "parallel": [37], "to": [38], "substrate.": [40], "electrical":
+        [42], "conductivity": [43, 57], "was": [48, 58, 67], "higher": [49], "than":
+        [50], "that": [51], "film.": [55], "4.8\u00d710-3": [59], "S/m": [60], "100\u00b0C,":
+        [62], "and": [63], "activation": [65], "energy": [66], "0.52": [68], "eV.":
+        [69], "electronic": [71], "transference": [72], "number": [73], "is": [74],
+        "1.5\u00d710-4.": [75]}, "primary_location": {"id": "doi:10.1143/jjap.28.2264",
+        "doi": "https://doi.org/10.1143/jjap.28.2264", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.1143/jjap.28.2264", "pdf_url": "https://iopscience.iop.org/article/10.1143/JJAP.28.2264/pdf",
+        "source": {"id": "https://openalex.org/S143744711", "display_name": "Japanese
+        Journal of Applied Physics", "issn_l": "0021-4922", "issn": ["0021-4922",
+        "1347-4065"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["cwts-core", "dongbi-d", "jufo-1", "ki-jl-1", "norway-1", "poland-70", "russia-white-list-2",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310311669", "host_organization_name":
+        "Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310311669"],
+        "host_organization_lineage_names": ["Institute of Physics"], "type": "journal"},
+        "license": null, "license_id": null, "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "Japanese Journal of Applied
+        Physics", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W7120284735",
+        "doi": null, "title": "Preparation of thin films of TeO2-Li2O by the Pechini
+        method", "publication_year": 2018, "abstract_inverted_index": {"O": [0], "presente":
+        [1], "trabalho": [2], "tem": [3], "como": [4, 34], "objetivo": [5], "a": [6,
+        14, 28, 93, 102, 105, 124, 164, 177, 201, 216, 222, 229], "s\u00edntese":
+        [7], "e": [8, 41, 85, 107, 115, 126, 153, 194, 199, 207], "caracteriza\u00e7\u00e3o":
+        [9, 132], "estrutural": [10], "de": [11, 16, 44, 55, 62, 70, 90, 100, 118,
+        141, 143, 147, 150, 162, 169, 171, 189, 191, 226, 231], "filmes": [12, 23,
+        96, 121, 134, 156, 212, 227], "finos": [13, 24, 213, 228], "base": [15, 230],
+        "TeO2": [17], "usando": [18, 215], "o": [19, 37, 42, 66, 108], "m\u00e9todo":
+        [20, 234], "Pechini.": [21, 235], "Os": [22, 47, 155], "foram": [25, 50, 122],
+        "produzidos": [26], "seguindo": [27], "estequiometria": [29], "80TeO2\u201320Li2O":
+        [30], "(%": [31], "molar),": [32], "utilizando": [33], "precursores": [35,
+        49], "met\u00e1licos": [36], "\u00e1cido": [38, 56], "tel\u00farico": [39],
+        "(H6TeO6)": [40], "carbonato": [43], "l\u00edtio": [45], "(Li2CO3).": [46],
+        "materiais": [48], "solubilizados": [51], "em": [52, 129], "solu\u00e7\u00e3o":
+        [53], "aquosa": [54], "c\u00edtrico": [57], "sob": [58], "aquecimento": [59],
+        "para": [60, 72, 92, 182], "obten\u00e7\u00e3o": [61, 94], "um": [63], "citrato":
+        [64], "met\u00e1lico,": [65], "qual": [67], "foi": [68, 78, 111, 135, 174,
+        196], "acrescido": [69], "etilenoglicol": [71], "polimeriza\u00e7\u00e3o.":
+        [73], "A": [74, 131, 209], "resina": [75], "polim\u00e9rica": [76], "obtida":
+        [77], "depositada": [79], "sobre": [80], "dois": [81], "diferentes": [82],
+        "substratos,": [83], "vidro": [84], "sil\u00edcio": [86], "cristalino,": [87],
+        "pela": [88], "t\u00e9cnica": [89], "spin-coating,": [91], "dos": [95, 133,
+        167, 211], "finos.": [97], "Em": [98], "substratos": [99, 117], "vidro,":
+        [101], "pir\u00f3lise": [103], "ocorreu": [104], "300\u00b0C": [106], "tratamento":
+        [109], "t\u00e9rmico": [110], "realizado": [112], "\u00e0": [113], "400\u00b0C":
+        [114], "nos": [116], "Si,": [119], "os": [120], "pirolisados": [123], "500\u00b0C":
+        [125], "tratados": [127], "termicamente": [128], "600\u00b0C.": [130], "realizada":
+        [136], "por": [137], "meio": [138], "das": [139], "t\u00e9cnicas": [140],
+        "difra\u00e7\u00e3o": [142, 190], "raios-X,": [144], "microscopia": [145],
+        "eletr\u00f4nica": [146], "varredura,": [148], "espectroscopia": [149], "energia":
+        [151], "dispersiva": [152], "Raman.": [154], "obtidos": [157, 214], "apresentaram":
+        [158], "espessuras": [159], "da": [160, 224], "ordem": [161], "micro": [163],
+        "nan\u00f4metros": [165], "e,": [166], "dados": [168, 188], "Espectroscopia":
+        [170], "Energia": [172], "Dispersiva,": [173], "poss\u00edvel": [175, 197],
+        "acompanhar": [176], "transforma\u00e7\u00e3o": [178], "do": [179, 185], "Te":
+        [180], "met\u00e1lico": [181], "as": [183, 204], "fases": [184, 205], "TeO2.":
+        [186], "Dos": [187], "raios": [192], "X": [193], "Raman": [195], "identificar":
+        [198], "observar": [200], "transi\u00e7\u00e3o": [202], "entre": [203], "\u03b3":
+        [206], "\u03b1-TeO2.": [208], "qualidade": [210], "rota": [217], "estabelecida":
+        [218], "neste": [219], "trabalho,": [220], "demonstra": [221], "viabilidade":
+        [223], "produ\u00e7\u00e3o": [225], "tel\u00fario": [232], "pelo": [233]},
+        "primary_location": {"id": "pmh:oai:repositorio.unesp.br:11449/166384", "doi":
+        null, "is_oa": true, "landing_page_url": "http://hdl.handle.net/11449/166384",
+        "pdf_url": "http://hdl.handle.net/11449/166384", "source": {"id": "https://openalex.org/S4306402641",
+        "display_name": "LA Referencia (Red Federada de Repositorios Institucionales
+        de Publicaciones Cient\u00edficas)", "issn_l": null, "issn": null, "is_oa":
+        false, "is_in_doaj": false, "is_core": false, "listed_in": [], "host_organization":
+        "https://openalex.org/I4383465926", "host_organization_name": "LA Referencia",
+        "host_organization_lineage": ["https://openalex.org/I4383465926"], "host_organization_lineage_names":
+        [], "type": "repository"}, "license": "other-oa", "license_id": "https://openalex.org/licenses/other-oa",
+        "version": "submittedVersion", "is_accepted": false, "is_published": false,
+        "raw_source_name": "instacron:UNESP", "raw_type": "info:eu-repo/semantics/masterThesis"}},
+        {"id": "https://openalex.org/W2026708816", "doi": "https://doi.org/10.1063/1.108053",
+        "title": "LiNbO3 thin-film optical waveguide grown by liquid phase epitaxy
+        using Li2O-B2O3 flux", "publication_year": 1992, "abstract_inverted_index":
+        {"Nearly": [0], "stoichiometric": [1], "LiNbO3": [2, 21], "thin-film": [3],
+        "waveguides": [4], "with": [5, 47], "high": [6], "crystallinity": [7], "and":
+        [8, 43], "good": [9], "surface": [10, 54], "morphology": [11], "were": [12],
+        "grown": [13], "on": [14], "a": [15, 41, 44, 48, 86, 97], "5": [16], "mol":
+        [17], "%": [18], "MgO-doped": [19], "Z-plate": [20], "substrate": [22, 57],
+        "by": [23], "liquid": [24], "phase": [25], "epitaxy": [26], "using": [27],
+        "Li2O-B2O3": [28], "flux.": [29], "The": [30], "profile": [31], "of": [32,
+        55, 91, 99], "the": [33, 52, 56, 80], "film-substrate": [34], "interface":
+        [35], "was": [36, 58, 61], "estimated": [37], "to": [38, 79], "be": [39],
+        "nearly": [40], "step": [42], "domain": [45], "inversion": [46], "distinct":
+        [49], "boundary": [50], "at": [51, 96], "\u2212Z": [53], "observed.": [59],
+        "Waveguiding": [60], "realized": [62], "for": [63, 69], "an": [64, 70], "ordinary":
+        [65], "wave,": [66], "but": [67], "not": [68], "extraordinary": [71], "wave.":
+        [72], "There": [73], "existed": [74], "no": [75], "significant": [76], "optical":
+        [77], "absorption": [78, 82], "fundamental": [81], "edge,": [83], "resulting":
+        [84], "in": [85], "negligibly": [87], "small": [88], "propagation": [89],
+        "loss": [90], "less": [92], "than": [93], "1": [94], "dB/cm": [95], "wavelength":
+        [98], "458": [100], "nm.": [101]}, "primary_location": {"id": "doi:10.1063/1.108053",
+        "doi": "https://doi.org/10.1063/1.108053", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.108053", "pdf_url": null, "source": {"id": "https://openalex.org/S105243760",
+        "display_name": "Applied Physics Letters", "issn_l": "0003-6951", "issn":
+        ["0003-6951", "1077-3118", "1520-8842"], "is_oa": false, "is_in_doaj": false,
+        "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-a",
+        "jufo-3", "ki-jl-1", "norway-2", "poland-100", "russia-white-list-1", "vabb-shw"],
+        "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Applied Physics
+        Letters", "raw_type": "journal-article"}}], "group_by": []}'
+  recorded_at: '2026-11-04T00:00:20+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=Li2O+thin+film&select=id
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 257, "db_response_time_ms": 47, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (Li2O thin film)
+        in the title or abstract", "x_new_oql": "get works with (Li2O thin film) in
+        the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "Li2O thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:Li2O thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W4411396426"}], "group_by": []}'
+  recorded_at: '2026-11-04T00:00:20+00:00'
+version: 1

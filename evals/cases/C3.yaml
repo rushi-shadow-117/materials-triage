@@ -6,6 +6,8 @@ request: All stable oxides.
 expectation: count exceeds the hard ceiling; the system refuses to truncate and asks the PI to narrow
   by element, gap, or element count; the count is reported.
 mode: discovery
+overrides:
+  discovery_ceiling: 500
 checks:
 - name: partial_reason_present
   params:
@@ -13,3 +15,6 @@ checks:
 - name: log_entry_present
   params:
     contains: discovery
+- name: partial_reason_present
+  params:
+    contains: discovery matched 3748 documents

@@ -1,5 +1,6 @@
-"""Discovery mode over the recorded 2 to 3 eV oxide cassette: paged in full, scored on
-summary data, the top K enriched, and refused above the ceiling. The scorer here is a
+"""Discovery mode over the recorded dielectric discovery cassette (PBE gap floor 3.0 eV,
+hull up to 94 meV/atom): paged in full, scored on summary data, the top K enriched, and
+refused above the ceiling. The scorer here is a
 test-only stand-in that ranks by the summary band gap; Track A's replaces it."""
 
 from __future__ import annotations
@@ -108,20 +109,30 @@ def _inputs(layers: Layers, tmp_path: Path, **settings: object) -> pipeline.RunI
     )
 
 
-def test_discovery_filter_keeps_the_cutoff_out_of_the_api_query(layers: Layers) -> None:
-    profile = layers[2]
+def test_discovery_filter_sends_only_hard_rules_at_their_loosest_value(layers: Layers) -> None:
+    """The prefilter principle: the soft preference (5 eV) and the query's tighter window and
+    cutoff never reach the API; the floor is discovery_pbe_floor_ev and the hull limit is the
+    site maximum, so excluded rows stay fetched for relaxation counts."""
+    _, site, profile = layers
+    assert profile.band_gap.soft_preference_start_ev == 5.0
     f = pipeline.discovery_filter(
         cs.QuerySettings(
-            profile=profile.name, mode="discovery", band_gap_min_ev=2.0, band_gap_max_ev=3.0
+            profile=profile.name,
+            mode="discovery",
+            band_gap_min_ev=9.0,
+            band_gap_max_ev=10.0,
+            e_above_hull_max_mev=0.0,
         ),
         profile,
+        site,
     )
     assert f.params() == {
         "elements": "O",
         "nelements_min": "2",
         "nelements_max": "3",
-        "band_gap_min": "2.0",
-        "band_gap_max": "3.0",
+        "band_gap_min": "3.0",
+        "energy_above_hull_min": "0.0",
+        "energy_above_hull_max": "0.094",
     }
 
 
@@ -134,11 +145,12 @@ def test_discovery_pages_everything_scores_summaries_and_enriches_the_top_k(
     assert steps[:3] == ["start", "discovery", "enrich"] and steps[-1] == "verify"
     assert "classify" in steps and "score" in steps
     discovery = next(d for d in bundle.decision_log if d.step == "discovery")
-    assert discovery.detail["total"] == 3016 and "3016 summary documents" in discovery.summary
+    assert discovery.detail["total"] == 3748 and "3748 summary documents" in discovery.summary
+    assert "band_gap_max" not in discovery.detail["params"]  # the query window stays in code
     assert len(bundle.candidates) > 1000 and bundle.criteria.mode == "discovery"
     ranked = bundle.ranked()
     gaps = [c.score.total for c in ranked if c.score]
-    assert gaps == sorted(gaps, reverse=True) and gaps[0] is not None and gaps[0] <= 3.0
+    assert gaps == sorted(gaps, reverse=True) and gaps[0] is not None
     enrich = next(d for d in bundle.decision_log if d.step == "enrich")
     assert enrich.summary.startswith("round 1: cross-checks fetched for")
     assert enrich.summary.endswith("of 4 candidates")  # top 3 plus the SiO2 anchor
@@ -180,8 +192,8 @@ def test_discovery_above_the_ceiling_is_refused_with_the_count(
 @pytest.mark.parametrize(
     ("profile_name", "total", "request_text"),
     [
-        ("oxide_dielectric_thin_film", 895, "wide gap oxide dielectrics"),
-        ("oxide_photocatalyst", 3835, "visible light oxide photocatalysts"),
+        ("oxide_dielectric_thin_film", 3748, "wide gap oxide dielectrics"),
+        ("oxide_photocatalyst", 3082, "visible light oxide photocatalysts"),
     ],
 )
 def test_recorded_discovery_queries_run_offline_end_to_end_with_the_real_scorer(
@@ -192,8 +204,8 @@ def test_recorded_discovery_queries_run_offline_end_to_end_with_the_real_scorer(
     transport: DiscoveryCassettes,
     sources: pipeline.Sources,
 ) -> None:
-    """Owner request, Nov 3: the dielectric profile's default discovery (gap floor from its
-    soft preference start, 5.0 eV) and the photocatalyst window (2.0 to 3.3 eV) both page
+    """Owner request, Nov 3: the dielectric profile's default discovery (PBE floor 3.0 eV,
+    Track F) and the photocatalyst window (2.0 to 3.3 eV) both page
     from cassettes, and every composition in the final top 10 carries the full cross-checks
     because the enrich-classify-score loop repeats until the top K is enriched."""
     from materials_triage.agent.scoring_port import default_scorer, track_a_scorer

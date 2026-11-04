@@ -25,6 +25,7 @@ from materials_triage.config.schema import (
     ScoringProfile,
     SiteProfile,
     resolve,
+    unavailable_properties,
 )
 
 from . import loop, prompts
@@ -51,6 +52,8 @@ class ParseOutcome:
     clamps: list[Clamp] = field(default_factory=list)
     defaults_applied: list[str] = field(default_factory=list)
     missing_required: list[str] = field(default_factory=list)
+    unresolved_candidates: list[str] = field(default_factory=list)
+    unavailable_properties: list[str] = field(default_factory=list)
 
     @property
     def ready(self) -> bool:
@@ -61,22 +64,34 @@ class CandidateListError(ValueError):
     pass
 
 
-def normalize_candidates(formulas: list[str]) -> list[str]:
+def split_candidates(formulas: list[str]) -> tuple[list[str], list[str]]:
+    """(reduced formulas, names that are not chemical formulas), each in input order."""
     out: list[str] = []
     bad: list[str] = []
     for f in formulas:
         reduced = try_reduced_formula(f)
         if reduced is None:
-            bad.append(f)
+            if f not in bad:
+                bad.append(f)
         elif reduced not in out:
             out.append(reduced)
+    return out, bad
+
+
+def normalize_candidates(formulas: list[str]) -> list[str]:
+    """Strict form for typed answers (CLI confirmation): any unparseable entry raises."""
+    out, bad = split_candidates(formulas)
     if bad:
         raise CandidateListError(f"not chemical formulas: {bad}")
     return out
 
 
-def to_query_settings(parsed: ParsedRequest, *, profile: str) -> tuple[QuerySettings, list[str]]:
-    """QuerySettings from the model's output. Every default applied is named."""
+def to_query_settings(
+    parsed: ParsedRequest, *, profile: str
+) -> tuple[QuerySettings, list[str], list[str]]:
+    """QuerySettings from the model's output, the defaults applied, and the candidate names that
+    are not chemical formulas (reported as not found; the run proceeds with the rest). Raises
+    only when names were given and none resolves."""
     defaults: list[str] = []
     values: dict[str, Any] = {"profile": profile}
     for key, default in DEFAULTS.items():
@@ -86,19 +101,24 @@ def to_query_settings(parsed: ParsedRequest, *, profile: str) -> tuple[QuerySett
             defaults.append(f"{key}={default}")
         else:
             values[key] = given
-    values["candidate_list"] = normalize_candidates(parsed.candidate_list)
+    resolved, unresolved = split_candidates(parsed.candidate_list)
+    if unresolved and not resolved:
+        raise CandidateListError(f"not chemical formulas: {unresolved}")
+    values["candidate_list"] = resolved
     values["weights"] = parsed.weights.as_dict()
+    values["extra_anchors"] = normalize_candidates(parsed.extra_anchors)
     for key in (
         "band_gap_min_ev",
         "band_gap_max_ev",
         "max_elements",
         "evidence_tier_min",
+        "e_above_hull_max_mev",
         "verbosity",
         "terminology",
         "view",
     ):
         values[key] = getattr(parsed, key)
-    return QuerySettings.model_validate(values), defaults
+    return QuerySettings.model_validate(values), defaults, unresolved
 
 
 def resolve_outcome(
@@ -110,6 +130,8 @@ def resolve_outcome(
     profile: ScoringProfile,
     defaults: list[str],
     missing: list[str],
+    unresolved: list[str] | None = None,
+    unavailable: list[str] | None = None,
 ) -> ParseOutcome:
     effective, clamps = resolve(core, site, profile, query)
     defaults = list(defaults)
@@ -131,6 +153,8 @@ def resolve_outcome(
         clamps=clamps,
         defaults_applied=defaults,
         missing_required=missing,
+        unresolved_candidates=list(unresolved or []),
+        unavailable_properties=list(unavailable or []),
     )
 
 
@@ -149,7 +173,7 @@ def make_handler(
                 log_detail={"out_of_scope": parsed.out_of_scope.value},
             )
         try:
-            query, defaults = to_query_settings(parsed, profile=cli_profile)
+            query, defaults, unresolved = to_query_settings(parsed, profile=cli_profile)
         except CandidateListError as e:
             return loop.ToolOutcome(str(e), is_error=True)
         try:
@@ -161,6 +185,8 @@ def make_handler(
                 profile=profile,
                 defaults=defaults,
                 missing=parsed.missing_required,
+                unresolved=unresolved,
+                unavailable=unavailable_properties(parsed.requested_properties),
             )
         except ValueError as e:
             return loop.ToolOutcome(str(e), is_error=True)
@@ -168,6 +194,8 @@ def make_handler(
             "clamps": [c.model_dump() for c in outcome.clamps],
             "defaults_applied": outcome.defaults_applied,
             "missing_required": outcome.missing_required,
+            "unresolved_candidates": outcome.unresolved_candidates,
+            "unavailable_properties": outcome.unavailable_properties,
         }
         return loop.ToolOutcome(
             json.dumps(content),

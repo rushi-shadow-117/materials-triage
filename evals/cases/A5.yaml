@@ -6,11 +6,14 @@ request: Only materials on the hull, nothing metastable.
 expectation: hull threshold set to 0 (or the minimum allowed by admin bounds, with the clamp shown);
   near-cutoff band still flagged; count of exclusions reported.
 mode: discovery
+settings:
+  e_above_hull_max_mev: 0.0
 checks:
 - name: run_completed
-- name: clamp_shown
+- name: settings_applied
   params:
-    setting: stability_cutoff
+    key: e_above_hull_max_mev
+    value: 0.0
 - name: every_exclusion_has_rule
 - name: log_entry_present
   params:

@@ -72,7 +72,10 @@ def test_required_pair_runs_end_to_end(executor: PipelineExecutor) -> None:
     assert a1.bundle.verifier is not None and a1.bundle.verifier.passed
     assert set(a1.rendered) == {"pi_summary", "audit", "csv"}
     assert run_check(CheckSpec(name="csv_rows_match_ranking"), a1).passed
-    assert any("relaxations available" in line for line in a1.log_entries)
+    # eight of eleven rank under top_n 10, so the pipeline's relaxation entry is logged
+    assert any(
+        line.startswith("pipeline relaxation (code, not applied):") for line in a1.log_entries
+    )
     assert (executor.run_dir / f"{a1.run_id}.json").exists()
     results = {c.name: c for c in (run_check(spec, a1) for spec in A1.checks)}
     # Ranks come from the scorer over recorded data plus the scripted model's keyword labels;

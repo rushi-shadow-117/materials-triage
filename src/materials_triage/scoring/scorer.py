@@ -133,7 +133,7 @@ def score_group(
     enriched = is_enriched(group)
     results: dict[str, crit.CriterionResult] = {}
 
-    cutoff = profile.stability.cutoff_mev_per_atom
+    cutoff = effective.stability_cutoff_mev
     hull = scored.hull_energy.get(profile.stability.hull) if scored is not None else None
     if cutoff is None:
         results["stability"] = crit.missing(
@@ -197,6 +197,15 @@ def score_group(
         flags.append(Flag.GROUND_STATE_IS_THEORETICAL)
     if requested_mp is not None:
         flags.append(Flag.POLYMORPH_REQUESTED)
+    if profile.simplicity.anion_policy != "strict_oxide":
+        # The stability cutoff was calibrated on binary oxides; say so on every row.
+        caveats.append(
+            Caveat(
+                id=CaveatId.STABILITY_CUTOFF_OXIDE_CALIBRATED,
+                subject=group.composition,
+                source_ref=loaded.standing_caveats.get("stability_cutoff_oxide_calibrated"),
+            )
+        )
     if not enriched:
         flags.append(Flag.ENRICHMENT_MISSING)
         caveats.append(Caveat(id=CaveatId.ENRICHMENT_MISSING, subject=group.composition))
@@ -357,7 +366,9 @@ def score_run(
     now = now or datetime.now(UTC)
     profile = loaded.profile
     anchor_set = set(profile.anchors)
-    cutoff = profile.stability.cutoff_mev_per_atom
+    # Per-run anchors (query.extra_anchors) get an anchor row and stay in the ranking.
+    extra_anchors = set(effective.query.extra_anchors) - anchor_set
+    cutoff = effective.stability_cutoff_mev
     scored_rows: list[Scored] = []
     anchor_rows: list[Scored] = []
     for group in sorted(inputs.groups, key=lambda g: g.composition):
@@ -374,6 +385,8 @@ def score_run(
             evidence_hits=inputs.evidence.get(group.composition),
         )
         (anchor_rows if group.composition in anchor_set else scored_rows).append(row)
+        if group.composition in extra_anchors:
+            anchor_rows.append(row)
 
     ranked_rows = [r for r in scored_rows if r.exclusion is None]
     ranked_rows.sort(key=lambda r: r.key)

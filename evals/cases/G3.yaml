@@ -5,7 +5,14 @@ title: Diff
 request: Change the stability weight and rerun A1.
 expectation: the diff attributes every rank change to the config change, none to data or model.
 mode: discovery
-skip_reason: needs two runs under different weights joined by Track B's diff command (materials-triage
-  diff RUN_A RUN_B); not a single-run case. Run by hand.
+compare:
+  settings:
+    weights:
+      stability: 0.5
 checks:
 - name: run_completed
+- name: diff_causes_only
+  params:
+    allowed:
+    - config
+    - displaced

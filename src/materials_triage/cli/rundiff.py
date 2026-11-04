@@ -126,9 +126,28 @@ def diff(a: ProvenanceBundle, b: ProvenanceBundle) -> DiffReport:
         if not ch.changed:
             changes.append(ch)
             continue
-        if fingerprint(ca) != fingerprint(cb):
-            ch.causes.append("data")
-            ch.detail.append("record hashes or source versions differ")
+        fa, fb = fingerprint(ca), fingerprint(cb)
+        if fa != fb:
+            # With the config changed, data is a cause only when a source version moved (the
+            # run's source versions, or a record present in both runs at another version).
+            # Within one version a record's provenance differs only by the call that supplied
+            # it: an enriched row carries the per-formula summary and thermo documents, a
+            # summary-level row the discovery page. Enrichment follows rank, so that
+            # difference is a consequence of the config change.
+            va: dict[tuple[str, str], set[str | None]] = {}
+            vb: dict[tuple[str, str], set[str | None]] = {}
+            for src, rid, _sha, ver in fa:
+                va.setdefault((src, rid), set()).add(ver)
+            for src, rid, _sha, ver in fb:
+                vb.setdefault((src, rid), set()).add(ver)
+            changed = a.run.source_versions != b.run.source_versions or any(
+                va[k] != vb[k] for k in va.keys() & vb.keys()
+            )
+            if changed or not config_changed:
+                ch.causes.append("data")
+                ch.detail.append("record hashes or source versions differ")
+            else:
+                ch.detail.append("cross-checks fetched in one run only (enrichment follows rank)")
         if config_changed:
             ch.causes.append("config")
             ch.detail.append("; ".join(settings_detail) or "config sha differs")

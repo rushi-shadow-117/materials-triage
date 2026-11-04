@@ -52,7 +52,7 @@ def test_yim_like_run_reports_beside_the_default_without_changing_the_profile(
     assert data["weights"]["values"]["evidence"] == 1.0
 
     # In the Yim-like bundle the dielectric criterion carries weight and, where MP has a DFPT
-    # value, contributes; evidence and hazard carry none.
+    # value, contributes; evidence carries none and hazard sits at the site floor.
     groups = load_groups(["HfO2", "ZrO2", "Al2O3"])
     default = track_a.score_with_track_a(groups)
     yim_like = track_a.score_with_track_a_yim_like(groups)
@@ -65,7 +65,7 @@ def test_yim_like_run_reports_beside_the_default_without_changing_the_profile(
     }
     assert by_criterion["dielectric_constant"].weight == 1.0
     assert by_criterion["evidence"].weight == 0.0
-    assert by_criterion["hazard"].weight == 0.0
+    assert by_criterion["hazard"].weight == 0.1
     contributing = [
         c
         for cand in yim_like.candidates

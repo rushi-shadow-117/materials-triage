@@ -48,6 +48,9 @@ rows only under its own heading. Rows name a test path; a row without a test is 
 | Group has only summary-level data | Scores with missing criteria, weights renormalize, `enrichment_missing` flag | tests/scoring/test_scorer.py::test_summary_level_groups_score_with_missing_enrichment |
 | Anchor would outrank candidates | Shown as would-rank N of M, never takes a slot | tests/scoring/test_scorer.py::test_baseline_ranking_exclusions_and_anchor |
 | Golden bundle drifts from code or config | Byte comparison fails naming the rebuild command | tests/scoring/test_golden_bundle.py::test_scored_bundle_is_current_and_well_formed |
+| A candidate is excluded by one rule | Every other criterion is still computed and shown; only the excluding criterion is marked "excluded by <rule>" | tests/scoring/test_scorer.py::test_excluded_rows_carry_the_full_breakdown |
+| Scientist sets the hazard weight below the site floor | Clamped to 0.1 and the clamp is reported | tests/scoring/test_profile_loader.py::test_site_hazard_weight_floor_clamps_and_is_reported |
+| Anion policy is not strict oxide | Every row carries `stability_cutoff_oxide_calibrated` with the profile text | tests/scoring/test_scorer.py::test_non_oxide_anion_policy_emits_the_calibration_caveat |
 
 ## Track B: agent, verifier, renderers, CLI
 
@@ -134,3 +137,20 @@ rows only under its own heading. Rows name a test path; a row without a test is 
 | Parse asks for fields the request and case do not give | A clarification outcome, not an error: no run, `clarification_requested` passes, no discovery query | tests/evals/test_pipeline_executor.py::test_missing_candidates_are_filled_from_the_case_or_reported |
 | Catalogue expectation with no matching query setting (per-run anchor, hull cutoff, glossary term) | The nearest check is listed and its miss is reported with the detail | tests/evals/test_checks.py::test_new_shape_checks_fail_with_a_reason |
 | Repeated run differs in ranks, exclusions or prompt hash | `repeats_identical` false in the results and the report | evals/runner.py::_signature |
+
+## Track F: fixes from the eval run
+
+| Failure | Behavior | Test |
+|---|---|---|
+| A soft preference or a tighter query setting reaches the discovery API | Only hard rules at their loosest admissible value are sent | tests/agent/test_discovery.py::test_discovery_filter_sends_only_hard_rules_at_their_loosest_value |
+| Scientist asks for a hull cutoff outside site bounds | Clamped to the bound and the clamp is shown | tests/test_config_schema.py::test_query_hull_cutoff_is_clamped_to_the_site_bounds |
+| Hull cutoff of 0 | On-hull rows score 1.0, all others excluded, no division by zero | tests/scoring/test_criteria_properties.py::test_zero_cutoff_scores_the_hull_and_excludes_the_rest |
+| A per-run anchor is also a candidate | It keeps its rank and its anchor row shows the same would-rank | tests/scoring/test_scorer.py::test_query_cutoff_and_per_run_anchor |
+| A test runs the eval CLI | Results go to a temporary directory, never evals/results | tests/cli/test_cli.py::test_eval_delegates_or_reports_pending |
+| Fewer candidates rank than top_n | Every relaxation states the candidates it adds, from re-scoring the fetched groups, or the log says none is admissible | tests/agent/test_relaxation.py::test_every_proposal_adds_the_count_a_rescore_gives |
+| A relaxed value admits only rows another rule excludes | The proposal is dropped | tests/agent/test_relaxation.py::test_every_proposal_adds_the_count_a_rescore_gives |
+| A hull relaxation would pass the site maximum | Not proposed | tests/agent/test_relaxation.py::test_hull_relaxation_stays_inside_the_site_bounds |
+| A candidate name is not a chemical formula | Reported as not found in any source; the rest are ranked | tests/agent/test_parse_unresolved_and_unavailable.py::test_to_query_settings_proceeds_with_the_resolved_names |
+| A request names a property no source provides | Carried as unavailable, logged, and stated in both views; no value shown | tests/agent/test_parse_unresolved_and_unavailable.py::test_handler_carries_both_lists_to_the_outcome |
+| A config change moves which rows are enriched | The run diff attributes the change to config, not data | tests/cli/test_diff.py::test_cross_checks_fetched_in_one_run_follow_the_config_change |
+| Two eval runs differ in data, model, or nothing | diff_causes_only fails naming the row | tests/evals/test_checks_track_f.py::test_diff_causes_only |

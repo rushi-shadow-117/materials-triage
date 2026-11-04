@@ -20,6 +20,8 @@
 - Mode: candidate_list; candidates: HfO2, ZrO2, Al2O3, SiO2, TiO2, ThO2, La2O3, BaTiO3, BeO, Y2O3, Ta2O5
 - Defaults applied: verbosity=standard; view=pi_summary
 - Clamps: none
+- Not found in any source: none
+- Not available from configured sources: none
 - Units shown: eV
 
 ## Ranked candidates

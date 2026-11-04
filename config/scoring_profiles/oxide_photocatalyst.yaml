@@ -21,6 +21,8 @@ criteria:
       quote: "the 90th percentile for binary oxides occurring at 94 meV/atom"
       quote_2: "formation energies from adjacent stable compounds in phase space can be accurately calculated to within 24 meV/atom"
     caveat: "The 94 meV/atom percentile was computed on Materials Project GGA/GGA+U (PBE) energies for ICSD-observed binary oxide polymorphs. It is applied here to MP's mixed GGA_GGA+U_R2SCAN hull, which did not exist when the paper was written. Known limitation; shown in the audit view."
+    anion_calibration_caveat: "The 94 meV/atom stability cutoff is the 90th percentile of metastability for ICSD-observed binary oxides (Sun et al. 2016). This run's anion policy is not strict oxide, so the cutoff is applied outside the chemistry it was calibrated on."
+    anion_calibration_note: "Emitted by code on every row whenever simplicity.anion_policy is not strict_oxide (owner decision 2026-11-03, test query B2). TODO (owner): source the per-chemistry metastability statement for nitrides from Sun et al. 2016 before extending this text."
     note: "Both numbers configurable. The all-chemistries 90th percentile (67 +/- 2 meV/atom) and median (15 +/- 0.5) are in the same paper."
     entered_by: owner
     entered_on: 2026-10-31
@@ -32,6 +34,16 @@ criteria:
     soft_preference_start_ev: null
     hard_min_ev: 2.0
     hard_max_ev: 3.3
+    discovery_prefilter:
+      pbe_floor_ev: 2.0
+      description: "PBE band gap floor sent to the Materials Project discovery query; the ceiling sent is hard_max_ev. Both equal this profile's hard window, as before Track F."
+      status: entered
+      source:
+        citation: "Owner decision 2026-11-03: the photocatalyst discovery query keeps its hard window"
+        url: null
+        access: not_applicable
+      entered_by: owner
+      entered_on: 2026-11-03
     shape: "hard window: excluded below hard_min_ev or above hard_max_ev; 1.0 inside"
     status: entered
     source:
