@@ -3217,4 +3217,560 @@ interactions:
     body:
       string: '{"data":[{"material_id":"mp-aaacgazb","structure":{"@module":"pymatgen.core.structure","@class":"Structure","charge":0.0,"lattice":{"matrix":[[0.0,-0.0,-5.04899466],[0.0,-5.51326646,0.0],[-4.77410981,2.75663323,0.0]],"pbc":[true,true,true],"a":5.04899466,"b":5.51326646,"c":5.512816997024159,"alpha":120.0026970453787,"beta":90.0,"gamma":90.0,"volume":132.89428294043262},"properties":{},"sites":[{"species":[{"element":"Li","occu":1.0}],"abc":[0.4962513,0.3413819,-0.0],"properties":{},"label":"Li","xyz":[0.0,-1.882129379321074,-2.505570163718058]},{"species":[{"element":"Li","occu":1.0}],"abc":[0.9962513,0.6586181,-0.0],"properties":{},"label":"Li","xyz":[0.0,-3.6311370806789256,-5.030067493718057]},{"species":[{"element":"Ge","occu":1.0}],"abc":[0.49198751,0.66969502,0.67344986],"properties":{},"label":"Ge","xyz":[-3.215123583169126,-1.8357528293801817,-2.4840423107766965]},{"species":[{"element":"Ge","occu":1.0}],"abc":[0.49198751,0.99624515,0.32655014],"properties":{},"label":"Ge","xyz":[-1.5589862268308732,-4.592386004247517,-2.4840423107766965]},{"species":[{"element":"Ge","occu":1.0}],"abc":[0.99198751,0.33030498,0.32655014],"properties":{},"label":"Ge","xyz":[-1.5589862268308732,-0.9208804006198188,-5.0085396407766964]},{"species":[{"element":"Ge","occu":1.0}],"abc":[0.99198751,0.00375485,0.67344986],"properties":{},"label":"Ge","xyz":[-3.215123583169126,1.8357527742475166,-5.0085396407766964]},{"species":[{"element":"N","occu":1.0}],"abc":[0.1230965,0.66445438,0.6264221],"properties":{},"label":"N","xyz":[-2.9906078928108006,-1.9364980705877117,-0.62151357116469]},{"species":[{"element":"N","occu":1.0}],"abc":[0.1230965,0.03803228,0.3735779],"properties":{},"label":"N","xyz":[-1.783501917189199,0.8201351594122882,-0.62151357116469]},{"species":[{"element":"N","occu":1.0}],"abc":[0.6230965,0.33554562,0.3735779],"properties":{},"label":"N","xyz":[-1.783501917189199,-0.8201351594122881,-3.1460109011646904]},{"species":[{"element":"N","occu":1.0}],"abc":[0.6230965,0.96196772,0.6264221],"properties":{},"label":"N","xyz":[-2.9906078928108006,-3.5767683894122877,-3.1460109011646904]},{"species":[{"element":"N","occu":1.0}],"abc":[0.09457868,0.29927528,-0.0],"properties":{},"label":"N","xyz":[0.0,-1.6499843635311087,-0.47752725026984877]},{"species":[{"element":"N","occu":1.0}],"abc":[0.59457868,0.70072472,-0.0],"properties":{},"label":"N","xyz":[0.0,-3.863282096468891,-3.002024580269849]}]}}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T17:40:00.987432+00:00","total_doc":1,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
   recorded_at: '2026-11-04T17:40:01+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cformula_pretty%2Ccomposition_reduced%2Cnelements%2Cenergy_above_hull%2Cis_stable%2Cband_gap%2Ctheoretical%2Cdeprecated%2Csymmetry%2Cdatabase_IDs%2Clast_updated%2Cbuilder_meta&_limit=1000&formula=Mg2TaN3
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[{"theoretical":true,"database_IDs":{},"band_gap":3.1028000000000002,"energy_above_hull":0.0,"is_stable":true,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"production-r2scan","database_version":"2026.09.28","build_date":"2026-09-25T19:10:13.432000","license":"BY-C"},"nelements":3,"composition_reduced":{"Mg":2.0,"Ta":1.0,"N":3.0},"formula_pretty":"Mg2TaN3","symmetry":{"crystal_system":"Orthorhombic","symbol":"Cmc2_1","hall":"C
+        2c -2","number":36,"point_group":"mm2","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaacgovy","deprecated":false,"last_updated":"2023-10-07T06:59:48.406000"}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:28.641004+00:00","total_doc":1,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+  recorded_at: '2026-11-04T18:19:28+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/thermo/?_fields=material_id%2Cthermo_type%2Cenergy_above_hull%2Cis_stable&_limit=1000&material_ids=mp-1029442
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[{"material_id":"mp-aaacgovy","thermo_type":"r2SCAN","energy_above_hull":0.0,"is_stable":true},{"material_id":"mp-aaacgovy","thermo_type":"GGA_GGA+U","energy_above_hull":0.0,"is_stable":true},{"material_id":"mp-aaacgovy","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.0,"is_stable":true}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:28.723271+00:00","total_doc":3,"facet":null,"max_limit":1000,"default_fields":["thermo_id","material_id","last_updated"]}}'
+  recorded_at: '2026-11-04T18:19:28+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/dielectric/?_fields=material_id%2Cformula_pretty%2Ce_total%2Ce_ionic%2Ce_electronic%2Cn%2Cdeprecated%2Cbuilder_meta&_limit=1000&material_ids=mp-1029442
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:08.741000","license":null},"formula_pretty":"Mg2TaN3","material_id":"mp-aaacgovy","deprecated":false,"e_total":9.732756483333333,"e_ionic":4.47409363,"e_electronic":5.258662853333333,"n":2.293177457880949}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:28.842867+00:00","total_doc":1,"facet":null,"max_limit":1000,"default_fields":["material_id","last_updated"]}}'
+  recorded_at: '2026-11-04T18:19:28+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cstructure&_limit=1000&material_ids=mp-1029442
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[{"material_id":"mp-aaacgovy","structure":{"@module":"pymatgen.core.structure","@class":"Structure","charge":0.0,"lattice":{"matrix":[[5.8736411,-0.03847347,0.0],[-2.96885684,5.14370285,0.0],[0.0,0.0,5.27029013]],"pbc":[true,true,true],"a":5.873767102933437,"b":5.9390058044686995,"c":5.27029013,"alpha":90.0,"beta":90.0,"gamma":120.3680961642586,"volume":158.62541495706338},"properties":{},"sites":[{"species":[{"element":"Mg","occu":1.0}],"abc":[0.3392315,0.33250456,0.48626842],"properties":{},"label":"Mg","xyz":[1.0053656435274598,1.697253239971691,2.5627756544566944]},{"species":[{"element":"Mg","occu":1.0}],"abc":[0.6607685,0.99327407,0.48626842],"properties":{},"label":"Mg","xyz":[0.9322285024712116,5.083684607628405,2.5627756544566944]},{"species":[{"element":"Mg","occu":1.0}],"abc":[0.6607685,0.66749544,0.98626842],"properties":{},"label":"Mg","xyz":[1.8994186164725406,3.4079761400283095,5.197920719456695]},{"species":[{"element":"Mg","occu":1.0}],"abc":[0.3392315,0.00672593,0.98626842],"properties":{},"label":"Mg","xyz":[1.972555757528789,0.0215447723715955,5.197920719456695]},{"species":[{"element":"Ta","occu":1.0}],"abc":[-0.0,0.66855745,0.4849819],"properties":{},"label":"Ta","xyz":[-1.984851358365458,3.438860860953733,2.5559953207986474]},{"species":[{"element":"Ta","occu":1.0}],"abc":[0.0,0.33144255,0.9849819],"properties":{},"label":"Ta","xyz":[-0.9840054816345419,1.7048419890462676,5.191140385798647]},{"species":[{"element":"N","occu":1.0}],"abc":[0.31188843,0.33092265,0.88463662],"properties":{},"label":"N","xyz":[0.8494587280990472,1.6901683477796003,4.662291647022561]},{"species":[{"element":"N","occu":1.0}],"abc":[0.68811157,0.01903522,0.88463662],"properties":{},"label":"N","xyz":[3.9852075558396223,0.0714374755193291,4.662291647022561]},{"species":[{"element":"N","occu":1.0}],"abc":[0.68811157,0.66907735,0.38463662],"properties":{},"label":"N","xyz":[2.0553255319009534,3.4150610322204,2.0271465820225605]},{"species":[{"element":"N","occu":1.0}],"abc":[0.31188843,0.98096478,0.38463662],"properties":{},"label":"N","xyz":[-1.0804232958396218,5.033791904480672,2.0271465820225605]},{"species":[{"element":"N","occu":1.0}],"abc":[-0.0,0.64999693,0.86120804],"properties":{},"label":"N","xyz":[-1.9297478316095011,3.343391061332251,4.538816233088645]},{"species":[{"element":"N","occu":1.0}],"abc":[0.0,0.35000307,0.36120804],"properties":{},"label":"N","xyz":[-1.0391090083904988,1.8003117886677498,1.9036711680886453]}]}}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:31.022513+00:00","total_doc":1,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+  recorded_at: '2026-11-04T18:19:30+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cformula_pretty%2Ccomposition_reduced%2Cnelements%2Cenergy_above_hull%2Cis_stable%2Cband_gap%2Ctheoretical%2Cdeprecated%2Csymmetry%2Cdatabase_IDs%2Clast_updated%2Cbuilder_meta&_limit=1000&formula=Mg3MoN4
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[{"theoretical":true,"database_IDs":{},"band_gap":1.9904000000000002,"energy_above_hull":0.21226373097222329,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"mp_2019","database_version":"2026.09.28","build_date":"2026-09-25T19:10:09.197000","license":"BY-C"},"nelements":3,"composition_reduced":{"Mg":3.0,"Mo":1.0,"N":4.0},"formula_pretty":"Mg3MoN4","symmetry":{"crystal_system":"Trigonal","symbol":"P31c","hall":"P
+        3 -2c","number":159,"point_group":"3m","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaacswlc","deprecated":false,"last_updated":"2019-07-29T22:53:29.587000"},{"theoretical":true,"database_IDs":{},"band_gap":0.00039999999999995595,"energy_above_hull":0.10344290374999954,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"vasp6-statics","database_version":"2026.09.28","build_date":"2026-09-25T19:10:09.186000","license":"BY-C"},"nelements":3,"composition_reduced":{"Mg":3.0,"Mo":1.0,"N":4.0},"formula_pretty":"Mg3MoN4","symmetry":{"crystal_system":"Triclinic","symbol":"P-1","hall":"-P
+        1","number":2,"point_group":"-1","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaacswls","deprecated":false,"last_updated":"2020-11-10T19:26:23.566000"},{"theoretical":true,"database_IDs":{},"band_gap":1.7161,"energy_above_hull":0.03574706312500009,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"vasp6-statics-jan2021","database_version":"2026.09.28","build_date":"2026-09-25T19:10:09.186000","license":"BY-C"},"nelements":3,"composition_reduced":{"Mg":3.0,"Mo":1.0,"N":4.0},"formula_pretty":"Mg3MoN4","symmetry":{"crystal_system":"Monoclinic","symbol":"C2/m","hall":"-C
+        2y","number":12,"point_group":"2/m","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaacswmf","deprecated":false,"last_updated":"2021-02-05T09:26:12.414000"},{"theoretical":true,"database_IDs":{},"band_gap":3.4901,"energy_above_hull":0.0,"is_stable":true,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"production-r2scan","database_version":"2026.09.28","build_date":"2026-09-25T19:10:13.441000","license":"BY-C"},"nelements":3,"composition_reduced":{"Mg":3.0,"Mo":1.0,"N":4.0},"formula_pretty":"Mg3MoN4","symmetry":{"crystal_system":"Orthorhombic","symbol":"Pmn2_1","hall":"P
+        2ac -2","number":31,"point_group":"mm2","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaacswmg","deprecated":false,"last_updated":"2021-03-13T19:07:02.113000"}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:31.246601+00:00","total_doc":4,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+  recorded_at: '2026-11-04T18:19:31+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/thermo/?_fields=material_id%2Cthermo_type%2Cenergy_above_hull%2Cis_stable&_limit=1000&material_ids=mp-1245480%2Cmp-1245496%2Cmp-1245509%2Cmp-1245510
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[{"material_id":"mp-aaacswlc","thermo_type":"GGA_GGA+U","energy_above_hull":0.21226373097222329,"is_stable":false},{"material_id":"mp-aaacswlc","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.21226373097222329,"is_stable":false},{"material_id":"mp-aaacswls","thermo_type":"GGA_GGA+U","energy_above_hull":0.10344290374999954,"is_stable":false},{"material_id":"mp-aaacswls","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.10344290374999954,"is_stable":false},{"material_id":"mp-aaacswmf","thermo_type":"GGA_GGA+U","energy_above_hull":0.03574706312500009,"is_stable":false},{"material_id":"mp-aaacswmf","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.03574706312500009,"is_stable":false},{"material_id":"mp-aaacswmg","thermo_type":"r2SCAN","energy_above_hull":0.0,"is_stable":true},{"material_id":"mp-aaacswmg","thermo_type":"GGA_GGA+U","energy_above_hull":0.0,"is_stable":true},{"material_id":"mp-aaacswmg","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.0,"is_stable":true}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:31.342576+00:00","total_doc":9,"facet":null,"max_limit":1000,"default_fields":["thermo_id","material_id","last_updated"]}}'
+  recorded_at: '2026-11-04T18:19:31+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/dielectric/?_fields=material_id%2Cformula_pretty%2Ce_total%2Ce_ionic%2Ce_electronic%2Cn%2Cdeprecated%2Cbuilder_meta&_limit=1000&material_ids=mp-1245480%2Cmp-1245496%2Cmp-1245509%2Cmp-1245510
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:06:13.589000","license":null},"formula_pretty":"Mg3MoN4","material_id":"mp-aaacswmg","deprecated":false,"e_total":10.268663116666666,"e_ionic":4.994885096666667,"e_electronic":5.27377802,"n":2.296470774906574}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:31.430510+00:00","total_doc":1,"facet":null,"max_limit":1000,"default_fields":["material_id","last_updated"]}}'
+  recorded_at: '2026-11-04T18:19:31+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cstructure&_limit=1000&material_ids=mp-1245510
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[{"material_id":"mp-aaacswmg","structure":{"@module":"pymatgen.core.structure","@class":"Structure","charge":0.0,"lattice":{"matrix":[[6.72675181,0.0,0.0],[0.0,5.81484979,0.0],[0.0,0.0,5.23512511]],"pbc":[true,true,true],"a":6.72675181,"b":5.81484979,"c":5.23512511,"alpha":90.0,"beta":90.0,"gamma":90.0,"volume":204.77218750007123},"properties":{},"sites":[{"species":[{"element":"Mg","occu":1.0}],"abc":[0.25223274,0.16878868,0.85707232],"properties":{},"label":"Mg","xyz":[1.6967070403362594,0.9814808204523772,4.486880823517955]},{"species":[{"element":"Mg","occu":1.0}],"abc":[0.74776726,0.16878868,0.85707232],"properties":{},"label":"Mg","xyz":[5.030044769663741,0.9814808204523772,4.486880823517955]},{"species":[{"element":"Mg","occu":1.0}],"abc":[0.24776726,0.83121132,0.35707232],"properties":{},"label":"Mg","xyz":[1.6666688646637404,4.833368969547623,1.8693182685179552]},{"species":[{"element":"Mg","occu":1.0}],"abc":[0.75223274,0.83121132,0.35707232],"properties":{},"label":"Mg","xyz":[5.060082945336259,4.833368969547623,1.8693182685179552]},{"species":[{"element":"Mg","occu":1.0}],"abc":[-0.0,0.66123153,0.85890445],"properties":{},"label":"Mg","xyz":[0.0,3.844962023361879,4.49647225328574]},{"species":[{"element":"Mg","occu":1.0}],"abc":[0.5,0.33876847,0.35890445],"properties":{},"label":"Mg","xyz":[3.363375905,1.9698877666381214,1.8789096982857396]},{"species":[{"element":"Mo","occu":1.0}],"abc":[-0.0,0.32927681,0.34951521],"properties":{},"label":"Mo","xyz":[0.0,1.9146951894803699,1.8297558521979234]},{"species":[{"element":"Mo","occu":1.0}],"abc":[0.5,0.67072319,0.84951521],"properties":{},"label":"Mo","xyz":[3.363375905,3.9001546005196306,4.4473184071979235]},{"species":[{"element":"N","occu":1.0}],"abc":[-0.0,0.63487022,0.45608708],"properties":{},"label":"N","xyz":[0.0,3.691674965444254,2.387672924854579]},{"species":[{"element":"N","occu":1.0}],"abc":[0.5,0.36512978,0.95608708],"properties":{},"label":"N","xyz":[3.363375905,2.1231748245557465,5.005235479854579]},{"species":[{"element":"N","occu":1.0}],"abc":[-0.0,0.32651387,0.99757241],"properties":{},"label":"N","xyz":[0.0,1.8986291084015874,5.222416372634215]},{"species":[{"element":"N","occu":1.0}],"abc":[0.5,0.67348613,0.49757241],"properties":{},"label":"N","xyz":[3.363375905,3.916220681598413,2.6048538176342153]},{"species":[{"element":"N","occu":1.0}],"abc":[0.76946455,0.17745044,0.4566981],"properties":{},"label":"N","xyz":[5.175997054443336,1.0318476537694075,2.3908716909992913]},{"species":[{"element":"N","occu":1.0}],"abc":[0.23053545,0.17745044,0.4566981],"properties":{},"label":"N","xyz":[1.5507547555566645,1.0318476537694075,2.3908716909992913]},{"species":[{"element":"N","occu":1.0}],"abc":[0.73053545,0.82254956,0.9566981],"properties":{},"label":"N","xyz":[4.914130660556664,4.783002136230593,5.008434245999291]},{"species":[{"element":"N","occu":1.0}],"abc":[0.26946455,0.82254956,0.9566981],"properties":{},"label":"N","xyz":[1.8126211494433355,4.783002136230593,5.008434245999291]}]}}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:33.386033+00:00","total_doc":1,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+  recorded_at: '2026-11-04T18:19:33+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cformula_pretty%2Ccomposition_reduced%2Cnelements%2Cenergy_above_hull%2Cis_stable%2Cband_gap%2Ctheoretical%2Cdeprecated%2Csymmetry%2Cdatabase_IDs%2Clast_updated%2Cbuilder_meta&_limit=1000&formula=MgCN2
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[{"theoretical":true,"database_IDs":{"icsd":["icsd-290867"]},"band_gap":5.3796,"energy_above_hull":0.568612415625001,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"vasp6-statics-jan2021","database_version":"2026.09.28","build_date":"2026-09-25T19:10:38.499000","license":"BY-C"},"nelements":3,"composition_reduced":{"Mg":1.0,"C":1.0,"N":2.0},"formula_pretty":"MgCN2","symmetry":{"crystal_system":"Orthorhombic","symbol":"Pna2_1","hall":"P
+        2c -2n","number":33,"point_group":"mm2","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaacpram","deprecated":false,"last_updated":"2021-02-10T23:42:03.139000"},{"theoretical":false,"database_IDs":{"icsd":["icsd-75039"]},"band_gap":3.7571,"energy_above_hull":0.0,"is_stable":true,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"production-r2scan","database_version":"2026.09.28","build_date":"2026-09-25T19:11:04.509000","license":"BY-C"},"nelements":3,"composition_reduced":{"Mg":1.0,"C":1.0,"N":2.0},"formula_pretty":"MgCN2","symmetry":{"crystal_system":"Trigonal","symbol":"R-3m","hall":"-R
+        3 2\"","number":166,"point_group":"-3m","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaaaanoo","deprecated":false,"last_updated":"2023-10-08T02:49:01.052000"},{"theoretical":true,"database_IDs":{"icsd":["icsd-44110"]},"band_gap":3.8457,"energy_above_hull":0.5308559124999999,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"vasp6-statics","database_version":"2026.09.28","build_date":"2026-09-25T19:11:04.511000","license":"BY-C"},"nelements":3,"composition_reduced":{"Mg":1.0,"C":1.0,"N":2.0},"formula_pretty":"MgCN2","symmetry":{"crystal_system":"Tetragonal","symbol":"I-42d","hall":"I
+        -4 2bw","number":122,"point_group":"-42m","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaaaaxfy","deprecated":false,"last_updated":"2023-10-07T05:19:45.145000"}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:33.652578+00:00","total_doc":3,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+  recorded_at: '2026-11-04T18:19:33+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/thermo/?_fields=material_id%2Cthermo_type%2Cenergy_above_hull%2Cis_stable&_limit=1000&material_ids=mp-1189096%2Cmp-15702%2Cmp-9166
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[{"material_id":"mp-aaaaanoo","thermo_type":"r2SCAN","energy_above_hull":0.0,"is_stable":true},{"material_id":"mp-aaaaanoo","thermo_type":"GGA_GGA+U","energy_above_hull":0.0,"is_stable":true},{"material_id":"mp-aaaaanoo","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.0,"is_stable":true},{"material_id":"mp-aaaaaxfy","thermo_type":"GGA_GGA+U","energy_above_hull":0.5308559124999999,"is_stable":false},{"material_id":"mp-aaaaaxfy","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.5308559124999999,"is_stable":false},{"material_id":"mp-aaacpram","thermo_type":"GGA_GGA+U","energy_above_hull":0.5686124156250001,"is_stable":false},{"material_id":"mp-aaacpram","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.568612415625001,"is_stable":false}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:33.724274+00:00","total_doc":7,"facet":null,"max_limit":1000,"default_fields":["thermo_id","material_id","last_updated"]}}'
+  recorded_at: '2026-11-04T18:19:33+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/dielectric/?_fields=material_id%2Cformula_pretty%2Ce_total%2Ce_ionic%2Ce_electronic%2Cn%2Cdeprecated%2Cbuilder_meta&_limit=1000&material_ids=mp-1189096%2Cmp-15702%2Cmp-9166
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:42.755000","license":null},"formula_pretty":"MgCN2","material_id":"mp-aaaaanoo","deprecated":false,"e_total":8.8628484966599,"e_ionic":5.502846259993233,"e_electronic":3.3600022366666678,"n":1.8330308880830861}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:33.872852+00:00","total_doc":1,"facet":null,"max_limit":1000,"default_fields":["material_id","last_updated"]}}'
+  recorded_at: '2026-11-04T18:19:33+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cstructure&_limit=1000&material_ids=mp-9166
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[{"material_id":"mp-aaaaanoo","structure":{"@module":"pymatgen.core.structure","@class":"Structure","charge":0.0,"lattice":{"matrix":[[3.09390019,0.00500183,4.02592626],[1.37182367,2.77314759,4.02592626],[0.00804055,0.00500182,5.0774246]],"pbc":[true,true,true],"a":5.077432978872589,"b":5.077433405614757,"c":5.077433430123213,"alpha":37.45131885886143,"beta":37.45131010310652,"gamma":37.451310219767564,"volume":43.40437660646015},"properties":{},"sites":[{"species":[{"element":"Mg","occu":1.0}],"abc":[0.0,-0.0,0.0],"properties":{},"label":"Mg","xyz":[0.0,0.0,0.0]},{"species":[{"element":"C","occu":1.0}],"abc":[0.5,0.5,0.5],"properties":{},"label":"C","xyz":[2.2368822049999997,1.39157562,6.564638560000001]},{"species":[{"element":"N","occu":1.0}],"abc":[0.41340268,0.41340268,0.41340268],"properties":{},"label":"N","xyz":[1.8494661967826187,1.1505621814613234,5.427678347870682]},{"species":[{"element":"N","occu":1.0}],"abc":[0.58659732,0.58659732,0.58659732],"properties":{},"label":"N","xyz":[2.624298213217381,1.6325890585386769,7.701598772129318]}]}}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:36.663286+00:00","total_doc":1,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+  recorded_at: '2026-11-04T18:19:36+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cformula_pretty%2Ccomposition_reduced%2Cnelements%2Cenergy_above_hull%2Cis_stable%2Cband_gap%2Ctheoretical%2Cdeprecated%2Csymmetry%2Cdatabase_IDs%2Clast_updated%2Cbuilder_meta&_limit=1000&formula=MgGeN2
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[{"theoretical":false,"database_IDs":{"icsd":["icsd-636948","icsd-23502","icsd-290871"]},"band_gap":2.6358,"energy_above_hull":0.0,"is_stable":true,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"production-r2scan","database_version":"2026.09.28","build_date":"2026-09-25T19:10:13.441000","license":"BY-C"},"nelements":3,"composition_reduced":{"Mg":1.0,"Ge":1.0,"N":2.0},"formula_pretty":"MgGeN2","symmetry":{"crystal_system":"Orthorhombic","symbol":"Pna2_1","hall":"P
+        2c -2n","number":33,"point_group":"mm2","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaaaalny","deprecated":false,"last_updated":"2023-10-08T07:52:17.895000"}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:38.584645+00:00","total_doc":1,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+  recorded_at: '2026-11-04T18:19:38+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/thermo/?_fields=material_id%2Cthermo_type%2Cenergy_above_hull%2Cis_stable&_limit=1000&material_ids=mp-7798
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[{"material_id":"mp-aaaaalny","thermo_type":"r2SCAN","energy_above_hull":0.0,"is_stable":true},{"material_id":"mp-aaaaalny","thermo_type":"GGA_GGA+U","energy_above_hull":0.0,"is_stable":true},{"material_id":"mp-aaaaalny","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.0,"is_stable":true}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:38.681966+00:00","total_doc":3,"facet":null,"max_limit":1000,"default_fields":["thermo_id","material_id","last_updated"]}}'
+  recorded_at: '2026-11-04T18:19:38+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/dielectric/?_fields=material_id%2Cformula_pretty%2Ce_total%2Ce_ionic%2Ce_electronic%2Cn%2Cdeprecated%2Cbuilder_meta&_limit=1000&material_ids=mp-7798
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:43.608000","license":null},"formula_pretty":"MgGeN2","material_id":"mp-aaaaalny","deprecated":false,"e_total":9.420529789999998,"e_ionic":4.393924603333333,"e_electronic":5.026605186666667,"n":2.2420091852324484}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:38.755401+00:00","total_doc":1,"facet":null,"max_limit":1000,"default_fields":["material_id","last_updated"]}}'
+  recorded_at: '2026-11-04T18:19:38+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cstructure&_limit=1000&material_ids=mp-7798
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[{"material_id":"mp-aaaaalny","structure":{"@module":"pymatgen.core.structure","@class":"Structure","charge":0.0,"lattice":{"matrix":[[5.17443786,0.0,0.0],[0.0,5.50099505,0.0],[0.0,0.0,6.60892969]],"pbc":[true,true,true],"a":5.17443786,"b":5.50099505,"c":6.60892969,"alpha":90.0,"beta":90.0,"gamma":90.0,"volume":188.12025622947417},"properties":{},"sites":[{"species":[{"element":"Mg","occu":1.0}],"abc":[0.99968401,0.58530176,0.87704317],"properties":{},"label":"Mg","xyz":[5.1728027893806185,3.2197420845162883,5.796316645624717]},{"species":[{"element":"Mg","occu":1.0}],"abc":[0.49968401,0.91469824,0.37704317],"properties":{},"label":"Mg","xyz":[2.585583859380619,5.031750490483712,2.4918518006247172]},{"species":[{"element":"Mg","occu":1.0}],"abc":[0.49968401,0.41469824,0.12295683],"properties":{},"label":"Mg","xyz":[2.585583859380619,2.281252965483712,0.8126130443752827]},{"species":[{"element":"Mg","occu":1.0}],"abc":[0.99968401,0.08530176,0.62295683],"properties":{},"label":"Mg","xyz":[5.1728027893806185,0.469244559516288,4.117077889375283]},{"species":[{"element":"Ge","occu":1.0}],"abc":[0.00758118,0.07348023,0.12582092],"properties":{},"label":"Ge","xyz":[0.039228344815474804,0.4042143815028615,0.8315416138111148]},{"species":[{"element":"Ge","occu":1.0}],"abc":[0.50758118,0.92651977,0.87417908],"properties":{},"label":"Ge","xyz":[2.6264472748154746,5.096780668497138,5.777388076188886]},{"species":[{"element":"Ge","occu":1.0}],"abc":[0.50758118,0.42651977,0.62582092],"properties":{},"label":"Ge","xyz":[2.6264472748154746,2.3462831434971387,4.1360064588111145]},{"species":[{"element":"Ge","occu":1.0}],"abc":[0.00758118,0.57348023,0.37417908],"properties":{},"label":"Ge","xyz":[0.039228344815474804,3.154711906502862,2.472923231188885]},{"species":[{"element":"N","occu":1.0}],"abc":[0.40563921,0.60069075,0.85613773],"properties":{},"label":"N","xyz":[2.0989548857244906,3.304396842330788,5.658154062526204]},{"species":[{"element":"N","occu":1.0}],"abc":[0.90563921,0.39930925,0.14386227],"properties":{},"label":"N","xyz":[4.686173815724491,2.1965982076692128,0.9507756274737962]},{"species":[{"element":"N","occu":1.0}],"abc":[0.90563921,0.89930925,0.35613773],"properties":{},"label":"N","xyz":[4.686173815724491,4.947095732669212,2.3536892175262034]},{"species":[{"element":"N","occu":1.0}],"abc":[0.40563921,0.10069075,0.64386227],"properties":{},"label":"N","xyz":[2.0989548857244906,0.5538993173307875,4.255240472473796]},{"species":[{"element":"N","occu":1.0}],"abc":[0.3670956,0.55971704,0.39326077],"properties":{},"label":"N","xyz":[1.8995133708794163,3.079000666440652,2.5990327787652614]},{"species":[{"element":"N","occu":1.0}],"abc":[0.3670956,0.05971704,0.10673923],"properties":{},"label":"N","xyz":[1.8995133708794163,0.328503141440652,0.7054320662347388]},{"species":[{"element":"N","occu":1.0}],"abc":[0.8670956,0.94028296,0.89326077],"properties":{},"label":"N","xyz":[4.486732300879416,5.172491908559349,5.903497623765261]},{"species":[{"element":"N","occu":1.0}],"abc":[0.8670956,0.44028296,0.60673923],"properties":{},"label":"N","xyz":[4.486732300879416,2.421994383559348,4.009896911234739]}]}}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:41.057603+00:00","total_doc":1,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+  recorded_at: '2026-11-04T18:19:40+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cformula_pretty%2Ccomposition_reduced%2Cnelements%2Cenergy_above_hull%2Cis_stable%2Cband_gap%2Ctheoretical%2Cdeprecated%2Csymmetry%2Cdatabase_IDs%2Clast_updated%2Cbuilder_meta&_limit=1000&formula=MgSiN2
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[{"theoretical":false,"database_IDs":{"icsd":["icsd-186509"]},"band_gap":4.1796999999999995,"energy_above_hull":0.282555613125,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"mkhorton-hse-2022","database_version":"2026.09.28","build_date":"2026-09-25T19:10:13.432000","license":"BY-C"},"nelements":3,"composition_reduced":{"Mg":1.0,"Si":1.0,"N":2.0},"formula_pretty":"MgSiN2","symmetry":{"crystal_system":"Trigonal","symbol":"R-3m","hall":"-R
+        3 2\"","number":166,"point_group":"-3m","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaacfxfe","deprecated":false,"last_updated":"2023-10-07T06:14:52.522000"},{"theoretical":false,"database_IDs":{"icsd":["icsd-90730","icsd-34614","icsd-642668","icsd-23501","icsd-90731","icsd-23669","icsd-290869"]},"band_gap":3.9662000000000006,"energy_above_hull":0.0,"is_stable":true,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"production-r2scan","database_version":"2026.09.28","build_date":"2026-09-25T19:10:13.411000","license":"BY-C"},"nelements":3,"composition_reduced":{"Mg":1.0,"Si":1.0,"N":2.0},"formula_pretty":"MgSiN2","symmetry":{"crystal_system":"Orthorhombic","symbol":"Pna2_1","hall":"P
+        2c -2n","number":33,"point_group":"mm2","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaaaafll","deprecated":false,"last_updated":"2023-10-07T07:09:38.819000"},{"theoretical":true,"database_IDs":{"icsd":["icsd-44109"]},"band_gap":3.4715,"energy_above_hull":0.029344369374999957,"is_stable":false,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"production-scan-reparse-apr2021","database_version":"2026.09.28","build_date":"2026-09-25T19:10:13.411000","license":"BY-C"},"nelements":3,"composition_reduced":{"Mg":1.0,"Si":1.0,"N":2.0},"formula_pretty":"MgSiN2","symmetry":{"crystal_system":"Tetragonal","symbol":"I-42d","hall":"I
+        -4 2bw","number":122,"point_group":"-42m","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaaaaxfx","deprecated":false,"last_updated":"2023-10-07T04:05:18.141000"}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:41.304684+00:00","total_doc":3,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+  recorded_at: '2026-11-04T18:19:41+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/thermo/?_fields=material_id%2Cthermo_type%2Cenergy_above_hull%2Cis_stable&_limit=1000&material_ids=mp-1017514%2Cmp-15701%2Cmp-3677
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[{"material_id":"mp-aaaaafll","thermo_type":"r2SCAN","energy_above_hull":0.0,"is_stable":true},{"material_id":"mp-aaaaafll","thermo_type":"GGA_GGA+U","energy_above_hull":0.0,"is_stable":true},{"material_id":"mp-aaaaafll","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.0,"is_stable":true},{"material_id":"mp-aaaaaxfx","thermo_type":"GGA_GGA+U","energy_above_hull":0.029344369374999957,"is_stable":false},{"material_id":"mp-aaaaaxfx","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.029344369374999957,"is_stable":false},{"material_id":"mp-aaacfxfe","thermo_type":"GGA_GGA+U","energy_above_hull":0.282555613125,"is_stable":false},{"material_id":"mp-aaacfxfe","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.282555613125,"is_stable":false}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:41.388352+00:00","total_doc":7,"facet":null,"max_limit":1000,"default_fields":["thermo_id","material_id","last_updated"]}}'
+  recorded_at: '2026-11-04T18:19:41+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/dielectric/?_fields=material_id%2Cformula_pretty%2Ce_total%2Ce_ionic%2Ce_electronic%2Cn%2Cdeprecated%2Cbuilder_meta&_limit=1000&material_ids=mp-1017514%2Cmp-15701%2Cmp-3677
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:43.023000","license":null},"formula_pretty":"MgSiN2","material_id":"mp-aaaaafll","deprecated":false,"e_total":8.757305796666666,"e_ionic":4.39054204,"e_electronic":4.366763756666667,"n":2.089680300109724},{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:43.570000","license":null},"formula_pretty":"MgSiN2","material_id":"mp-aaaaaxfx","deprecated":false,"e_total":9.02309213,"e_ionic":4.549792096666668,"e_electronic":4.4733000333333335,"n":2.11501773830229}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:41.502964+00:00","total_doc":2,"facet":null,"max_limit":1000,"default_fields":["material_id","last_updated"]}}'
+  recorded_at: '2026-11-04T18:19:41+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cstructure&_limit=1000&material_ids=mp-3677
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[{"material_id":"mp-aaaaafll","structure":{"@module":"pymatgen.core.structure","@class":"Structure","charge":0.0,"lattice":{"matrix":[[4.98462404,0.0,0.0],[0.0,5.2693519,0.0],[0.0,0.0,6.4610662]],"pbc":[true,true,true],"a":4.98462404,"b":5.2693519,"c":6.4610662,"alpha":90.0,"beta":90.0,"gamma":90.0,"volume":169.7046730175214},"properties":{},"sites":[{"species":[{"element":"Mg","occu":1.0}],"abc":[0.98721676,0.58333883,0.87704335],"properties":{},"label":"Mg","xyz":[4.920904394586911,3.073817572204277,5.666635144619771]},{"species":[{"element":"Mg","occu":1.0}],"abc":[0.48721676,0.91666117,0.37704335],"properties":{},"label":"Mg","xyz":[2.4285923745869105,4.830210277795723,2.43610204461977]},{"species":[{"element":"Mg","occu":1.0}],"abc":[0.48721676,0.41666117,0.12295665],"properties":{},"label":"Mg","xyz":[2.4285923745869105,2.1955343277957233,0.7944310553802301]},{"species":[{"element":"Mg","occu":1.0}],"abc":[0.98721676,0.08333883,0.62295665],"properties":{},"label":"Mg","xyz":[4.920904394586911,0.43914162220427705,4.02496415538023]},{"species":[{"element":"Si","occu":1.0}],"abc":[0.00043167,0.07003279,0.12545064],"properties":{},"label":"Si","xyz":[0.0021517126593468,0.369027415048801,0.8105448898723681]},{"species":[{"element":"Si","occu":1.0}],"abc":[0.50043167,0.92996721,0.87454936],"properties":{},"label":"Si","xyz":[2.4944637326593466,4.9003244849511995,5.650521310127632]},{"species":[{"element":"Si","occu":1.0}],"abc":[0.50043167,0.42996721,0.62545064],"properties":{},"label":"Si","xyz":[2.4944637326593466,2.265648534951199,4.041077989872368]},{"species":[{"element":"Si","occu":1.0}],"abc":[0.00043167,0.57003279,0.37454936],"properties":{},"label":"Si","xyz":[0.0021517126593468,3.0037033650488008,2.419988210127632]},{"species":[{"element":"N","occu":1.0}],"abc":[0.41111254,0.60949503,0.84398935],"properties":{},"label":"N","xyz":[2.0492414500294616,3.2116437943710574,5.45307106244497]},{"species":[{"element":"N","occu":1.0}],"abc":[0.91111254,0.39050497,0.15601065],"properties":{},"label":"N","xyz":[4.541553470029461,2.0577081056289432,1.00799513755503]},{"species":[{"element":"N","occu":1.0}],"abc":[0.91111254,0.89050497,0.34398935],"properties":{},"label":"N","xyz":[4.541553470029461,4.692384055628943,2.2225379624449704]},{"species":[{"element":"N","occu":1.0}],"abc":[0.41111254,0.10949503,0.65601065],"properties":{},"label":"N","xyz":[2.0492414500294616,0.576967844371057,4.23852823755503]},{"species":[{"element":"N","occu":1.0}],"abc":[0.34725903,0.54835493,0.4050665],"properties":{},"label":"N","xyz":[1.7309557090450813,2.8894750922698673,2.6171614719023]},{"species":[{"element":"N","occu":1.0}],"abc":[0.34725903,0.04835493,0.0949335],"properties":{},"label":"N","xyz":[1.7309557090450813,0.254799142269867,0.6133716280977001]},{"species":[{"element":"N","occu":1.0}],"abc":[0.84725903,0.95164507,0.9050665],"properties":{},"label":"N","xyz":[4.223267729045081,5.014552757730133,5.8476945719023]},{"species":[{"element":"N","occu":1.0}],"abc":[0.84725903,0.45164507,0.5949335],"properties":{},"label":"N","xyz":[4.223267729045081,2.379876807730133,3.8439047280977]}]}}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:43.688622+00:00","total_doc":1,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+  recorded_at: '2026-11-04T18:19:43+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cformula_pretty%2Ccomposition_reduced%2Cnelements%2Cenergy_above_hull%2Cis_stable%2Cband_gap%2Ctheoretical%2Cdeprecated%2Csymmetry%2Cdatabase_IDs%2Clast_updated%2Cbuilder_meta&_limit=1000&formula=Na2CN2
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[{"theoretical":false,"database_IDs":{"icsd":["icsd-411341"]},"band_gap":3.024,"energy_above_hull":0.0,"is_stable":true,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"production-r2scan","database_version":"2026.09.28","build_date":"2026-09-25T19:11:04.509000","license":"BY-C"},"nelements":3,"composition_reduced":{"Na":2.0,"C":1.0,"N":2.0},"formula_pretty":"Na2CN2","symmetry":{"crystal_system":"Monoclinic","symbol":"C2/m","hall":"-C
+        2y","number":12,"point_group":"2/m","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaabevtt","deprecated":false,"last_updated":"2023-10-07T05:27:12.217000"}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:43.980113+00:00","total_doc":1,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+  recorded_at: '2026-11-04T18:19:43+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/thermo/?_fields=material_id%2Cthermo_type%2Cenergy_above_hull%2Cis_stable&_limit=1000&material_ids=mp-541989
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[{"material_id":"mp-aaabevtt","thermo_type":"r2SCAN","energy_above_hull":0.0,"is_stable":true},{"material_id":"mp-aaabevtt","thermo_type":"GGA_GGA+U","energy_above_hull":0.0,"is_stable":true},{"material_id":"mp-aaabevtt","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.0,"is_stable":true}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:44.062979+00:00","total_doc":3,"facet":null,"max_limit":1000,"default_fields":["thermo_id","material_id","last_updated"]}}'
+  recorded_at: '2026-11-04T18:19:43+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/dielectric/?_fields=material_id%2Cformula_pretty%2Ce_total%2Ce_ionic%2Ce_electronic%2Cn%2Cdeprecated%2Cbuilder_meta&_limit=1000&material_ids=mp-541989
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:58.702000","license":null},"formula_pretty":"Na2CN2","material_id":"mp-aaabevtt","deprecated":false,"e_total":6.690689416669824,"e_ionic":3.9853680500031565,"e_electronic":2.7053213666666664,"n":1.644786115781218}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:44.185155+00:00","total_doc":1,"facet":null,"max_limit":1000,"default_fields":["material_id","last_updated"]}}'
+  recorded_at: '2026-11-04T18:19:44+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cstructure&_limit=1000&material_ids=mp-541989
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[{"material_id":"mp-aaabevtt","structure":{"@module":"pymatgen.core.structure","@class":"Structure","charge":0.0,"lattice":{"matrix":[[3.40169264,-0.00064157,0.85150937],[-0.18237506,3.39680145,0.85150937],[-0.01721611,-0.01816129,5.50691803]],"pbc":[true,true,true],"a":3.506648176797899,"b":3.5066492497011876,"c":5.506974887906887,"alpha":76.12570066351827,"beta":76.1257016996286,"gamma":89.52237364557351,"volume":63.736333599761366},"properties":{},"sites":[{"species":[{"element":"Na","occu":1.0}],"abc":[0.32494697,0.32494697,0.30872218],"properties":{},"label":"Na","xyz":[1.040792498078413,1.0979650696011514,2.253498518719123]},{"species":[{"element":"Na","occu":1.0}],"abc":[0.67505303,0.67505303,0.69127782],"properties":{},"label":"Na","xyz":[2.161308971921587,2.2800335203988484,4.9564382512808765]},{"species":[{"element":"C","occu":1.0}],"abc":[0.0,-0.0,0.0],"properties":{},"label":"C","xyz":[0.0,0.0,0.0]},{"species":[{"element":"N","occu":1.0}],"abc":[0.15621092,0.15621092,0.77137267],"properties":{},"label":"N","xyz":[0.4896125242062599,0.5165081365639453,4.51391618842488]},{"species":[{"element":"N","occu":1.0}],"abc":[0.84378908,0.84378908,0.22862733],"properties":{},"label":"N","xyz":[2.71248894579374,2.8614904534360543,2.696020581575119]}]}}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:46.640816+00:00","total_doc":1,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+  recorded_at: '2026-11-04T18:19:46+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cformula_pretty%2Ccomposition_reduced%2Cnelements%2Cenergy_above_hull%2Cis_stable%2Cband_gap%2Ctheoretical%2Cdeprecated%2Csymmetry%2Cdatabase_IDs%2Clast_updated%2Cbuilder_meta&_limit=1000&formula=Na4ReN3
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[{"theoretical":false,"database_IDs":{"icsd":["icsd-411243"]},"band_gap":2.4384,"energy_above_hull":0.0,"is_stable":true,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"production-r2scan","database_version":"2026.09.28","build_date":"2026-09-25T19:10:51.523000","license":"BY-C"},"nelements":3,"composition_reduced":{"Na":4.0,"Re":1.0,"N":3.0},"formula_pretty":"Na4ReN3","symmetry":{"crystal_system":"Monoclinic","symbol":"Cc","hall":"C
+        -2yc","number":9,"point_group":"m","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaaaapkt","deprecated":false,"last_updated":"2022-06-22T19:58:49.364000"}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:46.788658+00:00","total_doc":1,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+  recorded_at: '2026-11-04T18:19:46+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/thermo/?_fields=material_id%2Cthermo_type%2Cenergy_above_hull%2Cis_stable&_limit=1000&material_ids=mp-10419
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[{"material_id":"mp-aaaaapkt","thermo_type":"r2SCAN","energy_above_hull":0.0,"is_stable":true},{"material_id":"mp-aaaaapkt","thermo_type":"GGA_GGA+U","energy_above_hull":0.0,"is_stable":true},{"material_id":"mp-aaaaapkt","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.0,"is_stable":true}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:46.863514+00:00","total_doc":3,"facet":null,"max_limit":1000,"default_fields":["thermo_id","material_id","last_updated"]}}'
+  recorded_at: '2026-11-04T18:19:46+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/dielectric/?_fields=material_id%2Cformula_pretty%2Ce_total%2Ce_ionic%2Ce_electronic%2Cn%2Cdeprecated%2Cbuilder_meta&_limit=1000&material_ids=mp-10419
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[{"builder_meta":{"emmet_version":"0.87.0rc6","pymatgen_version":"2026.5.18","run_id":"dadfb421-bf05-4242-8999-33228247fe29","batch_id":null,"database_version":"2026.09.28","build_date":"2026-05-31T19:05:52.549000","license":null},"formula_pretty":"Na4ReN3","material_id":"mp-aaaaapkt","deprecated":false,"e_total":12.376502330073274,"e_ionic":8.460830103406607,"e_electronic":3.915672226666666,"n":1.9788057576898916}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:46.958393+00:00","total_doc":1,"facet":null,"max_limit":1000,"default_fields":["material_id","last_updated"]}}'
+  recorded_at: '2026-11-04T18:19:46+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cstructure&_limit=1000&material_ids=mp-10419
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[{"material_id":"mp-aaaaapkt","structure":{"@module":"pymatgen.core.structure","@class":"Structure","charge":0.0,"lattice":{"matrix":[[5.64874561,-0.0,2.06828595],[2.44433767,5.32087751,2.0720654],[0.01352283,0.08540017,8.71092141]],"pbc":[true,true,true],"a":6.015491146819325,"b":6.211278382368801,"c":8.711350519130981,"alpha":69.96526854977284,"beta":69.80188273922704,"gamma":61.037352044386594,"volume":261.1012790769117},"properties":{},"sites":[{"species":[{"element":"Na","occu":1.0}],"abc":[1.00084038,0.23859234,0.13642395],"properties":{},"label":"Na","xyz":[6.238537785154958,1.2811712444863448,3.7527813354574664]},{"species":[{"element":"Na","occu":1.0}],"abc":[0.79599403,0.24044994,0.52660998],"properties":{},"label":"Na","xyz":[5.091229885875791,1.3243772598425458,6.7318294191406265]},{"species":[{"element":"Na","occu":1.0}],"abc":[0.25711738,0.75343899,0.45655272],"properties":{},"label":"Na","xyz":[3.3002238616520523,4.047946256950077,6.069961990186492]},{"species":[{"element":"Na","occu":1.0}],"abc":[0.53289091,0.25343899,0.95655272],"properties":{},"label":"Na","xyz":[3.6425909585937557,1.430207586950077,9.959768512667395]},{"species":[{"element":"Na","occu":1.0}],"abc":[0.03949776,0.72964958,0.86135255],"properties":{},"label":"Na","xyz":[2.0182706768022287,3.9559356946028794,9.096748680260099]},{"species":[{"element":"Na","occu":1.0}],"abc":[0.36949911,0.22964958,0.36135255],"properties":{},"label":"Na","xyz":[2.6534341039088023,1.2527968546028794,4.387792430946131]},{"species":[{"element":"Na","occu":1.0}],"abc":[0.43694605,0.74044994,0.02660998],"properties":{},"label":"Na","xyz":[4.278466605071423,3.942115929842546,2.669787521730745]},{"species":[{"element":"Na","occu":1.0}],"abc":[0.62414333,0.73859234,0.63642395],"properties":{},"label":"Na","xyz":[5.339602227667507,3.984310084486345,8.365157524536018]},{"species":[{"element":"Re","occu":1.0}],"abc":[0.13706137,0.27157963,0.7488656],"properties":{},"label":"Re","xyz":[1.4481839143033957,1.5089951949882734,7.369522248779049]},{"species":[{"element":"Re","occu":1.0}],"abc":[0.84249241,0.77157963,0.2488656],"properties":{},"label":"Re","xyz":[6.64839182466113,4.126733864988273,5.509127352504938]},{"species":[{"element":"N","occu":1.0}],"abc":[0.37867776,0.39311536,0.68907467],"properties":{},"label":"N","xyz":[3.1092792571279606,2.1505657718202476,7.600249922241701]},{"species":[{"element":"N","occu":1.0}],"abc":[0.53913021,0.89311536,0.18907467],"properties":{},"label":"N","xyz":[5.231041749679205,4.768304441820248,4.612683465219778]},{"species":[{"element":"N","occu":1.0}],"abc":[0.17022591,0.0457733,0.64490378],"properties":{},"label":"N","xyz":[1.0821691874742636,0.29862901497412564,6.064627273744714]},{"species":[{"element":"N","occu":1.0}],"abc":[0.13909701,0.5457733,0.14490378],"properties":{},"label":"N","xyz":[2.1217373702551345,2.9163676849741256,2.680815802235759]},{"species":[{"element":"N","occu":1.0}],"abc":[0.82743557,0.45369886,0.86831976],"properties":{},"label":"N","xyz":[5.794708398429525,2.4882307156049976,10.215332261896746]},{"species":[{"element":"N","occu":1.0}],"abc":[0.85054681,0.95369886,0.36831976],"properties":{},"label":"N","xyz":[7.140665333921181,5.105969385604998,6.943704909875825]}]}}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:48.966262+00:00","total_doc":1,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+  recorded_at: '2026-11-04T18:19:48+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cformula_pretty%2Ccomposition_reduced%2Cnelements%2Cenergy_above_hull%2Cis_stable%2Cband_gap%2Ctheoretical%2Cdeprecated%2Csymmetry%2Cdatabase_IDs%2Clast_updated%2Cbuilder_meta&_limit=1000&formula=Nd3Si6N11
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[{"theoretical":true,"database_IDs":{"pauling":["pf-4519"]},"band_gap":3.4255999999999993,"energy_above_hull":0.0,"is_stable":true,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"production-r2scan-nov2021","database_version":"2026.09.28","build_date":"2026-09-25T19:10:23.071000","license":"BY-C"},"nelements":3,"composition_reduced":{"Nd":3.0,"Si":6.0,"N":11.0},"formula_pretty":"Nd3Si6N11","symmetry":{"crystal_system":"Tetragonal","symbol":"P4bm","hall":"P
+        4 -2ab","number":100,"point_group":"4mm","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaacqvvw","deprecated":false,"last_updated":"2022-04-29T06:29:10.683000"}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:50.869092+00:00","total_doc":1,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+  recorded_at: '2026-11-04T18:19:50+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/thermo/?_fields=material_id%2Cthermo_type%2Cenergy_above_hull%2Cis_stable&_limit=1000&material_ids=mp-1209932
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[{"material_id":"mp-aaacqvvw","thermo_type":"r2SCAN","energy_above_hull":0.0,"is_stable":true},{"material_id":"mp-aaacqvvw","thermo_type":"GGA_GGA+U","energy_above_hull":0.0,"is_stable":true},{"material_id":"mp-aaacqvvw","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.0,"is_stable":true}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:50.974612+00:00","total_doc":3,"facet":null,"max_limit":1000,"default_fields":["thermo_id","material_id","last_updated"]}}'
+  recorded_at: '2026-11-04T18:19:50+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/dielectric/?_fields=material_id%2Cformula_pretty%2Ce_total%2Ce_ionic%2Ce_electronic%2Cn%2Cdeprecated%2Cbuilder_meta&_limit=1000&material_ids=mp-1209932
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:51.127707+00:00","total_doc":0,"facet":null,"max_limit":1000,"default_fields":["material_id","last_updated"]}}'
+  recorded_at: '2026-11-04T18:19:50+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cstructure&_limit=1000&material_ids=mp-1209932
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[{"material_id":"mp-aaacqvvw","structure":{"@module":"pymatgen.core.structure","@class":"Structure","charge":0.0,"lattice":{"matrix":[[10.08133752,0.0,0.0],[0.0,10.08133752,0.0],[0.0,0.0,4.85728796]],"pbc":[true,true,true],"a":10.08133752,"b":10.08133752,"c":4.85728796,"alpha":90.0,"beta":90.0,"gamma":90.0,"volume":493.6625259394486},"properties":{},"sites":[{"species":[{"element":"Nd","occu":1.0}],"abc":[0.18187468,0.68187468,0.0044021],"properties":{},"label":"Nd","xyz":[1.8335400354219937,6.8742087954219935,0.021382267328716]},{"species":[{"element":"Nd","occu":1.0}],"abc":[0.81812532,0.31812532,0.0044021],"properties":{},"label":"Nd","xyz":[8.247797484578006,3.2071287245780065,0.021382267328716]},{"species":[{"element":"Nd","occu":1.0}],"abc":[0.68187468,0.81812532,0.0044021],"properties":{},"label":"Nd","xyz":[6.8742087954219935,8.247797484578006,0.021382267328716]},{"species":[{"element":"Nd","occu":1.0}],"abc":[0.31812532,0.18187468,0.0044021],"properties":{},"label":"Nd","xyz":[3.2071287245780065,1.8335400354219937,0.021382267328716]},{"species":[{"element":"Nd","occu":1.0}],"abc":[0.0,0.0,0.98806484],"properties":{},"label":"Nd","xyz":[0.0,0.0,4.799315451031327]},{"species":[{"element":"Nd","occu":1.0}],"abc":[0.5,0.5,0.98806484],"properties":{},"label":"Nd","xyz":[5.04066876,5.04066876,4.799315451031327]},{"species":[{"element":"Si","occu":1.0}],"abc":[0.61739544,0.11739544,0.04222295],"properties":{},"label":"Si","xyz":[6.224171813948909,1.1835030539489089,0.20508902667068202]},{"species":[{"element":"Si","occu":1.0}],"abc":[0.38260456,0.88260456,0.04222295],"properties":{},"label":"Si","xyz":[3.857165706051091,8.89783446605109,0.20508902667068202]},{"species":[{"element":"Si","occu":1.0}],"abc":[0.11739544,0.38260456,0.04222295],"properties":{},"label":"Si","xyz":[1.1835030539489089,3.857165706051091,0.20508902667068202]},{"species":[{"element":"Si","occu":1.0}],"abc":[0.88260456,0.61739544,0.04222295],"properties":{},"label":"Si","xyz":[8.89783446605109,6.224171813948909,0.20508902667068202]},{"species":[{"element":"Si","occu":1.0}],"abc":[0.07901474,0.2090906,0.53169373],"properties":{},"label":"Si","xyz":[0.7965742629950447,2.1079129108593118,2.5825895531364904]},{"species":[{"element":"Si","occu":1.0}],"abc":[0.92098526,0.7909094,0.53169373],"properties":{},"label":"Si","xyz":[9.284763257004956,7.973424609140688,2.5825895531364904]},{"species":[{"element":"Si","occu":1.0}],"abc":[0.2090906,0.92098526,0.53169373],"properties":{},"label":"Si","xyz":[2.1079129108593118,9.284763257004956,2.5825895531364904]},{"species":[{"element":"Si","occu":1.0}],"abc":[0.42098526,0.7090906,0.53169373],"properties":{},"label":"Si","xyz":[4.244094497004955,7.148581670859312,2.5825895531364904]},{"species":[{"element":"Si","occu":1.0}],"abc":[0.7909094,0.07901474,0.53169373],"properties":{},"label":"Si","xyz":[7.973424609140688,0.7965742629950447,2.5825895531364904]},{"species":[{"element":"Si","occu":1.0}],"abc":[0.57901474,0.2909094,0.53169373],"properties":{},"label":"Si","xyz":[5.837243022995044,2.9327558491406878,2.5825895531364904]},{"species":[{"element":"Si","occu":1.0}],"abc":[0.2909094,0.42098526,0.53169373],"properties":{},"label":"Si","xyz":[2.9327558491406878,4.244094497004955,2.5825895531364904]},{"species":[{"element":"Si","occu":1.0}],"abc":[0.7090906,0.57901474,0.53169373],"properties":{},"label":"Si","xyz":[7.148581670859312,5.837243022995044,2.5825895531364904]},{"species":[{"element":"N","occu":1.0}],"abc":[0.17947864,0.07965871,0.64297706],"properties":{},"label":"N","xyz":[1.8093847474705727,0.8030663419177991,3.1231247320941975]},{"species":[{"element":"N","occu":1.0}],"abc":[0.82052136,0.92034129,0.64297706],"properties":{},"label":"N","xyz":[8.271952772529428,9.2782711780822,3.1231247320941975]},{"species":[{"element":"N","occu":1.0}],"abc":[0.07965871,0.82052136,0.64297706],"properties":{},"label":"N","xyz":[0.8030663419177991,8.271952772529428,3.1231247320941975]},{"species":[{"element":"N","occu":1.0}],"abc":[0.32052136,0.57965871,0.64297706],"properties":{},"label":"N","xyz":[3.231284012529427,5.843735101917799,3.1231247320941975]},{"species":[{"element":"N","occu":1.0}],"abc":[0.92034129,0.17947864,0.64297706],"properties":{},"label":"N","xyz":[9.2782711780822,1.8093847474705727,3.1231247320941975]},{"species":[{"element":"N","occu":1.0}],"abc":[0.67947864,0.42034129,0.64297706],"properties":{},"label":"N","xyz":[6.850053507470573,4.237602418082201,3.1231247320941975]},{"species":[{"element":"N","occu":1.0}],"abc":[0.42034129,0.32052136,0.64297706],"properties":{},"label":"N","xyz":[4.237602418082201,3.231284012529427,3.1231247320941975]},{"species":[{"element":"N","occu":1.0}],"abc":[0.57965871,0.67947864,0.64297706],"properties":{},"label":"N","xyz":[5.843735101917799,6.850053507470573,3.1231247320941975]},{"species":[{"element":"N","occu":1.0}],"abc":[0.0,0.5,0.07126765],"properties":{},"label":"N","xyz":[0.0,5.04066876,0.346167498282494]},{"species":[{"element":"N","occu":1.0}],"abc":[0.5,0.0,0.07126765],"properties":{},"label":"N","xyz":[5.04066876,0.0,0.346167498282494]},{"species":[{"element":"N","occu":1.0}],"abc":[0.07623651,0.22955315,0.17874507],"properties":{},"label":"N","xyz":[0.7685659886568551,2.314202783929188,0.8682162764203571]},{"species":[{"element":"N","occu":1.0}],"abc":[0.92376349,0.77044685,0.17874507],"properties":{},"label":"N","xyz":[9.312771531343145,7.767134736070812,0.8682162764203571]},{"species":[{"element":"N","occu":1.0}],"abc":[0.22955315,0.92376349,0.17874507],"properties":{},"label":"N","xyz":[2.314202783929188,9.312771531343145,0.8682162764203571]},{"species":[{"element":"N","occu":1.0}],"abc":[0.42376349,0.72955315,0.17874507],"properties":{},"label":"N","xyz":[4.272102771343145,7.354871543929188,0.8682162764203571]},{"species":[{"element":"N","occu":1.0}],"abc":[0.77044685,0.07623651,0.17874507],"properties":{},"label":"N","xyz":[7.767134736070812,0.7685659886568551,0.8682162764203571]},{"species":[{"element":"N","occu":1.0}],"abc":[0.57623651,0.27044685,0.17874507],"properties":{},"label":"N","xyz":[5.809234748656855,2.7264659760708123,0.8682162764203571]},{"species":[{"element":"N","occu":1.0}],"abc":[0.27044685,0.42376349,0.17874507],"properties":{},"label":"N","xyz":[2.7264659760708123,4.272102771343145,0.8682162764203571]},{"species":[{"element":"N","occu":1.0}],"abc":[0.72955315,0.57623651,0.17874507],"properties":{},"label":"N","xyz":[7.354871543929188,5.809234748656855,0.8682162764203571]},{"species":[{"element":"N","occu":1.0}],"abc":[0.65329014,0.15329014,0.69587848],"properties":{},"label":"N","xyz":[6.586038399828053,1.5453696398280528,3.3800821625271005]},{"species":[{"element":"N","occu":1.0}],"abc":[0.34670986,0.84670986,0.69587848],"properties":{},"label":"N","xyz":[3.4952991201719468,8.535967880171947,3.3800821625271005]},{"species":[{"element":"N","occu":1.0}],"abc":[0.15329014,0.34670986,0.69587848],"properties":{},"label":"N","xyz":[1.5453696398280528,3.4952991201719468,3.3800821625271005]},{"species":[{"element":"N","occu":1.0}],"abc":[0.84670986,0.65329014,0.69587848],"properties":{},"label":"N","xyz":[8.535967880171947,6.586038399828053,3.3800821625271005]}]}}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:53.683740+00:00","total_doc":1,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+  recorded_at: '2026-11-04T18:19:53+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cformula_pretty%2Ccomposition_reduced%2Cnelements%2Cenergy_above_hull%2Cis_stable%2Cband_gap%2Ctheoretical%2Cdeprecated%2Csymmetry%2Cdatabase_IDs%2Clast_updated%2Cbuilder_meta&_limit=1000&formula=Pr3Si6N11
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[{"theoretical":false,"database_IDs":{"icsd":["icsd-402178"]},"band_gap":2.9903999999999993,"energy_above_hull":0.0,"is_stable":true,"builder_meta":{"emmet_version":"0.87.3rc1","pymatgen_version":"2026.9.23","run_id":"af744faf-5605-43db-b301-50d8e2ef4dda","batch_id":"production-r2scan-nov2021","database_version":"2026.09.28","build_date":"2026-09-25T19:10:51.527000","license":"BY-C"},"nelements":3,"composition_reduced":{"Pr":3.0,"Si":6.0,"N":11.0},"formula_pretty":"Pr3Si6N11","symmetry":{"crystal_system":"Tetragonal","symbol":"P4bm","hall":"P
+        4 -2ab","number":100,"point_group":"4mm","symprec":0.1,"angle_tolerance":5.0,"version":"2.7.0"},"material_id":"mp-aaaaazbd","deprecated":false,"last_updated":"2022-04-30T01:51:03.375000"}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:53.889612+00:00","total_doc":1,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+  recorded_at: '2026-11-04T18:19:53+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/thermo/?_fields=material_id%2Cthermo_type%2Cenergy_above_hull%2Cis_stable&_limit=1000&material_ids=mp-16929
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[{"material_id":"mp-aaaaazbd","thermo_type":"r2SCAN","energy_above_hull":0.0,"is_stable":true},{"material_id":"mp-aaaaazbd","thermo_type":"GGA_GGA+U","energy_above_hull":0.0,"is_stable":true},{"material_id":"mp-aaaaazbd","thermo_type":"GGA_GGA+U_R2SCAN","energy_above_hull":0.0,"is_stable":true}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:53.982939+00:00","total_doc":3,"facet":null,"max_limit":1000,"default_fields":["thermo_id","material_id","last_updated"]}}'
+  recorded_at: '2026-11-04T18:19:53+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/dielectric/?_fields=material_id%2Cformula_pretty%2Ce_total%2Ce_ionic%2Ce_electronic%2Cn%2Cdeprecated%2Cbuilder_meta&_limit=1000&material_ids=mp-16929
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:54.079071+00:00","total_doc":0,"facet":null,"max_limit":1000,"default_fields":["material_id","last_updated"]}}'
+  recorded_at: '2026-11-04T18:19:53+00:00'
+- request:
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cstructure&_limit=1000&material_ids=mp-16929
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"data":[{"material_id":"mp-aaaaazbd","structure":{"@module":"pymatgen.core.structure","@class":"Structure","charge":0.0,"lattice":{"matrix":[[10.12684513,0.0,0.0],[-0.0,10.12684513,-0.0],[-0.0,0.0,4.85940257]],"pbc":[true,true,true],"a":10.12684513,"b":10.12684513,"c":4.85940257,"alpha":90.0,"beta":90.0,"gamma":90.0,"volume":498.3462742806609},"properties":{},"sites":[{"species":[{"element":"Pr","occu":1.0}],"abc":[0.5,0.5,0.35444653],"properties":{},"label":"Pr","xyz":[5.063422565,5.063422565,1.722398378809582]},{"species":[{"element":"Pr","occu":1.0}],"abc":[-0.0,0.0,0.35444653],"properties":{},"label":"Pr","xyz":[0.0,0.0,1.722398378809582]},{"species":[{"element":"Pr","occu":1.0}],"abc":[0.6817625,0.1817625,0.37082972],"properties":{},"label":"Pr","xyz":[6.904103252941625,1.8406806879416249,1.8020108944003803]},{"species":[{"element":"Pr","occu":1.0}],"abc":[0.1817625,0.3182375,0.37082972],"properties":{},"label":"Pr","xyz":[1.8406806879416249,3.222741877058375,1.8020108944003803]},{"species":[{"element":"Pr","occu":1.0}],"abc":[0.8182375,0.6817625,0.37082972],"properties":{},"label":"Pr","xyz":[8.286164442058373,6.904103252941625,1.8020108944003803]},{"species":[{"element":"Pr","occu":1.0}],"abc":[0.3182375,0.8182375,0.37082972],"properties":{},"label":"Pr","xyz":[3.222741877058375,8.286164442058373,1.8020108944003803]},{"species":[{"element":"Si","occu":1.0}],"abc":[0.11707756,0.61707756,0.40479644],"properties":{},"label":"Si","xyz":[1.1856263183182827,6.249048883318283,1.9670688608628508]},{"species":[{"element":"Si","occu":1.0}],"abc":[0.61707756,0.88292244,0.40479644],"properties":{},"label":"Si","xyz":[6.249048883318283,8.941218811681717,1.9670688608628508]},{"species":[{"element":"Si","occu":1.0}],"abc":[0.38292244,0.11707756,0.40479644],"properties":{},"label":"Si","xyz":[3.877796246681717,1.1856263183182827,1.9670688608628508]},{"species":[{"element":"Si","occu":1.0}],"abc":[0.88292244,0.38292244,0.40479644],"properties":{},"label":"Si","xyz":[8.941218811681717,3.877796246681717,1.9670688608628508]},{"species":[{"element":"Si","occu":1.0}],"abc":[0.5788658,0.70914212,0.89487264],"properties":{},"label":"Si","xyz":[5.862084307653554,7.181372424399875,4.348546406638685]},{"species":[{"element":"Si","occu":1.0}],"abc":[0.4211342,0.29085788,0.89487264],"properties":{},"label":"Si","xyz":[4.264760822346446,2.945472705600124,4.348546406638685]},{"species":[{"element":"Si","occu":1.0}],"abc":[0.29085788,0.5788658,0.89487264],"properties":{},"label":"Si","xyz":[2.945472705600124,5.862084307653554,4.348546406638685]},{"species":[{"element":"Si","occu":1.0}],"abc":[0.70914212,0.4211342,0.89487264],"properties":{},"label":"Si","xyz":[7.181372424399875,4.264760822346446,4.348546406638685]},{"species":[{"element":"Si","occu":1.0}],"abc":[0.79085788,0.9211342,0.89487264],"properties":{},"label":"Si","xyz":[8.008895270600124,9.328183387346446,4.348546406638685]},{"species":[{"element":"Si","occu":1.0}],"abc":[0.9211342,0.20914212,0.89487264],"properties":{},"label":"Si","xyz":[9.328183387346446,2.1179498593998756,4.348546406638685]},{"species":[{"element":"Si","occu":1.0}],"abc":[0.0788658,0.79085788,0.89487264],"properties":{},"label":"Si","xyz":[0.7986617426535539,8.008895270600124,4.348546406638685]},{"species":[{"element":"Si","occu":1.0}],"abc":[0.20914212,0.0788658,0.89487264],"properties":{},"label":"Si","xyz":[2.1179498593998756,0.7986617426535539,4.348546406638685]},{"species":[{"element":"N","occu":1.0}],"abc":[0.5,0.0,0.43181503],"properties":{},"label":"N","xyz":[5.063422565,0.0,2.0983630665466273]},{"species":[{"element":"N","occu":1.0}],"abc":[-0.0,0.5,0.43181503],"properties":{},"label":"N","xyz":[0.0,5.063422565,2.0983630665466273]},{"species":[{"element":"N","occu":1.0}],"abc":[0.4204026,0.67896945,0.00365286],"properties":{},"label":"N","xyz":[4.2573520224493375,6.8758184681512775,0.0177507172718502]},{"species":[{"element":"N","occu":1.0}],"abc":[0.5795974,0.32103055,0.00365286],"properties":{},"label":"N","xyz":[5.869493107550662,3.2510266618487216,0.0177507172718502]},{"species":[{"element":"N","occu":1.0}],"abc":[0.32103055,0.4204026,0.00365286],"properties":{},"label":"N","xyz":[3.2510266618487216,4.2573520224493375,0.0177507172718502]},{"species":[{"element":"N","occu":1.0}],"abc":[0.67896945,0.5795974,0.00365286],"properties":{},"label":"N","xyz":[6.8758184681512775,5.869493107550662,0.0177507172718502]},{"species":[{"element":"N","occu":1.0}],"abc":[0.82103055,0.0795974,0.00365286],"properties":{},"label":"N","xyz":[8.314449226848721,0.8060705425506619,0.0177507172718502]},{"species":[{"element":"N","occu":1.0}],"abc":[0.0795974,0.17896945,0.00365286],"properties":{},"label":"N","xyz":[0.8060705425506619,1.8123959031512784,0.0177507172718502]},{"species":[{"element":"N","occu":1.0}],"abc":[0.9204026,0.82103055,0.00365286],"properties":{},"label":"N","xyz":[9.320774587449337,8.314449226848721,0.0177507172718502]},{"species":[{"element":"N","occu":1.0}],"abc":[0.17896945,0.9204026,0.00365286],"properties":{},"label":"N","xyz":[1.8123959031512784,9.320774587449337,0.0177507172718502]},{"species":[{"element":"N","occu":1.0}],"abc":[0.84624978,0.34624978,0.05909709],"properties":{},"label":"N","xyz":[8.56984046335657,3.5064178983565712,0.2871765510255213]},{"species":[{"element":"N","occu":1.0}],"abc":[0.34624978,0.15375022,0.05909709],"properties":{},"label":"N","xyz":[3.5064178983565712,1.5570046666434285,0.2871765510255213]},{"species":[{"element":"N","occu":1.0}],"abc":[0.65375022,0.84624978,0.05909709],"properties":{},"label":"N","xyz":[6.620427231643429,8.56984046335657,0.2871765510255213]},{"species":[{"element":"N","occu":1.0}],"abc":[0.15375022,0.65375022,0.05909709],"properties":{},"label":"N","xyz":[1.5570046666434285,6.620427231643429,0.2871765510255213]},{"species":[{"element":"N","occu":1.0}],"abc":[0.23099724,0.0755548,0.54239299],"properties":{},"label":"N","xyz":[2.339273274937441,0.765131758428124,2.635705889555984]},{"species":[{"element":"N","occu":1.0}],"abc":[0.0755548,0.76900276,0.54239299],"properties":{},"label":"N","xyz":[0.765131758428124,7.787571855062558,2.635705889555984]},{"species":[{"element":"N","occu":1.0}],"abc":[0.9244452,0.23099724,0.54239299],"properties":{},"label":"N","xyz":[9.361713371571875,2.339273274937441,2.635705889555984]},{"species":[{"element":"N","occu":1.0}],"abc":[0.76900276,0.9244452,0.54239299],"properties":{},"label":"N","xyz":[7.787571855062558,9.361713371571875,2.635705889555984]},{"species":[{"element":"N","occu":1.0}],"abc":[0.73099724,0.4244452,0.54239299],"properties":{},"label":"N","xyz":[7.402695839937441,4.298290806571876,2.635705889555984]},{"species":[{"element":"N","occu":1.0}],"abc":[0.26900276,0.5755548,0.54239299],"properties":{},"label":"N","xyz":[2.7241492900625586,5.828554323428124,2.635705889555984]},{"species":[{"element":"N","occu":1.0}],"abc":[0.4244452,0.26900276,0.54239299],"properties":{},"label":"N","xyz":[4.298290806571876,2.7241492900625586,2.635705889555984]},{"species":[{"element":"N","occu":1.0}],"abc":[0.5755548,0.73099724,0.54239299],"properties":{},"label":"N","xyz":[5.828554323428124,7.402695839937441,2.635705889555984]}]}}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T18:19:56.098960+00:00","total_doc":1,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+  recorded_at: '2026-11-04T18:19:55+00:00'
 version: 1

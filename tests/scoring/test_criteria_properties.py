@@ -125,3 +125,19 @@ def test_zero_cutoff_scores_the_hull_and_excludes_the_rest() -> None:
     assert on.normalized == 1.0 and on.exclusion is None and Flag.NEAR_CUTOFF in on.flags
     off = criteria.stability(hull(0.001), cutoff_mev=0.0, near_cutoff_band_mev=24.0, source_ref="s")
     assert off.exclusion is not None and off.exclusion.rule is ExclusionRule.STABILITY_CUTOFF
+
+
+def test_strict_anion_policies_need_the_simple_anion_state() -> None:
+    """Owner decision 2026-11-04: every O at -2 (strict_oxide) or every N at -3 (strict_nitride)
+    in some oxidation-state guess; peroxides, superoxides, and azides are excluded."""
+    oxide = SimplicitySettings(max_elements=3, anion_policy="strict_oxide")
+    nitride = SimplicitySettings(max_elements=3, anion_policy="strict_nitride")
+    for comp, s in (("BaO2", oxide), ("KO2", oxide), ("CaN6", nitride), ("SrN6", nitride)):
+        r = criteria.simplicity(comp, s, source_ref="r")
+        assert r.exclusion is not None, comp
+        assert r.exclusion.rule is ExclusionRule.SIMPLICITY_ANION_POLICY, comp
+        assert r.exclusion.detail.startswith(
+            "polyatomic or non-oxide/nitride anion (e.g. peroxide, azide)"
+        ), comp
+    for comp, s in (("HfO2", oxide), ("AlN", nitride), ("Fe3O4", oxide), ("Si3N4", nitride)):
+        assert criteria.simplicity(comp, s, source_ref="r").exclusion is None, comp

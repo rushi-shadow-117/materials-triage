@@ -4131,4 +4131,386 @@ interactions:
         \ completion: 100 ; Average individual thread time (msec): 419 ; Total parallel\
         \ thread time (msec): 586\"\n    ]\n  }\n}\n"
   recorded_at: '2026-11-04T17:40:00+00:00'
+- request:
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Mg2TaN3/cids/JSON
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 404
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: "{\n  \"Fault\": {\n    \"Code\": \"PUGREST.NotFound\",\n    \"Message\"\
+        : \"No CID found\",\n    \"Details\": [\n      \"No CID found that matches\
+        \ the given name\"\n    ]\n  }\n}\n"
+  recorded_at: '2026-11-04T18:19:28+00:00'
+- request:
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/fastformula/Mg2TaN3/cids/JSON
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 404
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: "{\n  \"Fault\": {\n    \"Code\": \"PUGREST.NotFound\",\n    \"Message\"\
+        : \"Search returned no hits\",\n    \"Details\": [\n      \"hits: 0 percent\
+        \ completion: 100 ; Average individual thread time (msec): 461 ; Total parallel\
+        \ thread time (msec): 603\"\n    ]\n  }\n}\n"
+  recorded_at: '2026-11-04T18:19:29+00:00'
+- request:
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Mg3MoN4/cids/JSON
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 404
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: "{\n  \"Fault\": {\n    \"Code\": \"PUGREST.NotFound\",\n    \"Message\"\
+        : \"No CID found\",\n    \"Details\": [\n      \"No CID found that matches\
+        \ the given name\"\n    ]\n  }\n}\n"
+  recorded_at: '2026-11-04T18:19:31+00:00'
+- request:
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/fastformula/Mg3MoN4/cids/JSON
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 404
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: "{\n  \"Fault\": {\n    \"Code\": \"PUGREST.NotFound\",\n    \"Message\"\
+        : \"Search returned no hits\",\n    \"Details\": [\n      \"hits: 0 percent\
+        \ completion: 100 ; Average individual thread time (msec): 458 ; Total parallel\
+        \ thread time (msec): 578\"\n    ]\n  }\n}\n"
+  recorded_at: '2026-11-04T18:19:32+00:00'
+- request:
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/MgCN2/cids/JSON
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 404
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: "{\n  \"Fault\": {\n    \"Code\": \"PUGREST.NotFound\",\n    \"Message\"\
+        : \"No CID found\",\n    \"Details\": [\n      \"No CID found that matches\
+        \ the given name\"\n    ]\n  }\n}\n"
+  recorded_at: '2026-11-04T18:19:34+00:00'
+- request:
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/fastformula/MgCN2/cids/JSON
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: "{\n  \"IdentifierList\": {\n    \"CID\": [\n      44154336\n    ]\n\
+        \  }\n}\n"
+  recorded_at: '2026-11-04T18:19:35+00:00'
+- request:
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug_view/data/compound/44154336/JSON?heading=GHS+Classification
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 404
+      message: ''
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+    body:
+      string: "{\n  \"Fault\": {\n    \"Code\": \"PUGVIEW.NotFound\",\n    \"Message\"\
+        : \"No data found\"\n  }\n}\n"
+  recorded_at: '2026-11-04T18:19:35+00:00'
+- request:
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/44154336/synonyms/JSON
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: "{\n  \"InformationList\": {\n    \"Information\": [\n      {\n    \
+        \    \"CID\": 44154336,\n        \"Synonym\": [\n          \"Magnesium cyanamidate\"\
+        ,\n          \"26841-87-2\",\n          \"EINECS 248-038-9\",\n          \"\
+        Magnesium cyanamide (MgCN2)\",\n          \"DTXSID30181331\",\n          \"\
+        Ayanamide, magnesium salt (1:1)\",\n          \"RefChem:155187\",\n      \
+        \    \"DTXCID40103822\",\n          \"248-038-9\",\n          \"Magnesium\
+        \ cyanamide\",\n          \"GOKQBRXJUKTYSC-UHFFFAOYSA-N\",\n          \"Magnesium\
+        \ methanediylidenebis(azanide)\"\n        ]\n      }\n    ]\n  }\n}\n"
+  recorded_at: '2026-11-04T18:19:35+00:00'
+- request:
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/MgGeN2/cids/JSON
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 404
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: "{\n  \"Fault\": {\n    \"Code\": \"PUGREST.NotFound\",\n    \"Message\"\
+        : \"No CID found\",\n    \"Details\": [\n      \"No CID found that matches\
+        \ the given name\"\n    ]\n  }\n}\n"
+  recorded_at: '2026-11-04T18:19:38+00:00'
+- request:
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/fastformula/MgGeN2/cids/JSON
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 404
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: "{\n  \"Fault\": {\n    \"Code\": \"PUGREST.NotFound\",\n    \"Message\"\
+        : \"Search returned no hits\",\n    \"Details\": [\n      \"hits: 0 percent\
+        \ completion: 100 ; Average individual thread time (msec): 609 ; Total parallel\
+        \ thread time (msec): 853\"\n    ]\n  }\n}\n"
+  recorded_at: '2026-11-04T18:19:40+00:00'
+- request:
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/MgSiN2/cids/JSON
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 404
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: "{\n  \"Fault\": {\n    \"Code\": \"PUGREST.NotFound\",\n    \"Message\"\
+        : \"No CID found\",\n    \"Details\": [\n      \"No CID found that matches\
+        \ the given name\"\n    ]\n  }\n}\n"
+  recorded_at: '2026-11-04T18:19:41+00:00'
+- request:
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/fastformula/MgSiN2/cids/JSON
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 404
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: "{\n  \"Fault\": {\n    \"Code\": \"PUGREST.NotFound\",\n    \"Message\"\
+        : \"Search returned no hits\",\n    \"Details\": [\n      \"hits: 0 percent\
+        \ completion: 100 ; Average individual thread time (msec): 478 ; Total parallel\
+        \ thread time (msec): 653\"\n    ]\n  }\n}\n"
+  recorded_at: '2026-11-04T18:19:42+00:00'
+- request:
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Na2CN2/cids/JSON
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 404
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: "{\n  \"Fault\": {\n    \"Code\": \"PUGREST.NotFound\",\n    \"Message\"\
+        : \"No CID found\",\n    \"Details\": [\n      \"No CID found that matches\
+        \ the given name\"\n    ]\n  }\n}\n"
+  recorded_at: '2026-11-04T18:19:44+00:00'
+- request:
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/fastformula/Na2CN2/cids/JSON
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: "{\n  \"IdentifierList\": {\n    \"CID\": [\n      15971663,\n     \
+        \ 10953424\n    ]\n  }\n}\n"
+  recorded_at: '2026-11-04T18:19:45+00:00'
+- request:
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug_view/data/compound/10953424/JSON?heading=GHS+Classification
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 404
+      message: ''
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+    body:
+      string: "{\n  \"Fault\": {\n    \"Code\": \"PUGVIEW.NotFound\",\n    \"Message\"\
+        : \"No data found\"\n  }\n}\n"
+  recorded_at: '2026-11-04T18:19:45+00:00'
+- request:
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/10953424/synonyms/JSON
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: "{\n  \"InformationList\": {\n    \"Information\": [\n      {\n    \
+        \    \"CID\": 10953424,\n        \"Synonym\": [\n          \"disodiumcyanamide\"\
+        \n        ]\n      }\n    ]\n  }\n}\n"
+  recorded_at: '2026-11-04T18:19:45+00:00'
+- request:
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Na4ReN3/cids/JSON
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 404
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: "{\n  \"Fault\": {\n    \"Code\": \"PUGREST.NotFound\",\n    \"Message\"\
+        : \"No CID found\",\n    \"Details\": [\n      \"No CID found that matches\
+        \ the given name\"\n    ]\n  }\n}\n"
+  recorded_at: '2026-11-04T18:19:46+00:00'
+- request:
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/fastformula/Na4ReN3/cids/JSON
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 404
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: "{\n  \"Fault\": {\n    \"Code\": \"PUGREST.NotFound\",\n    \"Message\"\
+        : \"Search returned no hits\",\n    \"Details\": [\n      \"hits: 0 percent\
+        \ completion: 100 ; Average individual thread time (msec): 428 ; Total parallel\
+        \ thread time (msec): 603\"\n    ]\n  }\n}\n"
+  recorded_at: '2026-11-04T18:19:47+00:00'
+- request:
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Nd3Si6N11/cids/JSON
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 404
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: "{\n  \"Fault\": {\n    \"Code\": \"PUGREST.NotFound\",\n    \"Message\"\
+        : \"No CID found\",\n    \"Details\": [\n      \"No CID found that matches\
+        \ the given name\"\n    ]\n  }\n}\n"
+  recorded_at: '2026-11-04T18:19:51+00:00'
+- request:
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/fastformula/Nd3Si6N11/cids/JSON
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 404
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: "{\n  \"Fault\": {\n    \"Code\": \"PUGREST.NotFound\",\n    \"Message\"\
+        : \"Search returned no hits\",\n    \"Details\": [\n      \"hits: 0 percent\
+        \ completion: 100 ; Average individual thread time (msec): 401 ; Total parallel\
+        \ thread time (msec): 577\"\n    ]\n  }\n}\n"
+  recorded_at: '2026-11-04T18:19:52+00:00'
+- request:
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Pr3Si6N11/cids/JSON
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 404
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: "{\n  \"Fault\": {\n    \"Code\": \"PUGREST.NotFound\",\n    \"Message\"\
+        : \"No CID found\",\n    \"Details\": [\n      \"No CID found that matches\
+        \ the given name\"\n    ]\n  }\n}\n"
+  recorded_at: '2026-11-04T18:19:54+00:00'
+- request:
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/fastformula/Pr3Si6N11/cids/JSON
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 404
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: "{\n  \"Fault\": {\n    \"Code\": \"PUGREST.NotFound\",\n    \"Message\"\
+        : \"Search returned no hits\",\n    \"Details\": [\n      \"hits: 0 percent\
+        \ completion: 100 ; Average individual thread time (msec): 404 ; Total parallel\
+        \ thread time (msec): 578\"\n    ]\n  }\n}\n"
+  recorded_at: '2026-11-04T18:19:55+00:00'
 version: 1

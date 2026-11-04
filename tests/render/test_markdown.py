@@ -238,6 +238,10 @@ def test_key_caveat_is_the_most_row_specific_one() -> None:
         assert r.key_caveat != band_offsets, r.composition
         assert all(c.id not in PROFILE_WIDE for c in r.caveats), r.composition
     assert [c.text for c in view.profile_caveats].count(band_offsets) == 1
+    # the composition-level gap note is profile-wide too (owner decision, Nov 4)
+    composition_level = cfg.resolve(Caveat(id=CaveatId.EXPERIMENTAL_GAP_COMPOSITION_LEVEL)).text
+    assert composition_level in [c.text for c in view.profile_caveats]
+    assert all(r.key_caveat != composition_level for r in [*view.rows, *view.excluded])
     # priority over a synthetic row: hazard first, then the gap conflict, then the rest
     row = [Caveat(id=i) for i in (CaveatId.NEAR_CUTOFF, CaveatId.BAND_GAP_CONFLICT)]
     assert key_caveat(row) == Caveat(id=CaveatId.BAND_GAP_CONFLICT)

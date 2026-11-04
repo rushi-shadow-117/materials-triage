@@ -3018,4 +3018,812 @@ interactions:
         thin film&per_page=1", "order": "best matches first", "order_default": true},
         "cost_usd": 0.001}, "results": [], "group_by": []}'
   recorded_at: '2026-11-04T17:40:00+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=Mg2TaN3+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 8, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Mg2TaN3 thin
+        film) in the title or abstract where it has an abstract", "x_new_oql": "get
+        works with (Mg2TaN3 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "Mg2TaN3
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:Mg2TaN3
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T18:19:30+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=Mg2TaN3+thin+film&select=id
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 7, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (Mg2TaN3 thin
+        film) in the title or abstract", "x_new_oql": "get works with (Mg2TaN3 thin
+        film) in the title or abstract", "oqo": {"get_rows": "works", "filter_rows":
+        [{"column_id": "title_and_abstract.search", "value": "Mg2TaN3 thin film",
+        "operator": "has"}]}, "url": "/works?filter=title_and_abstract.search:Mg2TaN3
+        thin film&per_page=1", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T18:19:30+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=Mg3MoN4+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 8, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Mg3MoN4 thin
+        film) in the title or abstract where it has an abstract", "x_new_oql": "get
+        works with (Mg3MoN4 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "Mg3MoN4
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:Mg3MoN4
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T18:19:32+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=Mg3MoN4+thin+film&select=id
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 7, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (Mg3MoN4 thin
+        film) in the title or abstract", "x_new_oql": "get works with (Mg3MoN4 thin
+        film) in the title or abstract", "oqo": {"get_rows": "works", "filter_rows":
+        [{"column_id": "title_and_abstract.search", "value": "Mg3MoN4 thin film",
+        "operator": "has"}]}, "url": "/works?filter=title_and_abstract.search:Mg3MoN4
+        thin film&per_page=1", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T18:19:32+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=MgCN2+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 8, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (MgCN2 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (MgCN2 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "MgCN2
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:MgCN2
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T18:19:35+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=MgCN2+thin+film&select=id
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 7, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (MgCN2 thin film)
+        in the title or abstract", "x_new_oql": "get works with (MgCN2 thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "MgCN2 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:MgCN2 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T18:19:35+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=MgGeN2+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 2, "db_response_time_ms": 28, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (MgGeN2 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (MgGeN2 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "MgGeN2
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:MgGeN2
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W4396769433",
+        "doi": "https://doi.org/10.1088/1402-4896/ad492b", "title": "Regulation of
+        monolayer MgGeN2 thin film with uniaxial and biaxial strain", "publication_year":
+        2024, "abstract_inverted_index": {"Abstract": [0], "The": [1], "regulation":
+        [2], "of": [3, 21, 96, 148], "electronic": [4], "and": [5, 10, 38, 53, 66,
+        99, 145, 157, 177], "optical": [6], "properties": [7], "with": [8, 41, 82,
+        155], "uniaxial": [9, 33, 58, 78, 97], "biaxial": [11, 111], "strain": [12,
+        60, 112, 156], "is": [13, 29, 74, 103], "computationally": [14], "investigated":
+        [15], "for": [16, 164], "the": [17, 42, 47, 61, 67, 71, 83, 88, 93, 100, 115,
+        123, 128, 133, 138, 142, 165], "monolayer": [18, 149], "thin": [19], "film":
+        [20, 167], "a": [22, 119], "newly": [23], "discovered": [24], "quasi-layered":
+        [25], "MgGeN2": [26, 150, 166], "phase.": [27], "It": [28], "found": [30],
+        "that,": [31], "under": [32, 57], "compression": [34, 79, 98, 125], "in":
+        [35, 70, 105, 137, 168, 175], "both": [36], "[100]": [37], "[010]": [39],
+        "directions": [40], "perpendicular": [43, 84], "lattice": [44, 85], "parameter":
+        [45], "relaxable,": [46], "band": [48, 62, 89, 116, 143], "gap": [49, 63,
+        90, 117], "will": [50], "first": [51, 94], "increases": [52], "then": [54],
+        "decreases,": [55], "while": [56, 132], "tensile": [59, 130], "decreases":
+        [64], "monotonically": [65], "light": [68, 101, 134, 146], "absorption": [69,
+        102, 135, 147], "visible": [72, 106], "region": [73], "strongly": [75], "enhanced.":
+        [76], "When": [77, 110], "was": [80, 113], "applied": [81], "constant": [86],
+        "fixed,": [87], "behaves": [91, 136], "like": [92], "kind": [95], "enhanced":
+        [104], "range": [107], "by": [108], "compression.": [109], "applied,": [114],
+        "shows": [118], "monotonic": [120], "decrease": [121], "from": [122], "largest":
+        [124, 129], "down": [126], "to": [127], "strain,": [131], "opposite": [139],
+        "way.": [140], "Therefore,": [141], "structure": [144], "can": [151, 160],
+        "be": [152, 162], "efficiently": [153], "tuned": [154], "stress,": [158],
+        "which": [159], "potentially": [161], "used": [163], "device": [169], "design,":
+        [170], "thus": [171], "promoting": [172], "its": [173], "applications": [174],
+        "optoelectronics": [176], "photocatalysis.": [178]}, "primary_location": {"id":
+        "doi:10.1088/1402-4896/ad492b", "doi": "https://doi.org/10.1088/1402-4896/ad492b",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1088/1402-4896/ad492b",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S59012888", "display_name":
+        "Physica Scripta", "issn_l": "0031-8949", "issn": ["0031-8949", "1402-4896"],
+        "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in": ["anvur-scientific",
+        "cwts-core", "dongbi-d", "jufo-1", "ki-jl-1", "norway-1", "poland-40", "russia-white-list-1",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310320083", "host_organization_name":
+        "IOP Publishing", "host_organization_lineage": ["https://openalex.org/P4310320083",
+        "https://openalex.org/P4310311669"], "host_organization_lineage_names": ["IOP
+        Publishing", "Institute of Physics"], "type": "journal"}, "license": null,
+        "license_id": null, "version": "publishedVersion", "is_accepted": true, "is_published":
+        true, "raw_source_name": "Physica Scripta", "raw_type": "journal-article"}},
+        {"id": "https://openalex.org/W7171470435", "doi": "https://doi.org/10.1093/mam/ozag053.568",
+        "title": "Atomic Scale Characterization of Ordering, Defects, and Polar Behavior
+        in Epitaxial II-IV-N2 Ultrawide Band Gap Nitride Thin Films", "publication_year":
+        2026, "abstract_inverted_index": {"Heterovalent": [0], "II-IV-N2": [1, 73,
+        457], "nitride": [2, 472], "semiconductors,": [3], "such": [4, 291], "as":
+        [5, 12, 189, 191, 292, 319], "MgSiN2": [6, 131, 498, 537], "and": [7, 31,
+        43, 56, 67, 108, 126, 132, 146, 162, 203, 219, 253, 275, 300, 334, 341, 375,
+        383, 402, 419, 449, 480, 489, 526, 529, 538], "MgGeN2,": [8], "have": [9],
+        "recently": [10], "emerged": [11], "a": [13, 175, 196, 230, 440, 502], "promising":
+        [14], "materials": [15], "platform": [16], "that": [17, 72, 111, 172, 304,
+        323, 330, 430], "extends": [18], "the": [19, 88, 102, 249, 406, 536], "group":
+        [20], "III-nitride": [21], "family": [22], "while": [23, 476], "introducing":
+        [24], "new": [25, 92], "degrees": [26], "of": [27, 46, 90, 94, 129, 255, 269,
+        367, 394], "freedom": [28], "in": [29, 413, 455], "chemistry": [30], "lattice":
+        [32, 308, 422], "symmetry": [33], "[1,": [34], "2].": [35], "These": [36,
+        310, 362], "compounds": [37, 74], "exhibit": [38, 151], "ultrawide": [39,
+        469], "band": [40, 470], "gaps": [41], "(UWBG)": [42], "are": [44, 312], "composed":
+        [45], "earth": [47], "abundant": [48], "elements,": [49], "making": [50],
+        "them": [51], "attractive": [52], "for": [53, 444, 466, 511], "high": [54,
+        57, 152, 281, 486], "field": [55], "temperature": [58], "electronic": [59,
+        63, 488], "applications.": [60], "Beyond": [61], "their": [62, 276], "functionality,":
+        [64], "recent": [65], "theoretical": [66], "experimental": [68, 198, 464],
+        "efforts": [69], "also": [70, 76, 477], "suggest": [71], "may": [75], "access":
+        [77, 183], "wurtzite": [78, 178], "derived": [79], "polar": [80, 434, 453],
+        "phases,": [81, 188], "enabling": [82], "ferroelectric-like": [83], "polarization":
+        [84, 222, 325], "switching": [85, 333], "behavior.": [86, 223], "For": [87],
+        "development": [89], "this": [91, 119, 437], "class": [93], "UWBG": [95],
+        "materials,": [96], "it": [97], "is": [98, 227, 245, 285, 387, 410], "imperative":
+        [99], "to": [100, 164, 184, 200, 247, 287, 314, 397, 433, 485, 519], "understand":
+        [101], "cation": [103, 369], "ordering,": [104, 216, 447], "stoichiometry,":
+        [105], "epitaxial": [106, 130, 456], "strain,": [107], "defect": [109, 204,
+        220, 343, 376, 479], "populations": [110], "govern": [112, 452], "polarity":
+        [113, 202], "behavior,": [114], "remain": [115], "largely": [116], "unexplored.":
+        [117], "In": [118, 239, 279], "work,": [120], "we": [121, 345], "report":
+        [122], "an": [123], "integrated": [124], "growth": [125, 159, 181, 407], "characterization":
+        [127, 226], "study": [128], "MgGeN2": [133], "thin": [134, 458], "films":
+        [135, 150, 171], "synthesized": [136], "by": [137], "metal": [138], "organic":
+        [139], "chemical": [140, 256, 339], "vapor": [141], "deposition": [142], "(MOCVD)":
+        [143], "on": [144, 158, 208, 501], "GaN": [145, 539], "sapphire": [147], "templates.":
+        [148], "The": [149, 460], "crystalline": [153], "quality,": [154], "which":
+        [155], "highly": [156, 185], "depends": [157], "temperature,": [160], "pressure,":
+        [161], "Mg": [163], "IV": [165], "precursor": [166], "flow": [167], "ratios.":
+        [168], "Unlike": [169], "sputtered": [170], "often": [173], "stabilize": [174],
+        "chemically": [176], "disordered": [177, 193, 273], "structure,": [179], "MOCVD":
+        [180], "provides": [182], "ordered": [186, 270], "orthorhombic": [187, 271,
+        417], "well": [190], "partially": [192], "configurations,": [194], "offering":
+        [195], "unique": [197], "pathway": [199], "tune": [201], "formation.": [205],
+        "We": [206], "focus": [207], "establishing": [209], "direct": [210, 365, 463],
+        "structure": [211], "property": [212], "links": [213], "between": [214], "nanoscale":
+        [215, 372], "strain": [217, 400, 403, 428, 450], "relaxation,": [218], "mediated":
+        [221], "Atomic": [224], "scale": [225], "performed": [228], "using": [229,
+        390], "multimodal": [231], "scanning": [232], "transmission": [233], "electron":
+        [234, 357], "microscopy": [235, 441], "(STEM)": [236], "(Fig.": [237], "1).":
+        [238], "addition,": [240], "four": [241], "dimensional": [242], "(4D)-STEM":
+        [243], "nanodiffraction": [244], "employed": [246], "quantify": [248, 398],
+        "local": [250, 368], "phase": [251], "state": [252], "degree": [254], "ordering":
+        [257], "with": [258, 355], "nanometer": [259], "resolution": [260, 282, 348],
+        "across": [261, 535], "large": [262], "film": [263, 499], "areas,": [264],
+        "providing": [265], "statistically": [266], "meaningful": [267], "maps": [268],
+        "domains,": [272], "regions,": [274], "spatial": [277], "connectivity.": [278],
+        "parallel,": [280], "STEM": [283, 496, 508], "imaging": [284], "used": [286],
+        "identify": [288], "extended": [289, 381], "defects": [290, 311], "inversion":
+        [293], "domain": [294], "boundaries,": [295], "threading": [296], "dislocations,":
+        [297], "stacking": [298], "faults,": [299], "interfacial": [301], "misfit":
+        [302], "dislocations": [303], "arise": [305], "from": [306], "anisotropic":
+        [307, 399], "mismatch.": [309], "expected": [313], "play": [315], "dual":
+        [316], "roles,": [317], "serving": [318], "either": [320], "nucleation": [321],
+        "sites": [322], "facilitate": [324], "reversal": [326], "or": [327], "pinning":
+        [328], "centers": [329], "disrupt": [331], "coherent": [332], "accelerate":
+        [335], "fatigue.": [336], "To": [337], "resolve": [338], "disorder": [340],
+        "point": [342], "complexes,": [344], "combine": [346], "atomic": [347], "energy":
+        [349, 358], "dispersive": [350], "X": [351], "ray": [352], "spectroscopy":
+        [353, 360], "(EDX)": [354], "monochromated": [356], "loss": [359], "(EELS).":
+        [361], "measurements": [363], "provide": [364, 462], "evidence": [366], "sublattice":
+        [370], "mixing,": [371], "stoichiometry": [373], "deviations,": [374], "associated":
+        [377], "bonding": [378], "perturbations": [379], "near": [380], "boundaries":
+        [382], "interfaces.": [384], "Strain": [385], "mapping": [386, 517, 534],
+        "carried": [388], "out": [389], "diffraction": [391], "based": [392], "analysis":
+        [393], "4D-STEM": [395], "datasets": [396], "states": [401], "relaxation":
+        [404], "along": [405], "direction.": [408], "This": [409], "particularly":
+        [411], "important": [412], "Mg-IV-N2": [414], "compounds,": [415], "where":
+        [416], "distortions": [418], "direction": [420], "dependent": [421], "mismatch":
+        [423], "can": [424], "generate": [425], "strongly": [426], "nonuniform": [427],
+        "fields": [429], "couple": [431], "directly": [432], "stability.": [435],
+        "Overall,": [436], "work": [438], "establishes": [439], "centered": [442],
+        "framework": [443], "understanding": [445], "how": [446], "defects,": [448],
+        "collectively": [451], "stability": [454], "films.": [459], "results": [461],
+        "guidance": [465], "designing": [467], "scalable": [468], "gap": [471], "ferroelectrics":
+        [473], "beyond": [474], "AlScN,": [475], "defining": [478], "interface": [481],
+        "design": [482], "rules": [483], "relevant": [484], "reliability": [487],
+        "ferroelectric": [490], "device": [491], "integration": [492], "[3,": [493],
+        "4].": [494], "a,b)": [495], "cross-section": [497, 509], "grown": [500],
+        "GaN-on-sapphire": [503], "template;": [504], "c)": [505], "low": [506], "magnification":
+        [507], "image": [510], "EDX": [512, 516], "mapping;": [513], "d)": [514],
+        "elemental": [515], "corresponding": [518], "(i)": [520], "Ga,": [521], "(ii)":
+        [522], "Si,": [523], "(iii)": [524], "N,": [525], "(iv)": [527], "Mg;": [528],
+        "e)": [530], "quantitative": [531], "compositional": [532], "profile": [533],
+        "layers": [540], "[3].": [541]}, "primary_location": {"id": "doi:10.1093/mam/ozag053.568",
+        "doi": "https://doi.org/10.1093/mam/ozag053.568", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1093/mam/ozag053.568", "pdf_url": null, "source": {"id":
+        "https://openalex.org/S98208149", "display_name": "Microscopy and Microanalysis",
+        "issn_l": "1431-9276", "issn": ["1431-9276", "1435-8115"], "is_oa": false,
+        "is_in_doaj": false, "is_core": true, "listed_in": ["anvur-scientific", "cwts-core",
+        "dongbi-a", "jufo-1", "ki-jl-1", "medline", "norway-1", "poland-70", "russia-white-list-1",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310311648", "host_organization_name":
+        "Oxford University Press", "host_organization_lineage": ["https://openalex.org/P4310311648",
+        "https://openalex.org/P4310311647"], "host_organization_lineage_names": ["Oxford
+        University Press", "University of Oxford"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "Microscopy and Microanalysis", "raw_type":
+        "journal-article"}}], "group_by": []}'
+  recorded_at: '2026-11-04T18:19:40+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=MgGeN2+thin+film&select=id
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 3, "db_response_time_ms": 28, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (MgGeN2 thin film)
+        in the title or abstract", "x_new_oql": "get works with (MgGeN2 thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "MgGeN2 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:MgGeN2 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W4396769433"}], "group_by": []}'
+  recorded_at: '2026-11-04T18:19:40+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=MgSiN2+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 7, "db_response_time_ms": 11, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (MgSiN2 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (MgSiN2 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "MgSiN2
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:MgSiN2
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W4411344321",
+        "doi": "https://doi.org/10.1021/acs.cgd.5c00228", "title": "Metal\u2013Organic
+        Chemical Vapor Deposition of MgSiN2 Thin Films", "publication_year": 2025,
+        "abstract_inverted_index": {"Orthorhombic-structured": [0], "II\u2013IV":
+        [1], "nitrides": [2], "provide": [3], "a": [4], "promising": [5], "opportunity":
+        [6], "to": [7, 33, 149], "expand": [8], "the": [9, 16, 21, 55, 125, 159],
+        "material": [10, 24], "platform": [11], "while": [12], "maintaining": [13],
+        "compatibility": [14, 36], "with": [15, 37, 83], "wurtzite": [17], "crystal":
+        [18], "structure": [19], "of": [20, 49, 57, 96, 127, 161], "traditional":
+        [22], "III-nitride": [23], "system.": [25], "Among": [26], "them,": [27],
+        "MgSiN": [28, 58, 130], "2": [29, 59, 131], "stands": [30], "out": [31], "due":
+        [32], "its": [34, 42], "close": [35], "GaN": [38], "and": [39, 41, 64, 86,
+        103, 111], "AlN": [40], "theoretically": [43], "predicted": [44], "ultrawide":
+        [45], "direct": [46, 141], "band": [47, 134, 142], "gap": [48, 135, 143],
+        "6.28": [50], "eV.": [51], "In": [52], "this": [53], "work,": [54], "growth":
+        [56, 79, 104], "thin": [60], "films": [61], "on": [62, 91], "GaN-on-sapphire":
+        [63, 92], "c": [65], "-plane": [66], "sapphire": [67], "substrates": [68],
+        "was": [69], "investigated": [70], "by": [71], "using": [72], "metal\u2013organic":
+        [73], "chemical": [74], "vapor": [75], "deposition": [76], "(MOCVD).": [77],
+        "MOCVD": [78], "conditions": [80], "were": [81, 114], "correlated": [82],
+        "film": [84], "quality": [85], "crystallinity": [87], "for": [88, 152], "samples":
+        [89, 153], "grown": [90, 154], "substrates.": [93], "The": [94], "effects":
+        [95], "Mg:Si": [97], "precursor": [98], "molar": [99], "flow": [100], "rate":
+        [101], "ratios": [102], "pressure": [105], "at": [106], "two": [107], "different":
+        [108], "temperatures,": [109], "745": [110], "850": [112], "\u00b0C,": [113],
+        "studied": [115], "comprehensively.": [116], "High-resolution": [117], "scanning":
+        [118], "transmission": [119], "electron": [120], "microscopy": [121], "(STEM)":
+        [122], "imaging": [123], "confirmed": [124], "formation": [126], "high-quality":
+        [128], "single-crystal": [129], "films.": [132], "Optical": [133], "extraction":
+        [136], "from": [137, 146], "transmittance": [138], "measurements": [139],
+        "yielded": [140], "values": [144], "ranging": [145], "6.13": [147], "eV":
+        [148, 151], "6.27": [150], "under": [155], "various": [156], "conditions,":
+        [157], "confirming": [158], "realization": [160], "an": [162], "ultrawide-band-gap,":
+        [163], "III-nitride-compatible,": [164], "II\u2013IV-nitride": [165], "material.":
+        [166]}, "primary_location": {"id": "doi:10.1021/acs.cgd.5c00228", "doi": "https://doi.org/10.1021/acs.cgd.5c00228",
+        "is_oa": false, "landing_page_url": "https://doi.org/10.1021/acs.cgd.5c00228",
+        "pdf_url": null, "source": {"id": "https://openalex.org/S16561315", "display_name":
+        "Crystal Growth & Design", "issn_l": "1528-7483", "issn": ["1528-7483", "1528-7505"],
+        "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in": ["anvur-scientific",
+        "cwts-core", "dongbi-c", "jufo-2", "norway-2", "poland-100", "russia-white-list-1",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310320006", "host_organization_name":
+        "American Chemical Society", "host_organization_lineage": ["https://openalex.org/P4310320006"],
+        "host_organization_lineage_names": ["American Chemical Society"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "Crystal Growth
+        &amp; Design", "raw_type": "journal-article"}}, {"id": "https://openalex.org/W7125374595",
+        "doi": "https://doi.org/10.1063/5.0306550", "title": "A comprehensive study
+        of metal-organic chemical vapor deposition of ultrawide bandgap MgSiN2 thin
+        films on sapphire", "publication_year": 2026, "abstract_inverted_index": {"While":
+        [0], "remaining": [1], "compatible": [2], "with": [3, 25, 84], "III-nitride":
+        [4], "material": [5], "systems": [6], "and": [7, 111, 123], "other": [8, 35],
+        "materials": [9, 17], "utilized": [10], "in": [11, 46, 144, 169], "complementary":
+        [12], "metal-oxide": [13], "semiconductor": [14, 23], "applications,": [15],
+        "II\u2013IV-nitride": [16], "offer": [18], "opportunities": [19], "to": [20,
+        56, 79, 98, 117, 200], "broaden": [21], "the": [22, 47, 81, 85, 93, 101, 106,
+        112, 121, 170, 177, 185, 202], "platform": [24], "new": [26, 29], "properties":
+        [27, 86], "and/or": [28], "functionalities.": [30], "MgSiN2": [31, 66, 127,
+        156], "stands": [32], "out": [33], "among": [34], "II\u2013IV-nitrides": [36],
+        "because": [37], "of": [38, 65, 87, 92, 126, 154, 172, 196], "its": [39, 43],
+        "ultrawide": [40], "bandgap,": [41], "enabling": [42], "potential": [44],
+        "applications": [45], "ultraviolet-C": [48], "region,": [49], "while": [50],
+        "also": [51], "being": [52], "a": [53, 62, 145, 166], "promising": [54], "candidate":
+        [55], "exhibit": [57], "ferroelectricity.": [58], "In": [59], "this": [60],
+        "work,": [61], "comprehensive": [63], "study": [64], "film": [67, 157], "growth":
+        [68, 82, 94, 113, 178], "on": [69, 120, 176], "sapphire": [70], "substrates":
+        [71], "via": [72, 138], "metal-organic": [73], "chemical": [74], "vapor":
+        [75], "deposition": [76], "was": [77, 136, 158, 188], "performed": [78], "correlate":
+        [80], "conditions": [83], "these": [88], "films.": [89], "The": [90, 131,
+        151], "effects": [91], "temperature": [95], "from": [96, 115], "745": [97],
+        "960": [99], "\u00b0C,": [100], "NH3": [102], "molar": [103], "flow": [104,
+        108], "rate,": [105], "Mg:Si": [107], "rate": [109], "ratio,": [110], "pressure,":
+        [114], "450": [116], "550": [118], "Torr,": [119], "crystallinity": [122],
+        "surface": [124], "morphology": [125], "films": [128], "were": [129], "investigated.":
+        [130], "cation-ordered": [132], "orthorhombic": [133], "single-crystal": [134],
+        "structure": [135], "observed": [137], "high-resolution": [139], "scanning":
+        [140], "transmission": [141], "electron": [142], "microscopy": [143], "sample":
+        [146], "grown": [147], "at": [148, 182], "945": [149], "\u00b0C.": [150],
+        "refractive": [152], "index": [153], "an": [155], "measured": [159], "using":
+        [160], "ellipsometry.": [161], "Optical": [162, 180], "transmittance": [163],
+        "measurements": [164], "revealed": [165], "direct": [167, 186], "bandgap":
+        [168, 187], "range": [171], "6.13\u20136.39": [173], "eV,": [174], "depending":
+        [175], "conditions.": [179], "absorption": [181], "wavelengths": [183], "below":
+        [184], "higher": [189], "than": [190], "that": [191], "predicted": [192],
+        "by": [193], "two": [194], "orders": [195], "magnitude,": [197], "obscuring":
+        [198], "efforts": [199], "measure": [201], "indirect": [203], "gap.": [204]},
+        "primary_location": {"id": "doi:10.1063/5.0306550", "doi": "https://doi.org/10.1063/5.0306550",
+        "is_oa": true, "landing_page_url": "https://doi.org/10.1063/5.0306550", "pdf_url":
+        "https://pubs.aip.org/aip/jap/article-pdf/doi/10.1063/5.0306550/20878446/045301_1_5.0306550.pdf",
+        "source": {"id": "https://openalex.org/S187991544", "display_name": "Journal
+        of Applied Physics", "issn_l": "0021-8979", "issn": ["0021-8979", "1089-7550",
+        "1520-8850"], "is_oa": false, "is_in_doaj": false, "is_core": true, "listed_in":
+        ["anvur-scientific", "cwts-core", "dongbi-d", "jufo-1", "norway-1", "poland-100",
+        "russia-white-list-1", "vabb-shw"], "host_organization": "https://openalex.org/P4310320257",
+        "host_organization_name": "American Institute of Physics", "host_organization_lineage":
+        ["https://openalex.org/P4310320257"], "host_organization_lineage_names": ["American
+        Institute of Physics"], "type": "journal"}, "license": "cc-by", "license_id":
+        "https://openalex.org/licenses/cc-by", "version": "publishedVersion", "is_accepted":
+        true, "is_published": true, "raw_source_name": "Journal of Applied Physics",
+        "raw_type": "journal-article"}}, {"id": "https://openalex.org/W7125387018",
+        "doi": "https://doi.org/10.60893/figshare.jap.c.8226649", "title": "A Comprehensive
+        Study of Metal-Organic Chemical Vapor Deposition of Ultrawide-Bandgap MgSiN2
+        Thin Films on Sapphire", "publication_year": 2026, "abstract_inverted_index":
+        {"While": [0], "remaining": [1], "compatible": [2], "with": [3, 26, 88], "III-nitride":
+        [4], "material": [5], "system": [6], "and": [7, 117, 129], "other": [8, 36],
+        "materials": [9, 18], "utilized": [10], "in": [11, 48, 152, 179], "complementary":
+        [12], "metal-oxide": [13], "semiconductor": [14, 24], "(CMOS)": [15], "applications,":
+        [16], "II-IV-nitride": [17], "offer": [19], "opportunities": [20], "to": [21,
+        59, 83, 102, 123, 184, 212], "broaden": [22], "the": [23, 49, 85, 89, 97,
+        106, 111, 118, 127, 180, 189, 197, 214], "platform": [25], "new": [27, 30],
+        "properties": [28, 90], "and/or": [29], "functionalities.": [31], "MgSiN2":
+        [32, 69, 133, 165], "stands": [33], "out": [34], "among": [35], "II-IV-nitrides":
+        [37], "because": [38], "of": [39, 68, 91, 96, 132, 163, 182, 208], "its":
+        [40, 45], "ultra-wide": [41], "band": [42, 177, 199], "gap,": [43], "enabling":
+        [44], "potential": [46], "applications": [47], "ultraviolet-C": [50], "(UV-C)":
+        [51], "region,": [52], "while": [53], "also": [54], "being": [55], "a": [56,
+        65, 153, 164, 175], "promising": [57], "candidate": [58], "exhibit": [60],
+        "ferroelectricity.": [61], "In": [62], "this": [63], "work,": [64], "comprehensive":
+        [66], "study": [67], "film": [70, 166], "growth": [71, 86, 98, 119, 190],
+        "on": [72, 126, 188], "sapphire": [73], "substrates": [74], "via": [75, 145],
+        "metal-organic": [76], "chemical": [77], "vapor": [78], "deposition": [79],
+        "(MOCVD)": [80], "was": [81, 143, 167, 201], "performed": [82], "correlate":
+        [84], "conditions": [87], "these": [92], "films.": [93], "The": [94, 137,
+        160], "effects": [95], "temperature": [99], "from": [100, 121], "745": [101],
+        "960": [103], "{degree": [104, 158], "sign}C,": [105], "NH3": [107], "molar":
+        [108], "flow": [109, 113], "rate,": [110], "Mg:Si": [112], "rate": [114],
+        "ratio": [115], "(FRR),": [116], "pressure,": [120], "450": [122], "550":
+        [124], "torr,": [125], "crystallinity": [128], "surface": [130], "morphology":
+        [131], "films": [134], "were": [135], "investigated.": [136], "cation-ordered":
+        [138], "orthorhombic": [139], "single": [140], "crystal": [141], "structure":
+        [142], "observed": [144], "high-resolution": [146], "scanning": [147], "transmission":
+        [148], "electron": [149], "microscopy": [150], "(HR-STEM)": [151], "sample":
+        [154], "grown": [155], "at": [156, 194], "945": [157], "sign}C.": [159], "refractive":
+        [161], "index": [162], "measured": [168], "using": [169], "ellipsometry.":
+        [170], "Optical": [171, 192], "transmittance": [172], "measurements": [173],
+        "revealed": [174], "direct": [176, 198], "gap": [178, 200], "range": [181],
+        "6.13": [183], "6.39": [185], "eV,": [186], "depending": [187], "conditions.":
+        [191], "absorption": [193], "wavelengths": [195], "below": [196], "higher":
+        [202], "than": [203], "predicted": [204], "by": [205], "two": [206], "orders":
+        [207], "magnitude,": [209], "obscuring": [210], "efforts": [211], "measure":
+        [213], "indirect": [215], "gap.": [216]}, "primary_location": {"id": "doi:10.60893/figshare.jap.c.8226649",
+        "doi": "https://doi.org/10.60893/figshare.jap.c.8226649", "is_oa": true, "landing_page_url":
+        "https://doi.org/10.60893/figshare.jap.c.8226649", "pdf_url": null, "source":
+        {"id": "https://openalex.org/S7407050528", "display_name": "AIP Publishing",
+        "issn_l": null, "issn": null, "is_oa": false, "is_in_doaj": false, "is_core":
+        false, "listed_in": [], "host_organization": null, "host_organization_name":
+        null, "host_organization_lineage": [], "host_organization_lineage_names":
+        [], "type": "repository"}, "license": "cc-by", "license_id": "https://openalex.org/licenses/cc-by",
+        "version": null, "is_accepted": false, "is_published": false, "raw_source_name":
+        null, "raw_type": "Collection"}}, {"id": "https://openalex.org/W2975526934",
+        "doi": "https://doi.org/10.25560/68606", "title": "MgSiN2-based nitride materials
+        for ultraviolet optoelectronic applications", "publication_year": 2017, "abstract_inverted_index":
+        {"Ultraviolet": [0], "light-emitting": [1], "diodes": [2], "(LEDs)": [3],
+        "have": [4, 124, 188], "a": [5, 164, 206, 338, 356, 374], "range": [6], "of":
+        [7, 25, 100, 110, 130, 178, 261, 298, 302, 314, 330, 368, 380, 415, 452],
+        "potential": [8], "applications": [9, 430], "including": [10, 47], "water":
+        [11, 26, 69], "purification,": [12, 27, 70], "disinfection,": [13], "UV":
+        [14, 33, 43, 71, 118, 209, 426], "curing,": [15], "document": [16], "authentication,":
+        [17], "phototherapy": [18], "and": [19, 60, 65, 76, 84, 93, 96, 149, 159,
+        232, 244, 251, 265, 272, 283, 295, 311, 327, 332, 336, 370, 382, 412], "medical":
+        [20], "diagnostics.": [21], "In": [22, 68], "the": [23, 31, 41, 111, 116,
+        217, 238, 255, 259, 292, 309, 312, 325, 365, 385, 398, 405, 416, 422, 453],
+        "case": [24], "UV-LEDs": [28, 113], "operating": [29, 114], "in": [30, 81,
+        115, 198, 216, 254, 270, 308, 345, 349, 421, 428, 440, 443], "deep": [32,
+        117, 218], "(<": [34], "300": [35], "nm)": [36], "offer": [37], "several":
+        [38], "benefits": [39], "over": [40], "mercury-based": [42], "lamps": [44],
+        "that": [45, 87, 173, 274, 353, 361, 371, 379], "predominate,": [46], "lower":
+        [48], "toxicity,": [49], "higher": [50], "energy": [51], "efficiency,": [52],
+        "longer": [53], "device": [54, 182], "lifetimes,": [55], "more": [56, 61],
+        "constant": [57], "light": [58, 72], "intensity,": [59], "easily": [62], "controllable":
+        [63], "heat": [64], "temperature": [66], "output.": [67], "attacks": [73],
+        "viruses,": [74], "spores": [75], "bacteria,": [77], "disrupting": [78], "chemical":
+        [79, 243], "bonds": [80], "their": [82, 144], "DNA": [83], "RNA": [85], "so":
+        [86], "they": [88], "are": [89, 235, 288], "prevented": [90], "from": [91],
+        "replicating": [92], "become": [94], "inactive": [95], "an": [97, 225], "emission":
+        [98, 210, 427], "wavelength": [99], "265": [101], "nm": [102], "is": [103,
+        136, 205, 362, 388, 394], "optimum": [104], "for": [105, 166, 180, 196, 208,
+        237, 268, 341, 425], "disinfection": [106], "overall.": [107], "However,":
+        [108, 286], "state": [109], "art": [112], "based": [119], "on": [120], "wurtzite-structure":
+        [121], "III": [122], "nitrides": [123], "maximum": [125], "external": [126],
+        "quantum": [127, 151], "efficiencies": [128], "(EQEs)": [129], "approximately":
+        [131], "1-6": [132], "%,": [133], "since": [134], "it": [135], "not": [137,
+        305, 318], "possible": [138], "using": [139], "either": [140], "pure": [141],
+        "III-nitrides": [142, 195], "or": [143, 408], "alloys": [145, 417, 442], "to":
+        [146, 194, 247, 279, 364, 391, 396, 438, 445], "achieve": [147], "lattice":
+        [148, 375, 406], "polarisation-matched": [150, 266], "well": [152], "(QW)":
+        [153], "heterostructures": [154, 267], "with": [155, 413], "appropriate":
+        [156], "band": [157, 160, 169, 212, 281, 284, 296, 359, 399, 419], "gaps":
+        [158, 420], "offsets.": [161], "This": [162], "motivates": [163], "search":
+        [165], "alternative": [167], "wide": [168], "gap": [170, 213, 360, 367, 400],
+        "nitride": [171, 185, 203], "materials": [172], "could": [174, 214, 276],
+        "introduce": [175], "additional": [176], "degrees": [177], "freedom": [179],
+        "UV-LED": [181], "design.": [183], "II-IV": [184, 202], "ternary": [186],
+        "semiconductors": [187], "recently": [189], "emerged": [190], "as": [191,
+        224], "promising": [192], "alternatives": [193], "use": [197, 269], "optoelectronic":
+        [199], "applications.": [200], "The": [201, 241], "MgSiN2": [204, 220, 303,
+        315, 331, 354], "candidate": [207], "whose": [211], "lie": [215, 253], "UV.":
+        [219], "can": [221], "be": [222, 277], "viewed": [223], "AlN": [226, 248,
+        369], "derivative,": [227], "where": [228], "equal": [229], "parts": [230],
+        "Mg": [231], "Si": [233, 250], "atoms": [234], "substituted": [236], "Al":
+        [239, 252], "atoms.": [240], "resulting": [242], "structural": [245], "similarities":
+        [246], "(Mg,": [249], "3rd": [256], "period)": [257], "suggest": [258], "possibility":
+        [260], "creating": [262], "compatible": [263], "lattice-": [264], "devices":
+        [271], "imply": [273], "Al-doping": [275, 313, 393], "used": [278], "tailor":
+        [280], "structure": [282, 294, 297, 387], "gap.": [285], "there": [287], "conflicting":
+        [289], "reports": [290], "concerning": [291], "crystal": [293], "MgSiN2,":
+        [299], "thin-film": [300], "growth": [301], "has": [304, 316, 355], "been":
+        [306, 319], "reported": [307], "literature,": [310], "also": [317], "reported.":
+        [320], "Therefore,": [321], "this": [322, 350], "study": [323], "investigates":
+        [324], "crystallographic": [326], "electronic": [328, 386], "properties":
+        [329], "Al2xMg(1-x)Si(1-x)N2": [333, 441], "alloy": [334], "powders": [335],
+        "outlines": [337], "phenomenological": [339], "model": [340], "interpreting":
+        [342], "partial": [343, 434], "ordering": [344, 436], "III2xII(1-x)IV(1-x)N2":
+        [346], "alloys.": [347], "Studies": [348], "thesis": [351], "indicate": [352],
+        "large": [357], "indirect": [358], "close": [363], "direct": [366], "its":
+        [372], "hexagonal-equivalent": [373], "parameter": [376], "lies": [377], "between":
+        [378], "GaN": [381], "AlN,": [383], "whilst": [384], "strongly": [389], "related":
+        [390], "AlN.": [392], "found": [395], "modify": [397], "substantially,": [401],
+        "without": [402], "significantly": [403], "changing": [404], "parameters":
+        [407], "compromising": [409], "thermodynamic": [410], "stability,": [411],
+        "many": [414], "having": [418], "region": [423], "suitable": [424], "germicidal":
+        [429], "(210-280": [431], "nm).": [432], "Moreover,": [433], "long-range":
+        [435], "appears": [437], "emerge": [439], "order": [444], "satisfy": [446],
+        "local": [447], "valence": [448], "requirements": [449], "through": [450],
+        "preservation": [451], "octet": [454], "rule.": [455]}, "primary_location":
+        {"id": "pmh:doi:10.25560/68606", "doi": null, "is_oa": true, "landing_page_url":
+        "http://hdl.handle.net/10044/1/68606", "pdf_url": null, "source": null, "license":
+        "cc-by-nc-nd", "license_id": "https://openalex.org/licenses/cc-by-nc-nd",
+        "version": "submittedVersion", "is_accepted": false, "is_published": false,
+        "raw_source_name": null, "raw_type": "Text"}}, {"id": "https://openalex.org/W2060473230",
+        "doi": "https://doi.org/10.1117/12.388454", "title": "Pulsed laser deposition
+        of phosphor nitride thin films", "publication_year": 2000, "abstract_inverted_index":
+        {"In": [0], "this": [1], "paper": [2], "we": [3], "report": [4], "on": [5],
+        "the": [6], "results": [7], "of": [8, 11, 13, 23], "experimental": [9], "investigations":
+        [10], "processes": [12], "pulse": [14], "laser": [15, 39], "reactive": [16,
+        43], "deposition": [17], "and": [18, 21], "structure": [19], "formation":
+        [20], "characteristics": [22], "AlN,": [24], "AlN:Mn,": [25], "GaN,": [26],
+        "GaN:Zn,": [27], "GaN:Mn,": [28], "GaN:Cr,": [29], "MgSiN2:Ti,": [30], "SrSiN2:Eu":
+        [31], "thin": [32], "films": [33], "which": [34], "have": [35], "been": [36],
+        "condensed": [37], "from": [38], "erosion": [40], "plasma": [41], "into":
+        [42], "atmosphere": [44], "(nitrogen).": [45]}, "primary_location": {"id":
+        "doi:10.1117/12.388454", "doi": "https://doi.org/10.1117/12.388454", "is_oa":
+        false, "landing_page_url": "https://doi.org/10.1117/12.388454", "pdf_url":
+        null, "source": {"id": "https://openalex.org/S183492911", "display_name":
+        "Proceedings of SPIE, the International Society for Optical Engineering/Proceedings
+        of SPIE", "issn_l": "0277-786X", "issn": ["0277-786X", "1996-756X"], "is_oa":
+        false, "is_in_doaj": false, "is_core": true, "listed_in": ["cwts-core", "norway-1"],
+        "host_organization": "https://openalex.org/P4310315543", "host_organization_name":
+        "SPIE", "host_organization_lineage": ["https://openalex.org/P4310315543"],
+        "host_organization_lineage_names": ["SPIE"], "type": "journal"}, "license":
+        null, "license_id": null, "version": "publishedVersion", "is_accepted": true,
+        "is_published": true, "raw_source_name": "SPIE Proceedings", "raw_type": "proceedings-article"}}],
+        "group_by": []}'
+  recorded_at: '2026-11-04T18:19:42+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=MgSiN2+thin+film&select=id
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 7, "db_response_time_ms": 13, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (MgSiN2 thin film)
+        in the title or abstract", "x_new_oql": "get works with (MgSiN2 thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "MgSiN2 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:MgSiN2 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W4411344321"}], "group_by": []}'
+  recorded_at: '2026-11-04T18:19:43+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=Na2CN2+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 64, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Na2CN2 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (Na2CN2 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "Na2CN2
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:Na2CN2
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T18:19:45+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=Na2CN2+thin+film&select=id
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 8, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (Na2CN2 thin film)
+        in the title or abstract", "x_new_oql": "get works with (Na2CN2 thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "Na2CN2 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:Na2CN2 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T18:19:45+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=Na4ReN3+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 20, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Na4ReN3 thin
+        film) in the title or abstract where it has an abstract", "x_new_oql": "get
+        works with (Na4ReN3 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "Na4ReN3
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:Na4ReN3
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T18:19:48+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=Na4ReN3+thin+film&select=id
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 86, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (Na4ReN3 thin
+        film) in the title or abstract", "x_new_oql": "get works with (Na4ReN3 thin
+        film) in the title or abstract", "oqo": {"get_rows": "works", "filter_rows":
+        [{"column_id": "title_and_abstract.search", "value": "Na4ReN3 thin film",
+        "operator": "has"}]}, "url": "/works?filter=title_and_abstract.search:Na4ReN3
+        thin film&per_page=1", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T18:19:48+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=Nd3Si6N11+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 9, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Nd3Si6N11 thin
+        film) in the title or abstract where it has an abstract", "x_new_oql": "get
+        works with (Nd3Si6N11 thin film) in the title or abstract where it has an
+        abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "Nd3Si6N11
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:Nd3Si6N11
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T18:19:52+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=Nd3Si6N11+thin+film&select=id
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 11, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (Nd3Si6N11 thin
+        film) in the title or abstract", "x_new_oql": "get works with (Nd3Si6N11 thin
+        film) in the title or abstract", "oqo": {"get_rows": "works", "filter_rows":
+        [{"column_id": "title_and_abstract.search", "value": "Nd3Si6N11 thin film",
+        "operator": "has"}]}, "url": "/works?filter=title_and_abstract.search:Nd3Si6N11
+        thin film&per_page=1", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T18:19:52+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=Pr3Si6N11+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 9, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Pr3Si6N11 thin
+        film) in the title or abstract where it has an abstract", "x_new_oql": "get
+        works with (Pr3Si6N11 thin film) in the title or abstract where it has an
+        abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "Pr3Si6N11
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:Pr3Si6N11
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T18:19:55+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=Pr3Si6N11+thin+film&select=id
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 7, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (Pr3Si6N11 thin
+        film) in the title or abstract", "x_new_oql": "get works with (Pr3Si6N11 thin
+        film) in the title or abstract", "oqo": {"get_rows": "works", "filter_rows":
+        [{"column_id": "title_and_abstract.search", "value": "Pr3Si6N11 thin film",
+        "operator": "has"}]}, "url": "/works?filter=title_and_abstract.search:Pr3Si6N11
+        thin film&per_page=1", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T18:19:55+00:00'
 version: 1

@@ -32,10 +32,10 @@ bash scripts/cold_run.sh /tmp/cold-run        # defaults to the current commit
 Recorded below by Track D from the commit it was run on; rerun the script to refresh.
 
 <!-- cold-run-output -->
-Commit a285f19, 2026-11-04, macOS, Python 3.12, Node 20, bare defaults, `bash scripts/cold_run.sh <dir> HEAD`:
+Commit 04d2a6d, 2026-11-04, macOS, Python 3.12, Node 20, bare defaults, `bash scripts/cold_run.sh <dir> HEAD`:
 
 ```
-1. clone HEAD into /private/tmp/claude-501/-Users-rpate-Desktop-lila/b0df2d3a-4f11-40e2-83f8-e15d6537bdd7/scratchpad/cold-hfixPASS
+1. clone HEAD into /private/tmp/claude-501/-Users-rpate-Desktop-lila/b0df2d3a-4f11-40e2-83f8-e15d6537bdd7/scratchpad/cold-hfix2PASS
 2. uv sync (locked)                             PASS
 3. web: npm ci and build                        PASS
 4. lint, types, unit tests (no browser, no db)  PASS
@@ -43,7 +43,7 @@ Commit a285f19, 2026-11-04, macOS, Python 3.12, Node 20, bare defaults, `bash sc
 6. the web app answers at / and /console        PASS
 7. Rank my list over the API; its page reloads  PASS
 8. one eval case on the scripted model (A1)     PASS
-cold run complete: /private/tmp/claude-501/-Users-rpate-Desktop-lila/b0df2d3a-4f11-40e2-83f8-e15d6537bdd7/scratchpad/cold-hfix
+cold run complete: /private/tmp/claude-501/-Users-rpate-Desktop-lila/b0df2d3a-4f11-40e2-83f8-e15d6537bdd7/scratchpad/cold-hfix2
 exit=0
 ```
 <!-- /cold-run-output -->
