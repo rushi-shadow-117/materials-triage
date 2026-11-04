@@ -871,6 +871,11 @@ export interface components {
             llm_status: string;
             /** Role */
             role: string;
+            /**
+             * Role Switch
+             * @default false
+             */
+            role_switch: boolean;
             /** Subject */
             subject: string;
         };

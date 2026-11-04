@@ -1,8 +1,13 @@
 # Permissions
 
-Roles come only from the bearer token (`AUTH_MODE=static` or `oidc`). In `AUTH_MODE=none`
-every request carries `DEV_ROLE`. Nothing in a request body, a query string, another header,
-or chat text changes a role. Every refused request is written to the audit log.
+Roles come only from the bearer token (`AUTH_MODE=static` or `oidc`). Nothing in a request
+body, a query string, another header, or chat text changes a role. Every refused request is
+written to the audit log.
+
+`AUTH_MODE=none` is for development and is refused when `SITE_MODE=true`. In that mode every
+request carries `DEV_ROLE`, and the header `X-Dev-Role` (the role switcher in the app's
+header) may pick one of the three roles for a request; static and OIDC modes never read it,
+and `tests/api/test_auth.py` sends it in each mode.
 
 The enforcing code is the FastAPI dependency named in the last column
 (`src/materials_triage/api/auth.py`). `tests/api/test_permissions.py` checks every route in

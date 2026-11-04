@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink, Navigate, Route, Routes, useNavigate } from "react-router-dom";
-import { ApiError, get, getToken, setToken, type Me, type ProfileSummary } from "./api";
+import { ApiError, get, getToken, setDevRole, setToken, type Me, type ProfileSummary } from "./api";
 import Workspace from "./screens/Workspace";
 import RunPage from "./screens/RunPage";
 import Drill from "./screens/Drill";
@@ -103,6 +103,22 @@ export default function App() {
         <span className="chip" title={`auth mode ${me.auth_mode}`}>
           Role: {me.role}
         </span>
+        {me.role_switch && (
+          <label className="field" style={{ margin: 0 }} title="Development only (AUTH_MODE=none). In static and OIDC modes the role comes from the token.">
+            <select
+              aria-label="dev role"
+              value={me.role}
+              onChange={(e) => {
+                setDevRole(e.target.value);
+                void load();
+              }}
+            >
+              <option value="scientist">try as scientist</option>
+              <option value="fde">try as fde</option>
+              <option value="admin">try as admin</option>
+            </select>
+          </label>
+        )}
         <small className="muted">{me.subject}</small>
         {getToken() && (
           <button

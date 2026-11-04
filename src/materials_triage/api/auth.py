@@ -28,6 +28,7 @@ from materials_triage.adapters import egress
 from materials_triage.settings import Role, Settings
 
 ROLES: tuple[Role, ...] = ("scientist", "fde", "admin")
+DEV_ROLE_HEADER = "X-Dev-Role"  # read in AUTH_MODE=none only (Track H role switcher)
 CLOCK_LEEWAY_S = 60  # issuer and API clocks differ by a few seconds (a Docker VM, for one)
 
 
@@ -76,7 +77,13 @@ class AuditLog:
 
 
 def check_startup(settings: Settings) -> None:
-    """Site mode refuses static tokens unless the operator says so explicitly."""
+    """Site mode refuses static tokens unless the operator says so explicitly, and never
+    runs with no auth at all."""
+    if settings.auth_mode == "none" and settings.site_mode:
+        raise AuthConfigError(
+            "AUTH_MODE=none is for development only; a site deployment (SITE_MODE=true) "
+            "needs AUTH_MODE=oidc, or static with ALLOW_STATIC_TOKENS=true"
+        )
     if settings.auth_mode == "static":
         if settings.site_mode and not settings.allow_static_tokens:
             raise AuthConfigError(
@@ -183,7 +190,11 @@ def current_principal(request: Request) -> Principal:
     settings: Settings = request.app.state.settings
     audit: AuditLog = request.app.state.audit
     if settings.auth_mode == "none":
-        return Principal(subject="dev", role=settings.dev_role, mode="none")
+        # development only (check_startup refuses this mode in site mode): the header lets a
+        # developer try each role; static and oidc never read it
+        claimed = request.headers.get(DEV_ROLE_HEADER)
+        dev_role: Role = claimed if claimed in ROLES else settings.dev_role
+        return Principal(subject="dev", role=dev_role, mode="none")
     token = _bearer(request)
     if token is None:
         audit.write("refused", None, status=401, path=request.url.path, reason="no bearer token")

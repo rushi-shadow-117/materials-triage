@@ -150,7 +150,8 @@ def test_input_limits_chips_and_the_call_estimate(page, server: str) -> None:  #
     page.get_by_role("button", name="Review criteria").click()
     matched = page.get_by_test_id("matched")
     matched.wait_for()
-    assert [c.strip() for c in matched.locator(".chip").all_inner_texts()] == ["HfO2", "ZrO2", "Al2O3"]
+    chips = [c.strip() for c in matched.locator(".chip").all_inner_texts()]
+    assert chips == ["HfO2", "ZrO2", "Al2O3"]
     estimate = page.get_by_test_id("estimate")
     assert "No model configured" in estimate.inner_text()  # LLM_PROVIDER=none on this server
     assert page.get_by_role("button", name="Confirm and run").is_enabled()
@@ -159,3 +160,11 @@ def test_input_limits_chips_and_the_call_estimate(page, server: str) -> None:  #
     page.get_by_text("Paste at least one formula or name to rank.").wait_for()
     assert page.get_by_role("button", name="Confirm and run").is_disabled()
     shot(page, "07-limits-and-estimate")
+
+
+def test_the_role_switcher_is_absent_with_static_tokens(page, server: str) -> None:  # type: ignore[no-untyped-def]
+    """Track H item 1: this server runs AUTH_MODE=static, so the dev role select never
+    renders and the role is the token's."""
+    sign_in(page, server, "fde")
+    assert page.get_by_label("dev role").count() == 0
+    assert "Role: fde" in page.inner_text("header")

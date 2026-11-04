@@ -76,8 +76,33 @@ def test_dev_mode_role_comes_from_settings_only(tmp_path: Path) -> None:
         "llm_status": "none",
         "llm_note": "No model configured (LLM_PROVIDER=none). The request box is off; "
         "fill the criteria form by hand.",
+        "role_switch": True,
     }
     assert c.post("/api/admin/refresh", json={"source": "openalex", "note": "x"}).status_code == 403
+
+
+def test_dev_role_header_switches_the_role_in_none_mode_only(tmp_path: Path) -> None:
+    """Track H item 1: the header is a development convenience; a value that is not a role
+    falls back to DEV_ROLE, and the token modes never read it."""
+    c = _client(tmp_path, auth_mode="none", dev_role="scientist")
+    assert c.get("/api/me", headers={"X-Dev-Role": "admin"}).json()["role"] == "admin"
+    assert c.get("/api/me", headers={"X-Dev-Role": "root"}).json()["role"] == "scientist"
+    assert c.get("/api/audit", headers={"X-Dev-Role": "admin"}).status_code == 200
+    assert c.get("/api/audit", headers={"X-Dev-Role": "fde"}).status_code == 403
+    static = _client(tmp_path / "static", auth_mode="static", static_tokens=TOKENS)
+    me = static.get("/api/me", headers={**_bearer("sci-token"), "X-Dev-Role": "admin"}).json()
+    assert me["role"] == "scientist" and me["role_switch"] is False
+    assert (
+        static.get(
+            "/api/audit", headers={**_bearer("sci-token"), "X-Dev-Role": "admin"}
+        ).status_code
+        == 403
+    )
+
+
+def test_site_mode_refuses_no_auth(tmp_path: Path) -> None:
+    with pytest.raises(auth.AuthConfigError, match="AUTH_MODE=none is for development"):
+        _client(tmp_path, auth_mode="none", site_mode=True)
 
 
 def test_site_mode_refuses_static_tokens_unless_allowed(tmp_path: Path) -> None:
@@ -161,6 +186,10 @@ def test_oidc_roles_come_from_the_token_claim(tmp_path: Path, rsa: dict[str, Any
     assert c.get("/api/me", headers=_bearer(admin)).json()["role"] == "admin"  # highest known role
     sci = _jwt(rsa, realm_access={"roles": ["scientist"]})
     assert c.get("/api/config/layers", headers=_bearer(sci)).status_code == 403
+    # the development role header changes nothing in OIDC mode (Track H item 1)
+    with_header = {**_bearer(sci), "X-Dev-Role": "admin"}
+    assert c.get("/api/config/layers", headers=with_header).status_code == 403
+    assert c.get("/api/me", headers=with_header).json()["role_switch"] is False
     none = _jwt(rsa, realm_access={"roles": ["uma_authorization"]})
     assert c.get("/api/me", headers=_bearer(none)).status_code == 403
     # the JWKS was fetched once from the issuer and cached

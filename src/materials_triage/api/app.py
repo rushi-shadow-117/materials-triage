@@ -229,6 +229,7 @@ def _routes(app: APIRouter) -> None:  # noqa: C901 - one function registers ever
             subject=principal.subject,
             role=principal.role,
             auth_mode=principal.mode,
+            role_switch=principal.mode == "none",
             **llm_status.describe(),
         )
 
