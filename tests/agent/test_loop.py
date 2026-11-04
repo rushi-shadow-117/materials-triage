@@ -118,12 +118,13 @@ def test_budget_breach_ends_the_step_as_partial_before_any_request() -> None:
 def test_budget_counts_requests_and_tokens_and_seconds() -> None:
     clock = iter([0.0, 0.0, 400.0, 400.0, 400.0])
     budget = loop.Budget(
-        max_tool_calls=40, max_tokens=12, max_seconds=300, clock=lambda: next(clock)
+        max_tool_calls=40, max_tokens=10_000, max_seconds=300, clock=lambda: next(clock)
     )
     budget.started = 0.0
     fake = llm.FakeLLM([_call(GOOD_INPUT)])
     result = _run(fake, budget=budget)
     assert result.ok and budget.tool_calls == 1 and budget.tokens == 15
+    budget.max_tokens = 12  # the reply's 15 tokens now exceed the limit
     assert "max_tokens" in (budget.breach() or "")
     assert budget.used()["tool_calls"] == 1.0 and budget.limits()["seconds"] == 300.0
     stepped = loop.Budget.from_core(CoreConfig(), "parse")
@@ -149,3 +150,34 @@ def test_wrong_tool_name_counts_as_no_tool_call() -> None:
     result = _run(fake)
     assert result.status == loop.StepStatus.FAILED
     assert result.entries[0].summary == "wrong tool called"
+
+
+def test_a_prompt_too_large_for_the_budget_is_never_sent() -> None:
+    """Track H sweep: a discovery rationale built a 1.15M-token prompt; the budget was charged
+    only after a reply, so the request went out and the provider answered 400."""
+    fake = llm.FakeLLM([_call(GOOD_INPUT)])
+    result = loop.run_step(
+        client=fake,
+        step="classify",
+        system=prompts.system_prompt("classify"),
+        user_text=prompts.data_block("x" * 300_000),
+        tool=TOOL,
+        handler=_accept,
+        budget=_budget(max_tokens=20_000),
+    )
+    assert result.status == loop.StepStatus.BUDGET
+    assert "exceeds" in (result.reason or "")
+    assert fake.requests == []  # nothing was sent
+
+
+def test_a_provider_error_fails_the_step_not_the_run() -> None:
+    class Exploding:
+        model = "m"
+        provider = "fake"
+
+        def complete(self, **_: Any) -> Any:
+            raise RuntimeError("400 invalid_request_error: prompt is too long")
+
+    result = _run(Exploding())  # type: ignore[arg-type]
+    assert result.status == loop.StepStatus.FAILED
+    assert (result.reason or "").startswith("provider error: RuntimeError")

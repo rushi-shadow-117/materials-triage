@@ -125,3 +125,15 @@ def test_no_llm_and_failed_step_fall_back_to_template_text(
     )
     assert out2.slots == rationale.template_only(bundle)
     assert out2.partial_reason is not None and "max_tool_calls" in out2.partial_reason
+
+
+def test_slot_plan_asks_only_for_the_shown_rows(bundle: ProvenanceBundle) -> None:
+    """Track H sweep: rows beyond top N keep their template text; the model is asked for the
+    rows the views show and the overview."""
+    ranked = bundle.ranked()
+    assert len(ranked) > 2
+    plan = rationale.slot_plan(bundle, 2)
+    assert plan == [f"candidate:{c.composition}:one_line" for c in ranked[:2]] + [
+        "summary:overview"
+    ]
+    assert rationale.slot_plan(bundle, None) == rationale.slot_plan(bundle)

@@ -1582,3 +1582,15 @@ stays editable after a one-click run's parse. The button exists only when a mode
 about chemistry or settings. A progress panel with a seconds counter shows during the parse.
 Alternative: always auto-run after a parse, which would start a search on clamped or partly
 understood settings without the scientist seeing them.
+
+### 2026-11-04 The rationale covers the shown rows; an oversized prompt is never sent
+Decision: the rationale step asks the model only for the rows the views show (top N) and the
+overview; ranked rows beyond top N keep their template text, which is verified by construction.
+The loop estimates a request's input tokens (one per three characters, deliberately high)
+and refuses it before sending when it exceeds what is left in the step's token budget; any
+provider error other than an unavailable key or credit fails that step, never the run. Found
+when a discovery run asked for one sentence per ranked row (about 1,700) and sent a
+1,154,398-token prompt that the provider rejected with HTTP 400; the run failed whole and
+saved nothing. With the fix the same run completes with model rationale for the top N.
+Alternative: chunk the rationale across several calls for every ranked row, which spends
+calls on sentences no view displays.
