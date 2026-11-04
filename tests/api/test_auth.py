@@ -191,3 +191,17 @@ def test_oidc_rejects_expired_wrong_audience_and_wrong_issuer(
 def test_oidc_startup_needs_issuer_and_audience(tmp_path: Path) -> None:
     with pytest.raises(auth.AuthConfigError, match="OIDC_ISSUER"):
         create_app(make_settings(tmp_path, auth_mode="oidc"))
+
+
+def test_refresh_notes_are_stripped_and_must_have_text(tmp_path: Path) -> None:
+    """Human test session, item 13: a note of two spaces was accepted and audit-logged."""
+    c = _client(tmp_path, auth_mode="none", dev_role="admin")
+    for blank in ("", "   ", "\t\n"):
+        r = c.post("/api/admin/refresh", json={"source": "pubchem", "note": blank})
+        assert r.status_code == 422, blank
+    r = c.post("/api/admin/refresh", json={"source": "pubchem", "note": "  recheck GHS  "})
+    assert r.status_code == 202 and r.json()["audit_entry"]["note"] == "recheck GHS"
+    notes = [
+        e.get("note") for e in c.get("/api/audit").json() if e["action"] == "refresh_requested"
+    ]
+    assert notes == ["recheck GHS"]

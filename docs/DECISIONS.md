@@ -1418,3 +1418,9 @@ mode); available with live fetching". Only a live miss says the source has no su
 bundle records each miss with its reason (`criteria.not_fetched`), and the results page shows
 it as a chip beside the unmatched names.
 Alternative: one wording for both, which told the scientist Materials Project lacks CaO.
+
+### 2026-11-04 Refresh notes are stripped and must have text
+Decision (owner): the API strips the refresh note and refuses one that is empty after
+stripping (422); the audit log stores the stripped note. The console's button already
+required text; the API now enforces it for every client.
+Alternative: rely on the console's check, which any other client skips.

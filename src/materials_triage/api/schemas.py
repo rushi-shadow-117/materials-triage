@@ -5,7 +5,7 @@ from __future__ import annotations
 
 from typing import Any, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 from materials_triage.config.schema import Clamp, QuerySettings
 from materials_triage.records.bundle import ProvenanceBundle
@@ -164,7 +164,15 @@ class ProfileSaved(BaseModel):
 
 class RefreshRequest(BaseModel):
     source: str
-    note: str = Field(min_length=1)
+    note: str = Field(min_length=1)  # the audit note; stripped, and blank is refused
+
+    @field_validator("note")
+    @classmethod
+    def _note_has_text(cls, v: str) -> str:
+        stripped = v.strip()
+        if not stripped:
+            raise ValueError("an audit note is required; whitespace alone is not a note")
+        return stripped
 
 
 class RefreshAccepted(BaseModel):
