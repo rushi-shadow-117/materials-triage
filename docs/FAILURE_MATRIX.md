@@ -91,16 +91,6 @@ rows only under its own heading. Rows name a test path; a row without a test is 
 | Enrichment excludes a top-K row and admits an unenriched one | Loop enriches the newcomer and scores again until the top K is enriched | tests/agent/test_discovery.py::test_recorded_discovery_queries_run_offline_end_to_end_with_the_real_scorer |
 | Discovery query without a gap bound | Floor from the profile (hard minimum, else soft preference start) | tests/agent/test_discovery.py::test_discovery_filter_sends_only_hard_rules_at_their_loosest_value |
 
-## Track C: API and web
-
-| Failure | Behavior | Test |
-|---|---|---|
-
-## Track D: deploy and docs
-
-| Failure | Behavior | Test |
-|---|---|---|
-
 ## Track E: eval and validation
 
 | Failure | Behavior | Test |
@@ -186,3 +176,13 @@ rows only under its own heading. Rows name a test path; a row without a test is 
 | No model configured | /parse says so; the form is filled by hand | tests/api/test_runs_api.py::test_parse_is_unavailable_without_a_model |
 | A client-side route opened directly | index.html is served; the app routes | tests/e2e/test_browser.py::test_console_by_role |
 | Profile YAML with a weight outside the site bounds | Validation error; save disabled | tests/e2e/test_browser.py::test_console_by_role |
+
+## Track D: deploy and docs
+
+| Failure | Behavior | Test |
+|---|---|---|
+| A guide names a command, script, or path that does not exist | The docs test fails naming it | tests/test_docs.py::test_commands_and_links_in_docs_exist |
+| The README grows past 150 lines | The docs test fails | tests/test_docs.py::test_readme_is_short |
+| The api image does not build or does not serve /health from recorded data | The CI docker job fails | .github/workflows/ci.yml (docker job) |
+| The Terraform module is unformatted or invalid | The CI terraform job fails | .github/workflows/ci.yml (terraform job) |
+| A fresh clone cannot install, build, serve, rank, or run an eval case | scripts/cold_run.sh prints FAIL at that step and exits non-zero | scripts/cold_run.sh |
