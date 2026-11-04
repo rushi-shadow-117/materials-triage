@@ -55,6 +55,14 @@ def test_the_llm_endpoint_is_allowed_only_for_the_configured_provider() -> None:
     assert "llm.internal" in compat and "api.anthropic.com" not in compat
     bedrock = egress.allowed_hosts(_settings(llm_provider="bedrock", aws_region="us-east-1"))
     assert "bedrock-mantle.us-east-1.api.aws" in bedrock
+    # the named presets (Track H item 6) add their endpoint host automatically
+    assert "api.openai.com" in egress.allowed_hosts(_settings(llm_provider="openai"))
+    gemini = egress.allowed_hosts(_settings(llm_provider="gemini"))
+    assert "generativelanguage.googleapis.com" in gemini and "api.openai.com" not in gemini
+    proxied = egress.allowed_hosts(
+        _settings(llm_provider="openai", llm_base_url="https://proxy.internal/v1")
+    )
+    assert "proxy.internal" in proxied and "api.openai.com" not in proxied
 
 
 def test_llm_clients_refuse_other_hosts() -> None:

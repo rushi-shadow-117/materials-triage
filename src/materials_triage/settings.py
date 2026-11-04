@@ -9,7 +9,7 @@ from pydantic import SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 FetchMode = Literal["live", "replay", "refresh"]
-LLMProvider = Literal["anthropic", "bedrock", "openai_compatible", "none"]
+LLMProvider = Literal["anthropic", "bedrock", "openai_compatible", "openai", "gemini", "none"]
 ClassifyMode = Literal["live", "cache_only"]
 AuthMode = Literal["none", "static", "oidc"]
 Role = Literal["scientist", "fde", "admin"]
@@ -39,6 +39,10 @@ class Settings(BaseSettings):
     llm_base_url: str | None = None  # openai_compatible: the server's /v1 base URL
     llm_api_key: SecretStr | None = None  # openai_compatible: optional bearer token
     aws_region: str | None = None  # bedrock
+    # Named presets through the OpenAI-compatible client (Track H item 6, experimental: not
+    # evaluated). Each has its own key; LLM_MODEL must be set explicitly for them.
+    openai_api_key: SecretStr | None = None
+    gemini_api_key: SecretStr | None = None
 
     # live (the default): abstracts are classified by the model within the classify budget;
     # /api/criteria/resolve returns the run's estimated model calls first. cache_only: labels

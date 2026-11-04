@@ -12,6 +12,7 @@ from threading import Lock
 from typing import Any, Literal
 
 import anthropic
+import httpx
 
 from materials_triage.agent.llm import LLMClient, LLMResponse, ToolSpec, Turn
 
@@ -82,6 +83,14 @@ def classify_error(e: Exception) -> LLMStatus | None:
             return "no_credit"
         if isinstance(e, anthropic.PermissionDeniedError):
             return "invalid_key"
+    if isinstance(e, httpx.HTTPStatusError):
+        # the OpenAI-compatible client (openai, gemini, self-hosted) raises plain httpx errors
+        code = e.response.status_code
+        if code in (401, 403):
+            return "invalid_key"
+        body = e.response.text.lower()
+        if code == 402 or (code == 429 and any(w in body for w in ("quota", "billing", "credit"))):
+            return "no_credit"
     return None
 
 

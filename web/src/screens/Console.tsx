@@ -179,7 +179,17 @@ function Health({ isAdmin }: { isAdmin: boolean }) {
       {error && <div className="panel bad">{error}</div>}
       {health && (
         <>
-          <p className="muted">Fetch source {health.fetch_source} ({health.fetch_mode}); model {health.llm_model ?? "none"} via {health.llm_provider}; classify {health.classify_mode}; auth {health.auth_mode}.</p>
+          <div className="panel note" data-testid="model-panel">
+            <h3 style={{ marginTop: 0 }}>Model</h3>
+            <dl className="kv">
+              <dt>Provider</dt><dd>{health.llm_provider}{["openai", "gemini", "openai_compatible"].includes(health.llm_provider) ? " (experimental: not evaluated)" : ""}</dd>
+              <dt>Model</dt><dd>{health.llm_model ?? "none"}</dd>
+              <dt>Classify mode</dt><dd>{health.classify_mode}</dd>
+              <dt>Status</dt><dd>{health.llm_status}{health.llm_note ? ` · ${health.llm_note}` : ""}</dd>
+            </dl>
+            <p className="muted">Read only. The provider and model are a site decision made in the configuration (LLM_PROVIDER, LLM_MODEL); nothing here changes them.</p>
+          </div>
+          <p className="muted">Fetch source {health.fetch_source} ({health.fetch_mode}); auth {health.auth_mode}.</p>
           <table>
             <thead><tr><th>Source</th><th>Status</th><th>Via</th><th>Last fetch</th><th>Records</th><th>Allowed host</th></tr></thead>
             <tbody>{health.sources.map((s) => <tr key={s.source}><td>{s.source}</td><td>{s.status}</td><td>{s.fetch_source}</td><td className="mono">{s.last_fetch ?? "—"}</td><td className="num">{s.records ?? "—"}</td><td className="mono">{s.allowed_host ?? "—"}</td></tr>)}</tbody>

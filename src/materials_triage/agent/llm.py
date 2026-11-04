@@ -286,11 +286,33 @@ def parse_openai_body(body: dict[str, Any]) -> LLMResponse:
     )
 
 
+@dataclass(frozen=True)
+class ProviderPreset:
+    """A named OpenAI-compatible endpoint: its base URL, the Settings field that holds its
+    key, and that field's environment variable name (for the missing-key message)."""
+
+    base_url: str
+    key_field: str
+    key_variable: str
+
+
+# Experimental (Track H item 6): wired through the OpenAI-compatible client and not
+# evaluated. The base URLs come from the providers' public documentation and are unverified
+# on the wire by this repository; LLM_BASE_URL overrides them.
+PRESETS: dict[str, ProviderPreset] = {
+    "openai": ProviderPreset("https://api.openai.com/v1", "openai_api_key", "OPENAI_API_KEY"),
+    "gemini": ProviderPreset(
+        "https://generativelanguage.googleapis.com/v1beta/openai",
+        "gemini_api_key",
+        "GEMINI_API_KEY",
+    ),
+}
+CLAUDE_DEFAULT_MODEL = "claude-sonnet-5-5"  # Settings.llm_model's default; not a preset model
+
+
 class OpenAICompatibleClient:
     """Chat-completions endpoint of a self-hosted or third-party server. Base URL from
     settings; bearer token optional. Only the chat/completions path is used."""
-
-    provider = "openai_compatible"
 
     def __init__(
         self,
@@ -299,7 +321,9 @@ class OpenAICompatibleClient:
         model: str,
         api_key: str | None = None,
         client: httpx.Client | None = None,
+        provider: str = "openai_compatible",
     ) -> None:
+        self.provider = provider
         headers = {"Authorization": f"Bearer {api_key}"} if api_key else {}
         self._client = client or httpx.Client(
             base_url=base_url,
@@ -428,6 +452,20 @@ def make_client(settings: Settings) -> LLMClient | None:
         )
         allowed.add(egress.host_of(bedrock.base_url) or "")
         return AnthropicClient(bedrock, model=model, provider="bedrock")
+    preset = PRESETS.get(provider)
+    if preset is not None:
+        secret = getattr(settings, preset.key_field)
+        if secret is None:
+            raise MissingSettingError(preset.key_variable)
+        if settings.llm_model == CLAUDE_DEFAULT_MODEL:
+            # the Claude default is not a model this provider serves; the operator names one
+            raise MissingSettingError("LLM_MODEL")
+        return OpenAICompatibleClient(
+            base_url=settings.llm_base_url or preset.base_url,
+            model=settings.llm_model,
+            api_key=secret.get_secret_value(),
+            provider=provider,
+        )
     if settings.llm_base_url is None:
         raise MissingSettingError("LLM_BASE_URL")
     key = settings.llm_api_key.get_secret_value() if settings.llm_api_key else None

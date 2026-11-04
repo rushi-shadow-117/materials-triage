@@ -23,7 +23,7 @@ from materials_triage.adapters.runner import Runner
 from materials_triage.adapters.transport import TIMEOUT, USER_AGENT, HttpxTransport
 from materials_triage.agent import llm_status, pipeline, scoring_port
 from materials_triage.agent.classifier import ClassifierCache
-from materials_triage.agent.llm import LLMClient, make_client
+from materials_triage.agent.llm import PRESETS, LLMClient, make_client
 from materials_triage.config import schema as cs
 from materials_triage.provenance.store import Store, make_engine
 from materials_triage.records.bundle import FetchMode
@@ -211,6 +211,10 @@ def initial_llm_status(settings: Settings) -> None:
         llm_status.set_status("none")
     elif settings.llm_provider == "anthropic" and settings.anthropic_api_key is None:
         llm_status.set_status("missing_key", "ANTHROPIC_API_KEY")
+    elif settings.llm_provider in PRESETS:
+        preset = PRESETS[settings.llm_provider]
+        if getattr(settings, preset.key_field) is None:
+            llm_status.set_status("missing_key", preset.key_variable)
 
 
 def make_llm(settings: Settings, *, no_llm: bool) -> LLMClient | None:
