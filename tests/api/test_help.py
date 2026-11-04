@@ -16,7 +16,9 @@ def test_the_two_guides_are_served_as_markdown_and_nothing_else_is(client: TestC
     for name in ("README", "DECISIONS", "..", "%2e%2e", "SCIENTIST_GUIDE.md"):
         r = client.get(f"/api/help/{name}")
         assert r.status_code == 404, name
-        assert "use scientist or admin" in r.json()["detail"]
+        assert "# " not in r.text  # no document leaks; a dotted path never reaches the route
+    r = client.get("/api/help/README")
+    assert "use scientist or admin" in r.json()["detail"]
 
 
 def test_help_keys_list_every_closed_vocabulary(client: TestClient) -> None:

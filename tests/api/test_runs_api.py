@@ -52,6 +52,22 @@ def test_candidate_list_run_end_to_end(client: TestClient, tmp_path: Path) -> No
     assert pi["unresolved"][0]["text"] == "Unobtainium oxide"
     audit = client.get(f"/api/runs/{run_id}/view", params={"view": "audit"}).json()
     assert "mp-352" in json.dumps(audit["rows"])  # HfO2's ground state record
+
+    # the selection chart (Track H item 5): HfO2 and ZrO2 are plotted from their scored
+    # polymorph's DFPT record while the dielectric criterion's target band is still pending
+    chart = pi["chart"]
+    plotted = {p["composition"]: p for p in chart["points"]}
+    assert {"HfO2", "ZrO2"} <= set(plotted), chart["unplotted"]
+    assert plotted["HfO2"]["status"] == "shortlist" and plotted["HfO2"]["k_text"]
+    assert plotted["HfO2"]["k_source"].startswith("materials_project")
+    assert all(p["record_ids"] == [] for p in chart["points"])  # PI view: no ids
+    hfo2_criteria = audit["rows"][1]["criteria"]
+    k_criterion = next(c for c in hfo2_criteria if c["criterion"] == "dielectric_constant")
+    assert k_criterion["missing"] and "target band" in (k_criterion["missing_reason"] or "")
+    audit_points = {p["composition"]: p for p in audit["chart"]["points"]}
+    assert "mp-352" in audit_points["HfO2"]["record_ids"]
+    anchor_plotted = any(p["status"] == "anchor" for p in chart["points"])
+    assert anchor_plotted or any(u.startswith("SiO2") for u in chart["unplotted"])
     assert audit["decision_log"] and audit["relaxations"] == []
 
     # exports

@@ -172,6 +172,32 @@ export interface RelaxChoiceView {
   text: string;
 }
 
+export interface ChartTick {
+  value: number;
+  text: string;
+}
+
+export interface ChartPoint {
+  composition: string;
+  status: "shortlist" | "ranked" | "excluded" | "anchor";
+  gap: number;
+  gap_text: string;
+  gap_source: string;
+  k: number;
+  k_text: string;
+  k_source: string;
+  record_ids: string[];
+}
+
+export interface ChartView {
+  points: ChartPoint[];
+  unplotted: string[];
+  x_label: string;
+  y_label: string;
+  x_ticks: ChartTick[];
+  y_ticks: ChartTick[];
+}
+
 export interface RunViewJson {
   view: "pi_summary" | "audit";
   rows: RowView[];
@@ -193,6 +219,7 @@ export interface RunViewJson {
   unavailable_properties: string[];
   ties_note: string | null;
   profile_caveats: CaveatText[];
+  chart: ChartView | null;
   run: RunMeta;
   criteria: Criteria;
   verifier: Verifier | null;

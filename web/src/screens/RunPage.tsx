@@ -4,6 +4,7 @@ import { ApiError, exportUrl, get, post, streamEvents, type ProgressEvent, type 
 import type { Session } from "../App";
 import type { RowView, RunViewJson } from "../view";
 import { ScreenHelp, Tip } from "../components/Help";
+import GapKChart from "../components/GapKChart";
 
 export default function RunPage({ session }: { session: Session }) {
   const { runId = "" } = useParams();
@@ -202,6 +203,8 @@ function Results({ data, view, setView, runId }: { data: RunViewJson; view: "pi_
           </div>
         )}
       </div>
+
+      {data.chart && <GapKChart chart={data.chart} audit={view === "audit"} />}
 
       {data.relaxations && data.relaxations.length > 0 && (
         <div className="panel note">

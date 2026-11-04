@@ -133,3 +133,14 @@ details.help p { margin: 8px 0 4px; }
 .guide h2 { font-size: 18px; margin-top: 20px; }
 .guide pre { overflow-x: auto; padding: 8px; background: var(--panel-alt, rgba(127,127,127,0.1)); }
 .guide code { font-family: ui-monospace, monospace; font-size: 13px; }
+.chart-wrap { max-width: 720px; }
+svg.chart { width: 100%; height: auto; display: block; }
+svg.chart .grid { stroke: var(--line, #ddd); stroke-width: 1; }
+svg.chart .axis { stroke: var(--muted); stroke-width: 1; }
+svg.chart .tick, svg.chart .label, svg.chart .point-label { fill: var(--muted); font-size: 11px; }
+svg.chart .point-label { fill: var(--fg, currentColor); }
+svg.chart .point { fill: var(--accent); stroke: var(--accent); cursor: pointer; }
+svg.chart .point.ranked { fill: transparent; }
+svg.chart .point.excluded { opacity: 0.25; }
+svg.chart .point.anchor { fill: var(--warn); stroke: var(--warn); }
+.chart-hover { min-height: 20px; font-size: 13px; margin-top: 4px; }

@@ -189,3 +189,25 @@ def test_help_panel_tooltips_and_the_help_page(page, server: str) -> None:  # ty
     page.get_by_test_id("guide").get_by_role("heading", name="Admin guide").wait_for()
     assert page.locator("[data-testid='guide'] h2").count() > 3  # rendered markdown, not raw text
     shot(page, "08-help")
+
+
+def test_the_selection_chart_plots_the_shortlist(page, server: str) -> None:  # type: ignore[no-untyped-def]
+    """Track H item 5: the band gap versus dielectric constant chart on the results page,
+    with the shortlist filled, the anchor as a diamond, and a hover readout of server text."""
+    sign_in(page, server, "scientist")
+    page.get_by_role("button", name="Rank my list").click()
+    page.get_by_label("formulas").fill("HfO2, ZrO2, Al2O3")
+    page.get_by_role("button", name="Review criteria").click()
+    page.get_by_test_id("matched").wait_for()
+    page.get_by_role("button", name="Confirm and run").click()
+    page.wait_for_url(re.compile(r"/runs/[0-9a-f-]{36}$"))
+    page.get_by_text("Shown for calibration").wait_for()
+    svg = page.locator("svg[aria-label='band gap versus dielectric constant']")
+    svg.wait_for()
+    assert svg.locator(".point.shortlist[data-composition='HfO2']").count() == 1
+    assert svg.locator(".point.anchor").count() <= 1
+    svg.locator(".point.shortlist[data-composition='HfO2']").hover()
+    readout = page.get_by_test_id("chart-hover").inner_text()
+    assert "HfO2" in readout and "band gap" in readout and " k " in readout
+    assert "mp-" not in readout  # the PI view names no record ids
+    shot(page, "10-chart")
