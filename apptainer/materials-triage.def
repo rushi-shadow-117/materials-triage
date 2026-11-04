@@ -13,8 +13,6 @@ From: materials-triage:api:latest
 %environment
     export DATA_CACHE_DIR=${DATA_CACHE_DIR:-$HOME/.materials-triage}
     export AUTH_MODE=${AUTH_MODE:-none}
-    export LLM_PROVIDER=${LLM_PROVIDER:-none}
-    export FETCH_MODE=${FETCH_MODE:-replay}
     export PATH=/opt/venv/bin:$PATH
 
 %runscript

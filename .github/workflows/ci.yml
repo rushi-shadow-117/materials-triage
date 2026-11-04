@@ -103,6 +103,11 @@ jobs:
           docker run -d --rm --name triage -p 8000:8000 materials-triage:api
           for i in $(seq 1 30); do curl -fsS http://127.0.0.1:8000/api/health && break; sleep 2; done
           curl -fsS http://127.0.0.1:8000/api/health | grep -q '"fetch_source":"cassettes"'
+          # the image bakes no provider or fetch mode: with no .env the model is Anthropic with a
+          # missing key (fallback to no model), never LLM_PROVIDER=none
+          curl -fsS http://127.0.0.1:8000/api/health | grep -q '"llm_provider":"anthropic"'
+          curl -fsS http://127.0.0.1:8000/api/health | grep -q '"llm_status":"missing_key"'
+          curl -fsS -o /dev/null -w '%{http_code}' http://127.0.0.1:8000/api/help/scientist | grep -q 200
           docker stop triage
 
   terraform:

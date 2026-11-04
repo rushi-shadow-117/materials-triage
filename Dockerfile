@@ -30,7 +30,10 @@ COPY alembic.ini ./
 COPY --from=web /build/web/dist ./web/dist
 RUN uv sync --frozen --no-dev && mkdir -p /app/.data-cache && chown -R triage:triage /app
 USER triage
-ENV DATA_CACHE_DIR=/app/.data-cache AUTH_MODE=none LLM_PROVIDER=none FETCH_MODE=replay
+# No LLM_PROVIDER or FETCH_MODE here: the Settings defaults apply (Anthropic with a fallback to no
+# model when no key is given; recorded data unless FETCH_MODE is set), so a .env passed to the
+# container turns the model on without overriding anything baked in.
+ENV DATA_CACHE_DIR=/app/.data-cache AUTH_MODE=none
 EXPOSE 8000
 HEALTHCHECK --interval=30s --timeout=5s --start-period=20s \
     CMD python -c "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8000/api/health', timeout=4).status == 200 else 1)"

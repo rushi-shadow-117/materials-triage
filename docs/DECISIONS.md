@@ -1534,3 +1534,16 @@ Sr3(BN2)2, which are not recorded. Raising the round cap, and a second recording
 left to the owner; no other case's result moved.
 Alternative: raise the round cap in the same change, which would move the failure a second
 time without a decision on how far enrichment may run.
+
+### 2026-11-04 The image bakes no model provider or fetch mode
+Decision: the `api` Docker image and the Apptainer recipe no longer set `LLM_PROVIDER=none` or
+`FETCH_MODE=replay`; only `AUTH_MODE=none` and the data cache directory are baked in, and the
+Settings defaults apply (Anthropic, falling back to no model with a `missing_key` status when
+no key is given; recorded data unless `FETCH_MODE` is set). A `.env` passed to the container
+or to Compose therefore turns the model on, as the fresh-clone decision intends. Before this, a
+Compose user with a key in `.env` still got "No model configured (LLM_PROVIDER=none)", because
+the image's value stood whenever `.env` did not name the variable, and a Compose stack with
+Postgres but no seeded store ran in `replay` against an empty store. The CI docker job now
+asserts the provider, the missing-key status, and the help route on the bare image.
+Alternative: document the two variables as things to set in `.env` for Docker, which leaves
+the image contradicting the README's "model on by default".

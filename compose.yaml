@@ -19,8 +19,8 @@ services:
       retries: 10
 
   # The API, which also serves the built web app. Reads .env (keys, auth mode, model,
-  # classify mode). With FETCH_MODE=replay and no keys it runs from the recorded data in the
-  # image. The host allowlist is enforced in code (adapters/egress.py); compose.site.yaml adds
+  # classify mode). With FETCH_MODE unset and no keys it runs from the recorded data in the
+  # image with the model off (missing key). The host allowlist is enforced in code (adapters/egress.py); compose.site.yaml adds
   # the network split for site deployments.
   api:
     build:
