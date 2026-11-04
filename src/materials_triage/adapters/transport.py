@@ -5,11 +5,12 @@ from __future__ import annotations
 import random
 import threading
 import time
-from collections.abc import Callable
+from collections.abc import Callable, Iterable
 from datetime import UTC, datetime
 
 import httpx
 
+from materials_triage.adapters import egress
 from materials_triage.adapters.base import Auth, Call, RawResponse, Source
 from materials_triage.settings import Settings
 
@@ -50,13 +51,19 @@ class HttpxTransport:
         settings: Settings,
         client: httpx.Client | None = None,
         sleep: Callable[[float], None] = time.sleep,
+        allowed: Iterable[str] | None = None,
     ) -> None:
         self._settings = settings
+        # Egress allowlist (adapters/egress.py): checked before every request
+        self._allowed = (
+            frozenset(allowed) if allowed is not None else egress.allowed_hosts(settings)
+        )
         self._client = client or httpx.Client(timeout=TIMEOUT, headers={"User-Agent": USER_AGENT})
         self._sleep = sleep
         self._buckets = {s: TokenBucket(RATE_LIMITS.get(s, DEFAULT_RATE)) for s in Source}
 
     def get(self, call: Call) -> RawResponse:
+        egress.check(call.url, self._allowed)  # raises before anything is sent
         headers, params = self._authenticate(call)
         last_error: Exception | None = None
         for attempt in range(1, MAX_ATTEMPTS + 1):

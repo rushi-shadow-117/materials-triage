@@ -127,12 +127,13 @@ def test_missing_sources_become_events_and_a_partial_run(
             return None
         return transport(call)
 
-    inputs = _inputs(layers, tmp_path, ["HfO2", "Lu2O3"])
+    # XeF2 is never recorded (no case and no oxide discovery reaches it)
+    inputs = _inputs(layers, tmp_path, ["HfO2", "XeF2"])
     bundle = pipeline.run(
         inputs, fetch=flaky, sources=sources, scorer=scoring_port.default_scorer()
     )
     assert bundle.run.partial is True
-    assert bundle.run.partial_reasons == ["Lu2O3: no Materials Project summary available"]
+    assert bundle.run.partial_reasons == ["XeF2: no Materials Project summary available"]
     assert {e["source"] for e in bundle.availability_events} == {"openalex", "materials_project"}
     hf = next(c for c in bundle.candidates if c.composition == "HfO2")
     assert hf.group.literature is None and bundle.evidence == []

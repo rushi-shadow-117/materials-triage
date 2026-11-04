@@ -1,0 +1,88 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - _csrf_token=authenticated; mp-session=tWdGuSYcBtwKT9fVveU9Fw|1794688599|dSAFT28AT-Yx0QkzLbH5Irl_Eoo;
+        __cf_bm=fXK86RvosSwcOxeOOBriI5Gq3V33MHC8s7GnPSwIgKQ-1793755654.869626-1.0.1.1-9Md556Z972StqqsrdDyeMb2zJTzhNqMpgdky3H3V_vqd2_vaWiitkdHYJfCmbdHUmKmzboLtCm92QArARN9SBQRXJbHSSAsHL8twMgmRobhGAQ.odW.CU0phX9ciCabj
+      host:
+      - api.materialsproject.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cstructure&_limit=1000&material_ids=mp-23044
+  response:
+    body:
+      string: '{"data":[{"material_id":"mp-aaaabici","structure":{"@module":"pymatgen.core.structure","@class":"Structure","charge":0.0,"lattice":{"matrix":[[-2.56105268,2.56105316,5.7960647],[2.56105268,-2.56105316,5.7960647],[2.56105316,2.56105268,-5.7960647]],"pbc":[true,true,true],"a":6.834643379479814,"b":6.834643379479814,"c":6.834643379479814,"alpha":135.9864293397193,"beta":135.9864293397193,"gamma":64.00131636928342,"volume":152.06536936394178},"properties":{},"sites":[{"species":[{"element":"V","occu":1.0}],"abc":[0.5,0.5,-0.0],"properties":{"magmom":0.0},"label":"V","xyz":[0.0,0.0,5.7960647]},{"species":[{"element":"V","occu":1.0}],"abc":[0.25,0.75,0.5],"properties":{"magmom":0.0},"label":"V","xyz":[2.56105292,-2.400000000957192e-7,2.89803235]},{"species":[{"element":"Bi","occu":1.0}],"abc":[-0.0,-0.0,-0.0],"properties":{"magmom":-0.0},"label":"Bi","xyz":[0.0,0.0,0.0]},{"species":[{"element":"Bi","occu":1.0}],"abc":[0.75,0.25,0.5],"properties":{"magmom":-0.0},"label":"Bi","xyz":[2.399999998736746e-7,2.56105292,2.89803235]},{"species":[{"element":"O","occu":1.0}],"abc":[0.17085109,0.56190276,0.89100626],"properties":{"magmom":-0.0},"label":"O","xyz":[3.2834183252247575,1.2804098548929996,-0.9172412072909273]},{"species":[{"element":"O","occu":1.0}],"abc":[0.31190276,0.92089651,0.89105167],"properties":{"magmom":-0.0},"label":"O","xyz":[3.841695770717527,0.7223648996142256,1.98079120066972]},{"species":[{"element":"O","occu":1.0}],"abc":[0.02984483,0.42085109,0.10894833],"properties":{"magmom":-0.0},"label":"O","xyz":[1.2804100948929997,-0.7223654052247571,1.980791142709073]},{"species":[{"element":"O","occu":1.0}],"abc":[0.67089651,0.27984483,0.10899374],"properties":{"magmom":-0.0},"label":"O","xyz":[-0.7223651908352838,1.280642850717532,4.878823550669719]},{"species":[{"element":"O","occu":1.0}],"abc":[0.07910349,0.97015517,0.39100626],"properties":{"magmom":-0.0},"label":"O","xyz":[3.2834181108352842,-1.280643090717532,3.8152734993302797]},{"species":[{"element":"O","occu":1.0}],"abc":[0.72015517,0.82914891,0.39105167],"properties":{"magmom":-0.0},"label":"O","xyz":[1.2806428251070008,0.722365165224757,6.713305907290925]},{"species":[{"element":"O","occu":1.0}],"abc":[0.57914891,0.68809724,0.60899374],"properties":{"magmom":-0.0},"label":"O","xyz":[1.8386877547752427,1.280642585107,3.815273557290927]},{"species":[{"element":"O","occu":1.0}],"abc":[0.43809724,0.32910349,0.60894833],"properties":{"magmom":-0.0},"label":"O","xyz":[1.280410309282473,1.8386875403857745,0.91724114933028]}]}}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T01:27:40.448838+00:00","total_doc":1,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+    headers:
+      access-control-expose-headers:
+      - X-Api-Key
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54fd66aa86e105c-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '2687'
+      content-type:
+      - application/json
+      date:
+      - Wed, 04 Nov 2026 01:27:40 GMT
+      ratelimit-limit:
+      - '25'
+      ratelimit-remaining:
+      - '23'
+      ratelimit-reset:
+      - '1'
+      server:
+      - cloudflare
+      set-cookie:
+      - _csrf_token=authenticated; Domain=.materialsproject.org; Path=/; SameSite=Strict
+      vary:
+      - Accept-Encoding
+      - Origin
+      via:
+      - kong/2.8.4
+      x-consumer-id:
+      - 58e0b4c2-4c2d-439b-ba0a-648cd568a0fa
+      x-kong-proxy-latency:
+      - '8'
+      x-kong-upstream-latency:
+      - '475'
+      x-ratelimit-limit-day:
+      - '640000'
+      x-ratelimit-limit-hour:
+      - '40000'
+      x-ratelimit-limit-minute:
+      - '1000'
+      x-ratelimit-limit-month:
+      - '12800000'
+      x-ratelimit-limit-second:
+      - '25'
+      x-ratelimit-limit-year:
+      - '100000000'
+      x-ratelimit-remaining-day:
+      - '639917'
+      x-ratelimit-remaining-hour:
+      - '39983'
+      x-ratelimit-remaining-minute:
+      - '983'
+      x-ratelimit-remaining-month:
+      - '12799641'
+      x-ratelimit-remaining-second:
+      - '23'
+      x-ratelimit-remaining-year:
+      - '99999593'
+    status:
+      code: 200
+      message: OK
+version: 1

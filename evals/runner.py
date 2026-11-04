@@ -172,7 +172,7 @@ def run_suite(
 
 def write_results(result: SuiteResult, out_dir: Path = RESULTS_DIR) -> Path:
     out_dir.mkdir(parents=True, exist_ok=True)
-    path = out_dir / f"{result.suite}.json"
+    path = out_dir / f"{result.suite.replace(',', '_')}.json"  # a comma list names one file
     path.write_text(json.dumps(result.model_dump(mode="json"), indent=1, sort_keys=True) + "\n")
     return path
 

@@ -108,10 +108,10 @@ discovery:
     exclude_elements: [O, F, Cl, Br, I, S, Se, Te, P, As, Sb, H]
     nelements: [2, 3]
     band_gap_min: 4.0
-  # Owner request, Nov 3: the two discovery queries the CLI runs offline end to end.
-  # oxides_gap_5_plus is the dielectric profile's default discovery floor (its soft
-  # preference start, 5.0 eV; the profile has no hard gap bounds and every oxide would
-  # exceed the ceiling). oxides_gap_2_to_3_3 is the photocatalyst profile's hard window.
+  # Recorded Nov 3 before Track F. These two are no longer the queries the profiles send:
+  # since Track F the discovery API gets only hard rules (dielectric: PBE floor 3.0 eV, hull up
+  # to 94 meV/atom; photocatalyst: 2.0 to 3.3 eV with the same hull limit), recorded as the
+  # run-shaped cassettes fixtures/adapters/mp/run_A1.yaml and run_B1.yaml. Kept as recordings.
   oxides_gap_5_plus:
     elements: [O]
     nelements: [2, 3]

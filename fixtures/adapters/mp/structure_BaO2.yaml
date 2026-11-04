@@ -1,0 +1,88 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - _csrf_token=authenticated; mp-session=tWdGuSYcBtwKT9fVveU9Fw|1794688599|dSAFT28AT-Yx0QkzLbH5Irl_Eoo;
+        __cf_bm=Khq1TPZXaAMo1Jm4OkQKUbRQpZZ_gsQS5rUIlnuO17k-1793755665.5184147-1.0.1.1-thI72BeU7xQTn6RkDcu2iJuVxLuC9EgnOriXw1QyQx6wDjyPX.nIGyAADRh3QDCuzJf5kVCyDTZ0.wP3Z0yn1IaDo87SIF8rosoMpV6C_hg92EM7R3thyh6xjfWS3tIs
+      host:
+      - api.materialsproject.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cstructure&_limit=1000&material_ids=mp-1105
+  response:
+    body:
+      string: '{"data":[{"material_id":"mp-aaaaabqn","structure":{"@module":"pymatgen.core.structure","@class":"Structure","charge":0.0,"lattice":{"matrix":[[3.44954583,0.0,-1.68255569],[-0.82068531,3.35049809,-1.68255569],[0.00556141,0.00708824,4.38878028]],"pbc":[true,true,true],"a":3.8380151228495394,"b":3.83801452304376,"c":4.388789527710842,"alpha":115.92869987302555,"beta":115.92869789637514,"gamma":89.99999198306968,"volume":50.806471622351985},"properties":{},"sites":[{"species":[{"element":"Ba","occu":1.0}],"abc":[-0.0,-0.0,-0.0],"properties":{},"label":"Ba","xyz":[0.0,0.0,0.0]},{"species":[{"element":"O","occu":1.0}],"abc":[0.39166473,0.39166473,0.78332846],"properties":{},"label":"O","xyz":[1.0339883565041883,1.3178243499086761,2.119861057943141]},{"species":[{"element":"O","occu":1.0}],"abc":[0.60833527,0.60833527,0.21667154],"properties":{},"label":"O","xyz":[1.6004335734958117,2.039761980091324,-1.0961921579431415]}]}}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T01:27:55.325337+00:00","total_doc":1,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+    headers:
+      access-control-expose-headers:
+      - X-Api-Key
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54fd6c7be3b105c-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '1090'
+      content-type:
+      - application/json
+      date:
+      - Wed, 04 Nov 2026 01:27:55 GMT
+      ratelimit-limit:
+      - '25'
+      ratelimit-remaining:
+      - '23'
+      ratelimit-reset:
+      - '1'
+      server:
+      - cloudflare
+      set-cookie:
+      - _csrf_token=authenticated; Domain=.materialsproject.org; Path=/; SameSite=Strict
+      vary:
+      - Accept-Encoding
+      - Origin
+      via:
+      - kong/2.8.4
+      x-consumer-id:
+      - 58e0b4c2-4c2d-439b-ba0a-648cd568a0fa
+      x-kong-proxy-latency:
+      - '8'
+      x-kong-upstream-latency:
+      - '461'
+      x-ratelimit-limit-day:
+      - '640000'
+      x-ratelimit-limit-hour:
+      - '40000'
+      x-ratelimit-limit-minute:
+      - '1000'
+      x-ratelimit-limit-month:
+      - '12800000'
+      x-ratelimit-limit-second:
+      - '25'
+      x-ratelimit-limit-year:
+      - '100000000'
+      x-ratelimit-remaining-day:
+      - '639899'
+      x-ratelimit-remaining-hour:
+      - '39965'
+      x-ratelimit-remaining-minute:
+      - '965'
+      x-ratelimit-remaining-month:
+      - '12799623'
+      x-ratelimit-remaining-second:
+      - '23'
+      x-ratelimit-remaining-year:
+      - '99999575'
+    status:
+      code: 200
+      message: OK
+version: 1

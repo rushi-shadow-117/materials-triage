@@ -98,6 +98,9 @@ class Polymorph(Strict):
     license: str | None = None
     matched_by: MatchRule | None = None
     provenance: list[Provenance] = Field(default_factory=list)
+    # Structural dimensionality (Larsen 2019) of this polymorph's MP structure; None when the
+    # structure was not fetched (only the scored polymorph of an enriched composition is).
+    dimensionality: Value[int] | None = None
 
     def ground_state_energy(self, thermo_type: str) -> float | None:
         v = self.hull_energy.get(thermo_type)

@@ -225,7 +225,6 @@ class SourcePolicy(Strict):
 class SiteProfile(Strict):
     name: str = "default"
     sources: dict[str, SourcePolicy] = Field(default_factory=dict)
-    exclude_non_commercial: bool = True
     hazard_policy_path: str = "config/hazard_policy.yaml"
     weight_bounds: dict[str, Bounds] = Field(
         default_factory=lambda: {c: Bounds() for c in CRITERIA}
@@ -291,6 +290,8 @@ class ScoringProfile(Strict):
     anchors: list[str] = Field(default_factory=lambda: ["SiO2"])
     synonyms: dict[str, list[str]] = Field(default_factory=dict)  # composition -> search terms
     sensitivity_perturbation: float = 0.2
+    # Structural dimensionalities (Larsen 2019) excluded by `structure.molecular`; [] = no rule
+    structure_exclude_dimensionality: list[int] = Field(default_factory=list)
 
     @model_validator(mode="after")
     def _weights_known(self) -> ScoringProfile:

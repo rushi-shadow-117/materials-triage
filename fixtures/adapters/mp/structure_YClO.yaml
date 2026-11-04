@@ -1,0 +1,88 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - _csrf_token=authenticated; mp-session=tWdGuSYcBtwKT9fVveU9Fw|1794688599|dSAFT28AT-Yx0QkzLbH5Irl_Eoo;
+        __cf_bm=ytdw77lXXTDyQRV3XGV4iX2oAKZ_hsaxgT2tk36sLv0-1793755682.108176-1.0.1.1-udF91aNo3Fw9FHbPFrPVzlM0GOjyyULhX5Xz9Ch.Rn05uNSYgqRg2G1QiY9k9oqv1VB01WTIert69_T_IKSgxgzf.c5ChFyUZ2FXPnAgcGWxoir2vs1L5yg9N9607T_9
+      host:
+      - api.materialsproject.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cstructure&_limit=1000&material_ids=mp-552120
+  response:
+    body:
+      string: '{"data":[{"material_id":"mp-aaabfktk","structure":{"@module":"pymatgen.core.structure","@class":"Structure","charge":0.0,"lattice":{"matrix":[[3.75123878,0.01857134,9.02214841],[1.81592894,3.28245874,9.02214841],[0.03132033,0.01857135,9.77087398]],"pbc":[true,true,true],"a":9.770941572402878,"b":9.770941368517029,"c":9.770941827232068,"alpha":22.392913823709417,"beta":22.392917123042274,"gamma":22.392919138547775,"volume":118.7354893122821},"properties":{},"sites":[{"species":[{"element":"Y","occu":1.0}],"abc":[0.71663417,0.71663417,0.71663417],"properties":{},"label":"Y","xyz":[4.0120678369666685,2.378939815518863,19.933301839666235]},{"species":[{"element":"Y","occu":1.0}],"abc":[0.28336583,0.28336583,0.28336583],"properties":{},"label":"Y","xyz":[1.5864202130333316,0.9406616144811369,7.881868960333763]},{"species":[{"element":"Cl","occu":1.0}],"abc":[0.8894851,0.8894851,0.8894851],"properties":{},"label":"Cl","xyz":[4.979771703003055,2.9527360099236932,24.741179980555078]},{"species":[{"element":"Cl","occu":1.0}],"abc":[0.1105159,0.1105159,0.1105159],"properties":{},"label":"Cl","xyz":[0.618721945484995,0.366868739677737,3.07401863461572]},{"species":[{"element":"O","occu":1.0}],"abc":[0.36301879,0.36301879,0.36301879],"properties":{},"label":"O","xyz":[2.0323563577404595,1.2050776944008696,10.09742964745933]},{"species":[{"element":"O","occu":1.0}],"abc":[0.63698121,0.63698121,0.63698121],"properties":{},"label":"O","xyz":[3.5661316922595403,2.11452373559913,17.71774115254067]}]}}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T01:28:38.829156+00:00","total_doc":1,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+    headers:
+      access-control-expose-headers:
+      - X-Api-Key
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54fd7d77cc4105c-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '1668'
+      content-type:
+      - application/json
+      date:
+      - Wed, 04 Nov 2026 01:28:38 GMT
+      ratelimit-limit:
+      - '25'
+      ratelimit-remaining:
+      - '24'
+      ratelimit-reset:
+      - '1'
+      server:
+      - cloudflare
+      set-cookie:
+      - _csrf_token=authenticated; Domain=.materialsproject.org; Path=/; SameSite=Strict
+      vary:
+      - Accept-Encoding
+      - Origin
+      via:
+      - kong/2.8.4
+      x-consumer-id:
+      - 58e0b4c2-4c2d-439b-ba0a-648cd568a0fa
+      x-kong-proxy-latency:
+      - '8'
+      x-kong-upstream-latency:
+      - '482'
+      x-ratelimit-limit-day:
+      - '640000'
+      x-ratelimit-limit-hour:
+      - '40000'
+      x-ratelimit-limit-minute:
+      - '1000'
+      x-ratelimit-limit-month:
+      - '12800000'
+      x-ratelimit-limit-second:
+      - '25'
+      x-ratelimit-limit-year:
+      - '100000000'
+      x-ratelimit-remaining-day:
+      - '639847'
+      x-ratelimit-remaining-hour:
+      - '39913'
+      x-ratelimit-remaining-minute:
+      - '954'
+      x-ratelimit-remaining-month:
+      - '12799571'
+      x-ratelimit-remaining-second:
+      - '24'
+      x-ratelimit-remaining-year:
+      - '99999523'
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -19,6 +19,9 @@ FIXED = [
     "total",
     "excluded_rule",
     "band_gap_source",
+    "dimensionality",
+    "dimensionality_record_id",
+    "dimensionality_note",
     "flags",
     "caveats",
     "ground_state_mp_id",
@@ -31,6 +34,16 @@ def header() -> list[str]:
     for c in CRITERIA:
         cols += [f"{c}_raw", f"{c}_unit", f"{c}_source", f"{c}_record_id"]
     return cols
+
+
+def _dimensionality(row: Candidate | Anchor) -> list[str]:
+    dim = row.score.dimensionality if row.score else None
+    note = (row.score.dimensionality_note or "") if row.score else "no score"
+    if dim is None:
+        return ["", "", note]
+    value = "" if dim.value is None else precision.quantize(dim.value, 0)
+    reason = "" if dim.missing_reason is None else str(dim.missing_reason)
+    return [value, dim.provenance.source_record_id, reason or note]
 
 
 def _row(bundle: ProvenanceBundle, row: Candidate | Anchor, units: str) -> list[str]:
@@ -51,6 +64,7 @@ def _row(bundle: ProvenanceBundle, row: Candidate | Anchor, units: str) -> list[
         else precision.fmt(row.score.total, "score"),
         excluded.rule.value if excluded else "",
         (row.score.band_gap_source or "") if row.score else "",
+        *_dimensionality(row),
         ";".join(f.value for f in row.flags),
         ";".join(c.id.value + (f"[{c.subject}]" if c.subject else "") for c in row.caveats),
         (p.ground_state.mp_id or "") if p.ground_state else "",

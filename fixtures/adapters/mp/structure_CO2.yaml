@@ -1,0 +1,90 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      cookie:
+      - _csrf_token=authenticated; mp-session=tWdGuSYcBtwKT9fVveU9Fw|1794688599|dSAFT28AT-Yx0QkzLbH5Irl_Eoo
+      host:
+      - api.materialsproject.org
+      user-agent:
+      - materials-triage/0.0.1 (+https://github.com/rushi-shadow-117/materials-triage)
+    method: GET
+    uri: https://api.materialsproject.org/materials/summary/?_fields=material_id%2Cstructure&_limit=1000&material_ids=mp-20066
+  response:
+    body:
+      string: '{"data":[{"material_id":"mp-aaaabdru","structure":{"@module":"pymatgen.core.structure","@class":"Structure","charge":0.0,"lattice":{"matrix":[[5.49707328,-0.0,-0.0],[0.0,5.49707328,0.0],[0.0,-0.0,5.49707328]],"pbc":[true,true,true],"a":5.49707328,"b":5.49707328,"c":5.49707328,"alpha":90.0,"beta":90.0,"gamma":90.0,"volume":166.10954146881497},"properties":{},"sites":[{"species":[{"element":"C","occu":1.0}],"abc":[-0.0,0.0,0.0],"properties":{},"label":"C","xyz":[0.0,0.0,0.0]},{"species":[{"element":"C","occu":1.0}],"abc":[0.5,0.0,0.5],"properties":{},"label":"C","xyz":[2.74853664,0.0,2.74853664]},{"species":[{"element":"C","occu":1.0}],"abc":[0.5,0.5,0.0],"properties":{},"label":"C","xyz":[2.74853664,2.74853664,0.0]},{"species":[{"element":"C","occu":1.0}],"abc":[-0.0,0.5,0.5],"properties":{},"label":"C","xyz":[0.0,2.74853664,2.74853664]},{"species":[{"element":"O","occu":1.0}],"abc":[0.12253698,0.12253698,0.12253698],"properties":{},"label":"O","xyz":[0.6735947585698945,0.6735947585698945,0.6735947585698945]},{"species":[{"element":"O","occu":1.0}],"abc":[0.37746302,0.87746302,0.62253698],"properties":{},"label":"O","xyz":[2.0749418814301057,4.823478521430106,3.4221313985698947]},{"species":[{"element":"O","occu":1.0}],"abc":[0.62253698,0.37746302,0.87746302],"properties":{},"label":"O","xyz":[3.4221313985698947,2.0749418814301057,4.823478521430106]},{"species":[{"element":"O","occu":1.0}],"abc":[0.87746302,0.62253698,0.37746302],"properties":{},"label":"O","xyz":[4.823478521430106,3.4221313985698947,2.0749418814301057]},{"species":[{"element":"O","occu":1.0}],"abc":[0.87746302,0.87746302,0.87746302],"properties":{},"label":"O","xyz":[4.823478521430106,4.823478521430106,4.823478521430106]},{"species":[{"element":"O","occu":1.0}],"abc":[0.62253698,0.12253698,0.37746302],"properties":{},"label":"O","xyz":[3.4221313985698947,0.6735947585698945,2.0749418814301057]},{"species":[{"element":"O","occu":1.0}],"abc":[0.37746302,0.62253698,0.12253698],"properties":{},"label":"O","xyz":[2.0749418814301057,3.4221313985698947,0.6735947585698945]},{"species":[{"element":"O","occu":1.0}],"abc":[0.12253698,0.37746302,0.62253698],"properties":{},"label":"O","xyz":[0.6735947585698945,2.0749418814301057,3.4221313985698947]}]}}],"meta":{"api_version":"0.88.1","time_stamp":"2026-11-04T01:27:46.011638+00:00","total_doc":1,"facet":null,"max_limit":1000,"default_fields":["material_id"]}}'
+    headers:
+      access-control-expose-headers:
+      - X-Api-Key
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      cf-ray:
+      - a54fd68d7aa8105c-ORD
+      connection:
+      - keep-alive
+      content-length:
+      - '2404'
+      content-type:
+      - application/json
+      date:
+      - Wed, 04 Nov 2026 01:27:46 GMT
+      ratelimit-limit:
+      - '25'
+      ratelimit-remaining:
+      - '24'
+      ratelimit-reset:
+      - '1'
+      server:
+      - cloudflare
+      set-cookie:
+      - _csrf_token=authenticated; Domain=.materialsproject.org; Path=/; SameSite=Strict
+      - __cf_bm=Khq1TPZXaAMo1Jm4OkQKUbRQpZZ_gsQS5rUIlnuO17k-1793755665.5184147-1.0.1.1-thI72BeU7xQTn6RkDcu2iJuVxLuC9EgnOriXw1QyQx6wDjyPX.nIGyAADRh3QDCuzJf5kVCyDTZ0.wP3Z0yn1IaDo87SIF8rosoMpV6C_hg92EM7R3thyh6xjfWS3tIs;
+        HttpOnly; SameSite=None; Secure; Path=/; Domain=materialsproject.org; Expires=Wed,
+        04 Nov 2026 01:57:46 GMT
+      vary:
+      - Accept-Encoding
+      - Origin
+      via:
+      - kong/2.8.4
+      x-consumer-id:
+      - 58e0b4c2-4c2d-439b-ba0a-648cd568a0fa
+      x-kong-proxy-latency:
+      - '8'
+      x-kong-upstream-latency:
+      - '471'
+      x-ratelimit-limit-day:
+      - '640000'
+      x-ratelimit-limit-hour:
+      - '40000'
+      x-ratelimit-limit-minute:
+      - '1000'
+      x-ratelimit-limit-month:
+      - '12800000'
+      x-ratelimit-limit-second:
+      - '25'
+      x-ratelimit-limit-year:
+      - '100000000'
+      x-ratelimit-remaining-day:
+      - '639910'
+      x-ratelimit-remaining-hour:
+      - '39976'
+      x-ratelimit-remaining-minute:
+      - '976'
+      x-ratelimit-remaining-month:
+      - '12799634'
+      x-ratelimit-remaining-second:
+      - '24'
+      x-ratelimit-remaining-year:
+      - '99999586'
+    status:
+      code: 200
+      message: OK
+version: 1

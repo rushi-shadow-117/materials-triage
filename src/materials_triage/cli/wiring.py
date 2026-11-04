@@ -5,7 +5,7 @@ scorer, the classifier cache, and the run store."""
 from __future__ import annotations
 
 import time
-from collections.abc import Iterator
+from collections.abc import Callable, Iterator
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from pathlib import Path
@@ -15,6 +15,7 @@ from uuid import UUID
 
 import httpx
 import yaml
+from sqlalchemy import create_engine, text
 
 from materials_triage.adapters.base import Auth, Call, RawResponse, Source
 from materials_triage.adapters.runner import Runner
@@ -129,6 +130,39 @@ class CassetteFetch:
 
     def __call__(self, call: Call) -> RawResponse | None:
         return self.by_key.get(call.cache_key)
+
+
+def postgres_reachable(url: str, *, timeout_s: int = 2) -> bool:
+    """One short connect attempt; any failure means no usable store."""
+    try:
+        engine = create_engine(url, connect_args={"connect_timeout": timeout_s}, future=True)
+        with engine.connect() as conn:
+            conn.execute(text("select 1"))
+        engine.dispose()
+        return True
+    except Exception:  # noqa: BLE001 - unreachable, refused, auth: all mean "use cassettes"
+        return False
+
+
+def resolve_fetch_source(
+    settings: Settings,
+    requested: str,
+    *,
+    reachable: Callable[[str], bool] = postgres_reachable,
+) -> tuple[FetchSource, str]:
+    """`auto` (the CLI default) uses the store when Postgres answers, else the recorded
+    cassettes. Returns the source and the line logged to stderr and the decision log."""
+    if requested == "store":
+        return "store", "fetch: store (requested)"
+    if requested == "cassettes":
+        return "cassettes", "fetch: cassettes (requested)"
+    if requested != "auto":
+        raise ValueError("--fetch must be auto, store, or cassettes")
+    parts = urlsplit(settings.database_url)
+    where = f"{parts.hostname}:{parts.port}"
+    if reachable(settings.database_url):
+        return "store", f"fetch: store (Postgres reachable at {where})"
+    return "cassettes", f"fetch: cassettes (Postgres not reachable at {where})"
 
 
 def make_fetch(

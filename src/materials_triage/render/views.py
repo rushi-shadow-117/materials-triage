@@ -147,6 +147,7 @@ class RowView:
     evidence: list[EvidenceView]
     sensitivity: str | None
     band_gap_source: str | None
+    dimensionality: str = "missing"
 
 
 @dataclass
@@ -164,6 +165,7 @@ class RunView:
     hidden_ranked: int = 0  # ranked rows beyond top_n, not shown
     hidden_excluded: int = 0
     hull_cutoff: str | None = None  # the effective energy above hull cutoff
+    overview: str | None = None  # the verified summary:overview rationale slot
     unresolved_candidates: list[str] = field(default_factory=list)
     unavailable_properties: list[str] = field(default_factory=list)
 
@@ -388,7 +390,20 @@ def _row_view(
         evidence=_evidence_views(row, hits),
         sensitivity=sensitivity,
         band_gap_source=row.score.band_gap_source if row.score else None,
+        dimensionality=_dimensionality(row),
     )
+
+
+def _dimensionality(row: Candidate | Anchor) -> str:
+    """The scored polymorph's structural dimensionality with its record, or why it is missing."""
+    dim = row.score.dimensionality if row.score else None
+    if dim is None:
+        note = row.score.dimensionality_note if row.score else None
+        return f"missing ({note or 'not computed'})"
+    record = dim.provenance.source_record_id
+    if dim.value is None:
+        return f"missing ({dim.missing_reason}; {record})"
+    return f"{precision.quantize(dim.value, 0)} ({dim.method}; {record})"
 
 
 def build(bundle: ProvenanceBundle, caveats: CaveatConfig, *, units: str) -> RunView:
@@ -432,9 +447,22 @@ def build(bundle: ProvenanceBundle, caveats: CaveatConfig, *, units: str) -> Run
         hidden_ranked=len(ranked_all) - len(shown_ranked),
         hidden_excluded=len(excluded_all) - len(shown_excluded),
         hull_cutoff=_hull_cutoff(bundle, units),
+        overview=_overview(bundle, index, units),
         unresolved_candidates=list(bundle.criteria.unresolved_candidates),
         unavailable_properties=list(bundle.criteria.unavailable_properties),
     )
+
+
+def _overview(bundle: ProvenanceBundle, index: BundleIndex, units: str) -> str | None:
+    """The summary:overview slot, rendered from its tokens. A slot the verifier did not pass
+    is not shown."""
+    slot = bundle.rationale.get("summary:overview")
+    if slot is None or not slot.text or slot.verified is False:
+        return None
+    try:
+        return render_text(index, slot.text, units=units)
+    except TokenError as e:
+        return f"(overview withheld: {e})"
 
 
 def _hull_cutoff(bundle: ProvenanceBundle, units: str) -> str | None:

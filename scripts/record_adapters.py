@@ -75,6 +75,42 @@ def record_mp(transport: HttpxTransport, display: str, key: str, manifest: dict[
     entry["mp_hull_conflicts"] = [p.ids.mp for p in assembly.polymorphs if p.hull_status_conflict]
 
 
+def record_structure(
+    transport: HttpxTransport, display: str, key: str, manifest: dict[str, Any]
+) -> None:
+    """The scored polymorph's structure (dimensionality check, Track G). The polymorph is
+    chosen from the recorded summary, thermo and dielectric cassettes exactly as the scorer
+    chooses it (scoring.polymorphs.select_scored)."""
+    from materials_triage.records.groups import build_group
+    from materials_triage.records.structure import dimensionality_value
+    from materials_triage.scoring.polymorphs import select_scored
+
+    entry = manifest.setdefault(key, {"display": display, "reduced": key})
+    with VCR.use_cassette(str(cassette_path("mp", f"summary_{key}"))):
+        summary = mp.summary_records(transport.get(mp.plan_summary_by_formula(key)))
+    ids = sorted({r.source_record_id for r in summary})
+    if not ids:
+        entry["mp_structure"] = "no summary documents"
+        return
+    with VCR.use_cassette(str(cassette_path("mp", f"thermo_{key}"))):
+        thermo = [r for c in mp.plan_thermo(ids) for r in mp.thermo_records(transport.get(c))]
+    scored = select_scored(build_group(key, mp.assemble(summary, thermo).polymorphs))
+    if scored is None or scored.ids.mp is None:
+        entry["mp_structure"] = "no scored polymorph"
+        return
+    with VCR.use_cassette(str(cassette_path("mp", f"structure_{key}"))):
+        recs = [
+            r
+            for c in mp.plan_structure([scored.ids.mp])
+            for r in mp.structure_records(transport.get(c))
+        ]
+    value = dimensionality_value(recs[0]) if recs else None
+    entry["mp_structure"] = {
+        "mp_id": scored.ids.mp,
+        "dimensionality": None if value is None else value.value,
+    }
+
+
 def record_openalex(
     transport: HttpxTransport,
     display: str,
@@ -152,7 +188,7 @@ def record_discovery(
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--only", default="mp,openalex,pubchem,discovery")
+    ap.add_argument("--only", default="mp,openalex,pubchem,discovery,structures")
     ap.add_argument("--limit", type=int, default=0)
     args = ap.parse_args()
     only = set(args.only.split(","))
@@ -189,6 +225,11 @@ def main() -> int:
         **spec["hazard_probes"],
     }
     for display, key in comps:
+        if "structures" in only:
+            attempt(
+                f"structure {display}",
+                lambda d=display, k=key: record_structure(transport, d, k, manifest),
+            )
         if "mp" in only:
             attempt(f"mp {display}", lambda d=display, k=key: record_mp(transport, d, k, manifest))
         if "openalex" in only:

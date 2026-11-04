@@ -56,21 +56,42 @@ def current_state() -> dict[str, Any]:
     }
 
 
-def preregister(path: Path = PREREG_PATH, *, scorer_name: str) -> dict[str, Any]:
+INITIAL_LABEL = "initial (Track E)"
+
+
+def load_entries(path: Path = PREREG_PATH) -> list[dict[str, Any]]:
+    """Every pre-registration, oldest first. A file written before entries existed holds one
+    bare record, read as the initial entry."""
+    if not path.exists():
+        return []
+    data = json.loads(path.read_text())
+    if isinstance(data, dict) and "entries" in data:
+        return list(data["entries"])
+    return [{"label": INITIAL_LABEL, **data}]
+
+
+def preregister(
+    path: Path = PREREG_PATH, *, scorer_name: str, label: str = INITIAL_LABEL
+) -> dict[str, Any]:
+    """Append a pre-registration entry; earlier entries are kept unchanged."""
     record = {
+        "label": label,
         "recorded_at": datetime.now(UTC).isoformat(timespec="seconds"),
         "scorer": scorer_name,
         **current_state(),
     }
-    path.write_text(json.dumps(record, indent=1, sort_keys=True) + "\n")
+    entries = load_entries(path) + [record]
+    path.write_text(json.dumps({"entries": entries}, indent=1, sort_keys=True) + "\n")
     return record
 
 
 def compare(path: Path = PREREG_PATH) -> dict[str, Any] | None:
-    """None when nothing is pre-registered; otherwise both shas and whether they differ."""
-    if not path.exists():
+    """None when nothing is pre-registered; otherwise the latest entry's shas against the
+    current state, and the history of every entry."""
+    entries = load_entries(path)
+    if not entries:
         return None
-    rec = json.loads(path.read_text())
+    rec = entries[-1]
     now = current_state()
     changed_files = sorted(
         p
@@ -78,6 +99,7 @@ def compare(path: Path = PREREG_PATH) -> dict[str, Any] | None:
         if rec["config_files"].get(p) != now["config_files"].get(p)
     )
     return {
+        "label": rec.get("label", INITIAL_LABEL),
         "recorded_at": rec["recorded_at"],
         "scorer": rec["scorer"],
         "preregistered_config_sha": rec["config_sha"],
@@ -89,4 +111,13 @@ def compare(path: Path = PREREG_PATH) -> dict[str, Any] | None:
             for k in ("yim_fixture_sha256", "cassette_manifest_sha256", "snapshot_shas")
         ),
         "preregistered_commit": rec["git_commit"],
+        "history": [
+            {
+                "label": e.get("label", INITIAL_LABEL),
+                "recorded_at": e["recorded_at"],
+                "git_commit": e["git_commit"],
+                "config_sha": e["config_sha"],
+            }
+            for e in entries
+        ],
     }

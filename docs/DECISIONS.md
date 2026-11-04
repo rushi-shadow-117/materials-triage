@@ -1048,3 +1048,75 @@ the config change. With the config unchanged, any provenance difference is still
 1667 rank changes, all attributed to config.
 Alternative: count any provenance difference as data, under which every config change that
 moved the top K also looked like a data change.
+
+## Track G: molecular solids, egress, fetch default, fixes, live eval
+
+### 2026-11-04 Molecular solids are excluded by structural dimensionality
+Decision (owner): every thin-film profile excludes a candidate whose scored polymorph has
+structural dimensionality 0, with the rule `structure.molecular`.
+- **Method:** `pymatgen.analysis.dimensionality.get_dimensionality_larsen`, on the bonded
+  structure from `CrystalNN().get_bonded_structure` with defaults.
+- **Bonding choice:** pymatgen's docstring gives CrystalNN as the bonding route for this
+  function.
+- **Input:** the scored polymorph's MP structure, fetched as enrichment (the top K and the
+  anchors). It is recorded as `structure_<formula>` cassettes for the 88 compositions and in
+  the run-shaped case cassettes.
+- **Display:** every row records the value with its MP record, or why it is missing. Missing
+  never excludes.
+- **Rule order:** after the hazard rules and before the stability cutoff.
+
+Reason: CO2 and H2O ranked inside A1's top 10 on PBE gaps and "thin film" literature hits.
+Nothing in the scorer could tell a molecular crystal from an extended solid.
+
+Citation: entered as pymatgen cites the function: Larsen, Pandey, Strange, Jacobsen, Phys. Rev.
+Materials 3, 034003 (2019). The owner's instruction named npj Comput Mater 5, 26 (2019). The
+mismatch is a TODO for the owner in the config entry; neither publisher page was readable here.
+
+Alternative: a name list of known molecular oxides, which a discovery query would outgrow.
+
+### 2026-11-04 Egress is enforced in code
+Decision (owner): `adapters/egress.py` builds the allowlist from `CoreConfig.allowed_hosts`
+plus the configured LLM endpoint.
+- `HttpxTransport.get` checks every call before sending.
+- The LLM SDK clients get an HTTP client whose request hook allows only the provider's own
+  endpoint, read from the built client:
+  - Anthropic: `api.anthropic.com`
+  - Bedrock Mantle: `bedrock-mantle.<region>.api.aws`
+  - OpenAI-compatible: the `LLM_BASE_URL` host
+- A refused host raises `EgressRefusedError` and nothing is sent.
+
+Alternative: a network-level allowlist in Compose. It is not built, and it would not cover a
+CLI run on a laptop.
+
+### 2026-11-04 The CLI fetch default follows Postgres
+Decision (owner): `query` and `rank` default to `--fetch auto`. That is the Postgres store when
+a 2-second connect to `DATABASE_URL` succeeds, otherwise the recorded cassettes. The choice is
+printed to stderr and written to the decision log (step `fetch_source`).
+Alternative: keep `store`, which failed outright on a machine without Postgres.
+
+### 2026-11-04 Track G fixes
+- The PI view renders the verified `summary:overview` slot as an Overview section.
+- The verifier removes `hit_dropped` hits (unknown record id, quote mismatch) from
+  `bundle.evidence`. The `VerifierFailure` records keep what was dropped.
+- The CLI passes the parse budget into the run's `prior_budgets`. The relax budget is added to
+  the saved bundle's `budgets_used` when the relax step runs, and to the next run's budgets
+  when a relaxation is accepted.
+- `exclude_non_commercial` is removed from the site profile and `SiteProfile`. The BY-NC
+  exclusion stays unconditional in `mp.assemble` and `polymorph_exclusion`. A site switch
+  would let a site turn the license rule off, and no use case needs that.
+- The FAILURE_MATRIX row for the discovery floor names the renamed test.
+- `fixtures/compositions.yaml` no longer calls `oxides_gap_5_plus` the dielectric default.
+- `.env.example` lists `FETCH_MODE` and `EVAL_LLM`.
+- CLAUDE.md (owner-authorized edit of a frozen file) drops Keycloak, `tsc`, and `oqmd`, and no
+  longer calls the CLI commands stubs.
+
+### 2026-11-04 Runs stay JSON files
+Decision (owner): run bundles stay JSON files under `DATA_CACHE_DIR/runs`, not rows in
+`triage.runs`.
+- A bundle is a self-contained, versioned, diffable artifact.
+- `replay`, `diff`, and `export` work without a database.
+- The Postgres store keeps what every number cites: raw responses and fetch events.
+- `triage.runs` stays reserved for the API, which will need queries across runs.
+
+Alternative: write each run to `triage.runs` now, adding a database dependency to the offline
+path for no current reader.

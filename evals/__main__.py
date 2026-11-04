@@ -46,11 +46,12 @@ def main(argv: list[str] | None = None) -> int:
     run.add_argument("--out", default=str(RESULTS_DIR))
     pre = sub.add_parser("prereg", help="record the scoring config sha before validation runs")
     pre.add_argument("--scorer", default="track_a")
+    pre.add_argument("--label", default="initial (Track E)", help="name of this entry")
     sub.add_parser("agreement", help="report owner agreement with the judge sample")
     args = ap.parse_args(argv)
 
     if args.cmd == "prereg":
-        rec = preregister(scorer_name=args.scorer)
+        rec = preregister(scorer_name=args.scorer, label=args.label)
         print(
             f"pre-registered config sha {rec['config_sha'][:12]} "
             f"at {rec['recorded_at']} -> {PREREG_PATH}"

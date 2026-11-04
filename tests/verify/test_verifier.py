@@ -186,7 +186,8 @@ def test_quote_check_is_exact_substring_and_rejects_empty() -> None:
 def test_paraphrased_quote_is_dropped_and_verbatim_quote_passes(bundle: ProvenanceBundle) -> None:
     out, report = v.verify(bundle)
     assert report.checked_evidence == 2 and report.checked_slots == 8
-    assert [e.verified for e in out.evidence] == [True, False]
+    # the failed hit leaves the bundle; the verifier report keeps the record (Track G)
+    assert [e.verified for e in out.evidence] == [True]
     assert [(f.kind, f.action) for f in report.failures] == [("quote_mismatch", "hit_dropped")]
     assert report.passed is False and out.verifier == report
     assert all(s.verified for s in out.rationale.values())

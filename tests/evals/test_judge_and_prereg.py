@@ -69,7 +69,7 @@ def test_preregistration_records_and_compares(tmp_path: Path) -> None:
     path = tmp_path / "prereg.json"
     assert compare(path) is None
     rec = preregister(path, scorer_name="track_a")
-    data = json.loads(path.read_text())
+    [data] = json.loads(path.read_text())["entries"]
     assert data["config_sha"] == rec["config_sha"] and len(data["config_sha"]) == 64
     assert set(data["snapshot_shas"]) >= {"jarvis_dft_3d", "expt_gap"}
     cmp = compare(path)
@@ -77,7 +77,17 @@ def test_preregistration_records_and_compares(tmp_path: Path) -> None:
     assert cmp["data_unchanged"] is True and cmp["config_files_changed"] == []
     data["config_sha"] = "0" * 64
     data["config_files"]["hazard_policy.yaml"] = "tampered"
-    path.write_text(json.dumps(data))
+    path.write_text(json.dumps(data))  # a pre-entries file: one bare record
     cmp = compare(path)
     assert cmp is not None and cmp["config_tuned_after_preregistration"] is True
     assert cmp["config_files_changed"] == ["hazard_policy.yaml"]
+    assert [h["label"] for h in cmp["history"]] == ["initial (Track E)"]
+    # a second entry keeps the first and becomes the comparison baseline
+    preregister(path, scorer_name="track_a", label="owner decision after Track G")
+    cmp = compare(path)
+    assert cmp is not None and cmp["config_tuned_after_preregistration"] is False
+    assert [h["label"] for h in cmp["history"]] == [
+        "initial (Track E)",
+        "owner decision after Track G",
+    ]
+    assert cmp["history"][0]["config_sha"] == "0" * 64

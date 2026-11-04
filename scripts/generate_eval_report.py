@@ -312,8 +312,17 @@ def preregistration_section(pre: dict[str, Any] | None) -> list[str]:
             "No pre-registration record. Run `uv run python -m evals prereg` before validation.",
             "",
         ]
-    out = [
-        f"Pre-registered {pre['recorded_at']} for scorer `{pre['scorer']}` at commit "
+    history = pre.get("history") or []
+    out = ["| Entry | Recorded | Commit | Config sha |", "|---|---|---|---|"]
+    for h in history:
+        out.append(
+            f"| {h['label']} | {h['recorded_at']} | `{(h['git_commit'] or 'unknown')[:12]}` | "
+            f"`{h['config_sha'][:12]}` |"
+        )
+    out += [
+        "",
+        f"Compared below against the latest entry, {pre.get('label', 'initial')}: pre-registered "
+        f"{pre['recorded_at']} for scorer `{pre['scorer']}` at commit "
         f"`{pre['preregistered_commit'] or 'unknown'}`: "
         f"config sha `{pre['preregistered_config_sha'][:12]}`.",
         "The pre-registered sha is the config resolved with the default query. The run shas in "
@@ -391,6 +400,7 @@ def build(
     scoring_tests: Path = SCORING_TESTS,
 ) -> str:
     suites = [json.loads(p.read_text()) for p in sorted(eval_results.glob("*.json"))]
+    live = [json.loads(p.read_text()) for p in sorted((eval_results / "live").glob("*.json"))]
     lines = [
         "# Evaluation report",
         "",
@@ -400,6 +410,19 @@ def build(
         "## Eval cases",
         "",
         *case_sections(suites),
+        "## Eval cases, live model",
+        "",
+        *(
+            [
+                "Selected cases run with the configured provider (not the scripted model), "
+                "recorded data from cassettes, and the judge named in the results file. Shown "
+                "beside the scripted results above, never merged into them.",
+                "",
+                *case_sections(live),
+            ]
+            if live
+            else ["No live-model results committed.", ""]
+        ),
         "## Validation",
         "",
         *validation_sections(_load(validation_json), _load(calibration_json)),

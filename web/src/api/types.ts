@@ -324,7 +324,7 @@ export interface components {
          * @description Why a candidate (or a single polymorph) is out. Values are the strings shown to users.
          * @enum {string}
          */
-        ExclusionRule: "stability.cutoff" | "band_gap.hard_min" | "band_gap.hard_max" | "hazard.radioactive_exclude" | "hazard.exclude" | "hazard.acute_toxicity.element" | "hazard.acute_toxicity.compound" | "hazard.acute_toxicity.ghs" | "simplicity.max_elements" | "simplicity.anion_policy" | "evidence.tier_min" | "data.no_scorable_criteria" | "license.non_commercial" | "deprecated";
+        ExclusionRule: "stability.cutoff" | "band_gap.hard_min" | "band_gap.hard_max" | "hazard.radioactive_exclude" | "hazard.exclude" | "hazard.acute_toxicity.element" | "hazard.acute_toxicity.compound" | "hazard.acute_toxicity.ghs" | "structure.molecular" | "simplicity.max_elements" | "simplicity.anion_policy" | "evidence.tier_min" | "data.no_scorable_criteria" | "license.non_commercial" | "deprecated";
         /** ExperimentalGap */
         ExperimentalGap: {
             /** Composition */
@@ -493,6 +493,7 @@ export interface components {
             dielectric?: {
                 [key: string]: components["schemas"]["Value_float_"];
             };
+            dimensionality?: components["schemas"]["Value_int_"] | null;
             excluded_rule?: components["schemas"]["ExclusionRule"] | null;
             hull_energy: components["schemas"]["Value_float_"] | null;
             /**
@@ -758,6 +759,9 @@ export interface components {
             band_gap_source: string | null;
             /** Criteria */
             criteria: components["schemas"]["CriterionScore"][];
+            dimensionality?: components["schemas"]["Value_int_"] | null;
+            /** Dimensionality Note */
+            dimensionality_note?: string | null;
             /** Ground State Is Theoretical */
             ground_state_is_theoretical?: boolean | null;
             /**
@@ -798,6 +802,17 @@ export interface components {
         };
         /** Value[float] */
         Value_float_: {
+            /** Method */
+            method?: string | null;
+            missing_reason?: components["schemas"]["MissingReason"] | null;
+            provenance: components["schemas"]["Provenance"];
+            /** Unit */
+            unit: string;
+            /** Value */
+            value: number | null;
+        };
+        /** Value[int] */
+        Value_int_: {
             /** Method */
             method?: string | null;
             missing_reason?: components["schemas"]["MissingReason"] | null;

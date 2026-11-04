@@ -428,9 +428,11 @@ def verify(bundle: ProvenanceBundle) -> tuple[ProvenanceBundle, VerifierReport]:
     evidence: list[EvidenceHit] = []
     for hit in bundle.evidence:
         checked_hit, failure = verify_evidence(bundle, hit)
-        evidence.append(checked_hit)
         if failure is not None:
             failures.append(failure)
+            if failure.action == "hit_dropped":
+                continue  # removed from the bundle; the failure record keeps what was dropped
+        evidence.append(checked_hit)
     report = VerifierReport(
         checked_slots=len(bundle.rationale),
         checked_evidence=len(bundle.evidence),
