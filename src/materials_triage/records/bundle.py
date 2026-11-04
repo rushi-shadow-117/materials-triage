@@ -153,6 +153,10 @@ class ConfirmedCriteria(Strict):
     effective_settings: dict[str, Any]  # QuerySettings after resolve(), as a dict
     clamps: list[Clamp] = Field(default_factory=list)
     defaults_applied: list[str] = Field(default_factory=list)
+    # Track F; defaulted, so version-2 bundles written before these fields still validate.
+    unresolved_candidates: list[str] = Field(default_factory=list)  # not a chemical formula
+    stability_cutoff_mev: float | None = None  # effective hull cutoff after site bounds
+    unavailable_properties: list[str] = Field(default_factory=list)  # no configured source
 
 
 # ----------------------------------------------------------------------------- summaries

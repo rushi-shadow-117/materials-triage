@@ -973,3 +973,78 @@ Alternative: widen `fixtures/compositions.yaml` by hand after each replay.
 Decision: the Yim-like validation configuration sets hazard to 0.1, the site floor, since 0 is
 no longer admissible. Its label says so.
 Alternative: let validation bypass site bounds, which no other run can.
+
+### 2026-11-03 Site glossary entered
+Decision (owner): the site glossary maps energy above hull to stability margin, band gap to
+insulating gap, polymorph to crystal form, and hull to stability reference, applied only when
+terminology is general. The longest term wins, and a term also matches with its first letter
+capitalized. Both views print the effective energy above hull cutoff, so D3's general view
+names the stability margin.
+Alternative: a glossary keyed by criterion id, which would miss the term in caveat text.
+
+### 2026-11-03 Relaxation proposals are counted by re-scoring the fetched set
+Decision (owner): when fewer than top_n rows rank, the pipeline lists relaxations of the query's
+gap window, element count, and hull cutoff (inside the site bounds). It re-scores the
+already-fetched groups under each relaxed value, and every proposal states "adds N", the number
+of newly ranked candidates. A value that admits nothing new is dropped. At most three choices
+and eight re-scores are made per setting. When no proposal adds a candidate, the decision log
+says "no relaxation is admissible within site bounds" with the reason. Nothing is applied. The
+CLI offers the logged proposals and the eval harness reads them from the log.
+Alternative: count excluded rows by their raw value (the first pass), which counted rows that
+another rule still excludes.
+
+### 2026-11-03 Discovery ceiling override for evals only
+Decision (owner): `Case.overrides.discovery_ceiling` lowers the refuse-to-truncate ceiling for
+one eval case (C3 sets 500 against the 3748-document dielectric query), through
+`RunInputs.discovery_ceiling`. No query setting reaches it.
+Alternative: record a query that matches more than 10,000 documents, a large fixture that
+shows nothing new.
+
+### 2026-11-03 Unresolved candidate names are reported, the run proceeds
+Decision (owner): a candidate name that is not a chemical formula is listed in
+`ConfirmedCriteria.unresolved_candidates`, logged "not found in any source", and shown in both
+views. The other names are ranked. The parse fails only when no name resolves. Typed answers
+at the CLI confirmation stay strict. The new bundle fields are defaulted, so
+`BUNDLE_VERSION` stays 2 and older bundles still validate.
+Alternative: fail the parse on any bad name (the first pass, C5).
+
+### 2026-11-03 Requested properties without a source are carried as unavailable
+Decision (owner): the parse lists the properties a request names (`requested_properties`). Code
+maps them through `config.schema.PROPERTY_CRITERIA`, a closed table of names. Anything unmapped
+goes to `ConfirmedCriteria.unavailable_properties`, is logged "unavailable from configured
+sources", and both views state it. No row or value changes. The parse prompt gains one sentence,
+so the prompt hash changes.
+Alternative: let the model decide availability, which would put a source claim in model text.
+
+### 2026-11-03 B1 expectation
+Decision (owner): B1 expects TiO2 ranked, not excluded, with its H351 flag, inside the top 5%
+of ranked candidates, and Al2O3 only in the exclusion list by `band_gap.hard_max`. The profile is
+unchanged. `ranked_near_top` gains `within_fraction`, and the new check `only_in_exclusions`
+covers Al2O3.
+Alternative: a fixed rank such as 10, which the 3082-document photocatalyst set does not support.
+
+### 2026-11-03 Nitride profile
+Decision (owner): `config/scoring_profiles/nitride_wide_gap.yaml` uses the dielectric
+machinery with these changes:
+- `anion_policy: strict_nitride`
+- `hard_min_ev: 4.0`
+- no soft preference
+- `discovery_pbe_floor_ev: 2.4` (4.0 x 0.6, the same 40% rule)
+- conflict tolerance open, because the 1.345 eV tolerance was derived on oxides
+- no dielectric target band
+- no anchor
+
+The 94 meV/atom cutoff applies with the oxide-calibration caveat on every row. B2 runs under it.
+Alternative: switch the anion policy per query, which the profile contract does not allow.
+
+### 2026-11-03 G3 is a two-run case; the run diff separates data from enrichment
+Decision (owner): `Case.compare` reruns the case under changed settings (G3: stability weight
+0.5) and `cli/rundiff.diff` joins the two bundles. When the config changed, data is a cause
+only if a source version moved: the run's source versions differ, or a record in both runs
+carries another version. Within one version a record's provenance differs only by the call
+that supplied it. An enriched row carries the per-formula summary and thermo documents, and a
+summary-level row the discovery page. Enrichment follows rank, so that difference follows from
+the config change. With the config unchanged, any provenance difference is still data. G3 gives
+1667 rank changes, all attributed to config.
+Alternative: count any provenance difference as data, under which every config change that
+moved the top K also looked like a data change.

@@ -163,6 +163,9 @@ class RunView:
     caveat_texts: dict[str, CaveatText] = field(default_factory=dict)
     hidden_ranked: int = 0  # ranked rows beyond top_n, not shown
     hidden_excluded: int = 0
+    hull_cutoff: str | None = None  # the effective energy above hull cutoff
+    unresolved_candidates: list[str] = field(default_factory=list)
+    unavailable_properties: list[str] = field(default_factory=list)
 
 
 def _fmt(value: float | int | None, unit: str | None, units: str) -> str:
@@ -428,4 +431,15 @@ def build(bundle: ProvenanceBundle, caveats: CaveatConfig, *, units: str) -> Run
         caveat_texts=texts,
         hidden_ranked=len(ranked_all) - len(shown_ranked),
         hidden_excluded=len(excluded_all) - len(shown_excluded),
+        hull_cutoff=_hull_cutoff(bundle, units),
+        unresolved_candidates=list(bundle.criteria.unresolved_candidates),
+        unavailable_properties=list(bundle.criteria.unavailable_properties),
     )
+
+
+def _hull_cutoff(bundle: ProvenanceBundle, units: str) -> str | None:
+    """The effective cutoff as stored in meV/atom, shown in the hull's unit (eV/atom)."""
+    mev = bundle.criteria.stability_cutoff_mev
+    if mev is None:
+        return None
+    return precision.fmt(mev / 1000.0, "eV/atom", units)

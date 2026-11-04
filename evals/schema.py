@@ -53,6 +53,18 @@ class CheckSpec(Strict):
     params: dict[str, Any] = Field(default_factory=dict)
 
 
+class HarnessOverrides(Strict):
+    """Harness-only knobs a case may set; none is a query setting a researcher can reach."""
+
+    discovery_ceiling: int | None = None  # lower the refuse-to-truncate ceiling (C3)
+
+
+class CompareRun(Strict):
+    """A second run of the same case under changed query settings, joined by the run diff."""
+
+    settings: dict[str, Any] = Field(default_factory=dict)  # merged over the case's settings
+
+
 class Case(Strict):
     id: str  # e.g. A1, F1, G1
     group: str  # the letter
@@ -75,6 +87,8 @@ class Case(Strict):
     llm: Literal["fake", "live", "none"] | None = None  # per-case override of the executor's mode
     fake_parse: dict[str, Any] | None = None  # what the scripted model answers for parse_request
     skip_reason: str | None = None  # set when the harness cannot run the case; reported as such
+    overrides: HarnessOverrides = Field(default_factory=HarnessOverrides)
+    compare: CompareRun | None = None  # G3: baseline and variant runs, then the diff
 
     @model_validator(mode="after")
     def _adversarial_rules(self) -> Case:
@@ -111,6 +125,8 @@ class Observation(Strict):
     log_entries: list[str] = Field(default_factory=list)  # harness or agent log lines
     llm_calls: int = 0
     errors: list[str] = Field(default_factory=list)
+    # G3: the run diff between this run and the case's compare run, as plain data
+    diff: dict[str, Any] | None = None
 
 
 class CheckResult(Strict):

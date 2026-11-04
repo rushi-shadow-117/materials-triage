@@ -111,7 +111,9 @@ def effective_config(profile: str = "oxide_dielectric_thin_film") -> dict[str, A
 @app.get("/profiles", response_model=list[ProfileSummary])
 def list_profiles() -> list[ProfileSummary]:
     out = []
-    for path in sorted((ROOT / "config" / "scoring_profiles").glob("*.yaml")):
+    default = default_paths()["scoring_profile"]
+    paths = sorted((ROOT / "config" / "scoring_profiles").glob("*.yaml"))
+    for path in sorted(paths, key=lambda p: (p != default, p.name)):  # the default first
         prof, notes = scoring_profile_from_yaml(path)
         out.append(ProfileSummary(name=prof.name, version=prof.version, notes=notes))
     return out

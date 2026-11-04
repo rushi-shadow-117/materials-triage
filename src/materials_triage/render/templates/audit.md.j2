@@ -30,6 +30,11 @@
 
 - Defaults applied: {{ view.defaults_applied | join("; ") if view.defaults_applied else "none" }}
 - Clamps: {{ view.clamps | join("; ") if view.clamps else "none" }}
+{% if view.hull_cutoff %}
+- Energy above hull cutoff: {{ view.hull_cutoff }}
+{% endif %}
+- Not found in any source: {{ view.unresolved_candidates | join(", ") if view.unresolved_candidates else "none" }}
+- Not available from configured sources: {{ view.unavailable_properties | join(", ") if view.unavailable_properties else "none" }}
 - Units shown: {{ units }}
 {% macro row_block(r) %}
 ### {{ r.composition }}: {{ r.rank }}{% if r.total != "excluded" %}, total {{ r.total }}{% endif %}

@@ -15,3 +15,14 @@ checks:
   params:
     view: pi_summary
     contains: thermal conductivity
+- name: text_in_rendered
+  params:
+    view: pi_summary
+    contains: 'Not available from configured sources: thermal conductivity'
+- name: text_in_rendered
+  params:
+    view: audit
+    contains: 'Not available from configured sources: thermal conductivity'
+- name: log_entry_present
+  params:
+    contains: unavailable from configured sources

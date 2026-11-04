@@ -233,6 +233,12 @@ export interface components {
             parsed_by: string;
             /** Request Text */
             request_text: string;
+            /** Stability Cutoff Mev */
+            stability_cutoff_mev?: number | null;
+            /** Unavailable Properties */
+            unavailable_properties?: string[];
+            /** Unresolved Candidates */
+            unresolved_candidates?: string[];
         };
         /** CriterionScore */
         CriterionScore: {

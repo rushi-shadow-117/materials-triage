@@ -11,7 +11,7 @@ from __future__ import annotations
 
 import json
 from collections.abc import Callable
-from dataclasses import dataclass, field
+from dataclasses import asdict, dataclass, field
 from datetime import UTC, datetime
 from hashlib import sha256
 from importlib.metadata import PackageNotFoundError, version
@@ -31,6 +31,7 @@ from materials_triage.config.schema import (
     ScoringProfile,
     SiteProfile,
     default_paths,
+    resolve,
 )
 from materials_triage.records import (
     CompositionGroup,
@@ -55,6 +56,7 @@ from materials_triage.records.groups import build_group, merge_matches
 from materials_triage.verify.verifier import verify
 
 from . import classifier, prompts, rationale
+from . import relaxation as relaxation_mod
 from .llm import LLMClient
 from .loop import Budget
 from .parse import ParseOutcome
@@ -198,6 +200,9 @@ class RunInputs:
     run_id: UUID = field(default_factory=uuid4)
     started_at: datetime = field(default_factory=lambda: datetime.now(UTC))
     prior_budgets: list[Budget] = field(default_factory=list)  # e.g. the CLI's parse step
+    # Documents above which discovery refuses; None = mp.DISCOVERY_CEILING. Set only by the
+    # eval harness (case overrides), never by a query.
+    discovery_ceiling: int | None = None
 
 
 def code_version() -> str:
@@ -371,6 +376,7 @@ def collect_discovery(
     site: SiteProfile,
     ctx: FetchContext,
     sources: Sources,
+    ceiling: int | None = None,
 ) -> Collected:
     """Discovery: page every match or refuse above the ceiling, then build summary-level
     groups. Enrichment happens in the run loop, which repeats until the final top K is
@@ -385,7 +391,8 @@ def collect_discovery(
         return raw
 
     try:
-        result = mp.run_discovery(fetch, f, ceiling=mp.DISCOVERY_CEILING)
+        limit = mp.DISCOVERY_CEILING if ceiling is None else ceiling
+        result = mp.run_discovery(fetch, f, ceiling=limit)
     except NotFetchedError as e:
         out.partial.append(f"discovery: {e}")
         out.log.append(_log("discovery", "discovery query not available", params=f.params()))
@@ -436,6 +443,12 @@ def run(
     log: list[DecisionLogEntry] = [
         _log("start", "run started", code_version=code_version(), mode=query.mode)
     ]
+    for name in outcome.unresolved_candidates:
+        log.append(_log("parse", f"not found in any source: {name} is not a chemical formula"))
+    for prop in outcome.unavailable_properties:
+        log.append(
+            _log("parse", f"{prop}: unavailable from configured sources; not scored", property=prop)
+        )
     partial: list[str] = []
     ctx = FetchContext(fetch)
 
@@ -473,7 +486,12 @@ def run(
         enriched.update(keys)
     else:
         collected = collect_discovery(
-            query, profile=inputs.profile, site=inputs.site, ctx=ctx, sources=sources
+            query,
+            profile=inputs.profile,
+            site=inputs.site,
+            ctx=ctx,
+            sources=sources,
+            ceiling=inputs.discovery_ceiling,
         )
         # Anchors the discovery query did not return are fetched by name (profile anchors
         # and this run's extra anchors), so every anchor row carries the same cross-checks.
@@ -587,6 +605,42 @@ def run(
         )
     )
 
+    # 3b. too few results: code counts every admissible relaxation over the fetched groups
+    ranked_count = len([c for c in scored.candidates if c.rank is not None])
+    if ranked_count < effective.top_n and groups:
+
+        def rescore(q: QuerySettings) -> list[str]:
+            eff, _ = resolve(inputs.core, inputs.site, inputs.profile, q)
+            result = scorer(
+                ScoreRequest(
+                    groups=groups,
+                    effective=eff,
+                    profile=inputs.profile,
+                    hazard_policy=inputs.hazard_policy,
+                    evidence=evidence_by_comp,
+                    top_k=eff.top_n,
+                )
+            )
+            return [c.composition for c in result.candidates if c.rank is not None]
+
+        choices, statement = relaxation_mod.enumerate_or_explain(
+            scored.candidates,
+            query,
+            site=inputs.site,
+            cutoff_mev=effective.stability_cutoff_mev,
+            rescore=rescore,
+        )
+        log.append(
+            _log(
+                "relaxation",
+                relaxation_mod.log_summary(choices, statement),
+                ranked=ranked_count,
+                top_n=effective.top_n,
+                choices=[asdict(c) for c in choices],
+                applied=False,
+            )
+        )
+
     # 4. assemble, then rationale and verification
     source_versions = dict(sources.versions)
     if mp_version:
@@ -619,8 +673,11 @@ def run(
             mode=query.mode,
             candidate_list=list(query.candidate_list),
             effective_settings=query.model_dump(mode="json"),
+            stability_cutoff_mev=effective.stability_cutoff_mev,
             clamps=[Clamp(**c.model_dump()) for c in outcome.clamps],
             defaults_applied=list(outcome.defaults_applied),
+            unresolved_candidates=list(outcome.unresolved_candidates),
+            unavailable_properties=list(outcome.unavailable_properties),
         ),
         candidates=scored.candidates,
         anchors=scored.anchors,

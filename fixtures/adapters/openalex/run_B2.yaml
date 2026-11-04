@@ -1,0 +1,507 @@
+interactions:
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=CsN3+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 1, "db_response_time_ms": 13, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (CsN3 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (CsN3 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "CsN3
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:CsN3
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2094348671",
+        "doi": "https://doi.org/10.1063/1.1732218", "title": "Ultraviolet Absorption
+        Spectra of Alkali Metal Azides", "publication_year": 1961, "abstract_inverted_index":
+        {"The": [0, 28], "absorption": [1, 33, 64], "spectra": [2, 29], "of": [3,
+        6, 92, 100], "thin": [4, 59], "films": [5, 57], "NaN3,": [7], "KN3,": [8],
+        "RbN3,": [9], "and": [10, 18, 41, 53, 58, 81], "CsN3": [11], "have": [12,
+        36], "been": [13, 38, 76, 84], "measured": [14], "at": [15, 108], "295\u00b0,":
+        [16], "77.3\u00b0,": [17], "4.2\u00b0K": [19], "in": [20, 78, 116], "the":
+        [21, 46, 101, 106], "wavelength": [22], "range": [23], "1400": [24], "to":
+        [25, 50, 89, 95], "2200": [26], "A.": [27], "show": [30], "three": [31], "well-defined":
+        [32], "peaks,": [34], "which": [35], "not": [37], "reported": [39], "previously,":
+        [40], "these": [42], "were": [43], "identified": [44, 86], "as": [45, 87],
+        "exciton": [47], "transitions": [48], "corresponding": [49], "n=1,": [51],
+        "2,": [52], "3.": [54], "In": [55], "thicker": [56], "single": [60], "crystals":
+        [61], "a": [62, 70, 90, 96, 111], "new": [63], "band": [65], "with": [66],
+        "multiple": [67], "structure,": [68], "having": [69], "maximum": [71], "around":
+        [72], "2225": [73], "A": [74, 110], "has": [75, 83], "observed": [77, 115],
+        "all": [79, 117], "materials": [80], "this": [82], "tentatively": [85], "due":
+        [88], "transition": [91], "low": [93], "probability": [94], "low-lying": [97],
+        "excited": [98], "state": [99], "azide": [102], "ion.": [103], "On": [104],
+        "irradiating": [105], "azides": [107], "2400": [109], "weak": [112], "fluorescence":
+        [113], "was": [114], "cases.": [118]}, "primary_location": {"id": "doi:10.1063/1.1732218",
+        "doi": "https://doi.org/10.1063/1.1732218", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.1732218", "pdf_url": null, "source": {"id": "https://openalex.org/S77047749",
+        "display_name": "The Journal of Chemical Physics", "issn_l": "0021-9606",
+        "issn": ["0021-9606", "1089-7690", "1520-9032"], "is_oa": false, "is_in_doaj":
+        false, "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-b",
+        "jufo-1", "ki-jl-1", "medline", "norway-1", "poland-100", "russia-white-list-2",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "The Journal
+        of Chemical Physics", "raw_type": "journal-article"}}], "group_by": []}'
+  recorded_at: '2026-11-04T00:33:23+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=CsN3+thin+film&select=id
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 1, "db_response_time_ms": 9, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (CsN3 thin film)
+        in the title or abstract", "x_new_oql": "get works with (CsN3 thin film) in
+        the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "CsN3 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:CsN3 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W2094348671"}], "group_by": []}'
+  recorded_at: '2026-11-04T00:33:23+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=KN3+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 1, "db_response_time_ms": 49, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (KN3 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (KN3 thin film) in the title or abstract where it has an abstract", "oqo":
+        {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract", "value":
+        true}, {"column_id": "title_and_abstract.search", "value": "KN3 thin film",
+        "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:KN3
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2094348671",
+        "doi": "https://doi.org/10.1063/1.1732218", "title": "Ultraviolet Absorption
+        Spectra of Alkali Metal Azides", "publication_year": 1961, "abstract_inverted_index":
+        {"The": [0, 28], "absorption": [1, 33, 64], "spectra": [2, 29], "of": [3,
+        6, 92, 100], "thin": [4, 59], "films": [5, 57], "NaN3,": [7], "KN3,": [8],
+        "RbN3,": [9], "and": [10, 18, 41, 53, 58, 81], "CsN3": [11], "have": [12,
+        36], "been": [13, 38, 76, 84], "measured": [14], "at": [15, 108], "295\u00b0,":
+        [16], "77.3\u00b0,": [17], "4.2\u00b0K": [19], "in": [20, 78, 116], "the":
+        [21, 46, 101, 106], "wavelength": [22], "range": [23], "1400": [24], "to":
+        [25, 50, 89, 95], "2200": [26], "A.": [27], "show": [30], "three": [31], "well-defined":
+        [32], "peaks,": [34], "which": [35], "not": [37], "reported": [39], "previously,":
+        [40], "these": [42], "were": [43], "identified": [44, 86], "as": [45, 87],
+        "exciton": [47], "transitions": [48], "corresponding": [49], "n=1,": [51],
+        "2,": [52], "3.": [54], "In": [55], "thicker": [56], "single": [60], "crystals":
+        [61], "a": [62, 70, 90, 96, 111], "new": [63], "band": [65], "with": [66],
+        "multiple": [67], "structure,": [68], "having": [69], "maximum": [71], "around":
+        [72], "2225": [73], "A": [74, 110], "has": [75, 83], "observed": [77, 115],
+        "all": [79, 117], "materials": [80], "this": [82], "tentatively": [85], "due":
+        [88], "transition": [91], "low": [93], "probability": [94], "low-lying": [97],
+        "excited": [98], "state": [99], "azide": [102], "ion.": [103], "On": [104],
+        "irradiating": [105], "azides": [107], "2400": [109], "weak": [112], "fluorescence":
+        [113], "was": [114], "cases.": [118]}, "primary_location": {"id": "doi:10.1063/1.1732218",
+        "doi": "https://doi.org/10.1063/1.1732218", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.1732218", "pdf_url": null, "source": {"id": "https://openalex.org/S77047749",
+        "display_name": "The Journal of Chemical Physics", "issn_l": "0021-9606",
+        "issn": ["0021-9606", "1089-7690", "1520-9032"], "is_oa": false, "is_in_doaj":
+        false, "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-b",
+        "jufo-1", "ki-jl-1", "medline", "norway-1", "poland-100", "russia-white-list-2",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "The Journal
+        of Chemical Physics", "raw_type": "journal-article"}}], "group_by": []}'
+  recorded_at: '2026-11-04T00:33:25+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=KN3+thin+film&select=id
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 1, "db_response_time_ms": 10, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (KN3 thin film)
+        in the title or abstract", "x_new_oql": "get works with (KN3 thin film) in
+        the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "KN3 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:KN3 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W2094348671"}], "group_by": []}'
+  recorded_at: '2026-11-04T00:33:25+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=RbN3+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 1, "db_response_time_ms": 11, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (RbN3 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (RbN3 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "RbN3
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:RbN3
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2094348671",
+        "doi": "https://doi.org/10.1063/1.1732218", "title": "Ultraviolet Absorption
+        Spectra of Alkali Metal Azides", "publication_year": 1961, "abstract_inverted_index":
+        {"The": [0, 28], "absorption": [1, 33, 64], "spectra": [2, 29], "of": [3,
+        6, 92, 100], "thin": [4, 59], "films": [5, 57], "NaN3,": [7], "KN3,": [8],
+        "RbN3,": [9], "and": [10, 18, 41, 53, 58, 81], "CsN3": [11], "have": [12,
+        36], "been": [13, 38, 76, 84], "measured": [14], "at": [15, 108], "295\u00b0,":
+        [16], "77.3\u00b0,": [17], "4.2\u00b0K": [19], "in": [20, 78, 116], "the":
+        [21, 46, 101, 106], "wavelength": [22], "range": [23], "1400": [24], "to":
+        [25, 50, 89, 95], "2200": [26], "A.": [27], "show": [30], "three": [31], "well-defined":
+        [32], "peaks,": [34], "which": [35], "not": [37], "reported": [39], "previously,":
+        [40], "these": [42], "were": [43], "identified": [44, 86], "as": [45, 87],
+        "exciton": [47], "transitions": [48], "corresponding": [49], "n=1,": [51],
+        "2,": [52], "3.": [54], "In": [55], "thicker": [56], "single": [60], "crystals":
+        [61], "a": [62, 70, 90, 96, 111], "new": [63], "band": [65], "with": [66],
+        "multiple": [67], "structure,": [68], "having": [69], "maximum": [71], "around":
+        [72], "2225": [73], "A": [74, 110], "has": [75, 83], "observed": [77, 115],
+        "all": [79, 117], "materials": [80], "this": [82], "tentatively": [85], "due":
+        [88], "transition": [91], "low": [93], "probability": [94], "low-lying": [97],
+        "excited": [98], "state": [99], "azide": [102], "ion.": [103], "On": [104],
+        "irradiating": [105], "azides": [107], "2400": [109], "weak": [112], "fluorescence":
+        [113], "was": [114], "cases.": [118]}, "primary_location": {"id": "doi:10.1063/1.1732218",
+        "doi": "https://doi.org/10.1063/1.1732218", "is_oa": false, "landing_page_url":
+        "https://doi.org/10.1063/1.1732218", "pdf_url": null, "source": {"id": "https://openalex.org/S77047749",
+        "display_name": "The Journal of Chemical Physics", "issn_l": "0021-9606",
+        "issn": ["0021-9606", "1089-7690", "1520-9032"], "is_oa": false, "is_in_doaj":
+        false, "is_core": true, "listed_in": ["anvur-scientific", "cwts-core", "dongbi-b",
+        "jufo-1", "ki-jl-1", "medline", "norway-1", "poland-100", "russia-white-list-2",
+        "vabb-shw"], "host_organization": "https://openalex.org/P4310320257", "host_organization_name":
+        "American Institute of Physics", "host_organization_lineage": ["https://openalex.org/P4310320257"],
+        "host_organization_lineage_names": ["American Institute of Physics"], "type":
+        "journal"}, "license": null, "license_id": null, "version": "publishedVersion",
+        "is_accepted": true, "is_published": true, "raw_source_name": "The Journal
+        of Chemical Physics", "raw_type": "journal-article"}}], "group_by": []}'
+  recorded_at: '2026-11-04T00:33:28+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=RbN3+thin+film&select=id
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 1, "db_response_time_ms": 10, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (RbN3 thin film)
+        in the title or abstract", "x_new_oql": "get works with (RbN3 thin film) in
+        the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "RbN3 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:RbN3 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [{"id": "https://openalex.org/W2094348671"}], "group_by": []}'
+  recorded_at: '2026-11-04T00:33:28+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=KC2N3+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 8, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (KC2N3 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (KC2N3 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "KC2N3
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:KC2N3
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T00:33:30+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=KC2N3+thin+film&select=id
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 7, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (KC2N3 thin film)
+        in the title or abstract", "x_new_oql": "get works with (KC2N3 thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "KC2N3 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:KC2N3 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T00:33:30+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=LiSi2N3+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 9, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (LiSi2N3 thin
+        film) in the title or abstract where it has an abstract", "x_new_oql": "get
+        works with (LiSi2N3 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "LiSi2N3
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:LiSi2N3
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T00:33:32+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=LiSi2N3+thin+film&select=id
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 8, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (LiSi2N3 thin
+        film) in the title or abstract", "x_new_oql": "get works with (LiSi2N3 thin
+        film) in the title or abstract", "oqo": {"get_rows": "works", "filter_rows":
+        [{"column_id": "title_and_abstract.search", "value": "LiSi2N3 thin film",
+        "operator": "has"}]}, "url": "/works?filter=title_and_abstract.search:LiSi2N3
+        thin film&per_page=1", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T00:33:32+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=Lu2%28CN2%293+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 19, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Lu2 CN2 3 thin
+        film) in the title or abstract where it has an abstract", "x_new_oql": "get
+        works with (Lu2 CN2 3 thin film) in the title or abstract where it has an
+        abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "Lu2(CN2)3
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:Lu2%28CN2%293
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T00:33:43+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=Lu2%28CN2%293+thin+film&select=id
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 14, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (Lu2 CN2 3 thin
+        film) in the title or abstract", "x_new_oql": "get works with (Lu2 CN2 3 thin
+        film) in the title or abstract", "oqo": {"get_rows": "works", "filter_rows":
+        [{"column_id": "title_and_abstract.search", "value": "Lu2(CN2)3 thin film",
+        "operator": "has"}]}, "url": "/works?filter=title_and_abstract.search:Lu2%28CN2%293
+        thin film&per_page=1", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T00:33:43+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=NaSi2N3+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 51, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (NaSi2N3 thin
+        film) in the title or abstract where it has an abstract", "x_new_oql": "get
+        works with (NaSi2N3 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "NaSi2N3
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:NaSi2N3
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T00:33:45+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=NaSi2N3+thin+film&select=id
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 11, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (NaSi2N3 thin
+        film) in the title or abstract", "x_new_oql": "get works with (NaSi2N3 thin
+        film) in the title or abstract", "oqo": {"get_rows": "works", "filter_rows":
+        [{"column_id": "title_and_abstract.search", "value": "NaSi2N3 thin film",
+        "operator": "has"}]}, "url": "/works?filter=title_and_abstract.search:NaSi2N3
+        thin film&per_page=1", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T00:33:46+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=CsC2N3+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 20, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (CsC2N3 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (CsC2N3 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "CsC2N3
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:CsC2N3
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T00:33:49+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=CsC2N3+thin+film&select=id
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 26, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (CsC2N3 thin film)
+        in the title or abstract", "x_new_oql": "get works with (CsC2N3 thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "CsC2N3 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:CsC2N3 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T00:33:49+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=Si%28CN2%292+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 22, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Si CN2 2 thin
+        film) in the title or abstract where it has an abstract", "x_new_oql": "get
+        works with (Si CN2 2 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "Si(CN2)2
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:Si%28CN2%292
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T00:34:00+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=Si%28CN2%292+thin+film&select=id
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 2, "db_response_time_ms": 27, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (Si CN2 2 thin
+        film) in the title or abstract", "x_new_oql": "get works with (Si CN2 2 thin
+        film) in the title or abstract", "oqo": {"get_rows": "works", "filter_rows":
+        [{"column_id": "title_and_abstract.search", "value": "Si(CN2)2 thin film",
+        "operator": "has"}]}, "url": "/works?filter=title_and_abstract.search:Si%28CN2%292
+        thin film&per_page=1", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W4404876778"}],
+        "group_by": []}'
+  recorded_at: '2026-11-04T00:34:01+00:00'
+version: 1

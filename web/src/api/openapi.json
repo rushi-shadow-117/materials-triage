@@ -352,6 +352,31 @@
           "request_text": {
             "title": "Request Text",
             "type": "string"
+          },
+          "stability_cutoff_mev": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Stability Cutoff Mev"
+          },
+          "unavailable_properties": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Unavailable Properties",
+            "type": "array"
+          },
+          "unresolved_candidates": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Unresolved Candidates",
+            "type": "array"
           }
         },
         "required": [

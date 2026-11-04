@@ -41,6 +41,28 @@ PARSE_KEYS = (
     "view",
 )
 
+# Scripted stand-in for the model naming the properties a request asks for: (keyword in the
+# lowercased request, property name). A keyword inside an earlier match is skipped, so
+# "thermal conductivity" is not also read as "conductivity". Code, not this table, decides
+# which names a configured source covers (config.schema.PROPERTY_CRITERIA).
+PROPERTY_KEYWORDS: list[tuple[str, str]] = [
+    ("thermal conductivity", "thermal conductivity"),
+    ("conduct", "conductivity"),
+    ("band gap", "band gap"),
+    ("dielectric constant", "dielectric constant"),
+]
+
+
+def requested_properties(request: str) -> list[str]:
+    text = request.lower()
+    out: list[str] = []
+    for keyword, name in PROPERTY_KEYWORDS:
+        if keyword in text:
+            out.append(name)
+            text = text.replace(keyword, " ")
+    return out
+
+
 # (keyword in the lowercased abstract, label). First match wins.
 LABEL_KEYWORDS: list[tuple[str, str]] = [
     ("dielectric", "dielectric_characterized"),
@@ -148,6 +170,9 @@ class CaseScriptedLLM:
                 out[key] = self.case.settings[key]
         if "weights" in self.case.settings:
             out["weights"] = dict(self.case.settings["weights"])
+        requested = requested_properties(self.case.request)
+        if requested:
+            out["requested_properties"] = requested
         return out
 
     def complete(

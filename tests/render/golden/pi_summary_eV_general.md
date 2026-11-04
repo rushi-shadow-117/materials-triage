@@ -7,14 +7,14 @@ Request: Rank the eleven baseline oxides as thin-film dielectric candidates.
 
 | Rank | Material | Why | Key caveat | Evidence | k | Missing |
 |---|---|---|---|---|---|---|
-| 1 | Al2O3 | Al2O3 ranks 1 on stability (energy above hull) and band gap; see caveats. | Band offsets to the substrate are not checked by this screen. | no abstracts | 9.7 | none |
-| 2 | HfO2 | HfO2 ranks 2 on stability (energy above hull) and band gap; see caveats. | Band offsets to the substrate are not checked by this screen. | thin_film_deposited | 18.7 | none |
-| 3 | La2O3 | La2O3 ranks 3 on stability (energy above hull) and band gap; see caveats. | Band offsets to the substrate are not checked by this screen. | no abstracts | missing | none |
-| 4 | Y2O3 | Y2O3 ranks 4 on stability (energy above hull) and band gap; see caveats. | Band offsets to the substrate are not checked by this screen. | no abstracts | missing | none |
-| 5 | ZrO2 | ZrO2 ranks 5 on stability (energy above hull) and band gap; see caveats. | Band offsets to the substrate are not checked by this screen. | no abstracts | 21.3 | none |
-| 6 | Ta2O5 | Ta2O5 ranks 6 on stability (energy above hull) and band gap; see caveats. | Band offsets to the substrate are not checked by this screen. | no abstracts | 33.8 | none |
-| 7 | TiO2 | TiO2 ranks 7 on stability (energy above hull) and band gap; see caveats. | Band offsets to the substrate are not checked by this screen. | no abstracts | 63.2 | none |
-| 8 | BaTiO3 | BaTiO3 ranks 8 on stability (energy above hull) and band gap; see caveats. | Band offsets to the substrate are not checked by this screen. | no abstracts | 13.0 | none |
+| 1 | Al2O3 | Al2O3 ranks 1 on stability (stability margin) and insulating gap; see caveats. | Band offsets to the substrate are not checked by this screen. | no abstracts | 9.7 | none |
+| 2 | HfO2 | HfO2 ranks 2 on stability (stability margin) and insulating gap; see caveats. | Band offsets to the substrate are not checked by this screen. | thin_film_deposited | 18.7 | none |
+| 3 | La2O3 | La2O3 ranks 3 on stability (stability margin) and insulating gap; see caveats. | Band offsets to the substrate are not checked by this screen. | no abstracts | missing | none |
+| 4 | Y2O3 | Y2O3 ranks 4 on stability (stability margin) and insulating gap; see caveats. | Band offsets to the substrate are not checked by this screen. | no abstracts | missing | none |
+| 5 | ZrO2 | ZrO2 ranks 5 on stability (stability margin) and insulating gap; see caveats. | Band offsets to the substrate are not checked by this screen. | no abstracts | 21.3 | none |
+| 6 | Ta2O5 | Ta2O5 ranks 6 on stability (stability margin) and insulating gap; see caveats. | Band offsets to the substrate are not checked by this screen. | no abstracts | 33.8 | none |
+| 7 | TiO2 | TiO2 ranks 7 on stability (stability margin) and insulating gap; see caveats. | Band offsets to the substrate are not checked by this screen. | no abstracts | 63.2 | none |
+| 8 | BaTiO3 | BaTiO3 ranks 8 on stability (stability margin) and insulating gap; see caveats. | Band offsets to the substrate are not checked by this screen. | no abstracts | 13.0 | none |
 
 ## Reference anchors (never ranked)
 

@@ -147,3 +147,10 @@ rows only under its own heading. Rows name a test path; a row without a test is 
 | Hull cutoff of 0 | On-hull rows score 1.0, all others excluded, no division by zero | tests/scoring/test_criteria_properties.py::test_zero_cutoff_scores_the_hull_and_excludes_the_rest |
 | A per-run anchor is also a candidate | It keeps its rank and its anchor row shows the same would-rank | tests/scoring/test_scorer.py::test_query_cutoff_and_per_run_anchor |
 | A test runs the eval CLI | Results go to a temporary directory, never evals/results | tests/cli/test_cli.py::test_eval_delegates_or_reports_pending |
+| Fewer candidates rank than top_n | Every relaxation states the candidates it adds, from re-scoring the fetched groups, or the log says none is admissible | tests/agent/test_relaxation.py::test_every_proposal_adds_the_count_a_rescore_gives |
+| A relaxed value admits only rows another rule excludes | The proposal is dropped | tests/agent/test_relaxation.py::test_every_proposal_adds_the_count_a_rescore_gives |
+| A hull relaxation would pass the site maximum | Not proposed | tests/agent/test_relaxation.py::test_hull_relaxation_stays_inside_the_site_bounds |
+| A candidate name is not a chemical formula | Reported as not found in any source; the rest are ranked | tests/agent/test_parse_unresolved_and_unavailable.py::test_to_query_settings_proceeds_with_the_resolved_names |
+| A request names a property no source provides | Carried as unavailable, logged, and stated in both views; no value shown | tests/agent/test_parse_unresolved_and_unavailable.py::test_handler_carries_both_lists_to_the_outcome |
+| A config change moves which rows are enriched | The run diff attributes the change to config, not data | tests/cli/test_diff.py::test_cross_checks_fetched_in_one_run_follow_the_config_change |
+| Two eval runs differ in data, model, or nothing | diff_causes_only fails naming the row | tests/evals/test_checks_track_f.py::test_diff_causes_only |

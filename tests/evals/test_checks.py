@@ -196,7 +196,21 @@ OTHER_SPECS = {
         CheckSpec(name="partial_reason_present", params={"contains": "above the ceiling"}),
         "partial",
     ),
+    "diff_causes_only": (
+        CheckSpec(name="diff_causes_only", params={"allowed": ["config", "displaced"]}),
+        "diff",
+    ),
+    "only_in_exclusions": (
+        CheckSpec(name="only_in_exclusions", params={"composition": "ThO2"}),
+        "clean",
+    ),
 }
+
+
+def diff_observation() -> Observation:
+    obs = clean_observation()
+    obs.diff = {"changes": [{"composition": "HfO2", "causes": ["config"]}]}
+    return obs
 
 
 def partial_observation() -> Observation:
@@ -212,13 +226,19 @@ def test_every_registered_check_is_exercised_and_passes_on_a_clean_observation()
     obs = clean_observation()
     results = [run_check(s, obs) for s in CLEAN_SPECS]
     assert [(r.name, r.detail) for r in results if not r.passed] == []
-    shapes = {"clarification": clarification_observation(), "partial": partial_observation()}
+    shapes = {
+        "clarification": clarification_observation(),
+        "partial": partial_observation(),
+        "diff": diff_observation(),
+        "clean": obs,
+    }
     for spec, shape in OTHER_SPECS.values():
         r = run_check(spec, shapes[shape])
         assert r.passed, (r.name, r.detail)
-    # And each of those fails on the clean observation, where its condition is absent.
-    for spec, _ in OTHER_SPECS.values():
-        assert not run_check(spec, obs).passed
+    # And each shaped check fails on the clean observation, where its condition is absent.
+    for spec, shape in OTHER_SPECS.values():
+        if shape != "clean":
+            assert not run_check(spec, obs).passed
 
 
 def test_new_shape_checks_fail_with_a_reason() -> None:

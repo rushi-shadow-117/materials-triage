@@ -96,6 +96,46 @@ CRITERIA = (
 )
 OPTIONAL_CRITERIA = ("dielectric_constant", "deposition_method", "cost")  # weight 0 by default
 
+# Names a request may use for a property, mapped to the criterion that covers it. A requested
+# property that is not here has no configured source: the run carries it as unavailable and
+# both views say so (Track F). Names only; no thresholds or chemistry.
+PROPERTY_CRITERIA: dict[str, str] = {
+    "stability": "stability",
+    "thermodynamic stability": "stability",
+    "energy above hull": "stability",
+    "band gap": "band_gap",
+    "gap": "band_gap",
+    "wide band gap": "band_gap",
+    "toxicity": "hazard",
+    "non-toxic": "hazard",
+    "hazard": "hazard",
+    "simplicity": "simplicity",
+    "simple composition": "simplicity",
+    "simple compositions": "simplicity",
+    "element count": "simplicity",
+    "evidence": "evidence",
+    "public evidence": "evidence",
+    "published synthesis": "evidence",
+    "synthesis": "evidence",
+    "dielectric constant": "dielectric_constant",
+    "permittivity": "dielectric_constant",
+    "k": "dielectric_constant",
+    "high-k": "dielectric_constant",
+    "deposition method": "deposition_method",
+    "cost": "cost",
+}
+
+
+def unavailable_properties(requested: list[str]) -> list[str]:
+    """Requested property names no configured criterion covers, normalized and deduplicated."""
+    out: list[str] = []
+    for name in requested:
+        key = " ".join(name.lower().split())
+        if key and key not in PROPERTY_CRITERIA and key not in out:
+            out.append(key)
+    return out
+
+
 # ----------------------------------------------------------------------------- core (code-owned)
 
 
