@@ -3826,4 +3826,320 @@ interactions:
         thin film&per_page=1", "order": "best matches first", "order_default": true},
         "cost_usd": 0.001}, "results": [], "group_by": []}'
   recorded_at: '2026-11-04T18:19:55+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=Rb2CN2+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 8, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Rb2CN2 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (Rb2CN2 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "Rb2CN2
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:Rb2CN2
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T19:34:10+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=Rb2CN2+thin+film&select=id
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 14, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (Rb2CN2 thin film)
+        in the title or abstract", "x_new_oql": "get works with (Rb2CN2 thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "Rb2CN2 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:Rb2CN2 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T19:34:10+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=RbC2N3+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 8, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (RbC2N3 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (RbC2N3 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "RbC2N3
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:RbC2N3
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T19:34:13+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=RbC2N3+thin+film&select=id
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 8, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (RbC2N3 thin film)
+        in the title or abstract", "x_new_oql": "get works with (RbC2N3 thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "RbC2N3 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:RbC2N3 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T19:34:13+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=RbTaN2+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 8, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (RbTaN2 thin film)
+        in the title or abstract where it has an abstract", "x_new_oql": "get works
+        with (RbTaN2 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "RbTaN2
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:RbTaN2
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T19:34:15+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=RbTaN2+thin+film&select=id
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 10, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (RbTaN2 thin film)
+        in the title or abstract", "x_new_oql": "get works with (RbTaN2 thin film)
+        in the title or abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id":
+        "title_and_abstract.search", "value": "RbTaN2 thin film", "operator": "has"}]},
+        "url": "/works?filter=title_and_abstract.search:RbTaN2 thin film&per_page=1",
+        "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
+        "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T19:34:15+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=Sc2%28CN2%293+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 12, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Sc2 CN2 3 thin
+        film) in the title or abstract where it has an abstract", "x_new_oql": "get
+        works with (Sc2 CN2 3 thin film) in the title or abstract where it has an
+        abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "Sc2(CN2)3
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:Sc2%28CN2%293
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T19:34:29+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=Sc2%28CN2%293+thin+film&select=id
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 11, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (Sc2 CN2 3 thin
+        film) in the title or abstract", "x_new_oql": "get works with (Sc2 CN2 3 thin
+        film) in the title or abstract", "oqo": {"get_rows": "works", "filter_rows":
+        [{"column_id": "title_and_abstract.search", "value": "Sc2(CN2)3 thin film",
+        "operator": "has"}]}, "url": "/works?filter=title_and_abstract.search:Sc2%28CN2%293
+        thin film&per_page=1", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T19:34:29+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=Sm2%28CN2%293+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 13, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Sm2 CN2 3 thin
+        film) in the title or abstract where it has an abstract", "x_new_oql": "get
+        works with (Sm2 CN2 3 thin film) in the title or abstract where it has an
+        abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "Sm2(CN2)3
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:Sm2%28CN2%293
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T19:34:41+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=Sm2%28CN2%293+thin+film&select=id
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 12, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (Sm2 CN2 3 thin
+        film) in the title or abstract", "x_new_oql": "get works with (Sm2 CN2 3 thin
+        film) in the title or abstract", "oqo": {"get_rows": "works", "filter_rows":
+        [{"column_id": "title_and_abstract.search", "value": "Sm2(CN2)3 thin film",
+        "operator": "has"}]}, "url": "/works?filter=title_and_abstract.search:Sm2%28CN2%293
+        thin film&per_page=1", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T19:34:42+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=Sm3Si6N11+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 7, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Sm3Si6N11 thin
+        film) in the title or abstract where it has an abstract", "x_new_oql": "get
+        works with (Sm3Si6N11 thin film) in the title or abstract where it has an
+        abstract", "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "Sm3Si6N11
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:Sm3Si6N11
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T19:34:46+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=Sm3Si6N11+thin+film&select=id
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 11, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (Sm3Si6N11 thin
+        film) in the title or abstract", "x_new_oql": "get works with (Sm3Si6N11 thin
+        film) in the title or abstract", "oqo": {"get_rows": "works", "filter_rows":
+        [{"column_id": "title_and_abstract.search", "value": "Sm3Si6N11 thin film",
+        "operator": "has"}]}, "url": "/works?filter=title_and_abstract.search:Sm3Si6N11
+        thin film&per_page=1", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T19:34:46+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=Sr2Si5N8+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 8, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Sr2Si5N8 thin
+        film) in the title or abstract where it has an abstract", "x_new_oql": "get
+        works with (Sr2Si5N8 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "Sr2Si5N8
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:Sr2Si5N8
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-04T19:34:48+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=Sr2Si5N8+thin+film&select=id
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 1, "db_response_time_ms": 11, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (Sr2Si5N8 thin
+        film) in the title or abstract", "x_new_oql": "get works with (Sr2Si5N8 thin
+        film) in the title or abstract", "oqo": {"get_rows": "works", "filter_rows":
+        [{"column_id": "title_and_abstract.search", "value": "Sr2Si5N8 thin film",
+        "operator": "has"}]}, "url": "/works?filter=title_and_abstract.search:Sr2Si5N8
+        thin film&per_page=1", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [{"id": "https://openalex.org/W2044613435"}],
+        "group_by": []}'
+  recorded_at: '2026-11-04T19:34:48+00:00'
 version: 1

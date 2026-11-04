@@ -1520,3 +1520,17 @@ the provider and model read-only. Both presets are marked experimental: not eval
 their base URLs come from the providers' public documentation, unverified on the wire here.
 Alternative: a provider picker in the console, which would let a chat-adjacent surface change
 where request text is sent; provider choice stays a site decision in configuration.
+
+### 2026-11-04 Discovery enrichment guard raised to 6 x top_n; B2 still partial at the round cap
+Decision (owner): `MAX_ENRICHED_PER_TOP` goes from 5 to 6, because B2's top 10 lacked
+cross-checks for three compositions at 52 enriched. One recording round
+(`scripts/record_case_gaps.py B2`) added 58 public-API responses (28 Materials Project, 14
+OpenAlex, 16 PubChem) and the replay has no gap left. Observed on the rerun (scripted model,
+cassettes): B2 enriches 59 compositions in 12 rounds and then stops at the separate
+`MAX_ENRICHMENT_ROUNDS` (12) with two newcomers per round still arriving, so the case
+remains partial for that reason and the suite stays at 39 of 43 (E3, E4, G4 skipped). With
+the round cap lifted on the recorded data alone, a 13th round asks for Sr2TaN3 and
+Sr3(BN2)2, which are not recorded. Raising the round cap, and a second recording round, are
+left to the owner; no other case's result moved.
+Alternative: raise the round cap in the same change, which would move the failure a second
+time without a decision on how far enrichment may run.
