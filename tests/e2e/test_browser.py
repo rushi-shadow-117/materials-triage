@@ -23,6 +23,14 @@ def test_rank_my_list_runs_end_to_end(page, server: str) -> None:  # type: ignor
     # progress, then results: SiO2 anchor, the not-found name, three ranked rows
     page.get_by_text("Shown for calibration").wait_for()
     shot(page, "02-results-pi")
+    # "What this screen cannot tell you" sits above the table, inside the first screen
+    # (human test session, item 14)
+    tell = page.get_by_test_id("cannot-tell")
+    assert "moisture sensitivity" in tell.inner_text()
+    tell_box, table_box = tell.bounding_box(), page.locator("table").first.bounding_box()
+    assert tell_box is not None and table_box is not None
+    assert tell_box["y"] < table_box["y"]
+    assert tell_box["y"] < (page.viewport_size or {"height": 720})["height"]
     rows = page.locator("tbody tr[data-composition]")
     assert rows.count() == 4  # Al2O3, HfO2, ZrO2 and the SiO2 anchor row
     assert rows.nth(0).get_attribute("data-composition") == "Al2O3"

@@ -5,6 +5,17 @@ Note: SAMPLE BUNDLE: groups, provenance, hazards, gaps, and literature are real 
 
 Request: Rank the eleven baseline oxides as thin-film dielectric candidates.
 
+## What this screen cannot tell you
+
+- breakdown field
+- leakage current density
+- band offsets to the substrate
+- interface trap and defect density
+- crystallization temperature
+- interfacial reaction with the substrate
+- the film's actual phase and density
+
+
 ## Applies to every row
 
 - Band offsets to the substrate are not checked by this screen.
@@ -34,17 +45,6 @@ Equal scores are tied; tied rows are listed alphabetically.
 ## Caveats
 
 - band_offsets_not_checked: Band offsets to the substrate are not checked by this screen.
-
-## What this screen cannot tell you
-
-- breakdown field
-- leakage current density
-- band offsets to the substrate
-- interface trap and defect density
-- crystallization temperature
-- interfacial reaction with the substrate
-- the film's actual phase and density
-
 ## Settings applied
 
 - Defaults: verbosity=standard; view=pi_summary

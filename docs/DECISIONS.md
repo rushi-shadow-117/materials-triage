@@ -1424,3 +1424,10 @@ Decision (owner): the API strips the refresh note and refuses one that is empty 
 stripping (422); the audit log stores the stripped note. The console's button already
 required text; the API now enforces it for every client.
 Alternative: rely on the console's check, which any other client skips.
+
+### 2026-11-04 "What this screen cannot tell you" sits above the table
+Decision (owner): the results page and the PI export show the "cannot tell you" list,
+moisture sensitivity included, in one panel above the table beside the caveats that apply to
+every row, so the limits are read before the ranks. A browser test checks the panel is above
+the table and inside the first screen at 1280 by 900.
+Alternative: keep it after the caveats, below a table that can run to ten rows.

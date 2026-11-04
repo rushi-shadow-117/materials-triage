@@ -168,12 +168,23 @@ function Results({ data, view, setView, runId }: { data: RunViewJson; view: "pi_
         <div className="panel warn">Not available from configured sources: {data.unavailable_properties.join(", ")}. Not scored; no value is shown.</div>
       )}
       {data.overview && <p>{data.overview}</p>}
-      {data.profile_caveats.length > 0 && (
-        <div className="panel note" data-testid="every-row">
-          <h3 style={{ marginTop: 0 }}>Applies to every row</h3>
-          <ul>{data.profile_caveats.map((c) => <li key={c.id}>{c.text}</li>)}</ul>
+      {/* above the table, so the limits are read before the ranks (human test session, item 14) */}
+      <div className="panel note before-table">
+        <div data-testid="cannot-tell">
+          <h3 style={{ marginTop: 0 }}>What this screen cannot tell you</h3>
+          <p className="muted">Not in configured public sources. Measure or consult the literature before committing deposition time.</p>
+          <ul>
+            {data.missing_properties.map((m) => <li key={m}>{m}</li>)}
+            {data.unavailable_properties.map((m) => <li key={`u-${m}`}>{m} (requested; no configured source)</li>)}
+          </ul>
         </div>
-      )}
+        {data.profile_caveats.length > 0 && (
+          <div data-testid="every-row">
+            <h3 style={{ marginTop: 0 }}>Applies to every row</h3>
+            <ul>{data.profile_caveats.map((c) => <li key={c.id}>{c.text}</li>)}</ul>
+          </div>
+        )}
+      </div>
 
       {data.relaxations && data.relaxations.length > 0 && (
         <div className="panel note">
@@ -245,15 +256,6 @@ function Results({ data, view, setView, runId }: { data: RunViewJson; view: "pi_
           </div>
         </>
       )}
-
-      <h2>What this screen cannot tell you</h2>
-      <div className="panel">
-        <p className="muted">Not in configured public sources. Measure or consult the literature before committing deposition time.</p>
-        <ul>
-          {data.missing_properties.map((m) => <li key={m}>{m}</li>)}
-          {data.unavailable_properties.map((m) => <li key={`u-${m}`}>{m} (requested; no configured source)</li>)}
-        </ul>
-      </div>
 
       <h2>Settings applied</h2>
       <div className="panel">

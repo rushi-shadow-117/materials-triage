@@ -29,6 +29,15 @@ Nothing is shown for:{% for u in view.unresolved %} {{ u.text }} ({{ u.reason }}
 
 Not available from configured sources: {{ view.unavailable_properties | join(", ") }}. No configured source provides these properties, so they are not scored and no value is shown.
 {% endif %}
+
+## What this screen cannot tell you
+
+{% for m in view.missing_properties %}
+- {{ m }}
+{% else %}
+- (site list not entered)
+{% endfor %}
+
 {% if view.profile_caveats %}
 
 ## Applies to every row
@@ -83,15 +92,6 @@ No candidate passed the criteria.
 - {{ id }}: {{ c.text }}
 {% endfor %}
 {% endif %}
-
-## What this screen cannot tell you
-
-{% for m in view.missing_properties %}
-- {{ m }}
-{% else %}
-- (site list not entered)
-{% endfor %}
-
 ## Settings applied
 
 - Defaults: {{ view.defaults_applied | join("; ") if view.defaults_applied else "none" }}
