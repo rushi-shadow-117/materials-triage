@@ -1,8 +1,13 @@
 # Permissions
 
-Roles come only from the bearer token (`AUTH_MODE=static` or `oidc`). In `AUTH_MODE=none`
-every request carries `DEV_ROLE`. Nothing in a request body, a query string, another header,
-or chat text changes a role. Every refused request is written to the audit log.
+Roles come only from the bearer token (`AUTH_MODE=static` or `oidc`). Nothing in a request
+body, a query string, another header, or chat text changes a role. Every refused request is
+written to the audit log.
+
+`AUTH_MODE=none` is for development and is refused when `SITE_MODE=true`. In that mode every
+request carries `DEV_ROLE`, and the header `X-Dev-Role` (the role switcher in the app's
+header) may pick one of the three roles for a request; static and OIDC modes never read it,
+and `tests/api/test_auth.py` sends it in each mode.
 
 The enforcing code is the FastAPI dependency named in the last column
 (`src/materials_triage/api/auth.py`). `tests/api/test_permissions.py` checks every route in
@@ -36,6 +41,8 @@ this table against the app, so the table cannot drift from the code.
 | POST /api/admin/profiles | no | yes | yes | console_roles |
 | POST /api/admin/refresh | no | no | yes | admin_only |
 | GET /api/audit | no | no | yes | admin_only |
+| GET /api/help/keys | yes | yes | yes | any_role |
+| GET /api/help/{guide} | yes | yes | yes | any_role |
 
 Weight bounds are readable by every role: the workspace shows the sliders' limits to the
 scientist, who can move weights only inside them.
@@ -47,6 +54,7 @@ scientist, who can move weights only inside them.
 | Describe a request, confirm criteria, run, cancel | yes | yes | yes |
 | Rank my list | yes | yes | yes |
 | Read PI and audit views, exports, drill-down, run history | yes | yes | yes |
+| Read the Help page and the in-app help | yes | yes | yes |
 | Apply a code-computed relaxation as a new run | yes | yes | yes |
 | Open the console | no (403 page) | yes | yes |
 | Read effective configuration, hazard policy, weight bounds, source health | no | yes | yes |

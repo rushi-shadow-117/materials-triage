@@ -209,3 +209,19 @@ rows only under its own heading. Rows name a test path; a row without a test is 
 | A refresh is requested with a blank or whitespace note | 422; the audit log stores only stripped, non-empty notes | tests/api/test_auth.py::test_refresh_notes_are_stripped_and_must_have_text |
 | The limits of the screen are below the fold | The cannot-tell-you panel is above the table, inside the first screen | tests/e2e/test_browser.py::test_rank_my_list_runs_end_to_end |
 | A peroxide, superoxide, or azide reaches an oxide or nitride profile | Excluded by simplicity.anion_policy: no oxidation-state guess puts every O at -2 or N at -3 | tests/scoring/test_criteria_properties.py::test_strict_anion_policies_need_the_simple_anion_state |
+
+## Track H: usability
+
+| Failure | Behavior | Test |
+|---|---|---|
+| A request longer than 2,000 characters | 422 with a sentence on parse and run; the web counter turns red and Parse is off | tests/api/test_limits.py::test_a_request_over_the_character_limit_is_refused_with_a_sentence; tests/test_config_limits.py::test_request_limit_is_exact |
+| More than 50 candidates | 422 with a sentence on resolve and run; Run stays off | tests/api/test_limits.py::test_a_candidate_list_over_the_limit_is_refused_on_resolve_and_on_run |
+| Candidates pasted with semicolons or mixed separators | The API splits them; the browser parses nothing | tests/api/test_limits.py::test_typed_text_is_split_on_commas_semicolons_and_new_lines; tests/e2e/test_browser.py::test_input_limits_chips_and_the_call_estimate |
+| `X-Dev-Role` sent in static or OIDC mode | Ignored; the role is the token's and `role_switch` is false | tests/api/test_auth.py::test_dev_role_header_switches_the_role_in_none_mode_only; tests/api/test_auth.py::test_oidc_roles_come_from_the_token_claim; tests/e2e/test_browser.py::test_the_role_switcher_is_absent_with_static_tokens |
+| `AUTH_MODE=none` with `SITE_MODE=true` | The API refuses to start | tests/api/test_auth.py::test_site_mode_refuses_no_auth |
+| A help guide name outside the allowlist, or a dotted path | 404; no document leaves docs/ | tests/api/test_help.py::test_the_two_guides_are_served_as_markdown_and_nothing_else_is |
+| A new flag, caveat, criterion, rule, or tier without help text | tests/test_help_text.py fails naming the key | tests/test_help_text.py::test_every_vocabulary_key_has_a_help_entry |
+| A candidate with no computed dielectric constant | Listed under the chart, never plotted at zero | tests/render/test_views.py::test_chart_points_are_the_bundles_values_with_their_records |
+| The PI view's chart | No record ids in its points | tests/render/test_views.py::test_pi_view_chart_has_no_record_ids_and_mev_units_apply; tests/api/test_runs_api.py::test_candidate_list_run_end_to_end |
+| A preset provider with no key, or with the Claude default model | `MissingSettingError` naming the variable; the app shows the missing-key banner | tests/agent/test_llm.py::test_preset_providers_need_their_own_key_and_an_explicit_model |
+| An OpenAI-compatible endpoint answers 401, 403, 402, or a quota 429 | The model status becomes invalid_key or no_credit and the run falls back | tests/agent/test_llm.py::test_http_status_errors_from_a_compatible_endpoint_set_the_model_status |

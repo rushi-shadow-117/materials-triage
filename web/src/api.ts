@@ -30,6 +30,27 @@ export type Clamp = ResolveResponse["clamps"][number];
 
 const BASE = "/api"; // the API lives only under /api, in dev and in the built app
 const TOKEN_KEY = "materials-triage.token";
+const DEV_ROLE_KEY = "materials-triage.dev-role";
+const DEV_ROLE_HEADER = "X-Dev-Role";
+
+/** Development only: with AUTH_MODE=none the API lets this header pick the role for a
+ * request; static and oidc ignore it. Kept for the browser session. */
+export function getDevRole(): string | null {
+  try {
+    return window.sessionStorage.getItem(DEV_ROLE_KEY);
+  } catch {
+    return null;
+  }
+}
+
+export function setDevRole(role: string | null): void {
+  try {
+    if (role) window.sessionStorage.setItem(DEV_ROLE_KEY, role);
+    else window.sessionStorage.removeItem(DEV_ROLE_KEY);
+  } catch {
+    /* storage unavailable: the choice lives for this page only */
+  }
+}
 
 export function getToken(): string | null {
   try {
@@ -62,6 +83,8 @@ function headers(extra?: Record<string, string>): Record<string, string> {
   const h: Record<string, string> = { ...(extra ?? {}) };
   const token = getToken();
   if (token) h["Authorization"] = `Bearer ${token}`;
+  const devRole = getDevRole();
+  if (devRole) h[DEV_ROLE_HEADER] = devRole;
   return h;
 }
 

@@ -199,6 +199,10 @@ class CoreConfig(Strict):
     )
     step_budgets: dict[str, StepBudget] = Field(default_factory=default_step_budgets)
     max_abstracts_per_candidate: int = 5  # in the literature search's result order
+    # Input limits (Track H). The API refuses a longer request or a longer candidate list
+    # with a sentence; the web app shows the same limits before sending.
+    max_request_chars: int = 2000
+    max_candidates: int = 50
 
 
 # ----------------------------------------------------------------------------- site profile (admin)

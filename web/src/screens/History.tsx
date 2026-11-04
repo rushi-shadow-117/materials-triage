@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { get, type RunSummary } from "../api";
+import { ScreenHelp } from "../components/Help";
 
 export default function History() {
   const [runs, setRuns] = useState<RunSummary[] | null>(null);
@@ -10,11 +11,12 @@ export default function History() {
   return (
     <div className="page">
       <h1>Run history</h1>
+      <ScreenHelp screen="history" />
       <div className="panel">
         {!runs ? (
           <p className="muted">Loading…</p>
         ) : runs.length === 0 ? (
-          <p className="muted">No runs yet.</p>
+          <p className="muted">No runs yet. Start one from the <Link to="/">Workspace</Link>: describe a request, or paste formulas under Rank my list.</p>
         ) : (
           <table>
             <thead>

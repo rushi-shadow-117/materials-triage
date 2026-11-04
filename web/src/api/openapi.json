@@ -1605,6 +1605,11 @@
             "title": "Role",
             "type": "string"
           },
+          "role_switch": {
+            "default": false,
+            "title": "Role Switch",
+            "type": "boolean"
+          },
           "subject": {
             "title": "Subject",
             "type": "string"
@@ -3798,6 +3803,72 @@
           }
         },
         "summary": "Health"
+      }
+    },
+    "/api/help/keys": {
+      "get": {
+        "description": "The closed vocabularies the in-app help text covers (web/src/help.ts).",
+        "operationId": "help_keys_api_help_keys_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "title": "Response Help Keys Api Help Keys Get",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Help Keys"
+      }
+    },
+    "/api/help/{guide}": {
+      "get": {
+        "description": "A role guide as Markdown, from a fixed allowlist of two files under docs/.",
+        "operationId": "help_guide_api_help__guide__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "guide",
+            "required": true,
+            "schema": {
+              "title": "Guide",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Help Guide"
       }
     },
     "/api/me": {

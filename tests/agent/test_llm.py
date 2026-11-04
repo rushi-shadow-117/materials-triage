@@ -195,3 +195,40 @@ def test_factory_picks_the_provider_and_requires_its_settings() -> None:
     b = llm.make_client(_settings(llm_provider="bedrock", aws_region="us-east-1"))
     assert isinstance(b, llm.AnthropicClient) and b.model == "anthropic.claude-sonnet-5-5"
     assert b.provider == "bedrock"
+
+
+def test_preset_providers_need_their_own_key_and_an_explicit_model() -> None:
+    """Track H item 6: openai and gemini go through the OpenAI-compatible client with their
+    own key variable; the Claude default model is refused for them."""
+    with pytest.raises(MissingSettingError, match="OPENAI_API_KEY"):
+        llm.make_client(_settings(llm_provider="openai", llm_model="some-model"))
+    with pytest.raises(MissingSettingError, match="GEMINI_API_KEY"):
+        llm.make_client(_settings(llm_provider="gemini", llm_model="some-model"))
+    with pytest.raises(MissingSettingError, match="LLM_MODEL"):
+        llm.make_client(_settings(llm_provider="openai", openai_api_key="k"))
+    o = llm.make_client(_settings(llm_provider="openai", openai_api_key="k", llm_model="m"))
+    assert isinstance(o, llm.OpenAICompatibleClient) and o.provider == "openai"
+    assert str(o._client.base_url).startswith("https://api.openai.com/v1")
+    g = llm.make_client(
+        _settings(
+            llm_provider="gemini", gemini_api_key="k", llm_model="m", llm_base_url="http://p/v1"
+        )
+    )
+    assert isinstance(g, llm.OpenAICompatibleClient) and g.provider == "gemini"
+    assert str(g._client.base_url).startswith("http://p/v1")  # LLM_BASE_URL overrides a preset
+
+
+def test_http_status_errors_from_a_compatible_endpoint_set_the_model_status() -> None:
+    from materials_triage.agent import llm_status
+
+    def err(code: int, body: str = "") -> httpx.HTTPStatusError:
+        req = httpx.Request("POST", "https://api.openai.com/v1/chat/completions")
+        resp = httpx.Response(code, text=body, request=req)
+        return httpx.HTTPStatusError("x", request=req, response=resp)
+
+    assert llm_status.classify_error(err(401)) == "invalid_key"
+    assert llm_status.classify_error(err(403)) == "invalid_key"
+    assert llm_status.classify_error(err(402)) == "no_credit"
+    assert llm_status.classify_error(err(429, '{"error": "insufficient_quota"}')) == "no_credit"
+    assert llm_status.classify_error(err(429, "rate limited, retry")) is None
+    assert llm_status.classify_error(err(500)) is None

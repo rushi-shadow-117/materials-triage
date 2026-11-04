@@ -4,6 +4,7 @@ already a display string from `precision`, every caveat already resolved text.""
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from decimal import Decimal
 
 from materials_triage.records import Provenance, record_url
 from materials_triage.records.bundle import (
@@ -185,6 +186,127 @@ class RunView:
     ties_note: str | None = None  # shown under the table when any shown rows are tied
     # caveats every row carries by construction, shown once above the table
     profile_caveats: list[CaveatText] = field(default_factory=list)
+    # band gap versus dielectric constant for every scored candidate that has both (Track H)
+    chart: ChartView | None = None
+
+
+@dataclass(frozen=True)
+class ChartTick:
+    value: float  # position on the axis, in the displayed unit
+    text: str  # the label, formatted by code
+
+
+@dataclass(frozen=True)
+class ChartPoint:
+    """One candidate on the selection chart. `gap` is the scored band gap raw value (the
+    band gap criterion); `k` is the scored polymorph's Materials Project DFPT total dielectric
+    constant with its own provenance, not the dielectric criterion, which is missing while
+    its target band is pending."""
+
+    composition: str
+    status: str  # shortlist | ranked | excluded | anchor
+    gap: float  # in the displayed unit, for position
+    gap_text: str
+    gap_source: str
+    k: float
+    k_text: str
+    k_source: str
+    record_ids: list[str]  # gap record, k record; empty in the PI view
+
+
+@dataclass(frozen=True)
+class ChartView:
+    points: list[ChartPoint]
+    unplotted: list[str]  # "HfO2: no dielectric constant in the configured sources"
+    x_label: str
+    y_label: str
+    x_ticks: list[ChartTick]
+    y_ticks: list[ChartTick]
+
+
+def _chart(
+    bundle: ProvenanceBundle,
+    shown_ranked: list[Candidate],
+    ranked_all: list[Candidate],
+    excluded_all: list[Candidate],
+    units: str,
+    hide_ids: bool,
+) -> ChartView:
+    shown = {c.composition for c in shown_ranked}
+    rows: list[tuple[str, Candidate | Anchor]] = [
+        *(("shortlist" if c.composition in shown else "ranked", c) for c in ranked_all),
+        *(("excluded", c) for c in excluded_all),
+        *(("anchor", a) for a in bundle.anchors),
+    ]
+    points: list[ChartPoint] = []
+    unplotted: list[str] = []
+    for status, row in rows:
+        gap_score = next(
+            (cs for cs in (row.score.criteria if row.score else []) if cs.criterion == "band_gap"),
+            None,
+        )
+        scored = row.group.polymorphs.scored
+        k_value = scored.dielectric.get("e_total") if scored is not None else None
+        if gap_score is None or gap_score.raw_value is None:
+            unplotted.append(f"{row.composition}: no band gap value")
+            continue
+        if k_value is None or k_value.value is None:
+            unplotted.append(f"{row.composition}: no dielectric constant in the configured sources")
+            continue
+        factor, _label = precision.display_unit(gap_score.raw_unit, units)
+        ids: list[str] = []
+        if not hide_ids:
+            if gap_score.provenance is not None:
+                ids.append(gap_score.provenance.source_record_id)
+            ids.append(k_value.provenance.source_record_id)
+        points.append(
+            ChartPoint(
+                composition=row.composition,
+                status=status,
+                gap=float(Decimal(str(gap_score.raw_value)) * factor),
+                gap_text=precision.fmt(gap_score.raw_value, gap_score.raw_unit, units),
+                gap_source=gap_score.source or "none",
+                k=float(k_value.value),
+                k_text=precision.fmt(k_value.value, k_value.unit, units),
+                k_source=f"{k_value.provenance.source} {k_value.method or ''}".strip(),
+                record_ids=ids,
+            )
+        )
+    gap_unit = precision.display_unit("eV", units)[1] or "eV"
+    return ChartView(
+        points=points,
+        unplotted=unplotted,
+        x_label=f"band gap ({gap_unit})",
+        y_label="dielectric constant k (computed, DFPT)",
+        x_ticks=_ticks([p.gap for p in points], "eV", units),
+        y_ticks=_ticks([p.k for p in points], "1", units),
+    )
+
+
+def _ticks(values: list[float], unit: str, units: str) -> list[ChartTick]:
+    """Five round axis labels from 0 to just above the largest value, formatted by code.
+    Positions are in the displayed unit, as the point coordinates are."""
+    if not values:
+        return []
+    top = max(values)
+    if top <= 0:
+        return [ChartTick(0.0, precision.fmt(0, unit, units))]
+    raw_step = top / 4
+    magnitude = Decimal(10) ** (Decimal(str(raw_step)).adjusted())
+    step = next(
+        float(magnitude * m)
+        for m in (Decimal(1), Decimal(2), Decimal(5), Decimal(10))
+        if float(magnitude * m) >= raw_step
+    )
+    ticks: list[ChartTick] = []
+    label = precision.display_unit(unit, units)[1]
+    v = 0.0
+    while v < top + step:
+        # tick values are already in the displayed unit; format them without re-conversion
+        number = precision.quantize(Decimal(str(v)), precision.places(label))
+        ticks.append(ChartTick(v, number if label in (None, "1") else f"{number} {label}"))
+        v = float(Decimal(str(v)) + Decimal(str(step)))
+    return ticks
 
 
 def _fmt(value: float | int | None, unit: str | None, units: str) -> str:
@@ -507,6 +629,7 @@ def build(
         unavailable_properties=list(bundle.criteria.unavailable_properties),
         ties_note=TIES_NOTE if any(r.tied for r in rows) else None,
         profile_caveats=list(profile_caveats.values()),
+        chart=_chart(bundle, shown_ranked, ranked_all, excluded_all, units, hide_ids),
     )
 
 

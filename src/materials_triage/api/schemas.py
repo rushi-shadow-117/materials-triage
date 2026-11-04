@@ -255,6 +255,7 @@ class Me(BaseModel):
     auth_mode: str
     llm_status: str
     llm_note: str
+    role_switch: bool = False  # AUTH_MODE=none only: the header may pick a dev role
 
 
 BundleOut = ProvenanceBundle

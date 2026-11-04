@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ApiError, get, post, postYaml, type HazardRow, type HealthResponse, type LayerRow, type ProfileValidation, type WeightBoundRow } from "../api";
 import type { Session } from "../App";
+import { ScreenHelp } from "../components/Help";
 
 type Tab = "effective" | "hazard" | "bounds" | "profiles" | "health";
 
@@ -11,6 +12,7 @@ export default function Console({ session }: { session: Session }) {
   return (
     <div className="page">
       <h1>Console</h1>
+      <ScreenHelp screen="console" />
       <p className="muted">
         Where the rules behind every score live. Configuration is read-only here and shows which layer set each value.
         {isAdmin ? " Admins may request a source refresh; FDEs and admins may upload scoring profiles." : " As a field engineer you may upload scoring profiles; hazard policy, bounds and refresh are the site admin's."}
@@ -44,7 +46,9 @@ function useLoad<T>(path: string): [T | null, string | null] {
   const [error, setError] = useState<string | null>(null);
   useEffect(() => {
     setData(null);
-    get<T>(path).then(setData).catch((e) => setError(String(e instanceof ApiError ? e.detail : e)));
+    get<T>(path)
+      .then(setData)
+      .catch((e) => setError(`${String(e instanceof ApiError ? e.detail : e)}. Check that materials-triage serve is running and that your role is fde or admin.`));
   }, [path]);
   return [data, error];
 }
@@ -115,14 +119,14 @@ function Profiles() {
   async function validate() {
     setError(null); setSaved(null);
     try { setResult(await postYaml<ProfileValidation>("/admin/profiles/validate", yaml)); }
-    catch (e) { setError(String(e instanceof ApiError ? e.detail : e)); }
+    catch (e) { setError(`${String(e instanceof ApiError ? e.detail : e)}. Fix the YAML and validate again.`); }
   }
   async function save() {
     setError(null);
     try {
       const r = await postYaml<{ file: string; id: string }>("/admin/profiles", yaml);
       setSaved(`Saved as ${r.file}. It appears in the profile list as ${r.id}.`);
-    } catch (e) { setError(String(e instanceof ApiError ? e.detail : e)); }
+    } catch (e) { setError(`${String(e instanceof ApiError ? e.detail : e)}. Nothing was saved; validate again and retry.`); }
   }
   const errors = result?.issues.filter((i) => i.level === "error") ?? [];
   const warnings = result?.issues.filter((i) => i.level === "warning") ?? [];
@@ -132,7 +136,7 @@ function Profiles() {
       <p className="muted">Validated with the scorer's own loader before anything is saved. A saved profile is a new file; existing files are never overwritten.</p>
       <input type="file" accept=".yaml,.yml" onChange={async (e) => { const f = e.target.files?.[0]; if (f) { setFileName(f.name); setYaml(await f.text()); setResult(null); } }} />
       {fileName && <small className="muted"> {fileName}</small>}
-      <textarea aria-label="profile yaml" style={{ minHeight: 220, fontFamily: "ui-monospace, monospace" }} value={yaml} onChange={(e) => { setYaml(e.target.value); setResult(null); }} />
+      <textarea aria-label="profile yaml" placeholder={"profile: my_profile_v1\n# paste a scoring profile; the sections are listed in docs/CONFIGURING.md"} style={{ minHeight: 220, fontFamily: "ui-monospace, monospace" }} value={yaml} onChange={(e) => { setYaml(e.target.value); setResult(null); }} />
       <div className="row">
         <button className="primary" onClick={validate} disabled={!yaml.trim()}>Validate</button>
         <button className="ghost" onClick={save} disabled={!result?.ok}>{result?.ok ? `Save as ${result.profile} v${result.version}` : `Fix ${errors.length || ""} error${errors.length === 1 ? "" : "s"} to save`}</button>
@@ -168,14 +172,24 @@ function Health({ isAdmin }: { isAdmin: boolean }) {
       const r = await post<{ applies_to: string }>("/admin/refresh", { source, note });
       setDone(`Refresh of ${source} accepted; it applies to ${r.applies_to}. Recorded in the audit log.`);
       setNote("");
-    } catch (e) { setErr(String(e instanceof ApiError ? e.detail : e)); }
+    } catch (e) { setErr(`${String(e instanceof ApiError ? e.detail : e)}. Nothing was refreshed; add a note and try again.`); }
   }
   return (
     <div className="panel">
       {error && <div className="panel bad">{error}</div>}
       {health && (
         <>
-          <p className="muted">Fetch source {health.fetch_source} ({health.fetch_mode}); model {health.llm_model ?? "none"} via {health.llm_provider}; classify {health.classify_mode}; auth {health.auth_mode}.</p>
+          <div className="panel note" data-testid="model-panel">
+            <h3 style={{ marginTop: 0 }}>Model</h3>
+            <dl className="kv">
+              <dt>Provider</dt><dd>{health.llm_provider}{["openai", "gemini", "openai_compatible"].includes(health.llm_provider) ? " (experimental: not evaluated)" : ""}</dd>
+              <dt>Model</dt><dd>{health.llm_model ?? "none"}</dd>
+              <dt>Classify mode</dt><dd>{health.classify_mode}</dd>
+              <dt>Status</dt><dd>{health.llm_status}{health.llm_note ? ` · ${health.llm_note}` : ""}</dd>
+            </dl>
+            <p className="muted">Read only. The provider and model are a site decision made in the configuration (LLM_PROVIDER, LLM_MODEL); nothing here changes them.</p>
+          </div>
+          <p className="muted">Fetch source {health.fetch_source} ({health.fetch_mode}); auth {health.auth_mode}.</p>
           <table>
             <thead><tr><th>Source</th><th>Status</th><th>Via</th><th>Last fetch</th><th>Records</th><th>Allowed host</th></tr></thead>
             <tbody>{health.sources.map((s) => <tr key={s.source}><td>{s.source}</td><td>{s.status}</td><td>{s.fetch_source}</td><td className="mono">{s.last_fetch ?? "—"}</td><td className="num">{s.records ?? "—"}</td><td className="mono">{s.allowed_host ?? "—"}</td></tr>)}</tbody>

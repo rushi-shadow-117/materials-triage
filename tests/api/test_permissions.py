@@ -76,7 +76,7 @@ def _app_routes() -> dict[tuple[str, str], str]:
 def test_permission_matrix_matches_the_app() -> None:
     doc = _doc_rows()
     routes = _app_routes()
-    assert len(routes) == 24 and all(path.startswith("/api/") for _m, path in routes)
+    assert len(routes) == 26 and all(path.startswith("/api/") for _m, path in routes)
     assert set(doc) == set(routes), {
         "only in doc": sorted(set(doc) - set(routes)),
         "only in app": sorted(set(routes) - set(doc)),

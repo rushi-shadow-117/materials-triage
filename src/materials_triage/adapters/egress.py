@@ -56,6 +56,10 @@ def llm_endpoint_host(settings: Settings) -> str | None:
         )
     if provider == "openai_compatible":
         return None if settings.llm_base_url is None else host_of(settings.llm_base_url)
+    if provider in ("openai", "gemini"):
+        from materials_triage.agent.llm import PRESETS  # the preset table lives with the client
+
+        return host_of(settings.llm_base_url or PRESETS[provider].base_url)
     return None
 
 

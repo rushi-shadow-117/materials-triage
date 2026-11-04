@@ -24,7 +24,13 @@ from materials_triage.agent import llm_status, pipeline, relaxation
 from materials_triage.agent import parse as parse_mod
 from materials_triage.agent.loop import Budget
 from materials_triage.cli import wiring
-from materials_triage.config.schema import QuerySettings, resolve, unavailable_properties
+from materials_triage.config import limits
+from materials_triage.config.schema import (
+    CoreConfig,
+    QuerySettings,
+    resolve,
+    unavailable_properties,
+)
 from materials_triage.records import record_url
 from materials_triage.records.bundle import (
     Anchor,
@@ -39,6 +45,7 @@ from materials_triage.scoring.band_gap import experimental_pool
 from materials_triage.settings import Settings
 
 from . import admin, auth
+from . import help as help_mod
 from .runs import RunManager
 from .schemas import (
     CallEstimateOut,
@@ -134,6 +141,16 @@ def _layers(request: Request, profile_id: str) -> wiring.Layers:
     return cache[profile_id]
 
 
+def _limits(
+    core: CoreConfig, *, request_text: str | None = None, settings: dict[str, Any] | None = None
+) -> None:
+    """Core input limits as a 422 with a sentence (config/limits.py)."""
+    try:
+        limits.check_request_limits(core, request_text=request_text, settings=settings)
+    except limits.LimitExceededError as e:
+        raise HTTPException(status_code=422, detail=str(e)) from None
+
+
 def _bundle(request: Request, run_id: str) -> ProvenanceBundle:
     runs: RunManager = request.app.state.runs
     try:
@@ -213,6 +230,7 @@ def _routes(app: APIRouter) -> None:  # noqa: C901 - one function registers ever
             subject=principal.subject,
             role=principal.role,
             auth_mode=principal.mode,
+            role_switch=principal.mode == "none",
             **llm_status.describe(),
         )
 
@@ -226,6 +244,7 @@ def _routes(app: APIRouter) -> None:  # noqa: C901 - one function registers ever
         confirm form is filled by hand (no call is made)."""
         settings: Settings = request.app.state.settings
         layers = _layers(request, body.profile)
+        _limits(layers.core, request_text=body.request_text)
         client = wiring.make_llm(settings, no_llm=False)
         if client is None:
             return ParseResponse(parse_available=False, reason=llm_status.note())
@@ -252,6 +271,7 @@ def _routes(app: APIRouter) -> None:  # noqa: C901 - one function registers ever
     ) -> ResolveResponse:
         """Pure: the confirm form's current values through the same clamps a run applies."""
         layers = _layers(request, body.profile)
+        _limits(layers.core, settings=body.settings)
         try:
             outcome = parse_mod.parse_from_settings(
                 body.settings,
@@ -291,6 +311,7 @@ def _routes(app: APIRouter) -> None:  # noqa: C901 - one function registers ever
         """Start a run from confirmed criteria. A request that names nothing to search on is
         answered 422 with the fields to supply; nothing is fetched."""
         layers = _layers(request, body.profile)
+        _limits(layers.core, request_text=body.request_text, settings=body.settings)
         try:
             outcome = parse_mod.parse_from_settings(
                 body.settings,
@@ -607,6 +628,21 @@ def _routes(app: APIRouter) -> None:  # noqa: C901 - one function registers ever
     def audit_log(request: Request, _: auth.AdminRole, limit: int = 200) -> list[dict[str, Any]]:
         entries: list[dict[str, Any]] = request.app.state.audit.entries()
         return entries[-limit:]
+
+    @app.get("/help/keys")
+    def help_keys(_: auth.AnyRole) -> dict[str, list[str]]:
+        """The closed vocabularies the in-app help text covers (web/src/help.ts)."""
+        return help_mod.keys()
+
+    @app.get("/help/{guide}", response_class=PlainTextResponse)
+    def help_guide(guide: str, _: auth.AnyRole) -> PlainTextResponse:
+        """A role guide as Markdown, from a fixed allowlist of two files under docs/."""
+        text = help_mod.guide_text(guide)
+        if text is None:
+            raise HTTPException(
+                status_code=404, detail=f"no guide named {guide!r}; use scientist or admin"
+            )
+        return PlainTextResponse(text, media_type="text/markdown; charset=utf-8")
 
     @app.get("/health", response_model=HealthResponse)
     def health(request: Request) -> HealthResponse:

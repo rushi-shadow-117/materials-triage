@@ -474,7 +474,8 @@ def collect_discovery(
 
 
 MAX_ENRICHMENT_ROUNDS = 12  # each round enriches only newcomers to the top K
-MAX_ENRICHED_PER_TOP = 5  # stop once 5 x top_n compositions have been enriched
+# stop once 6 x top_n compositions have been enriched; 5 left B2's top 10 three short (Track H)
+MAX_ENRICHED_PER_TOP = 6
 
 
 def run(

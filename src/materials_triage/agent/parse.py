@@ -19,6 +19,7 @@ from pydantic import BaseModel, ValidationError
 from pymatgen.core.periodic_table import Element
 
 from materials_triage.adapters.common import try_reduced_formula
+from materials_triage.config.limits import split_candidate_text
 from materials_triage.config.schema import (
     Clamp,
     CoreConfig,
@@ -343,6 +344,14 @@ def parse_from_settings(
     raw = dict(raw)
     raw.setdefault("profile", cli_profile)
     unresolved: list[str] = []
+    # typed text is split by the one splitter in code (config/limits.py), never the browser
+    for text_key, list_key in (
+        ("candidate_text", "candidate_list"),
+        ("extra_anchors_text", "extra_anchors"),
+    ):
+        if text_key in raw:
+            text = raw.pop(text_key)
+            raw[list_key] = split_candidate_text(str(text)) if text is not None else []
     if "candidate_list" in raw:
         # never fails the whole list: unmatched entries are reported, and a list with none
         # left is a missing candidate_list the confirm form asks for

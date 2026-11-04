@@ -135,3 +135,79 @@ def sign_in_again(page, server: str, role: str) -> None:  # type: ignore[no-unty
     page.goto(server + "/")
     page.get_by_role("button", name="Sign out").click()
     sign_in(page, server, role)
+
+
+def test_input_limits_chips_and_the_call_estimate(page, server: str) -> None:  # type: ignore[no-untyped-def]
+    """Track H item 3 and item 7: the counter, server-side splitting on three separators, the
+    matched chips, Run off while the list is empty, and the estimate sentence."""
+    sign_in(page, server, "scientist")
+    assert page.get_by_test_id("char-count").inner_text().startswith("0 / 2000")
+    page.get_by_label("request").fill("Find stable oxides")
+    assert page.get_by_test_id("char-count").inner_text().startswith("18 / 2000")
+    page.get_by_role("button", name="Rank my list").click()
+    assert page.get_by_role("button", name="Review criteria").is_disabled()
+    page.get_by_label("formulas").fill("HfO2; ZrO2\nAl2O3, hfo2")
+    page.get_by_role("button", name="Review criteria").click()
+    matched = page.get_by_test_id("matched")
+    matched.wait_for()
+    chips = [c.strip() for c in matched.locator(".chip").all_inner_texts()]
+    assert chips == ["HfO2", "ZrO2", "Al2O3"]
+    estimate = page.get_by_test_id("estimate")
+    assert "No model configured" in estimate.inner_text()  # LLM_PROVIDER=none on this server
+    assert page.get_by_role("button", name="Confirm and run").is_enabled()
+    # an empty list keeps Run off; the form says what to do
+    page.get_by_label("candidates").fill("")
+    page.get_by_text("Paste at least one formula or name to rank.").wait_for()
+    assert page.get_by_role("button", name="Confirm and run").is_disabled()
+    shot(page, "07-limits-and-estimate")
+
+
+def test_the_role_switcher_is_absent_with_static_tokens(page, server: str) -> None:  # type: ignore[no-untyped-def]
+    """Track H item 1: this server runs AUTH_MODE=static, so the dev role select never
+    renders and the role is the token's."""
+    sign_in(page, server, "fde")
+    assert page.get_by_label("dev role").count() == 0
+    assert "Role: fde" in page.inner_text("header")
+
+
+def test_help_panel_tooltips_and_the_help_page(page, server: str) -> None:  # type: ignore[no-untyped-def]
+    """Track H item 2: a collapsible panel on each screen, tooltips from help.ts, and the two
+    guides rendered on /help from the API."""
+    sign_in(page, server, "scientist")
+    panel = page.get_by_test_id("screen-help")
+    assert "How to use this screen" in panel.inner_text()
+    panel.locator("summary").click()
+    assert "Rank my list needs no model" in panel.inner_text()
+    page.get_by_role("button", name="Rank my list").click()
+    page.get_by_label("formulas").fill("HfO2, ZrO2")
+    page.get_by_role("button", name="Review criteria").click()
+    tip = page.locator("abbr.tip[data-help='criterion']", has_text="band gap")
+    assert "band gap that scores" in (tip.get_attribute("title") or "")
+    page.get_by_role("link", name="Help").click()
+    page.get_by_test_id("guide").get_by_role("heading", name="Scientist guide").wait_for()
+    page.get_by_role("button", name="Admin guide").click()
+    page.get_by_test_id("guide").get_by_role("heading", name="Admin guide").wait_for()
+    assert page.locator("[data-testid='guide'] h2").count() > 3  # rendered markdown, not raw text
+    shot(page, "08-help")
+
+
+def test_the_selection_chart_plots_the_shortlist(page, server: str) -> None:  # type: ignore[no-untyped-def]
+    """Track H item 5: the band gap versus dielectric constant chart on the results page,
+    with the shortlist filled, the anchor as a diamond, and a hover readout of server text."""
+    sign_in(page, server, "scientist")
+    page.get_by_role("button", name="Rank my list").click()
+    page.get_by_label("formulas").fill("HfO2, ZrO2, Al2O3")
+    page.get_by_role("button", name="Review criteria").click()
+    page.get_by_test_id("matched").wait_for()
+    page.get_by_role("button", name="Confirm and run").click()
+    page.wait_for_url(re.compile(r"/runs/[0-9a-f-]{36}$"))
+    page.get_by_text("Shown for calibration").wait_for()
+    svg = page.locator("svg[aria-label='band gap versus dielectric constant']")
+    svg.wait_for()
+    assert svg.locator(".point.shortlist[data-composition='HfO2']").count() == 1
+    assert svg.locator(".point.anchor").count() <= 1
+    svg.locator(".point.shortlist[data-composition='HfO2']").hover()
+    readout = page.get_by_test_id("chart-hover").inner_text()
+    assert "HfO2" in readout and "band gap" in readout and " k " in readout
+    assert "mp-" not in readout  # the PI view names no record ids
+    shot(page, "10-chart")

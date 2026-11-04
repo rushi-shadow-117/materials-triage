@@ -1448,3 +1448,89 @@ Decision (owner): "The experimental band gap is reported for the composition, no
 specific polymorph." shows once in the panel above the table and is never a row's key caveat
 or part of its rationale.
 Alternative: keep it per row, where it became the key caveat on most rows.
+
+## Track H: usability
+
+### 2026-11-04 Input limits are core configuration and one splitter lives in code
+Decision (owner): `CoreConfig.max_request_chars` (2,000) and `max_candidates` (50) are
+code-owned; `/api/parse`, `/api/criteria/resolve`, and `/api/runs` refuse over them with a
+422 and a sentence, and the web app reads the limits from `/api/config/effective` for its
+counter. Typed candidate text is split by `config/limits.py` (commas, semicolons, new lines;
+blanks dropped; a case-insensitive repeat keeps its first spelling) when the confirm form
+sends `candidate_text`; the CLI's `--formulas` uses the same function. The browser parses
+nothing: matched entries come back from resolve as chips beside the red unmatched ones.
+Red chips alone do not block Run (owner choice): unmatched names are reported as not found
+and the rest are ranked, as the README demo and eval case C5 expect. Run is off while the
+list is empty, over the limit, or the form is otherwise invalid. Adding the two fields moved
+the config sha, so the golden scored bundle was regenerated.
+Alternative: Pydantic `max_length` on the request fields, which answers with the list-shaped
+validation detail rather than a sentence.
+
+### 2026-11-04 The call estimate is shown before Run
+Decision: the confirm form shows `estimated_model_calls` from `/api/criteria/resolve` as
+"This run may make up to N model calls (hard cap M): basis", or the no-model note when the
+total is 0. The sentence is composed from the server's integers and text.
+Alternative: estimate in the browser from the candidate count, which would put a number on
+the page that no code computed.
+
+### 2026-11-04 A development role switcher, and no-auth refused in site mode
+Decision (owner): with `AUTH_MODE=none` the header `X-Dev-Role` picks one of the three roles
+for a request and the app's top bar shows a select; a value that is not a role falls back to
+`DEV_ROLE`. The mode already gave every request a role with no identity, so the header adds
+no reach, and two guards keep it local: `check_startup` refuses `AUTH_MODE=none` when
+`SITE_MODE=true`, and the static and OIDC modes never read the header (tests send it in each
+mode). `/api/me` reports `role_switch` so the select renders only where it works.
+Alternative: a cookie or a query parameter, which the "nothing in a request changes a role"
+tests would then have to carve out; a header that only one mode reads is the smaller hole.
+
+### 2026-11-04 Help text lives in one file and is checked for coverage
+Decision (owner): every plain-language explanation of a screen, criterion, flag, caveat,
+exclusion rule, and evidence tier is in `web/src/help.ts`, each entry naming the document or
+config entry its wording comes from and marked `review: "owner"`; no entry states chemistry
+on its own authority. `GET /api/help/keys` lists the closed vocabularies and
+`tests/test_help_text.py` fails when one lacks an entry. Tooltips are `abbr` elements with
+the text as title and label, so the wrapped text is unchanged for the browser tests.
+Alternative: text beside each component, which drifts and cannot be reviewed in one sitting.
+
+### 2026-11-04 The guides are served from a two-file allowlist and rendered without HTML
+Decision: `GET /api/help/{guide}` maps `scientist` and `admin` to the two guide files under
+`docs/`; any other name is a 404 and no request value reaches the filesystem. The web app
+renders the Markdown with react-markdown 9.0.1, which emits no raw HTML. The Docker image
+copies the two files.
+Alternative: bundle the guides into the web build, which shows the guide of the build, not of
+the running API.
+
+### 2026-11-04 The selection chart is hand-written SVG over a server view model
+Decision (owner): the band gap versus dielectric constant chart draws from `ChartView` in
+`render/views.py`: one point per scored candidate with both values, the gap being the scored
+band gap raw value and k the scored polymorph's Materials Project DFPT `e_total` with its own
+provenance. The dielectric criterion is not used because it is missing while its target band
+is pending (owner decision). Tick labels and point texts are server strings; the PI view's
+points carry no record ids. Rows without either value are listed under the chart. The SVG is
+hand-written: no chart library, so nothing formats a number in the browser.
+Alternative: a chart library, which brings its own number formatting and a dependency the
+review would have to read.
+
+### 2026-11-04 openai and gemini are experimental presets of the OpenAI-compatible client
+Decision (owner): `LLM_PROVIDER=openai` and `gemini` reuse `OpenAICompatibleClient` with a
+preset base URL (overridden by `LLM_BASE_URL`), their own key variable, and an explicit
+`LLM_MODEL` (the Claude default is refused). The preset host joins the egress allowlist;
+HTTP 401 and 403 set `invalid_key`, 402 and a quota 429 set `no_credit`. The console shows
+the provider and model read-only. Both presets are marked experimental: not evaluated, and
+their base URLs come from the providers' public documentation, unverified on the wire here.
+Alternative: a provider picker in the console, which would let a chat-adjacent surface change
+where request text is sent; provider choice stays a site decision in configuration.
+
+### 2026-11-04 Discovery enrichment guard raised to 6 x top_n; B2 still partial at the round cap
+Decision (owner): `MAX_ENRICHED_PER_TOP` goes from 5 to 6, because B2's top 10 lacked
+cross-checks for three compositions at 52 enriched. One recording round
+(`scripts/record_case_gaps.py B2`) added 58 public-API responses (28 Materials Project, 14
+OpenAlex, 16 PubChem) and the replay has no gap left. Observed on the rerun (scripted model,
+cassettes): B2 enriches 59 compositions in 12 rounds and then stops at the separate
+`MAX_ENRICHMENT_ROUNDS` (12) with two newcomers per round still arriving, so the case
+remains partial for that reason and the suite stays at 39 of 43 (E3, E4, G4 skipped). With
+the round cap lifted on the recorded data alone, a 13th round asks for Sr2TaN3 and
+Sr3(BN2)2, which are not recorded. Raising the round cap, and a second recording round, are
+left to the owner; no other case's result moved.
+Alternative: raise the round cap in the same change, which would move the failure a second
+time without a decision on how far enrichment may run.

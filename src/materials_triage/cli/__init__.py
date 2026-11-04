@@ -18,6 +18,7 @@ from materials_triage.agent.llm import LLMClient
 from materials_triage.agent.loop import Budget
 from materials_triage.agent.parse import ParseOutcome, resolve_outcome
 from materials_triage.agent.scoring_port import ScorerUnavailableError
+from materials_triage.config.limits import split_candidate_text
 from materials_triage.config.schema import QuerySettings
 from materials_triage.records.bundle import DecisionLogEntry, ProvenanceBundle
 from materials_triage.render import csv_export, markdown
@@ -375,7 +376,12 @@ def rank(
     except FileNotFoundError as e:
         _fail(str(e), EXIT_USAGE)
     client = _llm(settings, no_llm)
-    flat = [f.strip() for chunk in formulas for f in chunk.split(",") if f.strip()]
+    flat = split_candidate_text("\n".join(formulas))
+    if len(flat) > layers.core.max_candidates:
+        _fail(
+            f"{len(flat)} candidates were given; the limit is {layers.core.max_candidates}.",
+            EXIT_USAGE,
+        )
     try:
         candidates = parse_mod.normalize_candidates(flat, layers.profile.synonyms)
     except parse_mod.CandidateListError as e:

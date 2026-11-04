@@ -53,14 +53,18 @@ CLASSIFY_MODE=cache_only
 ```
 
 `CLASSIFY_MODE=cache_only` reads evidence labels from the classifier cache and marks misses
-unclassified; it never calls the model for an abstract. Live fetching needs `FETCH_MODE=live`,
+unclassified; it never calls the model for an abstract. `LLM_PROVIDER=openai` and `gemini`
+are experimental presets (own key, explicit `LLM_MODEL`; not evaluated), see
+`docs/ADMIN_GUIDE.md`. Live fetching needs `FETCH_MODE=live`,
 `MP_API_KEY`, and `OPENALEX_API_KEY` plus Postgres (`docker compose up -d`, then `uv run alembic
 upgrade head`); with `FETCH_MODE` unset, or without Postgres, runs use the recorded data and
 say so.
 
 ## Sign-in
 
-`AUTH_MODE=none` (the default) gives every request the role in `DEV_ROLE`. `static` reads
+`AUTH_MODE=none` (the default, development only; refused with `SITE_MODE=true`) gives every
+request the role in `DEV_ROLE`, and a role switcher in the app's header tries each of the
+three roles. `static` reads
 bearer tokens from `STATIC_TOKENS=token:role,...`. `oidc` validates JWTs from an identity
 provider; `docker compose --profile auth up -d keycloak` starts one with three dev users,
 `scientist`, `fde`, and `admin`, whose passwords equal their names. Roles come only from the
@@ -80,7 +84,8 @@ BY-NC license are dropped at the adapter and never scored.
 
 ## Guides
 
-- `docs/SCIENTIST_GUIDE.md`: using the workspace and reading a result.
+- `docs/SCIENTIST_GUIDE.md`: using the workspace and reading a result. Both guides are also
+  on the app's Help page, and every screen has a "How to use this screen" panel.
 - `docs/ADMIN_GUIDE.md`: install, settings, sign-in, the console, refresh, egress, backups.
 - `docs/CONFIGURING.md`: the four configuration layers and how to add a scoring profile.
 - `docs/DATA_SOURCES.md`: every source, its license, and what is recorded.
