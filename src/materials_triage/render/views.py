@@ -425,7 +425,7 @@ def _dimensionality(row: Candidate | Anchor) -> str:
 def build(
     bundle: ProvenanceBundle, caveats: CaveatConfig, *, units: str, hide_ids: bool = False
 ) -> RunView:
-    index = BundleIndex.build(bundle)
+    index = BundleIndex.build(bundle, caveat_text=lambda c, row: caveats.resolve(c, row).text)
     top_n = bundle.criteria.effective_settings.get("top_n")
     limit = int(top_n) if isinstance(top_n, int) and top_n > 0 else None
     ranked_all = bundle.ranked()

@@ -22,7 +22,38 @@ def test_template_only_slots_pass_the_verifier(bundle: ProvenanceBundle) -> None
     checked, report = verify(bundle.model_copy(update={"rationale": slots, "evidence": []}))
     assert report.passed and all(s.verified for s in checked.rationale.values())
     assert "{formula:HfO2} ranks {rank:HfO2}" in slots["candidate:HfO2:one_line"].text
-    assert "band_offsets_not_checked" in slots["candidate:HfO2:one_line"].text
+
+
+def test_template_rationale_renders_caveat_text_never_ids() -> None:
+    """Human test session, item 6: the PI saw "Caveats: band_offsets_not_checked, ...". The
+    template carries caveat tokens for the row's own caveats; the renderer fills their text.
+    Uses the scored bundle, whose rows carry real caveats (the sample bundle's are placeholders)."""
+    from pathlib import Path
+
+    from materials_triage.records.bundle import CaveatId
+    from materials_triage.render import caveats as caveats_mod
+    from materials_triage.render.views import build
+
+    scored = Path(__file__).resolve().parents[2] / "fixtures" / "bundles" / "scored_bundle.json"
+    bundle = ProvenanceBundle.model_validate_json(scored.read_text())
+
+    slots = rationale.template_only(bundle)
+    checked, report = verify(bundle.model_copy(update={"rationale": slots, "evidence": []}))
+    assert report.passed
+    ids = {c.value for c in CaveatId}
+    for slot in slots.values():
+        assert not any(i in TOKEN_RE.sub("", slot.text) for i in ids), slot.text
+    view = build(checked, caveats_mod.CaveatConfig.load(), units="eV", hide_ids=True)
+    rows = [*view.rows, *view.excluded]
+    assert rows and all(not any(i in r.rationale for i in ids) for r in rows)
+    with_caveat = [
+        r for r in view.rows if "{caveat:" in slots[f"candidate:{r.composition}:one_line"].text
+    ]
+    assert with_caveat, "the sample bundle has a row with its own caveat"
+    for r in with_caveat:
+        assert "caveat listed below" not in r.rationale  # filled with config text
+    # profile-wide caveats never enter a row's rationale
+    assert all("Band offsets to the substrate" not in r.rationale for r in view.rows)
 
 
 def test_redacted_view_carries_no_raw_numbers(bundle: ProvenanceBundle) -> None:

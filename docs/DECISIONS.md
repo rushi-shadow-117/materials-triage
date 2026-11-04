@@ -1348,3 +1348,13 @@ Under the nitride profile only the window 2.4 to 4.0 eV is affected; GaN's PBE g
 so nothing changes there.
 Alternative: apply the window to the scientist's minimum too, which would make an explicit
 9 eV minimum admit 3 eV PBE gaps.
+
+### 2026-11-04 Template rationale carries caveat tokens, not caveat ids
+Decision: the no-model rationale ends with a `{caveat:<composition>:<id>}` token for each of
+the row's own caveats. The verifier checks only that the row carries that caveat; the
+renderer fills the token with the caveat's config text, so chemistry text still comes only
+from config and no id reaches the reader. Profile-wide caveats (`render/caveats.py`
+PROFILE_WIDE: band offsets, the two stability cutoff notes, unclassified evidence, the ECHA
+attribution) never enter a row's rationale.
+Alternative: write the caveat text into the slot at run time, which puts config sentences
+with digits and hazard codes through the verifier's number check and fails it.

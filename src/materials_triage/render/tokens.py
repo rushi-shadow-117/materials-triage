@@ -10,11 +10,13 @@ Grammar: `{kind:arg}` or `{kind:composition:field}` with kind in TOKEN_KINDS.
 from __future__ import annotations
 
 import re
+from collections.abc import Callable
 from dataclasses import dataclass, field
 
 from materials_triage.records.bundle import (
     Anchor,
     Candidate,
+    Caveat,
     CriterionScore,
     PolymorphSummaryRow,
     ProvenanceBundle,
@@ -31,6 +33,7 @@ TOKEN_KINDS = (
     "ghs",
     "spacegroup",
     "id",
+    "caveat",
 )
 TOKEN_RE = re.compile(r"\{(" + "|".join(TOKEN_KINDS) + r"):([^{}]*)\}")
 
@@ -65,14 +68,22 @@ class TokenError(ValueError):
         self.kind = kind
 
 
+CaveatTextFn = Callable[[Caveat, Candidate | Anchor], str]
+CAVEAT_FALLBACK = "a caveat listed below"
+
+
 @dataclass
 class BundleIndex:
     rows: dict[str, Candidate | Anchor] = field(default_factory=dict)
     ids: set[str] = field(default_factory=set)
+    # fills {caveat:...} with config text; the verifier only checks the caveat is on the row
+    caveat_text: CaveatTextFn | None = None
 
     @classmethod
-    def build(cls, bundle: ProvenanceBundle) -> BundleIndex:
-        idx = cls()
+    def build(
+        cls, bundle: ProvenanceBundle, caveat_text: CaveatTextFn | None = None
+    ) -> BundleIndex:
+        idx = cls(caveat_text=caveat_text)
         rows: list[Candidate | Anchor] = [*bundle.candidates, *bundle.anchors]
         for row in rows:
             idx.rows[row.composition] = row
@@ -215,6 +226,13 @@ def resolve(
         if gs is None or gs.spacegroup_symbol is None:
             return "space group not reported"
         return gs.spacegroup_symbol
+    if kind == "caveat":
+        comp, cid = _split(arg, 2, token)
+        row = index.row(comp)
+        found = next((c for c in row.caveats if c.id.value == cid), None)
+        if found is None:
+            raise TokenError("unknown_token", f"{cid} is not a caveat of {comp}")
+        return index.caveat_text(found, row) if index.caveat_text else CAVEAT_FALLBACK
     if kind == "id":
         if arg not in index.ids:
             raise TokenError("unknown_record_id", f"{arg} is not a record id in this bundle")
