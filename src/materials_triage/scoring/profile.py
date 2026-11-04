@@ -129,6 +129,7 @@ def load_scoring_profile(path: Path) -> LoadedProfile:
             hard_max_ev=_float_or_none(gap.get("hard_max_ev")),
             discovery_pbe_floor_ev=_discovery_floor(gap),
             aggregate=cs.Aggregate(gap.get("aggregate_when_several_experimental_values", "median")),
+            **_preferred_forms(gap, rel),
             conflict_tolerance_ev=_float_or_none(gap.get("conflict_tolerance_ev")),
             on_conflict=cs.OnConflict(gap.get("on_conflict", "next_source")),
         ),
@@ -179,6 +180,19 @@ def load_scoring_profile(path: Path) -> LoadedProfile:
         cannot_tell_you=tell_items,
         cannot_tell_you_ref=f"{rel}#screen_cannot_tell_you" if tell_items else None,
     )
+
+
+def _preferred_forms(gap: dict[str, Any], rel: str) -> dict[str, tuple[str, ...]]:
+    """The material-form order for experimental gaps, from an entered `experimental_forms`
+    entry; without one the schema default applies."""
+    node = gap.get("experimental_forms") or {}
+    if not node:
+        return {}
+    if _status(node) != ENTERED:
+        raise UnusableEntryError(
+            f"{rel}#criteria.band_gap.experimental_forms", _status(node), "not entered"
+        )
+    return {"preferred_forms": tuple(str(f) for f in node["preferred"])}
 
 
 def _discovery_floor(gap: dict[str, Any]) -> float | None:

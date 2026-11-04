@@ -557,6 +557,8 @@ export interface components {
             raw_value: number | null;
             /** Source */
             source: string | null;
+            /** Used Record Ids */
+            used_record_ids?: string[];
             /** Weight */
             weight: number;
         };
@@ -619,6 +621,8 @@ export interface components {
         };
         /** DrillValue */
         DrillValue: {
+            /** Form */
+            form?: string | null;
             /** Method */
             method: string;
             /** Record Id */

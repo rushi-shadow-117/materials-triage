@@ -208,6 +208,7 @@ class DrillValue(BaseModel):
     source: str
     record_id: str | None
     used: bool
+    form: str | None = None  # experimental gaps: the material form (amorphous_film, ...)
 
 
 class DrillResponse(BaseModel):

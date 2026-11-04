@@ -34,6 +34,7 @@ from materials_triage.records.bundle import (
 from materials_triage.render import csv_export, markdown
 from materials_triage.render.caveats import CaveatConfig
 from materials_triage.render.views import build
+from materials_triage.scoring.band_gap import experimental_pool
 from materials_triage.settings import Settings
 
 from . import admin, auth
@@ -689,29 +690,29 @@ def _drill(
                         ),
                     )
                 )
-        if row.group.experimental_gaps is not None:
-            for g in row.group.experimental_gaps.values:
-                if g.value_ev.value is not None:
-                    others.append(
-                        DrillValue(
-                            method=f"experimental ({g.table})",
-                            value=precision.fmt(g.value_ev.value, g.value_ev.unit, units),
-                            source=g.value_ev.provenance.source,
-                            record_id=g.value_ev.provenance.source_record_id,
-                            used=score.source == "experimental_median",
-                        )
-                    )
-        for rv in row.group.reference_values:
-            if rv.value is not None and rv.value.value is not None:
-                others.append(
-                    DrillValue(
-                        method=f"reference ({rv.form})",
-                        value=precision.fmt(rv.value.value, rv.value.unit, units),
-                        source=rv.provenance.source,
-                        record_id=rv.provenance.source_record_id,
-                        used=score.source == "experimental_median",
-                    )
+        # every experimental value with its form; used only if it entered this row's score
+        used_ids = set(score.used_record_ids)
+        pool = experimental_pool(
+            row.group.experimental_gaps,
+            row.group.reference_values,
+            loaded.profile.band_gap.preferred_forms,
+        )
+        for e in pool.entries:
+            shown = (
+                precision.fmt(e.value, "eV", units)
+                if e.value is not None
+                else f"{precision.fmt(e.low, 'eV', units)} to {precision.fmt(e.high, 'eV', units)}"
+            )
+            others.append(
+                DrillValue(
+                    method=f"experimental ({e.label})",
+                    value=shown,
+                    source=e.provenance.source,
+                    record_id=e.provenance.source_record_id,
+                    used=e.provenance.source_record_id in used_ids,
+                    form=e.form,
                 )
+            )
     elif criterion == "stability":
         for prow in polys.top_by_hull:
             if prow.hull_energy is not None and prow.hull_energy.value is not None:

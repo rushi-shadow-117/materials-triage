@@ -482,6 +482,13 @@
             ],
             "title": "Source"
           },
+          "used_record_ids": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Used Record Ids",
+            "type": "array"
+          },
           "weight": {
             "title": "Weight",
             "type": "number"
@@ -704,6 +711,17 @@
       },
       "DrillValue": {
         "properties": {
+          "form": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Form"
+          },
           "method": {
             "title": "Method",
             "type": "string"

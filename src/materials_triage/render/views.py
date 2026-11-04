@@ -294,6 +294,18 @@ def _row_view(
                 k = precision.fmt(cs.raw_value, cs.raw_unit, units)
     missing = [c.label for c in criteria if c.missing and c.weight != "0.000"]
     g = row.group
+    gap_score = next(
+        (cs for cs in (row.score.criteria if row.score else []) if cs.criterion == "band_gap"),
+        None,
+    )
+    used_ids = set(gap_score.used_record_ids) if gap_score is not None else set()
+
+    def _use(provenance_id: str) -> str:
+        # bundles written before used_record_ids existed say nothing rather than "not used"
+        if not used_ids:
+            return ""
+        return ", used" if provenance_id in used_ids else ", not used"
+
     gaps = "none in the public gap tables"
     gap_values: list[ValueView] = []
     if g.experimental_gaps is not None:
@@ -305,7 +317,7 @@ def _row_view(
         )
         gap_values = [
             ValueView(
-                v.table,
+                f"{v.table} (compendium{_use(v.value_ev.provenance.source_record_id)})",
                 _fmt(v.value_ev.value, v.value_ev.unit, units),
                 ProvenanceView.build(v.value_ev.provenance, v.value_ev.method),
             )
@@ -313,7 +325,7 @@ def _row_view(
         ]
     refs = [
         ValueView(
-            f"{r.entry_id} ({r.form}, {r.status})",
+            f"{r.entry_id} ({r.form}, {r.status}{_use(r.provenance.source_record_id)})",
             (
                 _fmt(r.value.value, r.value.unit, units)
                 if r.value is not None

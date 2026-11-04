@@ -39,6 +39,7 @@ class CriterionResult:
     raw_unit: str | None = None
     source: str | None = None
     provenance: Provenance | None = None
+    used_record_ids: tuple[str, ...] = ()  # every record whose value entered raw_value
     missing_reason: str | None = None
     exclusion: Exclusion | None = None
     flags: tuple[Flag, ...] = ()
@@ -65,6 +66,7 @@ class CriterionResult:
             missing=self.missing,
             missing_reason=reason if self.missing else None,
             provenance=self.provenance,
+            used_record_ids=list(self.used_record_ids),
             notes=list(self.notes),
         )
 

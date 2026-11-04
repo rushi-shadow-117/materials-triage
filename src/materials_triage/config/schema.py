@@ -261,6 +261,14 @@ class BandGapSettings(Strict):
     # PBE floor sent to the discovery API; the soft preference never is (Track F).
     discovery_pbe_floor_ev: float | None = None
     aggregate: Aggregate = Aggregate.MEDIAN
+    # Experimental gaps are aggregated within one material form only, the first in this order
+    # with a point value (owner decision 2026-11-04). Default: crystalline first.
+    preferred_forms: tuple[str, ...] = (
+        "crystalline_bulk",
+        "compendium",
+        "thin_film",
+        "amorphous_film",
+    )
     conflict_tolerance_ev: float | None = None  # None until derived (Phase 2 / Track E)
     on_conflict: OnConflict = OnConflict.NEXT_SOURCE
 

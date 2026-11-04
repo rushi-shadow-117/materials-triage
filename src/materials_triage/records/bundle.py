@@ -217,6 +217,8 @@ class CriterionScore(Strict):
     missing: bool
     missing_reason: str | None = None
     provenance: Provenance | None = None  # the record the raw value came from
+    # every record whose value entered raw_value (an aggregate has several; one otherwise)
+    used_record_ids: list[str] = Field(default_factory=list)
     notes: list[str] = Field(default_factory=list)
 
 

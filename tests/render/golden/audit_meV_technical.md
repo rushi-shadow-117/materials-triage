@@ -86,7 +86,7 @@ Polymorphs: 15 with MP ids (5 observed, 10 theoretical, 0 unknown).
 - mp-776532 (P4_2/mnm): hull 37 meV/atom, not observed; materials_project mp-776532 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.185807+00:00
 
 Experimental gaps: 5550 meV to 5550 meV across 1 value(s), median 5550 meV
-- expt_gap: 5550 meV; expt_gap expt_gap:3:HfO2 fetched 2026-11-02T12:00:00+00:00
+- expt_gap (compendium): 5550 meV; expt_gap expt_gap:3:HfO2 fetched 2026-11-02T12:00:00+00:00
 
 Hazard: no GHS hazard codes in 344 notifications (ECHA attribution applies)
 Literature: 3496 matched, 2469 with abstracts, 5 read (title_and_abstract; query 'HfO2 thin film')
@@ -121,7 +121,7 @@ Polymorphs: 6 with MP ids (3 observed, 4 theoretical, 0 unknown).
 - mp-553347 (P-62m): hull 242 meV/atom, not observed, excluded by stability.cutoff; materials_project mp-553347 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.392371+00:00
 
 Experimental gaps: 5400 meV to 5400 meV across 1 value(s), median 5400 meV
-- expt_gap: 5400 meV; expt_gap expt_gap:12:La2O3 fetched 2026-11-02T12:00:00+00:00
+- expt_gap (compendium): 5400 meV; expt_gap expt_gap:12:La2O3 fetched 2026-11-02T12:00:00+00:00
 
 Hazard: GHS codes H315, H319, H335 in 248 of 618 notifications (ECHA attribution applies)
 Literature: 383 matched, 218 with abstracts, 5 read (title_and_abstract; query 'La2O3 thin film')
@@ -155,7 +155,7 @@ Polymorphs: 14 with MP ids (4 observed, 12 theoretical, 0 unknown).
 - mp-13061 (P-3m1): hull 57 meV/atom, observed; materials_project mp-13061 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.437577+00:00
 
 Experimental gaps: 5600 meV to 5600 meV across 1 value(s), median 5600 meV
-- expt_gap: 5600 meV; expt_gap expt_gap:13:Y2O3 fetched 2026-11-02T12:00:00+00:00
+- expt_gap (compendium): 5600 meV; expt_gap expt_gap:13:Y2O3 fetched 2026-11-02T12:00:00+00:00
 
 Hazard: GHS codes H315, H319, H320, H335, H413 in 274 of 548 notifications (ECHA attribution applies)
 Literature: 1480 matched, 839 with abstracts, 5 read (title_and_abstract; query 'Y2O3 thin film')
@@ -189,7 +189,7 @@ Polymorphs: 20 with MP ids (6 observed, 14 theoretical, 0 unknown).
 - mp-2574 (P4_2/nmc): hull 27 meV/atom, observed; materials_project mp-2574 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.200392+00:00
 
 Experimental gaps: 4990 meV to 4990 meV across 1 value(s), median 4990 meV
-- expt_gap: 4990 meV; expt_gap expt_gap:0:ZrO2 fetched 2026-11-02T12:00:00+00:00
+- expt_gap (compendium): 4990 meV; expt_gap expt_gap:0:ZrO2 fetched 2026-11-02T12:00:00+00:00
 
 Hazard: no GHS hazard codes in 1116 notifications (ECHA attribution applies)
 Literature: 3767 matched, 2298 with abstracts, 5 read (title_and_abstract; query 'ZrO2 thin film')
@@ -223,7 +223,7 @@ Polymorphs: 24 with MP ids (3 observed, 21 theoretical, 0 unknown).
 - mp-1218312 (Pm): hull 52 meV/atom, not observed; materials_project mp-1218312 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.452757+00:00
 
 Experimental gaps: 4200 meV to 4200 meV across 1 value(s), median 4200 meV
-- expt_gap: 4200 meV; expt_gap expt_gap:8:Ta2O5 fetched 2026-11-02T12:00:00+00:00
+- expt_gap (compendium): 4200 meV; expt_gap expt_gap:8:Ta2O5 fetched 2026-11-02T12:00:00+00:00
 
 Hazard: no GHS hazard codes in 80 notifications (ECHA attribution applies)
 Literature: 1683 matched, 1116 with abstracts, 5 read (title_and_abstract; query 'Ta2O5 thin film')
@@ -257,7 +257,7 @@ Polymorphs: 46 with MP ids (17 observed, 37 theoretical, 0 unknown).
 - mp-2657 (P4_2/mnm): hull 10 meV/atom, observed; materials_project mp-2657 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.343270+00:00
 
 Experimental gaps: 3300 meV to 3300 meV across 1 value(s), median 3300 meV
-- expt_gap: 3300 meV; expt_gap expt_gap:1:TiO2 fetched 2026-11-02T12:00:00+00:00
+- expt_gap (compendium): 3300 meV; expt_gap expt_gap:1:TiO2 fetched 2026-11-02T12:00:00+00:00
 
 Hazard: GHS codes H319, H320, H335, H351, H372, H413 in 4157 of 11189 notifications (ECHA attribution applies)
 Literature: 21132 matched, 13032 with abstracts, 5 read (title_and_abstract; query 'TiO2 thin film')
@@ -291,11 +291,11 @@ Polymorphs: 11 with MP ids (11 observed, 1 theoretical, 0 unknown).
 - mp-5933 (P6_3/mmc): hull 3 meV/atom, observed; materials_project mp-5933 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.406487+00:00
 
 Experimental gaps: 2960 meV to 3130 meV across 5 value(s), median 3060 meV
-- expt_gap: 3100 meV; expt_gap expt_gap:2:BaTiO3 fetched 2026-11-02T12:00:00+00:00
-- expt_gap: 3040 meV; expt_gap expt_gap:4:BaTiO3 fetched 2026-11-02T12:00:00+00:00
-- expt_gap: 2960 meV; expt_gap expt_gap:6:BaTiO3 fetched 2026-11-02T12:00:00+00:00
-- expt_gap: 3130 meV; expt_gap expt_gap:7:BaTiO3 fetched 2026-11-02T12:00:00+00:00
-- expt_gap: 3060 meV; expt_gap expt_gap:10:BaTiO3 fetched 2026-11-02T12:00:00+00:00
+- expt_gap (compendium): 3100 meV; expt_gap expt_gap:2:BaTiO3 fetched 2026-11-02T12:00:00+00:00
+- expt_gap (compendium): 3040 meV; expt_gap expt_gap:4:BaTiO3 fetched 2026-11-02T12:00:00+00:00
+- expt_gap (compendium): 2960 meV; expt_gap expt_gap:6:BaTiO3 fetched 2026-11-02T12:00:00+00:00
+- expt_gap (compendium): 3130 meV; expt_gap expt_gap:7:BaTiO3 fetched 2026-11-02T12:00:00+00:00
+- expt_gap (compendium): 3060 meV; expt_gap expt_gap:10:BaTiO3 fetched 2026-11-02T12:00:00+00:00
 
 Hazard: no GHS notification counts available; hazard unknown
 Literature: 3181 matched, 2092 with abstracts, 5 read (title_and_abstract; query 'BaTiO3 thin film')
@@ -360,8 +360,8 @@ Polymorphs: 2 with MP ids (2 observed, 0 theoretical, 0 unknown).
 - mp-1102569 (Pnma): hull 150 meV/atom, observed, excluded by stability.cutoff; materials_project mp-1102569 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.379700+00:00
 
 Experimental gaps: 3300 meV to 3500 meV across 2 value(s), median 3400 meV
-- expt_gap: 3500 meV; expt_gap expt_gap:5:ThO2 fetched 2026-11-02T12:00:00+00:00
-- expt_gap: 3300 meV; expt_gap expt_gap:11:ThO2 fetched 2026-11-02T12:00:00+00:00
+- expt_gap (compendium): 3500 meV; expt_gap expt_gap:5:ThO2 fetched 2026-11-02T12:00:00+00:00
+- expt_gap (compendium): 3300 meV; expt_gap expt_gap:11:ThO2 fetched 2026-11-02T12:00:00+00:00
 
 Hazard: GHS codes H301, H311, H331, H350, H373 in an unreported number of 213 notifications (ECHA attribution applies)
 Literature: 31 matched, 20 with abstracts, 5 read (title_and_abstract; query 'ThO2 thin film')
@@ -394,7 +394,7 @@ Polymorphs: 9 with MP ids (4 observed, 6 theoretical, 0 unknown).
 - mp-1244919 (P1): hull 264 meV/atom, not observed, excluded by stability.cutoff; materials_project mp-1244919 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.421036+00:00
 
 Experimental gaps: 10390 meV to 10390 meV across 1 value(s), median 10390 meV
-- expt_gap: 10390 meV; expt_gap expt_gap:9:BeO fetched 2026-11-02T12:00:00+00:00
+- expt_gap (compendium): 10390 meV; expt_gap expt_gap:9:BeO fetched 2026-11-02T12:00:00+00:00
 
 Hazard: GHS codes H301, H305, H315, H317, H319, H330, H334, H335, H350, H350i, H361, H370, H372 in an unreported number of 49 notifications (ECHA attribution applies)
 Literature: 164 matched, 105 with abstracts, 5 read (title_and_abstract; query 'BeO thin film')

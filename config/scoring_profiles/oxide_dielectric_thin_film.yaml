@@ -60,6 +60,15 @@ criteria:
       access: unknown
     note: "The 5 eV start is the owner's approved choice. The Robertson offset statements in the rationale await a check against the primary PDF, which no tool fetch could retrieve (HTTP 403); owner supplies a local copy."
     aggregate_when_several_experimental_values: median
+    experimental_forms:
+      preferred: [amorphous_film, thin_film, crystalline_bulk, compendium]
+      description: "Experimental gaps are never averaged across material forms. The first form in this list with a point value is used and the median is taken within it; values in other forms are shown in the audit view and the drill-down, not used. compendium is the experimental gap table, whose form is not recorded."
+      status: entered
+      source:
+        citation: "Owner decision 2026-11-04 (human test session fix batch, item 4): thin-film profiles prefer amorphous_film values, then crystalline; compendium last"
+        access: not_applicable
+      entered_by: owner
+      entered_on: 2026-11-04
     aggregate_options: [median, minimum]
     conflict_tolerance_ev: 1.345
     conflict_tolerance_status: entered

@@ -1319,3 +1319,18 @@ Keycloak and a freshly created Postgres unreachable from the host. The dev realm
 `VITE_AUTH_MODE=oidc` into a temporary folder (`WEB_DIST`).
 Alternative: keep one file and attach the internal services to a second, routable network;
 that publishes ports again and quietly undoes the isolation the split exists for.
+
+### 2026-11-04 Experimental gaps never average across material forms
+Decision (owner): each profile lists `criteria.band_gap.experimental_forms.preferred`. The
+thin-film profile prefers `amorphous_film, thin_film, crystalline_bulk, compendium`; the
+photocatalyst and nitride profiles prefer `crystalline_bulk, compendium, thin_film,
+amorphous_film`. The first form with a point value is used and the median is taken within it;
+values in other forms stay in the audit view and the drill-down with their form, marked not
+used. `compendium` is the experimental gap table, whose form is not recorded, so it sorts last
+for thin films. The criterion now records `used_record_ids`, the records that entered its
+value; the drill-down's "used" column reads it. Al2O3 under the thin-film profile scores its
+amorphous-film point (6.6 eV) instead of the 7.65 eV median of a film and a crystal. Rewriting
+the pool also fixed the aggregate's provenance, which could name a range record that never
+entered the median.
+Alternative: a per-form median shown side by side with no rule for which one scores, which
+leaves the choice to whoever reads the table.

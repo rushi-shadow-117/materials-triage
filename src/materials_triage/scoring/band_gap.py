@@ -2,8 +2,11 @@
 
 Sources, in the profile's `source_order` (default experimental, tbmbj, pbe):
 - experimental: the composition-level pool of compendium values and entered reference values.
-  Point values form the aggregate (median by default, minimum as the conservative option);
-  ranges widen the shown min and max and count as sources but do not enter the aggregate.
+  Values are never aggregated across material forms: the first form in the profile's
+  `preferred_forms` with a point value is used, and its point values form the aggregate
+  (median by default, minimum as the conservative option). Ranges in that form widen the shown
+  min and max and count as sources but do not enter the aggregate. Other forms are shown, not
+  used.
 - tbmbj: the JARVIS TBmBJ gap matched onto the scored polymorph.
 - pbe: the Materials Project summary gap of the scored polymorph.
 
@@ -44,74 +47,103 @@ class SourceValue:
     detail: str
 
 
+COMPENDIUM = "compendium"  # the experimental gap table's values: the form is not recorded
+
+
+@dataclass(frozen=True)
+class GapEntry:
+    """One experimental value or range, with its material form. `used` is True only for the
+    point values of the chosen form, the ones that enter the aggregate."""
+
+    value: float | None  # None for a range
+    low: float
+    high: float
+    form: str
+    label: str  # the compendium table, or the reference entry id
+    provenance: Provenance
+    used: bool
+
+
 @dataclass(frozen=True)
 class ExperimentalPool:
-    points: list[float]
-    low: float | None
-    high: float | None
-    n_sources: int
-    provenances: list[Provenance]
-    forms: list[str]
+    entries: list[GapEntry]
+    form: str | None  # the form whose values are used; None when no form has a point value
+
+    @property
+    def chosen(self) -> list[GapEntry]:
+        """Every entry of the chosen form (points and ranges); all entries when none is."""
+        return [e for e in self.entries if self.form is None or e.form == self.form]
+
+    @property
+    def points(self) -> list[float]:
+        return [e.value for e in self.entries if e.used and e.value is not None]
+
+    @property
+    def low(self) -> float | None:
+        return min((e.low for e in self.chosen), default=None)
+
+    @property
+    def high(self) -> float | None:
+        return max((e.high for e in self.chosen), default=None)
+
+    @property
+    def n_sources(self) -> int:
+        return len(self.chosen)
+
+    @property
+    def other_forms(self) -> list[str]:
+        return sorted({e.form for e in self.entries if e.form != self.form})
 
 
 def experimental_pool(
-    aggregate: ExperimentalGapAggregate | None, references: list[ReferenceValue]
+    aggregate: ExperimentalGapAggregate | None,
+    references: list[ReferenceValue],
+    preferred_forms: tuple[str, ...] | list[str],
 ) -> ExperimentalPool:
-    points: list[float] = []
-    lows: list[float] = []
-    highs: list[float] = []
-    provs: list[Provenance] = []
-    forms: list[str] = []
+    raw: list[tuple[float | None, float, float, str, str, Provenance]] = []
     if aggregate is not None:
         for eg in aggregate.values:
             if eg.value_ev.value is not None:
-                points.append(float(eg.value_ev.value))
-                lows.append(float(eg.value_ev.value))
-                highs.append(float(eg.value_ev.value))
-                provs.append(eg.value_ev.provenance)
-                forms.append("compendium")
+                v = float(eg.value_ev.value)
+                raw.append((v, v, v, COMPENDIUM, eg.table, eg.value_ev.provenance))
     for rv in references:
         if rv.property != "band_gap_ev" or rv.status != "entered":
             continue
         if rv.value is not None and rv.value.value is not None:
-            points.append(float(rv.value.value))
-            lows.append(float(rv.value.value))
-            highs.append(float(rv.value.value))
-            provs.append(rv.provenance)
-            forms.append(rv.form)
+            v = float(rv.value.value)
+            raw.append((v, v, v, rv.form, rv.entry_id, rv.provenance))
         elif rv.value_range is not None:
-            lows.append(float(rv.value_range[0]))
-            highs.append(float(rv.value_range[1]))
-            provs.append(rv.provenance)
-            forms.append(rv.form)
-    return ExperimentalPool(
-        points=points,
-        low=min(lows) if lows else None,
-        high=max(highs) if highs else None,
-        n_sources=len(provs),
-        provenances=provs,
-        forms=forms,
-    )
+            lo, hi = float(rv.value_range[0]), float(rv.value_range[1])
+            raw.append((None, lo, hi, rv.form, rv.entry_id, rv.provenance))
+    with_points = {r[3] for r in raw if r[0] is not None}
+    order = [*preferred_forms, *sorted({r[3] for r in raw} - set(preferred_forms))]
+    form = next((f for f in order if f in with_points), None)
+    entries = [
+        GapEntry(value, lo, hi, f, label, prov, used=value is not None and f == form)
+        for value, lo, hi, f, label, prov in raw
+    ]
+    return ExperimentalPool(entries=entries, form=form)
 
 
 def _experimental(pool: ExperimentalPool, aggregate: Aggregate) -> SourceValue | None:
-    if not pool.points:
+    points = pool.points
+    if not points or pool.form is None:
         return None
     if aggregate is Aggregate.MINIMUM:
-        value, name = min(pool.points), "experimental_minimum"
+        value, name = min(points), "experimental_minimum"
     else:
-        value, name = float(statistics.median(pool.points)), "experimental_median"
-    # The provenance of the aggregate is the record whose value is closest to it, lowest first.
-    closest = min(
-        range(len(pool.points)), key=lambda i: (abs(pool.points[i] - value), pool.points[i])
-    )
+        value, name = float(statistics.median(points)), "experimental_median"
+    # The provenance of the aggregate is the used record whose value is closest to it.
+    used = [e for e in pool.entries if e.used and e.value is not None]
+    closest = min(used, key=lambda e: (abs((e.value or 0.0) - value), e.value or 0.0))
+    others = pool.other_forms
     detail = (
-        f"{name.split('_')[1]} of {len(pool.points)} measured values"
-        f" ({pool.low:g} to {pool.high:g} eV across {pool.n_sources} sources)"
-        if pool.low is not None and pool.high is not None
-        else name
+        f"{name.split('_')[1]} of {len(points)} measured value(s), form {pool.form}"
+        f" ({pool.low:g} to {pool.high:g} eV across {pool.n_sources} source(s) in that form"
+        + (f"; other forms shown, not used: {', '.join(others)}" if others else "")
+        + ")"
     )
-    return SourceValue(name, value, "eV", pool.provenances[closest], detail)
+    return SourceValue(name, value, "eV", closest.provenance, detail)
 
 
 def _from_polymorph(p: Polymorph | None, key: str, name: str) -> SourceValue | None:
@@ -142,7 +174,7 @@ def band_gap(
     source_ref: str,
     standing_caveat_ref: str | None,
 ) -> BandGapOutcome:
-    pool = experimental_pool(experimental, references)
+    pool = experimental_pool(experimental, references, settings.preferred_forms)
     found: dict[str, SourceValue] = {}
     exp = _experimental(pool, settings.aggregate)
     if exp is not None:
@@ -159,7 +191,7 @@ def band_gap(
     caveats: list[Caveat] = []
     if pool.n_sources and exp is not None:
         caveats.append(Caveat(id=CaveatId.EXPERIMENTAL_GAP_COMPOSITION_LEVEL))
-        if any(f == "compendium" for f in pool.forms):
+        if pool.form == COMPENDIUM:
             caveats.append(Caveat(id=CaveatId.EXPERIMENTAL_GAP_UNREFERENCED))
     elif pool.n_sources:
         notes.append(
@@ -216,6 +248,10 @@ def band_gap(
             found,
         )
 
+    if chosen.source.startswith("experimental"):
+        used_ids = tuple(e.provenance.source_record_id for e in pool.entries if e.used)
+    else:
+        used_ids = (chosen.provenance.source_record_id,)
     hard_min = _stricter_min(settings.hard_min_ev, query_min_ev, notes)
     hard_max = _stricter_max(settings.hard_max_ev, query_max_ev, notes)
     exclusion: Exclusion | None = None
@@ -245,6 +281,7 @@ def band_gap(
             raw_unit=chosen.unit,
             source=chosen.source,
             provenance=chosen.provenance,
+            used_record_ids=used_ids,
             exclusion=exclusion,
             flags=tuple(flags),
             caveats=tuple(caveats),
