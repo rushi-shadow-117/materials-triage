@@ -273,6 +273,42 @@ def run_parse(
     )
 
 
+def parse_from_settings(
+    raw: dict[str, Any],
+    *,
+    core: CoreConfig,
+    site: SiteProfile,
+    profile: ScoringProfile,
+    cli_profile: str,
+    parsed_by: str = "form",
+) -> ParseOutcome:
+    """Settings a person typed (a criteria file, or the web confirm form) validated as
+    QuerySettings and resolved. Candidate names that are not formulas are reported as
+    unresolved; the run proceeds with the rest."""
+    raw = dict(raw)
+    raw.setdefault("profile", cli_profile)
+    unresolved: list[str] = []
+    if "candidate_list" in raw:
+        resolved, unresolved = split_candidates([str(c) for c in raw["candidate_list"]])
+        if unresolved and not resolved:
+            raise CandidateListError(f"not chemical formulas: {unresolved}")
+        raw["candidate_list"] = resolved
+    try:
+        query = QuerySettings.model_validate(raw)
+    except ValidationError as e:
+        raise ValueError(str(e)) from None
+    return resolve_outcome(
+        query,
+        parsed_by=parsed_by,
+        core=core,
+        site=site,
+        profile=profile,
+        defaults=[],
+        missing=[],
+        unresolved=unresolved,
+    )
+
+
 def parse_from_file(
     path: Path, *, core: CoreConfig, site: SiteProfile, profile: ScoringProfile, cli_profile: str
 ) -> ParseOutcome:
@@ -280,19 +316,14 @@ def parse_from_file(
     raw = yaml.safe_load(path.read_text())
     if not isinstance(raw, dict):
         raise ValueError(f"{path} must hold a mapping of query settings")
-    raw.setdefault("profile", cli_profile)
-    if "candidate_list" in raw:
-        raw["candidate_list"] = normalize_candidates(list(raw["candidate_list"]))
     try:
-        query = QuerySettings.model_validate(raw)
-    except ValidationError as e:
+        return parse_from_settings(
+            raw,
+            core=core,
+            site=site,
+            profile=profile,
+            cli_profile=cli_profile,
+            parsed_by="criteria_file",
+        )
+    except ValueError as e:
         raise ValueError(f"{path}: {e}") from None
-    return resolve_outcome(
-        query,
-        parsed_by="criteria_file",
-        core=core,
-        site=site,
-        profile=profile,
-        defaults=[],
-        missing=[],
-    )

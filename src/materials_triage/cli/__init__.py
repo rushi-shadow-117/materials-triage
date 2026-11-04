@@ -504,10 +504,31 @@ def export(
 
 
 @app.command()
-def serve(host: str = "127.0.0.1", port: int = 8000) -> None:
-    """Start the API server (Track C)."""
-    typer.echo(NOT_IMPLEMENTED)
-    raise typer.Exit(code=2)
+def serve(
+    host: str = "127.0.0.1",
+    port: int = 8000,
+    no_web: Annotated[
+        bool, typer.Option("--no-web", help="API only; do not mount web/dist")
+    ] = False,
+) -> None:
+    """Serve the API and, when web/dist exists, the web app, in one process."""
+    import uvicorn
+
+    from materials_triage.api.app import WEB_DIST, create_app
+    from materials_triage.api.auth import AuthConfigError
+
+    settings = _settings()
+    try:
+        application = create_app(settings, serve_web=not no_web)
+    except AuthConfigError as e:
+        _fail(str(e), EXIT_USAGE)
+    web = "with web/dist" if (not no_web and WEB_DIST.exists()) else "API only"
+    typer.echo(
+        f"serving on http://{host}:{port} ({web}); auth {settings.auth_mode}, "
+        f"llm {settings.llm_provider}, classify {settings.classify_mode}",
+        err=True,
+    )
+    uvicorn.run(application, host=host, port=port, log_level="info")
 
 
 def main() -> None:

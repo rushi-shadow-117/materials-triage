@@ -12,7 +12,14 @@ def test_cli_lists_every_planned_command() -> None:
         assert cmd in result.output
 
 
-def test_serve_stub_says_not_implemented() -> None:
-    """Track B implemented the other six commands (tests/cli); serve waits for Track C."""
-    result = CliRunner().invoke(app, ["serve"])
-    assert result.exit_code == 2 and "not implemented" in result.output
+def test_serve_builds_the_app_without_binding(monkeypatch) -> None:  # type: ignore[no-untyped-def]
+    """`serve` builds the real app (Track C) and hands it to uvicorn; here uvicorn is a spy."""
+    import uvicorn
+
+    seen: dict[str, object] = {}
+    monkeypatch.setattr(uvicorn, "run", lambda app, **kw: seen.update(app=app, **kw))
+    monkeypatch.setenv("AUTH_MODE", "none")
+    monkeypatch.setenv("LLM_PROVIDER", "none")
+    result = CliRunner().invoke(app, ["serve", "--port", "8123", "--no-web"])
+    assert result.exit_code == 0, result.output
+    assert seen["port"] == 8123 and getattr(seen["app"], "title", "") == "materials-triage"

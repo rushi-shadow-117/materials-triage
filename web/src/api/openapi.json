@@ -213,34 +213,6 @@
         "title": "CaveatId",
         "type": "string"
       },
-      "Clamp": {
-        "additionalProperties": false,
-        "description": "A query setting moved into the site's bounds, shown to the user.",
-        "properties": {
-          "applied": {
-            "title": "Applied"
-          },
-          "bound": {
-            "title": "Bound",
-            "type": "string"
-          },
-          "requested": {
-            "title": "Requested"
-          },
-          "setting": {
-            "title": "Setting",
-            "type": "string"
-          }
-        },
-        "required": [
-          "setting",
-          "requested",
-          "applied",
-          "bound"
-        ],
-        "title": "Clamp",
-        "type": "object"
-      },
       "CompositionSummary": {
         "additionalProperties": false,
         "properties": {
@@ -312,7 +284,7 @@
           },
           "clamps": {
             "items": {
-              "$ref": "#/components/schemas/Clamp"
+              "$ref": "#/components/schemas/materials_triage__records__bundle__Clamp"
             },
             "title": "Clamps",
             "type": "array"
@@ -527,6 +499,213 @@
           "summary"
         ],
         "title": "DecisionLogEntry",
+        "type": "object"
+      },
+      "DrillResponse": {
+        "properties": {
+          "composition": {
+            "title": "Composition",
+            "type": "string"
+          },
+          "contribution": {
+            "title": "Contribution",
+            "type": "string"
+          },
+          "criterion": {
+            "title": "Criterion",
+            "type": "string"
+          },
+          "fetched_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fetched At"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "method": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Method"
+          },
+          "missing_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Missing Reason"
+          },
+          "normalized": {
+            "title": "Normalized",
+            "type": "string"
+          },
+          "notes": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Notes",
+            "type": "array"
+          },
+          "other_values": {
+            "items": {
+              "$ref": "#/components/schemas/DrillValue"
+            },
+            "title": "Other Values",
+            "type": "array"
+          },
+          "raw": {
+            "title": "Raw",
+            "type": "string"
+          },
+          "raw_sha256": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Raw Sha256"
+          },
+          "record_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Record Id"
+          },
+          "rule_ref": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rule Ref"
+          },
+          "source": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source"
+          },
+          "source_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Url"
+          },
+          "source_version": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Version"
+          },
+          "weight": {
+            "title": "Weight",
+            "type": "string"
+          }
+        },
+        "required": [
+          "composition",
+          "criterion",
+          "label",
+          "raw",
+          "normalized",
+          "weight",
+          "contribution",
+          "missing_reason",
+          "source",
+          "record_id",
+          "method",
+          "fetched_at",
+          "raw_sha256",
+          "source_version",
+          "source_url",
+          "rule_ref",
+          "notes",
+          "other_values"
+        ],
+        "title": "DrillResponse",
+        "type": "object"
+      },
+      "DrillValue": {
+        "properties": {
+          "method": {
+            "title": "Method",
+            "type": "string"
+          },
+          "record_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Record Id"
+          },
+          "source": {
+            "title": "Source",
+            "type": "string"
+          },
+          "used": {
+            "title": "Used",
+            "type": "boolean"
+          },
+          "value": {
+            "title": "Value",
+            "type": "string"
+          }
+        },
+        "required": [
+          "method",
+          "value",
+          "source",
+          "record_id",
+          "used"
+        ],
+        "title": "DrillValue",
         "type": "object"
       },
       "EvidenceHit": {
@@ -905,6 +1084,186 @@
         "title": "HazardRecord",
         "type": "object"
       },
+      "HazardRow": {
+        "properties": {
+          "kind": {
+            "enum": [
+              "element",
+              "compound"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reason"
+          },
+          "source_ref": {
+            "title": "Source Ref",
+            "type": "string"
+          },
+          "subject": {
+            "title": "Subject",
+            "type": "string"
+          },
+          "tier": {
+            "title": "Tier",
+            "type": "string"
+          }
+        },
+        "required": [
+          "subject",
+          "kind",
+          "tier",
+          "reason",
+          "source_ref"
+        ],
+        "title": "HazardRow",
+        "type": "object"
+      },
+      "HealthResponse": {
+        "properties": {
+          "auth_mode": {
+            "title": "Auth Mode",
+            "type": "string"
+          },
+          "classify_mode": {
+            "title": "Classify Mode",
+            "type": "string"
+          },
+          "fetch_mode": {
+            "title": "Fetch Mode",
+            "type": "string"
+          },
+          "fetch_source": {
+            "title": "Fetch Source",
+            "type": "string"
+          },
+          "llm_model": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Llm Model"
+          },
+          "llm_provider": {
+            "title": "Llm Provider",
+            "type": "string"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/SourceHealth"
+            },
+            "title": "Sources",
+            "type": "array"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "status",
+          "fetch_source",
+          "fetch_mode",
+          "llm_provider",
+          "llm_model",
+          "classify_mode",
+          "auth_mode",
+          "sources"
+        ],
+        "title": "HealthResponse",
+        "type": "object"
+      },
+      "LayerRow": {
+        "properties": {
+          "core": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Core"
+          },
+          "effective": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Effective"
+          },
+          "key": {
+            "title": "Key",
+            "type": "string"
+          },
+          "profile": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Profile"
+          },
+          "query": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Query"
+          },
+          "set_by": {
+            "title": "Set By",
+            "type": "string"
+          },
+          "site": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Site"
+          }
+        },
+        "required": [
+          "key",
+          "core",
+          "site",
+          "profile",
+          "query",
+          "effective",
+          "set_by"
+        ],
+        "title": "LayerRow",
+        "type": "object"
+      },
       "LiteratureHit": {
         "additionalProperties": false,
         "properties": {
@@ -1114,6 +1473,29 @@
         "title": "LiteratureSearchResult",
         "type": "object"
       },
+      "Me": {
+        "properties": {
+          "auth_mode": {
+            "title": "Auth Mode",
+            "type": "string"
+          },
+          "role": {
+            "title": "Role",
+            "type": "string"
+          },
+          "subject": {
+            "title": "Subject",
+            "type": "string"
+          }
+        },
+        "required": [
+          "subject",
+          "role",
+          "auth_mode"
+        ],
+        "title": "Me",
+        "type": "object"
+      },
       "MissingPropertyMarker": {
         "additionalProperties": false,
         "description": "A property the screen never estimates, shown as missing on every row.",
@@ -1149,6 +1531,140 @@
         ],
         "title": "MissingReason",
         "type": "string"
+      },
+      "ParseRequest": {
+        "properties": {
+          "profile": {
+            "default": "oxide_dielectric_thin_film",
+            "title": "Profile",
+            "type": "string"
+          },
+          "request_text": {
+            "title": "Request Text",
+            "type": "string"
+          }
+        },
+        "required": [
+          "request_text"
+        ],
+        "title": "ParseRequest",
+        "type": "object"
+      },
+      "ParseResponse": {
+        "description": "What the parse produced, for the confirm form. `parse_available` is False when no\nmodel is configured; the form is then filled by hand.",
+        "properties": {
+          "clamps": {
+            "items": {
+              "$ref": "#/components/schemas/materials_triage__config__schema__Clamp"
+            },
+            "title": "Clamps",
+            "type": "array"
+          },
+          "defaults_applied": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Defaults Applied",
+            "type": "array"
+          },
+          "missing_required": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Missing Required",
+            "type": "array"
+          },
+          "model": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Model"
+          },
+          "parse_available": {
+            "title": "Parse Available",
+            "type": "boolean"
+          },
+          "parsed_by": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Parsed By"
+          },
+          "reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reason"
+          },
+          "refusal": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Refusal"
+          },
+          "refusal_category": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Refusal Category"
+          },
+          "settings": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Settings"
+          },
+          "unavailable_properties": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Unavailable Properties",
+            "type": "array"
+          },
+          "unresolved_candidates": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Unresolved Candidates",
+            "type": "array"
+          }
+        },
+        "required": [
+          "parse_available"
+        ],
+        "title": "ParseResponse",
+        "type": "object"
       },
       "PolymorphSummary": {
         "additionalProperties": false,
@@ -1374,8 +1890,51 @@
         "title": "PolymorphSummaryRow",
         "type": "object"
       },
+      "ProfileSaved": {
+        "properties": {
+          "file": {
+            "title": "File",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "profile": {
+            "title": "Profile",
+            "type": "string"
+          },
+          "version": {
+            "title": "Version",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "file",
+          "profile",
+          "version"
+        ],
+        "title": "ProfileSaved",
+        "type": "object"
+      },
       "ProfileSummary": {
         "properties": {
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
           "name": {
             "title": "Name",
             "type": "string"
@@ -1393,11 +1952,65 @@
           }
         },
         "required": [
+          "id",
           "name",
           "version",
           "notes"
         ],
         "title": "ProfileSummary",
+        "type": "object"
+      },
+      "ProfileValidation": {
+        "properties": {
+          "clamp_preview": {
+            "items": {
+              "$ref": "#/components/schemas/materials_triage__config__schema__Clamp"
+            },
+            "title": "Clamp Preview",
+            "type": "array"
+          },
+          "issues": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationIssue"
+            },
+            "title": "Issues",
+            "type": "array"
+          },
+          "ok": {
+            "title": "Ok",
+            "type": "boolean"
+          },
+          "profile": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Profile"
+          },
+          "version": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Version"
+          }
+        },
+        "required": [
+          "ok",
+          "profile",
+          "version",
+          "issues",
+          "clamp_preview"
+        ],
+        "title": "ProfileValidation",
         "type": "object"
       },
       "Provenance": {
@@ -1559,149 +2172,6 @@
         "title": "ProvenanceBundle",
         "type": "object"
       },
-      "QuerySettings": {
-        "additionalProperties": false,
-        "properties": {
-          "band_gap_max_ev": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Band Gap Max Ev"
-          },
-          "band_gap_min_ev": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Band Gap Min Ev"
-          },
-          "candidate_list": {
-            "items": {
-              "type": "string"
-            },
-            "title": "Candidate List",
-            "type": "array"
-          },
-          "e_above_hull_max_mev": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "E Above Hull Max Mev"
-          },
-          "evidence_tier_min": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Evidence Tier Min"
-          },
-          "exclude_radioactive": {
-            "default": true,
-            "title": "Exclude Radioactive",
-            "type": "boolean"
-          },
-          "extra_anchors": {
-            "items": {
-              "type": "string"
-            },
-            "title": "Extra Anchors",
-            "type": "array"
-          },
-          "max_elements": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Max Elements"
-          },
-          "mode": {
-            "default": "discovery",
-            "enum": [
-              "discovery",
-              "candidate_list"
-            ],
-            "title": "Mode",
-            "type": "string"
-          },
-          "profile": {
-            "title": "Profile",
-            "type": "string"
-          },
-          "terminology": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/Terminology"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "top_n": {
-            "default": 10,
-            "title": "Top N",
-            "type": "integer"
-          },
-          "units": {
-            "$ref": "#/components/schemas/Units",
-            "default": "eV"
-          },
-          "verbosity": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/Verbosity"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "view": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/View"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "weights": {
-            "additionalProperties": {
-              "type": "number"
-            },
-            "title": "Weights",
-            "type": "object"
-          }
-        },
-        "required": [
-          "profile"
-        ],
-        "title": "QuerySettings",
-        "type": "object"
-      },
       "RankStability": {
         "additionalProperties": false,
         "properties": {
@@ -1855,10 +2325,40 @@
         "title": "ReferenceValue",
         "type": "object"
       },
+      "RefreshAccepted": {
+        "properties": {
+          "applies_to": {
+            "title": "Applies To",
+            "type": "string"
+          },
+          "audit_entry": {
+            "additionalProperties": true,
+            "title": "Audit Entry",
+            "type": "object"
+          },
+          "source": {
+            "title": "Source",
+            "type": "string"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "status",
+          "source",
+          "applies_to",
+          "audit_entry"
+        ],
+        "title": "RefreshAccepted",
+        "type": "object"
+      },
       "RefreshRequest": {
         "properties": {
-          "reason": {
-            "title": "Reason",
+          "note": {
+            "minLength": 1,
+            "title": "Note",
             "type": "string"
           },
           "source": {
@@ -1868,9 +2368,172 @@
         },
         "required": [
           "source",
-          "reason"
+          "note"
         ],
         "title": "RefreshRequest",
+        "type": "object"
+      },
+      "RelaxChoice": {
+        "properties": {
+          "adds": {
+            "title": "Adds",
+            "type": "integer"
+          },
+          "admits": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Admits",
+            "type": "array"
+          },
+          "choice_id": {
+            "title": "Choice Id",
+            "type": "string"
+          },
+          "current": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Current"
+          },
+          "proposed": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "integer"
+              }
+            ],
+            "title": "Proposed"
+          },
+          "setting": {
+            "title": "Setting",
+            "type": "string"
+          },
+          "text": {
+            "title": "Text",
+            "type": "string"
+          }
+        },
+        "required": [
+          "choice_id",
+          "setting",
+          "current",
+          "proposed",
+          "adds",
+          "admits",
+          "text"
+        ],
+        "title": "RelaxChoice",
+        "type": "object"
+      },
+      "RelaxRequest": {
+        "properties": {
+          "choice_id": {
+            "title": "Choice Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "choice_id"
+        ],
+        "title": "RelaxRequest",
+        "type": "object"
+      },
+      "ResolveRequest": {
+        "properties": {
+          "profile": {
+            "default": "oxide_dielectric_thin_film",
+            "title": "Profile",
+            "type": "string"
+          },
+          "settings": {
+            "additionalProperties": true,
+            "title": "Settings",
+            "type": "object"
+          }
+        },
+        "title": "ResolveRequest",
+        "type": "object"
+      },
+      "ResolveResponse": {
+        "properties": {
+          "clamps": {
+            "items": {
+              "$ref": "#/components/schemas/materials_triage__config__schema__Clamp"
+            },
+            "title": "Clamps",
+            "type": "array"
+          },
+          "config_sha": {
+            "title": "Config Sha",
+            "type": "string"
+          },
+          "defaults_applied": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Defaults Applied",
+            "type": "array"
+          },
+          "effective_weights": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "title": "Effective Weights",
+            "type": "object"
+          },
+          "missing_required": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Missing Required",
+            "type": "array"
+          },
+          "settings": {
+            "additionalProperties": true,
+            "title": "Settings",
+            "type": "object"
+          },
+          "stability_cutoff_mev": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Stability Cutoff Mev"
+          },
+          "unresolved_candidates": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Unresolved Candidates",
+            "type": "array"
+          }
+        },
+        "required": [
+          "settings",
+          "effective_weights",
+          "stability_cutoff_mev",
+          "clamps",
+          "defaults_applied",
+          "missing_required",
+          "unresolved_candidates",
+          "config_sha"
+        ],
+        "title": "ResolveResponse",
         "type": "object"
       },
       "RunAccepted": {
@@ -1880,6 +2543,14 @@
             "type": "string"
           },
           "status": {
+            "enum": [
+              "queued",
+              "running",
+              "completed",
+              "refused",
+              "cancelled",
+              "failed"
+            ],
             "title": "Status",
             "type": "string"
           }
@@ -2031,11 +2702,12 @@
         "type": "object"
       },
       "RunRequest": {
+        "description": "Confirmed criteria. The settings are what the confirm form shows after any edits.",
         "properties": {
-          "confirm": {
-            "default": false,
-            "title": "Confirm",
-            "type": "boolean"
+          "parsed_by": {
+            "default": "form",
+            "title": "Parsed By",
+            "type": "string"
           },
           "profile": {
             "default": "oxide_dielectric_thin_film",
@@ -2046,21 +2718,137 @@
             "title": "Request Text",
             "type": "string"
           },
+          "requested_properties": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Requested Properties",
+            "type": "array"
+          },
           "settings": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/QuerySettings"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "additionalProperties": true,
+            "title": "Settings",
+            "type": "object"
           }
         },
         "required": [
           "request_text"
         ],
         "title": "RunRequest",
+        "type": "object"
+      },
+      "RunSummary": {
+        "properties": {
+          "error": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error"
+          },
+          "excluded": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Excluded"
+          },
+          "finished_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Finished At"
+          },
+          "partial": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Partial"
+          },
+          "profile": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Profile"
+          },
+          "ranked": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ranked"
+          },
+          "request_text": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Request Text"
+          },
+          "run_id": {
+            "title": "Run Id",
+            "type": "string"
+          },
+          "started_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Started At"
+          },
+          "status": {
+            "enum": [
+              "queued",
+              "running",
+              "completed",
+              "refused",
+              "cancelled",
+              "failed"
+            ],
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "run_id",
+          "status"
+        ],
+        "title": "RunSummary",
         "type": "object"
       },
       "ScoreBreakdown": {
@@ -2151,21 +2939,64 @@
         "title": "ScoreBreakdown",
         "type": "object"
       },
-      "Terminology": {
-        "enum": [
-          "general",
-          "technical"
+      "SourceHealth": {
+        "properties": {
+          "allowed_host": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Allowed Host"
+          },
+          "fetch_source": {
+            "title": "Fetch Source",
+            "type": "string"
+          },
+          "last_fetch": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Fetch"
+          },
+          "records": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Records"
+          },
+          "source": {
+            "title": "Source",
+            "type": "string"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "source",
+          "status",
+          "fetch_source",
+          "last_fetch",
+          "records",
+          "allowed_host"
         ],
-        "title": "Terminology",
-        "type": "string"
-      },
-      "Units": {
-        "enum": [
-          "eV",
-          "meV"
-        ],
-        "title": "Units",
-        "type": "string"
+        "title": "SourceHealth",
+        "type": "object"
       },
       "ValidationError": {
         "properties": {
@@ -2205,6 +3036,33 @@
           "type"
         ],
         "title": "ValidationError",
+        "type": "object"
+      },
+      "ValidationIssue": {
+        "properties": {
+          "level": {
+            "enum": [
+              "error",
+              "warning"
+            ],
+            "title": "Level",
+            "type": "string"
+          },
+          "message": {
+            "title": "Message",
+            "type": "string"
+          },
+          "path": {
+            "title": "Path",
+            "type": "string"
+          }
+        },
+        "required": [
+          "level",
+          "path",
+          "message"
+        ],
+        "title": "ValidationIssue",
         "type": "object"
       },
       "Value_float_": {
@@ -2309,15 +3167,6 @@
         "title": "Value[int]",
         "type": "object"
       },
-      "Verbosity": {
-        "enum": [
-          "concise",
-          "standard",
-          "detailed"
-        ],
-        "title": "Verbosity",
-        "type": "string"
-      },
       "VerifierFailure": {
         "additionalProperties": false,
         "properties": {
@@ -2378,26 +3227,179 @@
         "title": "VerifierReport",
         "type": "object"
       },
-      "View": {
-        "enum": [
-          "pi_summary",
-          "audit"
+      "WeightBoundRow": {
+        "properties": {
+          "criterion": {
+            "title": "Criterion",
+            "type": "string"
+          },
+          "max": {
+            "title": "Max",
+            "type": "number"
+          },
+          "min": {
+            "title": "Min",
+            "type": "number"
+          },
+          "profile_default": {
+            "title": "Profile Default",
+            "type": "number"
+          }
+        },
+        "required": [
+          "criterion",
+          "min",
+          "max",
+          "profile_default"
         ],
-        "title": "View",
-        "type": "string"
+        "title": "WeightBoundRow",
+        "type": "object"
+      },
+      "materials_triage__config__schema__Clamp": {
+        "additionalProperties": false,
+        "properties": {
+          "applied": {
+            "title": "Applied"
+          },
+          "bound": {
+            "title": "Bound",
+            "type": "string"
+          },
+          "requested": {
+            "title": "Requested"
+          },
+          "setting": {
+            "title": "Setting",
+            "type": "string"
+          }
+        },
+        "required": [
+          "setting",
+          "requested",
+          "applied",
+          "bound"
+        ],
+        "title": "Clamp",
+        "type": "object"
+      },
+      "materials_triage__records__bundle__Clamp": {
+        "additionalProperties": false,
+        "description": "A query setting moved into the site's bounds, shown to the user.",
+        "properties": {
+          "applied": {
+            "title": "Applied"
+          },
+          "bound": {
+            "title": "Bound",
+            "type": "string"
+          },
+          "requested": {
+            "title": "Requested"
+          },
+          "setting": {
+            "title": "Setting",
+            "type": "string"
+          }
+        },
+        "required": [
+          "setting",
+          "requested",
+          "applied",
+          "bound"
+        ],
+        "title": "Clamp",
+        "type": "object"
       }
     }
   },
   "info": {
-    "description": "Triage candidate materials from public data. Every number traces to a source record.",
+    "description": "Triage candidate materials from public data. Every number traces to a source record; roles come only from the bearer token.",
     "title": "materials-triage",
-    "version": "0.0.1"
+    "version": "0.1.0"
   },
   "openapi": "3.1.0",
   "paths": {
+    "/admin/profiles": {
+      "post": {
+        "operationId": "save_profile_admin_profiles_post",
+        "requestBody": {
+          "content": {
+            "application/yaml": {
+              "schema": {
+                "title": "Body",
+                "type": "string"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfileSaved"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Save Profile"
+      }
+    },
+    "/admin/profiles/validate": {
+      "post": {
+        "operationId": "validate_profile_admin_profiles_validate_post",
+        "requestBody": {
+          "content": {
+            "application/yaml": {
+              "schema": {
+                "title": "Body",
+                "type": "string"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfileValidation"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Validate Profile"
+      }
+    },
     "/admin/refresh": {
       "post": {
-        "description": "Logged, admin-only cache refresh (stub: accepted, not performed).",
+        "description": "Mark a source for refetch on the next store-backed run. Earlier runs keep their\nsnapshot and hashes. The note is required and audit-logged.",
         "operationId": "admin_refresh_admin_refresh_post",
         "requestBody": {
           "content": {
@@ -2414,11 +3416,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "additionalProperties": {
-                    "type": "string"
-                  },
-                  "title": "Response Admin Refresh Admin Refresh Post",
-                  "type": "object"
+                  "$ref": "#/components/schemas/RefreshAccepted"
                 }
               }
             },
@@ -2436,6 +3434,51 @@
           }
         },
         "summary": "Admin Refresh"
+      }
+    },
+    "/audit": {
+      "get": {
+        "operationId": "audit_log_audit_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 200,
+              "title": "Limit",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  "title": "Response Audit Log Audit Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Audit Log"
       }
     },
     "/config/effective": {
@@ -2480,6 +3523,111 @@
         "summary": "Effective Config"
       }
     },
+    "/config/layers": {
+      "get": {
+        "operationId": "config_layers_config_layers_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "profile",
+            "required": false,
+            "schema": {
+              "default": "oxide_dielectric_thin_film",
+              "title": "Profile",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/LayerRow"
+                  },
+                  "title": "Response Config Layers Config Layers Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Config Layers"
+      }
+    },
+    "/criteria/resolve": {
+      "post": {
+        "description": "Pure: the confirm form's current values through the same clamps a run applies.",
+        "operationId": "resolve_criteria_criteria_resolve_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResolveRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResolveResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Resolve Criteria"
+      }
+    },
+    "/hazard-policy": {
+      "get": {
+        "operationId": "hazard_policy_hazard_policy_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/HazardRow"
+                  },
+                  "title": "Response Hazard Policy Hazard Policy Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Hazard Policy"
+      }
+    },
     "/health": {
       "get": {
         "operationId": "health_health_get",
@@ -2488,9 +3636,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "additionalProperties": true,
-                  "title": "Response Health Health Get",
-                  "type": "object"
+                  "$ref": "#/components/schemas/HealthResponse"
                 }
               }
             },
@@ -2500,9 +3646,66 @@
         "summary": "Health"
       }
     },
+    "/me": {
+      "get": {
+        "operationId": "me_me_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Me"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Me"
+      }
+    },
+    "/parse": {
+      "post": {
+        "description": "Parse a free-text request with the configured model. With LLM_PROVIDER=none the\nconfirm form is filled by hand (no call is made).",
+        "operationId": "parse_request_parse_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParseRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ParseResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Parse Request"
+      }
+    },
     "/profiles": {
       "get": {
-        "operationId": "list_profiles_profiles_get",
+        "operationId": "profiles_profiles_get",
         "responses": {
           "200": {
             "content": {
@@ -2511,7 +3714,7 @@
                   "items": {
                     "$ref": "#/components/schemas/ProfileSummary"
                   },
-                  "title": "Response List Profiles Profiles Get",
+                  "title": "Response Profiles Profiles Get",
                   "type": "array"
                 }
               }
@@ -2519,19 +3722,31 @@
             "description": "Successful Response"
           }
         },
-        "summary": "List Profiles"
+        "summary": "Profiles"
       }
     },
     "/runs": {
       "get": {
         "operationId": "list_runs_runs_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 50,
+              "title": "Limit",
+              "type": "integer"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "content": {
               "application/json": {
                 "schema": {
                   "items": {
-                    "$ref": "#/components/schemas/RunAccepted"
+                    "$ref": "#/components/schemas/RunSummary"
                   },
                   "title": "Response List Runs Runs Get",
                   "type": "array"
@@ -2539,12 +3754,22 @@
               }
             },
             "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
           }
         },
         "summary": "List Runs"
       },
       "post": {
-        "description": "Start a run (stub: returns the sample run id).",
+        "description": "Start a run from confirmed criteria. A request that names nothing to search on is\nanswered 422 with the fields to supply; nothing is fetched.",
         "operationId": "create_run_runs_post",
         "requestBody": {
           "content": {
@@ -2620,9 +3845,106 @@
         "summary": "Get Run"
       }
     },
+    "/runs/{run_id}/cancel": {
+      "post": {
+        "operationId": "cancel_run_runs__run_id__cancel_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "run_id",
+            "required": true,
+            "schema": {
+              "title": "Run Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunSummary"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Cancel Run"
+      }
+    },
+    "/runs/{run_id}/drill/{composition}/{criterion}": {
+      "get": {
+        "description": "Where one number came from: its record, method, fetch time, raw hash, the other\nvalues of the same property the run holds, and the rule that chose.",
+        "operationId": "drill_runs__run_id__drill__composition___criterion__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "run_id",
+            "required": true,
+            "schema": {
+              "title": "Run Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "composition",
+            "required": true,
+            "schema": {
+              "title": "Composition",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "criterion",
+            "required": true,
+            "schema": {
+              "title": "Criterion",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DrillResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Drill"
+      }
+    },
     "/runs/{run_id}/events": {
       "get": {
-        "description": "Server-sent progress events (stub: three fixed events then done).",
+        "description": "Server-sent events: one `step` per decision-log entry as it happens, then `done`.",
         "operationId": "run_events_runs__run_id__events_get",
         "parameters": [
           {
@@ -2656,6 +3978,292 @@
           }
         },
         "summary": "Run Events"
+      }
+    },
+    "/runs/{run_id}/export": {
+      "get": {
+        "operationId": "run_export_runs__run_id__export_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "run_id",
+            "required": true,
+            "schema": {
+              "title": "Run Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "schema": {
+              "default": "json",
+              "pattern": "^(json|csv|md)$",
+              "title": "Format",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "view",
+            "required": false,
+            "schema": {
+              "default": "pi_summary",
+              "pattern": "^(pi_summary|audit)$",
+              "title": "View",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Response Run Export Runs  Run Id  Export Get"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Run Export"
+      }
+    },
+    "/runs/{run_id}/relax": {
+      "post": {
+        "description": "Apply one relaxation the pipeline computed and logged, as a new run. The\nresearcher's click is the approval; nothing is applied without it.",
+        "operationId": "relax_runs__run_id__relax_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "run_id",
+            "required": true,
+            "schema": {
+              "title": "Run Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RelaxRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunAccepted"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Relax"
+      }
+    },
+    "/runs/{run_id}/relaxations": {
+      "get": {
+        "operationId": "relaxations_runs__run_id__relaxations_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "run_id",
+            "required": true,
+            "schema": {
+              "title": "Run Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/RelaxChoice"
+                  },
+                  "title": "Response Relaxations Runs  Run Id  Relaxations Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Relaxations"
+      }
+    },
+    "/runs/{run_id}/status": {
+      "get": {
+        "operationId": "run_status_runs__run_id__status_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "run_id",
+            "required": true,
+            "schema": {
+              "title": "Run Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunSummary"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Run Status"
+      }
+    },
+    "/runs/{run_id}/view": {
+      "get": {
+        "description": "The render package's view model as JSON: every value already formatted, units and\nterminology as the run was confirmed with. The PI view carries no record ids.",
+        "operationId": "run_view_runs__run_id__view_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "run_id",
+            "required": true,
+            "schema": {
+              "title": "Run Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "view",
+            "required": false,
+            "schema": {
+              "default": "pi_summary",
+              "pattern": "^(pi_summary|audit)$",
+              "title": "View",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Run View"
+      }
+    },
+    "/weight-bounds": {
+      "get": {
+        "operationId": "weight_bounds_weight_bounds_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "profile",
+            "required": false,
+            "schema": {
+              "default": "oxide_dielectric_thin_film",
+              "title": "Profile",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/WeightBoundRow"
+                  },
+                  "title": "Response Weight Bounds Weight Bounds Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Weight Bounds"
       }
     }
   }

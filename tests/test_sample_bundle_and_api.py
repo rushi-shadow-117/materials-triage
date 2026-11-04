@@ -3,9 +3,7 @@
 import json
 from pathlib import Path
 
-from fastapi.testclient import TestClient
-
-from materials_triage.api.openapi import app, openapi_schema
+from materials_triage.api.openapi import openapi_schema
 from materials_triage.records.bundle import EvidenceLabel, ProvenanceBundle
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -40,31 +38,6 @@ def test_sample_bundle_validates_and_has_the_planned_shape() -> None:
             )
 
 
-def test_api_stubs_serve_the_sample_bundle() -> None:
-    client = TestClient(app)
-    runs = client.get("/runs").json()
-    assert runs and runs[0]["status"] == "completed"
-    run_id = runs[0]["run_id"]
-    body = client.get(f"/runs/{run_id}").json()
-    assert body["bundle_version"] == 2 and len(body["candidates"]) == 10
-    assert client.get("/runs/sample").status_code == 200
-    assert client.get("/runs/nope").status_code == 404
-    events = client.get(f"/runs/{run_id}/events").text
-    assert "event: progress" in events and '"step": "done"' in events
-    eff = client.get("/config/effective").json()
-    assert eff["effective"]["weights"]["dielectric_constant"] == 0.0 and eff["clamps"] == []
-    profiles = client.get("/profiles").json()
-    assert profiles[0]["name"] == "oxide_dielectric_thin_film"
-    accepted = client.post("/runs", json={"request_text": "oxide dielectrics"}).json()
-    assert accepted["run_id"] == run_id
-    assert (
-        client.post(
-            "/admin/refresh", json={"source": "materials_project", "reason": "test"}
-        ).status_code
-        == 202
-    )
-
-
 def test_openapi_export_is_current() -> None:
     """web/src/api/openapi.json must match the live schema so the generated types stay honest."""
     live = json.dumps(openapi_schema(), indent=2, sort_keys=True) + "\n"
@@ -74,8 +47,15 @@ def test_openapi_export_is_current() -> None:
         "/runs",
         "/runs/{run_id}",
         "/runs/{run_id}/events",
+        "/runs/{run_id}/view",
+        "/runs/{run_id}/drill/{composition}/{criterion}",
+        "/criteria/resolve",
+        "/parse",
         "/config/effective",
+        "/config/layers",
         "/profiles",
         "/admin/refresh",
+        "/admin/profiles/validate",
         "/health",
+        "/me",
     } <= routes

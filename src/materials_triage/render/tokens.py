@@ -175,7 +175,9 @@ def ghs_text(row: Candidate | Anchor) -> str:
     return f"no GHS hazard codes in {n} notifications"
 
 
-def resolve(index: BundleIndex, kind: str, arg: str, *, units: str = "eV") -> str:
+def resolve(
+    index: BundleIndex, kind: str, arg: str, *, units: str = "eV", hide_ids: bool = False
+) -> str:
     """Fill one token. Raises TokenError when the bundle cannot back it."""
     token = f"{kind}:{arg}"
     if kind == "formula":
@@ -216,7 +218,7 @@ def resolve(index: BundleIndex, kind: str, arg: str, *, units: str = "eV") -> st
     if kind == "id":
         if arg not in index.ids:
             raise TokenError("unknown_record_id", f"{arg} is not a record id in this bundle")
-        return arg
+        return HIDDEN_ID if hide_ids else arg
     raise TokenError("unknown_token", f"unknown token kind {kind!r}")
 
 
@@ -250,7 +252,19 @@ def _count(row: Candidate | Anchor, fld: str, token: str) -> str:
     return "not reported" if value is None else precision.quantize(value, 0)
 
 
-def render_text(index: BundleIndex, text: str, *, units: str = "eV") -> str:
+HIDDEN_ID = "a source record (see the audit view)"
+RECORD_ID_RE = re.compile(r"\b(?:mp|mvc)-\d+\b|\bJVASP-\d+\b|\bW\d{6,}\b|\bCID:?\s?\d+\b")
+
+
+def hide_record_ids(text: str) -> str:
+    """Replace record ids in code-written text (exclusion details, notes) for the PI view."""
+    return RECORD_ID_RE.sub(HIDDEN_ID, text)
+
+
+def render_text(index: BundleIndex, text: str, *, units: str = "eV", hide_ids: bool = False) -> str:
     """Fill every token in `text`. Raises TokenError on the first one the bundle cannot fill;
-    verified text never raises because the verifier already removed those sentences."""
-    return TOKEN_RE.sub(lambda m: resolve(index, m.group(1), m.group(2), units=units), text)
+    verified text never raises because the verifier already removed those sentences.
+    `hide_ids`: id tokens render as a fixed phrase (the PI view names no record ids)."""
+    return TOKEN_RE.sub(
+        lambda m: resolve(index, m.group(1), m.group(2), units=units, hide_ids=hide_ids), text
+    )

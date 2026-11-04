@@ -21,6 +21,7 @@ from materials_triage.render.tokens import (
     BundleIndex,
     TokenError,
     ghs_text,
+    hide_record_ids,
     render_text,
 )
 
@@ -271,6 +272,7 @@ def _row_view(
     index: BundleIndex,
     caveats: CaveatConfig,
     units: str,
+    hide_ids: bool = False,
 ) -> RowView:
     comp = row.composition
     is_anchor = isinstance(row, Anchor)
@@ -281,7 +283,7 @@ def _row_view(
     rationale = ""
     if slot is not None and slot.text:
         try:
-            rationale = render_text(index, slot.text, units=units)
+            rationale = render_text(index, slot.text, units=units, hide_ids=hide_ids)
         except TokenError as e:
             rationale = f"(rationale withheld: {e})"
     criteria = [_criterion_view(cs, units) for cs in row.score.criteria] if row.score else []
@@ -377,7 +379,9 @@ def _row_view(
         k=k,
         missing=missing,
         exclusion=excluded.rule.value if excluded else None,
-        exclusion_detail=excluded.detail if excluded else None,
+        exclusion_detail=(hide_record_ids(excluded.detail) if hide_ids else excluded.detail)
+        if excluded
+        else None,
         exclusion_ref=excluded.source_ref if excluded else None,
         criteria=criteria,
         polymorphs=_polymorph_view(row, units),
@@ -390,7 +394,7 @@ def _row_view(
         evidence=_evidence_views(row, hits),
         sensitivity=sensitivity,
         band_gap_source=row.score.band_gap_source if row.score else None,
-        dimensionality=_dimensionality(row),
+        dimensionality=hide_record_ids(_dimensionality(row)) if hide_ids else _dimensionality(row),
     )
 
 
@@ -406,7 +410,9 @@ def _dimensionality(row: Candidate | Anchor) -> str:
     return f"{precision.quantize(dim.value, 0)} ({dim.method}; {record})"
 
 
-def build(bundle: ProvenanceBundle, caveats: CaveatConfig, *, units: str) -> RunView:
+def build(
+    bundle: ProvenanceBundle, caveats: CaveatConfig, *, units: str, hide_ids: bool = False
+) -> RunView:
     index = BundleIndex.build(bundle)
     top_n = bundle.criteria.effective_settings.get("top_n")
     limit = int(top_n) if isinstance(top_n, int) and top_n > 0 else None
@@ -414,9 +420,9 @@ def build(bundle: ProvenanceBundle, caveats: CaveatConfig, *, units: str) -> Run
     excluded_all = bundle.excluded()
     shown_ranked = ranked_all[:limit] if limit else ranked_all
     shown_excluded = excluded_all[:MAX_EXCLUDED_SHOWN]
-    rows = [_row_view(c, bundle, index, caveats, units) for c in shown_ranked]
-    excluded = [_row_view(c, bundle, index, caveats, units) for c in shown_excluded]
-    anchors = [_row_view(a, bundle, index, caveats, units) for a in bundle.anchors]
+    rows = [_row_view(c, bundle, index, caveats, units, hide_ids) for c in shown_ranked]
+    excluded = [_row_view(c, bundle, index, caveats, units, hide_ids) for c in shown_excluded]
+    anchors = [_row_view(a, bundle, index, caveats, units, hide_ids) for a in bundle.anchors]
     texts: dict[str, CaveatText] = {}
     for r in [*rows, *excluded, *anchors]:
         for c in r.caveats:
@@ -447,20 +453,22 @@ def build(bundle: ProvenanceBundle, caveats: CaveatConfig, *, units: str) -> Run
         hidden_ranked=len(ranked_all) - len(shown_ranked),
         hidden_excluded=len(excluded_all) - len(shown_excluded),
         hull_cutoff=_hull_cutoff(bundle, units),
-        overview=_overview(bundle, index, units),
+        overview=_overview(bundle, index, units, hide_ids),
         unresolved_candidates=list(bundle.criteria.unresolved_candidates),
         unavailable_properties=list(bundle.criteria.unavailable_properties),
     )
 
 
-def _overview(bundle: ProvenanceBundle, index: BundleIndex, units: str) -> str | None:
+def _overview(
+    bundle: ProvenanceBundle, index: BundleIndex, units: str, hide_ids: bool = False
+) -> str | None:
     """The summary:overview slot, rendered from its tokens. A slot the verifier did not pass
     is not shown."""
     slot = bundle.rationale.get("summary:overview")
     if slot is None or not slot.text or slot.verified is False:
         return None
     try:
-        return render_text(index, slot.text, units=units)
+        return render_text(index, slot.text, units=units, hide_ids=hide_ids)
     except TokenError as e:
         return f"(overview withheld: {e})"
 

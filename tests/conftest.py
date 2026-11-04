@@ -63,3 +63,10 @@ def clean_tables(request: pytest.FixtureRequest) -> Iterator[None]:
         ):
             conn.execute(text(f"delete from triage.{t}"))
     yield
+
+
+def pytest_configure(config: pytest.Config) -> None:
+    config.addinivalue_line(
+        "markers", "e2e: browser tests against the served app (skip without web/dist or Chromium)"
+    )
+    config.addinivalue_line("markers", "keycloak: needs the Compose keycloak service")

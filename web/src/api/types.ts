@@ -4,6 +4,40 @@
  */
 
 export interface paths {
+    "/admin/profiles": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Save Profile */
+        post: operations["save_profile_admin_profiles_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/admin/profiles/validate": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Validate Profile */
+        post: operations["validate_profile_admin_profiles_validate_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/admin/refresh": {
         parameters: {
             query?: never;
@@ -15,9 +49,27 @@ export interface paths {
         put?: never;
         /**
          * Admin Refresh
-         * @description Logged, admin-only cache refresh (stub: accepted, not performed).
+         * @description Mark a source for refetch on the next store-backed run. Earlier runs keep their
+         *     snapshot and hashes. The note is required and audit-logged.
          */
         post: operations["admin_refresh_admin_refresh_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/audit": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Audit Log */
+        get: operations["audit_log_audit_get"];
+        put?: never;
+        post?: never;
         delete?: never;
         options?: never;
         head?: never;
@@ -33,6 +85,60 @@ export interface paths {
         };
         /** Effective Config */
         get: operations["effective_config_config_effective_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/config/layers": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Config Layers */
+        get: operations["config_layers_config_layers_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/criteria/resolve": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Resolve Criteria
+         * @description Pure: the confirm form's current values through the same clamps a run applies.
+         */
+        post: operations["resolve_criteria_criteria_resolve_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/hazard-policy": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Hazard Policy */
+        get: operations["hazard_policy_hazard_policy_get"];
         put?: never;
         post?: never;
         delete?: never;
@@ -58,6 +164,44 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/me": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Me */
+        get: operations["me_me_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/parse": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Parse Request
+         * @description Parse a free-text request with the configured model. With LLM_PROVIDER=none the
+         *     confirm form is filled by hand (no call is made).
+         */
+        post: operations["parse_request_parse_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/profiles": {
         parameters: {
             query?: never;
@@ -65,8 +209,8 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** List Profiles */
-        get: operations["list_profiles_profiles_get"];
+        /** Profiles */
+        get: operations["profiles_profiles_get"];
         put?: never;
         post?: never;
         delete?: never;
@@ -87,7 +231,8 @@ export interface paths {
         put?: never;
         /**
          * Create Run
-         * @description Start a run (stub: returns the sample run id).
+         * @description Start a run from confirmed criteria. A request that names nothing to search on is
+         *     answered 422 with the fields to supply; nothing is fetched.
          */
         post: operations["create_run_runs_post"];
         delete?: never;
@@ -113,6 +258,44 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/runs/{run_id}/cancel": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Cancel Run */
+        post: operations["cancel_run_runs__run_id__cancel_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/runs/{run_id}/drill/{composition}/{criterion}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Drill
+         * @description Where one number came from: its record, method, fetch time, raw hash, the other
+         *     values of the same property the run holds, and the rule that chose.
+         */
+        get: operations["drill_runs__run_id__drill__composition___criterion__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/runs/{run_id}/events": {
         parameters: {
             query?: never;
@@ -122,9 +305,119 @@ export interface paths {
         };
         /**
          * Run Events
-         * @description Server-sent progress events (stub: three fixed events then done).
+         * @description Server-sent events: one `step` per decision-log entry as it happens, then `done`.
          */
         get: operations["run_events_runs__run_id__events_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/runs/{run_id}/export": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Run Export */
+        get: operations["run_export_runs__run_id__export_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/runs/{run_id}/relax": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Relax
+         * @description Apply one relaxation the pipeline computed and logged, as a new run. The
+         *     researcher's click is the approval; nothing is applied without it.
+         */
+        post: operations["relax_runs__run_id__relax_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/runs/{run_id}/relaxations": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Relaxations */
+        get: operations["relaxations_runs__run_id__relaxations_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/runs/{run_id}/status": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Run Status */
+        get: operations["run_status_runs__run_id__status_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/runs/{run_id}/view": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Run View
+         * @description The render package's view model as JSON: every value already formatted, units and
+         *     terminology as the run was confirmed with. The PI view carries no record ids.
+         */
+        get: operations["run_view_runs__run_id__view_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/weight-bounds": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Weight Bounds */
+        get: operations["weight_bounds_weight_bounds_get"];
         put?: never;
         post?: never;
         delete?: never;
@@ -185,20 +478,6 @@ export interface components {
          * @enum {string}
          */
         CaveatId: "band_offsets_not_checked" | "stability_cutoff_hull_mismatch" | "stability_cutoff_oxide_calibrated" | "experimental_gap_composition_level" | "experimental_gap_unreferenced" | "reference_value_pending" | "hazard_flag" | "hazard_unknown" | "process_hazard" | "attribution_echa" | "anion_undetermined" | "evidence_unclassified" | "enrichment_missing";
-        /**
-         * Clamp
-         * @description A query setting moved into the site's bounds, shown to the user.
-         */
-        Clamp: {
-            /** Applied */
-            applied: unknown;
-            /** Bound */
-            bound: string;
-            /** Requested */
-            requested: unknown;
-            /** Setting */
-            setting: string;
-        };
         /** CompositionSummary */
         CompositionSummary: {
             /** Composition */
@@ -218,7 +497,7 @@ export interface components {
             /** Candidate List */
             candidate_list?: string[];
             /** Clamps */
-            clamps?: components["schemas"]["Clamp"][];
+            clamps?: components["schemas"]["materials_triage__records__bundle__Clamp"][];
             /** Confirmed At */
             confirmed_at: string | null;
             /** Defaults Applied */
@@ -281,6 +560,58 @@ export interface components {
             step: string;
             /** Summary */
             summary: string;
+        };
+        /** DrillResponse */
+        DrillResponse: {
+            /** Composition */
+            composition: string;
+            /** Contribution */
+            contribution: string;
+            /** Criterion */
+            criterion: string;
+            /** Fetched At */
+            fetched_at: string | null;
+            /** Label */
+            label: string;
+            /** Method */
+            method: string | null;
+            /** Missing Reason */
+            missing_reason: string | null;
+            /** Normalized */
+            normalized: string;
+            /** Notes */
+            notes: string[];
+            /** Other Values */
+            other_values: components["schemas"]["DrillValue"][];
+            /** Raw */
+            raw: string;
+            /** Raw Sha256 */
+            raw_sha256: string | null;
+            /** Record Id */
+            record_id: string | null;
+            /** Rule Ref */
+            rule_ref: string | null;
+            /** Source */
+            source: string | null;
+            /** Source Url */
+            source_url: string | null;
+            /** Source Version */
+            source_version: string | null;
+            /** Weight */
+            weight: string;
+        };
+        /** DrillValue */
+        DrillValue: {
+            /** Method */
+            method: string;
+            /** Record Id */
+            record_id: string | null;
+            /** Source */
+            source: string;
+            /** Used */
+            used: boolean;
+            /** Value */
+            value: string;
         };
         /** EvidenceHit */
         EvidenceHit: {
@@ -396,6 +727,58 @@ export interface components {
             /** Synonyms */
             synonyms: string[];
         };
+        /** HazardRow */
+        HazardRow: {
+            /**
+             * Kind
+             * @enum {string}
+             */
+            kind: "element" | "compound";
+            /** Reason */
+            reason: string | null;
+            /** Source Ref */
+            source_ref: string;
+            /** Subject */
+            subject: string;
+            /** Tier */
+            tier: string;
+        };
+        /** HealthResponse */
+        HealthResponse: {
+            /** Auth Mode */
+            auth_mode: string;
+            /** Classify Mode */
+            classify_mode: string;
+            /** Fetch Mode */
+            fetch_mode: string;
+            /** Fetch Source */
+            fetch_source: string;
+            /** Llm Model */
+            llm_model: string | null;
+            /** Llm Provider */
+            llm_provider: string;
+            /** Sources */
+            sources: components["schemas"]["SourceHealth"][];
+            /** Status */
+            status: string;
+        };
+        /** LayerRow */
+        LayerRow: {
+            /** Core */
+            core: string | null;
+            /** Effective */
+            effective: string | null;
+            /** Key */
+            key: string;
+            /** Profile */
+            profile: string | null;
+            /** Query */
+            query: string | null;
+            /** Set By */
+            set_by: string;
+            /** Site */
+            site: string | null;
+        };
         /** LiteratureHit */
         LiteratureHit: {
             /** Abstract Index Sha256 */
@@ -443,6 +826,15 @@ export interface components {
             /** Scope */
             scope: string;
         };
+        /** Me */
+        Me: {
+            /** Auth Mode */
+            auth_mode: string;
+            /** Role */
+            role: string;
+            /** Subject */
+            subject: string;
+        };
         /**
          * MissingPropertyMarker
          * @description A property the screen never estimates, shown as missing on every row.
@@ -460,6 +852,49 @@ export interface components {
          * @enum {string}
          */
         MissingReason: "absent" | "na_sentinel" | "not_computed" | "not_fetched" | "pending_verification";
+        /** ParseRequest */
+        ParseRequest: {
+            /**
+             * Profile
+             * @default oxide_dielectric_thin_film
+             */
+            profile: string;
+            /** Request Text */
+            request_text: string;
+        };
+        /**
+         * ParseResponse
+         * @description What the parse produced, for the confirm form. `parse_available` is False when no
+         *     model is configured; the form is then filled by hand.
+         */
+        ParseResponse: {
+            /** Clamps */
+            clamps?: components["schemas"]["materials_triage__config__schema__Clamp"][];
+            /** Defaults Applied */
+            defaults_applied?: string[];
+            /** Missing Required */
+            missing_required?: string[];
+            /** Model */
+            model?: string | null;
+            /** Parse Available */
+            parse_available: boolean;
+            /** Parsed By */
+            parsed_by?: string | null;
+            /** Reason */
+            reason?: string | null;
+            /** Refusal */
+            refusal?: string | null;
+            /** Refusal Category */
+            refusal_category?: string | null;
+            /** Settings */
+            settings?: {
+                [key: string]: unknown;
+            } | null;
+            /** Unavailable Properties */
+            unavailable_properties?: string[];
+            /** Unresolved Candidates */
+            unresolved_candidates?: string[];
+        };
         /** PolymorphSummary */
         PolymorphSummary: {
             /** Composition Id */
@@ -518,14 +953,42 @@ export interface components {
             /** Theoretical */
             theoretical: boolean | null;
         };
+        /** ProfileSaved */
+        ProfileSaved: {
+            /** File */
+            file: string;
+            /** Id */
+            id: string;
+            /** Profile */
+            profile: string;
+            /** Version */
+            version: string;
+        };
         /** ProfileSummary */
         ProfileSummary: {
+            /** Description */
+            description?: string | null;
+            /** Id */
+            id: string;
             /** Name */
             name: string;
             /** Notes */
             notes: string[];
             /** Version */
             version: string;
+        };
+        /** ProfileValidation */
+        ProfileValidation: {
+            /** Clamp Preview */
+            clamp_preview: components["schemas"]["materials_triage__config__schema__Clamp"][];
+            /** Issues */
+            issues: components["schemas"]["ValidationIssue"][];
+            /** Ok */
+            ok: boolean;
+            /** Profile */
+            profile: string | null;
+            /** Version */
+            version: string | null;
         };
         /** Provenance */
         Provenance: {
@@ -578,50 +1041,6 @@ export interface components {
             run: components["schemas"]["RunMetadata"];
             verifier?: components["schemas"]["VerifierReport"] | null;
         };
-        /** QuerySettings */
-        QuerySettings: {
-            /** Band Gap Max Ev */
-            band_gap_max_ev?: number | null;
-            /** Band Gap Min Ev */
-            band_gap_min_ev?: number | null;
-            /** Candidate List */
-            candidate_list?: string[];
-            /** E Above Hull Max Mev */
-            e_above_hull_max_mev?: number | null;
-            /** Evidence Tier Min */
-            evidence_tier_min?: string | null;
-            /**
-             * Exclude Radioactive
-             * @default true
-             */
-            exclude_radioactive: boolean;
-            /** Extra Anchors */
-            extra_anchors?: string[];
-            /** Max Elements */
-            max_elements?: number | null;
-            /**
-             * Mode
-             * @default discovery
-             * @enum {string}
-             */
-            mode: "discovery" | "candidate_list";
-            /** Profile */
-            profile: string;
-            terminology?: components["schemas"]["Terminology"] | null;
-            /**
-             * Top N
-             * @default 10
-             */
-            top_n: number;
-            /** @default eV */
-            units: components["schemas"]["Units"];
-            verbosity?: components["schemas"]["Verbosity"] | null;
-            view?: components["schemas"]["View"] | null;
-            /** Weights */
-            weights?: {
-                [key: string]: number;
-            };
-        };
         /** RankStability */
         RankStability: {
             /** Perturbations */
@@ -670,19 +1089,92 @@ export interface components {
                 number
             ] | null;
         };
-        /** RefreshRequest */
-        RefreshRequest: {
-            /** Reason */
-            reason: string;
+        /** RefreshAccepted */
+        RefreshAccepted: {
+            /** Applies To */
+            applies_to: string;
+            /** Audit Entry */
+            audit_entry: {
+                [key: string]: unknown;
+            };
             /** Source */
             source: string;
+            /** Status */
+            status: string;
+        };
+        /** RefreshRequest */
+        RefreshRequest: {
+            /** Note */
+            note: string;
+            /** Source */
+            source: string;
+        };
+        /** RelaxChoice */
+        RelaxChoice: {
+            /** Adds */
+            adds: number;
+            /** Admits */
+            admits: string[];
+            /** Choice Id */
+            choice_id: string;
+            /** Current */
+            current: number | null;
+            /** Proposed */
+            proposed: number;
+            /** Setting */
+            setting: string;
+            /** Text */
+            text: string;
+        };
+        /** RelaxRequest */
+        RelaxRequest: {
+            /** Choice Id */
+            choice_id: string;
+        };
+        /** ResolveRequest */
+        ResolveRequest: {
+            /**
+             * Profile
+             * @default oxide_dielectric_thin_film
+             */
+            profile: string;
+            /** Settings */
+            settings?: {
+                [key: string]: unknown;
+            };
+        };
+        /** ResolveResponse */
+        ResolveResponse: {
+            /** Clamps */
+            clamps: components["schemas"]["materials_triage__config__schema__Clamp"][];
+            /** Config Sha */
+            config_sha: string;
+            /** Defaults Applied */
+            defaults_applied: string[];
+            /** Effective Weights */
+            effective_weights: {
+                [key: string]: number;
+            };
+            /** Missing Required */
+            missing_required: string[];
+            /** Settings */
+            settings: {
+                [key: string]: unknown;
+            };
+            /** Stability Cutoff Mev */
+            stability_cutoff_mev: number | null;
+            /** Unresolved Candidates */
+            unresolved_candidates: string[];
         };
         /** RunAccepted */
         RunAccepted: {
             /** Run Id */
             run_id: string;
-            /** Status */
-            status: string;
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "queued" | "running" | "completed" | "refused" | "cancelled" | "failed";
         };
         /** RunMetadata */
         RunMetadata: {
@@ -732,13 +1224,16 @@ export interface components {
              */
             started_at: string;
         };
-        /** RunRequest */
+        /**
+         * RunRequest
+         * @description Confirmed criteria. The settings are what the confirm form shows after any edits.
+         */
         RunRequest: {
             /**
-             * Confirm
-             * @default false
+             * Parsed By
+             * @default form
              */
-            confirm: boolean;
+            parsed_by: string;
             /**
              * Profile
              * @default oxide_dielectric_thin_film
@@ -746,7 +1241,38 @@ export interface components {
             profile: string;
             /** Request Text */
             request_text: string;
-            settings?: components["schemas"]["QuerySettings"] | null;
+            /** Requested Properties */
+            requested_properties?: string[];
+            /** Settings */
+            settings?: {
+                [key: string]: unknown;
+            };
+        };
+        /** RunSummary */
+        RunSummary: {
+            /** Error */
+            error?: string | null;
+            /** Excluded */
+            excluded?: number | null;
+            /** Finished At */
+            finished_at?: string | null;
+            /** Partial */
+            partial?: boolean | null;
+            /** Profile */
+            profile?: string | null;
+            /** Ranked */
+            ranked?: number | null;
+            /** Request Text */
+            request_text?: string | null;
+            /** Run Id */
+            run_id: string;
+            /** Started At */
+            started_at?: string | null;
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "queued" | "running" | "completed" | "refused" | "cancelled" | "failed";
         };
         /** ScoreBreakdown */
         ScoreBreakdown: {
@@ -777,16 +1303,21 @@ export interface components {
             /** Total */
             total: number | null;
         };
-        /**
-         * Terminology
-         * @enum {string}
-         */
-        Terminology: "general" | "technical";
-        /**
-         * Units
-         * @enum {string}
-         */
-        Units: "eV" | "meV";
+        /** SourceHealth */
+        SourceHealth: {
+            /** Allowed Host */
+            allowed_host: string | null;
+            /** Fetch Source */
+            fetch_source: string;
+            /** Last Fetch */
+            last_fetch: string | null;
+            /** Records */
+            records: number | null;
+            /** Source */
+            source: string;
+            /** Status */
+            status: string;
+        };
         /** ValidationError */
         ValidationError: {
             /** Context */
@@ -799,6 +1330,18 @@ export interface components {
             msg: string;
             /** Error Type */
             type: string;
+        };
+        /** ValidationIssue */
+        ValidationIssue: {
+            /**
+             * Level
+             * @enum {string}
+             */
+            level: "error" | "warning";
+            /** Message */
+            message: string;
+            /** Path */
+            path: string;
         };
         /** Value[float] */
         Value_float_: {
@@ -822,11 +1365,6 @@ export interface components {
             /** Value */
             value: number | null;
         };
-        /**
-         * Verbosity
-         * @enum {string}
-         */
-        Verbosity: "concise" | "standard" | "detailed";
         /** VerifierFailure */
         VerifierFailure: {
             /** Action */
@@ -849,11 +1387,42 @@ export interface components {
             /** Passed */
             passed: boolean;
         };
+        /** WeightBoundRow */
+        WeightBoundRow: {
+            /** Criterion */
+            criterion: string;
+            /** Max */
+            max: number;
+            /** Min */
+            min: number;
+            /** Profile Default */
+            profile_default: number;
+        };
+        /** Clamp */
+        materials_triage__config__schema__Clamp: {
+            /** Applied */
+            applied: unknown;
+            /** Bound */
+            bound: string;
+            /** Requested */
+            requested: unknown;
+            /** Setting */
+            setting: string;
+        };
         /**
-         * View
-         * @enum {string}
+         * Clamp
+         * @description A query setting moved into the site's bounds, shown to the user.
          */
-        View: "pi_summary" | "audit";
+        materials_triage__records__bundle__Clamp: {
+            /** Applied */
+            applied: unknown;
+            /** Bound */
+            bound: string;
+            /** Requested */
+            requested: unknown;
+            /** Setting */
+            setting: string;
+        };
     };
     responses: never;
     parameters: never;
@@ -863,6 +1432,72 @@ export interface components {
 }
 export type $defs = Record<string, never>;
 export interface operations {
+    save_profile_admin_profiles_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/yaml": string;
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ProfileSaved"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    validate_profile_admin_profiles_validate_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/yaml": string;
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ProfileValidation"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     admin_refresh_admin_refresh_post: {
         parameters: {
             query?: never;
@@ -882,9 +1517,40 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
+                    "application/json": components["schemas"]["RefreshAccepted"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    audit_log_audit_get: {
+        parameters: {
+            query?: {
+                limit?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
                     "application/json": {
-                        [key: string]: string;
-                    };
+                        [key: string]: unknown;
+                    }[];
                 };
             };
             /** @description Validation Error */
@@ -931,6 +1597,90 @@ export interface operations {
             };
         };
     };
+    config_layers_config_layers_get: {
+        parameters: {
+            query?: {
+                profile?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["LayerRow"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    resolve_criteria_criteria_resolve_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ResolveRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ResolveResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    hazard_policy_hazard_policy_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HazardRow"][];
+                };
+            };
+        };
+    };
     health_health_get: {
         parameters: {
             query?: never;
@@ -946,14 +1696,65 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": {
-                        [key: string]: unknown;
-                    };
+                    "application/json": components["schemas"]["HealthResponse"];
                 };
             };
         };
     };
-    list_profiles_profiles_get: {
+    me_me_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Me"];
+                };
+            };
+        };
+    };
+    parse_request_parse_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ParseRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ParseResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    profiles_profiles_get: {
         parameters: {
             query?: never;
             header?: never;
@@ -975,7 +1776,9 @@ export interface operations {
     };
     list_runs_runs_get: {
         parameters: {
-            query?: never;
+            query?: {
+                limit?: number;
+            };
             header?: never;
             path?: never;
             cookie?: never;
@@ -988,7 +1791,16 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["RunAccepted"][];
+                    "application/json": components["schemas"]["RunSummary"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
                 };
             };
         };
@@ -1057,6 +1869,70 @@ export interface operations {
             };
         };
     };
+    cancel_run_runs__run_id__cancel_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                run_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RunSummary"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    drill_runs__run_id__drill__composition___criterion__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                run_id: string;
+                composition: string;
+                criterion: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DrillResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     run_events_runs__run_id__events_get: {
         parameters: {
             query?: never;
@@ -1075,6 +1951,201 @@ export interface operations {
                 };
                 content: {
                     "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    run_export_runs__run_id__export_get: {
+        parameters: {
+            query?: {
+                format?: string;
+                view?: string;
+            };
+            header?: never;
+            path: {
+                run_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    relax_runs__run_id__relax_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                run_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RelaxRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            202: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RunAccepted"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    relaxations_runs__run_id__relaxations_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                run_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RelaxChoice"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    run_status_runs__run_id__status_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                run_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RunSummary"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    run_view_runs__run_id__view_get: {
+        parameters: {
+            query?: {
+                view?: string;
+            };
+            header?: never;
+            path: {
+                run_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    weight_bounds_weight_bounds_get: {
+        parameters: {
+            query?: {
+                profile?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["WeightBoundRow"][];
                 };
             };
             /** @description Validation Error */
