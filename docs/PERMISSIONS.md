@@ -54,6 +54,7 @@ scientist, who can move weights only inside them.
 | Describe a request, confirm criteria, run, cancel | yes | yes | yes |
 | Rank my list | yes | yes | yes |
 | Read PI and audit views, exports, drill-down, run history | yes | yes | yes |
+| Read the Help page and the in-app help | yes | yes | yes |
 | Apply a code-computed relaxation as a new run | yes | yes | yes |
 | Open the console | no (403 page) | yes | yes |
 | Read effective configuration, hazard policy, weight bounds, source health | no | yes | yes |

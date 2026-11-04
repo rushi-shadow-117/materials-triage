@@ -49,7 +49,8 @@ treat the first build on your cluster as the test.
 | `DATABASE_URL`, `DATABASE_URL_MIGRATE`, `DATABASE_URL_MAINT` | the three Postgres roles: app (select and insert), migrate (DDL), maint (select and delete) |
 | `MP_API_KEY`, `OPENALEX_API_KEY`, `OPENALEX_MAILTO` | source credentials, injected at send time, never stored in records |
 | `FETCH_MODE` | unset (default): recorded cassettes only; `live` (store first, network on a miss), `replay` (store only), `refresh` (always network) |
-| `LLM_PROVIDER`, `LLM_MODEL`, `ANTHROPIC_API_KEY`, `LLM_BASE_URL`, `LLM_API_KEY`, `AWS_REGION` | the model: `anthropic`, `bedrock`, `openai_compatible`, or `none` |
+| `LLM_PROVIDER`, `LLM_MODEL`, `ANTHROPIC_API_KEY`, `LLM_BASE_URL`, `LLM_API_KEY`, `AWS_REGION` | the model: `anthropic`, `bedrock`, `openai_compatible`, `openai`, `gemini`, or `none` |
+| `OPENAI_API_KEY`, `GEMINI_API_KEY` | the keys of the `openai` and `gemini` presets (experimental, below) |
 | `CLASSIFY_MODE` | `live` (default; within the classify budget, estimate returned by `/api/criteria/resolve`) or `cache_only` (never calls the model for an abstract) |
 | `AUTH_MODE`, `DEV_ROLE`, `STATIC_TOKENS`, `SITE_MODE`, `ALLOW_STATIC_TOKENS`, `OIDC_ISSUER`, `OIDC_AUDIENCE`, `OIDC_ROLES_CLAIM` | sign-in, below |
 | `DATA_CACHE_DIR` | run bundles, the classifier cache, the audit log, screenshots |
@@ -66,7 +67,10 @@ configuration (one parse call per request): `LLM_PROVIDER=anthropic`,
 Roles are `scientist`, `fde`, `admin`, and they come only from the bearer token. The
 permission matrix is `docs/PERMISSIONS.md`; a test keeps it equal to the code.
 
-- `AUTH_MODE=none`: every request carries `DEV_ROLE`. Local use only.
+- `AUTH_MODE=none`: every request carries `DEV_ROLE`, and the header `X-Dev-Role` (the
+  role switcher in the app's top bar) may pick one of the three roles for a request. Local
+  use only: the API refuses to start in this mode when `SITE_MODE=true`, and the other two
+  modes never read the header.
 - `AUTH_MODE=static`: `STATIC_TOKENS=token:role,token:role`. A site deployment
   (`SITE_MODE=true`) refuses to start with static tokens unless `ALLOW_STATIC_TOKENS=true`.
 - `AUTH_MODE=oidc`: RS256 JWTs from `OIDC_ISSUER` for `OIDC_AUDIENCE`, validated against the
@@ -105,10 +109,40 @@ Field engineers and admins open Console in the top bar.
   own loader and the site bounds; errors name the entry. A valid profile is saved as a new
   file `config/scoring_profiles/<profile>_v<version>.yaml`; existing files are never
   overwritten, so an old run's profile stays what it was.
-- **Source health:** per source, whether records are stored or recorded, the last fetch, and
-  the allowed host. Admins may request a refresh with a required audit note: the next run
+- **Source health:** a read-only Model panel (provider, model, classify mode, status; the
+  provider is a site decision made in `.env`, never in the console), then per source whether
+  records are stored or recorded, the last fetch, and the allowed host. Admins may request a refresh with a required audit note: the next run
   that uses the Postgres store refetches that source; earlier runs keep their snapshot and
   hashes.
+
+## Model providers
+
+`anthropic` (the default, evaluated in `docs/EVAL.md`), `bedrock`, and `openai_compatible`
+(any chat-completions server at `LLM_BASE_URL`) are as before. Two named presets are new and
+**experimental: not evaluated**. `LLM_PROVIDER=openai` uses `OPENAI_API_KEY` and
+`https://api.openai.com/v1`; `LLM_PROVIDER=gemini` uses `GEMINI_API_KEY` and Gemini's
+OpenAI-compatible endpoint `https://generativelanguage.googleapis.com/v1beta/openai`.
+Both need an explicit `LLM_MODEL` (the Claude default is refused), `LLM_BASE_URL` overrides
+the preset URL (a proxy, for example), and the preset's host joins the egress allowlist
+automatically. The base URLs come from the providers' public documentation and were not
+exercised on the wire by this repository. A 401 or 403 from such an endpoint sets
+`invalid_key`, a 402 or a quota 429 sets `no_credit`, and the run falls back to no model the
+same way as for Anthropic. The eval suite, the classifier prompts, and the verifier were
+tuned against the Anthropic model only.
+
+## Input limits
+
+Core configuration (`CoreConfig`, code-owned): a request of at most 2,000 characters and a
+candidate list of at most 50 entries. The API answers over either with a 422 and a sentence;
+the web app shows a counter and the limit before sending. Candidate text is split by the API
+on commas, semicolons, and new lines (`src/materials_triage/config/limits.py`); the browser never parses a list.
+
+## Help routes
+
+`GET /api/help/scientist` and `GET /api/help/admin` serve `docs/SCIENTIST_GUIDE.md` and
+`docs/ADMIN_GUIDE.md` as Markdown from a fixed two-entry allowlist (no path reaches the
+filesystem); the Docker image copies those two files. `GET /api/help/keys` lists the closed
+vocabularies that `web/src/help.ts` must cover; `tests/test_help_text.py` checks it.
 
 ## Egress
 

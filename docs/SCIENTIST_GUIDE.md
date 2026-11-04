@@ -11,9 +11,12 @@ missing.
 criteria form below the box, and you confirm or edit the form before anything is fetched.
 If no model is configured the box says so; fill the form by hand instead.
 
-**Rank my list.** Paste formulas, one per line or comma separated. A name that is not a
-chemical formula is reported as not found and the rest are ranked. Listed materials are never
-dropped silently: one that fails a hard rule appears in the exclusion list with the rule.
+**Rank my list.** Paste formulas or names separated by commas, semicolons, or new lines, at
+most 50. The server splits the text and shows what matched as chips; an entry that matches no
+formula or known name is a red chip with the reason, is reported as not found, and the rest
+are ranked. Run stays off while the list is empty. Listed materials are never dropped
+silently: one that fails a hard rule appears in the exclusion list with the rule. A request
+in the Describe box is at most 2,000 characters; the counter under the box shows the count.
 
 ## Confirming criteria
 
@@ -24,6 +27,9 @@ The form shows every setting the run will use:
 - Weights, as sliders inside the limits the site admin set.
 - Output settings: verbosity, terminology (general applies the site glossary), units.
 - Compare against: a formula added as a reference row for this run; it stays ranked too.
+
+Under the sliders the form says how many model calls the run may make ("up to N model calls,
+hard cap M") and why; with no model configured it says so instead.
 
 Three notices can appear:
 
@@ -53,6 +59,12 @@ missing. Flags sit under the material name. The reference row (SiO2 in the diele
 shows where the incumbent would rank; it never takes a place. Below the table: the excluded
 materials with their rule and the config entry that holds it, the caveat texts, and "What
 this screen cannot tell you". The PI view names no record ids.
+
+**The chart.** Above the table, band gap against dielectric constant for every scored
+candidate that has both: the shortlist filled and labelled, ranked rows beyond top N hollow,
+excluded candidates faint, the reference material as a diamond. Hover a point for its values
+and sources. The dielectric constant is the computed (DFPT) value of the polymorph that was
+scored; a candidate without one is listed under the chart, never placed at zero.
 
 **Audit view.** The same rows expanded: every criterion's raw value, source, normalized
 value, weight, contribution, and record; the polymorph table with the ground state and the
@@ -89,6 +101,17 @@ stored run and `materials-triage diff` says why two runs differ.
   top, and marks the affected values missing.
 - **Refusals.** Requests for lab actions, private data, estimates, or configuration changes
   are refused with a fixed sentence and nothing is fetched.
+
+## Help in the app
+
+Every screen opens with a collapsible "How to use this screen" panel, and criterion names,
+flags, caveat ids, exclusion rules, and evidence tiers carry a tooltip (hover, or focus with
+the keyboard). The Help link in the top bar shows this guide and the admin guide as served
+by the running installation. All of that text lives in `web/src/help.ts`.
+
+In a local installation with no sign-in (`AUTH_MODE=none`) the top bar has a role switcher
+to try the scientist, field engineer, and admin views; with a real sign-in the role comes
+from your token and the switcher does not exist.
 
 ## What this screen cannot tell you
 

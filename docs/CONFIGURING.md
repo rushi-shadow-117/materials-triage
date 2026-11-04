@@ -5,7 +5,7 @@ outside the site bounds is clamped and the clamp is shown. Unknown keys are reje
 
 | Layer | Owner | Where | Holds |
 |---|---|---|---|
-| Core | code | `src/materials_triage/config/schema.py` (`CoreConfig`) | refusal texts, allowed hosts, per-step model budgets, abstracts per candidate |
+| Core | code | `src/materials_triage/config/schema.py` (`CoreConfig`) | refusal texts, allowed hosts, per-step model budgets, abstracts per candidate, input limits (2,000 request characters, 50 candidates) |
 | Site | admin | `config/site_profile.default.yaml`, `config/hazard_policy.yaml` | weight bounds, hull cutoff bounds, top N max, defaults, glossary, deposition methods, "cannot tell you", ECHA line; the hazard tiers |
 | Profile | field engineer | `config/scoring_profiles/*.yaml` | weights, thresholds, band gap policy, discovery floor, anchors, synonyms, structure rule |
 | Query | scientist | the confirm form or `--criteria` file | the per-run settings below |
@@ -23,7 +23,8 @@ awaits the primary PDF), three reference values, and the cost criterion (no sour
 | Field | Meaning | Bound |
 |---|---|---|
 | `mode` | `discovery` or `candidate_list` | |
-| `candidate_list` | reduced formulas to rank | names that are not formulas are reported as not found |
+| `candidate_list` | reduced formulas to rank | at most 50; names that are not formulas are reported as not found |
+| `candidate_text`, `extra_anchors_text` | the same lists as typed text; the API splits on commas, semicolons, and new lines | replaced by the list before validation |
 | `top_n` | rows shown | 1 to `site.top_n_max` (50) |
 | `weights` | per criterion | `site.weight_bounds` (hazard at least 0.1) |
 | `band_gap_min_ev`, `band_gap_max_ev` | a hard window; the stricter of profile and query applies | |
