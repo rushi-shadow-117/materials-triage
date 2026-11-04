@@ -1,0 +1,147 @@
+{
+  "realm": "materials-triage",
+  "enabled": true,
+  "displayName": "Materials Triage (dev realm)",
+  "sslRequired": "none",
+  "registrationAllowed": false,
+  "accessTokenLifespan": 1800,
+  "roles": {
+    "realm": [
+      {
+        "name": "scientist",
+        "description": "Runs triage queries within site bounds"
+      },
+      {
+        "name": "fde",
+        "description": "Field engineer: uploads scoring profiles"
+      },
+      {
+        "name": "admin",
+        "description": "Site admin: hazard policy, bounds, refresh, audit"
+      }
+    ]
+  },
+  "users": [
+    {
+      "username": "scientist",
+      "enabled": true,
+      "email": "scientist@example.test",
+      "firstName": "Dev",
+      "lastName": "Scientist",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "scientist",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "scientist"
+      ]
+    },
+    {
+      "username": "fde",
+      "enabled": true,
+      "email": "fde@example.test",
+      "firstName": "Dev",
+      "lastName": "Engineer",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "fde",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "fde"
+      ]
+    },
+    {
+      "username": "admin",
+      "enabled": true,
+      "email": "admin@example.test",
+      "firstName": "Dev",
+      "lastName": "Admin",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "admin",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "admin"
+      ]
+    }
+  ],
+  "clients": [
+    {
+      "clientId": "materials-triage-web",
+      "name": "Materials Triage web app",
+      "enabled": true,
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": true,
+      "implicitFlowEnabled": false,
+      "serviceAccountsEnabled": false,
+      "protocol": "openid-connect",
+      "rootUrl": "http://localhost:8000",
+      "redirectUris": [
+        "http://localhost:8000/*",
+        "http://127.0.0.1:8000/*",
+        "http://localhost:5173/*"
+      ],
+      "webOrigins": [
+        "http://localhost:8000",
+        "http://127.0.0.1:8000",
+        "http://localhost:5173"
+      ],
+      "attributes": {
+        "pkce.code.challenge.method": "S256",
+        "post.logout.redirect.uris": "+"
+      },
+      "fullScopeAllowed": true,
+      "protocolMappers": [
+        {
+          "name": "realm roles",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-realm-role-mapper",
+          "consentRequired": false,
+          "config": {
+            "claim.name": "realm_access.roles",
+            "jsonType.label": "String",
+            "multivalued": "true",
+            "access.token.claim": "true",
+            "id.token.claim": "true",
+            "userinfo.token.claim": "true"
+          }
+        },
+        {
+          "name": "username",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-property-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "username",
+            "claim.name": "preferred_username",
+            "jsonType.label": "String",
+            "access.token.claim": "true",
+            "id.token.claim": "true",
+            "userinfo.token.claim": "true"
+          }
+        },
+        {
+          "name": "materials-triage-api audience",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "consentRequired": false,
+          "config": {
+            "included.custom.audience": "materials-triage-api",
+            "id.token.claim": "false",
+            "access.token.claim": "true"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -35,6 +35,16 @@ jobs:
         run: psql "postgresql://triage:triage@localhost:5433/triage" -v ON_ERROR_STOP=1 -f src/materials_triage/provenance/roles.sql
       - name: Migrate as the migration role
         run: uv run alembic upgrade head
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Build the web app (the browser tests serve it)
+        run: npm ci && npm run build
+        working-directory: web
+      - name: Install Playwright Chromium
+        run: uv run playwright install --with-deps chromium
       - run: uv run pytest -q
 
   gitleaks:
@@ -49,3 +59,24 @@ jobs:
       - uses: gitleaks/gitleaks-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: npm ci
+        working-directory: web
+      - run: npx tsc --noEmit
+        working-directory: web
+      - run: npm run build
+        working-directory: web
+      - name: Generated types match the committed OpenAPI export
+        run: |
+          npx openapi-typescript src/api/openapi.json -o /tmp/types.ts
+          diff -q /tmp/types.ts src/api/types.ts
+        working-directory: web

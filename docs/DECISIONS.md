@@ -1179,3 +1179,65 @@ context these cases would correctly be clarified.
 Reason: live C1 showed that the parse prompt alone does not stop a vague request (CLAUDE.md:
 if a prompt moves a failure, move the logic into code).
 Alternative: a stronger prompt sentence, which the live miss shows is not a guarantee.
+
+## Track C: API and web
+
+### 2026-11-04 The API runs the pipeline; the browser never computes
+Decision: the HTTP API (`api/app.py`) runs `pipeline.run` with the same pieces the CLI uses,
+on a thread pool, and streams every decision-log entry as a server-sent event tagged code or
+llm. The view routes serve the render package's view model as JSON, with every value already
+formatted, so the browser only lays text out. The PI view JSON carries the PI columns and no
+record ids; ids live in the audit view and the drill-down. Runs stay JSON files (Track G).
+Alternative: let the web app compute totals or format numbers from the bundle, which would
+put a number in a place the verifier cannot see.
+
+### 2026-11-04 Development and tests use no model
+Decision (owner): with `LLM_PROVIDER=none` the request box says parsing needs a configured
+model and the confirm form is filled by hand, or the scientist uses Rank my list. Data,
+scoring, verification and both views are real. API and browser tests use the fake model and
+the recorded cassettes; nothing in Track C calls the Anthropic API. The demo configuration is
+`LLM_PROVIDER=anthropic`, `LLM_MODEL=claude-sonnet-5-5`, `CLASSIFY_MODE=cache_only`: one parse
+call per Describe request and none for Rank my list.
+Alternative: a scripted keyword parser in the UI, which would show a parse that no model made.
+
+### 2026-11-04 Roles come only from the bearer token
+Decision: three auth modes (`AUTH_MODE`): none (local, the role is `DEV_ROLE`), static tokens
+(`STATIC_TOKENS=token:role,...`, refused when `SITE_MODE=true` unless `ALLOW_STATIC_TOKENS=true`),
+and OIDC (RS256 JWTs validated against the issuer's JWKS, roles from `OIDC_ROLES_CLAIM`,
+Keycloak realm roles by default). A role claimed in a body, a query string, another header,
+or the request text changes nothing, and `tests/api/test_auth.py` sends each of those. Every
+refusal is written to the audit log. `docs/PERMISSIONS.md` lists every route and screen action
+by role, and `tests/api/test_permissions.py` checks it against the app. Weight bounds are
+readable by every role, because the workspace sliders show the scientist their limits; the
+console's other tables are FDE and admin only. OIDC validation allows 60 s of clock leeway:
+the Keycloak container's clock ran ahead of the host's by a few seconds, which made every
+token "issued in the future".
+Alternative: Keycloak as the only mode, which the plan cut; the OIDC mode is what Keycloak
+plugs into.
+
+### 2026-11-04 Profiles are saved as new files; refresh is a flag for the next run
+Decision: a scoring profile uploaded in the console is validated with the scorer's own
+loader and the site bounds, and saved as `config/scoring_profiles/<profile>_v<version>.yaml`;
+an existing file is never overwritten, so an old run's profile stays what it was. An admin
+refresh marks a source for refetch on the next store-backed run (the Runner's refresh mode
+for that source only), writes an audit entry with the required note, and leaves earlier
+bundles untouched.
+Alternative: edit the profile in place, which would change what an old run's name refers to.
+
+### 2026-11-04 Wireframes followed, with these differences
+The wireframes under `internal/wireframes/` (workspace confirm, run in progress, PI summary,
+audit view, drill-down, workspace states, dark theme, console) set the layout and states. Shown
+as the system really is, not as the wireframe sample text says:
+- Sources are Materials Project, JARVIS, the experimental gap compendium, OpenAlex and
+  PubChem; the wireframe's AFLOW and OQMD are not sources.
+- A missing dielectric constant is shown as missing and never scored as zero.
+- The hull cutoff clamps to 0 to 94 meV/atom, not the wireframe's 0.1 minimum.
+- Sensitivity is shown per row in the audit view; the sensitivity and compare-runs pages are
+  not built (the CLI `diff` covers comparison), and the tablet layout is not tested.
+- The parsed request is not shown as highlighted phrases: the parse tool returns fields, not
+  spans, and a highlight the model did not make would be invented.
+
+### 2026-11-04 Open: the hazard flag caveat has no entered text
+Finding: a row flagged through the GHS flag set (SiO2, H350) carries `hazard_flag` with no
+config text, so both views show "caveat text not entered". The hazard policy's `ghs_flag_codes`
+entry needs an owner-entered caveat sentence. Not written here (chemistry text is the owner's).
