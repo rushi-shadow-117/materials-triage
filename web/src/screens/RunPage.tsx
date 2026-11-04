@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { ApiError, exportUrl, get, post, streamEvents, type ProgressEvent, type RunAccepted, type RunSummary } from "../api";
 import type { Session } from "../App";
 import type { RowView, RunViewJson } from "../view";
+import { ScreenHelp, Tip } from "../components/Help";
 
 export default function RunPage({ session }: { session: Session }) {
   const { runId = "" } = useParams();
@@ -73,7 +74,12 @@ export default function RunPage({ session }: { session: Session }) {
           )}
         </div>
       )}
-      {error && <div className="panel bad">{error}</div>}
+      <ScreenHelp screen="results" />
+      {error && (
+        <div className="panel bad">
+          {error}. Reload the page; if the run is gone, start it again from the <Link to="/">Workspace</Link> or pick another in <Link to="/runs">Run history</Link>.
+        </div>
+      )}
 
       {(live || (events.length > 0 && !data)) && (
         <div className="panel">
@@ -96,8 +102,14 @@ export default function RunPage({ session }: { session: Session }) {
         </div>
       )}
 
-      {status?.status === "failed" && <div className="panel bad">Run failed: {status.error}</div>}
-      {status?.status === "cancelled" && <div className="panel warn">Run cancelled. Nothing was saved.</div>}
+      {status?.status === "failed" && (
+        <div className="panel bad">
+          Run failed: {status.error}. Nothing was saved. Run it again from the <Link to="/">Workspace</Link>; if it fails twice, check Source health in the console or use Rank my list with the recorded data.
+        </div>
+      )}
+      {status?.status === "cancelled" && (
+        <div className="panel warn">Run cancelled. Nothing was saved. Start it again from the <Link to="/">Workspace</Link>.</div>
+      )}
 
       {data && data.view !== view && <p className="muted">Loading the {view === "audit" ? "audit" : "PI"} view…</p>}
       {data && data.view === view && <Results data={data} view={view} setView={setView} runId={runId} session={session} />}
@@ -126,7 +138,7 @@ function Results({ data, view, setView, runId }: { data: RunViewJson; view: "pi_
     return (
       <div className="panel bad">
         <strong>Request refused.</strong> {data.refusal}
-        <p className="muted">Nothing was fetched or scored. Only configured public sources are used.</p>
+        <p className="muted">Nothing was fetched or scored. Only configured public sources are used. Remove that part of the request and parse it again, or use Rank my list.</p>
         <Link to="/">Edit request</Link>
       </div>
     );
@@ -153,12 +165,17 @@ function Results({ data, view, setView, runId }: { data: RunViewJson; view: "pi_
 
       {r.partial && (
         <div className="panel warn">
-          <strong>Partial results.</strong> {data.partial_reasons.join("; ")}
+          <strong>Partial results.</strong> {data.partial_reasons.join("; ")}. Affected values are shown as missing, never estimated. Run again later for the missing part, or check Source health in the console.
+        </div>
+      )}
+      {ranked === 0 && (!data.relaxations || data.relaxations.length === 0) && (
+        <div className="panel warn" data-testid="zero-ranked">
+          <strong>No candidate passed your filters.</strong> Every listed material is in the exclusion list below with its rule. Loosen a filter in the <Link to="/">Workspace</Link> and run again.
         </div>
       )}
       {data.unresolved.length > 0 && (
         <div className="panel bad" data-testid="unresolved">
-          <p style={{ margin: "0 0 6px" }}>Nothing is shown for these:</p>
+          <p style={{ margin: "0 0 6px" }}>Nothing is shown for these; check the spelling or use a formula such as HfO2, then run again:</p>
           {data.unresolved.map((u) => (
             <span key={u.text} className="chip bad" title={u.reason}>{u.text} <small>{u.reason}</small></span>
           ))}
@@ -223,14 +240,14 @@ function Results({ data, view, setView, runId }: { data: RunViewJson; view: "pi_
 
       <h2>Excluded ({data.excluded.length + data.hidden_excluded}) · removed before ranking by rule</h2>
       <div className="panel">
-        {data.excluded.length === 0 ? <p className="muted">None.</p> : (
+        {data.excluded.length === 0 ? <p className="muted">None. Every fetched candidate passed the hard rules.</p> : (
           <table>
             <thead><tr><th>Material</th><th>Rule</th><th>Detail</th><th>Rule source</th></tr></thead>
             <tbody>
               {data.excluded.map((row) => (
                 <tr key={row.composition}>
                   <td>{view === "audit" ? <Link to={`/runs/${runId}/rows/${row.composition}/stability`}>{row.composition}</Link> : row.composition}</td>
-                  <td className="mono">{row.exclusion}</td>
+                  <td className="mono"><Tip kind="exclusion" id={row.exclusion ?? ""}>{row.exclusion}</Tip></td>
                   <td>{row.exclusion_detail}</td>
                   <td className="mono">{row.exclusion_ref}</td>
                 </tr>
@@ -313,12 +330,12 @@ function Row({ row, runId, audit }: { row: RowView; runId: string; audit: boolea
       <td>
         <strong>{row.composition}</strong>
         {row.is_anchor && <div><small className="muted">{row.rank}. Shown for calibration; not a candidate.</small></div>}
-        {row.flags.length > 0 && <div>{row.flags.map((f) => <span key={f} className={`chip ${f.includes("hazard") || f.includes("conflict") ? "warn" : ""}`} style={{ marginRight: 4 }}>{f.replace(/_/g, " ")}</span>)}</div>}
+        {row.flags.length > 0 && <div>{row.flags.map((f) => <Tip key={f} kind="flag" id={f}><span className={`chip ${f.includes("hazard") || f.includes("conflict") ? "warn" : ""}`} style={{ marginRight: 4 }}>{f.replace(/_/g, " ")}</span></Tip>)}</div>}
       </td>
       <td className="num">{cell("band_gap", row.total)}</td>
       <td>{row.rationale || <span className="muted">no rationale (no model)</span>}</td>
       <td>{row.key_caveat}</td>
-      <td>{cell("evidence", row.evidence_tier)}</td>
+      <td><Tip kind="tier" id={row.evidence_tier}>{cell("evidence", row.evidence_tier)}</Tip></td>
       <td className="num">{cell("dielectric_constant", row.k)}</td>
       <td>{row.missing.length ? row.missing.join(", ") : "none"}</td>
     </tr>
@@ -338,7 +355,7 @@ function AuditRow({ row, runId }: { row: RowView; runId: string }) {
         <tbody>
           {(row.criteria ?? []).map((c) => (
             <tr key={c.criterion}>
-              <td><Link to={`/runs/${runId}/rows/${row.composition}/${c.criterion}`}>{c.label}</Link></td>
+              <td><Tip kind="criterion" id={c.criterion}><Link to={`/runs/${runId}/rows/${row.composition}/${c.criterion}`}>{c.label}</Link></Tip></td>
               <td className="num">{c.missing ? <span className="muted">missing ({c.missing_reason})</span> : c.raw}</td>
               <td>{c.source}</td>
               <td className="num">{c.normalized}</td>
@@ -384,7 +401,7 @@ function AuditRow({ row, runId }: { row: RowView; runId: string }) {
       )}
       {row.ghs && <p><strong>Hazard:</strong> {row.ghs}{row.echa_attribution ? " · Source: European Chemicals Agency, https://echa.europa.eu/" : ""}</p>}
       {row.caveats.length > 0 && (
-        <ul>{row.caveats.map((c, i) => <li key={i}><span className="mono">{c.id}</span>: {c.text} <small className="muted">({c.source})</small></li>)}</ul>
+        <ul>{row.caveats.map((c, i) => <li key={i}><Tip kind="caveat" id={c.id}><span className="mono">{c.id}</span></Tip>: {c.text} <small className="muted">({c.source})</small></li>)}</ul>
       )}
     </details>
   );

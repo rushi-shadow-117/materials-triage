@@ -25,6 +25,7 @@ COPY src/ ./src/
 COPY config/ ./config/
 COPY fixtures/ ./fixtures/
 COPY scripts/ ./scripts/
+COPY docs/SCIENTIST_GUIDE.md docs/ADMIN_GUIDE.md ./docs/
 COPY alembic.ini ./
 COPY --from=web /build/web/dist ./web/dist
 RUN uv sync --frozen --no-dev && mkdir -p /app/.data-cache && chown -R triage:triage /app

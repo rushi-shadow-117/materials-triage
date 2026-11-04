@@ -11,6 +11,7 @@ import {
 } from "../api";
 import { get } from "../api";
 import type { Session } from "../App";
+import { ScreenHelp, Tip } from "../components/Help";
 
 type Mode = "describe" | "rank";
 
@@ -210,6 +211,7 @@ export default function Workspace({ session }: { session: Session }) {
         </label>
       </div>
       {profileInfo?.description && <p className="muted">{profileInfo.description}</p>}
+      <ScreenHelp screen="workspace" />
 
       <div className="panel">
         <div className="tabs">
@@ -436,7 +438,7 @@ function ConfirmForm(props: {
         return (
           <div className="slider" key={c}>
             <span>
-              {c.replace(/_/g, " ")} <small className="muted">{b ? `${min} to ${max}` : ""}</small>
+              <Tip kind="criterion" id={c}>{c.replace(/_/g, " ")}</Tip> <small className="muted">{b ? `${min} to ${max}` : ""}</small>
             </span>
             <input
               type="range"

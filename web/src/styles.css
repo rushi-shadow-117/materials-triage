@@ -125,3 +125,11 @@ pre.md { white-space: pre-wrap; background: var(--panel-2); padding: 12px; borde
 .before-table { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .before-table ul { margin: 4px 0 0; padding-left: 18px; }
 @media (max-width: 700px) { .before-table { grid-template-columns: 1fr; } }
+
+abbr.tip { text-decoration: underline dotted; text-underline-offset: 3px; cursor: help; }
+details.help summary { font-weight: 600; }
+details.help p { margin: 8px 0 4px; }
+.guide h1 { font-size: 22px; }
+.guide h2 { font-size: 18px; margin-top: 20px; }
+.guide pre { overflow-x: auto; padding: 8px; background: var(--panel-alt, rgba(127,127,127,0.1)); }
+.guide code { font-family: ui-monospace, monospace; font-size: 13px; }

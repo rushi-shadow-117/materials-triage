@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ApiError, get, type DrillResponse } from "../api";
+import { ScreenHelp } from "../components/Help";
 
 export default function Drill() {
   const { runId = "", composition = "", criterion = "" } = useParams();
@@ -15,7 +16,12 @@ export default function Drill() {
   return (
     <div className="page">
       <p><Link to={`/runs/${runId}`}>← back to the run</Link></p>
-      {error && <div className="panel bad">{error}</div>}
+      <ScreenHelp screen="drill" />
+      {error && (
+        <div className="panel bad">
+          {error}. This run or value is not available; go back to the run, or open Run history to pick another.
+        </div>
+      )}
       {d && (
         <>
           <h1>{d.composition} · {d.label} {d.raw}</h1>

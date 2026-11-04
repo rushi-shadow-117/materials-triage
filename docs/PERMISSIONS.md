@@ -41,6 +41,8 @@ this table against the app, so the table cannot drift from the code.
 | POST /api/admin/profiles | no | yes | yes | console_roles |
 | POST /api/admin/refresh | no | no | yes | admin_only |
 | GET /api/audit | no | no | yes | admin_only |
+| GET /api/help/keys | yes | yes | yes | any_role |
+| GET /api/help/{guide} | yes | yes | yes | any_role |
 
 Weight bounds are readable by every role: the workspace shows the sliders' limits to the
 scientist, who can move weights only inside them.

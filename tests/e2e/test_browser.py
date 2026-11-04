@@ -168,3 +168,24 @@ def test_the_role_switcher_is_absent_with_static_tokens(page, server: str) -> No
     sign_in(page, server, "fde")
     assert page.get_by_label("dev role").count() == 0
     assert "Role: fde" in page.inner_text("header")
+
+
+def test_help_panel_tooltips_and_the_help_page(page, server: str) -> None:  # type: ignore[no-untyped-def]
+    """Track H item 2: a collapsible panel on each screen, tooltips from help.ts, and the two
+    guides rendered on /help from the API."""
+    sign_in(page, server, "scientist")
+    panel = page.get_by_test_id("screen-help")
+    assert "How to use this screen" in panel.inner_text()
+    panel.locator("summary").click()
+    assert "Rank my list needs no model" in panel.inner_text()
+    page.get_by_role("button", name="Rank my list").click()
+    page.get_by_label("formulas").fill("HfO2, ZrO2")
+    page.get_by_role("button", name="Review criteria").click()
+    tip = page.locator("abbr.tip[data-help='criterion']", has_text="band gap")
+    assert "band gap that scores" in (tip.get_attribute("title") or "")
+    page.get_by_role("link", name="Help").click()
+    page.get_by_test_id("guide").get_by_role("heading", name="Scientist guide").wait_for()
+    page.get_by_role("button", name="Admin guide").click()
+    page.get_by_test_id("guide").get_by_role("heading", name="Admin guide").wait_for()
+    assert page.locator("[data-testid='guide'] h2").count() > 3  # rendered markdown, not raw text
+    shot(page, "08-help")

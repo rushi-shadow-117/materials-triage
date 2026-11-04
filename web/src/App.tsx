@@ -6,6 +6,7 @@ import RunPage from "./screens/RunPage";
 import Drill from "./screens/Drill";
 import Console from "./screens/Console";
 import History from "./screens/History";
+import HelpPage from "./screens/HelpPage";
 import { OIDC_ENABLED, finishSignIn, signIn, signOut } from "./oidc";
 
 export interface Session {
@@ -69,6 +70,7 @@ export default function App() {
               <input
                 type="text"
                 aria-label="bearer token"
+                placeholder="a token from STATIC_TOKENS"
                 value={tokenInput}
                 onChange={(e) => setTokenInput(e.target.value)}
                 style={{ maxWidth: 360 }}
@@ -79,7 +81,9 @@ export default function App() {
             </form>
           </div>
         ) : error ? (
-          <div className="panel bad">API not reachable: {error}</div>
+          <div className="panel bad">
+            API not reachable: {error}. Start it with <code>materials-triage serve</code> (or <code>docker compose up -d</code>) and reload this page.
+          </div>
         ) : (
           <p className="muted">Loading…</p>
         )}
@@ -99,6 +103,7 @@ export default function App() {
           <NavLink to="/">Workspace</NavLink>
           <NavLink to="/runs">Run history</NavLink>
           {console_ok && <NavLink to="/console">Console</NavLink>}
+          <NavLink to="/help">Help</NavLink>
         </nav>
         <span className="chip" title={`auth mode ${me.auth_mode}`}>
           Role: {me.role}
@@ -148,6 +153,7 @@ export default function App() {
         <Route path="/runs" element={<History />} />
         <Route path="/runs/:runId" element={<RunPage session={session} />} />
         <Route path="/runs/:runId/rows/:composition/:criterion" element={<Drill />} />
+        <Route path="/help" element={<HelpPage />} />
         <Route
           path="/console/*"
           element={console_ok ? <Console session={session} /> : <Forbidden role={me.role} />}
