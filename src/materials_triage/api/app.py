@@ -96,8 +96,9 @@ def create_app(settings: Settings | None = None, *, serve_web: bool = False) -> 
     router = APIRouter(prefix=API_PREFIX)
     _routes(router)
     app.include_router(router)
-    if serve_web and WEB_DIST.exists():
-        app.mount("/", SpaStaticFiles(directory=WEB_DIST, html=True), name="web")
+    dist = settings.web_dist or WEB_DIST
+    if serve_web and dist.exists():
+        app.mount("/", SpaStaticFiles(directory=dist, html=True), name="web")
     return app
 
 

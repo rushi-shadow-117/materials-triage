@@ -1,0 +1,24 @@
+# Site deployment override: docker compose -f compose.yaml -f compose.site.yaml up -d
+#
+# Postgres and Keycloak move to `internal` (internal: true: no route in or out of the host) and
+# lose their host ports, because Docker publishes no port for a service whose only network is
+# internal. The api joins `internal` for Postgres and Keycloak and `egress` for the upstream
+# APIs; the split web front joins `internal` to reach the api and `front` to publish its port.
+# The hostname allowlist is enforced in code (adapters/egress.py), not by these networks.
+services:
+  postgres:
+    ports: !reset []
+    networks: [internal]
+  keycloak:
+    ports: !reset []
+    networks: [internal]
+  api:
+    networks: [internal, egress]
+  web:
+    networks: [internal, front]
+
+networks:
+  internal:
+    internal: true
+  egress: {}
+  front: {}

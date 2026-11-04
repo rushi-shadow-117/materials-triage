@@ -195,3 +195,5 @@ rows only under its own heading. Rows name a test path; a row without a test is 
 | The provider rejects the key or the account has no credit | One rejected request sets the status; parse falls back to the form and the run completes | tests/api/test_fresh_defaults.py::test_rejected_key_or_no_credit_falls_back |
 | A test reaches the model provider | The SDK's request method raises in every test | tests/api/test_fresh_defaults.py::test_tests_cannot_reach_the_provider |
 | A result page or Run history is reloaded or shared | The app loads; the API answers only under /api, and an unknown /api path is a JSON 404 | tests/api/test_spa_routes.py; tests/e2e/test_browser.py::test_reloading_a_result_and_run_history_shows_the_page |
+| Keycloak or Postgres is unreachable from the host in development | The dev Compose file publishes both on 127.0.0.1; a browser signs in through Keycloak's page | tests/e2e/test_keycloak_browser.py |
+| A site service on the internal network gains a host port | The CI docker job fails on the merged site config | .github/workflows/ci.yml (docker job) |

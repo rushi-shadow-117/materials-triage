@@ -15,6 +15,20 @@ docker compose --profile auth up -d keycloak      # optional: dev identity provi
 docker compose --profile split-web up -d          # optional: nginx front on :8081
 ```
 
+Two Compose files. `compose.yaml` is for development: one network, with Postgres
+(`127.0.0.1:5433`) and Keycloak (`127.0.0.1:8080`) published on the loopback address only, so
+the host's tools, migrations, and the browser's sign-in page reach them. `compose.site.yaml`
+is the site override:
+
+```
+docker compose -f compose.yaml -f compose.site.yaml up -d
+```
+
+It moves Postgres and Keycloak to an internal network (`internal: true`) and removes their
+host ports; the api joins that network and the `egress` network, and the split web front
+joins it and a `front` network for its port. Docker publishes no host port for a service whose
+only network is internal, which is why the split lives in the site file and not the dev one.
+
 The `api` image serves the web app too; `split-web` is for sites that deploy the static app
 separately. The image contains the recorded source data, so it answers from the cassettes
 with no keys unless `FETCH_MODE` is set and Postgres answers.
@@ -105,8 +119,8 @@ Two layers:
    `pubchem.ncbi.nlm.nih.gov`, `www.crystallography.net`) plus the configured model endpoint
    (`api.anthropic.com`, the Bedrock Mantle host for the region, or `LLM_BASE_URL`'s host)
    before it is sent. The model's own HTTP client carries the same check.
-2. **Network.** Compose puts Postgres and Keycloak on an internal network with no outside
-   route and only the API on the egress network. That limits which service may reach the
+2. **Network.** With `compose.site.yaml`, Postgres and Keycloak sit on an internal network
+   with no outside route and only the API is on the egress network. That limits which service may reach the
    internet; it does not filter by hostname. A network-level domain allowlist needs an egress
    proxy or a firewall with domain rules (AWS Network Firewall, for example), configured with
    the host list above. The Terraform reference module routes egress through a NAT gateway and

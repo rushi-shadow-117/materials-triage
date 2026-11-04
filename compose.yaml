@@ -6,7 +6,7 @@ services:
       POSTGRES_PASSWORD: triage
       POSTGRES_DB: triage
     ports:
-      - "5433:5432"  # 5433 on the host: many machines already run Postgres on 5432
+      - "127.0.0.1:5433:5432"  # 5433 on the host: many machines already run Postgres on 5432
     volumes:
       - pgdata:/var/lib/postgresql/data
       # Creates the three roles on first start. For an existing volume run:
@@ -17,12 +17,11 @@ services:
       interval: 5s
       timeout: 3s
       retries: 10
-    networks: [internal]
 
   # The API, which also serves the built web app. Reads .env (keys, auth mode, model,
   # classify mode). With FETCH_MODE=replay and no keys it runs from the recorded data in the
-  # image. On the internal network for Postgres and Keycloak, and on the egress network for
-  # the upstream APIs; the host allowlist itself is enforced in code (adapters/egress.py).
+  # image. The host allowlist is enforced in code (adapters/egress.py); compose.site.yaml adds
+  # the network split for site deployments.
   api:
     build:
       context: .
@@ -40,7 +39,6 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
-    networks: [internal, egress]
 
   # Optional split front: nginx serves web/dist and proxies /api to the api service. Use it
   # when the static app and the API are deployed separately; otherwise the api service alone
@@ -53,7 +51,6 @@ services:
     ports:
       - "8081:80"
     depends_on: [api]
-    networks: [internal]
 
   # Dev identity provider, started only with `docker compose --profile auth up -d keycloak`.
   # Imports deploy/keycloak/realm-materials-triage.json: roles scientist, fde, admin; users
@@ -71,16 +68,13 @@ services:
       KC_HTTP_PORT: "8080"
       KC_HEALTH_ENABLED: "true"
     ports:
-      - "8080:8080"
+      - "127.0.0.1:8080:8080"  # the browser reaches the login page here
     volumes:
       - ./deploy/keycloak:/opt/keycloak/data/import:ro
-    networks: [internal]
 
-# `internal` carries no route to the outside (internal: true); only `api` is also on `egress`.
-networks:
-  internal:
-    internal: true
-  egress: {}
+# Development: one default network, and Postgres and Keycloak publish on 127.0.0.1 only. A site
+# deployment adds compose.site.yaml, which moves them to an internal network. Docker publishes
+# no host port for a service whose only network is internal, so that split is site-only.
 
 volumes:
   pgdata:

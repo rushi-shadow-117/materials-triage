@@ -1308,3 +1308,14 @@ proxy keeps the prefix), and behind the split nginx front. Every other path is t
 reload or a shared link shows the page. An unknown `/api` path stays a JSON 404.
 Alternative: rename the client routes (for example `/results/<id>`) and keep the API at the
 root; that leaves the next client route one name clash away from the same bug.
+
+### 2026-11-04 Dev and site Compose files
+Decision (owner): `compose.yaml` is for development: one network, Postgres and Keycloak
+published on 127.0.0.1. `compose.site.yaml` applies the internal and egress split for site
+deployments and removes the internal services' host ports. Docker publishes no host port for a
+service whose only network is `internal: true`, which is why Track D's single file left
+Keycloak and a freshly created Postgres unreachable from the host. The dev realm allows
+`127.0.0.1:8799` for the browser sign-in test, which builds the app with
+`VITE_AUTH_MODE=oidc` into a temporary folder (`WEB_DIST`).
+Alternative: keep one file and attach the internal services to a second, routable network;
+that publishes ports again and quietly undoes the isolation the split exists for.

@@ -521,7 +521,8 @@ def serve(
         application = create_app(settings, serve_web=not no_web)
     except AuthConfigError as e:
         _fail(str(e), EXIT_USAGE)
-    web = "with web/dist" if (not no_web and WEB_DIST.exists()) else "API only"
+    dist = settings.web_dist or WEB_DIST
+    web = f"with {dist}" if (not no_web and dist.exists()) else "API only"
     typer.echo(
         f"serving on http://{host}:{port} ({web}); auth {settings.auth_mode}, "
         f"llm {settings.llm_provider}, classify {settings.classify_mode}",

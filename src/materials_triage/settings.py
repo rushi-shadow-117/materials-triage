@@ -46,6 +46,7 @@ class Settings(BaseSettings):
     classify_mode: ClassifyMode = "live"
 
     data_cache_dir: Path = Path(".data-cache")
+    web_dist: Path | None = None  # the built web app served at /; None: web/dist in the checkout
     # Unset: every source is the recorded cassettes, so a fresh clone runs with no keys and no
     # database. Set (live, replay, refresh): the Postgres store when it answers, else cassettes.
     fetch_mode: FetchMode | None = None
