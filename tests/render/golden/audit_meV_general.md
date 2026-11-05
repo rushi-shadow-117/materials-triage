@@ -32,7 +32,7 @@
 - Insulating gap source: tbmbj
 - Structural dimensionality: missing (not computed)
 
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched or recorded |
 |---|---|---|---|---|---|---|---|
 | stability (stability margin) | 0 meV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
 | insulating gap | 7571 meV | tbmbj | 1.000 | 1.000 | 1.000 | none |  |
@@ -63,7 +63,7 @@ Literature: 10698 matched, 7142 with abstracts, 5 read (title_and_abstract; quer
 - Insulating gap source: experimental_median
 - Structural dimensionality: missing (not computed)
 
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched or recorded |
 |---|---|---|---|---|---|---|---|
 | stability (stability margin) | 0 meV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
 | insulating gap | 5550 meV | experimental_median | 1.000 | 1.000 | 1.000 | none |  |
@@ -96,7 +96,7 @@ Literature: 3496 matched, 2469 with abstracts, 5 read (title_and_abstract; query
 - Insulating gap source: experimental_median
 - Structural dimensionality: missing (not computed)
 
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched or recorded |
 |---|---|---|---|---|---|---|---|
 | stability (stability margin) | 0 meV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
 | insulating gap | 5400 meV | experimental_median | 1.000 | 1.000 | 1.000 | none |  |
@@ -128,7 +128,7 @@ Literature: 383 matched, 218 with abstracts, 5 read (title_and_abstract; query '
 - Insulating gap source: experimental_median
 - Structural dimensionality: missing (not computed)
 
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched or recorded |
 |---|---|---|---|---|---|---|---|
 | stability (stability margin) | 0 meV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
 | insulating gap | 5600 meV | experimental_median | 1.000 | 1.000 | 1.000 | none |  |
@@ -160,7 +160,7 @@ Literature: 1480 matched, 839 with abstracts, 5 read (title_and_abstract; query 
 - Insulating gap source: experimental_median
 - Structural dimensionality: missing (not computed)
 
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched or recorded |
 |---|---|---|---|---|---|---|---|
 | stability (stability margin) | 0 meV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
 | insulating gap | 4990 meV | experimental_median | 0.998 | 1.000 | 0.998 | none |  |
@@ -192,7 +192,7 @@ Literature: 3767 matched, 2298 with abstracts, 5 read (title_and_abstract; query
 - Insulating gap source: experimental_median
 - Structural dimensionality: missing (not computed)
 
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched or recorded |
 |---|---|---|---|---|---|---|---|
 | stability (stability margin) | 0 meV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
 | insulating gap | 4200 meV | experimental_median | 0.840 | 1.000 | 0.840 | none |  |
@@ -224,7 +224,7 @@ Literature: 1683 matched, 1116 with abstracts, 5 read (title_and_abstract; query
 - Insulating gap source: experimental_median
 - Structural dimensionality: missing (not computed)
 
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched or recorded |
 |---|---|---|---|---|---|---|---|
 | stability (stability margin) | 0 meV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
 | insulating gap | 3300 meV | experimental_median | 0.660 | 1.000 | 0.660 | none |  |
@@ -256,7 +256,7 @@ Literature: 21132 matched, 13032 with abstracts, 5 read (title_and_abstract; que
 - Insulating gap source: experimental_median
 - Structural dimensionality: missing (not computed)
 
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched or recorded |
 |---|---|---|---|---|---|---|---|
 | stability (stability margin) | 0 meV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
 | insulating gap | 3060 meV | experimental_median | 0.612 | 1.000 | 0.612 | none |  |
@@ -295,7 +295,7 @@ Equal scores are tied; tied rows are listed alphabetically.
 - Insulating gap source: tbmbj
 - Structural dimensionality: missing (not computed)
 
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched or recorded |
 |---|---|---|---|---|---|---|---|
 | stability (stability margin) | 0 meV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
 | insulating gap | 8097 meV | tbmbj | 1.000 | 1.000 | 1.000 | none |  |
@@ -328,7 +328,7 @@ Literature: 21347 matched, 14434 with abstracts, 5 read (title_and_abstract; que
 - Insulating gap source: experimental_median
 - Structural dimensionality: missing (not computed)
 
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched or recorded |
 |---|---|---|---|---|---|---|---|
 | stability (stability margin) | 0 meV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
 | insulating gap | 10390 meV | experimental_median | 1.000 | 1.000 | 1.000 | none |  |
@@ -359,7 +359,7 @@ Literature: 164 matched, 105 with abstracts, 5 read (title_and_abstract; query '
 - Insulating gap source: experimental_median
 - Structural dimensionality: missing (not computed)
 
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched or recorded |
 |---|---|---|---|---|---|---|---|
 | stability (stability margin) | 0 meV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
 | insulating gap | 3400 meV | experimental_median | 0.680 | 1.000 | 0.680 | none |  |

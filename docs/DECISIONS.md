@@ -1828,3 +1828,16 @@ named up to 50 rows (1,165 of the summary's 2,067 words), starting with CO2 and 
 keep their own section, which already shows an anchor's exclusion.
 Alternative: cap the named list at a few rows, which still names rows the PI never asked about
 and chooses them by an order the PI cannot see.
+
+### 2026-11-05 A replay shows when the response was recorded (review F15)
+Decision: a response served from a recording carries the time it was recorded, labelled
+"recorded" in the audit view and the drill-down. The time is the cassette's `recorded_at`; for
+vcrpy cassettes, which have none (796 of 1,616 interactions), the server's `Date` header on the
+recorded response; failing both, the recording manifest's `_recorded_at`. Never the replay
+time. `RawResponse.recorded` and `Provenance.recorded` carry the flag. Before, those 796
+interactions were stamped with the time of each run, so a drill-down claimed a fetch that
+never happened and two identical runs differed in every provenance time. The store seeding
+script uses the same rule. The scored golden bundle is built with a fixed time by its script
+and shows "fetched", as before.
+Alternative: the manifest time alone, which is the last recording session, not when each
+response was recorded.

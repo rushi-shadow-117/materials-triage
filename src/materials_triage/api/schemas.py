@@ -250,6 +250,7 @@ class DrillResponse(BaseModel):
     record_id: str | None
     method: str | None
     fetched_at: str | None
+    fetch_label: str | None = None  # "recorded" for a replayed recording, else "fetched"
     raw_sha256: str | None
     source_version: str | None
     source_url: str | None

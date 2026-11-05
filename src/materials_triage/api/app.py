@@ -846,6 +846,7 @@ def _drill(
         record_id=p.source_record_id if p else None,
         method=score.source,
         fetched_at=p.fetched_at.isoformat() if p else None,
+        fetch_label=("recorded" if p.recorded else "fetched") if p else None,
         raw_sha256=p.raw_sha256 if p else None,
         source_version=p.source_version if p else None,
         source_url=record_url(p) if p else None,

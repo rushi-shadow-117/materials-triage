@@ -34,7 +34,7 @@ export default function Drill() {
               <dt>Source</dt><dd>{d.source ?? "none"}</dd>
               <dt>Record id</dt><dd className="mono">{d.record_id ?? "none"}{d.source_url && <> · <a href={d.source_url} target="_blank" rel="noreferrer">open source record</a></>}</dd>
               <dt>Method</dt><dd>{d.method ?? "none"}</dd>
-              <dt>Fetched</dt><dd className="mono">{d.fetched_at ?? "none"}</dd>
+              <dt>{d.fetch_label === "recorded" ? "Recorded" : "Fetched"}</dt><dd className="mono">{d.fetched_at ?? "none"}</dd>
               <dt>Raw response hash</dt><dd className="mono">{d.raw_sha256 ? `sha256:${d.raw_sha256}` : "none"}</dd>
               <dt>Source version</dt><dd className="mono">{d.source_version ?? "not reported"}</dd>
             </dl>

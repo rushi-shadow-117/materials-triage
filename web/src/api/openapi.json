@@ -607,6 +607,17 @@
             "title": "Criterion",
             "type": "string"
           },
+          "fetch_label": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fetch Label"
+          },
           "fetched_at": {
             "anyOf": [
               {
@@ -2208,6 +2219,11 @@
           "raw_sha256": {
             "title": "Raw Sha256",
             "type": "string"
+          },
+          "recorded": {
+            "default": false,
+            "title": "Recorded",
+            "type": "boolean"
           },
           "source": {
             "title": "Source",

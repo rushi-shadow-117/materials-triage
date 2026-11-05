@@ -5,10 +5,12 @@ scorer, the classifier cache, and the run store."""
 from __future__ import annotations
 
 import functools
+import json
 import time
 from collections.abc import Callable, Iterator
 from dataclasses import dataclass
 from datetime import UTC, datetime
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 from typing import Any, Literal
 from urllib.parse import parse_qsl, urlsplit, urlunsplit
@@ -103,12 +105,6 @@ def iter_cassette_raws(root: Path) -> Iterator[tuple[Path, RawResponse]]:
             body_bytes = body.encode() if isinstance(body, str) else bytes(body)
             headers = {k.lower(): v for k, v in (resp.get("headers") or {}).items()}
             ctype = (headers.get("content-type") or [None])[0]
-            recorded = i.get("recorded_at")
-            fetched = (
-                datetime.fromisoformat(recorded.replace("GMT", "+00:00"))
-                if isinstance(recorded, str) and "T" in recorded
-                else datetime.now(UTC)
-            )
             yield (
                 path,
                 RawResponse(
@@ -116,9 +112,35 @@ def iter_cassette_raws(root: Path) -> Iterator[tuple[Path, RawResponse]]:
                     status=int(resp["status"]["code"]),
                     body=body_bytes,
                     content_type=ctype,
-                    fetched_at=fetched,
+                    fetched_at=recorded_time(i),
+                    recorded=True,
                 ),
             )
+
+
+@functools.lru_cache(maxsize=1)
+def _manifest_recorded_at() -> datetime:
+    manifest = json.loads((ADAPTER_CASSETTES / "recording_manifest.json").read_text())
+    return datetime.fromisoformat(str(manifest["_recorded_at"]))
+
+
+def recorded_time(interaction: dict[str, Any]) -> datetime:
+    """When a recorded response was recorded (review F15): the cassette's recorded_at, else the
+    server's Date header on the response, else the recording manifest's _recorded_at. Never the
+    replay time."""
+    recorded = interaction.get("recorded_at")
+    if isinstance(recorded, str) and "T" in recorded:
+        return datetime.fromisoformat(recorded.replace("GMT", "+00:00"))
+    headers = {k.lower(): v for k, v in (interaction["response"].get("headers") or {}).items()}
+    date = headers.get("date")
+    if isinstance(date, list):
+        date = date[0] if date else None
+    if isinstance(date, str):
+        try:
+            return parsedate_to_datetime(date).astimezone(UTC)
+        except (TypeError, ValueError):
+            pass
+    return _manifest_recorded_at()
 
 
 _YAML_LOADER = getattr(yaml, "CSafeLoader", yaml.SafeLoader)  # the C loader is much faster

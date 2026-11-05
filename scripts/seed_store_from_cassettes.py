@@ -11,13 +11,13 @@ params never contain them. Idempotent: re-running adds fetch events, never dupli
 from __future__ import annotations
 
 import argparse
-from datetime import UTC, datetime
 from pathlib import Path
 from urllib.parse import parse_qsl, urlsplit, urlunsplit
 
 import yaml
 
 from materials_triage.adapters.base import Call, RawResponse, Source
+from materials_triage.cli.wiring import recorded_time
 from materials_triage.provenance.store import Store, make_engine
 from materials_triage.settings import Settings
 
@@ -57,12 +57,7 @@ def iter_raw(root: Path):  # type: ignore[no-untyped-def]
             body_bytes = body.encode() if isinstance(body, str) else bytes(body)
             headers = {k.lower(): v for k, v in (resp.get("headers") or {}).items()}
             ctype = (headers.get("content-type") or [None])[0]
-            recorded = i.get("recorded_at")
-            fetched = (
-                datetime.fromisoformat(recorded.replace("GMT", "+00:00"))
-                if isinstance(recorded, str) and "T" in recorded
-                else datetime.now(UTC)
-            )
+            fetched = recorded_time(i)  # recording time, never the seeding time (review F15)
             yield (
                 path,
                 RawResponse(

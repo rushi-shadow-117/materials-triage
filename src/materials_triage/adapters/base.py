@@ -75,6 +75,8 @@ class RawResponse(BaseModel):
     fetched_at: datetime
     source_version: str | None = None  # MP db_version, snapshot sha, and so on
     license: str | None = None
+    # True when served from a recording: fetched_at is then when it was recorded (review F15)
+    recorded: bool = False
 
     @property
     def sha256(self) -> str:

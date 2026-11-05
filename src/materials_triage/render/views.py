@@ -62,6 +62,7 @@ class ProvenanceView:
     source_version: str | None
     url: str | None
     license: str | None
+    fetch_label: str = "fetched"  # "recorded" for a replayed recording (review F15)
 
     @classmethod
     def build(cls, p: Provenance, method: str | None = None) -> ProvenanceView:
@@ -73,6 +74,7 @@ class ProvenanceView:
             p.source_version,
             record_url(p),
             p.license,
+            "recorded" if p.recorded else "fetched",
         )
 
 

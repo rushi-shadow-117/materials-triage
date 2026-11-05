@@ -33,6 +33,7 @@ class Provenance(Strict):
     source_version: str | None = None  # MP db_version, snapshot sha, OpenAlex none, ...
     url: str | None = None  # human-readable link
     license: str | None = None
+    recorded: bool = False  # fetched_at is the recording time of a replayed response (F15)
 
 
 MP_PAGE_URL = "https://next-gen.materialsproject.org/materials/{}"

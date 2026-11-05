@@ -32,7 +32,7 @@
 - Band gap source: tbmbj
 - Structural dimensionality: missing (not computed)
 
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched or recorded |
 |---|---|---|---|---|---|---|---|
 | stability (energy above hull) | 0.000 eV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
 | band gap | 7.57 eV | tbmbj | 1.000 | 1.000 | 1.000 | none |  |
@@ -63,7 +63,7 @@ Literature: 10698 matched, 7142 with abstracts, 5 read (title_and_abstract; quer
 - Band gap source: experimental_median
 - Structural dimensionality: missing (not computed)
 
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched or recorded |
 |---|---|---|---|---|---|---|---|
 | stability (energy above hull) | 0.000 eV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
 | band gap | 5.55 eV | experimental_median | 1.000 | 1.000 | 1.000 | none |  |
@@ -96,7 +96,7 @@ Literature: 3496 matched, 2469 with abstracts, 5 read (title_and_abstract; query
 - Band gap source: experimental_median
 - Structural dimensionality: missing (not computed)
 
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched or recorded |
 |---|---|---|---|---|---|---|---|
 | stability (energy above hull) | 0.000 eV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
 | band gap | 5.40 eV | experimental_median | 1.000 | 1.000 | 1.000 | none |  |
@@ -128,7 +128,7 @@ Literature: 383 matched, 218 with abstracts, 5 read (title_and_abstract; query '
 - Band gap source: experimental_median
 - Structural dimensionality: missing (not computed)
 
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched or recorded |
 |---|---|---|---|---|---|---|---|
 | stability (energy above hull) | 0.000 eV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
 | band gap | 5.60 eV | experimental_median | 1.000 | 1.000 | 1.000 | none |  |
@@ -160,7 +160,7 @@ Literature: 1480 matched, 839 with abstracts, 5 read (title_and_abstract; query 
 - Band gap source: experimental_median
 - Structural dimensionality: missing (not computed)
 
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched or recorded |
 |---|---|---|---|---|---|---|---|
 | stability (energy above hull) | 0.000 eV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
 | band gap | 4.99 eV | experimental_median | 0.998 | 1.000 | 0.998 | none |  |
@@ -192,7 +192,7 @@ Literature: 3767 matched, 2298 with abstracts, 5 read (title_and_abstract; query
 - Band gap source: experimental_median
 - Structural dimensionality: missing (not computed)
 
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched or recorded |
 |---|---|---|---|---|---|---|---|
 | stability (energy above hull) | 0.000 eV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
 | band gap | 4.20 eV | experimental_median | 0.840 | 1.000 | 0.840 | none |  |
@@ -224,7 +224,7 @@ Literature: 1683 matched, 1116 with abstracts, 5 read (title_and_abstract; query
 - Band gap source: experimental_median
 - Structural dimensionality: missing (not computed)
 
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched or recorded |
 |---|---|---|---|---|---|---|---|
 | stability (energy above hull) | 0.000 eV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
 | band gap | 3.30 eV | experimental_median | 0.660 | 1.000 | 0.660 | none |  |
@@ -256,7 +256,7 @@ Literature: 21132 matched, 13032 with abstracts, 5 read (title_and_abstract; que
 - Band gap source: experimental_median
 - Structural dimensionality: missing (not computed)
 
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched or recorded |
 |---|---|---|---|---|---|---|---|
 | stability (energy above hull) | 0.000 eV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
 | band gap | 3.06 eV | experimental_median | 0.612 | 1.000 | 0.612 | none |  |
@@ -295,7 +295,7 @@ Equal scores are tied; tied rows are listed alphabetically.
 - Band gap source: tbmbj
 - Structural dimensionality: missing (not computed)
 
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched or recorded |
 |---|---|---|---|---|---|---|---|
 | stability (energy above hull) | 0.000 eV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
 | band gap | 8.10 eV | tbmbj | 1.000 | 1.000 | 1.000 | none |  |
@@ -328,7 +328,7 @@ Literature: 21347 matched, 14434 with abstracts, 5 read (title_and_abstract; que
 - Band gap source: experimental_median
 - Structural dimensionality: missing (not computed)
 
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched or recorded |
 |---|---|---|---|---|---|---|---|
 | stability (energy above hull) | 0.000 eV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
 | band gap | 10.39 eV | experimental_median | 1.000 | 1.000 | 1.000 | none |  |
@@ -359,7 +359,7 @@ Literature: 164 matched, 105 with abstracts, 5 read (title_and_abstract; query '
 - Band gap source: experimental_median
 - Structural dimensionality: missing (not computed)
 
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched or recorded |
 |---|---|---|---|---|---|---|---|
 | stability (energy above hull) | 0.000 eV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
 | band gap | 3.40 eV | experimental_median | 0.680 | 1.000 | 0.680 | none |  |
