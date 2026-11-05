@@ -23,6 +23,7 @@ export default function GapKChart({ chart, audit }: { chart: ChartView; audit: b
           No candidate in this run has both a band gap and a computed dielectric constant, so there is nothing to plot.
         </p>
         <Unplotted items={chart.unplotted} />
+        <OthersNotPlotted n={chart.others_not_plotted} />
       </div>
     );
   }
@@ -98,7 +99,17 @@ export default function GapKChart({ chart, audit }: { chart: ChartView; audit: b
         </div>
       </div>
       <Unplotted items={chart.unplotted} />
+      <OthersNotPlotted n={chart.others_not_plotted} />
     </div>
+  );
+}
+
+function OthersNotPlotted({ n }: { n: number }) {
+  if (!n) return null;
+  return (
+    <p className="muted" data-testid="chart-others">
+      {n} more rows are not plotted: beyond the shortlist without a computed dielectric constant, or scored on summary data only.
+    </p>
   );
 }
 

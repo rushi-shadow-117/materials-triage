@@ -72,7 +72,7 @@ def test_candidate_list_run_end_to_end(client: TestClient, tmp_path: Path) -> No
 
     # exports
     csv_text = client.get(f"/api/runs/{run_id}/export", params={"format": "csv"}).text
-    assert csv_text.splitlines()[0].startswith("run_id,composition,kind,rank")
+    assert csv_text.splitlines()[0].startswith("run_id,composition,kind,cross_checked,rank")
     assert len([line for line in csv_text.splitlines() if line.strip()]) == 5  # header, 3, anchor
     md = client.get(f"/api/runs/{run_id}/export", params={"format": "md", "view": "audit"}).text
     assert md.startswith("# Audit view")

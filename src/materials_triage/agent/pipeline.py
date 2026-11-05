@@ -48,6 +48,7 @@ from materials_triage.records.bundle import (
     ConfirmedCriteria,
     DecisionLogEntry,
     EvidenceHit,
+    EvidenceLabel,
     FetchMode,
     MissingPropertyMarker,
     ProvenanceBundle,
@@ -343,6 +344,26 @@ def _run_metadata(
     )
 
 
+def evidence_gaps(
+    evidence: dict[str, list[EvidenceHit]], shown: list[str], anchors: list[str]
+) -> list[str] | None:
+    """The shown rows (and anchors) that have abstracts but no usable label, when at least one
+    shown row does have a label; None when evidence is uniform (every shown row labelled, or
+    none labelled, as in a run with no model). Rows with no abstracts are not gaps."""
+    keys = list(dict.fromkeys([*shown, *anchors]))
+    labelled: list[str] = []
+    gaps: list[str] = []
+    for key in keys:
+        hits = evidence.get(key, [])
+        if not hits:
+            continue
+        if any(h.label == EvidenceLabel.UNCLASSIFIED for h in hits):
+            gaps.append(key)
+        elif any(h.verified for h in hits):
+            labelled.append(key)
+    return gaps if gaps and labelled else None
+
+
 def discovery_filter(
     query: QuerySettings, profile: ScoringProfile, site: SiteProfile
 ) -> mp.DiscoveryFilter:
@@ -589,6 +610,7 @@ def run(
     llm_calls = cache_hits = 0
     scored = score_groups(groups, evidence_by_comp) if groups else ScoredSet([], [])
     classified_keys: set[str] = set()
+    evidence_off = False
     for round_no in range(1, MAX_ENRICHMENT_ROUNDS + 1):
         ranked = sorted(
             (c for c in scored.candidates if c.rank is not None), key=lambda c: c.rank or 0
@@ -633,7 +655,7 @@ def run(
                 )
             )
         hits: list[tuple[str, LiteratureHit]] = []
-        for key in need_classify:
+        for key in [] if evidence_off else need_classify:
             classified_keys.add(key)
             group = groups.get(key)
             if group is not None and group.literature is not None:
@@ -653,7 +675,21 @@ def run(
         for hit in classified.hits:
             evidence_by_comp.setdefault(hit.composition, []).append(hit)
             all_hits.append(hit)
-        scored = score_groups(groups, evidence_by_comp)
+        if not evidence_off:
+            anchor_keys = [*inputs.profile.anchors, *query.extra_anchors]
+            gaps = evidence_gaps(evidence_by_comp, top, anchor_keys)
+            if gaps is not None:
+                # all-or-none (owner, Track H sweep): some shown rows carry labels and some
+                # could not be classified; a label must not lift one row over another that
+                # simply went unread, so evidence leaves every row in this run
+                evidence_off = True
+                note = (
+                    f"Evidence not used in this run: {len(gaps)} of the shown rows could not be "
+                    f"classified ({', '.join(gaps)}). Ranks use the other criteria only."
+                )
+                partial.append(note)
+                log.append(_log("evidence", note, compositions=gaps))
+        scored = score_groups(groups, {} if evidence_off else evidence_by_comp)
     else:
         partial.append(
             f"enrichment stopped after {MAX_ENRICHMENT_ROUNDS} rounds; "

@@ -102,6 +102,14 @@ stored run and `materials-triage diff` says why two runs differ.
 - **Too few results.** When fewer candidates than top N pass, the run lists the relaxations
   it computed, each with how many candidates it would add. Applying one starts a new run;
   the original stays in the history.
+- **Rows scored on summary data only.** A discovery search can match thousands of oxides; the
+  full cross-checks (hazard record, structure, literature) run for the shortlist and the
+  reference row. Rows beyond that are ranked on summary data only, marked `cross_checked: no`
+  in the CSV, and never used for comparisons: the reference row's placement and the chart
+  count cross-checked rows only.
+- **Evidence all or none.** If some shortlisted rows could be classified and others could not
+  (budget, or a cache-only run), evidence is left out for every row in that run and a note
+  says which rows were unread, so a lucky label cannot lift one row over another.
 - **Partial runs.** If a source does not answer, the run finishes without it, says so at the
   top, and marks the affected values missing.
 - **Refusals.** Requests for lab actions, private data, estimates, or configuration changes

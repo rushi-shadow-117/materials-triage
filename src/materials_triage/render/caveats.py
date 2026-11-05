@@ -84,9 +84,15 @@ KEY_PRIORITY: tuple[CaveatId, ...] = (
 NO_KEY_CAVEAT = "none specific to this row"
 
 
+# Never a row's key caveat: true of most rows that use the compendium and says nothing about
+# the row in particular; it stays in the row's caveat list and the Caveats section (Track H
+# sweep: it was the key caveat on most rows of the brief's example).
+NEVER_KEY: frozenset[CaveatId] = frozenset({CaveatId.EXPERIMENTAL_GAP_UNREFERENCED})
+
+
 def key_caveat(caveats: list[Caveat]) -> Caveat | None:
     """The most row-specific caveat, or None when the row has only profile-wide ones."""
-    own = row_specific(caveats)
+    own = [c for c in row_specific(caveats) if c.id not in NEVER_KEY]
     for cid in KEY_PRIORITY:
         hit = next((c for c in own if c.id is cid), None)
         if hit is not None:

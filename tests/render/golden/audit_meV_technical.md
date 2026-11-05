@@ -358,39 +358,6 @@ Literature: 21347 matched, 14434 with abstracts, 5 read (title_and_abstract; que
 
 ## Excluded
 
-### ThO2: excluded
-## Applies to every row
-
-- Band offsets to the substrate are not checked by this screen.
-
-- Excluded: hazard.radioactive_exclude (['Th'] has no stable isotope); rule source config/hazard_policy.yaml#tiers.radioactive_exclude
-- Flags: band_gap_conflict
-- Band gap source: experimental_median
-- Structural dimensionality: missing (not computed)
-
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
-|---|---|---|---|---|---|---|---|
-| stability (energy above hull) | 0 meV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
-| band gap | 3400 meV | experimental_median | 0.680 | 1.000 | 0.680 | none |  |
-| hazard | missing | config/hazard_policy.yaml | 0.000 | 1.000 | 0.000 | none |  |
-| simplicity | 2 elements | composition | 1.000 | 1.000 | 1.000 | none |  |
-| evidence | 5 abstracts | openalex | 1.000 | 1.000 | 1.000 | none |  |
-| dielectric constant | missing (not_computed) | mp_dfpt | missing | 0.000 | 0.000 | none |  |
-- hazard notes: GHS codes in 213 notifications: ['H301', 'H311', 'H331', 'H350', 'H373']
-
-Polymorphs: 2 with MP ids (2 observed, 0 theoretical, 0 unknown).
-- Ground state: mp-643 (Fm-3m), hull 0 meV/atom, observed
-- Scored polymorph is the ground state: yes; hull status conflict among functionals: no
-- mp-643 (Fm-3m): hull 0 meV/atom, observed; materials_project mp-643 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.379700+00:00 https://next-gen.materialsproject.org/materials/mp-643
-- mp-1102569 (Pnma): hull 150 meV/atom, observed, excluded by stability.cutoff; materials_project mp-1102569 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.379700+00:00 https://next-gen.materialsproject.org/materials/mp-1102569
-
-Experimental gaps: 3300 meV to 3500 meV across 2 value(s), median 3400 meV
-- expt_gap (compendium): 3500 meV; expt_gap expt_gap:5:ThO2 fetched 2026-11-02T12:00:00+00:00
-- expt_gap (compendium): 3300 meV; expt_gap expt_gap:11:ThO2 fetched 2026-11-02T12:00:00+00:00
-
-Hazard: GHS codes H301, H311, H331, H350, H373 in an unreported number of 213 notifications (ECHA attribution applies)
-Literature: 31 matched, 20 with abstracts, 5 read (title_and_abstract; query 'ThO2 thin film')
-
 ### BeO: excluded
 ## Applies to every row
 
@@ -425,6 +392,39 @@ Experimental gaps: 10390 meV to 10390 meV across 1 value(s), median 10390 meV
 
 Hazard: GHS codes H301, H305, H315, H317, H319, H330, H334, H335, H350, H350i, H361, H370, H372 in an unreported number of 49 notifications (ECHA attribution applies)
 Literature: 164 matched, 105 with abstracts, 5 read (title_and_abstract; query 'BeO thin film')
+
+### ThO2: excluded
+## Applies to every row
+
+- Band offsets to the substrate are not checked by this screen.
+
+- Excluded: hazard.radioactive_exclude (['Th'] has no stable isotope); rule source config/hazard_policy.yaml#tiers.radioactive_exclude
+- Flags: band_gap_conflict
+- Band gap source: experimental_median
+- Structural dimensionality: missing (not computed)
+
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+|---|---|---|---|---|---|---|---|
+| stability (energy above hull) | 0 meV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
+| band gap | 3400 meV | experimental_median | 0.680 | 1.000 | 0.680 | none |  |
+| hazard | missing | config/hazard_policy.yaml | 0.000 | 1.000 | 0.000 | none |  |
+| simplicity | 2 elements | composition | 1.000 | 1.000 | 1.000 | none |  |
+| evidence | 5 abstracts | openalex | 1.000 | 1.000 | 1.000 | none |  |
+| dielectric constant | missing (not_computed) | mp_dfpt | missing | 0.000 | 0.000 | none |  |
+- hazard notes: GHS codes in 213 notifications: ['H301', 'H311', 'H331', 'H350', 'H373']
+
+Polymorphs: 2 with MP ids (2 observed, 0 theoretical, 0 unknown).
+- Ground state: mp-643 (Fm-3m), hull 0 meV/atom, observed
+- Scored polymorph is the ground state: yes; hull status conflict among functionals: no
+- mp-643 (Fm-3m): hull 0 meV/atom, observed; materials_project mp-643 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.379700+00:00 https://next-gen.materialsproject.org/materials/mp-643
+- mp-1102569 (Pnma): hull 150 meV/atom, observed, excluded by stability.cutoff; materials_project mp-1102569 (GGA_GGA+U_R2SCAN) fetched 2026-11-02T23:34:49.379700+00:00 https://next-gen.materialsproject.org/materials/mp-1102569
+
+Experimental gaps: 3300 meV to 3500 meV across 2 value(s), median 3400 meV
+- expt_gap (compendium): 3500 meV; expt_gap expt_gap:5:ThO2 fetched 2026-11-02T12:00:00+00:00
+- expt_gap (compendium): 3300 meV; expt_gap expt_gap:11:ThO2 fetched 2026-11-02T12:00:00+00:00
+
+Hazard: GHS codes H301, H311, H331, H350, H373 in an unreported number of 213 notifications (ECHA attribution applies)
+Literature: 31 matched, 20 with abstracts, 5 read (title_and_abstract; query 'ThO2 thin film')
 
 
 ## What this screen cannot tell you

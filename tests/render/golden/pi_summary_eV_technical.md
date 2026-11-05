@@ -39,8 +39,8 @@ Equal scores are tied; tied rows are listed alphabetically.
 
 ## Excluded
 
-- ThO2: hazard.radioactive_exclude (['Th'] has no stable isotope)
 - BeO: hazard.exclude (IARC Group 1: beryllium and beryllium compounds)
+- ThO2: hazard.radioactive_exclude (['Th'] has no stable isotope)
 
 ## Caveats
 

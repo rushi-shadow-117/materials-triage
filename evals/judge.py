@@ -17,7 +17,7 @@ import yaml
 from pydantic import BaseModel
 
 from evals.schema import JudgeItem, JudgeVerdict
-from materials_triage.records.bundle import ProvenanceBundle
+from materials_triage.records.bundle import Anchor, Candidate, ProvenanceBundle
 
 ROOT = Path(__file__).resolve().parents[1]
 RUBRIC = ROOT / "evals" / "judge_rubric.md"
@@ -38,7 +38,14 @@ class Judge(Protocol):
 
 def caveat_terms(bundle: ProvenanceBundle) -> list[str]:
     """Caveat ids on ranked candidates, as words the rendered text would have to carry."""
-    ids = {str(cv.id) for c in bundle.ranked() for cv in c.caveats}
+    # the rows the view renders: the shown top N and the anchors, not ranked rows beyond top N
+    # that no view displays (Track H sweep; the old list passed only because the alphabetical
+    # exclusion list happened to carry the same ids)
+    top_n = bundle.criteria.effective_settings.get("top_n")
+    ranked = bundle.ranked()
+    shown = ranked[: int(top_n)] if isinstance(top_n, int) and top_n > 0 else ranked
+    rows: list[Candidate | Anchor] = [*shown, *bundle.anchors]
+    ids = {str(cv.id) for c in rows for cv in c.caveats}
     return sorted(ids)
 
 

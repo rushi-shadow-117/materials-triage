@@ -137,3 +137,32 @@ def test_slot_plan_asks_only_for_the_shown_rows(bundle: ProvenanceBundle) -> Non
         "summary:overview"
     ]
     assert rationale.slot_plan(bundle, None) == rationale.slot_plan(bundle)
+
+
+def test_redacted_view_says_not_scored_when_a_value_exists(bundle: ProvenanceBundle) -> None:
+    """Track H sweep: the model wrote "dielectric constant is missing" beside k = 18.7 because
+    the criterion, unscored while its band is pending, was marked "(missing)"."""
+    from materials_triage.records.bundle import CriterionScore
+
+    hfo2 = next(c for c in bundle.candidates if c.composition == "HfO2")
+    assert hfo2.score is not None
+    crits = [
+        cs.model_copy(update={"missing": True, "missing_reason": "target band not entered"})
+        if cs.criterion == "dielectric_constant"
+        else cs
+        for cs in hfo2.score.criteria
+    ]
+    assert any(
+        isinstance(c, CriterionScore) and c.raw_value is not None
+        for c in crits
+        if c.criterion == "dielectric_constant"
+    )
+    row = hfo2.model_copy(update={"score": hfo2.score.model_copy(update={"criteria": crits})})
+    b = bundle.model_copy(
+        update={"candidates": [row if c.composition == "HfO2" else c for c in bundle.candidates]}
+    )
+    text = rationale.redacted_view(b, rationale.slot_plan(b, 3))
+    line = next(
+        ln for ln in text.splitlines() if "{criterion:dielectric_constant}" in ln and "HfO2" in ln
+    )
+    assert "not scored: target band not entered" in line and "(missing" not in line

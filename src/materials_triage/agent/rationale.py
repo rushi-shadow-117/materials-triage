@@ -17,10 +17,11 @@ from materials_triage.records.bundle import (
     Anchor,
     Candidate,
     DecisionLogEntry,
+    Flag,
     ProvenanceBundle,
     RationaleSlot,
 )
-from materials_triage.render.caveats import row_specific
+from materials_triage.render.caveats import NEVER_KEY, row_specific
 from materials_triage.render.tokens import CRITERION_LABELS
 
 from . import loop, prompts
@@ -55,7 +56,7 @@ def template_only(bundle: ProvenanceBundle) -> dict[str, RationaleSlot]:
             if scored:
                 parts.append("on " + ", ".join(scored))
         text = " ".join(parts) + "."
-        own = row_specific(c.caveats)
+        own = [cv for cv in row_specific(c.caveats) if cv.id not in NEVER_KEY]
         if own:
             # caveat tokens: the renderer fills each with its config text; the verifier checks
             # only that the row carries the caveat, so no caveat id reaches the reader
@@ -77,9 +78,17 @@ def _row_view(row: Candidate | Anchor, bundle: ProvenanceBundle) -> list[str]:
         for cs in row.score.criteria:
             if cs.weight <= 0 and cs.raw_unit is None:
                 continue
+            if cs.missing and cs.raw_value is not None:
+                # a value exists but the criterion is not scored (a pending target band):
+                # say so, never "missing" beside a value the page shows (Track H sweep)
+                state = f" (not scored: {cs.missing_reason or 'not configured'})"
+            elif cs.missing:
+                state = f" (missing: {cs.missing_reason or 'no value'})"
+            else:
+                state = ""
             lines.append(
                 f"  {{criterion:{cs.criterion}}}: {{value:{comp}:{cs.criterion}}}"
-                f" from {{source:{comp}:{cs.criterion}}}" + (" (missing)" if cs.missing else "")
+                f" from {{source:{comp}:{cs.criterion}}}" + state
             )
         if row.score.band_gap_source:
             lines.append(f"  band gap source: {{source:{comp}:band_gap}}")
@@ -111,9 +120,21 @@ def redacted_view(bundle: ProvenanceBundle, slots: list[str]) -> str:
             lines.extend(_row_view(rows[bits[1]], bundle))
             lines.append("")
     lines.append(f"slot {OVERVIEW}")
+    shown = {s.split(":")[1] for s in slots if s.count(":") == 2}
+    checked = [c for c in bundle.ranked() if Flag.ENRICHMENT_MISSING not in c.flags]
     lines.append(
-        "  ranked candidates: " + ", ".join(f"{{formula:{c.composition}}}" for c in bundle.ranked())
+        "  ranked candidates shown: "
+        + ", ".join(
+            f"{{formula:{c.composition}}}" for c in bundle.ranked() if c.composition in shown
+        )
     )
+    if len(checked) < len(bundle.ranked()):
+        # no digits reach the model; the counts are on the page, written by code
+        lines.append(
+            "  note: some ranked rows were scored on summary data only (hazard and structure "
+            "not checked); do not describe placements among them or compare the shortlist "
+            "against them"
+        )
     lines.append(
         "  excluded: "
         + (

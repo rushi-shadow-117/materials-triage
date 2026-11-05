@@ -438,21 +438,25 @@ def score_run(
         )
         for r in scored_rows
     ]
+    # an anchor is placed among cross-checked rows only: a row scored on summary data alone
+    # was never checked for hazard or structure (Track H sweep: SiO2 read "between SO2 and
+    # Sb2O3" against rows nobody had looked at)
+    checked_rows = [c for c in ranked_rows if Flag.ENRICHMENT_MISSING not in c.flags]
     anchors = []
     for r in anchor_rows:
         would = None
         above = below = None
         if r.exclusion is None:
-            would = 1 + sum(1 for c in ranked_rows if c.key < r.key)
-            above = ranked_rows[would - 2].composition if would > 1 else None
-            below = ranked_rows[would - 1].composition if would - 1 < len(ranked_rows) else None
+            would = 1 + sum(1 for c in checked_rows if c.key < r.key)
+            above = checked_rows[would - 2].composition if would > 1 else None
+            below = checked_rows[would - 1].composition if would - 1 < len(checked_rows) else None
         anchors.append(
             Anchor(
                 composition=r.composition,
                 group=summary(r),
                 score=r.breakdown,
                 would_rank=would,
-                out_of=len(ranked_rows) + 1,  # the anchor counts in its own placement
+                out_of=len(checked_rows) + 1,  # the anchor counts in its own placement
                 ranked_above=above,
                 ranked_below=below,
                 excluded=r.exclusion,

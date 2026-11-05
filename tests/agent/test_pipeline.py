@@ -249,3 +249,26 @@ def test_at_most_five_abstracts_per_candidate_are_classified_in_search_order(
     assert classified == [h.openalex_id for h in hf.group.literature.hits[:5]]
     assert layers[0].max_abstracts_per_candidate == 5
     assert "parse.tool_calls" in bundle.run.budgets_limit
+
+
+def test_evidence_all_or_none_drops_evidence_when_shown_rows_are_mixed() -> None:
+    """Track H sweep: B2O3 led the brief's example on a stale cached label while HfO2, ZrO2,
+    Y2O3 went unread; when shown rows are mixed, evidence leaves every row."""
+    from materials_triage.agent.pipeline import evidence_gaps
+    from materials_triage.records.bundle import EvidenceHit, EvidenceLabel
+
+    def hit(comp: str, label: EvidenceLabel, verified: bool) -> EvidenceHit:
+        return EvidenceHit.model_construct(composition=comp, label=label, verified=verified)
+
+    labelled = [hit("B2O3", EvidenceLabel.DIELECTRIC_CHARACTERIZED, True)]
+    unread = [hit("HfO2", EvidenceLabel.UNCLASSIFIED, False)]
+    mixed = {"B2O3": labelled, "HfO2": unread}
+    assert evidence_gaps(mixed, ["B2O3", "HfO2"], []) == ["HfO2"]
+    # every shown row labelled: evidence counts
+    assert evidence_gaps({"B2O3": labelled}, ["B2O3"], []) is None
+    # none labelled (no model): already uniform, no rule needed
+    assert evidence_gaps({"HfO2": unread}, ["HfO2"], []) is None
+    # a row with no abstracts is not a gap
+    assert evidence_gaps({"B2O3": labelled, "ZrO2": []}, ["B2O3", "ZrO2"], []) is None
+    # an anchor counts like a shown row
+    assert evidence_gaps(mixed, ["B2O3"], ["HfO2"]) == ["HfO2"]
