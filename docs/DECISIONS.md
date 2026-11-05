@@ -1914,3 +1914,12 @@ notifications" for HfO2), so "notifications" named the wrong unit. The flag cave
 config/hazard_policy.yaml changes with it so the page uses one word for the same counts. When
 no report carries a code the note reads "no hazard codes in N reports; N report not classified".
 Alternative: keep "notifications", which contradicts the source's own sentence.
+
+### 2026-11-05 The eval report runs outside a git checkout (owner exception to the code freeze)
+Decision (owner): `scripts/generate_eval_report.py` writes "commit `unknown`" when a live
+suite has no git commit, which is the case in the release zip (no `.git`). Before, the
+headline line indexed `git_commit[:7]` and crashed, so the test suite run from the extracted
+v1.0 zip had one failure. The owner granted this one exception to the code freeze and re-cut
+v1.0 with it.
+Alternative: release v1.0.1 and leave v1.0 as published, which leaves a zip whose test run
+fails.
