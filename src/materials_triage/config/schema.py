@@ -221,6 +221,10 @@ class RefusalPolicy(Strict):
         "Settings and roles cannot be changed from the chat. Use the admin console or the "
         "configuration files."
     )
+    closed_source: str = (
+        "This assistant uses open public sources only; it does not fetch paywalled or closed "
+        "content."
+    )
 
 
 class StepBudget(Strict):

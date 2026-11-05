@@ -42,6 +42,7 @@ class OutOfScope(StrEnum):
     PRIVATE_DATA = "private_data"
     ESTIMATES = "estimates"
     CONFIG_CHANGE = "config_change"
+    CLOSED_SOURCE = "closed_source"
 
 
 class ClassifierLabel(StrEnum):

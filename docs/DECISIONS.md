@@ -1806,3 +1806,15 @@ to infinity and ran, each ending in "Ranked 0 of 0 candidates" with no reason. T
 fields change every run's config sha once.
 Alternative: refuse out-of-range values with a 422, which the owner did not choose because a
 clamp keeps the run going and shows what changed.
+
+### 2026-11-05 Paywalled and closed sources have their own refusal (review F11)
+Decision: the parse step has a fifth out-of-scope category, `closed_source`, for paywalled
+papers, closed databases, and scraping a source that is not openly published. Its fixed text is
+the owner's: "This assistant uses open public sources only; it does not fetch paywalled or
+closed content." Before, the review's paywall request was refused with the private-data
+sentence. As with the other categories, the model only picks the category; code supplies the
+text, and the capability itself is enforced by the egress allowlist and the absence of any
+fetch tool. The parse prompt hash changes; the classify prompt hash does not, so cached labels
+stay valid.
+Alternative: widen the private_data text to cover closed sources, which gives two different
+requests one sentence that fits neither well.
