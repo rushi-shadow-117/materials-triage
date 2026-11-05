@@ -19,11 +19,23 @@ from pydantic import BaseModel
 from materials_triage.records import LiteratureHit
 from materials_triage.records.bundle import DecisionLogEntry, EvidenceHit, EvidenceLabel
 from materials_triage.verify.quotes import check_quote
+from materials_triage.verify.subject import names_candidate
 from materials_triage.verify.verifier import FULLTEXT_NOTE
 
 from . import loop, prompts
 from .llm import LLMClient
 from .tools import CLASSIFY_ABSTRACT, ClassifyAbstract
+
+OTHER_MATERIAL_NOTE = "evidence names another material"
+# Labels that count as evidence and so must be about the candidate itself (review F02)
+_SUBJECT_CHECKED = frozenset(
+    {
+        EvidenceLabel.COMPUTED_ONLY,
+        EvidenceLabel.BULK_SYNTHESIZED,
+        EvidenceLabel.THIN_FILM_DEPOSITED,
+        EvidenceLabel.DIELECTRIC_CHARACTERIZED,
+    }
+)
 
 QUOTE_ERROR = (
     "supporting_sentence is not a verbatim substring of the abstract: {note}. Copy one "
@@ -169,6 +181,24 @@ def _provider_down(reason: str | None) -> bool:
     )
 
 
+def check_subject(hit: EvidenceHit, synonyms: list[str] | None = None) -> EvidenceHit:
+    """Code check after classification, before scoring: a label whose supporting sentence does
+    not name the candidate standalone (only a mixed system such as "B2O3/SiO2", or nothing) is
+    not evidence for it. The hit stays in the list as not_relevant so the audit view shows
+    the quote and the reason. Runs on cached labels too, so no new model call is needed."""
+    if hit.label not in _SUBJECT_CHECKED or hit.supporting_sentence is None:
+        return hit
+    if names_candidate(hit.supporting_sentence, hit.composition, synonyms):
+        return hit
+    return hit.model_copy(
+        update={
+            "label": EvidenceLabel.NOT_RELEVANT,
+            "deposition_method": None,
+            "verifier_note": OTHER_MATERIAL_NOTE,
+        }
+    )
+
+
 def classify_hits(
     *,
     client: LLMClient | None,
@@ -177,11 +207,13 @@ def classify_hits(
     cache: ClassifierCache | None,
     model_version: str | None,
     cache_only: bool = False,
+    synonyms: dict[str, list[str]] | None = None,
 ) -> ClassifyResult:
     """Classify every (composition, hit) in order. Budget breach leaves the rest unclassified.
     `cache_only`: labels come from the cache; a miss stays unclassified and the model is never
     called (CLASSIFY_MODE=cache_only)."""
     out = ClassifyResult()
+    names = synonyms or {}
     prompt_hash = prompts.step_hash("classify")
     system = prompts.system_prompt("classify")
     exhausted: str | None = None
@@ -209,15 +241,18 @@ def classify_hits(
         if cached is not None:
             out.cache_hits += 1
             out.hits.append(
-                _hit(
-                    composition,
-                    lit,
-                    label=EvidenceLabel(cached["label"]),
-                    deposition_method=cached.get("deposition_method"),
-                    sentence=cached.get("supporting_sentence"),
-                    verified=bool(cached.get("verified", False)),
-                    note=None,
-                    key=key,
+                check_subject(
+                    _hit(
+                        composition,
+                        lit,
+                        label=EvidenceLabel(cached["label"]),
+                        deposition_method=cached.get("deposition_method"),
+                        sentence=cached.get("supporting_sentence"),
+                        verified=bool(cached.get("verified", False)),
+                        note=None,
+                        key=key,
+                    ),
+                    names.get(composition),
                 )
             )
             continue
@@ -267,15 +302,18 @@ def classify_hits(
         if cache is not None:
             cache.put(key, record)
         out.hits.append(
-            _hit(
-                composition,
-                lit,
-                label=label,
-                deposition_method=method,
-                sentence=parsed.supporting_sentence,
-                verified=verified,
-                note=None,
-                key=key,
+            check_subject(
+                _hit(
+                    composition,
+                    lit,
+                    label=label,
+                    deposition_method=method,
+                    sentence=parsed.supporting_sentence,
+                    verified=verified,
+                    note=None,
+                    key=key,
+                ),
+                names.get(composition),
             )
         )
     return out

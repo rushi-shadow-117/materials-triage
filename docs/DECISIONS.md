@@ -1732,3 +1732,23 @@ hazard row the same round's checks then excluded still spent classify calls. On 
 20 of 50 calls went to CO2, H2O, SO3 and Li2O, and three final rows went unread. The change is
 pipeline ordering only; scoring and the classifier are unchanged.
 Alternative: raise the classify cap, which spends more to read rows the page never shows.
+
+## Review fixes
+
+### 2026-11-05 Evidence must name the candidate, not a mixed system (review F02)
+Decision: after classification and before scoring, code checks that the supporting sentence
+names the candidate as a standalone formula: not inside a longer formula, and not joined to
+another formula by an adjacent "-", "/", en dash, ":" or "x" ("B2O3/SiO2", "SiO2-P2O5-CaO",
+"Li2O-Al2O3", "FePt/B2O3"). A slash may carry one modifier word before the next formula
+("B2O3/passivation SiO2"); a hyphen may not, so "Al2O3-coated Si" stays evidence. When the
+formula is absent, a standalone name from the profile synonym table, the common-name table, or
+the recorded PubChem synonym list counts. When the formula is present, its occurrences decide
+and a synonym does not rescue it: the Li2O-Al2O3 sentence also says "aluminum oxide", as a
+component process. A failing label becomes not_relevant with the note "evidence names another
+material" and stays in the audit view. The check runs on cached labels too, so no new model call
+is needed. It also closes review F13: a planted instruction that never names the candidate is
+no longer evidence. On the 70 labelled hits in the recorded runs, 24 flip. Seven of those are
+sentences that name no material at all ("The dielectric constant is 13 ..."), which the rule
+drops by design.
+Alternative: a prompt instruction to the classifier, which the live run shows the model does not
+follow reliably; or checking the abstract title, which the owner did not choose.

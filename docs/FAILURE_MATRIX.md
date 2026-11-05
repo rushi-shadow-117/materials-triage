@@ -265,3 +265,10 @@ rows only under its own heading. Rows name a test path; a row without a test is 
 |---|---|---|
 | Fetching and classifying take longer than the rationale budget | The rationale budget is timed from its own step; the model writes the rationale | tests/agent/test_pipeline.py::test_the_rationale_budget_clock_starts_with_the_rationale_step |
 | A row in the summary top K is excluded by its cross-checks | Each round rescores after enrichment; the excluded row is never classified | tests/agent/test_discovery.py::test_rows_the_cross_checks_exclude_are_never_classified |
+
+## Review fixes
+
+| Failure | Behavior | Test |
+|---|---|---|
+| A verbatim supporting sentence describes a mixed system (B2O3/SiO2, SiO2-P2O5-CaO, Li2O-Al2O3, FePt/B2O3) | The label becomes not_relevant, "evidence names another material", shown in the audit view | tests/verify/test_subject.py::test_a_mixed_system_is_not_the_candidate |
+| A cached label from before the check names another material | Re-checked on read; not_relevant with no model call | tests/agent/test_classifier.py::test_a_cached_label_is_rechecked_without_a_model_call |
