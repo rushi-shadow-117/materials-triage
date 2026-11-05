@@ -1752,3 +1752,20 @@ sentences that name no material at all ("The dielectric constant is 13 ..."), wh
 drops by design.
 Alternative: a prompt instruction to the classifier, which the live run shows the model does not
 follow reliably; or checking the abstract title, which the owner did not choose.
+
+### 2026-11-05 The product reads the full experimental gap compendium (review F04)
+Decision: `Sources.load` reads the pinned Zhuo et al. compendium (`fixtures/snapshots/
+expt_gap.json.gz`, 6,354 rows, 50,592 bytes) instead of the 14-row slice of the 11 baseline
+oxides. The file's sha256 must equal the manifest's `expected_sha256` or loading refuses. Zero
+rows stay excluded, the form stays `compendium`, and the matbench table stays validation only.
+Record ids keep the table's own row index (`expt_gap:1337:BaTiO3`). The slice gave the
+hand-picked baseline oxides experimental gaps and left every other oxide on PBE, about 40% low:
+MgO scored 4.43 eV with 7.67 to 7.83 eV in the same table. The baseline oxides have the same
+rows in both, so the conflict tolerance (validation/calibration.py) does not change.
+Effect on the brief's discovery run offline (no evidence labels): MgO moves from 8 to 1=,
+Lu2O3 from 10 to 1=, B2O3 from 1= to 15 (experimental 4.9 eV replaces PBE 6.31), P2O5 from 7 to
+16. The tie at 1.000 grows from 6 rows to 12, because more oxides now carry experimental gaps
+above the 5.0 eV soft-preference cap. New compositions in the top K were recorded with
+`scripts/record_case_gaps.py A1 B1` (one round each, nothing left).
+Alternative: keep the slice and caveat PBE-only rows as not comparable, which leaves the bias
+in the ranking and only labels it.

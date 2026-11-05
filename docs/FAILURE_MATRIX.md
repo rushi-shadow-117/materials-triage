@@ -272,3 +272,5 @@ rows only under its own heading. Rows name a test path; a row without a test is 
 |---|---|---|
 | A verbatim supporting sentence describes a mixed system (B2O3/SiO2, SiO2-P2O5-CaO, Li2O-Al2O3, FePt/B2O3) | The label becomes not_relevant, "evidence names another material", shown in the audit view | tests/verify/test_subject.py::test_a_mixed_system_is_not_the_candidate |
 | A cached label from before the check names another material | Re-checked on read; not_relevant with no model call | tests/agent/test_classifier.py::test_a_cached_label_is_rechecked_without_a_model_call |
+| A composition outside the baseline set has an experimental gap in the pinned compendium | Scored on the experimental median, not PBE | tests/adapters/test_expt_gap.py::test_the_full_compendium_gives_mgo_an_experimental_gap |
+| The compendium file on disk does not match the manifest checksum | Loading refuses with both checksums | tests/adapters/test_expt_gap.py::test_compendium_checksum_mismatch_refuses_to_load |

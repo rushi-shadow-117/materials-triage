@@ -98,10 +98,9 @@ def assemble_groups(
     )
     gap_aggs = expt_gap.aggregates(
         expt_gap.records(
-            expt_gap.load_slice(
-                SNAPSHOTS / "expt_gap.slice.json",
-                table="expt_gap",
-                file_sha256=manifest["expt_gap"]["sha256"],
+            expt_gap.load_compendium(
+                SNAPSHOTS / manifest["expt_gap"]["local_file"],
+                expected_sha256=manifest["expt_gap"]["expected_sha256"],
                 fetched_at=FIXED_TIME,
             )
         )[0]

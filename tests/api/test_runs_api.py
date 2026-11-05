@@ -164,7 +164,8 @@ def test_gan_under_the_nitride_profile(client: TestClient) -> None:
     bundle = client.get(f"/api/runs/{run_id}").json()
     gan = next(c for c in bundle["candidates"] if c["composition"] == "GaN")
     assert gan["excluded"]["rule"] == "band_gap.hard_min"
-    assert "1.738 eV (pbe) is below the 4 eV minimum" in gan["excluded"]["detail"]
+    # the full compendium holds 16 GaN measurements (review F04); PBE (1.738 eV) is not used
+    assert "3.475 eV (experimental_median) is below the 4 eV minimum" in gan["excluded"]["detail"]
     assert "pbe_only_below_window" not in gan["flags"]
 
 

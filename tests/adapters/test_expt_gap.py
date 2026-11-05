@@ -50,3 +50,38 @@ def test_zero_rows_are_excluded_with_reason() -> None:
         "zero_gap_is_mp_metal_not_measurement",
         "unparsable_formula",
     }
+
+
+def _compendium(manifest):  # type: ignore[no-untyped-def]
+    return expt_gap.load_compendium(
+        SNAPSHOTS / "expt_gap.json.gz", expected_sha256=manifest["expt_gap"]["expected_sha256"]
+    )
+
+
+def test_the_full_compendium_gives_mgo_an_experimental_gap(manifest) -> None:  # type: ignore[no-untyped-def]
+    # review F04: the 14-row slice left MgO, Lu2O3 and B2O3 on PBE in discovery
+    recs, _ = expt_gap.records(_compendium(manifest))
+    agg = expt_gap.aggregates(recs)
+    assert (agg["MgO"].n, agg["MgO"].min, agg["MgO"].max) == (4, 7.67, 7.83)
+    assert agg["Lu2O3"].median == 5.5
+    assert agg["B2O3"].min == 4.89
+    # the baseline oxides keep the values the slice carried
+    assert (agg["ThO2"].n, agg["ThO2"].median) == (2, 3.4) and agg["BaTiO3"].n == 5
+    assert all(r.payload["role"] == "product" for r in recs)
+
+
+def test_compendium_zero_rows_stay_excluded(manifest) -> None:  # type: ignore[no-untyped-def]
+    recs, excluded = expt_gap.records(_compendium(manifest))
+    assert "P2O5" not in {r.composition for r in recs}
+    assert any(e["row"].endswith(":P2O5") and e["rule"].startswith("zero_gap") for e in excluded)
+    assert (
+        sum(e["rule"].startswith("zero_gap") for e in excluded)
+        == manifest["expt_gap"]["entries_with_zero_gap"]
+    )
+
+
+def test_compendium_checksum_mismatch_refuses_to_load() -> None:
+    import pytest
+
+    with pytest.raises(ValueError, match="sha256"):
+        expt_gap.load_compendium(SNAPSHOTS / "expt_gap.json.gz", expected_sha256="0" * 64)

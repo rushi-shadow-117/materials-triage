@@ -291,3 +291,11 @@ def test_rows_the_cross_checks_exclude_are_never_classified(
     beo = next(c for c in bundle.candidates if c.composition == "BeO")
     assert beo.excluded is not None and beo.group.literature is not None  # it was cross-checked
     assert "BeO" not in seen  # and no classify request was spent on it
+
+
+def test_product_sources_load_the_full_gap_compendium(sources: pipeline.Sources) -> None:
+    # review F04: every composition gets the experimental gap the pinned table holds, not only
+    # the hand-picked baseline oxides
+    assert sources.gap_aggregates["MgO"].n == 4
+    assert "Lu2O3" in sources.gap_aggregates and "P2O5" not in sources.gap_aggregates
+    assert sources.versions["expt_gap"].startswith("2d0980e3")

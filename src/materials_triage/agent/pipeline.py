@@ -118,10 +118,10 @@ class Sources:
             full_file_sha256=manifest["jarvis_dft_3d"]["sha256"],
             fetched_at=fixed,
         )
-        gap_raw = expt_gap.load_slice(
-            snapshots / "expt_gap.slice.json",
-            table="expt_gap",
-            file_sha256=manifest["expt_gap"]["sha256"],
+        # the full pinned compendium, not a slice of the baseline oxides (review F04)
+        gap_raw = expt_gap.load_compendium(
+            snapshots / manifest["expt_gap"]["local_file"],
+            expected_sha256=manifest["expt_gap"]["expected_sha256"],
             fetched_at=fixed,
         )
         names: dict[str, str] = {}
