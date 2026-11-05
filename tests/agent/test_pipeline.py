@@ -291,3 +291,73 @@ def test_the_evidence_note_names_only_rows_on_the_final_page() -> None:
         "Al2O3": [hit("Al2O3", EvidenceLabel.DIELECTRIC_CHARACTERIZED)],
     }
     assert unread_rows(evidence, ["Al2O3", "HfO2", "ZrO2"]) == ["HfO2"]
+
+
+def test_the_rationale_budget_clock_starts_with_the_rationale_step(
+    layers: Layers,
+    tmp_path: Path,
+    transport: CassetteTransport,
+    sources: pipeline.Sources,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """Live A1 on Haiku: discovery and classification took 147 s, and the rationale's 120 s
+    budget, timed from run start, had expired before the step began; no rationale call was
+    made. A slow classify phase (250 s on a fake clock, inside the 300 s classify budget) must
+    leave the rationale its own 120 s."""
+    now = [0.0]
+
+    def clock() -> float:
+        return now[0]
+
+    real_from_core = Budget.from_core
+
+    def from_core(core: cs.CoreConfig, step: str) -> Budget:
+        b = real_from_core(core, step)
+        b.clock = clock
+        b.started = clock()
+        return b
+
+    monkeypatch.setattr(pipeline.Budget, "from_core", staticmethod(from_core))
+    inputs = _inputs(layers, tmp_path, ["HfO2"])
+    fake = llm.FakeLLM(
+        [{"expect_tool": "classify_abstract", "stop_reason": "refusal", "content": []}] * 5
+        + [
+            {
+                "expect_tool": "write_rationale",
+                "content": [
+                    {
+                        "type": "tool_use",
+                        "name": "write_rationale",
+                        "input": {
+                            "slots": [
+                                {"slot": "candidate:HfO2:one_line", "text": "{formula:HfO2} leads."}
+                            ]
+                        },
+                    }
+                ],
+                "usage": {"input_tokens": 50, "output_tokens": 20},
+            }
+        ],
+        model="fake-haiku",
+    )
+
+    class SlowClassify:
+        model, provider = fake.model, fake.provider
+
+        def complete(self, **kw):  # type: ignore[no-untyped-def]
+            if kw["tools"][0].name == "classify_abstract":
+                now[0] += 50.0  # five abstracts: 250 s
+            return fake.complete(**kw)
+
+    bundle = pipeline.run(
+        inputs,
+        fetch=transport,
+        sources=sources,
+        scorer=scoring_port.default_scorer(),
+        llm=SlowClassify(),  # type: ignore[arg-type]
+    )
+    assert bundle.run.budgets_used["classify.seconds"] == 250.0
+    assert bundle.run.budgets_used["rationale.tool_calls"] == 1.0
+    assert bundle.run.budgets_used["rationale.seconds"] < 120.0
+    assert not any(r.startswith("rationale not written") for r in bundle.run.partial_reasons)
+    assert bundle.rationale["candidate:HfO2:one_line"].text == "{formula:HfO2} leads."

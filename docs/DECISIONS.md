@@ -1712,3 +1712,23 @@ Decision:
 
 Each change has a test (docs/FAILURE_MATRIX.md).
 Alternative: none considered; these are defects.
+
+## Track H: the live Haiku run (Nov 4)
+
+### 2026-11-04 The rationale budget is timed from the rationale step
+Decision: the rationale budget's clock restarts when the rationale step begins. Both step
+budgets were created at run start, so a discovery run that spent more than 120 s fetching and
+classifying reached the rationale with its time already gone, and no model rationale was
+written (the live A1 runs on Opus and on Haiku). The classify budget keeps its run-start clock,
+since classification is the first model step.
+Alternative: create each budget when its step starts, which moves the budgets out of the one
+place the run records them.
+
+### 2026-11-04 Classification waits for each round's cross-checks
+Decision: within an enrichment round, the pipeline fetches the cross-checks (structure,
+hazard, thermo, literature), rescores, and classifies only compositions still in the top K
+after that rescore. Before, it classified the top K as ranked on summary data, so a molecule or
+hazard row the same round's checks then excluded still spent classify calls. On the live A1,
+20 of 50 calls went to CO2, H2O, SO3 and Li2O, and three final rows went unread. The change is
+pipeline ordering only; scoring and the classifier are unchanged.
+Alternative: raise the classify cap, which spends more to read rows the page never shows.
