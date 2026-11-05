@@ -247,3 +247,47 @@ def layers_for(
 ) -> tuple[cs.CoreConfig, cs.SiteProfile, cs.ScoringProfile]:
     paths = cs.default_paths()
     return cs.CoreConfig(), cs.site_profile_from_yaml(paths["site_profile"]), profile
+
+
+def test_rows_the_cross_checks_exclude_are_never_classified(
+    layers: Layers,
+    tmp_path: Path,
+    transport: DiscoveryCassettes,
+    sources: pipeline.Sources,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """Live A1 on Haiku spent 20 of 50 classify calls on CO2, H2O, SO3 and Li2O, rows in the top
+    10 before their cross-checks that the checks then excluded or pushed down. Each round now
+    rescores after enrichment and classifies only what is still in the top K. Here the test
+    scorer excludes BeO once its cross-checks arrive, as the hazard rule does."""
+    from materials_triage.agent import classifier
+    from materials_triage.records.bundle import Exclusion, ExclusionRule
+
+    def hazard_aware(request: ScoreRequest) -> ScoredSet:
+        out = gap_scorer(request)
+        beo = request.groups.get("BeO")
+        if beo is None or beo.literature is None:  # not cross-checked yet
+            return out
+        kept = [c for c in out.candidates if c.composition != "BeO"]
+        for i, c in enumerate(kept, start=1):
+            c.rank = i
+        dropped = next(c for c in out.candidates if c.composition == "BeO")
+        dropped.rank = None
+        dropped.excluded = Exclusion(
+            rule=ExclusionRule.HAZARD_EXCLUDE, detail="test: Be", source_ref=None
+        )
+        return ScoredSet(candidates=[*kept, dropped], anchors=out.anchors, note=out.note)
+
+    seen: list[str] = []
+    real = classifier.classify_hits
+
+    def spy(**kw):  # type: ignore[no-untyped-def]
+        seen.extend(comp for comp, _ in kw["hits"])
+        return real(**kw)
+
+    monkeypatch.setattr(classifier, "classify_hits", spy)
+    inputs = _inputs(layers, tmp_path, band_gap_min_ev=2.0, band_gap_max_ev=3.0, top_n=3)
+    bundle = pipeline.run(inputs, fetch=transport, sources=sources, scorer=hazard_aware)
+    beo = next(c for c in bundle.candidates if c.composition == "BeO")
+    assert beo.excluded is not None and beo.group.literature is not None  # it was cross-checked
+    assert "BeO" not in seen  # and no classify request was spent on it

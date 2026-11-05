@@ -669,6 +669,18 @@ def run(
                     events=len(ctx.events),
                 )
             )
+            # Rescore with the cross-checks just fetched (structure, hazard, thermo) before any
+            # model call, and classify only what is still in the top K: a molecule or a hazard
+            # exclusion found by this round's checks never spends classify calls (the live A1
+            # spent 20 of 50 on CO2, H2O, SO3 and Li2O, which then left the top 10).
+            scored = score_groups(groups, {} if evidence_off else evidence_by_comp)
+            ranked = sorted(
+                (c for c in scored.candidates if c.rank is not None), key=lambda c: c.rank or 0
+            )
+            top = [c.composition for c in ranked[: effective.top_n]]
+            need_classify = [
+                k for k in top if k in groups and k in enriched and k not in classified_keys
+            ]
         hits: list[tuple[str, LiteratureHit]] = []
         for key in [] if evidence_off else need_classify:
             classified_keys.add(key)
@@ -834,6 +846,9 @@ def run(
         decision_log=log,
         availability_events=ctx.events,
     )
+    # the step's own clock starts here, not at run start: a discovery run spends minutes
+    # fetching and classifying, and the rationale's 120 s had expired before it began
+    budgets["rationale"].started = budgets["rationale"].clock()
     written = rationale.run_rationale(
         client=llm, bundle=bundle, effective=effective, budget=budgets["rationale"]
     )

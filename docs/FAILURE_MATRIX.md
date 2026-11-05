@@ -258,3 +258,10 @@ rows only under its own heading. Rows name a test path; a row without a test is 
 | The console shows Python literals or empty hazard reasons | yes/no, "not set", recorded PubChem codes | tests/api/test_console_tables.py |
 | The run history parses every bundle | A summary index written on save, rebuilt when absent | tests/cli/test_run_store_atomic.py::test_the_history_summary_reads_without_the_bundle |
 | Chips wrap inside themselves, the page scrolls sideways on a phone, a tick label clips | Chips wrap between each other; tables scroll in their panel; ticks carry no unit | tests/e2e/test_browser.py::test_ui_audit_separation_and_text |
+
+## Track H: the live Haiku run
+
+| Failure | Behavior | Test |
+|---|---|---|
+| Fetching and classifying take longer than the rationale budget | The rationale budget is timed from its own step; the model writes the rationale | tests/agent/test_pipeline.py::test_the_rationale_budget_clock_starts_with_the_rationale_step |
+| A row in the summary top K is excluded by its cross-checks | Each round rescores after enrichment; the excluded row is never classified | tests/agent/test_discovery.py::test_rows_the_cross_checks_exclude_are_never_classified |
