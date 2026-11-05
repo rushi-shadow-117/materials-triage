@@ -117,3 +117,38 @@ def test_case_yaml_round_trip_keeps_expectation_verbatim(tmp_path: Path) -> None
     text = "Expect HfO2, Al2O3, ZrO2 near the top; SiO2 shown as the anchor.\n  Second line."
     (tmp_path / "A9.yaml").write_text(yaml.safe_dump({**NORMAL, "id": "A9", "expectation": text}))
     assert load_cases(tmp_path)[0].expectation == text
+
+
+def test_live_results_lead_with_denominators_and_the_scripted_suite_is_labelled(
+    tmp_path: Path,
+) -> None:
+    # review F06: the headline was a scripted-model count with a scripted judge
+    import json
+
+    cases_dir = tmp_path / "cases"
+    cases_dir.mkdir()
+    cases = load_cases(write_cases(cases_dir, NORMAL, ADVERSARIAL))
+    results_dir = tmp_path / "results"
+    write_results(run_suite(cases, SampleBundleExecutor(), FakeJudge(), suite="all"), results_dir)
+    live_dir = results_dir / "live"
+    path = write_results(
+        run_suite(cases, SampleBundleExecutor(), FakeJudge(), suite="F1"), live_dir
+    )
+    data = json.loads(path.read_text())
+    data["executor"] = "pipeline:live:cassettes, claude-haiku-5-5, 2026-11-05"
+    path.write_text(json.dumps(data))
+    (live_dir / "notes.yaml").write_text(
+        f"{path.stem}:\n  model: claude-haiku-5-5\n  date: 2026-11-05\n  headline: true\n"
+        "  note: test\n"
+    )
+    text = build(
+        eval_results=results_dir,
+        validation_json=tmp_path / "none.json",
+        calibration_json=tmp_path / "none.json",
+        prereg_path=tmp_path / "none.json",
+        judge_sample=tmp_path / "none.md",
+        scoring_tests=tmp_path / "no_tests",
+    )
+    assert text.index("## Live model") < text.index("## Regression harness (scripted model)")
+    assert "on claude-haiku-5-5, 2026-11-05:" in text
+    assert "repeat(s) in total" in text and "attack success 0 of" in text

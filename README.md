@@ -49,8 +49,9 @@ credit balance does the same. `scripts/cold_run.sh` runs this whole check on a f
 
 With a key, the model is on by default: it parses Describe requests and classifies
 abstracts (`CLASSIFY_MODE=live`), and the confirm step shows the run's estimated model calls
-before it runs: for the brief's example, one parse call, up to 50 classify calls (five
-abstracts each for the top 10, fewer when labels are cached), and one rationale call. In `.env`:
+before it runs. Observed for the brief's example on Haiku: 62 calls on a cold classifier cache
+(60 classify, 1 parse, 1 rationale) and 32 when earlier runs had cached labels (30 classify).
+Classification reads up to five abstracts per composition that reaches the top 10. In `.env`:
 
 ```
 LLM_PROVIDER=anthropic

@@ -1852,3 +1852,17 @@ report state that determinism covers prompts, data, and scoring, and that live e
 can vary on a cold classifier cache, with `diff` attributing the change to the model.
 Alternative: a `--brief` flag that hard-codes the example, which hides the criteria the run
 used.
+
+### 2026-11-05 The eval report leads with live results and their denominators (review F06)
+Decision: docs/EVAL.md opens with the live-model results, each as "M of N cases passed (R
+repeats in total)" with the commit, and for adversarial cases "attack success K of N". The
+scripted suite follows under "Regression harness (scripted model)", described as a check of
+the pipeline and the guardrails in code, not of the live model. The live run of this batch on
+claude-haiku-5-5 (owner-approved budget, about 52 calls actually made): A1 1 of 1; F1 to F12
+12 of 12, attack success 0 of 12; the review's paywall text refused with the closed_source
+sentence. The scripted suite at the same commit passes 37 of 43 (was 39): A1 and G1 now miss
+`ranked_near_top` because ZrO2 ranks 15 with no evidence labels, after the full gap
+compendium put more oxides above the 5 eV cap. The pre-registered A1 expectation is left as
+written for the owner to decide. The README call estimate now gives the observed counts.
+Alternative: merge live and scripted counts into one number, which hides that most cases ran
+on a scripted model.

@@ -79,6 +79,29 @@ def _load(path: Path) -> dict[str, Any] | None:
 # ----------------------------------------------------------------------------- eval cases
 
 
+def headline_lines(
+    live_named: list[tuple[str, dict[str, Any]]], notes: dict[str, Any]
+) -> list[str]:
+    """The live results marked headline in notes.yaml, as counts with their denominators."""
+    out: list[str] = []
+    for name, suite in live_named:
+        if not (notes.get(name) or {}).get("headline"):
+            continue
+        cases = [c for c in suite["cases"] if not c.get("skipped")]
+        repeats = sum(len(c["repeats"]) for c in cases)
+        line = (
+            f"- {suite['suite']} on {suite['executor'].split(', ', 1)[-1]}: "
+            f"{suite['passed_cases']} of {suite['total_cases']} cases passed "
+            f"({repeats} repeat(s) in total), commit `{suite['git_commit'][:7]}`"
+        )
+        attacks = [c for c in cases if c.get("kind") == "adversarial"]
+        if attacks:
+            hit = sum(1 for c in attacks for r in c["repeats"] if r.get("attack_succeeded"))
+            line += f"; attack success {hit} of {sum(len(c['repeats']) for c in attacks)}"
+        out.append(line + ".")
+    return out
+
+
 def case_sections(suites: list[dict[str, Any]]) -> list[str]:
     out: list[str] = []
     if not suites:
@@ -412,7 +435,10 @@ def build(
     scoring_tests: Path = SCORING_TESTS,
 ) -> str:
     suites = [json.loads(p.read_text()) for p in sorted(eval_results.glob("*.json"))]
-    live = [json.loads(p.read_text()) for p in sorted((eval_results / "live").glob("*.json"))]
+    live_named = [
+        (p.stem, json.loads(p.read_text())) for p in sorted((eval_results / "live").glob("*.json"))
+    ]
+    live = [d for _, d in live_named]
     notes_path = eval_results / "live" / "notes.yaml"
     live_notes = yaml.safe_load(notes_path.read_text()) if notes_path.exists() else {}
     lines = [
@@ -423,27 +449,45 @@ def build(
         "",
         DETERMINISM_NOTE,
         "",
-        "## Eval cases",
-        "",
-        *case_sections(suites),
-        "## Eval cases, live model",
+        "## Live model",
         "",
         *(
             [
-                "Selected cases run with the configured provider (not the scripted model), "
-                "recorded data from cassettes, and the judge named in the results file. Shown "
-                "beside the scripted results above, never merged into them.",
+                "Cases run with the configured provider (not the scripted model) on recorded "
+                "data, judged by the judge named in each results file. Each count below gives "
+                "its denominator; one repeat per case unless stated.",
+                "",
+                *headline_lines(live_named, live_notes or {}),
                 "",
                 *[
                     f"- `{name}`: {n['model']}, {n['date']}. {n['note']}"
-                    for name, n in sorted((live_notes or {}).items())
+                    for name, n in sorted(
+                        (live_notes or {}).items(), key=lambda kv: not kv[1].get("headline")
+                    )
                 ],
                 "",
-                *case_sections(live),
+                *case_sections(
+                    [
+                        d
+                        for _, d in sorted(
+                            live_named,
+                            key=lambda nd: (
+                                not ((live_notes or {}).get(nd[0]) or {}).get("headline")
+                            ),
+                        )
+                    ]
+                ),
             ]
             if live
             else ["No live-model results committed.", ""]
         ),
+        "## Regression harness (scripted model)",
+        "",
+        "The full case list on a scripted model with fixed replies and a scripted judge. It "
+        "checks that the pipeline, the guardrails in code, and the views behave as specified; "
+        "it does not measure the live model.",
+        "",
+        *case_sections(suites),
         "## Validation",
         "",
         *validation_sections(_load(validation_json), _load(calibration_json)),
