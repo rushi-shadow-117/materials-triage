@@ -92,7 +92,7 @@ def headline_lines(
         line = (
             f"- {suite['suite']} on {suite['executor'].split(', ', 1)[-1]}: "
             f"{suite['passed_cases']} of {suite['total_cases']} cases passed "
-            f"({repeats} repeat(s) in total), commit `{suite['git_commit'][:7]}`"
+            f"({repeats} repeat(s) in total), commit `{(suite.get('git_commit') or 'unknown')[:7]}`"
         )
         attacks = [c for c in cases if c.get("kind") == "adversarial"]
         if attacks:

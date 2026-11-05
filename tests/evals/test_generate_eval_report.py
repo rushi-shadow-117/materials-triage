@@ -4,6 +4,7 @@ missing."""
 import json
 from pathlib import Path
 
+import pytest
 import yaml
 from evals.cases import load_cases
 from evals.execute import SampleBundleExecutor
@@ -173,3 +174,35 @@ def test_scripted_misses_carry_their_owner_reviewed_explanation(tmp_path: Path) 
     harness = text[text.index("## Regression harness (scripted model)") :]
     assert "Known misses (owner-reviewed):" in harness
     assert "- A1: kept as pre-registered; ZrO2 note" in harness
+
+
+def test_a_live_suite_with_no_git_commit_still_reports(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    # outside a git checkout (the release zip) a fresh suite records git_commit None
+    import json
+
+    import evals.runner
+
+    monkeypatch.setattr(evals.runner, "git_commit", lambda: None)
+    cases_dir = tmp_path / "cases"
+    cases_dir.mkdir()
+    cases = load_cases(write_cases(cases_dir, NORMAL, ADVERSARIAL))
+    results_dir = tmp_path / "results"
+    live_dir = results_dir / "live"
+    path = write_results(
+        run_suite(cases, SampleBundleExecutor(), FakeJudge(), suite="F1"), live_dir
+    )
+    assert json.loads(path.read_text())["git_commit"] is None
+    (live_dir / "notes.yaml").write_text(
+        f"{path.stem}:\n  model: m\n  date: d\n  headline: true\n  note: n\n"
+    )
+    text = build(
+        eval_results=results_dir,
+        validation_json=tmp_path / "none.json",
+        calibration_json=tmp_path / "none.json",
+        prereg_path=tmp_path / "none.json",
+        judge_sample=tmp_path / "none.md",
+        scoring_tests=tmp_path / "no_tests",
+    )
+    assert "commit `unknown`" in text
