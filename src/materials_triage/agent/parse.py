@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import dataclasses
 import json
+import math
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -364,6 +365,14 @@ def parse_from_settings(
             [str(c) for c in raw["candidate_list"]], profile.synonyms
         )
         raw["candidate_list"] = resolved
+    for key, value in raw.items():
+        # 1e999 in JSON parses to infinity; say which setting in a sentence (review F12)
+        if isinstance(value, float) and not math.isfinite(value):
+            raise ValueError(f"{key} must be a finite number.")
+        if isinstance(value, dict) and any(
+            isinstance(v, float) and not math.isfinite(v) for v in value.values()
+        ):
+            raise ValueError(f"{key} must hold finite numbers.")
     try:
         query = QuerySettings.model_validate(raw)
     except ValidationError as e:

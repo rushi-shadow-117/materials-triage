@@ -252,3 +252,14 @@ def test_resolve_matches_names_and_reports_the_rest(client: TestClient) -> None:
     assert started.status_code == 422
     detail = started.json()["detail"]
     assert detail.startswith("None of these matched") and "[" not in detail
+
+
+def test_a_non_finite_setting_is_a_422_sentence(client: TestClient) -> None:
+    # review F12: 1e999 parsed to infinity and ran, excluding every row without a word
+    body = (
+        '{"request_text": "x", "settings": {"profile": "oxide_dielectric_thin_film", '
+        '"mode": "candidate_list", "candidate_list": ["HfO2"], "band_gap_min_ev": 1e999}}'
+    )
+    r = client.post("/api/runs", content=body, headers={"content-type": "application/json"})
+    assert r.status_code == 422
+    assert r.json()["detail"] == "band_gap_min_ev must be a finite number."

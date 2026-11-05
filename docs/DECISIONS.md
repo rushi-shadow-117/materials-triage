@@ -1794,3 +1794,15 @@ existing display rule in config/hazard_policy.yaml says "notifications", and thi
 noun.
 Alternative: show PubChem's sentences verbatim, which mixes percentages, company counts and
 notification counts in one line.
+
+### 2026-11-05 Physical ranges for typed filters; non-finite numbers refused (review F12)
+Decision (owner, Nov 5): the site profile's `physical_ranges` entry bounds `band_gap_min_ev`
+and `band_gap_max_ev` to 0 to 15 eV and `max_elements` to 1 to 6. `resolve()` clamps a value
+outside and reports it like the weight and stability clamps; the effective query carries the
+applied value. A non-finite number is refused: the form path answers 422 with "<setting> must
+be a finite number.", and QuerySettings rejects infinity and NaN on every path
+(`allow_inf_nan=False`). Before, a 50 eV floor and 40 elements were accepted, and 1e999 parsed
+to infinity and ran, each ending in "Ranked 0 of 0 candidates" with no reason. The new site
+fields change every run's config sha once.
+Alternative: refuse out-of-range values with a 422, which the owner did not choose because a
+clamp keeps the run going and shows what changed.
