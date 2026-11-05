@@ -231,3 +231,12 @@ rows only under its own heading. Rows name a test path; a row without a test is 
 | Parse and run on a request with a clamp, a missing field, a refusal, or an uncovered property | The run does not start; the form opens with the reason; the button is absent without a model | tests/e2e/test_browser.py::test_parse_and_run_is_offered_only_with_a_model |
 | A step's prompt is larger than its token budget (a discovery rationale for every ranked row) | The request is not sent; the step takes its template path and the run is partial with the reason | tests/agent/test_loop.py::test_a_prompt_too_large_for_the_budget_is_never_sent; tests/agent/test_rationale.py::test_slot_plan_asks_only_for_the_shown_rows |
 | The provider rejects a request for any other reason (HTTP 400 and the like) | The step fails with the provider's message; the run completes partial instead of failing | tests/agent/test_loop.py::test_a_provider_error_fails_the_step_not_the_run |
+
+## Track H sweep: the brief's example
+
+| Failure | Behavior | Test |
+|---|---|---|
+| Some shown rows carry evidence labels and others went unread | Evidence leaves every row in the run; a partial reason names the unread rows | tests/agent/test_pipeline.py::test_evidence_all_or_none_drops_evidence_when_shown_rows_are_mixed |
+| An anchor would be placed among rows never cross-checked | Placement, chart, and overview count cross-checked rows only; the CSV marks the rest | tests/render/test_views.py::test_chart_and_counts_leave_out_rows_scored_on_summary_data_only; tests/render/test_markdown.py::test_csv_has_one_row_per_candidate_and_anchor |
+| Hundreds of exclusions listed alphabetically | Counted by rule; cross-checked near misses first | tests/render/test_views.py::test_excluded_rows_are_counted_by_rule_and_ordered_cross_checked_first |
+| The rationale calls a displayed value missing | The model's view says "not scored" where a value exists | tests/agent/test_rationale.py::test_redacted_view_says_not_scored_when_a_value_exists |

@@ -233,7 +233,13 @@ function Results({ data, view, setView, runId }: { data: RunViewJson; view: "pi_
           </tbody>
         </table>
         {data.ties_note && <p className="muted" data-testid="ties-note">{data.ties_note}</p>}
-        {data.hidden_ranked > 0 && <p className="muted">{data.hidden_ranked} more ranked rows beyond top N; export the CSV or JSON for all of them.</p>}
+        {data.hidden_ranked > 0 && (
+          <p className="muted" data-testid="hidden-ranked">
+            {data.hidden_ranked} more ranked rows beyond top N
+            {data.hidden_unchecked > 0 ? `, of which ${data.hidden_unchecked} were scored on summary data only (hazard and structure not checked, not compared against)` : ""}
+            ; export the CSV or JSON for all of them.
+          </p>
+        )}
         <p className="muted">
           Scores are computed in code (weighted mean of normalized criteria). Rationale and caveats are checked against the score table before display. A missing value is shown as missing and never scored as zero.
         </p>
@@ -243,6 +249,12 @@ function Results({ data, view, setView, runId }: { data: RunViewJson; view: "pi_
 
       <h2>Excluded ({data.excluded.length + data.hidden_excluded}) · removed before ranking by rule</h2>
       <div className="panel">
+        {data.excluded_by_rule.length > 0 && (
+          <p data-testid="excluded-counts">
+            By rule: {data.excluded_by_rule.map((r) => <span key={r.rule} className="chip" style={{ marginRight: 4 }}><Tip kind="exclusion" id={r.rule}>{r.rule}</Tip> {r.count}</span>)}
+          </p>
+        )}
+        {data.excluded.length > 0 && <p className="muted">Shown: cross-checked candidates first, then the closest misses. {data.hidden_excluded > 0 ? `${data.hidden_excluded} more in the CSV.` : ""}</p>}
         {data.excluded.length === 0 ? <p className="muted">None. Every fetched candidate passed the hard rules.</p> : (
           <table>
             <thead><tr><th>Material</th><th>Rule</th><th>Detail</th><th>Rule source</th></tr></thead>

@@ -1594,3 +1594,53 @@ when a discovery run asked for one sentence per ranked row (about 1,700) and sen
 saved nothing. With the fix the same run completes with model rationale for the top N.
 Alternative: chunk the rationale across several calls for every ranked row, which spends
 calls on sentences no view displays.
+
+## Track H sweep: the brief's example, end to end
+
+### 2026-11-04 Evidence is all-or-none across the shown rows
+Decision (owner): when, after classification, some shown rows (the top N and the anchors) carry
+verified labels and others with abstracts could not be classified (budget, a cache miss),
+evidence leaves every row in that run and a partial reason says which rows were unread. A run
+with no model, where no row has labels, is already uniform and is not affected. Found when the
+brief's example put B2O3 first on a stale cached label while HfO2, ZrO2, Y2O3, La2O3 went
+unread and tied at 1.000. The demo configuration becomes `CLASSIFY_MODE=live` (the Settings
+default); the confirm step shows the call estimate before Run.
+Alternative: keep scoring each row on whatever labels it has, which lets a lucky cache entry
+decide the top of the list.
+
+### 2026-11-04 Comparisons use cross-checked rows only
+Decision (owner): a row scored on summary data alone (`enrichment_missing`: no hazard record,
+structure, or literature) stays in the exports with `cross_checked: no`, and the page says how
+many such rows sit beyond top N. The anchor's placement, the chart, and the overview count only
+cross-checked rows. Found when SiO2 read "would place 25th of 1634, between SO2 and Sb2O3"
+against molecules and acids nobody had checked.
+Alternative: drop those rows from the ranking, which loses them from the exports a reviewer
+uses to see what the screen did not check.
+
+### 2026-11-04 Exclusions are counted by rule and the near misses come first
+Decision: the results page counts exclusions by rule and shows cross-checked exclusions first,
+then the rest by the weighted mean their kept breakdown would give (a sort key, never shown).
+The chart names only shown rows and anchors among the unplotted and counts the rest. The
+Caveats section defines only caveats the shown ranked rows and anchors carry.
+`experimental_gap_unreferenced` is never a row's key caveat. Found on the same run: 50 of 385
+exclusions shown alphabetically (Ac, As, Be compounds), a 1,600-entry unplotted list, and the
+same unreferenced-table sentence as the key caveat on most rows.
+Alternative: keep the alphabetical list, which shows the least relevant exclusions first.
+
+### 2026-11-04 The rationale says "not scored" where a value exists, and explains the rank
+Decision: the model's view marks a criterion that has a value but is not scored (the dielectric
+band pending) as "not scored: <reason>", and a missing value as "missing: <reason>"; the step
+fragment asks for why the row ranks where it does relative to its neighbours and not for the
+caveats the page already shows. The model's view stays digit-free (the overview note about
+summary-only rows carries no counts). Found when the rationale said "dielectric constant is
+missing" beside k = 18.7.
+Alternative: hide unscored criteria from the model, which leaves it unable to mention a
+displayed value.
+
+### 2026-11-04 The fake judge reads the caveats of the rows the view shows
+Decision: the judge item `caveat_presence` lists the caveat ids of the shown top N and the
+anchors, not every ranked row beyond top N that no view displays. The old list passed only
+because the alphabetical exclusion list happened to carry the same ids; with exclusions
+reordered, two cases' judge items flipped to fail on ids the page never shows. The suite stays
+at 39 of 43 and no judge item changes outcome.
+Alternative: keep listing every ranked row, which grades a view on text it cannot hold.

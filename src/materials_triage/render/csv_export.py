@@ -6,7 +6,7 @@ import csv
 import io
 
 from materials_triage.config.schema import CRITERIA
-from materials_triage.records.bundle import Anchor, Candidate, ProvenanceBundle
+from materials_triage.records.bundle import Anchor, Candidate, Flag, ProvenanceBundle
 from materials_triage.render import precision
 from materials_triage.render.tokens import ShownRank, shown_ranks
 
@@ -14,6 +14,7 @@ FIXED = [
     "run_id",
     "composition",
     "kind",
+    "cross_checked",
     "rank",
     "tied",
     "would_rank",
@@ -61,6 +62,8 @@ def _row(
         str(bundle.run.run_id),
         row.composition,
         "anchor" if isinstance(row, Anchor) else "candidate",
+        # no: scored on summary data alone, hazard and structure not checked (Track H sweep)
+        "no" if Flag.ENRICHMENT_MISSING in row.flags else "yes",
         ""
         if isinstance(row, Anchor) or row.rank is None
         else precision.quantize(ranks[row.composition].rank, 0),

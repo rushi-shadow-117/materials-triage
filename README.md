@@ -42,18 +42,19 @@ credit balance does the same. `scripts/cold_run.sh` runs this whole check on a f
 
 With a key, the model is on by default: it parses Describe requests and classifies
 abstracts (`CLASSIFY_MODE=live`), and the confirm step shows the run's estimated model calls
-before it runs. The demo option makes one call per Describe request and none for Rank my list.
-In `.env`:
+before it runs: for the brief's example, one parse call, up to 50 classify calls (five
+abstracts each for the top 10, fewer when labels are cached), and one rationale call. In `.env`:
 
 ```
 LLM_PROVIDER=anthropic
 LLM_MODEL=claude-sonnet-5-5
 ANTHROPIC_API_KEY=...
-CLASSIFY_MODE=cache_only
+CLASSIFY_MODE=live
 ```
 
-`CLASSIFY_MODE=cache_only` reads evidence labels from the classifier cache and marks misses
-unclassified; it never calls the model for an abstract. `LLM_PROVIDER=openai` and `gemini`
+`CLASSIFY_MODE=cache_only` reads evidence labels from the classifier cache only and never calls
+the model for an abstract; when that leaves some shown rows labelled and others unread, evidence
+is dropped for every row in the run and the page says so. `LLM_PROVIDER=openai` and `gemini`
 are experimental presets (own key, explicit `LLM_MODEL`; not evaluated), see
 `docs/ADMIN_GUIDE.md`. Live fetching needs `FETCH_MODE=live`,
 `MP_API_KEY`, and `OPENALEX_API_KEY` plus Postgres (`docker compose up -d`, then `uv run alembic

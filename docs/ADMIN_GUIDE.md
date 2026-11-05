@@ -59,8 +59,10 @@ The default model is `claude-sonnet-5-5`. A missing key, a rejected key, or an e
 credit balance turns the model off for the process: `/api/health` reports `llm_status`
 (`missing_key`, `invalid_key`, `no_credit`), the app shows a banner, and runs complete with
 template rationale and unclassified evidence. Restart after fixing the key. The demo
-configuration (one parse call per request): `LLM_PROVIDER=anthropic`,
-`LLM_MODEL=claude-sonnet-5-5`, `CLASSIFY_MODE=cache_only`.
+configuration: `LLM_PROVIDER=anthropic`, `LLM_MODEL=claude-sonnet-5-5`, `CLASSIFY_MODE=live`
+(one parse call, up to five classify calls per shown row, one rationale call; the confirm step
+shows the estimate). With `cache_only`, if some shown rows have cached labels and others do not,
+evidence is dropped for every row in that run and the page says so.
 
 ## Sign-in and roles
 

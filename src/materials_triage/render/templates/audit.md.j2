@@ -123,7 +123,7 @@ No candidate passed the criteria.
 {{ view.ties_note }}
 {% endif %}
 {% if view.hidden_ranked %}
-{{ view.hidden_ranked }} more ranked candidate(s) beyond top_n are not shown; export CSV for every row.
+{{ view.hidden_ranked }} more ranked candidate(s) beyond top_n are not shown{% if view.hidden_unchecked %}, of which {{ view.hidden_unchecked }} were scored on summary data only (hazard and structure not checked){% endif %}; export CSV for every row.
 
 {% endif %}
 

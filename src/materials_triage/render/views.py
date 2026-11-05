@@ -14,6 +14,7 @@ from materials_triage.records.bundle import (
     CriterionScore,
     EvidenceHit,
     EvidenceLabel,
+    Flag,
     ProvenanceBundle,
 )
 from materials_triage.render import precision
@@ -35,6 +36,7 @@ from materials_triage.render.tokens import (
     hide_record_ids,
     render_text,
 )
+from materials_triage.scoring.scorer import weighted_total
 
 MAX_EXCLUDED_SHOWN = 50  # the CSV export carries every row
 TIER_ORDER = (
@@ -177,6 +179,8 @@ class RunView:
     caveat_texts: dict[str, CaveatText] = field(default_factory=dict)
     hidden_ranked: int = 0  # ranked rows beyond top_n, not shown
     hidden_excluded: int = 0
+    hidden_unchecked: int = 0  # of the hidden ranked rows, those scored on summary data only
+    excluded_by_rule: list[ExcludedCount] = field(default_factory=list)
     hull_cutoff: str | None = None  # the effective energy above hull cutoff
     overview: str | None = None  # the verified summary:overview rationale slot
     unresolved_candidates: list[str] = field(default_factory=list)
@@ -188,6 +192,20 @@ class RunView:
     profile_caveats: list[CaveatText] = field(default_factory=list)
     # band gap versus dielectric constant for every scored candidate that has both (Track H)
     chart: ChartView | None = None
+
+
+@dataclass(frozen=True)
+class ExcludedCount:
+    rule: str
+    count: int
+
+
+def _excluded_counts(excluded: list[Candidate]) -> list[ExcludedCount]:
+    counts: dict[str, int] = {}
+    for c in excluded:
+        if c.excluded is not None:
+            counts[c.excluded.rule.value] = counts.get(c.excluded.rule.value, 0) + 1
+    return [ExcludedCount(r, n) for r, n in sorted(counts.items(), key=lambda kv: (-kv[1], kv[0]))]
 
 
 @dataclass(frozen=True)
@@ -217,11 +235,35 @@ class ChartPoint:
 @dataclass(frozen=True)
 class ChartView:
     points: list[ChartPoint]
-    unplotted: list[str]  # "HfO2: no dielectric constant in the configured sources"
+    unplotted: list[str]  # shown rows and anchors only: "HfO2: no dielectric constant ..."
     x_label: str
     y_label: str
     x_ticks: list[ChartTick]
     y_ticks: list[ChartTick]
+    # rows not named above: beyond top N without a k value, or never cross-checked
+    others_not_plotted: int = 0
+
+
+def cross_checked(row: Candidate | Anchor) -> bool:
+    """The row's composition was enriched (hazard record, structure, literature fetched);
+    a row without it was scored on summary data alone."""
+    return Flag.ENRICHMENT_MISSING not in row.flags
+
+
+def _excluded_order(excluded: list[Candidate]) -> list[Candidate]:
+    """Cross-checked exclusions first (the candidates that came near the top), then by the
+    weighted mean the excluded row's kept breakdown would give; a sort key only, never shown.
+    Ties by composition, so the order is deterministic."""
+
+    def key(c: Candidate) -> tuple[int, float, str]:
+        would = weighted_total(c.score.criteria) if c.score is not None else None
+        return (
+            0 if cross_checked(c) else 1,
+            -(would if would is not None else -1.0),
+            c.composition,
+        )
+
+    return sorted(excluded, key=key)
 
 
 def _chart(
@@ -233,13 +275,21 @@ def _chart(
     hide_ids: bool,
 ) -> ChartView:
     shown = {c.composition for c in shown_ranked}
+    # cross-checked rows only: a row scored on summary data alone was never checked for
+    # hazard or structure and is not compared against (Track H sweep)
     rows: list[tuple[str, Candidate | Anchor]] = [
-        *(("shortlist" if c.composition in shown else "ranked", c) for c in ranked_all),
-        *(("excluded", c) for c in excluded_all),
+        *(
+            ("shortlist" if c.composition in shown else "ranked", c)
+            for c in ranked_all
+            if cross_checked(c)
+        ),
+        *(("excluded", c) for c in excluded_all if cross_checked(c)),
         *(("anchor", a) for a in bundle.anchors),
     ]
+    named = shown | {a.composition for a in bundle.anchors}
     points: list[ChartPoint] = []
     unplotted: list[str] = []
+    not_named = 0
     for status, row in rows:
         gap_score = next(
             (cs for cs in (row.score.criteria if row.score else []) if cs.criterion == "band_gap"),
@@ -247,12 +297,19 @@ def _chart(
         )
         scored = row.group.polymorphs.scored
         k_value = scored.dielectric.get("e_total") if scored is not None else None
+        reason = None
         if gap_score is None or gap_score.raw_value is None:
-            unplotted.append(f"{row.composition}: no band gap value")
+            reason = "no band gap value"
+        elif k_value is None or k_value.value is None:
+            reason = "no dielectric constant in the configured sources"
+        if reason is not None:
+            if row.composition in named:
+                unplotted.append(f"{row.composition}: {reason}")
+            else:
+                not_named += 1
             continue
-        if k_value is None or k_value.value is None:
-            unplotted.append(f"{row.composition}: no dielectric constant in the configured sources")
-            continue
+        assert gap_score is not None and gap_score.raw_value is not None
+        assert k_value is not None and k_value.value is not None
         factor, _label = precision.display_unit(gap_score.raw_unit, units)
         ids: list[str] = []
         if not hide_ids:
@@ -272,10 +329,12 @@ def _chart(
                 record_ids=ids,
             )
         )
+    unchecked = sum(1 for c in [*ranked_all, *excluded_all] if not cross_checked(c))
     gap_unit = precision.display_unit("eV", units)[1] or "eV"
     return ChartView(
         points=points,
         unplotted=unplotted,
+        others_not_plotted=not_named + unchecked,
         x_label=f"band gap ({gap_unit})",
         y_label="dielectric constant k (computed, DFPT)",
         x_ticks=_ticks([p.gap for p in points], "eV", units),
@@ -573,14 +632,16 @@ def build(
     top_n = bundle.criteria.effective_settings.get("top_n")
     limit = int(top_n) if isinstance(top_n, int) and top_n > 0 else None
     ranked_all = bundle.ranked()
-    excluded_all = bundle.excluded()
+    excluded_all = _excluded_order(bundle.excluded())
     shown_ranked = ranked_all[:limit] if limit else ranked_all
     shown_excluded = excluded_all[:MAX_EXCLUDED_SHOWN]
     rows = [_row_view(c, bundle, index, caveats, units, hide_ids) for c in shown_ranked]
     excluded = [_row_view(c, bundle, index, caveats, units, hide_ids) for c in shown_excluded]
     anchors = [_row_view(a, bundle, index, caveats, units, hide_ids) for a in bundle.anchors]
+    # the Caveats section defines what the shown ranked rows and anchors carry, not what only
+    # an excluded row carries (Track H sweep)
     texts: dict[str, CaveatText] = {}
-    for r in [*rows, *excluded, *anchors]:
+    for r in [*rows, *anchors]:
         for c in r.caveats:
             texts.setdefault(c.id.value, c)
     profile_caveats: dict[str, CaveatText] = {}
@@ -616,6 +677,8 @@ def build(
         caveat_texts=texts,
         hidden_ranked=len(ranked_all) - len(shown_ranked),
         hidden_excluded=len(excluded_all) - len(shown_excluded),
+        hidden_unchecked=sum(1 for c in ranked_all[len(shown_ranked) :] if not cross_checked(c)),
+        excluded_by_rule=_excluded_counts(excluded_all),
         hull_cutoff=_hull_cutoff(bundle, units),
         overview=_overview(bundle, index, units, hide_ids),
         unresolved_candidates=list(bundle.criteria.unresolved_candidates),

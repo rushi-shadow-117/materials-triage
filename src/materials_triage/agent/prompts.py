@@ -64,7 +64,10 @@ FRAGMENTS: dict[str, str] = {
         "materials, ranks, values, sources, criteria, counts, hazard statements, and record ids "
         "only through the template tokens given in the DATA block, copied exactly; write no "
         "digits, formulas, or units of your own. Do not rank, score, or compare beyond what the "
-        "DATA block states. Name a caveat only when the DATA block lists it for that candidate."
+        "DATA block states. Say why the candidate ranks where it does relative to the rows "
+        "around it, from its criterion values; do not restate its caveats or flags, which the "
+        "page shows in their own column. A criterion marked 'not scored' has a value: never "
+        "call it missing. Name a caveat only when the DATA block lists it for that candidate."
     ),
     "step.relax": (
         "Task: too few candidates passed the hard filters. The DATA block lists the "

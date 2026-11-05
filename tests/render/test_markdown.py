@@ -194,6 +194,7 @@ def test_csv_has_one_row_per_candidate_and_anchor(bundle: ProvenanceBundle) -> N
     assert th["rank"] == "" and th["excluded_rule"] == "hazard.radioactive_exclude"
     si = next(r for r in rows if r["kind"] == "anchor")
     assert si["would_rank"] == "1" and si["out_of"] == "9"  # the anchor counts itself
+    assert hf["cross_checked"] == "yes"
     mev = list(csv.DictReader(io.StringIO(csv_export.export_csv(bundle, units="meV"))))
     assert next(r for r in mev if r["composition"] == "HfO2")["band_gap_unit"] == "meV"
     _golden("export.csv", text)

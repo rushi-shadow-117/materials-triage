@@ -196,6 +196,7 @@ export interface ChartView {
   y_label: string;
   x_ticks: ChartTick[];
   y_ticks: ChartTick[];
+  others_not_plotted: number;
 }
 
 export interface RunViewJson {
@@ -213,6 +214,8 @@ export interface RunViewJson {
   caveat_texts: Record<string, CaveatText>;
   hidden_ranked: number;
   hidden_excluded: number;
+  hidden_unchecked: number;
+  excluded_by_rule: { rule: string; count: number }[];
   hull_cutoff: string | null;
   unresolved_candidates: string[];
   unresolved: { text: string; reason: string }[];
