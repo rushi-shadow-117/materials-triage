@@ -35,17 +35,17 @@ bash scripts/cold_run.sh /tmp/cold-run        # defaults to the current commit
 Recorded below by Track D from the commit it was run on; rerun the script to refresh.
 
 <!-- cold-run-output -->
-Commit 1c55b55, 2026-11-04, macOS, Python 3.12, Node 20, bare defaults, `bash scripts/cold_run.sh <dir> HEAD`:
+Commit 5baf72f, 2026-11-05, macOS, Python 3.12, Node 20, bare defaults, run alone, `COLD_RUN_PORT=8799 bash scripts/cold_run.sh <dir> HEAD`:
 
 ```
 1. clone HEAD into <dir>                        PASS
 2. uv sync (locked)                             PASS
 3. web: npm ci and build                        PASS
-4. lint, types, unit tests (no browser, no db)  PASS
-5. bare serve on :8765 (defaults only)          PASS
+4. lint, types, unit tests (no browser)         PASS
+5. bare serve on :8799 (defaults only)          PASS
 6. the web app answers at / and /console        PASS
 7. Rank my list over the API; its page reloads  PASS
-8. one eval case on the scripted model (A1)     PASS
+8. one eval case on the scripted model (F1)     PASS
 cold run complete: <dir>
 exit=0
 ```
