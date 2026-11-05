@@ -96,7 +96,7 @@ def test_audit_view_shows_values_with_provenance_and_the_polymorph_summary_only(
         len(c.group.polymorphs.top_by_hull) for c in [*bundle.candidates, *bundle.anchors]
     )
     assert (
-        "Hazard: hazard codes reported in 7 of 344 notifications (codes not listed in the "
+        "Hazard: hazard codes reported in 7 of 344 reports (codes not listed in the "
         "record); 337 report not classified (ECHA attribution applies)"
     ) in text
     assert 'verified quote: "Here, we present a structural study' in text
@@ -179,7 +179,7 @@ def test_ghs_flag_set_caveat_is_filled_from_the_row_record(
     assert with_row.entered and with_row.source.endswith("ghs_flag_codes.caveat_template")
     assert with_row.text.startswith("Flagged: a suspected carcinogenic") and "H350" in with_row.text
     total = sio2.group.hazard.notifications_total
-    assert total is not None and f"of {total} notifications" in with_row.text
+    assert total is not None and f"of {total} reports" in with_row.text
     without = caveat_config.resolve(Caveat(id=CaveatId.HAZARD_FLAG, subject="SiO2"))
     assert not without.entered
 

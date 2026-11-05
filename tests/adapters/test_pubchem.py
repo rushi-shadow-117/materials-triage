@@ -63,7 +63,7 @@ def test_hfo2_note_never_says_none_when_reports_carry_codes(
     h = _hazard(transport, cassette, "HfO2", "hafnium dioxide")
     text = ghs_counts_text(h.h_codes, h.notifications_total, h.notifications_not_classified)
     assert text == (
-        "hazard codes reported in 7 of 344 notifications (codes not listed in the record); "
+        "hazard codes reported in 7 of 344 reports (codes not listed in the record); "
         "337 report not classified"
     )
     assert "none" not in text
@@ -76,11 +76,11 @@ def test_codes_are_named_with_both_counts(transport: HttpxTransport, cassette) -
     text = ghs_counts_text(h.h_codes, h.notifications_total, h.notifications_not_classified)
     assert text == (
         "GHS codes H315, H319, H320, H335, H341, H350, H350i, H372, H373 reported in 1403 of "
-        "9127 notifications; 7724 report not classified"
+        "9127 reports; 7724 report not classified"
     )
     beo = _hazard(transport, cassette, "BeO", "beryllium oxide")
     assert ghs_counts_text(beo.h_codes, beo.notifications_total, None).endswith(
-        "reported across 49 notifications; the not-classified count is not reported"
+        "reported across 49 reports; the not-classified count is not reported"
     )
     no_codes = ghs_counts_text([], 10, 10)
-    assert no_codes == "no hazard codes: 10 of 10 notifications report not classified"
+    assert no_codes == "no hazard codes in 10 reports; 10 report not classified"

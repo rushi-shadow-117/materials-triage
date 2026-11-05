@@ -1907,3 +1907,11 @@ constant is 13 ...") is rejected even when the abstract is about the candidate. 
 in the audit view with its reason.
 Alternative: accept a sentence when the title names the candidate, or exempt elemental
 substrates, each a new rule with its own failure cases; left for an extension with tests.
+
+### 2026-11-05 The hazard note says "reports", PubChem's word (owner decision on PR #18)
+Decision (owner): the hazard note, the ghs token, and the GHS flag caveat say "M of N reports",
+not "notifications". PubChem counts reports by companies ("344 reports by companies from 5
+notifications" for HfO2), so "notifications" named the wrong unit. The flag caveat text in
+config/hazard_policy.yaml changes with it so the page uses one word for the same counts. When
+no report carries a code the note reads "no hazard codes in N reports; N report not classified".
+Alternative: keep "notifications", which contradicts the source's own sentence.

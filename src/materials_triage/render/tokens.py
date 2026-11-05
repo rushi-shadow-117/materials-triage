@@ -215,7 +215,7 @@ def _split(arg: str, parts: int, token: str) -> list[str]:
 
 
 def ghs_text(row: Candidate | Anchor) -> str:
-    """The owner's display rule: codes in M of N notifications, never a verdict."""
+    """The owner's display rule: codes in M of N reports (PubChem's word), never a verdict."""
     h = row.group.hazard
     if h is None:
         return "no PubChem record; hazard unknown"

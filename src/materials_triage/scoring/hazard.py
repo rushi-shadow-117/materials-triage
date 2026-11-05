@@ -24,7 +24,7 @@ NEUTRAL = 0.5
 
 
 def ghs_counts_text(codes: list[str], total: int | None, not_classified: int | None) -> str:
-    """PubChem's GHS aggregate as counts, never a verdict (review F14). M of N notifications
+    """PubChem's GHS aggregate as counts, never a verdict (review F14). M of N reports
     report codes and N-M report not classified. When M > 0 and the record lists no codes, it says
     so; it never says "none" while any notification reports a code."""
     named = f"GHS codes {', '.join(codes)}" if codes else None
@@ -34,15 +34,13 @@ def ghs_counts_text(codes: list[str], total: int | None, not_classified: int | N
         return "no hazard codes listed; notification counts not reported"
     if not_classified is None:
         lead = f"{named} reported" if named else "no hazard codes listed"
-        return f"{lead} across {total} notifications; the not-classified count is not reported"
+        return f"{lead} across {total} reports; the not-classified count is not reported"
     m = total - not_classified
     if m == 0:
-        return f"no hazard codes: {not_classified} of {total} notifications report not classified"
+        return f"no hazard codes in {total} reports; {not_classified} report not classified"
     what = f"{named} reported" if named else "hazard codes reported"
     unlisted = "" if named else " (codes not listed in the record)"
-    return (
-        f"{what} in {m} of {total} notifications{unlisted}; {not_classified} report not classified"
-    )
+    return f"{what} in {m} of {total} reports{unlisted}; {not_classified} report not classified"
 
 
 def hazard(
