@@ -25,6 +25,7 @@ from materials_triage.render.caveats import (
     CaveatConfig,
     CaveatText,
     key_caveat,
+    promoted_ids,
     row_specific,
 )
 from materials_triage.render.tokens import (
@@ -482,12 +483,14 @@ def _row_view(
     caveats: CaveatConfig,
     units: str,
     hide_ids: bool = False,
+    wide: frozenset[CaveatId] = PROFILE_WIDE,
 ) -> RowView:
     comp = row.composition
     is_anchor = isinstance(row, Anchor)
     hits = [e for e in bundle.evidence if e.composition == comp]
-    # the row's own caveats; profile-wide ones show once above the table (RunView.profile_caveats)
-    resolved = [caveats.resolve(c, row) for c in row_specific(row.caveats)]
+    # the row's own caveats; ids every shown ranked row carries show once above the table
+    # (RunView.profile_caveats), any other profile-wide id stays on the rows that carry it
+    resolved = [caveats.resolve(c, row) for c in row_specific(row.caveats, wide)]
     key = key_caveat(row.caveats)
     slot_id = f"candidate:{comp}:one_line"
     slot = bundle.rationale.get(slot_id)
@@ -654,9 +657,10 @@ def build(
     excluded_all = _excluded_order(bundle.excluded())
     shown_ranked = ranked_all[:limit] if limit else ranked_all
     shown_excluded = excluded_all[:MAX_EXCLUDED_SHOWN]
-    rows = [_row_view(c, bundle, index, caveats, units, hide_ids) for c in shown_ranked]
-    excluded = [_row_view(c, bundle, index, caveats, units, hide_ids) for c in shown_excluded]
-    anchors = [_row_view(a, bundle, index, caveats, units, hide_ids) for a in bundle.anchors]
+    wide = promoted_ids([c.caveats for c in shown_ranked])
+    rows = [_row_view(c, bundle, index, caveats, units, hide_ids, wide) for c in shown_ranked]
+    excluded = [_row_view(c, bundle, index, caveats, units, hide_ids, wide) for c in shown_excluded]
+    anchors = [_row_view(a, bundle, index, caveats, units, hide_ids, wide) for a in bundle.anchors]
     # the Caveats section defines what the shown ranked rows and anchors carry, not what only
     # an excluded row carries (Track H sweep)
     texts: dict[str, CaveatText] = {}
@@ -667,7 +671,7 @@ def build(
     every: list[Candidate | Anchor] = [*shown_ranked, *shown_excluded, *bundle.anchors]
     for brow in every:
         for cv in brow.caveats:
-            if cv.id in PROFILE_WIDE and cv.id.value not in profile_caveats:
+            if cv.id in wide and cv.id.value not in profile_caveats:
                 profile_caveats[cv.id.value] = caveats.resolve(cv, brow)
     for cid, text in profile_caveats.items():
         texts.setdefault(cid, text)

@@ -1769,3 +1769,13 @@ above the 5.0 eV soft-preference cap. New compositions in the top K were recorde
 `scripts/record_case_gaps.py A1 B1` (one round each, nothing left).
 Alternative: keep the slice and caveat PBE-only rows as not comparable, which leaves the bias
 in the ranking and only labels it.
+
+### 2026-11-05 A caveat applies to every row only when every shown ranked row carries it (review F03)
+Decision: a profile-wide caveat shows once under "Applies to every row" only when every shown
+ranked row carries it. Otherwise it stays in the caveat list of each row that carries it. The
+ECHA attribution keeps its own line whenever any row carries it, since it attributes data and
+says nothing about the rows. Before, the header took a profile-wide caveat from any shown row,
+excluded row, or anchor. The review's live run printed "Literature evidence was not classified
+in this run" above ten classified rows, because the SiO2 anchor (never classified) carried it.
+Alternative: drop evidence_unclassified from anchors, which fixes this one case and leaves the
+rule able to print a false sentence for any other caveat.
