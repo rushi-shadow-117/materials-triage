@@ -279,3 +279,4 @@ rows only under its own heading. Rows name a test path; a row without a test is 
 | A run asks for a band gap floor of 50 eV or 40 elements | Clamped to 15 eV and 6 elements, shown as clamps | tests/test_config_schema.py::test_physical_ranges_are_clamped_and_reported |
 | A setting is non-finite (1e999 parses to infinity) | 422: "band_gap_min_ev must be a finite number." | tests/api/test_runs_api.py::test_a_non_finite_setting_is_a_422_sentence |
 | A request asks to fetch a paywalled paper or scrape a closed source | Refused with the closed_source text, not the private-data text | tests/agent/test_parse.py::test_a_paywalled_or_closed_source_request_gets_its_own_refusal |
+| A discovery run excludes dozens of rows the PI never named (CO2, H2O, perchlorates) | The PI summary shows counts by rule and names only rows the PI listed; the audit view lists all | tests/render/test_markdown.py::test_pi_excluded_section_names_no_discovery_row |

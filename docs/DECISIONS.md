@@ -1818,3 +1818,13 @@ fetch tool. The parse prompt hash changes; the classify prompt hash does not, so
 stay valid.
 Alternative: widen the private_data text to cover closed sources, which gives two different
 requests one sentence that fits neither well.
+
+### 2026-11-05 The PI summary counts exclusions by rule (review F17)
+Decision: the PI summary's Excluded section lists a count per exclusion rule, then names only
+the excluded rows the PI listed (the candidate list and any extra anchors). It ends with "The
+audit view and the CSV export list every excluded row." The audit view, the CSV and JSON
+exports, and the web page are unchanged. In the review's live run of the brief the section
+named up to 50 rows (1,165 of the summary's 2,067 words), starting with CO2 and H2O. Anchors
+keep their own section, which already shows an anchor's exclusion.
+Alternative: cap the named list at a few rows, which still names rows the PI never asked about
+and chooses them by an order the PI cannot see.

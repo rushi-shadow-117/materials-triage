@@ -293,3 +293,32 @@ def test_record_url_links_materials_project_ids_in_older_bundles() -> None:
     )
     assert record_url(prov("pubchem", "CID:1", "https://x/1")) == "https://x/1"
     assert record_url(prov("expt_gap", "expt_gap:3:HfO2")) is None
+
+
+def _excluded_section(text: str) -> str:
+    start = text.index("## Excluded")
+    rest = text[start + 3 :]
+    end = rest.find("\n## ")
+    return text[start : start + 3 + end] if end >= 0 else text[start:]
+
+
+def test_pi_excluded_section_counts_by_rule_and_names_listed_candidates(
+    bundle: ProvenanceBundle, site: cs.SiteProfile
+) -> None:
+    # review F17: the PI view listed every excluded row (1,165 words in the brief's run)
+    listed = markdown.render_pi_summary(bundle, site)
+    section = _excluded_section(listed)
+    assert "- hazard.radioactive_exclude: 1" in section and "- hazard.exclude: 1" in section
+    assert "- ThO2: hazard.radioactive_exclude" in section  # the PI listed it
+    assert "The audit view and the CSV export list every excluded row." in section
+    audit = markdown.render_audit(bundle, site)
+    assert "ThO2" in _excluded_section(audit)
+
+
+def test_pi_excluded_section_names_no_discovery_row(
+    bundle: ProvenanceBundle, site: cs.SiteProfile
+) -> None:
+    discovery = _with_settings(bundle, mode="discovery", candidate_list=[])  # type: ignore[arg-type]
+    section = _excluded_section(markdown.render_pi_summary(discovery, site))
+    assert "- hazard.radioactive_exclude: 1" in section
+    assert "ThO2" not in section and "BeO" not in section
