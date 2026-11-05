@@ -18,3 +18,20 @@ pure function, a new screen reads the bundle.
 | Terraform apply | `infra/terraform` validates in CI and is never applied | an AWS account, an ECR push, a secrets fill |
 | Second identity provider | `AUTH_MODE=oidc` with the three `OIDC_*` settings | the issuer's audience and role claim |
 | Highlighted parse spans | the parse tool returns fields, not spans | a tool schema change and a verifier rule for spans |
+| Evidence subject check that reads context | `verify/subject.py::names_candidate`, applied in `agent/classifier.py::check_subject` | a rule for the two known false negatives below, with its own tests |
+
+## Stated limit: the evidence subject check
+
+The check passes a supporting sentence only when it names the candidate as a standalone formula
+(or, when the formula is absent, a listed synonym). It has two known false negatives, where real
+evidence about the candidate is rejected as "evidence names another material":
+
+- A sentence that does not name the material at all, such as "The dielectric constant is 13
+  and dissipation factor, tan δ, is 0.003 at room temperature" (Y2O3). The abstract is about
+  the candidate, but the chosen sentence says "the film" or nothing. Seven of the 70 labels in
+  the recorded runs fail this way.
+- Substrate notation, such as "a thin MgO/Mo(001) film". The slash marks a film on a substrate,
+  but the check reads it as a mixed system.
+
+Both lower a row's evidence; neither raises one. A rejected label stays in the audit view with
+its reason.

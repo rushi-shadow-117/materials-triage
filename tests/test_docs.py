@@ -73,3 +73,12 @@ def test_claude_md_has_no_stale_lines_and_determinism_is_scoped() -> None:
     from scripts.generate_eval_report import DETERMINISM_NOTE
 
     assert "cold classifier cache" in DETERMINISM_NOTE
+
+
+def test_evidence_check_false_negatives_are_a_stated_limit() -> None:
+    # owner decision on PR #18: the subject check's known misses are documented, not hidden
+    ext = (ROOT / "docs" / "EXTENSIONS.md").read_text()
+    dec = (ROOT / "docs" / "DECISIONS.md").read_text()
+    for text in (ext, dec):
+        assert "MgO/Mo(001)" in text
+        assert "does not name the material" in text

@@ -1897,3 +1897,13 @@ steps 4 and 8 and a clean exit. Step 8 runs F1 (the required direct-injection ca
 scripted model; A1 misses its pre-registered check on the scripted model and stays on record in
 EVAL.md.
 Alternative: `set -e` across the whole script, which still skips failures inside `&&` chains.
+
+### 2026-11-05 The evidence subject check has stated false negatives (owner decision on PR #18)
+Decision (owner): the subject check's two known false negatives are a stated limit, recorded
+here and in docs/EXTENSIONS.md, not patched. A supporting sentence that
+does not name the material (seven of the 70 recorded labels, for example Y2O3's "The dielectric
+constant is 13 ...") is rejected even when the abstract is about the candidate. Substrate notation such as
+"MgO/Mo(001)" reads as a mixed system. Both only lower evidence; a rejected label stays visible
+in the audit view with its reason.
+Alternative: accept a sentence when the title names the candidate, or exempt elemental
+substrates, each a new rule with its own failure cases; left for an extension with tests.
