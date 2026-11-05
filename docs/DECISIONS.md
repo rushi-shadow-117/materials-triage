@@ -1887,3 +1887,13 @@ and docs/EVAL.md prints an owner-reviewed explanation for each scripted miss fro
 `evals/results/scripted_notes.yaml`, including the earlier B2 miss.
 Alternative: widen the expectation to the top 15, which would tune a pre-registered check to the
 result it is meant to test.
+
+### 2026-11-05 The cold run reports every step and fails loudly (owner decision on PR #18)
+Decision (owner): every step of `scripts/cold_run.sh` prints PASS or FAIL, and the first FAIL
+exits with status 1. Each step is a function run in a subshell with errexit, outside any `if`
+(bash ignores errexit in a condition). Before, a step written as `a && b && echo PASS` printed
+nothing when `a` failed and the script went on to exit 0, so the review's cold run showed blank
+steps 4 and 8 and a clean exit. Step 8 runs F1 (the required direct-injection case) on the
+scripted model; A1 misses its pre-registered check on the scripted model and stays on record in
+EVAL.md.
+Alternative: `set -e` across the whole script, which still skips failures inside `&&` chains.
