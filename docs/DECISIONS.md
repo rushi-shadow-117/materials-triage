@@ -1866,3 +1866,16 @@ compendium put more oxides above the 5 eV cap. The pre-registered A1 expectation
 written for the owner to decide. The README call estimate now gives the observed counts.
 Alternative: merge live and scripted counts into one number, which hides that most cases ran
 on a scripted model.
+
+### 2026-11-05 Evidence read and found wanting scores 0.0 (owner decision on PR #18)
+Decision (owner): when a composition's abstracts were all read by the classifier and none
+yields a usable label (all not_relevant, or rejected because the sentence names another
+material), the evidence criterion scores 0.0 with the reason "no supporting evidence found in N
+abstracts". Missing stays reserved for abstracts not read: no model, a budget stop, or no
+abstracts. A composition with any abstract left unread stays missing. Before, the live A1's
+P2O5, whose five labels all named another material, had evidence missing; missing drops out of
+the weighted mean, so P2O5 ranked 7 at 0.993, above Al2O3 at 0.950 with a verified label.
+Re-ranked from the cached live labels (no new model call), P2O5 ranks 350 at 0.794 and Al2O3
+moves to 7.
+Alternative: keep missing and add a caveat, which leaves a row with no evidence ranked above a
+row with verified evidence.
