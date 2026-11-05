@@ -3,6 +3,7 @@ decision, 2026-11-02). The CLI, replay, diff, and export read them by run id."""
 
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 from materials_triage.records.bundle import ProvenanceBundle
@@ -20,9 +21,13 @@ class RunStore:
         return self.root / f"{run_id}.json"
 
     def save(self, bundle: ProvenanceBundle) -> Path:
+        """Write the bundle atomically: a reader (the API's status route, a concurrent CLI)
+        sees either no file or the whole file, never an empty or half-written one."""
         self.root.mkdir(parents=True, exist_ok=True)
         path = self.path(str(bundle.run.run_id))
-        path.write_text(bundle.model_dump_json(indent=1) + "\n")
+        tmp = path.with_name(f".{path.name}.{os.getpid()}.tmp")
+        tmp.write_text(bundle.model_dump_json(indent=1) + "\n")
+        os.replace(tmp, path)
         return path
 
     def load(self, run_id: str) -> ProvenanceBundle:
