@@ -139,6 +139,35 @@ def test_classifier_failure_is_recorded_not_raised(bundle: ProvenanceBundle) -> 
     assert out.hits[0].verifier_note == "classifier failed: refusal"
 
 
+def test_a_provider_error_stops_classification_after_one_request(
+    bundle: ProvenanceBundle,
+) -> None:
+    """The brief's example logged one usage-limit error per abstract; the first one ends the
+    step, the rest stay unclassified with the same plain reason, and no request follows."""
+
+    class Down:
+        model = MODEL
+        provider = "fake"
+        calls = 0
+
+        def complete(self, **_: object) -> llm.LLMResponse:
+            Down.calls += 1
+            raise RuntimeError("Error code: 400 - {'type': 'error', 'message': 'usage limits'}")
+
+    hits = [("HfO2", h) for h in _hits(bundle)]
+    assert len(hits) >= 3
+    out = _classify(Down(), hits)  # type: ignore[arg-type]
+    assert Down.calls == 1 and out.llm_calls == 1 and out.failed_calls == 1
+    assert out.labelled_calls == 0
+    assert out.stopped == "provider error (RuntimeError)"
+    assert all(h.label == EvidenceLabel.UNCLASSIFIED for h in out.hits)
+    assert len(out.entries) == 1
+    assert out.partial_reasons == [
+        f"classification stopped at {hits[0][1].openalex_id}: provider error (RuntimeError)"
+    ]
+    assert not any("Error code" in (h.verifier_note or "") for h in out.hits)
+
+
 # ------------------------------------------------------------------ the injection fixture
 
 

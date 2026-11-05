@@ -168,7 +168,9 @@ def _bundle(request: Request, run_id: str) -> ProvenanceBundle:
         raise HTTPException(status_code=404, detail="run not found") from None
 
 
-def _summary(request: Request, run_id: str) -> RunSummary:
+def _summary(request: Request, run_id: str, *, light: bool = False) -> RunSummary:
+    """`light`: read the stored summary index instead of the bundle (the history list; a
+    discovery bundle is tens of megabytes and the list took seconds)."""
     runs: RunManager = request.app.state.runs
     state = runs.get(run_id)
 
@@ -188,6 +190,24 @@ def _summary(request: Request, run_id: str) -> RunSummary:
         # in flight: answer from the state and never touch the run file, which the worker
         # may be writing at this moment (the save is atomic, but this costs nothing)
         return from_state()
+    if light:
+        try:
+            d = runs.store.summary(run_id)
+        except FileNotFoundError:
+            if state is None:
+                raise HTTPException(status_code=404, detail="run not found") from None
+            return from_state()
+        return RunSummary(
+            run_id=run_id,
+            status="refused" if d["mode"] == "refused" else "completed",
+            profile=d["profile"],
+            request_text=d["request_text"],
+            started_at=d["started_at"],
+            finished_at=d["finished_at"],
+            partial=d["partial"],
+            ranked=d["ranked"],
+            excluded=d["excluded"],
+        )
     try:
         b = runs.load_bundle(run_id)
     except FileNotFoundError:
@@ -394,7 +414,7 @@ def _routes(app: APIRouter) -> None:  # noqa: C901 - one function registers ever
         for rid, state in runs.states.items():
             if rid not in ids and not state.done.is_set():
                 ids.insert(0, rid)
-        return [_summary(request, rid) for rid in ids[:limit]]
+        return [_summary(request, rid, light=True) for rid in ids[:limit]]
 
     @app.get("/runs/{run_id}", response_model=ProvenanceBundle)
     def get_run(request: Request, run_id: str, _: auth.AnyRole) -> ProvenanceBundle:
@@ -820,7 +840,9 @@ def _drill(
         weight=precision.fmt(score.weight, "score"),
         contribution=precision.fmt(score.contribution, "score"),
         missing_reason=score.missing_reason,
-        source=score.source,
+        # Source names the database (expt_gap, materials_project); Method names how the scored
+        # value was taken from it (experimental_median). Both read "experimental_median" before.
+        source=p.source if p else None,
         record_id=p.source_record_id if p else None,
         method=score.source,
         fetched_at=p.fetched_at.isoformat() if p else None,

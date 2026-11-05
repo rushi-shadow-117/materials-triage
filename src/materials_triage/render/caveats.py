@@ -32,6 +32,29 @@ PROFILE_WIDE: frozenset[CaveatId] = frozenset(
 )
 
 
+PROPERTY_NAMES = {"band_gap_ev": "experimental band gap"}
+
+
+def _reference_pending_text(entry_id: str | None, row: Candidate | Anchor | None) -> str:
+    """Name the property: "A reference value exists ... shown as missing" sat beside a k
+    value on the page and read as if k were the missing one."""
+    entry = next(
+        (
+            r
+            for r in (row.group.reference_values if row is not None else [])
+            if r.entry_id == entry_id
+        ),
+        None,
+    )
+    if entry is None:
+        return SYSTEM_TEXT[CaveatId.REFERENCE_VALUE_PENDING]
+    name = PROPERTY_NAMES.get(entry.property, entry.property.replace("_", " "))
+    return (
+        f"A reference {name} ({entry.form}) exists for this composition but its source is "
+        "not yet verified; it is shown as missing."
+    )
+
+
 def row_specific(caveats: list[Caveat]) -> list[Caveat]:
     """The row's own caveats, first of each id, in the row's order."""
     seen: set[CaveatId] = set()
@@ -249,6 +272,8 @@ class CaveatConfig:
             found = self._process_hazard(subject)
         elif cid is CaveatId.ATTRIBUTION_ECHA:
             found = self._echa()
+        elif cid is CaveatId.REFERENCE_VALUE_PENDING:
+            found = (_reference_pending_text(subject, row), "system")
         elif cid in SYSTEM_TEXT:
             found = (SYSTEM_TEXT[cid], "system")
         if found is None:

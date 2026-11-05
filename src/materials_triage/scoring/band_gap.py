@@ -158,7 +158,10 @@ def _from_polymorph(p: Polymorph | None, key: str, name: str) -> SourceValue | N
     v: Value[float] | None = p.band_gap.get(key)
     if v is None or v.value is None:
         return None
-    return SourceValue(name, float(v.value), v.unit, v.provenance, f"{key} on {p.ids.mp}")
+    record = v.provenance.source_record_id
+    # a JARVIS value sits on the MP polymorph it was matched to; name its own record first
+    where = record if record == p.ids.mp else f"{record}, matched to {p.ids.mp}"
+    return SourceValue(name, float(v.value), v.unit, v.provenance, f"{key} on {where}")
 
 
 @dataclass(frozen=True)

@@ -154,8 +154,10 @@ def structure(
             Exclusion(
                 rule=ExclusionRule.STRUCTURE_MOLECULAR,
                 detail=(
-                    f"structural dimensionality {dim.value} on {scored.ids.mp} "
-                    "(Larsen 2019, CrystalNN bonds): isolated molecules, not an extended solid"
+                    # the record id last: the PI view swaps it for "a source record (see the
+                    # audit view)", which beside the citation read as two parentheticals
+                    f"structural dimensionality {dim.value} (Larsen 2019, CrystalNN bonds) on "
+                    f"{scored.ids.mp}: isolated molecules, not an extended solid"
                 ),
                 source_ref=source_ref,
             ),

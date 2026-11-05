@@ -43,7 +43,9 @@ def test_chart_points_are_the_bundles_values_with_their_records() -> None:
     assert not any(u.startswith("ThO2") for u in view.chart.unplotted)
     assert view.chart.others_not_plotted >= 1
     assert view.chart.x_label == "band gap (eV)"
-    assert [t.text for t in view.chart.x_ticks][:3] == ["0.00 eV", "5.00 eV", "10.00 eV"]
+    # the axis title carries the unit; ticks carry only the decimals their step needs (the
+    # last "10.00 eV" label was clipped at the right edge, UI audit)
+    assert [t.text for t in view.chart.x_ticks][:3] == ["0", "5", "10"]
 
 
 def test_pi_view_chart_has_no_record_ids_and_mev_units_apply() -> None:
@@ -58,7 +60,8 @@ def test_pi_view_chart_has_no_record_ids_and_mev_units_apply() -> None:
 
 def test_ticks_are_round_and_start_at_zero() -> None:
     assert [t.value for t in _ticks([7.6, 3.2], "eV", "eV")] == [0.0, 2.0, 4.0, 6.0, 8.0]
-    assert [t.text for t in _ticks([63.2], "1", "eV")] == ["0.0", "20.0", "40.0", "60.0", "80.0"]
+    assert [t.text for t in _ticks([63.2], "1", "eV")] == ["0", "20", "40", "60", "80"]
+    assert [t.text for t in _ticks([0.7], "eV", "eV")] == ["0.0", "0.2", "0.4", "0.6", "0.8"]
     assert _ticks([], "eV", "eV") == []
 
 

@@ -16,10 +16,6 @@ Request: Rank the eleven baseline oxides as thin-film dielectric candidates.
 - the film's actual phase and density
 
 
-## Applies to every row
-
-- Band offsets to the substrate are not checked by this screen.
-
 | Rank | Material | Why | Key caveat | Evidence | k | Missing |
 |---|---|---|---|---|---|---|
 | 1= | Al2O3 | Al2O3 ranks 1= on stability (energy above hull) and band gap; see caveats. | none specific to this row | no abstracts | 9.7 | none |

@@ -242,3 +242,19 @@ rows only under its own heading. Rows name a test path; a row without a test is 
 | The rationale calls a displayed value missing | The model's view says "not scored" where a value exists | tests/agent/test_rationale.py::test_redacted_view_says_not_scored_when_a_value_exists |
 | The provider answers "You have reached your specified API usage limits" | Treated as no credit: the status flips after one rejected request, the banner shows, every step takes its no-model path | tests/agent/test_llm.py::test_a_usage_limit_counts_as_no_credit |
 | A run dropped evidence but rows carry labels | The Evidence column says "not used this run" | tests/render/test_views.py::test_labels_show_as_not_used_when_the_run_dropped_evidence |
+
+## Track H: the UI audit
+
+| Failure | Behavior | Test |
+|---|---|---|
+| YAML reads the element symbol No as false | The loader rejects a non-string symbol; No is quoted | tests/scoring/test_profile_loader.py::test_nobelium_is_a_symbol_not_a_yaml_boolean |
+| The model is out of credit or the provider errors during classification | One failed request ends the step; one log entry; the rest stay unclassified | tests/agent/test_classifier.py::test_a_provider_error_stops_classification_after_one_request |
+| A provider error message reaches the page | A short reason on the page; the raw text in the log detail | tests/agent/test_loop.py::test_a_provider_error_fails_the_step_not_the_run |
+| The evidence note names rows not on the page | The note names unread rows of the final shown set | tests/agent/test_pipeline.py::test_the_evidence_note_names_only_rows_on_the_final_page |
+| Tied rows show different sensitivity ranges | Perturbed ranks use display-precision ties | tests/scoring/test_scorer.py::test_tied_rows_keep_one_rank_under_perturbation |
+| The template rationale repeats the key caveat | Values only; the reference row gets a template | tests/agent/test_rationale.py::test_template_rationale_holds_values_not_caveats |
+| The band gap rule text names the MP id for a JARVIS value | It names the JARVIS record and the matched polymorph | tests/scoring/test_band_gap.py::test_a_jarvis_value_names_its_own_record |
+| The drill-down shows the same text for Source and Method | Source is the database | tests/api/test_runs_api.py::test_every_materials_project_value_links_to_its_page |
+| The console shows Python literals or empty hazard reasons | yes/no, "not set", recorded PubChem codes | tests/api/test_console_tables.py |
+| The run history parses every bundle | A summary index written on save, rebuilt when absent | tests/cli/test_run_store_atomic.py::test_the_history_summary_reads_without_the_bundle |
+| Chips wrap inside themselves, the page scrolls sideways on a phone, a tick label clips | Chips wrap between each other; tables scroll in their panel; ticks carry no unit | tests/e2e/test_browser.py::test_ui_audit_separation_and_text |

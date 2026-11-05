@@ -46,6 +46,10 @@ Not available from configured sources: {{ view.unavailable_properties | join(", 
 - {{ c.text }}
 {% endfor %}
 {% endif %}
+{% if view.hazard_attribution %}
+
+Hazard classifications: {{ view.hazard_attribution }}
+{% endif %}
 
 {% if view.rows %}
 | Rank | Material | Why | Key caveat | Evidence | k | Missing |

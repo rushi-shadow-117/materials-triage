@@ -38,7 +38,7 @@ for i in $(seq 1 90); do curl -fsS "http://127.0.0.1:$PORT/api/health" >/dev/nul
 curl -fsS "http://127.0.0.1:$PORT/api/health" | python3 -c '
 import json,sys; h=json.load(sys.stdin)
 assert h["fetch_source"]=="cassettes", h; assert h["llm_status"]=="missing_key", h
-assert h["llm_model"]=="claude-sonnet-5-5", h; assert "fill the criteria form" in h["llm_note"], h' && ok
+assert h["llm_model"]=="claude-haiku-5-5", h; assert "fill the criteria form" in h["llm_note"], h' && ok
 
 step "6. the web app answers at / and /console"
 [ "$(curl -s -o /dev/null -w '%{http_code}' "http://127.0.0.1:$PORT/")" = 200 ] \

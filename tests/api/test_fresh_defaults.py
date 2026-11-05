@@ -1,6 +1,6 @@
 """A fresh clone runs with no keys and no database (human test session, Nov 4, breaker 1).
 
-The defaults are Sonnet, live classification, and recorded data. A missing, rejected, or
+The defaults are Haiku, live classification, and recorded data. A missing, rejected, or
 out-of-credit key falls back to no model with a banner; the run still completes. No test
 reaches a model provider: the inner clients here are fakes that raise the SDK's errors.
 """
@@ -36,7 +36,7 @@ def test_bare_defaults() -> None:
     s = Settings(_env_file=None)  # type: ignore[call-arg]
     assert (s.llm_provider, s.llm_model, s.classify_mode) == (
         "anthropic",
-        "claude-sonnet-5-5",
+        "claude-haiku-5-5",
         "live",
     )
     assert s.fetch_mode is None
@@ -59,7 +59,7 @@ def test_missing_key_falls_back_and_the_run_completes(tmp_path: Path) -> None:
     with _bare(tmp_path) as client:
         health = client.get("/api/health").json()
         assert health["llm_status"] == "missing_key"
-        assert health["llm_model"] == "claude-sonnet-5-5"
+        assert health["llm_model"] == "claude-haiku-5-5"
         assert "fill the criteria form by hand" in health["llm_note"]
         assert client.get("/api/me").json()["llm_status"] == "missing_key"
         parsed = client.post("/api/parse", json={"request_text": "hafnia please"}).json()
@@ -84,7 +84,7 @@ def _sdk_error(kind: str) -> Exception:
 
 
 class RaisingClient:
-    model = "claude-sonnet-5-5"
+    model = "claude-haiku-5-5"
     provider = "anthropic"
 
     def __init__(self, error: Exception) -> None:

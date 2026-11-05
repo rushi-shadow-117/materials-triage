@@ -464,8 +464,9 @@ function ConfirmForm(props: {
           <input type="number" step="0.1" placeholder="profile value" value={form.band_gap_max_ev ?? ""} onChange={(e) => setForm({ ...form, band_gap_max_ev: num(e.target.value) })} />
         </label>
         <label className="field">
-          <span>Energy above hull cutoff (meV/atom) {resolved?.stability_cutoff_mev != null && <em>· effective {resolved.stability_cutoff_mev}</em>}</span>
+          <span>Energy above hull cutoff (meV/atom)</span>
           <input type="number" step="1" placeholder={resolved?.stability_cutoff_mev != null ? String(resolved.stability_cutoff_mev) : "profile value"} value={form.e_above_hull_max_mev ?? ""} onChange={(e) => setForm({ ...form, e_above_hull_max_mev: num(e.target.value) })} />
+          {resolved?.stability_cutoff_mev != null && <small className="hint" data-testid="hull-effective">effective {resolved.stability_cutoff_mev}</small>}
         </label>
         <label className="field">
           <span>Max elements</span>
@@ -494,7 +495,8 @@ function ConfirmForm(props: {
         return (
           <div className="slider" key={c}>
             <span>
-              <Tip kind="criterion" id={c}>{c.replace(/_/g, " ")}</Tip> <small className="muted">{b ? `${min} to ${max}` : ""}</small>
+              <Tip kind="criterion" id={c}>{c.replace(/_/g, " ")}</Tip>
+              {b && <span className="range">({min} to {max})</span>}
             </span>
             <input
               type="range"
@@ -530,7 +532,7 @@ function ConfirmForm(props: {
         <p className="muted" data-testid="estimate">
           {estimate.total > 0
             ? `This run may make up to ${estimate.total} model calls (hard cap ${estimate.cap}): ${estimate.basis}.`
-            : estimate.basis}
+            : "No model calls in this run; the notice at the top says why."}
         </p>
       )}
 

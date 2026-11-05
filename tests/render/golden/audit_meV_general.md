@@ -26,10 +26,6 @@
 ## Ranked candidates
 
 ### Al2O3: 1=, total 1.000
-## Applies to every row
-
-- Band offsets to the substrate are not checked by this screen.
-
 - Rationale: Al2O3 ranks 1= on stability (stability margin) and insulating gap; see caveats.
 - Flags: none
 - Sensitivity: rank 1 to 2 over 12 perturbations (stable)
@@ -61,10 +57,6 @@ Hazard: GHS codes H335, H372 in 225 of 3142 notifications (ECHA attribution appl
 Literature: 10698 matched, 7142 with abstracts, 5 read (title_and_abstract; query 'Al2O3 thin film')
 
 ### HfO2: 1=, total 1.000
-## Applies to every row
-
-- Band offsets to the substrate are not checked by this screen.
-
 - Rationale: HfO2 ranks 1= on stability (stability margin) and insulating gap; see caveats.
 - Flags: none
 - Sensitivity: rank 1 to 3 over 12 perturbations (stable)
@@ -98,10 +90,6 @@ Literature: 3496 matched, 2469 with abstracts, 5 read (title_and_abstract; query
 - https://openalex.org/W2024600253 (2015): thin_film_deposited; verified quote: "Here, we present a structural study on the origin of ferroelectricity in Gd doped HfO2 thin films."
 
 ### La2O3: 1=, total 1.000
-## Applies to every row
-
-- Band offsets to the substrate are not checked by this screen.
-
 - Rationale: La2O3 ranks 1= on stability (stability margin) and insulating gap; see caveats.
 - Flags: hull_status_conflict
 - Sensitivity: rank 2 to 4 over 12 perturbations (stable)
@@ -134,10 +122,6 @@ Hazard: GHS codes H315, H319, H335 in 248 of 618 notifications (ECHA attribution
 Literature: 383 matched, 218 with abstracts, 5 read (title_and_abstract; query 'La2O3 thin film')
 
 ### Y2O3: 1=, total 1.000
-## Applies to every row
-
-- Band offsets to the substrate are not checked by this screen.
-
 - Rationale: Y2O3 ranks 1= on stability (stability margin) and insulating gap; see caveats.
 - Flags: none
 - Sensitivity: rank 3 to 5 over 12 perturbations (stable)
@@ -170,10 +154,6 @@ Hazard: GHS codes H315, H319, H320, H335, H413 in 274 of 548 notifications (ECHA
 Literature: 1480 matched, 839 with abstracts, 5 read (title_and_abstract; query 'Y2O3 thin film')
 
 ### ZrO2: 1=, total 1.000
-## Applies to every row
-
-- Band offsets to the substrate are not checked by this screen.
-
 - Rationale: ZrO2 ranks 1= on stability (stability margin) and insulating gap; see caveats.
 - Flags: none
 - Sensitivity: rank 4 to 6 over 12 perturbations (stable)
@@ -206,10 +186,6 @@ Hazard: no GHS hazard codes in 1116 notifications (ECHA attribution applies)
 Literature: 3767 matched, 2298 with abstracts, 5 read (title_and_abstract; query 'ZrO2 thin film')
 
 ### Ta2O5: 6, total 0.968
-## Applies to every row
-
-- Band offsets to the substrate are not checked by this screen.
-
 - Rationale: Ta2O5 ranks 6 on stability (stability margin) and insulating gap; see caveats.
 - Flags: hull_status_conflict
 - Sensitivity: rank 5 to 7 over 12 perturbations (stable)
@@ -242,10 +218,6 @@ Hazard: no GHS hazard codes in 80 notifications (ECHA attribution applies)
 Literature: 1683 matched, 1116 with abstracts, 5 read (title_and_abstract; query 'Ta2O5 thin film')
 
 ### TiO2: 7, total 0.932
-## Applies to every row
-
-- Band offsets to the substrate are not checked by this screen.
-
 - Rationale: TiO2 ranks 7 on stability (stability margin) and insulating gap; see caveats.
 - Flags: hull_status_conflict
 - Sensitivity: rank 6 to 8 over 12 perturbations (stable)
@@ -278,10 +250,6 @@ Hazard: GHS codes H319, H320, H335, H351, H372, H413 in 4157 of 11189 notificati
 Literature: 21132 matched, 13032 with abstracts, 5 read (title_and_abstract; query 'TiO2 thin film')
 
 ### BaTiO3: 8, total 0.822
-## Applies to every row
-
-- Band offsets to the substrate are not checked by this screen.
-
 - Rationale: BaTiO3 ranks 8 on stability (stability margin) and insulating gap; see caveats.
 - Flags: hull_status_conflict
 - Sensitivity: rank 7 to 8 over 12 perturbations (stable)
@@ -323,10 +291,6 @@ Equal scores are tied; tied rows are listed alphabetically.
 ## Reference anchors (never ranked)
 
 ### SiO2: would place 1st of 9, above Al2O3, total 1.000
-## Applies to every row
-
-- Band offsets to the substrate are not checked by this screen.
-
 - Flags: none
 - Insulating gap source: tbmbj
 - Structural dimensionality: missing (not computed)
@@ -359,10 +323,6 @@ Literature: 21347 matched, 14434 with abstracts, 5 read (title_and_abstract; que
 ## Excluded
 
 ### BeO: excluded
-## Applies to every row
-
-- Band offsets to the substrate are not checked by this screen.
-
 - Excluded: hazard.exclude (IARC Group 1: beryllium and beryllium compounds); rule source config/hazard_policy.yaml#tiers.exclude.Be
 - Flags: none
 - Insulating gap source: experimental_median
@@ -394,10 +354,6 @@ Hazard: GHS codes H301, H305, H315, H317, H319, H330, H334, H335, H350, H350i, H
 Literature: 164 matched, 105 with abstracts, 5 read (title_and_abstract; query 'BeO thin film')
 
 ### ThO2: excluded
-## Applies to every row
-
-- Band offsets to the substrate are not checked by this screen.
-
 - Excluded: hazard.radioactive_exclude (['Th'] has no stable isotope); rule source config/hazard_policy.yaml#tiers.radioactive_exclude
 - Flags: band_gap_conflict
 - Insulating gap source: experimental_median

@@ -21,7 +21,6 @@ from materials_triage.records.bundle import (
     ProvenanceBundle,
     RationaleSlot,
 )
-from materials_triage.render.caveats import NEVER_KEY, row_specific
 from materials_triage.render.tokens import CRITERION_LABELS
 
 from . import loop, prompts
@@ -44,9 +43,14 @@ def slot_plan(bundle: ProvenanceBundle, top_n: int | None = None) -> list[str]:
 def template_only(bundle: ProvenanceBundle) -> dict[str, RationaleSlot]:
     """No-LLM rationale: tokens only, so the text is verified by construction."""
     slots: dict[str, RationaleSlot] = {}
-    for c in bundle.ranked():
+    rows: list[Candidate | Anchor] = [*bundle.ranked()]
+    ranked_keys = {c.composition for c in rows}
+    rows += [a for a in bundle.anchors if a.composition not in ranked_keys]
+    for c in rows:
         slot = f"candidate:{c.composition}:{ONE_LINE}"
-        parts = [f"{{formula:{c.composition}}} ranks {{rank:{c.composition}}}"]
+        # an anchor's rank token reads "would place 11th of 12, between ..."
+        verb = "" if isinstance(c, Anchor) else " ranks"
+        parts = [f"{{formula:{c.composition}}}{verb} {{rank:{c.composition}}}"]
         if c.score is not None:
             scored = [
                 f"{{criterion:{cs.criterion}}} {{value:{c.composition}:{cs.criterion}}}"
@@ -55,12 +59,9 @@ def template_only(bundle: ProvenanceBundle) -> dict[str, RationaleSlot]:
             ]
             if scored:
                 parts.append("on " + ", ".join(scored))
+        # criterion values only: the row's caveats have their own column (Key caveat) and the
+        # audit list, and repeating their text here made the Why cell restate them
         text = " ".join(parts) + "."
-        own = [cv for cv in row_specific(c.caveats) if cv.id not in NEVER_KEY]
-        if own:
-            # caveat tokens: the renderer fills each with its config text; the verifier checks
-            # only that the row carries the caveat, so no caveat id reaches the reader
-            text += " " + " ".join(f"{{caveat:{c.composition}:{cv.id.value}}}" for cv in own)
         slots[slot] = RationaleSlot(slot=slot, text=text, verified=True)
     ranked = bundle.ranked()
     overview = (
@@ -216,7 +217,7 @@ def run_rationale(
         out.partial_reason = f"rationale not written: {result.reason}"
         return out
     if not result.ok or result.outcome is None:
-        out.partial_reason = f"rationale not written: {result.reason}"
+        out.partial_reason = f"rationale not written: {loop.plain_reason(result.reason)}"
         return out
     written = result.outcome.data
     for item in written:

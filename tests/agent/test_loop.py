@@ -180,4 +180,20 @@ def test_a_provider_error_fails_the_step_not_the_run() -> None:
 
     result = _run(Exploding())  # type: ignore[arg-type]
     assert result.status == loop.StepStatus.FAILED
-    assert (result.reason or "").startswith("provider error: RuntimeError")
+    assert result.reason == "provider error (RuntimeError)"
+    # the raw provider message stays in the log detail, never in the reason the page shows
+    assert "prompt is too long" in result.entries[-1].detail["error"]
+    assert "invalid_request_error" not in (result.reason or "")
+
+
+def test_an_unavailable_model_reads_as_the_status_sentence() -> None:
+    from materials_triage.agent import llm_status
+
+    llm_status.set_status("no_credit")
+    try:
+        assert loop.plain_reason("llm_unavailable") == (
+            "No model: the provider account has no credit or has reached its usage limit"
+        )
+    finally:
+        llm_status.reset()
+    assert loop.plain_reason("budget: tokens") == "budget: tokens"

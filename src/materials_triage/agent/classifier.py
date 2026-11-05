@@ -66,6 +66,12 @@ class ClassifyResult:
     partial_reasons: list[str] = field(default_factory=list)
     llm_calls: int = 0
     cache_hits: int = 0
+    failed_calls: int = 0  # calls made that returned no usable label
+    stopped: str | None = None  # the model failed in a way that repeats (plain sentence)
+
+    @property
+    def labelled_calls(self) -> int:
+        return self.llm_calls - self.failed_calls
 
 
 def _hit(
@@ -157,6 +163,12 @@ def make_handler(abstract_text: str) -> loop.Handler:
     return handler
 
 
+def _provider_down(reason: str | None) -> bool:
+    return reason is not None and (
+        reason == "llm_unavailable" or reason.startswith(loop.PROVIDER_ERROR)
+    )
+
+
 def classify_hits(
     *,
     client: LLMClient | None,
@@ -173,6 +185,7 @@ def classify_hits(
     prompt_hash = prompts.step_hash("classify")
     system = prompts.system_prompt("classify")
     exhausted: str | None = None
+    down: str | None = None  # the model failed in a way that repeats; no more requests
     for composition, lit in hits:
         settled = precheck(composition, lit)
         if settled is not None:
@@ -183,6 +196,9 @@ def classify_hits(
             continue
         if exhausted is not None:
             out.hits.append(unclassified(composition, lit, f"budget: {exhausted}"))
+            continue
+        if down is not None:
+            out.hits.append(unclassified(composition, lit, f"classifier failed: {down}"))
             continue
         assert lit.abstract_text is not None
         key = cache_key(abstract_sha(lit), prompt_hash, model_version)
@@ -222,7 +238,17 @@ def classify_hits(
             out.hits.append(unclassified(composition, lit, f"budget: {exhausted}"))
             continue
         if not result.ok or not isinstance(result.tool_input, ClassifyAbstract):
-            out.hits.append(unclassified(composition, lit, f"classifier failed: {result.reason}"))
+            out.failed_calls += 1
+            out.hits.append(
+                unclassified(
+                    composition, lit, f"classifier failed: {loop.plain_reason(result.reason)}"
+                )
+            )
+            if result.status == loop.StepStatus.FAILED and _provider_down(result.reason):
+                # an unavailable model or a provider error repeats for every abstract; one
+                # logged failure is enough, and no further request is sent this run
+                down = out.stopped = loop.plain_reason(result.reason)
+                out.partial_reasons.append(f"classification stopped at {lit.openalex_id}: {down}")
             continue
         parsed = result.tool_input
         label = EvidenceLabel(parsed.label.value)

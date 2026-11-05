@@ -82,6 +82,9 @@ def list_profiles() -> list[ProfileSummary]:
 def _fmt(value: Any) -> str | None:
     if value is None:
         return None
+    if isinstance(value, bool):
+        # "True" and "locked=True" are Python literals, not page text
+        return "yes" if value else "no"
     if isinstance(value, float):
         return f"{value:g}"
     if isinstance(value, dict | list):
@@ -167,7 +170,9 @@ def layer_rows(layers: wiring.Layers, query: QuerySettings | None = None) -> lis
     ):
         qv = getattr(q, key)
         eff = qv if qv is not None else prof_value
-        row(key, None, None, prof_value, qv, eff, "query" if qv is not None else "profile")
+        # no layer sets it: "profile" named a layer that holds nothing
+        by = "query" if qv is not None else "profile" if prof_value is not None else "not set"
+        row(key, None, None, prof_value, qv, eff, by)
     row(
         "anion_policy",
         cs.SimplicitySettings.model_fields["anion_policy"].default,
@@ -189,7 +194,7 @@ def layer_rows(layers: wiring.Layers, query: QuerySettings | None = None) -> lis
     row(
         "exclude_radioactive",
         True,
-        f"locked={layers.site.radioactive_exclusion_locked}",
+        f"locked: {'yes' if layers.site.radioactive_exclusion_locked else 'no'}",
         None,
         q.exclude_radioactive,
         effective.exclude_radioactive,
@@ -259,7 +264,13 @@ def hazard_rows(policy: HazardPolicy) -> list[HazardRow]:
                 subject=comp,
                 kind="compound",
                 tier=entry.tier,
-                reason=entry.reason,
+                # the entry's note, else the codes it records (an empty reason read as missing)
+                reason=entry.reason
+                or (
+                    f"PubChem CID {entry.cid}: GHS {', '.join(entry.codes)}"
+                    if entry.codes
+                    else None
+                ),
                 source_ref=entry.source_ref,
             )
         )

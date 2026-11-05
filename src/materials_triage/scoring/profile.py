@@ -268,6 +268,9 @@ class TierEntry(Strict):
     reason: str | None = None
     flag_text: str | None = None
     source_ref: str
+    # compound tiers: the PubChem record and the GHS codes the entry matched (config values)
+    cid: int | None = None
+    codes: tuple[str, ...] = ()
 
 
 class HazardPolicy(Strict):
@@ -287,6 +290,14 @@ class HazardPolicy(Strict):
     process_hazard_template: str | None = None
     process_hazard_classifications: dict[str, str] = Field(default_factory=dict)  # comp -> ref
     unknown_rule_ref: str | None = None
+
+
+def _symbol(value: object, where: str) -> str:
+    """An element symbol from YAML. YAML 1.1 reads a bare No (nobelium) as false, and the
+    hazard tiers would then silently miss the element; a non-string symbol is a config error."""
+    if not isinstance(value, str):
+        raise ValueError(f"{where}: element symbol {value!r} is not a string; quote it in the YAML")
+    return value
 
 
 def load_hazard_policy(path: Path) -> HazardPolicy:
@@ -319,7 +330,9 @@ def load_hazard_policy(path: Path) -> HazardPolicy:
     }
     radio = tiers.get("radioactive_exclude") or {}
     radioactive = (
-        frozenset(str(x) for x in radio.get("elements", []))
+        frozenset(
+            _symbol(x, "tiers.radioactive_exclude.elements") for x in radio.get("elements", [])
+        )
         if _status(radio) == ENTERED
         else frozenset()
     )
@@ -335,6 +348,8 @@ def load_hazard_policy(path: Path) -> HazardPolicy:
                 tier=e["tier"],
                 reason=e.get("note"),
                 source_ref=f"{name}#tiers.acute_toxicity.compound_tiers.{e['composition']}",
+                cid=e.get("cid"),
+                codes=tuple(str(c) for c in e.get("codes_matched") or ()),
             )
         for e in entered(acute.get("element_tiers")):
             element_tiers[e["element"]] = TierEntry(

@@ -55,11 +55,11 @@ treat the first build on your cluster as the test.
 | `AUTH_MODE`, `DEV_ROLE`, `STATIC_TOKENS`, `SITE_MODE`, `ALLOW_STATIC_TOKENS`, `OIDC_ISSUER`, `OIDC_AUDIENCE`, `OIDC_ROLES_CLAIM` | sign-in, below |
 | `DATA_CACHE_DIR` | run bundles, the classifier cache, the audit log, screenshots |
 
-The default model is `claude-sonnet-5-5`. A missing key, a rejected key, or an exhausted
+The default model is `claude-haiku-5-5`. A missing key, a rejected key, or an exhausted
 credit balance turns the model off for the process: `/api/health` reports `llm_status`
 (`missing_key`, `invalid_key`, `no_credit`), the app shows a banner, and runs complete with
 template rationale and unclassified evidence. Restart after fixing the key. The demo
-configuration: `LLM_PROVIDER=anthropic`, `LLM_MODEL=claude-sonnet-5-5`, `CLASSIFY_MODE=live`
+configuration: `LLM_PROVIDER=anthropic`, `LLM_MODEL=claude-haiku-5-5`, `CLASSIFY_MODE=live`
 (one parse call, up to five classify calls per shown row, one rationale call; the confirm step
 shows the estimate). With `cache_only`, if some shown rows have cached labels and others do not,
 evidence is dropped for every row in that run and the page says so.

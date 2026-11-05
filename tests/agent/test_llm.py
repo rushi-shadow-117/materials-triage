@@ -34,7 +34,7 @@ def test_settings_accept_the_llm_keys_from_an_env_file(tmp_path: Path) -> None:
 
 def test_default_model_is_the_exact_pinned_id() -> None:
     # owner rule (Nov 4): never default to Opus
-    assert _settings().llm_model == "claude-sonnet-5-5"
+    assert _settings().llm_model == "claude-haiku-5-5"
 
 
 def test_usage_total_sums_all_four_counters() -> None:
@@ -189,11 +189,11 @@ def test_factory_picks_the_provider_and_requires_its_settings() -> None:
             llm.make_client(_settings(llm_provider=provider))
     a = llm.make_client(_settings(llm_provider="anthropic", anthropic_api_key="k"))
     assert isinstance(a, llm.AnthropicClient) and a.provider == "anthropic"
-    assert a.model == "claude-sonnet-5-5"
+    assert a.model == "claude-haiku-5-5"
     o = llm.make_client(_settings(llm_provider="openai_compatible", llm_base_url="http://x/v1"))
     assert isinstance(o, llm.OpenAICompatibleClient)
     b = llm.make_client(_settings(llm_provider="bedrock", aws_region="us-east-1"))
-    assert isinstance(b, llm.AnthropicClient) and b.model == "anthropic.claude-sonnet-5-5"
+    assert isinstance(b, llm.AnthropicClient) and b.model == "anthropic.claude-haiku-5-5"
     assert b.provider == "bedrock"
 
 

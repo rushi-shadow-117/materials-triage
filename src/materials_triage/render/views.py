@@ -11,6 +11,7 @@ from materials_triage.records.bundle import (
     UNRESOLVED_REASON,
     Anchor,
     Candidate,
+    CaveatId,
     CriterionScore,
     EvidenceHit,
     EvidenceLabel,
@@ -190,6 +191,7 @@ class RunView:
     ties_note: str | None = None  # shown under the table when any shown rows are tied
     # caveats every row carries by construction, shown once above the table
     profile_caveats: list[CaveatText] = field(default_factory=list)
+    hazard_attribution: str | None = None  # the ECHA attribution for GHS hazard data
     # band gap versus dielectric constant for every scored candidate that has both (Track H)
     chart: ChartView | None = None
 
@@ -349,7 +351,7 @@ def _ticks(values: list[float], unit: str, units: str) -> list[ChartTick]:
         return []
     top = max(values)
     if top <= 0:
-        return [ChartTick(0.0, precision.fmt(0, unit, units))]
+        return [ChartTick(0.0, "0")]
     raw_step = top / 4
     magnitude = Decimal(10) ** (Decimal(str(raw_step)).adjusted())
     step = next(
@@ -358,12 +360,13 @@ def _ticks(values: list[float], unit: str, units: str) -> list[ChartTick]:
         if float(magnitude * m) >= raw_step
     )
     ticks: list[ChartTick] = []
-    label = precision.display_unit(unit, units)[1]
+    # as many decimals as the step needs ("5", not "5.00 eV"); the axis title carries the
+    # unit, and a unit on every tick clipped the last label at the right edge
+    places = max(0, -Decimal(str(step)).normalize().as_tuple().exponent)  # type: ignore[operator]
     v = 0.0
     while v < top + step:
         # tick values are already in the displayed unit; format them without re-conversion
-        number = precision.quantize(Decimal(str(v)), precision.places(label))
-        ticks.append(ChartTick(v, number if label in (None, "1") else f"{number} {label}"))
+        ticks.append(ChartTick(v, precision.quantize(Decimal(str(v)), places)))
         v = float(Decimal(str(v)) + Decimal(str(step)))
     return ticks
 
@@ -500,7 +503,14 @@ def _row_view(
         for cs in row.score.criteria:
             if cs.criterion == "dielectric_constant" and cs.raw_value is not None:
                 k = precision.fmt(cs.raw_value, cs.raw_unit, units)
-    missing = [c.label for c in criteria if c.missing and c.weight != "0.000"]
+    dropped = _evidence_dropped(bundle)
+    # evidence left out of the whole run is said once, in the Evidence column ("not used this
+    # run"); listing it as missing on every row as well read as a per-row data gap
+    missing = [
+        c.label
+        for c in criteria
+        if c.missing and c.weight != "0.000" and not (dropped and c.criterion == "evidence")
+    ]
     g = row.group
     gap_score = next(
         (cs for cs in (row.score.criteria if row.score else []) if cs.criterion == "band_gap"),
@@ -599,9 +609,7 @@ def _row_view(
         key_caveat=caveats.resolve(key, row).text if key is not None else NO_KEY_CAVEAT,
         caveats=resolved,
         flags=[f.value for f in row.flags],
-        evidence_tier=(
-            "not used this run" if _evidence_dropped(bundle) and hits else _evidence_tier(hits)
-        ),
+        evidence_tier=("not used this run" if dropped and hits else _evidence_tier(hits)),
         k=k,
         missing=missing,
         exclusion=excluded.rule.value if excluded else None,
@@ -663,6 +671,13 @@ def build(
                 profile_caveats[cv.id.value] = caveats.resolve(cv, brow)
     for cid, text in profile_caveats.items():
         texts.setdefault(cid, text)
+    # the ECHA line is a data attribution, not a caveat: it reads as an orphan "Source: ..."
+    # bullet in the list, so it shows as its own line naming what it attributes
+    echa = profile_caveats.pop(CaveatId.ATTRIBUTION_ECHA.value, None)
+    hazard_attribution = echa.text if echa is not None and echa.entered else None
+    if any("band offset" in m.text.lower() for m in bundle.missing_properties):
+        # already listed under "What this screen cannot tell you"
+        profile_caveats.pop(CaveatId.BAND_OFFSETS_NOT_CHECKED.value, None)
     run = bundle.run
     budgets = [
         f"{k}: {precision.quantize(run.budgets_used.get(k, 0), 0)} of {precision.quantize(v, 0)}"
@@ -703,6 +718,7 @@ def build(
         unavailable_properties=list(bundle.criteria.unavailable_properties),
         ties_note=TIES_NOTE if any(r.tied for r in rows) else None,
         profile_caveats=list(profile_caveats.values()),
+        hazard_attribution=hazard_attribution,
         chart=_chart(bundle, shown_ranked, ranked_all, excluded_all, units, hide_ids),
     )
 

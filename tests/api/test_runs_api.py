@@ -207,6 +207,9 @@ def test_every_materials_project_value_links_to_its_page(client: TestClient) -> 
     gap = client.get(f"/api/runs/{run_id}/drill/HfO2/band_gap").json()
     mp_rows = [v for v in gap["other_values"] if v["source"] == "materials_project"]
     assert mp_rows and all(v["url"] == page + v["record_id"] for v in mp_rows)
+    # UI audit: Source names the database, Method how the value was taken from it
+    assert stability["source"] == "materials_project" and stability["method"] != "materials_project"
+    assert gap["source"] != gap["method"]
     bundle = client.get(f"/api/runs/{run_id}").json()
     missing: list[str] = []
 

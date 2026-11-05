@@ -41,7 +41,7 @@ def test_dimensionality_zero_excludes_after_the_hazard_rules(
     hf = next(c for c in r.candidates if c.composition == "HfO2")
     assert hf.rank is None and hf.excluded is not None
     assert hf.excluded.rule is ExclusionRule.STRUCTURE_MOLECULAR
-    assert "dimensionality 0 on mp-352" in hf.excluded.detail
+    assert "dimensionality 0 (Larsen 2019, CrystalNN bonds) on mp-352" in hf.excluded.detail
     assert hf.score is not None and hf.score.dimensionality is not None
     th = next(c for c in r.candidates if c.composition == "ThO2")
     assert th.excluded is not None and th.excluded.rule is ExclusionRule.HAZARD_RADIOACTIVE
