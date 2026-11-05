@@ -46,7 +46,10 @@ def test_each_token_kind_resolves(index: tokens.BundleIndex) -> None:
     assert r("count", "HfO2:polymorphs") == "15"
     assert r("count", "HfO2:hits") == "5"
     assert r("count", "HfO2:matched") == "3496"
-    assert r("ghs", "HfO2") == "no GHS hazard codes in 344 notifications"
+    assert r("ghs", "HfO2") == (
+        "hazard codes reported in 7 of 344 notifications (codes not listed in the record); "
+        "337 report not classified"
+    )
     assert r("ghs", "SiO2").startswith("GHS codes H315, H319") and "of 9127 notifications" in r(
         "ghs", "SiO2"
     )

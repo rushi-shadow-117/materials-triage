@@ -95,7 +95,10 @@ def test_audit_view_shows_values_with_provenance_and_the_polymorph_summary_only(
     assert text.count("- mp-") <= sum(
         len(c.group.polymorphs.top_by_hull) for c in [*bundle.candidates, *bundle.anchors]
     )
-    assert "Hazard: no GHS hazard codes in 344 notifications (ECHA attribution applies)" in text
+    assert (
+        "Hazard: hazard codes reported in 7 of 344 notifications (codes not listed in the "
+        "record); 337 report not classified (ECHA attribution applies)"
+    ) in text
     assert 'verified quote: "Here, we present a structural study' in text
     assert "quote_mismatch" in text  # the dropped hit is listed under Verifier only
     assert "## Verifier" in text and "quote_mismatch at evidence:" in text

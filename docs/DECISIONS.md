@@ -1779,3 +1779,18 @@ excluded row, or anchor. The review's live run printed "Literature evidence was 
 in this run" above ten classified rows, because the SiO2 anchor (never classified) carried it.
 Alternative: drop evidence_unclassified from anchors, which fixes this one case and leaves the
 rule able to print a false sentence for any other caveat.
+
+### 2026-11-05 The GHS note states both counts and never says "none" when codes are reported (review F14)
+Decision: one formatter (`scoring.hazard.ghs_counts_text`) writes the hazard note and the ghs
+token: "GHS codes H... reported in M of N notifications; N-M report not classified". When M is
+above zero and the PubChem record lists no codes, it says "hazard codes reported in M of N
+notifications (codes not listed in the record)". When M is zero it says so with both counts.
+The HfO2 record (CID 292779) reports codes in 7 of 344 and not classified in 337; the note read
+"GHS codes none in 7 of 344 notifications" and the token "no GHS hazard codes in 344
+notifications". CIDs 62157 and 62395 had the same fault. Parsing was correct; the wording
+inverted it.
+Open for the owner: PubChem calls the 344 "reports by companies" from 5 notifications. The
+existing display rule in config/hazard_policy.yaml says "notifications", and this fix keeps that
+noun.
+Alternative: show PubChem's sentences verbatim, which mixes percentages, company counts and
+notification counts in one line.
