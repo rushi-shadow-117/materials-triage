@@ -1,0 +1,16 @@
+# Owner-reviewed explanations for scripted-suite misses, printed by
+# scripts/generate_eval_report.py under the regression harness. Expectations stay as
+# pre-registered; a miss stays on record with its explanation.
+A1: >-
+  Misses ranked_near_top: ZrO2 ranks outside the top 10. The pre-registered expectation is kept
+  (owner decision on PR #18). With the full Zhuo et al. compendium (review F04) more oxides carry
+  experimental gaps above the 5.0 eV soft-preference cap and tie at 1.000; ZrO2 (4.99 eV) falls
+  just below them when the scripted model's evidence labels do not separate the rows. The live
+  A1 on Haiku passes, with ZrO2 at 6.
+G1: >-
+  The same ranked_near_top miss as A1, on each of its five identical repeats; ranks, exclusions
+  and prompt hashes are identical across repeats, which is what G1 tests.
+B2: >-
+  Misses run_completed: the nitride discovery run stops enrichment at its 12-round cap, so the
+  run is partial and the top rows may lack cross-checks. This miss predates the review fix
+  batch.

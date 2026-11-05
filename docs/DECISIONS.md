@@ -1879,3 +1879,11 @@ Re-ranked from the cached live labels (no new model call), P2O5 ranks 350 at 0.7
 moves to 7.
 Alternative: keep missing and add a caveat, which leaves a row with no evidence ranked above a
 row with verified evidence.
+
+### 2026-11-05 Scripted misses stay on record with their explanation (owner decision on PR #18)
+Decision (owner): the A1 expectation stays as pre-registered (HfO2, ZrO2, Al2O3 in the top 10).
+The scripted A1 and G1 misses (ZrO2 14th after the full gap compendium) stay in the results,
+and docs/EVAL.md prints an owner-reviewed explanation for each scripted miss from
+`evals/results/scripted_notes.yaml`, including the earlier B2 miss.
+Alternative: widen the expectation to the top 15, which would tune a pre-registered check to the
+result it is meant to test.

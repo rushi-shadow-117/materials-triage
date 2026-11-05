@@ -439,6 +439,10 @@ def build(
         (p.stem, json.loads(p.read_text())) for p in sorted((eval_results / "live").glob("*.json"))
     ]
     live = [d for _, d in live_named]
+    scripted_path = eval_results / "scripted_notes.yaml"
+    scripted_notes: dict[str, str] = (
+        yaml.safe_load(scripted_path.read_text()) or {} if scripted_path.exists() else {}
+    )
     notes_path = eval_results / "live" / "notes.yaml"
     live_notes = yaml.safe_load(notes_path.read_text()) if notes_path.exists() else {}
     lines = [
@@ -487,6 +491,16 @@ def build(
         "checks that the pipeline, the guardrails in code, and the views behave as specified; "
         "it does not measure the live model.",
         "",
+        *(
+            [
+                "Known misses (owner-reviewed):",
+                "",
+                *[f"- {cid}: {text}" for cid, text in scripted_notes.items()],
+                "",
+            ]
+            if scripted_notes
+            else []
+        ),
         *case_sections(suites),
         "## Validation",
         "",

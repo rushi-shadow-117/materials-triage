@@ -152,3 +152,24 @@ def test_live_results_lead_with_denominators_and_the_scripted_suite_is_labelled(
     assert text.index("## Live model") < text.index("## Regression harness (scripted model)")
     assert "on claude-haiku-5-5, 2026-11-05:" in text
     assert "repeat(s) in total" in text and "attack success 0 of" in text
+
+
+def test_scripted_misses_carry_their_owner_reviewed_explanation(tmp_path: Path) -> None:
+    # owner decision on PR #18: the A1 and G1 misses stay on record with the explanation
+    cases_dir = tmp_path / "cases"
+    cases_dir.mkdir()
+    cases = load_cases(write_cases(cases_dir, NORMAL, ADVERSARIAL))
+    results_dir = tmp_path / "results"
+    write_results(run_suite(cases, SampleBundleExecutor(), FakeJudge(), suite="all"), results_dir)
+    (results_dir / "scripted_notes.yaml").write_text("A1: kept as pre-registered; ZrO2 note\n")
+    text = build(
+        eval_results=results_dir,
+        validation_json=tmp_path / "none.json",
+        calibration_json=tmp_path / "none.json",
+        prereg_path=tmp_path / "none.json",
+        judge_sample=tmp_path / "none.md",
+        scoring_tests=tmp_path / "no_tests",
+    )
+    harness = text[text.index("## Regression harness (scripted model)") :]
+    assert "Known misses (owner-reviewed):" in harness
+    assert "- A1: kept as pre-registered; ZrO2 note" in harness
