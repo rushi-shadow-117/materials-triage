@@ -23,7 +23,7 @@ NOTES: dict[LLMStatus, str] = {
     "none": "No model configured (LLM_PROVIDER=none).",
     "missing_key": "No model: the provider key is not set.",
     "invalid_key": "No model: the provider rejected the key.",
-    "no_credit": "No model: the provider account has no credit.",
+    "no_credit": "No model: the provider account has no credit or has reached its usage limit.",
 }
 BANNER_SUFFIX = " The request box is off; fill the criteria form by hand."
 
@@ -79,7 +79,9 @@ def classify_error(e: Exception) -> LLMStatus | None:
         return "invalid_key"
     if isinstance(e, anthropic.APIStatusError):
         message = str(getattr(e, "message", "") or e).lower()
-        if "credit balance" in message or "billing" in message:
+        if "credit balance" in message or "billing" in message or "usage limit" in message:
+            # "You have reached your specified API usage limits" (a spend limit set on the
+            # account) blocks every call until the date it names, like an empty balance
             return "no_credit"
         if isinstance(e, anthropic.PermissionDeniedError):
             return "invalid_key"

@@ -110,3 +110,19 @@ def test_excluded_rows_are_counted_by_rule_and_ordered_cross_checked_first() -> 
     assert sum(counts.values()) == len(b.excluded())
     assert counts["hazard.exclude"] == before + 2
     assert view.excluded[-1].composition == rows[0].composition  # unchecked goes last
+
+
+def test_labels_show_as_not_used_when_the_run_dropped_evidence() -> None:
+    bundle = _bundle()
+    run = bundle.run.model_copy(
+        update={
+            "partial": True,
+            "partial_reasons": [
+                "Evidence not used in this run: 1 of the shown rows could not be classified (X)."
+            ],
+        }
+    )
+    view = build(bundle.model_copy(update={"run": run}), CaveatConfig.load(), units="eV")
+    tiers = {r.composition: r.evidence_tier for r in view.rows}
+    with_hits = {e.composition for e in bundle.evidence}
+    assert all(tiers[c] == "not used this run" for c in tiers if c in with_hits)

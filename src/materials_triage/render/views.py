@@ -426,6 +426,15 @@ def _polymorph_view(row: Candidate | Anchor, units: str) -> PolymorphView:
     )
 
 
+EVIDENCE_DROPPED = "Evidence not used in this run"
+
+
+def _evidence_dropped(bundle: ProvenanceBundle) -> bool:
+    """The run left evidence out of every row (all-or-none, agent/pipeline.py); a row's labels
+    are then shown as not used, never as the tier that would have scored."""
+    return any(r.startswith(EVIDENCE_DROPPED) for r in bundle.run.partial_reasons)
+
+
 def _evidence_tier(hits: list[EvidenceHit]) -> str:
     verified = [h.label for h in hits if h.verified]
     for label in TIER_ORDER:
@@ -590,7 +599,9 @@ def _row_view(
         key_caveat=caveats.resolve(key, row).text if key is not None else NO_KEY_CAVEAT,
         caveats=resolved,
         flags=[f.value for f in row.flags],
-        evidence_tier=_evidence_tier(hits),
+        evidence_tier=(
+            "not used this run" if _evidence_dropped(bundle) and hits else _evidence_tier(hits)
+        ),
         k=k,
         missing=missing,
         exclusion=excluded.rule.value if excluded else None,

@@ -232,3 +232,21 @@ def test_http_status_errors_from_a_compatible_endpoint_set_the_model_status() ->
     assert llm_status.classify_error(err(429, '{"error": "insufficient_quota"}')) == "no_credit"
     assert llm_status.classify_error(err(429, "rate limited, retry")) is None
     assert llm_status.classify_error(err(500)) is None
+
+
+def test_a_usage_limit_counts_as_no_credit() -> None:
+    """Track H sweep: the account's spend limit answered every call with HTTP 400 "You have
+    reached your specified API usage limits"; the app kept calling instead of showing the
+    banner."""
+    import anthropic
+
+    from materials_triage.agent import llm_status
+
+    req = httpx.Request("POST", "https://api.anthropic.com/v1/messages")
+    resp = httpx.Response(400, request=req)
+    err = anthropic.BadRequestError(
+        "You have reached your specified API usage limits. You will regain access on 2026-12-01.",
+        response=resp,
+        body=None,
+    )
+    assert llm_status.classify_error(err) == "no_credit"

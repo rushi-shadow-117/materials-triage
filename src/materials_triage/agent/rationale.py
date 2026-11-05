@@ -21,7 +21,7 @@ from materials_triage.records.bundle import (
     ProvenanceBundle,
     RationaleSlot,
 )
-from materials_triage.render.caveats import row_specific
+from materials_triage.render.caveats import NEVER_KEY, row_specific
 from materials_triage.render.tokens import CRITERION_LABELS
 
 from . import loop, prompts
@@ -56,7 +56,7 @@ def template_only(bundle: ProvenanceBundle) -> dict[str, RationaleSlot]:
             if scored:
                 parts.append("on " + ", ".join(scored))
         text = " ".join(parts) + "."
-        own = row_specific(c.caveats)
+        own = [cv for cv in row_specific(c.caveats) if cv.id not in NEVER_KEY]
         if own:
             # caveat tokens: the renderer fills each with its config text; the verifier checks
             # only that the row carries the caveat, so no caveat id reaches the reader
