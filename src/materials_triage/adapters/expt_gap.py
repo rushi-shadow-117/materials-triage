@@ -4,6 +4,8 @@ zero rows are MP metals and are excluded with the reason recorded."""
 
 from __future__ import annotations
 
+import gzip
+import hashlib
 import json
 import statistics
 from datetime import UTC, datetime
@@ -32,6 +34,33 @@ def load_slice(
     )
 
 
+def load_compendium(
+    gz_path: Path, *, expected_sha256: str, fetched_at: datetime | None = None
+) -> RawResponse:
+    """The full pinned Zhuo et al. compendium (review F04), as matminer publishes it: a gzipped
+    pandas "split" JSON. The file's sha256 must equal the manifest's; a mismatch refuses to load.
+    Rows become a list of {formula, gap expt}; the record id keeps the table's own row index."""
+    blob = gz_path.read_bytes()
+    actual = hashlib.sha256(blob).hexdigest()
+    if actual != expected_sha256:
+        raise ValueError(f"expt_gap sha256 {actual} does not match the manifest {expected_sha256}")
+    table = json.loads(gzip.decompress(blob))
+    cols = table["columns"]
+    rows = [dict(zip(cols, r, strict=True)) for r in table["data"]]
+    for idx, row in zip(table["index"], rows, strict=True):
+        row["_row"] = idx
+    url = f"file://{gz_path.name}"
+    call = Call(source=Source.EXPT_GAP, endpoint="expt_gap", url=url, params={})
+    return RawResponse(
+        call=call,
+        status=200,
+        body=json.dumps(rows).encode(),
+        content_type="application/json",
+        fetched_at=fetched_at or datetime.now(UTC),
+        source_version=actual,
+    )
+
+
 def records(raw: RawResponse) -> tuple[list[SourceRecord], list[dict[str, str]]]:
     """Returns (records, exclusions). Zero-gap rows are excluded, never scored."""
     table = raw.call.endpoint
@@ -43,7 +72,7 @@ def records(raw: RawResponse) -> tuple[list[SourceRecord], list[dict[str, str]]]
         formula = str(row[comp_col])
         comp = try_reduced_formula(formula)
         gap = row.get("gap expt")
-        rid = f"{table}:{i}:{formula}"
+        rid = f"{table}:{row.get('_row', i)}:{formula}"
         if comp is None:
             excluded.append({"row": rid, "rule": "unparsable_formula"})
             continue

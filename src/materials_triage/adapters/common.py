@@ -72,6 +72,7 @@ def provenance(
         source_version=raw.source_version,
         url=url,
         license=license if license is not None else raw.license,
+        recorded=raw.recorded,
     )
 
 

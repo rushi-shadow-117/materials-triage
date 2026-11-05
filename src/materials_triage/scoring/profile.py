@@ -229,6 +229,12 @@ def load_site_profile(path: Path) -> cs.SiteProfile:
         kw["stability_cutoff_bounds"] = cs.Bounds(
             min=float(hull["min_mev_per_atom"]), max=float(hull["max_mev_per_atom"])
         )
+    ranges = data.get("physical_ranges") or {}
+    if _status(ranges) == ENTERED:
+        gap = ranges["band_gap_ev"]
+        kw["band_gap_bounds_ev"] = cs.Bounds(min=float(gap["min"]), max=float(gap["max"]))
+        el = ranges["max_elements"]
+        kw["max_elements_bounds"] = cs.Bounds(min=float(el["min"]), max=float(el["max"]))
     if _status(defaults) == ENTERED:
         for key in (
             "top_n_max",

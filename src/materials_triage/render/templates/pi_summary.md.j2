@@ -77,16 +77,18 @@ No candidate passed the criteria.
 
 {% endfor %}
 {% endif %}
-{% if view.excluded %}
+{% if view.excluded_by_rule %}
 
 ## Excluded
 
-{% for e in view.excluded %}
+{% for r in view.excluded_by_rule %}
+- {{ r.rule }}: {{ r.count }}
+{% endfor %}
+{% for e in view.excluded_named %}
 - {{ e.composition }}: {{ e.exclusion }} ({{ e.exclusion_detail }})
 {% endfor %}
-{% if view.hidden_excluded %}
-- {{ view.hidden_excluded }} more excluded candidate(s) not shown; export CSV for every row.
-{% endif %}
+
+The audit view and the CSV export list every excluded row.
 {% endif %}
 {% if view.caveat_texts %}
 

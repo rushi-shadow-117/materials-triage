@@ -265,3 +265,27 @@ rows only under its own heading. Rows name a test path; a row without a test is 
 |---|---|---|
 | Fetching and classifying take longer than the rationale budget | The rationale budget is timed from its own step; the model writes the rationale | tests/agent/test_pipeline.py::test_the_rationale_budget_clock_starts_with_the_rationale_step |
 | A row in the summary top K is excluded by its cross-checks | Each round rescores after enrichment; the excluded row is never classified | tests/agent/test_discovery.py::test_rows_the_cross_checks_exclude_are_never_classified |
+
+## Review fixes
+
+| Failure | Behavior | Test |
+|---|---|---|
+| A verbatim supporting sentence describes a mixed system (B2O3/SiO2, SiO2-P2O5-CaO, Li2O-Al2O3, FePt/B2O3) | The label becomes not_relevant, "evidence names another material", shown in the audit view | tests/verify/test_subject.py::test_a_mixed_system_is_not_the_candidate |
+| A cached label from before the check names another material | Re-checked on read; not_relevant with no model call | tests/agent/test_classifier.py::test_a_cached_label_is_rechecked_without_a_model_call |
+| A composition outside the baseline set has an experimental gap in the pinned compendium | Scored on the experimental median, not PBE | tests/adapters/test_expt_gap.py::test_the_full_compendium_gives_mgo_an_experimental_gap |
+| The compendium file on disk does not match the manifest checksum | Loading refuses with both checksums | tests/adapters/test_expt_gap.py::test_compendium_checksum_mismatch_refuses_to_load |
+| A profile-wide caveat is carried by an anchor or an excluded row but not by the shown ranked rows | Not shown as applying to every row; stays on the rows that carry it | tests/render/test_views.py::test_a_caveat_only_some_rows_carry_is_not_shown_as_applying_to_every_row |
+| PubChem lists no H-codes but some notifications report codes (HfO2, CID 292779) | "hazard codes reported in 7 of 344 notifications (codes not listed in the record); 337 report not classified"; never "none" | tests/adapters/test_pubchem.py::test_hfo2_note_never_says_none_when_reports_carry_codes |
+| A run asks for a band gap floor of 50 eV or 40 elements | Clamped to 15 eV and 6 elements, shown as clamps | tests/test_config_schema.py::test_physical_ranges_are_clamped_and_reported |
+| A setting is non-finite (1e999 parses to infinity) | 422: "band_gap_min_ev must be a finite number." | tests/api/test_runs_api.py::test_a_non_finite_setting_is_a_422_sentence |
+| A request asks to fetch a paywalled paper or scrape a closed source | Refused with the closed_source text, not the private-data text | tests/agent/test_parse.py::test_a_paywalled_or_closed_source_request_gets_its_own_refusal |
+| A discovery run excludes dozens of rows the PI never named (CO2, H2O, perchlorates) | The PI summary shows counts by rule and names only rows the PI listed; the audit view lists all | tests/render/test_markdown.py::test_pi_excluded_section_names_no_discovery_row |
+| A cassette replay is shown with a fetch time | The recording time (recorded_at, else the response Date header, else the manifest), labelled "recorded"; never the replay time | tests/cli/test_recorded_time.py::test_two_replays_show_the_same_recorded_time_labelled_recorded |
+| A no-key admin runs the brief's example from the CLI | The README line with examples/brief_discovery.yaml runs discovery offline | tests/cli/test_cli.py::test_the_readme_offline_brief_line_runs_discovery_with_no_key |
+| Project docs describe cut or stubbed features, or overstate determinism | CLAUDE.md matches the code; ARCHITECTURE and EVAL scope determinism | tests/test_docs.py::test_claude_md_has_no_stale_lines_and_determinism_is_scoped |
+| The eval report's headline is a scripted-model count | Live results first, each with its denominator and commit; the scripted suite labelled as the regression harness | tests/evals/test_generate_eval_report.py::test_live_results_lead_with_denominators_and_the_scripted_suite_is_labelled |
+| Every abstract of a composition is read and none supports it | Evidence scores 0.0, "no supporting evidence found in N abstracts"; abstracts not read stay missing | tests/scoring/test_evidence_criterion.py::test_abstracts_read_with_no_usable_label_score_zero |
+| A scripted case misses a pre-registered expectation | The miss stays in the results; EVAL.md prints its owner-reviewed explanation | tests/evals/test_generate_eval_report.py::test_scripted_misses_carry_their_owner_reviewed_explanation |
+| A cold-run step fails | It prints FAIL and the script exits 1; no step is silent | tests/test_cold_run_script.py::test_a_failing_step_prints_fail_and_exits_non_zero |
+| A real evidence sentence does not name the material, or uses substrate notation (MgO/Mo(001)) | Rejected as naming another material; a stated limit in DECISIONS and EXTENSIONS, visible in the audit view | tests/test_docs.py::test_evidence_check_false_negatives_are_a_stated_limit |
+| The hazard note names PubChem's company reports as notifications | "M of N reports", PubChem's word, in the note, the token, and the flag caveat | tests/adapters/test_pubchem.py::test_hfo2_note_never_says_none_when_reports_carry_codes |

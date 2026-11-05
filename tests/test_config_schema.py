@@ -135,3 +135,33 @@ def test_query_hull_cutoff_is_clamped_to_the_site_bounds() -> None:
     assert [(c.setting, c.requested, c.applied, c.bound) for c in clamps] == [
         ("e_above_hull_max_mev", 2000.0, 94.0, "site.stability_cutoff_bounds")
     ]
+
+
+def test_physical_ranges_are_clamped_and_reported() -> None:
+    # review F12, owner decision 2026-11-05: band gap bounds 0 to 15 eV, element count 1 to 6
+    paths = cs.default_paths()
+    profile, _ = cs.scoring_profile_from_yaml(paths["scoring_profile"])
+    site = cs.site_profile_from_yaml(paths["site_profile"])
+    assert site.band_gap_bounds_ev == cs.Bounds(min=0.0, max=15.0)
+    assert site.max_elements_bounds == cs.Bounds(min=1.0, max=6.0)
+    q = cs.QuerySettings(profile="p", band_gap_min_ev=50.0, band_gap_max_ev=-2.0, max_elements=40)
+    eff, clamps = cs.resolve(cs.CoreConfig(), site, profile, q)
+    assert (eff.query.band_gap_min_ev, eff.query.band_gap_max_ev, eff.query.max_elements) == (
+        15.0,
+        0.0,
+        6,
+    )
+    assert [(c.setting, c.requested, c.applied, c.bound) for c in clamps] == [
+        ("band_gap_min_ev", 50.0, 15.0, "site.band_gap_bounds_ev"),
+        ("band_gap_max_ev", -2.0, 0.0, "site.band_gap_bounds_ev"),
+        ("max_elements", 40, 6, "site.max_elements_bounds"),
+    ]
+    ok, none = cs.resolve(
+        cs.CoreConfig(), site, profile, cs.QuerySettings(profile="p", band_gap_min_ev=4.0)
+    )
+    assert none == [] and ok.query.band_gap_min_ev == 4.0
+
+
+def test_non_finite_numbers_are_refused() -> None:
+    with pytest.raises(ValueError, match="finite"):
+        cs.QuerySettings(profile="p", band_gap_min_ev=float("inf"))

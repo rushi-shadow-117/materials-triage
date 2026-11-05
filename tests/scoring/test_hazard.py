@@ -44,7 +44,7 @@ def test_cd_and_pb_yim_entries_are_excluded(policy, echa) -> None:  # type: igno
 def test_allow_flag_and_unknown_scores(baseline_groups, policy, echa) -> None:  # type: ignore[no-untyped-def]
     hf = tier(baseline_groups["HfO2"], policy, echa)
     assert hf.normalized == ALLOW and hf.source == "allow" and not hf.flags
-    assert any("in 7 of 344 notifications" in n for n in hf.notes)
+    assert any("in 7 of 344 reports" in n for n in hf.notes)
     assert {c.id for c in hf.caveats} == {CaveatId.ATTRIBUTION_ECHA}
     ba = tier(baseline_groups["BaTiO3"], policy, echa)
     assert ba.normalized == NEUTRAL and Flag.HAZARD_FLAG in ba.flags

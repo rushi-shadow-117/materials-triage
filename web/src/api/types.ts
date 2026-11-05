@@ -643,6 +643,8 @@ export interface components {
             contribution: string;
             /** Criterion */
             criterion: string;
+            /** Fetch Label */
+            fetch_label?: string | null;
             /** Fetched At */
             fetched_at: string | null;
             /** Label */
@@ -1098,6 +1100,11 @@ export interface components {
             raw_response_id: string | null;
             /** Raw Sha256 */
             raw_sha256: string;
+            /**
+             * Recorded
+             * @default false
+             */
+            recorded: boolean;
             /** Source */
             source: string;
             /** Source Record Id */

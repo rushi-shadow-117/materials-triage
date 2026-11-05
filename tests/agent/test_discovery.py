@@ -237,6 +237,18 @@ def test_recorded_discovery_queries_run_offline_end_to_end_with_the_real_scorer(
     for c in top:
         assert c.group.hazard is not None and c.group.literature is not None, c.composition
         assert "enrichment_missing" not in [f.value for f in c.flags], c.composition
+    if profile_name == "oxide_dielectric_thin_film":
+        # review F17: molecules excluded in discovery are counted in the PI view, not named
+        from materials_triage.render import markdown
+
+        excluded = {c.composition for c in bundle.excluded()}
+        assert {"H2O", "CO2"} <= excluded
+        pi = markdown.render_pi_summary(
+            bundle, cs.site_profile_from_yaml(cs.default_paths()["site_profile"])
+        )
+        section = pi[pi.index("## Excluded") :].split("\n## ")[0]
+        assert "structure.molecular:" in section
+        assert "H2O" not in section and "CO2" not in section
     rounds = [d for d in bundle.decision_log if d.step == "enrich"]
     assert 1 <= len(rounds) <= pipeline.MAX_ENRICHMENT_ROUNDS
     assert {a.composition for a in bundle.anchors} <= set(profile.anchors)
@@ -291,3 +303,11 @@ def test_rows_the_cross_checks_exclude_are_never_classified(
     beo = next(c for c in bundle.candidates if c.composition == "BeO")
     assert beo.excluded is not None and beo.group.literature is not None  # it was cross-checked
     assert "BeO" not in seen  # and no classify request was spent on it
+
+
+def test_product_sources_load_the_full_gap_compendium(sources: pipeline.Sources) -> None:
+    # review F04: every composition gets the experimental gap the pinned table holds, not only
+    # the hand-picked baseline oxides
+    assert sources.gap_aggregates["MgO"].n == 4
+    assert "Lu2O3" in sources.gap_aggregates and "P2O5" not in sources.gap_aggregates
+    assert sources.versions["expt_gap"].startswith("2d0980e3")

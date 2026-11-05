@@ -2400,4 +2400,94 @@ interactions:
         "order": "best matches first", "order_default": true}, "cost_usd": 0.001},
         "results": [{"id": "https://openalex.org/W2909440222"}], "group_by": []}'
   recorded_at: '2026-11-04T18:26:48+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=Ag2B8O13+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 47, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Ag2B8O13 thin
+        film) in the title or abstract where it has an abstract", "x_new_oql": "get
+        works with (Ag2B8O13 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "Ag2B8O13
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:Ag2B8O13
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-05T02:35:22+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=Ag2B8O13+thin+film&select=id
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 29, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (Ag2B8O13 thin
+        film) in the title or abstract", "x_new_oql": "get works with (Ag2B8O13 thin
+        film) in the title or abstract", "oqo": {"get_rows": "works", "filter_rows":
+        [{"column_id": "title_and_abstract.search", "value": "Ag2B8O13 thin film",
+        "operator": "has"}]}, "url": "/works?filter=title_and_abstract.search:Ag2B8O13
+        thin film&per_page=1", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-05T02:35:23+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?filter=has_abstract%3Atrue&per-page=5&search.title_and_abstract=Ag2S2O7+thin+film&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cabstract_inverted_index%2Cprimary_location
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 12, "page": 1, "per_page":
+        5, "groups_count": null, "x_query": {"oql": "get works with (Ag2S2O7 thin
+        film) in the title or abstract where it has an abstract", "x_new_oql": "get
+        works with (Ag2S2O7 thin film) in the title or abstract where it has an abstract",
+        "oqo": {"get_rows": "works", "filter_rows": [{"column_id": "has_abstract",
+        "value": true}, {"column_id": "title_and_abstract.search", "value": "Ag2S2O7
+        thin film", "operator": "has"}]}, "url": "/works?filter=has_abstract:true,title_and_abstract.search:Ag2S2O7
+        thin film&per_page=5", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-05T02:35:27+00:00'
+- request:
+    method: GET
+    uri: https://api.openalex.org/works?per-page=1&search.title_and_abstract=Ag2S2O7+thin+film&select=id
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: '{"meta": {"count": 0, "db_response_time_ms": 10, "page": 1, "per_page":
+        1, "groups_count": null, "x_query": {"oql": "get works with (Ag2S2O7 thin
+        film) in the title or abstract", "x_new_oql": "get works with (Ag2S2O7 thin
+        film) in the title or abstract", "oqo": {"get_rows": "works", "filter_rows":
+        [{"column_id": "title_and_abstract.search", "value": "Ag2S2O7 thin film",
+        "operator": "has"}]}, "url": "/works?filter=title_and_abstract.search:Ag2S2O7
+        thin film&per_page=1", "order": "best matches first", "order_default": true},
+        "cost_usd": 0.001}, "results": [], "group_by": []}'
+  recorded_at: '2026-11-05T02:35:27+00:00'
 version: 1

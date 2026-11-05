@@ -9,6 +9,7 @@ export interface ProvenanceView {
   source_version: string | null;
   url: string | null;
   license: string | null;
+  fetch_label: "fetched" | "recorded";
 }
 
 export interface CriterionView {

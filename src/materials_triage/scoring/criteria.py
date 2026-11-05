@@ -252,6 +252,19 @@ def simplicity(
 # ----------------------------------------------------------------------------- evidence
 
 
+# labels only the model assigns, after reading an abstract (code settles no_abstract and
+# fulltext hits, and unclassified means not read)
+READ_LABELS = frozenset(
+    {
+        EvidenceLabel.NOT_RELEVANT,
+        EvidenceLabel.COMPUTED_ONLY,
+        EvidenceLabel.BULK_SYNTHESIZED,
+        EvidenceLabel.THIN_FILM_DEPOSITED,
+        EvidenceLabel.DIELECTRIC_CHARACTERIZED,
+    }
+)
+
+
 def evidence(
     hits: list[EvidenceHit] | None,
     *,
@@ -262,9 +275,10 @@ def evidence(
 ) -> CriterionResult:
     """Ordinal tier of the best verified label among the composition's evidence hits, from the
     profile's `tiers` table. Labels outside the table (not_relevant, no_abstract, unclassified)
-    are ignored. No usable label is missing with reason `unclassified` and the literature
-    counts in a note. `tier_min` excludes a classified candidate whose best tier is below it;
-    an unclassified one is flagged, not excluded."""
+    are ignored. Abstracts all read with no usable label score 0.0 with the count read; no
+    usable label otherwise (not read: no model, budget, no abstracts) is missing with reason
+    `unclassified`, and the literature counts go in a note. `tier_min` excludes a classified
+    candidate whose best tier is below it; an unclassified one is flagged, not excluded."""
     usable = [
         h
         for h in (hits or [])
@@ -276,6 +290,19 @@ def evidence(
         if literature is not None
         else "literature: not searched"
     )
+    read = [h for h in (hits or []) if h.classifier_cache_key and h.label in READ_LABELS]
+    unread = any(h.label == EvidenceLabel.UNCLASSIFIED for h in (hits or []))
+    if not usable and read and not unread:
+        # owner decision on PR #18 (Nov 5): abstracts read and found wanting are evidence of
+        # absence, scored 0.0; missing stays reserved for abstracts not read
+        reason = f"no supporting evidence found in {len(read)} abstracts"
+        return CriterionResult(
+            normalized=0.0,
+            raw_value=0.0,
+            raw_unit="tier",
+            source=reason,
+            notes=(reason, counts),
+        )
     if not usable:
         return CriterionResult(
             normalized=None,

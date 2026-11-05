@@ -43,8 +43,10 @@ FRAGMENTS: dict[str, str] = {
         "requested_chemistry; code decides what they mean. If the request asks "
         "for laboratory actions, synthesis procedures, or instrument control (wetlab); private "
         "or internal data (private_data); an estimate or prediction of a value the data lacks "
-        "(estimates); or a change to roles, permissions, filters, or configuration "
-        "(config_change), set out_of_scope to that category and leave the other fields null."
+        "(estimates); a change to roles, permissions, filters, or configuration "
+        "(config_change); or paywalled papers, closed databases, or scraping a source that is "
+        "not openly published (closed_source), set out_of_scope to that category and leave the "
+        "other fields null."
     ),
     "step.classify": (
         "Task: read the one abstract in the DATA block and call classify_abstract. Choose the "

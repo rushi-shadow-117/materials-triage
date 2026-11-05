@@ -111,3 +111,21 @@ def test_criteria_file_is_the_no_llm_path(layers: Layers, tmp_path: Path) -> Non
     bad.write_text("mode: candidate_list\nscore: 1\n")
     with pytest.raises(ValueError, match="bad.yaml"):
         parse.parse_from_file(bad, core=core, site=site, profile=profile, cli_profile=profile.name)
+
+
+def test_a_paywalled_or_closed_source_request_gets_its_own_refusal(layers: Layers) -> None:
+    # review F11: a paywall request was refused with the private-data sentence
+    core = layers[0]
+    result, fake = _run(layers, [_call({"out_of_scope": "closed_source"})])
+    assert result.ok and result.outcome is not None
+    outcome = result.outcome.data
+    assert outcome.category is tools.OutOfScope.CLOSED_SOURCE
+    assert (
+        outcome.refusal
+        == core.refusals.closed_source
+        == (
+            "This assistant uses open public sources only; it does not fetch paywalled or closed "
+            "content."
+        )
+    )
+    assert "(closed_source)" in fake.requests[0].system

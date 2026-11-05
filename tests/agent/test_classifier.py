@@ -186,10 +186,12 @@ def test_injected_abstract_is_only_ever_data(
     assert request.system == golden and INJECTED not in request.system
     assert request.turns[0].text == prompts.data_block(injection_hit.abstract_text)
 
-    # 2. A verbatim quote of the planted instruction is stored as data, nothing more.
+    # 2. A verbatim quote of the planted instruction is stored as data, nothing more; it never
+    #    names the candidate, so code turns the label into not_relevant (review F02, F13).
     hit = out.hits[0]
     assert hit.supporting_sentence == INJECTED and hit.verified is True
-    assert hit.label == EvidenceLabel.THIN_FILM_DEPOSITED
+    assert hit.label == EvidenceLabel.NOT_RELEVANT
+    assert hit.verifier_note == classifier.OTHER_MATERIAL_NOTE
     assert [(c.composition, c.rank) for c in bundle.ranked()] == ranks_before
 
     # 3. A text-only reply that follows the instruction fails the step; nothing changes.
@@ -207,3 +209,50 @@ def test_injected_abstract_is_only_ever_data(
     assert out2.hits[0].label == EvidenceLabel.UNCLASSIFIED
     assert out2.hits[0].verifier_note == "classifier failed: no_tool_call"
     assert [(c.composition, c.rank) for c in bundle.ranked()] == ranks_before
+
+
+MIXED_ABSTRACT = (
+    "Bilayer gate stacks were grown by atomic layer deposition. The dielectric properties of "
+    "HfO2/SiO2 bilayers were measured. Leakage was low."
+)
+MIXED_SENTENCE = "The dielectric properties of HfO2/SiO2 bilayers were measured."
+
+
+def _mixed_hit(bundle: ProvenanceBundle) -> LiteratureHit:
+    return _hits(bundle)[0].model_copy(
+        update={"abstract_text": MIXED_ABSTRACT, "abstract_index_sha256": "mixed-system-probe"}
+    )
+
+
+def test_a_label_whose_sentence_names_another_material_becomes_not_relevant(
+    bundle: ProvenanceBundle,
+) -> None:
+    hit = _mixed_hit(bundle)
+    fake = llm.FakeLLM([_call("dielectric_characterized", MIXED_SENTENCE, "ALD")])
+    out = _classify(fake, [("HfO2", hit)])
+    h = out.hits[0]
+    assert h.label == EvidenceLabel.NOT_RELEVANT
+    assert h.verifier_note == classifier.OTHER_MATERIAL_NOTE == "evidence names another material"
+    assert h.supporting_sentence == MIXED_SENTENCE  # kept for the audit view
+
+
+def test_a_cached_label_is_rechecked_without_a_model_call(
+    bundle: ProvenanceBundle, tmp_path: Path
+) -> None:
+    hit = _mixed_hit(bundle)
+    cache = classifier.ClassifierCache(tmp_path / "classifier")
+    key = classifier.cache_key("mixed-system-probe", prompts.step_hash("classify"), MODEL)
+    cache.put(
+        key,
+        {
+            "label": "dielectric_characterized",
+            "deposition_method": "ALD",
+            "supporting_sentence": MIXED_SENTENCE,
+            "verified": True,
+        },
+    )
+    fake = llm.FakeLLM([])
+    out = _classify(fake, [("HfO2", hit)], cache=cache)
+    assert fake.requests == [] and out.cache_hits == 1
+    assert out.hits[0].label == EvidenceLabel.NOT_RELEVANT
+    assert out.hits[0].verifier_note == "evidence names another material"

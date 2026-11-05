@@ -289,3 +289,26 @@ def test_importing_the_api_module_runs_no_startup_checks() -> None:
         check=False,
     )
     assert done.returncode == 0, done.stderr
+
+
+BRIEF = (
+    "Find promising oxide dielectric candidates for thin-film experiments. Prefer "
+    "thermodynamically stable materials, wide band gaps, non-toxic elements, simple "
+    "compositions, and public evidence. Return a ranked shortlist with caveats."
+)
+
+
+def test_the_readme_offline_brief_line_runs_discovery_with_no_key(tmp_path: Path) -> None:
+    # review F10: the brief's example had no documented offline CLI path
+    example = Path(__file__).resolve().parents[2] / "examples" / "brief_discovery.yaml"
+    readme = (Path(__file__).resolve().parents[2] / "README.md").read_text()
+    assert "--criteria examples/brief_discovery.yaml --fetch cassettes" in readme
+    result = RUNNER.invoke(
+        app,
+        ["query", BRIEF, "--yes", "--no-llm", "--criteria", str(example), "--fetch", "cassettes"],
+    )
+    assert result.exit_code == 0, result.output
+    assert "mode: discovery" in result.output
+    bundle = ProvenanceBundle.model_validate_json(_runs(tmp_path)[0].read_text())
+    assert bundle.criteria.effective_settings["mode"] == "discovery"
+    assert len(bundle.ranked()) >= 10 and bundle.run.partial is False

@@ -5665,4 +5665,105 @@ interactions:
         \          \"Chromium(III) oxide, nanopowder, <100 nm particle size (TEM),\
         \ 98% trace metals basis\"\n        ]\n      }\n    ]\n  }\n}\n"
   recorded_at: '2026-11-04T18:26:47+00:00'
+- request:
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Ag2B8O13/cids/JSON
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 404
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: "{\n  \"Fault\": {\n    \"Code\": \"PUGREST.NotFound\",\n    \"Message\"\
+        : \"No CID found\",\n    \"Details\": [\n      \"No CID found that matches\
+        \ the given name\"\n    ]\n  }\n}\n"
+  recorded_at: '2026-11-05T02:35:21+00:00'
+- request:
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/fastformula/Ag2B8O13/cids/JSON
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 404
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: "{\n  \"Fault\": {\n    \"Code\": \"PUGREST.NotFound\",\n    \"Message\"\
+        : \"Search returned no hits\",\n    \"Details\": [\n      \"hits: 0 percent\
+        \ completion: 100 ; Average individual thread time (msec): 449 ; Total parallel\
+        \ thread time (msec): 637\"\n    ]\n  }\n}\n"
+  recorded_at: '2026-11-05T02:35:22+00:00'
+- request:
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Ag2S2O7/cids/JSON
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 404
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: "{\n  \"Fault\": {\n    \"Code\": \"PUGREST.NotFound\",\n    \"Message\"\
+        : \"No CID found\",\n    \"Details\": [\n      \"No CID found that matches\
+        \ the given name\"\n    ]\n  }\n}\n"
+  recorded_at: '2026-11-05T02:35:25+00:00'
+- request:
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/fastformula/Ag2S2O7/cids/JSON
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: "{\n  \"IdentifierList\": {\n    \"CID\": [\n      23047046\n    ]\n\
+        \  }\n}\n"
+  recorded_at: '2026-11-05T02:35:26+00:00'
+- request:
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug_view/data/compound/23047046/JSON?heading=GHS+Classification
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 404
+      message: ''
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+    body:
+      string: "{\n  \"Fault\": {\n    \"Code\": \"PUGVIEW.NotFound\",\n    \"Message\"\
+        : \"No data found\"\n  }\n}\n"
+  recorded_at: '2026-11-05T02:35:26+00:00'
+- request:
+    method: GET
+    uri: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/23047046/synonyms/JSON
+    body: null
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      content-type:
+      - application/json
+    body:
+      string: "{\n  \"InformationList\": {\n    \"Information\": [\n      {\n    \
+        \    \"CID\": 23047046,\n        \"Synonym\": [\n          \"SCHEMBL9856235\"\
+        \n        ]\n      }\n    ]\n  }\n}\n"
+  recorded_at: '2026-11-05T02:35:27+00:00'
 version: 1

@@ -32,7 +32,7 @@
 - Band gap source: tbmbj
 - Structural dimensionality: missing (not computed)
 
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched or recorded |
 |---|---|---|---|---|---|---|---|
 | stability (energy above hull) | 0 meV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
 | band gap | 7571 meV | tbmbj | 1.000 | 1.000 | 1.000 | none |  |
@@ -53,7 +53,7 @@ Polymorphs: 89 with MP ids (7 observed, 85 theoretical, 0 unknown).
 
 Experimental gaps: none in the public gap tables
 
-Hazard: GHS codes H335, H372 in 225 of 3142 notifications (ECHA attribution applies)
+Hazard: GHS codes H335, H372 reported in 225 of 3142 reports; 2917 report not classified (ECHA attribution applies)
 Literature: 10698 matched, 7142 with abstracts, 5 read (title_and_abstract; query 'Al2O3 thin film')
 
 ### HfO2: 1=, total 1.000
@@ -63,7 +63,7 @@ Literature: 10698 matched, 7142 with abstracts, 5 read (title_and_abstract; quer
 - Band gap source: experimental_median
 - Structural dimensionality: missing (not computed)
 
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched or recorded |
 |---|---|---|---|---|---|---|---|
 | stability (energy above hull) | 0 meV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
 | band gap | 5550 meV | experimental_median | 1.000 | 1.000 | 1.000 | none |  |
@@ -85,7 +85,7 @@ Polymorphs: 15 with MP ids (5 observed, 10 theoretical, 0 unknown).
 Experimental gaps: 5550 meV to 5550 meV across 1 value(s), median 5550 meV
 - expt_gap (compendium): 5550 meV; expt_gap expt_gap:3:HfO2 fetched 2026-11-02T12:00:00+00:00
 
-Hazard: no GHS hazard codes in 344 notifications (ECHA attribution applies)
+Hazard: hazard codes reported in 7 of 344 reports (codes not listed in the record); 337 report not classified (ECHA attribution applies)
 Literature: 3496 matched, 2469 with abstracts, 5 read (title_and_abstract; query 'HfO2 thin film')
 - https://openalex.org/W2024600253 (2015): thin_film_deposited; verified quote: "Here, we present a structural study on the origin of ferroelectricity in Gd doped HfO2 thin films."
 
@@ -96,7 +96,7 @@ Literature: 3496 matched, 2469 with abstracts, 5 read (title_and_abstract; query
 - Band gap source: experimental_median
 - Structural dimensionality: missing (not computed)
 
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched or recorded |
 |---|---|---|---|---|---|---|---|
 | stability (energy above hull) | 0 meV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
 | band gap | 5400 meV | experimental_median | 1.000 | 1.000 | 1.000 | none |  |
@@ -118,7 +118,7 @@ Polymorphs: 6 with MP ids (3 observed, 4 theoretical, 0 unknown).
 Experimental gaps: 5400 meV to 5400 meV across 1 value(s), median 5400 meV
 - expt_gap (compendium): 5400 meV; expt_gap expt_gap:12:La2O3 fetched 2026-11-02T12:00:00+00:00
 
-Hazard: GHS codes H315, H319, H335 in 248 of 618 notifications (ECHA attribution applies)
+Hazard: GHS codes H315, H319, H335 reported in 248 of 618 reports; 370 report not classified (ECHA attribution applies)
 Literature: 383 matched, 218 with abstracts, 5 read (title_and_abstract; query 'La2O3 thin film')
 
 ### Y2O3: 1=, total 1.000
@@ -128,7 +128,7 @@ Literature: 383 matched, 218 with abstracts, 5 read (title_and_abstract; query '
 - Band gap source: experimental_median
 - Structural dimensionality: missing (not computed)
 
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched or recorded |
 |---|---|---|---|---|---|---|---|
 | stability (energy above hull) | 0 meV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
 | band gap | 5600 meV | experimental_median | 1.000 | 1.000 | 1.000 | none |  |
@@ -150,7 +150,7 @@ Polymorphs: 14 with MP ids (4 observed, 12 theoretical, 0 unknown).
 Experimental gaps: 5600 meV to 5600 meV across 1 value(s), median 5600 meV
 - expt_gap (compendium): 5600 meV; expt_gap expt_gap:13:Y2O3 fetched 2026-11-02T12:00:00+00:00
 
-Hazard: GHS codes H315, H319, H320, H335, H413 in 274 of 548 notifications (ECHA attribution applies)
+Hazard: GHS codes H315, H319, H320, H335, H413 reported in 274 of 548 reports; 274 report not classified (ECHA attribution applies)
 Literature: 1480 matched, 839 with abstracts, 5 read (title_and_abstract; query 'Y2O3 thin film')
 
 ### ZrO2: 1=, total 1.000
@@ -160,7 +160,7 @@ Literature: 1480 matched, 839 with abstracts, 5 read (title_and_abstract; query 
 - Band gap source: experimental_median
 - Structural dimensionality: missing (not computed)
 
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched or recorded |
 |---|---|---|---|---|---|---|---|
 | stability (energy above hull) | 0 meV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
 | band gap | 4990 meV | experimental_median | 0.998 | 1.000 | 0.998 | none |  |
@@ -182,7 +182,7 @@ Polymorphs: 20 with MP ids (6 observed, 14 theoretical, 0 unknown).
 Experimental gaps: 4990 meV to 4990 meV across 1 value(s), median 4990 meV
 - expt_gap (compendium): 4990 meV; expt_gap expt_gap:0:ZrO2 fetched 2026-11-02T12:00:00+00:00
 
-Hazard: no GHS hazard codes in 1116 notifications (ECHA attribution applies)
+Hazard: hazard codes reported in 76 of 1116 reports (codes not listed in the record); 1040 report not classified (ECHA attribution applies)
 Literature: 3767 matched, 2298 with abstracts, 5 read (title_and_abstract; query 'ZrO2 thin film')
 
 ### Ta2O5: 6, total 0.968
@@ -192,7 +192,7 @@ Literature: 3767 matched, 2298 with abstracts, 5 read (title_and_abstract; query
 - Band gap source: experimental_median
 - Structural dimensionality: missing (not computed)
 
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched or recorded |
 |---|---|---|---|---|---|---|---|
 | stability (energy above hull) | 0 meV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
 | band gap | 4200 meV | experimental_median | 0.840 | 1.000 | 0.840 | none |  |
@@ -214,7 +214,7 @@ Polymorphs: 24 with MP ids (3 observed, 21 theoretical, 0 unknown).
 Experimental gaps: 4200 meV to 4200 meV across 1 value(s), median 4200 meV
 - expt_gap (compendium): 4200 meV; expt_gap expt_gap:8:Ta2O5 fetched 2026-11-02T12:00:00+00:00
 
-Hazard: no GHS hazard codes in 80 notifications (ECHA attribution applies)
+Hazard: hazard codes reported in 2 of 80 reports (codes not listed in the record); 78 report not classified (ECHA attribution applies)
 Literature: 1683 matched, 1116 with abstracts, 5 read (title_and_abstract; query 'Ta2O5 thin film')
 
 ### TiO2: 7, total 0.932
@@ -224,7 +224,7 @@ Literature: 1683 matched, 1116 with abstracts, 5 read (title_and_abstract; query
 - Band gap source: experimental_median
 - Structural dimensionality: missing (not computed)
 
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched or recorded |
 |---|---|---|---|---|---|---|---|
 | stability (energy above hull) | 0 meV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
 | band gap | 3300 meV | experimental_median | 0.660 | 1.000 | 0.660 | none |  |
@@ -246,7 +246,7 @@ Polymorphs: 46 with MP ids (17 observed, 37 theoretical, 0 unknown).
 Experimental gaps: 3300 meV to 3300 meV across 1 value(s), median 3300 meV
 - expt_gap (compendium): 3300 meV; expt_gap expt_gap:1:TiO2 fetched 2026-11-02T12:00:00+00:00
 
-Hazard: GHS codes H319, H320, H335, H351, H372, H413 in 4157 of 11189 notifications (ECHA attribution applies)
+Hazard: GHS codes H319, H320, H335, H351, H372, H413 reported in 4157 of 11189 reports; 7032 report not classified (ECHA attribution applies)
 Literature: 21132 matched, 13032 with abstracts, 5 read (title_and_abstract; query 'TiO2 thin film')
 
 ### BaTiO3: 8, total 0.822
@@ -256,7 +256,7 @@ Literature: 21132 matched, 13032 with abstracts, 5 read (title_and_abstract; que
 - Band gap source: experimental_median
 - Structural dimensionality: missing (not computed)
 
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched or recorded |
 |---|---|---|---|---|---|---|---|
 | stability (energy above hull) | 0 meV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
 | band gap | 3060 meV | experimental_median | 0.612 | 1.000 | 0.612 | none |  |
@@ -295,7 +295,7 @@ Equal scores are tied; tied rows are listed alphabetically.
 - Band gap source: tbmbj
 - Structural dimensionality: missing (not computed)
 
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched or recorded |
 |---|---|---|---|---|---|---|---|
 | stability (energy above hull) | 0 meV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
 | band gap | 8097 meV | tbmbj | 1.000 | 1.000 | 1.000 | none |  |
@@ -316,7 +316,7 @@ Polymorphs: 322 with MP ids (209 observed, 238 theoretical, 0 unknown).
 
 Experimental gaps: none in the public gap tables
 
-Hazard: GHS codes H315, H319, H320, H335, H341, H350, H350i, H372, H373 in 1403 of 9127 notifications (ECHA attribution applies)
+Hazard: GHS codes H315, H319, H320, H335, H341, H350, H350i, H372, H373 reported in 1403 of 9127 reports; 7724 report not classified (ECHA attribution applies)
 Literature: 21347 matched, 14434 with abstracts, 5 read (title_and_abstract; query 'SiO2 thin film')
 
 
@@ -328,7 +328,7 @@ Literature: 21347 matched, 14434 with abstracts, 5 read (title_and_abstract; que
 - Band gap source: experimental_median
 - Structural dimensionality: missing (not computed)
 
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched or recorded |
 |---|---|---|---|---|---|---|---|
 | stability (energy above hull) | 0 meV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
 | band gap | 10390 meV | experimental_median | 1.000 | 1.000 | 1.000 | none |  |
@@ -350,7 +350,7 @@ Polymorphs: 9 with MP ids (4 observed, 6 theoretical, 0 unknown).
 Experimental gaps: 10390 meV to 10390 meV across 1 value(s), median 10390 meV
 - expt_gap (compendium): 10390 meV; expt_gap expt_gap:9:BeO fetched 2026-11-02T12:00:00+00:00
 
-Hazard: GHS codes H301, H305, H315, H317, H319, H330, H334, H335, H350, H350i, H361, H370, H372 in an unreported number of 49 notifications (ECHA attribution applies)
+Hazard: GHS codes H301, H305, H315, H317, H319, H330, H334, H335, H350, H350i, H361, H370, H372 reported across 49 reports; the not-classified count is not reported (ECHA attribution applies)
 Literature: 164 matched, 105 with abstracts, 5 read (title_and_abstract; query 'BeO thin film')
 
 ### ThO2: excluded
@@ -359,7 +359,7 @@ Literature: 164 matched, 105 with abstracts, 5 read (title_and_abstract; query '
 - Band gap source: experimental_median
 - Structural dimensionality: missing (not computed)
 
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched or recorded |
 |---|---|---|---|---|---|---|---|
 | stability (energy above hull) | 0 meV/atom | GGA_GGA+U_R2SCAN | 1.000 | 1.000 | 1.000 | none |  |
 | band gap | 3400 meV | experimental_median | 0.680 | 1.000 | 0.680 | none |  |
@@ -379,7 +379,7 @@ Experimental gaps: 3300 meV to 3500 meV across 2 value(s), median 3400 meV
 - expt_gap (compendium): 3500 meV; expt_gap expt_gap:5:ThO2 fetched 2026-11-02T12:00:00+00:00
 - expt_gap (compendium): 3300 meV; expt_gap expt_gap:11:ThO2 fetched 2026-11-02T12:00:00+00:00
 
-Hazard: GHS codes H301, H311, H331, H350, H373 in an unreported number of 213 notifications (ECHA attribution applies)
+Hazard: GHS codes H301, H311, H331, H350, H373 reported across 213 reports; the not-classified count is not reported (ECHA attribution applies)
 Literature: 31 matched, 20 with abstracts, 5 read (title_and_abstract; query 'ThO2 thin film')
 
 

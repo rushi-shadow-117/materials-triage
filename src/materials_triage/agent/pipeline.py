@@ -118,10 +118,10 @@ class Sources:
             full_file_sha256=manifest["jarvis_dft_3d"]["sha256"],
             fetched_at=fixed,
         )
-        gap_raw = expt_gap.load_slice(
-            snapshots / "expt_gap.slice.json",
-            table="expt_gap",
-            file_sha256=manifest["expt_gap"]["sha256"],
+        # the full pinned compendium, not a slice of the baseline oxides (review F04)
+        gap_raw = expt_gap.load_compendium(
+            snapshots / manifest["expt_gap"]["local_file"],
+            expected_sha256=manifest["expt_gap"]["expected_sha256"],
             fetched_at=fixed,
         )
         names: dict[str, str] = {}
@@ -507,6 +507,20 @@ def collect_discovery(
     return out
 
 
+def _subject_names(
+    key: str, group: CompositionGroup | None, inputs: RunInputs, sources: Sources
+) -> list[str]:
+    """Names the evidence subject check accepts for a composition (review F02). All three
+    lists are recorded or owner-entered; none is written here."""
+    names = [*inputs.profile.synonyms.get(key, [])]
+    common = sources.names.get(key)
+    if common:
+        names.append(common)
+    if group is not None and group.hazard is not None:
+        names.extend(s for s in group.hazard.synonyms if any(ch.isalpha() for ch in s))
+    return names
+
+
 MAX_ENRICHMENT_ROUNDS = 12  # each round enriches only newcomers to the top K
 # stop once 6 x top_n compositions have been enriched; 5 left B2's top 10 three short (Track H)
 MAX_ENRICHED_PER_TOP = 6
@@ -682,6 +696,11 @@ def run(
                 k for k in top if k in groups and k in enriched and k not in classified_keys
             ]
         hits: list[tuple[str, LiteratureHit]] = []
+        # names a supporting sentence may use for the candidate when its formula is absent: the
+        # profile's synonym table, the common name, and the recorded PubChem synonym list
+        subject_names = {
+            k: _subject_names(k, groups.get(k), inputs, sources) for k in need_classify
+        }
         for key in [] if evidence_off else need_classify:
             classified_keys.add(key)
             group = groups.get(key)
@@ -694,6 +713,7 @@ def run(
             cache=cache,
             model_version=model,
             cache_only=inputs.classify_mode == "cache_only",
+            synonyms=subject_names,
         )
         log.extend(classified.entries)
         partial.extend(classified.partial_reasons)

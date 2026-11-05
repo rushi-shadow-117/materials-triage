@@ -32,6 +32,13 @@ review the criteria, and run. The command line does the same:
 uv run materials-triage rank --formulas HfO2,ZrO2,Al2O3 --no-llm --fetch cassettes
 ```
 
+The brief's discovery request runs offline with no key from a criteria file:
+
+```
+uv run materials-triage query "Find promising oxide dielectric candidates for thin-film experiments." \
+  --yes --no-llm --criteria examples/brief_discovery.yaml --fetch cassettes
+```
+
 Or with Docker: `docker build --target api -t materials-triage:api . && docker run --rm -p 8000:8000 materials-triage:api`.
 
 The bare defaults read the recorded data and use `claude-haiku-5-5`. With no key, a banner
@@ -42,8 +49,9 @@ credit balance does the same. `scripts/cold_run.sh` runs this whole check on a f
 
 With a key, the model is on by default: it parses Describe requests and classifies
 abstracts (`CLASSIFY_MODE=live`), and the confirm step shows the run's estimated model calls
-before it runs: for the brief's example, one parse call, up to 50 classify calls (five
-abstracts each for the top 10, fewer when labels are cached), and one rationale call. In `.env`:
+before it runs. Observed for the brief's example on Haiku: 62 calls on a cold classifier cache
+(60 classify, 1 parse, 1 rationale) and 32 when earlier runs had cached labels (30 classify).
+Classification reads up to five abstracts per composition that reaches the top 10. In `.env`:
 
 ```
 LLM_PROVIDER=anthropic

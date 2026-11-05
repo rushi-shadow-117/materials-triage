@@ -164,7 +164,8 @@ def test_gan_under_the_nitride_profile(client: TestClient) -> None:
     bundle = client.get(f"/api/runs/{run_id}").json()
     gan = next(c for c in bundle["candidates"] if c["composition"] == "GaN")
     assert gan["excluded"]["rule"] == "band_gap.hard_min"
-    assert "1.738 eV (pbe) is below the 4 eV minimum" in gan["excluded"]["detail"]
+    # the full compendium holds 16 GaN measurements (review F04); PBE (1.738 eV) is not used
+    assert "3.475 eV (experimental_median) is below the 4 eV minimum" in gan["excluded"]["detail"]
     assert "pbe_only_below_window" not in gan["flags"]
 
 
@@ -251,3 +252,14 @@ def test_resolve_matches_names_and_reports_the_rest(client: TestClient) -> None:
     assert started.status_code == 422
     detail = started.json()["detail"]
     assert detail.startswith("None of these matched") and "[" not in detail
+
+
+def test_a_non_finite_setting_is_a_422_sentence(client: TestClient) -> None:
+    # review F12: 1e999 parsed to infinity and ran, excluding every row without a word
+    body = (
+        '{"request_text": "x", "settings": {"profile": "oxide_dielectric_thin_film", '
+        '"mode": "candidate_list", "candidate_list": ["HfO2"], "band_gap_min_ev": 1e999}}'
+    )
+    r = client.post("/api/runs", content=body, headers={"content-type": "application/json"})
+    assert r.status_code == 422
+    assert r.json()["detail"] == "band_gap_min_ev must be a finite number."

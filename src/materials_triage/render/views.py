@@ -6,6 +6,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from decimal import Decimal
 
+from materials_triage.adapters.common import try_reduced_formula
 from materials_triage.records import Provenance, record_url
 from materials_triage.records.bundle import (
     UNRESOLVED_REASON,
@@ -25,6 +26,7 @@ from materials_triage.render.caveats import (
     CaveatConfig,
     CaveatText,
     key_caveat,
+    promoted_ids,
     row_specific,
 )
 from materials_triage.render.tokens import (
@@ -60,6 +62,7 @@ class ProvenanceView:
     source_version: str | None
     url: str | None
     license: str | None
+    fetch_label: str = "fetched"  # "recorded" for a replayed recording (review F15)
 
     @classmethod
     def build(cls, p: Provenance, method: str | None = None) -> ProvenanceView:
@@ -71,6 +74,7 @@ class ProvenanceView:
             p.source_version,
             record_url(p),
             p.license,
+            "recorded" if p.recorded else "fetched",
         )
 
 
@@ -182,6 +186,8 @@ class RunView:
     hidden_excluded: int = 0
     hidden_unchecked: int = 0  # of the hidden ranked rows, those scored on summary data only
     excluded_by_rule: list[ExcludedCount] = field(default_factory=list)
+    # the PI view names only excluded rows the PI listed; every other exclusion is a count
+    excluded_named: list[RowView] = field(default_factory=list)
     hull_cutoff: str | None = None  # the effective energy above hull cutoff
     overview: str | None = None  # the verified summary:overview rationale slot
     unresolved_candidates: list[str] = field(default_factory=list)
@@ -200,6 +206,21 @@ class RunView:
 class ExcludedCount:
     rule: str
     count: int
+
+
+def _listed_keys(bundle: ProvenanceBundle) -> set[str]:
+    """Compositions the PI named: the candidate list and any extra anchors (review F17)."""
+    settings = bundle.criteria.effective_settings
+    names: list[str] = []
+    for key in ("candidate_list", "extra_anchors"):
+        value = settings.get(key)
+        if isinstance(value, list):
+            names.extend(str(v) for v in value)
+    out = set()
+    for n in names:
+        reduced = try_reduced_formula(n)
+        out.add(reduced if reduced is not None else n)
+    return out
 
 
 def _excluded_counts(excluded: list[Candidate]) -> list[ExcludedCount]:
@@ -482,12 +503,14 @@ def _row_view(
     caveats: CaveatConfig,
     units: str,
     hide_ids: bool = False,
+    wide: frozenset[CaveatId] = PROFILE_WIDE,
 ) -> RowView:
     comp = row.composition
     is_anchor = isinstance(row, Anchor)
     hits = [e for e in bundle.evidence if e.composition == comp]
-    # the row's own caveats; profile-wide ones show once above the table (RunView.profile_caveats)
-    resolved = [caveats.resolve(c, row) for c in row_specific(row.caveats)]
+    # the row's own caveats; ids every shown ranked row carries show once above the table
+    # (RunView.profile_caveats), any other profile-wide id stays on the rows that carry it
+    resolved = [caveats.resolve(c, row) for c in row_specific(row.caveats, wide)]
     key = key_caveat(row.caveats)
     slot_id = f"candidate:{comp}:one_line"
     slot = bundle.rationale.get(slot_id)
@@ -654,9 +677,16 @@ def build(
     excluded_all = _excluded_order(bundle.excluded())
     shown_ranked = ranked_all[:limit] if limit else ranked_all
     shown_excluded = excluded_all[:MAX_EXCLUDED_SHOWN]
-    rows = [_row_view(c, bundle, index, caveats, units, hide_ids) for c in shown_ranked]
-    excluded = [_row_view(c, bundle, index, caveats, units, hide_ids) for c in shown_excluded]
-    anchors = [_row_view(a, bundle, index, caveats, units, hide_ids) for a in bundle.anchors]
+    wide = promoted_ids([c.caveats for c in shown_ranked])
+    rows = [_row_view(c, bundle, index, caveats, units, hide_ids, wide) for c in shown_ranked]
+    excluded = [_row_view(c, bundle, index, caveats, units, hide_ids, wide) for c in shown_excluded]
+    listed = _listed_keys(bundle)
+    excluded_named = [
+        _row_view(c, bundle, index, caveats, units, hide_ids, wide)
+        for c in excluded_all
+        if c.composition in listed
+    ]
+    anchors = [_row_view(a, bundle, index, caveats, units, hide_ids, wide) for a in bundle.anchors]
     # the Caveats section defines what the shown ranked rows and anchors carry, not what only
     # an excluded row carries (Track H sweep)
     texts: dict[str, CaveatText] = {}
@@ -667,7 +697,7 @@ def build(
     every: list[Candidate | Anchor] = [*shown_ranked, *shown_excluded, *bundle.anchors]
     for brow in every:
         for cv in brow.caveats:
-            if cv.id in PROFILE_WIDE and cv.id.value not in profile_caveats:
+            if cv.id in wide and cv.id.value not in profile_caveats:
                 profile_caveats[cv.id.value] = caveats.resolve(cv, brow)
     for cid, text in profile_caveats.items():
         texts.setdefault(cid, text)
@@ -705,6 +735,7 @@ def build(
         hidden_excluded=len(excluded_all) - len(shown_excluded),
         hidden_unchecked=sum(1 for c in ranked_all[len(shown_ranked) :] if not cross_checked(c)),
         excluded_by_rule=_excluded_counts(excluded_all),
+        excluded_named=excluded_named,
         hull_cutoff=_hull_cutoff(bundle, units),
         overview=_overview(bundle, index, units, hide_ids),
         unresolved_candidates=list(bundle.criteria.unresolved_candidates),

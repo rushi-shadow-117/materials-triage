@@ -91,6 +91,22 @@ weight_bounds:
   entered_by: owner
   entered_on: 2026-11-02
 
+physical_ranges:
+  status: entered
+  description: "Physical ranges for the band gap filters and the element count a run may request. Requests outside are clamped and shown, like the weight and stability clamps."
+  band_gap_ev:
+    min: 0
+    max: 15
+  max_elements:
+    min: 1
+    max: 6
+  source:
+    citation: "Owner decision 2026-11-05 (review fix batch, item 5); a site setting, not a chemistry claim"
+    url: null
+    access: not_applicable
+  entered_by: owner
+  entered_on: 2026-11-05
+
 defaults:
   status: entered
   top_n_max: 50

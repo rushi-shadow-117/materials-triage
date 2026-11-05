@@ -221,6 +221,10 @@ class RefusalPolicy(Strict):
         "Settings and roles cannot be changed from the chat. Use the admin console or the "
         "configuration files."
     )
+    closed_source: str = (
+        "This assistant uses open public sources only; it does not fetch paywalled or closed "
+        "content."
+    )
 
 
 class StepBudget(Strict):
@@ -312,6 +316,9 @@ class SiteProfile(Strict):
     radioactive_exclusion_locked: bool = True
     # meV/atom; a query cutoff is clamped into these; the max is the discovery hull prefilter
     stability_cutoff_bounds: Bounds | None = None
+    # physical ranges for typed filters (review F12, owner decision 2026-11-05)
+    band_gap_bounds_ev: Bounds | None = None
+    max_elements_bounds: Bounds | None = None
 
 
 # ------------------------------------------------------------------- scoring profile (FDE)
@@ -386,6 +393,9 @@ class ScoringProfile(Strict):
 
 
 class QuerySettings(Strict):
+    # a non-finite number (1e999 parses to infinity) is refused, never run (review F12)
+    model_config = ConfigDict(extra="forbid", allow_inf_nan=False)
+
     profile: str
     mode: Literal["discovery", "candidate_list"] = "discovery"
     candidate_list: list[str] = Field(default_factory=list)
@@ -482,6 +492,33 @@ def resolve(
                 )
             )
         cutoff = applied
+    applied_query: dict[str, Any] = {}
+    gap_bounds = site.band_gap_bounds_ev
+    for name in ("band_gap_min_ev", "band_gap_max_ev"):
+        value = getattr(query, name)
+        if value is None or gap_bounds is None:
+            continue
+        gap = min(max(value, gap_bounds.min), gap_bounds.max)
+        if gap != value:
+            clamps.append(
+                Clamp(setting=name, requested=value, applied=gap, bound="site.band_gap_bounds_ev")
+            )
+            applied_query[name] = gap
+    el_bounds = site.max_elements_bounds
+    if query.max_elements is not None and el_bounds is not None:
+        n = int(min(max(query.max_elements, el_bounds.min), el_bounds.max))
+        if n != query.max_elements:
+            clamps.append(
+                Clamp(
+                    setting="max_elements",
+                    requested=query.max_elements,
+                    applied=n,
+                    bound="site.max_elements_bounds",
+                )
+            )
+            applied_query["max_elements"] = n
+    if applied_query:
+        query = query.model_copy(update=applied_query)
     exclude_radioactive = query.exclude_radioactive
     if site.radioactive_exclusion_locked and not exclude_radioactive:
         clamps.append(

@@ -1,0 +1,8 @@
+# The brief's example as no-LLM criteria: discovery under the default profile
+# (oxide_dielectric_thin_film), whose criteria already encode the request: stability, band gap,
+# hazard, simplicity, and evidence. Every other setting takes the profile and site default.
+#
+#   uv run materials-triage query "<the brief's text>" --yes --no-llm \
+#     --criteria examples/brief_discovery.yaml --fetch cassettes
+mode: discovery
+top_n: 10

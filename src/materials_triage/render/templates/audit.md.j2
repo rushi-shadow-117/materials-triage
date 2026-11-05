@@ -68,10 +68,10 @@ Hazard classifications: {{ view.hazard_attribution }}
 - Band gap source: {{ r.band_gap_source or "none" }}
 - Structural dimensionality: {{ r.dimensionality }}
 
-| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched |
+| Criterion | Raw | Source | Normalized | Weight | Contribution | Record | Fetched or recorded |
 |---|---|---|---|---|---|---|---|
 {% for c in r.criteria %}
-| {{ c.label }} | {{ c.raw }} | {{ c.source }} | {{ c.normalized }} | {{ c.weight }} | {{ c.contribution }} | {% if c.provenance %}{{ c.provenance.source }} {{ c.provenance.record_id }}{% if c.provenance.method %} ({{ c.provenance.method }}){% endif %}{% if c.provenance.url %} {{ c.provenance.url }}{% endif %}{% else %}none{% endif %} | {{ c.provenance.fetched_at if c.provenance else "" }} |
+| {{ c.label }} | {{ c.raw }} | {{ c.source }} | {{ c.normalized }} | {{ c.weight }} | {{ c.contribution }} | {% if c.provenance %}{{ c.provenance.source }} {{ c.provenance.record_id }}{% if c.provenance.method %} ({{ c.provenance.method }}){% endif %}{% if c.provenance.url %} {{ c.provenance.url }}{% endif %}{% else %}none{% endif %} | {{ (c.provenance.fetch_label ~ ' ' ~ c.provenance.fetched_at) if c.provenance else "" }} |
 {% endfor %}
 {% for c in r.criteria if c.notes %}
 - {{ c.label }} notes: {{ c.notes | join("; ") }}
@@ -86,13 +86,13 @@ Polymorphs: {{ r.polymorphs.total }} with MP ids ({{ r.polymorphs.observed }} ob
 {% endif %}
 - Scored polymorph is the ground state: {{ "yes" if r.polymorphs.scored_is_ground_state else "no" }}; hull status conflict among functionals: {{ "yes" if r.polymorphs.hull_status_conflict else "no" }}
 {% for p in r.polymorphs.top_by_hull %}
-- {{ p.mp_id }} ({{ p.spacegroup }}): hull {{ p.hull }}, {{ p.observed }}{% if p.excluded_rule %}, excluded by {{ p.excluded_rule }}{% endif %}{% if p.hull_provenance %}; {{ p.hull_provenance.source }} {{ p.hull_provenance.record_id }}{% if p.hull_provenance.method %} ({{ p.hull_provenance.method }}){% endif %} fetched {{ p.hull_provenance.fetched_at }}{% if p.hull_provenance.url %} {{ p.hull_provenance.url }}{% endif %}{% endif %}
+- {{ p.mp_id }} ({{ p.spacegroup }}): hull {{ p.hull }}, {{ p.observed }}{% if p.excluded_rule %}, excluded by {{ p.excluded_rule }}{% endif %}{% if p.hull_provenance %}; {{ p.hull_provenance.source }} {{ p.hull_provenance.record_id }}{% if p.hull_provenance.method %} ({{ p.hull_provenance.method }}){% endif %} {{ p.hull_provenance.fetch_label }} {{ p.hull_provenance.fetched_at }}{% if p.hull_provenance.url %} {{ p.hull_provenance.url }}{% endif %}{% endif %}
 
 {% endfor %}
 
 Experimental gaps: {{ r.gaps }}
 {% for v in r.gap_values %}
-- {{ v.label }}: {{ v.text }}{% if v.provenance %}; {{ v.provenance.source }} {{ v.provenance.record_id }} fetched {{ v.provenance.fetched_at }}{% if v.provenance.url %} {{ v.provenance.url }}{% endif %}{% endif %}
+- {{ v.label }}: {{ v.text }}{% if v.provenance %}; {{ v.provenance.source }} {{ v.provenance.record_id }} {{ v.provenance.fetch_label }} {{ v.provenance.fetched_at }}{% if v.provenance.url %} {{ v.provenance.url }}{% endif %}{% endif %}
 
 {% endfor %}
 {% for v in r.reference_values %}

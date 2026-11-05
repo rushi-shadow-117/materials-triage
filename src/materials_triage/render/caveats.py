@@ -55,12 +55,13 @@ def _reference_pending_text(entry_id: str | None, row: Candidate | Anchor | None
     )
 
 
-def row_specific(caveats: list[Caveat]) -> list[Caveat]:
-    """The row's own caveats, first of each id, in the row's order."""
+def row_specific(caveats: list[Caveat], wide: frozenset[CaveatId] = PROFILE_WIDE) -> list[Caveat]:
+    """The row's own caveats, first of each id, in the row's order. `wide` is the set shown once
+    above the table instead (by default every profile-wide id)."""
     seen: set[CaveatId] = set()
     out: list[Caveat] = []
     for c in caveats:
-        if c.id in PROFILE_WIDE or c.id in seen:
+        if c.id in wide or c.id in seen:
             continue
         seen.add(c.id)
         out.append(c)
@@ -111,6 +112,16 @@ NO_KEY_CAVEAT = "none specific to this row"
 # the row in particular; it stays in the row's caveat list and the Caveats section (Track H
 # sweep: it was the key caveat on most rows of the brief's example).
 NEVER_KEY: frozenset[CaveatId] = frozenset({CaveatId.EXPERIMENTAL_GAP_UNREFERENCED})
+
+
+def promoted_ids(rows: list[list[Caveat]]) -> frozenset[CaveatId]:
+    """Profile-wide ids that every given row carries (review F03): only those show once above
+    the table as applying to every row. The ECHA line is an attribution, not a claim about the
+    rows, and keeps its own line whenever any row carries it."""
+    if not rows:
+        return PROFILE_WIDE
+    common = frozenset.intersection(*(frozenset(c.id for c in r) for r in rows))
+    return frozenset(c for c in PROFILE_WIDE if c in common or c is CaveatId.ATTRIBUTION_ECHA)
 
 
 def key_caveat(caveats: list[Caveat]) -> Caveat | None:

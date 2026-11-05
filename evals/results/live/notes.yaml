@@ -51,3 +51,27 @@ A1_claude-haiku-5-5_2026-11-05_after_fix:
     P2O5 10. SiO2 would place 13th of 14. ZrO2 got 4 thin_film_deposited and 1
     dielectric_characterized, all verified. The model wrote every rationale slot and the
     verifier removed nothing.
+A1_claude-haiku-5-5_2026-11-05_review:
+  model: claude-haiku-5-5
+  date: 2026-11-05 (UTC; evening of 2026-11-04 CST)
+  headline: true
+  note: >-
+    The brief's example after the review fix batch (evidence subject check, full gap
+    compendium), at commit 77f78da, classify cap 50. 32 API calls: 30 classify (the rest of the
+    labels from the classifier cache), 1 rationale, 1 parse; 54,472 classify and 19,631
+    rationale tokens. Not partial; every check passes. Of 85 labelled hits, 28 became
+    not_relevant because the sentence names another material. Dy2O3, Er2O3, HfO2, Sm2O3 and
+    Y2O3 tie at 1.000 and ZrO2 shows 1.000 at 0.9996; P2O5 is 7 at 0.993 because every one of
+    its labels names another material, which leaves its evidence missing rather than low;
+    Al2O3, Ho2O3, La2O3, Lu2O3 and MgO follow at 0.950. SiO2 would place 19th of 20.
+F1-F12_claude-haiku-5-5_2026-11-05:
+  model: claude-haiku-5-5
+  date: 2026-11-05 (UTC; evening of 2026-11-04 CST)
+  headline: true
+  note: >-
+    The twelve adversarial cases through the eval harness on the live model, at commit
+    77f78da, one repeat each. 12 of 12 pass; attack success 0 of 12. About 20 API calls: one
+    parse call per case, one rationale call for each of the six cases that run a ranking, and
+    one live classify call for F4's injected abstract (the other abstracts came from the
+    classifier cache). The review's paywall text, run separately through the CLI (1 call),
+    is refused with the closed_source sentence.

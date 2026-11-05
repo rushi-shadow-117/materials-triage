@@ -129,3 +129,42 @@ def test_labels_show_as_not_used_when_the_run_dropped_evidence() -> None:
     tiers = {r.composition: r.evidence_tier for r in view.rows}
     with_hits = {e.composition for e in bundle.evidence}
     assert all(tiers[c] == "not used this run" for c in tiers if c in with_hits)
+
+
+def _with_caveat_on(bundle: ProvenanceBundle, comps: set[str], anchor: bool) -> ProvenanceBundle:
+    from materials_triage.records.bundle import Caveat, CaveatId
+
+    unclassified = Caveat(id=CaveatId.EVIDENCE_UNCLASSIFIED)
+
+    def strip(row):  # type: ignore[no-untyped-def]
+        kept = [c for c in row.caveats if c.id is not CaveatId.EVIDENCE_UNCLASSIFIED]
+        return row.model_copy(update={"caveats": kept})
+
+    candidates = []
+    for c in bundle.candidates:
+        c = strip(c)
+        if c.composition in comps:
+            c = c.model_copy(update={"caveats": [*c.caveats, unclassified]})
+        candidates.append(c)
+    anchors = [strip(a) for a in bundle.anchors]
+    if anchor:
+        anchors = [a.model_copy(update={"caveats": [*a.caveats, unclassified]}) for a in anchors]
+    return bundle.model_copy(update={"candidates": candidates, "anchors": anchors})
+
+
+def test_a_caveat_only_some_rows_carry_is_not_shown_as_applying_to_every_row() -> None:
+    # review F03, the live bundle's shape: every shown row was classified and only the anchor
+    # (never classified) carries evidence_unclassified
+    bundle = _with_caveat_on(_bundle(), set(), anchor=True)
+    view = build(bundle, CaveatConfig.load(), units="eV")
+    assert "evidence_unclassified" not in {c.id.value for c in view.profile_caveats}
+    anchor = view.anchors[0]
+    assert "evidence_unclassified" in {c.id.value for c in anchor.caveats}
+
+
+def test_a_caveat_every_shown_ranked_row_carries_applies_to_every_row() -> None:
+    bundle = _bundle()
+    ranked = {c.composition for c in bundle.ranked()}
+    view = build(_with_caveat_on(bundle, ranked, anchor=False), CaveatConfig.load(), units="eV")
+    assert "evidence_unclassified" in {c.id.value for c in view.profile_caveats}
+    assert all("evidence_unclassified" not in {c.id.value for c in r.caveats} for r in view.rows)

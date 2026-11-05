@@ -95,7 +95,10 @@ def test_audit_view_shows_values_with_provenance_and_the_polymorph_summary_only(
     assert text.count("- mp-") <= sum(
         len(c.group.polymorphs.top_by_hull) for c in [*bundle.candidates, *bundle.anchors]
     )
-    assert "Hazard: no GHS hazard codes in 344 notifications (ECHA attribution applies)" in text
+    assert (
+        "Hazard: hazard codes reported in 7 of 344 reports (codes not listed in the "
+        "record); 337 report not classified (ECHA attribution applies)"
+    ) in text
     assert 'verified quote: "Here, we present a structural study' in text
     assert "quote_mismatch" in text  # the dropped hit is listed under Verifier only
     assert "## Verifier" in text and "quote_mismatch at evidence:" in text
@@ -176,7 +179,7 @@ def test_ghs_flag_set_caveat_is_filled_from_the_row_record(
     assert with_row.entered and with_row.source.endswith("ghs_flag_codes.caveat_template")
     assert with_row.text.startswith("Flagged: a suspected carcinogenic") and "H350" in with_row.text
     total = sio2.group.hazard.notifications_total
-    assert total is not None and f"of {total} notifications" in with_row.text
+    assert total is not None and f"of {total} reports" in with_row.text
     without = caveat_config.resolve(Caveat(id=CaveatId.HAZARD_FLAG, subject="SiO2"))
     assert not without.entered
 
@@ -290,3 +293,32 @@ def test_record_url_links_materials_project_ids_in_older_bundles() -> None:
     )
     assert record_url(prov("pubchem", "CID:1", "https://x/1")) == "https://x/1"
     assert record_url(prov("expt_gap", "expt_gap:3:HfO2")) is None
+
+
+def _excluded_section(text: str) -> str:
+    start = text.index("## Excluded")
+    rest = text[start + 3 :]
+    end = rest.find("\n## ")
+    return text[start : start + 3 + end] if end >= 0 else text[start:]
+
+
+def test_pi_excluded_section_counts_by_rule_and_names_listed_candidates(
+    bundle: ProvenanceBundle, site: cs.SiteProfile
+) -> None:
+    # review F17: the PI view listed every excluded row (1,165 words in the brief's run)
+    listed = markdown.render_pi_summary(bundle, site)
+    section = _excluded_section(listed)
+    assert "- hazard.radioactive_exclude: 1" in section and "- hazard.exclude: 1" in section
+    assert "- ThO2: hazard.radioactive_exclude" in section  # the PI listed it
+    assert "The audit view and the CSV export list every excluded row." in section
+    audit = markdown.render_audit(bundle, site)
+    assert "ThO2" in _excluded_section(audit)
+
+
+def test_pi_excluded_section_names_no_discovery_row(
+    bundle: ProvenanceBundle, site: cs.SiteProfile
+) -> None:
+    discovery = _with_settings(bundle, mode="discovery", candidate_list=[])  # type: ignore[arg-type]
+    section = _excluded_section(markdown.render_pi_summary(discovery, site))
+    assert "- hazard.radioactive_exclude: 1" in section
+    assert "ThO2" not in section and "BeO" not in section

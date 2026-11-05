@@ -1732,3 +1732,186 @@ hazard row the same round's checks then excluded still spent classify calls. On 
 20 of 50 calls went to CO2, H2O, SO3 and Li2O, and three final rows went unread. The change is
 pipeline ordering only; scoring and the classifier are unchanged.
 Alternative: raise the classify cap, which spends more to read rows the page never shows.
+
+## Review fixes
+
+### 2026-11-05 Evidence must name the candidate, not a mixed system (review F02)
+Decision: after classification and before scoring, code checks that the supporting sentence
+names the candidate as a standalone formula: not inside a longer formula, and not joined to
+another formula by an adjacent "-", "/", en dash, ":" or "x" ("B2O3/SiO2", "SiO2-P2O5-CaO",
+"Li2O-Al2O3", "FePt/B2O3"). A slash may carry one modifier word before the next formula
+("B2O3/passivation SiO2"); a hyphen may not, so "Al2O3-coated Si" stays evidence. When the
+formula is absent, a standalone name from the profile synonym table, the common-name table, or
+the recorded PubChem synonym list counts. When the formula is present, its occurrences decide
+and a synonym does not rescue it: the Li2O-Al2O3 sentence also says "aluminum oxide", as a
+component process. A failing label becomes not_relevant with the note "evidence names another
+material" and stays in the audit view. The check runs on cached labels too, so no new model call
+is needed. It also closes review F13: a planted instruction that never names the candidate is
+no longer evidence. On the 70 labelled hits in the recorded runs, 24 flip. Seven of those are
+sentences that name no material at all ("The dielectric constant is 13 ..."), which the rule
+drops by design.
+Alternative: a prompt instruction to the classifier, which the live run shows the model does not
+follow reliably; or checking the abstract title, which the owner did not choose.
+
+### 2026-11-05 The product reads the full experimental gap compendium (review F04)
+Decision: `Sources.load` reads the pinned Zhuo et al. compendium (`fixtures/snapshots/
+expt_gap.json.gz`, 6,354 rows, 50,592 bytes) instead of the 14-row slice of the 11 baseline
+oxides. The file's sha256 must equal the manifest's `expected_sha256` or loading refuses. Zero
+rows stay excluded, the form stays `compendium`, and the matbench table stays validation only.
+Record ids keep the table's own row index (`expt_gap:1337:BaTiO3`). The slice gave the
+hand-picked baseline oxides experimental gaps and left every other oxide on PBE, about 40% low:
+MgO scored 4.43 eV with 7.67 to 7.83 eV in the same table. The baseline oxides have the same
+rows in both, so the conflict tolerance (validation/calibration.py) does not change.
+Effect on the brief's discovery run offline (no evidence labels): MgO moves from 8 to 1=,
+Lu2O3 from 10 to 1=, B2O3 from 1= to 15 (experimental 4.9 eV replaces PBE 6.31), P2O5 from 7 to
+16. The tie at 1.000 grows from 6 rows to 12, because more oxides now carry experimental gaps
+above the 5.0 eV soft-preference cap. New compositions in the top K were recorded with
+`scripts/record_case_gaps.py A1 B1` (one round each, nothing left).
+Alternative: keep the slice and caveat PBE-only rows as not comparable, which leaves the bias
+in the ranking and only labels it.
+
+### 2026-11-05 A caveat applies to every row only when every shown ranked row carries it (review F03)
+Decision: a profile-wide caveat shows once under "Applies to every row" only when every shown
+ranked row carries it. Otherwise it stays in the caveat list of each row that carries it. The
+ECHA attribution keeps its own line whenever any row carries it, since it attributes data and
+says nothing about the rows. Before, the header took a profile-wide caveat from any shown row,
+excluded row, or anchor. The review's live run printed "Literature evidence was not classified
+in this run" above ten classified rows, because the SiO2 anchor (never classified) carried it.
+Alternative: drop evidence_unclassified from anchors, which fixes this one case and leaves the
+rule able to print a false sentence for any other caveat.
+
+### 2026-11-05 The GHS note states both counts and never says "none" when codes are reported (review F14)
+Decision: one formatter (`scoring.hazard.ghs_counts_text`) writes the hazard note and the ghs
+token: "GHS codes H... reported in M of N notifications; N-M report not classified". When M is
+above zero and the PubChem record lists no codes, it says "hazard codes reported in M of N
+notifications (codes not listed in the record)". When M is zero it says so with both counts.
+The HfO2 record (CID 292779) reports codes in 7 of 344 and not classified in 337; the note read
+"GHS codes none in 7 of 344 notifications" and the token "no GHS hazard codes in 344
+notifications". CIDs 62157 and 62395 had the same fault. Parsing was correct; the wording
+inverted it.
+Open for the owner: PubChem calls the 344 "reports by companies" from 5 notifications. The
+existing display rule in config/hazard_policy.yaml says "notifications", and this fix keeps that
+noun.
+Alternative: show PubChem's sentences verbatim, which mixes percentages, company counts and
+notification counts in one line.
+
+### 2026-11-05 Physical ranges for typed filters; non-finite numbers refused (review F12)
+Decision (owner, Nov 5): the site profile's `physical_ranges` entry bounds `band_gap_min_ev`
+and `band_gap_max_ev` to 0 to 15 eV and `max_elements` to 1 to 6. `resolve()` clamps a value
+outside and reports it like the weight and stability clamps; the effective query carries the
+applied value. A non-finite number is refused: the form path answers 422 with "<setting> must
+be a finite number.", and QuerySettings rejects infinity and NaN on every path
+(`allow_inf_nan=False`). Before, a 50 eV floor and 40 elements were accepted, and 1e999 parsed
+to infinity and ran, each ending in "Ranked 0 of 0 candidates" with no reason. The new site
+fields change every run's config sha once.
+Alternative: refuse out-of-range values with a 422, which the owner did not choose because a
+clamp keeps the run going and shows what changed.
+
+### 2026-11-05 Paywalled and closed sources have their own refusal (review F11)
+Decision: the parse step has a fifth out-of-scope category, `closed_source`, for paywalled
+papers, closed databases, and scraping a source that is not openly published. Its fixed text is
+the owner's: "This assistant uses open public sources only; it does not fetch paywalled or
+closed content." Before, the review's paywall request was refused with the private-data
+sentence. As with the other categories, the model only picks the category; code supplies the
+text, and the capability itself is enforced by the egress allowlist and the absence of any
+fetch tool. The parse prompt hash changes; the classify prompt hash does not, so cached labels
+stay valid.
+Alternative: widen the private_data text to cover closed sources, which gives two different
+requests one sentence that fits neither well.
+
+### 2026-11-05 The PI summary counts exclusions by rule (review F17)
+Decision: the PI summary's Excluded section lists a count per exclusion rule, then names only
+the excluded rows the PI listed (the candidate list and any extra anchors). It ends with "The
+audit view and the CSV export list every excluded row." The audit view, the CSV and JSON
+exports, and the web page are unchanged. In the review's live run of the brief the section
+named up to 50 rows (1,165 of the summary's 2,067 words), starting with CO2 and H2O. Anchors
+keep their own section, which already shows an anchor's exclusion.
+Alternative: cap the named list at a few rows, which still names rows the PI never asked about
+and chooses them by an order the PI cannot see.
+
+### 2026-11-05 A replay shows when the response was recorded (review F15)
+Decision: a response served from a recording carries the time it was recorded, labelled
+"recorded" in the audit view and the drill-down. The time is the cassette's `recorded_at`; for
+vcrpy cassettes, which have none (796 of 1,616 interactions), the server's `Date` header on the
+recorded response; failing both, the recording manifest's `_recorded_at`. Never the replay
+time. `RawResponse.recorded` and `Provenance.recorded` carry the flag. Before, those 796
+interactions were stamped with the time of each run, so a drill-down claimed a fetch that
+never happened and two identical runs differed in every provenance time. The store seeding
+script uses the same rule. The scored golden bundle is built with a fixed time by its script
+and shows "fetched", as before.
+Alternative: the manifest time alone, which is the last recording session, not when each
+response was recorded.
+
+### 2026-11-05 The brief runs offline from a shipped criteria file; stale docs fixed (review F10, F16, F05)
+Decision: `examples/brief_discovery.yaml` holds the brief's discovery criteria (mode discovery,
+profile defaults), and the README gives the one-line offline CLI path with no key. Before, a
+no-key admin got "--no-llm needs --criteria FILE" and the only criteria file was a test fixture
+with a candidate list. CLAUDE.md no longer says Keycloak is cut, that `serve` is a stub, or that
+CI has no web job, and it no longer points at a gitignored plan. ARCHITECTURE and the EVAL
+report state that determinism covers prompts, data, and scoring, and that live evidence labels
+can vary on a cold classifier cache, with `diff` attributing the change to the model.
+Alternative: a `--brief` flag that hard-codes the example, which hides the criteria the run
+used.
+
+### 2026-11-05 The eval report leads with live results and their denominators (review F06)
+Decision: docs/EVAL.md opens with the live-model results, each as "M of N cases passed (R
+repeats in total)" with the commit, and for adversarial cases "attack success K of N". The
+scripted suite follows under "Regression harness (scripted model)", described as a check of
+the pipeline and the guardrails in code, not of the live model. The live run of this batch on
+claude-haiku-5-5 (owner-approved budget, about 52 calls actually made): A1 1 of 1; F1 to F12
+12 of 12, attack success 0 of 12; the review's paywall text refused with the closed_source
+sentence. The scripted suite at the same commit passes 37 of 43 (was 39): A1 and G1 now miss
+`ranked_near_top` because ZrO2 ranks 15 with no evidence labels, after the full gap
+compendium put more oxides above the 5 eV cap. The pre-registered A1 expectation is left as
+written for the owner to decide. The README call estimate now gives the observed counts.
+Alternative: merge live and scripted counts into one number, which hides that most cases ran
+on a scripted model.
+
+### 2026-11-05 Evidence read and found wanting scores 0.0 (owner decision on PR #18)
+Decision (owner): when a composition's abstracts were all read by the classifier and none
+yields a usable label (all not_relevant, or rejected because the sentence names another
+material), the evidence criterion scores 0.0 with the reason "no supporting evidence found in N
+abstracts". Missing stays reserved for abstracts not read: no model, a budget stop, or no
+abstracts. A composition with any abstract left unread stays missing. Before, the live A1's
+P2O5, whose five labels all named another material, had evidence missing; missing drops out of
+the weighted mean, so P2O5 ranked 7 at 0.993, above Al2O3 at 0.950 with a verified label.
+Re-ranked from the cached live labels (no new model call), P2O5 ranks 350 at 0.794 and Al2O3
+moves to 7.
+Alternative: keep missing and add a caveat, which leaves a row with no evidence ranked above a
+row with verified evidence.
+
+### 2026-11-05 Scripted misses stay on record with their explanation (owner decision on PR #18)
+Decision (owner): the A1 expectation stays as pre-registered (HfO2, ZrO2, Al2O3 in the top 10).
+The scripted A1 and G1 misses (ZrO2 14th after the full gap compendium) stay in the results,
+and docs/EVAL.md prints an owner-reviewed explanation for each scripted miss from
+`evals/results/scripted_notes.yaml`, including the earlier B2 miss.
+Alternative: widen the expectation to the top 15, which would tune a pre-registered check to the
+result it is meant to test.
+
+### 2026-11-05 The cold run reports every step and fails loudly (owner decision on PR #18)
+Decision (owner): every step of `scripts/cold_run.sh` prints PASS or FAIL, and the first FAIL
+exits with status 1. Each step is a function run in a subshell with errexit, outside any `if`
+(bash ignores errexit in a condition). Before, a step written as `a && b && echo PASS` printed
+nothing when `a` failed and the script went on to exit 0, so the review's cold run showed blank
+steps 4 and 8 and a clean exit. Step 8 runs F1 (the required direct-injection case) on the
+scripted model; A1 misses its pre-registered check on the scripted model and stays on record in
+EVAL.md.
+Alternative: `set -e` across the whole script, which still skips failures inside `&&` chains.
+
+### 2026-11-05 The evidence subject check has stated false negatives (owner decision on PR #18)
+Decision (owner): the subject check's two known false negatives are a stated limit, recorded
+here and in docs/EXTENSIONS.md, not patched. A supporting sentence that
+does not name the material (seven of the 70 recorded labels, for example Y2O3's "The dielectric
+constant is 13 ...") is rejected even when the abstract is about the candidate. Substrate notation such as
+"MgO/Mo(001)" reads as a mixed system. Both only lower evidence; a rejected label stays visible
+in the audit view with its reason.
+Alternative: accept a sentence when the title names the candidate, or exempt elemental
+substrates, each a new rule with its own failure cases; left for an extension with tests.
+
+### 2026-11-05 The hazard note says "reports", PubChem's word (owner decision on PR #18)
+Decision (owner): the hazard note, the ghs token, and the GHS flag caveat say "M of N reports",
+not "notifications". PubChem counts reports by companies ("344 reports by companies from 5
+notifications" for HfO2), so "notifications" named the wrong unit. The flag caveat text in
+config/hazard_policy.yaml changes with it so the page uses one word for the same counts. When
+no report carries a code the note reads "no hazard codes in N reports; N report not classified".
+Alternative: keep "notifications", which contradicts the source's own sentence.

@@ -83,10 +83,9 @@ def main() -> int:
         fetched_at=FIXED_TIME,
     )
     jv_polys = jarvis.polymorphs(jarvis.records(jv_raw))
-    gap_raw = expt_gap.load_slice(
-        SNAPSHOTS / "expt_gap.slice.json",
-        table="expt_gap",
-        file_sha256=manifest["expt_gap"]["sha256"],
+    gap_raw = expt_gap.load_compendium(
+        SNAPSHOTS / manifest["expt_gap"]["local_file"],
+        expected_sha256=manifest["expt_gap"]["expected_sha256"],
         fetched_at=FIXED_TIME,
     )
     gap_aggs = expt_gap.aggregates(expt_gap.records(gap_raw)[0])

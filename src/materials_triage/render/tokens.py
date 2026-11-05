@@ -22,6 +22,7 @@ from materials_triage.records.bundle import (
     ProvenanceBundle,
 )
 from materials_triage.render import precision
+from materials_triage.scoring.hazard import ghs_counts_text
 
 TOKEN_KINDS = (
     "formula",
@@ -214,26 +215,13 @@ def _split(arg: str, parts: int, token: str) -> list[str]:
 
 
 def ghs_text(row: Candidate | Anchor) -> str:
-    """The owner's display rule: codes in M of N notifications, never a verdict."""
+    """The owner's display rule: codes in M of N reports (PubChem's word), never a verdict."""
     h = row.group.hazard
     if h is None:
         return "no PubChem record; hazard unknown"
-    codes = ", ".join(h.h_codes) if h.h_codes else None
-    total = h.notifications_total
-    if total is None:
-        if codes:
-            return f"GHS codes {codes} reported; notification counts not available"
+    if h.notifications_total is None and not h.h_codes:
         return "no GHS notification counts available; hazard unknown"
-    classified = (
-        total - h.notifications_not_classified
-        if h.notifications_not_classified is not None
-        else None
-    )
-    m = precision.quantize(classified, 0) if classified is not None else "an unreported number"
-    n = precision.quantize(total, 0)
-    if codes:
-        return f"GHS codes {codes} in {m} of {n} notifications"
-    return f"no GHS hazard codes in {n} notifications"
+    return ghs_counts_text(h.h_codes, h.notifications_total, h.notifications_not_classified)
 
 
 def resolve(

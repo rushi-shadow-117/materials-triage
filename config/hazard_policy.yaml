@@ -210,8 +210,8 @@ tiers:
     codes: [H340, H341, H350, H351, H361, H370]
     note: "H340/H341 germ cell mutagenicity, H350/H351 carcinogenicity, H361 reproductive toxicity category 2, H370 specific target organ toxicity single exposure category 1. Code meanings cite the UN GHS."
     caveat_template:
-      text: "Flagged: a suspected carcinogenic, mutagenic, reproductive, or single-exposure organ-toxicity classification (GHS {codes}) appears in {M} of {N} notifications. Check the form and handling requirements with site EHS."
-      placeholders: "{codes}: the record's codes in this flag set; {M}: notifications carrying a classification; {N}: notifications in total. Filled by code from the PubChem record; a missing count renders as an unreported number, never 0."
+      text: "Flagged: a suspected carcinogenic, mutagenic, reproductive, or single-exposure organ-toxicity classification (GHS {codes}) appears in {M} of {N} reports. Check the form and handling requirements with site EHS."
+      placeholders: "{codes}: the record's codes in this flag set; {M}: reports carrying a classification; {N}: reports in total. Filled by code from the PubChem record; a missing count renders as an unreported number, never 0."
       status: entered
       source:
         citation: "UN GHS hazard statement definitions (H340, H341, H350, H351, H361, H370); owner decision 2026-11-04. The sentence restates what the codes mean and adds no chemistry claim."
@@ -228,7 +228,7 @@ tiers:
     entered_on: 2026-11-02
 
   ghs_other_codes_rule:
-    description: "Every GHS code outside the exclude sets and the flag sets (for example H315, H319, H335, H372, H373) becomes a process-hazard caveat; the candidate keeps the allow score of 1.0 and the codes are shown as M of N notifications."
+    description: "Every GHS code outside the exclude sets and the flag sets (for example H315, H319, H335, H372, H373) becomes a process-hazard caveat; the candidate keeps the allow score of 1.0 and the codes are shown as M of N reports."
     status: entered
     source:
       citation: "Owner policy decision 2026-11-02: these codes describe respirable powder handling, not film hazards. Taken on seeing the Al2O3 result before pre-registration."
@@ -248,7 +248,7 @@ unknown_hazard_rule:
   entered_on: 2026-10-31
 
 ghs_display_rule:
-  description: "PubChem GHS aggregates are shown as 'hazard codes in M of N notifications' and never collapsed to a majority verdict."
+  description: "PubChem GHS aggregates are shown as 'hazard codes in M of N reports' (PubChem's word: reports by companies, owner decision 2026-11-05) and never collapsed to a majority verdict."
   status: entered
   entered_by: owner
   entered_on: 2026-10-31
