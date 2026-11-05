@@ -57,7 +57,7 @@ def test_commands_and_links_in_docs_exist() -> None:
             if target.startswith("scripts/") and not (ROOT / target).exists():
                 problems.append(f"{doc.name}: missing {target}")
         for m in re.finditer(r"`((?:docs|scripts|config|deploy|apptainer|infra)/[\w./-]+)`", text):
-            if not (ROOT / m.group(1)).exists() and m.group(1) != "docs/DESIGN_NOTE.md":
+            if not (ROOT / m.group(1)).exists():
                 problems.append(f"{doc.name}: missing {m.group(1)}")
     assert problems == [], problems
 
@@ -82,3 +82,8 @@ def test_evidence_check_false_negatives_are_a_stated_limit() -> None:
     for text in (ext, dec):
         assert "MgO/Mo(001)" in text
         assert "does not name the material" in text
+
+
+def test_the_design_note_ships_and_the_readme_points_at_it() -> None:
+    assert (ROOT / "docs" / "DESIGN_NOTE.pdf").read_bytes().startswith(b"%PDF")
+    assert "`docs/DESIGN_NOTE.pdf`" in (ROOT / "README.md").read_text()

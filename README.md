@@ -11,7 +11,7 @@ against the data before it is shown. The model has four tools (parse a request, 
 abstract, write rationale from tokens, pick a code-computed relaxation) and none of them
 changes anything.
 
-Design note: `docs/DESIGN_NOTE.md` (added separately).
+Design note: `docs/DESIGN_NOTE.pdf` (three pages, one diagram). Evaluation report: `docs/EVAL.md`.
 
 ## Run it in five minutes
 
