@@ -20,7 +20,7 @@ from pydantic import BaseModel
 from materials_triage.config.schema import CoreConfig
 from materials_triage.records.bundle import DecisionLogEntry
 
-from . import prompts
+from . import llm_status, prompts
 from .llm import LLMClient, ToolCall, ToolResult, ToolSpec, Turn, Usage
 from .llm_status import LLMUnavailableError
 from .tools import ToolInputError, validate_input
@@ -118,6 +118,17 @@ class StepResult:
         return self.status == StepStatus.OK
 
 
+PROVIDER_ERROR = "provider error"
+
+
+def plain_reason(reason: str | None) -> str:
+    """A step failure reason as a reader-facing phrase."""
+    if reason == "llm_unavailable":
+        status = llm_status.current()
+        return llm_status.NOTES[status].rstrip(".") if status != "ok" else "model unavailable"
+    return reason or "no reason given"
+
+
 def _entry(step: str, summary: str, detail: dict[str, Any]) -> DecisionLogEntry:
     return DecisionLogEntry(
         at=datetime.now(UTC), actor="agent", step=step, summary=summary, detail=detail
@@ -172,8 +183,11 @@ def run_step(
             entries.append(_entry(step, "model unavailable", {"attempt": attempt, "note": str(e)}))
             return StepResult(StepStatus.FAILED, "llm_unavailable", entries=entries, turns=turns)
         except Exception as e:  # noqa: BLE001 - any other provider error fails the step only
-            note = f"provider error: {type(e).__name__}: {str(e)[:300]}"
-            entries.append(_entry(step, note, {"attempt": attempt}))
+            # the page shows a short reason; the provider's raw message stays in the entry's
+            # detail for the audit view
+            code = getattr(e, "status_code", None)
+            note = f"{PROVIDER_ERROR} ({type(e).__name__}" + (f", HTTP {code})" if code else ")")
+            entries.append(_entry(step, note, {"attempt": attempt, "error": str(e)[:300]}))
             return StepResult(StepStatus.FAILED, note, entries=entries, turns=turns)
         budget.charge(response.usage)
         detail: dict[str, Any] = {

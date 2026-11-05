@@ -364,6 +364,19 @@ def evidence_gaps(
     return gaps if gaps and labelled else None
 
 
+def shown_keys(scored: ScoredSet, top_n: int, anchors: list[str]) -> list[str]:
+    """The compositions the page shows: the ranked top N and the anchors."""
+    ranked = sorted((c for c in scored.candidates if c.rank is not None), key=lambda c: c.rank or 0)
+    return list(dict.fromkeys([*(c.composition for c in ranked[:top_n]), *anchors]))
+
+
+def unread_rows(evidence: dict[str, list[EvidenceHit]], keys: list[str]) -> list[str]:
+    """Of `keys`, those with abstracts but at least one left unclassified."""
+    return [
+        k for k in keys if any(h.label == EvidenceLabel.UNCLASSIFIED for h in evidence.get(k, []))
+    ]
+
+
 def discovery_filter(
     query: QuerySettings, profile: ScoringProfile, site: SiteProfile
 ) -> mp.DiscoveryFilter:
@@ -607,7 +620,9 @@ def run(
     cap = inputs.core.max_abstracts_per_candidate
     evidence_by_comp: dict[str, list[EvidenceHit]] = {}
     all_hits: list[EvidenceHit] = []
-    llm_calls = cache_hits = 0
+    llm_calls = cache_hits = failed_calls = 0
+    classify_down: str | None = None  # the model failed in a way that repeats; stop calling it
+    evidence_gap_names: list[str] = []
     scored = score_groups(groups, evidence_by_comp) if groups else ScoredSet([], [])
     classified_keys: set[str] = set()
     evidence_off = False
@@ -661,7 +676,7 @@ def run(
             if group is not None and group.literature is not None:
                 hits.extend((key, h) for h in group.literature.hits[:cap])
         classified = classifier.classify_hits(
-            client=llm,
+            client=None if classify_down is not None else llm,
             hits=hits,
             budget=budgets["classify"],
             cache=cache,
@@ -672,6 +687,8 @@ def run(
         partial.extend(classified.partial_reasons)
         llm_calls += classified.llm_calls
         cache_hits += classified.cache_hits
+        failed_calls += classified.failed_calls
+        classify_down = classify_down or classified.stopped
         for hit in classified.hits:
             evidence_by_comp.setdefault(hit.composition, []).append(hit)
             all_hits.append(hit)
@@ -683,12 +700,7 @@ def run(
                 # could not be classified; a label must not lift one row over another that
                 # simply went unread, so evidence leaves every row in this run
                 evidence_off = True
-                note = (
-                    f"Evidence not used in this run: {len(gaps)} of the shown rows could not be "
-                    f"classified ({', '.join(gaps)}). Ranks use the other criteria only."
-                )
-                partial.append(note)
-                log.append(_log("evidence", note, compositions=gaps))
+                evidence_gap_names = gaps
         scored = score_groups(groups, {} if evidence_off else evidence_by_comp)
     else:
         partial.append(
@@ -697,21 +709,44 @@ def run(
         )
     # the else clause fires only when the loop ran out of rounds with work left; a round
     # that enriched the last newcomer breaks on the next iteration
+    if evidence_off:
+        # the note names the rows on the final page: a row that was in the top N when the rule
+        # fired may have been excluded or pushed down by later enrichment
+        final = shown_keys(scored, effective.top_n, [*inputs.profile.anchors, *query.extra_anchors])
+        named = unread_rows(evidence_by_comp, final) or [
+            k for k in evidence_gap_names if k in final
+        ]
+        note = (
+            "Evidence not used in this run: "
+            + (
+                f"{len(named)} of the shown rows could not be classified ({', '.join(named)})"
+                if named
+                else "rows considered during the search could not be classified"
+            )
+            + (f" ({classify_down})" if classify_down else "")
+            + ". Ranks use the other criteria only."
+        )
+        partial.append(note)
+        log.append(_log("evidence", note, compositions=named))
+    labelled = llm_calls - failed_calls
     log.append(
         _log(
             "classify",
-            f"{len(all_hits)} hits: {llm_calls} classified by the model, {cache_hits} from cache",
+            f"{len(all_hits)} hits: {labelled} classified by the model, {cache_hits} from cache"
+            + (f", {failed_calls} model call(s) failed" if failed_calls else ""),
         )
     )
     log.extend(scored.decision_log)
-    log.append(
-        _log(
-            "score",
-            f"{len([c for c in scored.candidates if c.rank is not None])} ranked, "
-            f"{len([c for c in scored.candidates if c.excluded is not None])} excluded",
-            actor="scorer",
+    if not any(e.step == "score" for e in scored.decision_log):
+        # a scorer that keeps no log of its own still leaves one score line (never two)
+        log.append(
+            _log(
+                "score",
+                f"{len([c for c in scored.candidates if c.rank is not None])} ranked, "
+                f"{len([c for c in scored.candidates if c.excluded is not None])} excluded",
+                actor="scorer",
+            )
         )
-    )
 
     # 3b. too few results: code counts every admissible relaxation over the fetched groups
     ranked_count = len([c for c in scored.candidates if c.rank is not None])
@@ -817,4 +852,6 @@ def run(
             failures=[f.kind for f in report.failures],
         )
     )
-    return bundle.model_copy(update={"run": metadata(True), "decision_log": log})
+    # entries come from several steps; list them in the order they happened (stable sort)
+    ordered = sorted(log, key=lambda e: e.at)
+    return bundle.model_copy(update={"run": metadata(True), "decision_log": ordered})

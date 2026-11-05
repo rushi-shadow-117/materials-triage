@@ -7,7 +7,7 @@ export default function GapKChart({ chart, audit }: { chart: ChartView; audit: b
   const [hover, setHover] = useState<ChartPoint | null>(null);
   const W = 640;
   const H = 360;
-  const pad = { left: 56, right: 16, top: 12, bottom: 44 };
+  const pad = { left: 56, right: 28, top: 12, bottom: 44 };
   const xMax = Math.max(...chart.x_ticks.map((t) => t.value), 0) || 1;
   const yMax = Math.max(...chart.y_ticks.map((t) => t.value), 0) || 1;
   const x = (v: number) => pad.left + (v / xMax) * (W - pad.left - pad.right);

@@ -222,6 +222,7 @@ export interface RunViewJson {
   unavailable_properties: string[];
   ties_note: string | null;
   profile_caveats: CaveatText[];
+  hazard_attribution: string | null;
   chart: ChartView | null;
   run: RunMeta;
   criteria: Criteria;

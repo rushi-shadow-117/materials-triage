@@ -307,7 +307,7 @@ PRESETS: dict[str, ProviderPreset] = {
         "GEMINI_API_KEY",
     ),
 }
-CLAUDE_DEFAULT_MODEL = "claude-sonnet-5-5"  # Settings.llm_model's default; not a preset model
+CLAUDE_DEFAULT_MODEL = "claude-haiku-5-5"  # Settings.llm_model's default; not a preset model
 
 
 class OpenAICompatibleClient:

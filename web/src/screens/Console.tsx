@@ -189,11 +189,16 @@ function Health({ isAdmin }: { isAdmin: boolean }) {
             </dl>
             <p className="muted">Read only. The provider and model are a site decision made in the configuration (LLM_PROVIDER, LLM_MODEL); nothing here changes them.</p>
           </div>
-          <p className="muted">Fetch source {health.fetch_source} ({health.fetch_mode}); auth {health.auth_mode}.</p>
+          <p className="muted">
+            Data comes from {health.fetch_source === "cassettes" ? "recorded cassettes" : health.fetch_source}
+            {" "}(FETCH_MODE {health.fetch_mode ? health.fetch_mode : "not set"}); sign-in: {health.auth_mode === "none" ? "none (local)" : health.auth_mode}.
+          </p>
+          <div className="table-scroll">
           <table>
             <thead><tr><th>Source</th><th>Status</th><th>Via</th><th>Last fetch</th><th>Records</th><th>Allowed host</th></tr></thead>
             <tbody>{health.sources.map((s) => <tr key={s.source}><td>{s.source}</td><td>{s.status}</td><td>{s.fetch_source}</td><td className="mono">{s.last_fetch ?? "—"}</td><td className="num">{s.records ?? "—"}</td><td className="mono">{s.allowed_host ?? "—"}</td></tr>)}</tbody>
           </table>
+          </div>
         </>
       )}
       {isAdmin && (

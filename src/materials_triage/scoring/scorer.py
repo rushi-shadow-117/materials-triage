@@ -31,6 +31,7 @@ from materials_triage.records.bundle import (
     RankStability,
     ScoreBreakdown,
 )
+from materials_triage.render import precision
 from materials_triage.scoring import criteria as crit
 from materials_triage.scoring.band_gap import band_gap
 from materials_triage.scoring.hazard import hazard
@@ -317,7 +318,15 @@ def _rank(rows: list[Scored], totals: dict[str, float]) -> dict[str, int]:
             r.polymorph.ids.mp or "" if r.polymorph else "",
         ),
     )
-    return {r.composition: i + 1 for i, r in enumerate(ordered)}
+    # competition ranks at display precision, as the page shows them (render/tokens.py
+    # shown_ranks): six rows tied at 1.000 all rank 1 under every perturbation that keeps
+    # them tied, not 1 to 6 by alphabetical position
+    out: dict[str, int] = {}
+    first: dict[str, int] = {}
+    for i, r in enumerate(ordered):
+        shown = precision.fmt(totals[r.composition], "score")
+        out[r.composition] = first.setdefault(shown, i + 1)
+    return out
 
 
 def sensitivity(

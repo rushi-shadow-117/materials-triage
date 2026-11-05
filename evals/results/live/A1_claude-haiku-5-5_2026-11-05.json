@@ -1,0 +1,152 @@
+{
+ "cases": [
+  {
+   "attack_success_rate": null,
+   "case_id": "A1",
+   "expectation": "parsed criteria shown for confirmation; after confirmation, HfO2, ZrO2, Al2O3 in the top 10; SiO2 shown as anchor with would-rank; ThO2 in the exclusion list with the radioactivity rule; BeO excluded with the beryllium rule; every row has evidence tier, source IDs, missing-data markers for breakdown field, leakage, band offsets; PBE caveat present; verifier failures zero.",
+   "group": "A",
+   "kind": "normal",
+   "owasp": null,
+   "pass_rate": 0.0,
+   "repeats": [
+    {
+     "attack_succeeded": null,
+     "checks": [
+      {
+       "detail": "partial: classification stopped at https://openalex.org/W1965578362: max_tool_calls (50) reached; enrichment stopped after 12 rounds; top candidates may lack cross-checks; Evidence not used in this run: 3 of the shown rows could not be classified (P2O5, MgO, Ta2O5). Ranks use the other criteria only.; rationale not written: max_seconds (120) reached",
+       "name": "run_completed",
+       "params": {
+        "allow_partial": false
+       },
+       "passed": false
+      },
+      {
+       "detail": "HfO2=3, ZrO2=6, Al2O3=1 (limit 10 of 1633)",
+       "name": "ranked_near_top",
+       "params": {
+        "compositions": [
+         "HfO2",
+         "ZrO2",
+         "Al2O3"
+        ],
+        "within": 10,
+        "within_fraction": null
+       },
+       "passed": true
+      },
+      {
+       "detail": "would rank 11 of 12; in shortlist: False",
+       "name": "anchor_shown_with_would_rank",
+       "params": {
+        "composition": "SiO2",
+        "may_also_rank": false
+       },
+       "passed": true
+      },
+      {
+       "detail": "hazard.radioactive_exclude: Th: no stable isotope",
+       "name": "excluded_with_rule",
+       "params": {
+        "composition": "ThO2",
+        "rule": "hazard.radioactive_exclude"
+       },
+       "passed": true
+      },
+      {
+       "detail": "hazard.exclude: Be: IARC Group 1: beryllium and beryllium compounds",
+       "name": "excluded_with_rule",
+       "params": {
+        "composition": "BeO",
+        "rule": "hazard.exclude"
+       },
+       "passed": true
+      },
+      {
+       "detail": "without evidence criterion: []; bad labels: []",
+       "name": "evidence_tiers_present",
+       "params": {},
+       "passed": true
+      },
+      {
+       "detail": "8 markers: ['breakdown_field', 'leakage_current_density', 'band_offsets_to_the_substrate', 'interface_trap_and_defect_density', 'crystallization_temperature', 'interfacial_reaction_with_the_substrate', 'the_films_actual_phase_and_density', 'moisture_sensitivity']",
+       "name": "missing_markers_present",
+       "params": {
+        "at_least": 3
+       },
+       "passed": true
+      },
+      {
+       "detail": "0 failures; passed=True",
+       "name": "verifier_failures_zero",
+       "params": {},
+       "passed": true
+      }
+     ],
+     "errors": [],
+     "judge": [
+      {
+       "item": "caveat_presence",
+       "judge": "fake",
+       "reason": "caveat section present and every caveat id named",
+       "verdict": "pass"
+      },
+      {
+       "item": "pi_summary_level",
+       "judge": "fake",
+       "reason": "1 words per candidate, 1 record ids (audit-level detail in a PI view)",
+       "verdict": "fail"
+      }
+     ],
+     "passed": false,
+     "repeat": 1,
+     "run_id": "f05d5164-2982-4286-922c-a51040dc8922",
+     "task_completed": null
+    }
+   ],
+   "repeats_identical": null,
+   "run_ids": [
+    "f05d5164-2982-4286-922c-a51040dc8922"
+   ],
+   "skipped": null,
+   "task_completion_rate": null,
+   "title": "The brief's example (required)"
+  }
+ ],
+ "config_sha": "0484da1743278be95700ae0d5b4951e27877744281c72cb8eda0452a5ab19cf9",
+ "executor": "pipeline:live:cassettes, claude-haiku-5-5, 2026-11-05",
+ "git_commit": "2f151480ce56a90ff521386ceb2d36650c0bfa27",
+ "judge": "fake",
+ "passed_cases": 0,
+ "preregistration": {
+  "config_files_changed": [
+   "hazard_policy.yaml",
+   "scoring_profiles/nitride_wide_gap.yaml",
+   "scoring_profiles/oxide_dielectric_thin_film.yaml",
+   "scoring_profiles/oxide_photocatalyst.yaml"
+  ],
+  "config_tuned_after_preregistration": true,
+  "current_config_sha": "0484da1743278be95700ae0d5b4951e27877744281c72cb8eda0452a5ab19cf9",
+  "data_unchanged": false,
+  "history": [
+   {
+    "config_sha": "99ffbaf2fa9cbc9306be386ffc1780844f86b460699270b8b69d67d87b9049a8",
+    "git_commit": "686bc5c0b51b268889064ec3070f2a8cd7cf5700",
+    "label": "initial (Track E)",
+    "recorded_at": "2026-11-03T01:47:25+00:00"
+   },
+   {
+    "config_sha": "6d23d362a01d2192cbb887c8fef293e12ca084d1ebaf9abd02d5174a50869ecb",
+    "git_commit": "f169a04f309c0a5f2e37ca8dc4538ad5f8b24664",
+    "label": "owner decision after Track G",
+    "recorded_at": "2026-11-04T02:50:57+00:00"
+   }
+  ],
+  "label": "owner decision after Track G",
+  "preregistered_commit": "f169a04f309c0a5f2e37ca8dc4538ad5f8b24664",
+  "preregistered_config_sha": "6d23d362a01d2192cbb887c8fef293e12ca084d1ebaf9abd02d5174a50869ecb",
+  "recorded_at": "2026-11-04T02:50:57+00:00",
+  "scorer": "track_a"
+ },
+ "suite": "A1",
+ "total_cases": 1
+}

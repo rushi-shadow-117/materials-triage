@@ -153,7 +153,7 @@ def test_input_limits_chips_and_the_call_estimate(page, server: str) -> None:  #
     chips = [c.strip() for c in matched.locator(".chip").all_inner_texts()]
     assert chips == ["HfO2", "ZrO2", "Al2O3"]
     estimate = page.get_by_test_id("estimate")
-    assert "No model configured" in estimate.inner_text()  # LLM_PROVIDER=none on this server
+    assert "No model calls in this run" in estimate.inner_text()  # LLM_PROVIDER=none here
     assert page.get_by_role("button", name="Confirm and run").is_enabled()
     # an empty list keeps Run off; the form says what to do
     page.get_by_label("candidates").fill("")
@@ -219,3 +219,45 @@ def test_parse_and_run_is_offered_only_with_a_model(page, server: str) -> None: 
     sign_in(page, server, "scientist")
     assert page.get_by_role("button", name="Parse and run").count() == 0
     assert page.get_by_role("button", name="Fill the criteria form by hand").count() == 1
+
+
+def test_ui_audit_separation_and_text(page, server: str) -> None:  # type: ignore[no-untyped-def]
+    """UI audit (2026-11-04): chips never wrap inside themselves, the results page does not
+    scroll sideways on a phone, no provider exception text, and the console shows no Python
+    literals or a YAML-boolean element symbol."""
+    sign_in(page, server, "scientist")
+    page.get_by_role("button", name="Rank my list").click()
+    page.get_by_label("formulas").fill("HfO2, ZrO2, Al2O3")
+    page.get_by_role("button", name="Review criteria").click()
+    page.get_by_test_id("matched").wait_for()
+    assert page.get_by_test_id("hull-effective").inner_text().startswith("effective")
+    page.get_by_role("button", name="Confirm and run").click()
+    page.wait_for_url(re.compile(r"/runs/[0-9a-f-]{36}$"))
+    page.get_by_text("Shown for calibration").wait_for()
+    body = page.inner_text("body")
+    assert "Error code" not in body and "no rationale (no model)" not in body
+    chips = page.locator("td .chip")
+    for i in range(chips.count()):
+        box = chips.nth(i).bounding_box()
+        assert box is not None and box["height"] < 26, chips.nth(i).inner_text()
+    tick_labels = page.locator("svg .tick").evaluate_all("els => els.map(e => e.textContent)")
+    assert tick_labels and not any("eV" in t for t in tick_labels)
+    page.set_viewport_size({"width": 390, "height": 844})
+    page.reload()
+    page.get_by_text("Shown for calibration").wait_for()
+    wide = page.evaluate("document.documentElement.scrollWidth")
+    assert wide <= 390, wide
+    shot(page, "11-results-mobile")
+    page.set_viewport_size({"width": 1280, "height": 900})
+    sign_in_again(page, server, "admin")
+    page.goto(server + "/console")
+    page.get_by_text("Effective configuration").wait_for()
+    effective = page.inner_text("body")
+    assert "True" not in effective and "locked=" not in effective
+    page.get_by_role("button", name="Hazard policy").click()
+    page.get_by_text("Source citation").wait_for()
+    hazard = page.locator("table").first.inner_text()
+    assert "\nFalse" not in hazard and "\nNo\t" in hazard
+    page.get_by_role("button", name="Source health").click()
+    page.get_by_role("cell", name="materials_project").wait_for()
+    assert "()" not in page.inner_text("body")

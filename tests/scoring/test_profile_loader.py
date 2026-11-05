@@ -88,6 +88,17 @@ def test_site_profile_reads_bounds_defaults_methods_and_attribution() -> None:
     assert echa is not None and echa[0].startswith("Source: European Chemicals Agency")
 
 
+def test_nobelium_is_a_symbol_not_a_yaml_boolean(tmp_path: Path) -> None:
+    hp = load_hazard_policy(PATHS["hazard_policy"])
+    assert "No" in hp.radioactive_elements
+    assert all(isinstance(e, str) for e in hp.radioactive_elements)
+    text = PATHS["hazard_policy"].read_text().replace('"No"', "No")
+    bad = tmp_path / "hazard_policy.yaml"
+    bad.write_text(text)
+    with pytest.raises(ValueError, match="quote it"):
+        load_hazard_policy(bad)
+
+
 def test_hazard_policy_loads_only_entered_rules() -> None:
     hp = load_hazard_policy(PATHS["hazard_policy"])
     assert set(hp.exclude_elements) == {"As", "Be", "Cd", "Ni"}

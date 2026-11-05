@@ -112,7 +112,10 @@ def test_candidate_list_run_matches_the_golden_bundle(
     assert bundle.verifier is not None and bundle.verifier.passed
     assert all(s.verified for s in bundle.rationale.values())
     steps = [d.step for d in bundle.decision_log]
-    assert steps[:4] == ["start", "fetch", "classify", "score"] and steps[-1] == "verify"
+    assert steps[:2] == ["start", "fetch"] and steps[-1] == "verify"
+    assert steps.count("score") == 1 and "classify" in steps
+    times = [d.at for d in bundle.decision_log]
+    assert times == sorted(times)  # the log reads in the order things happened
     assert bundle.decision_log[0].detail["code_version"]
     assert len(bundle.missing_properties) == 8  # site list plus the profile item
     text = markdown.render_pi_summary(bundle, layers[1])
@@ -272,3 +275,19 @@ def test_evidence_all_or_none_drops_evidence_when_shown_rows_are_mixed() -> None
     assert evidence_gaps({"B2O3": labelled, "ZrO2": []}, ["B2O3", "ZrO2"], []) is None
     # an anchor counts like a shown row
     assert evidence_gaps(mixed, ["B2O3"], ["HfO2"]) == ["HfO2"]
+
+
+def test_the_evidence_note_names_only_rows_on_the_final_page() -> None:
+    """The brief's example named SO3 (later excluded) and Li2O (12th) as unread shown rows."""
+    from materials_triage.agent.pipeline import unread_rows
+    from materials_triage.records.bundle import EvidenceHit, EvidenceLabel
+
+    def hit(comp: str, label: EvidenceLabel) -> EvidenceHit:
+        return EvidenceHit.model_construct(composition=comp, label=label, verified=False)
+
+    evidence = {
+        "SO3": [hit("SO3", EvidenceLabel.UNCLASSIFIED)],
+        "HfO2": [hit("HfO2", EvidenceLabel.UNCLASSIFIED)],
+        "Al2O3": [hit("Al2O3", EvidenceLabel.DIELECTRIC_CHARACTERIZED)],
+    }
+    assert unread_rows(evidence, ["Al2O3", "HfO2", "ZrO2"]) == ["HfO2"]

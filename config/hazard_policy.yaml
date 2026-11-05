@@ -63,7 +63,7 @@ tiers:
   radioactive_exclude:
     description: "Elements with no stable isotope. Admin-locked, default on."
     status: entered
-    elements: [Tc, Pm, Po, At, Rn, Fr, Ra, Ac, Th, Pa, U, Np, Pu, Am, Cm, Bk, Cf, Es, Fm, Md, No, Lr, Rf, Db, Sg, Bh, Hs, Mt, Ds, Rg, Cn, Nh, Fl, Mc, Lv, Ts, Og]
+    elements: [Tc, Pm, Po, At, Rn, Fr, Ra, Ac, Th, Pa, U, Np, Pu, Am, Cm, Bk, Cf, Es, Fm, Md, "No", Lr, Rf, Db, Sg, Bh, Hs, Mt, Ds, Rg, Cn, Nh, Fl, Mc, Lv, Ts, Og]
     rule: "Elements with no stable isotope: Tc, Pm, and Z >= 84."
     documented_exception: "Bi (Z = 83) has no stable isotope in the strict sense (Bi-209 alpha-decays with a half-life of about 2e19 years) but is treated as stable here because that half-life is far beyond practical relevance. Owner decision 2026-10-31."
     source:

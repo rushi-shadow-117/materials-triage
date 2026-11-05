@@ -34,7 +34,7 @@ uv run materials-triage rank --formulas HfO2,ZrO2,Al2O3 --no-llm --fetch cassett
 
 Or with Docker: `docker build --target api -t materials-triage:api . && docker run --rm -p 8000:8000 materials-triage:api`.
 
-The bare defaults read the recorded data and use `claude-sonnet-5-5`. With no key, a banner
+The bare defaults read the recorded data and use `claude-haiku-5-5`. With no key, a banner
 says there is no model and the criteria form is filled by hand; a rejected key or an empty
 credit balance does the same. `scripts/cold_run.sh` runs this whole check on a fresh clone.
 
@@ -47,7 +47,7 @@ abstracts each for the top 10, fewer when labels are cached), and one rationale 
 
 ```
 LLM_PROVIDER=anthropic
-LLM_MODEL=claude-sonnet-5-5
+LLM_MODEL=claude-haiku-5-5
 ANTHROPIC_API_KEY=...
 CLASSIFY_MODE=live
 ```

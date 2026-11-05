@@ -1,11 +1,13 @@
 """End-to-end scoring on the eleven recorded oxides: ranks, anchors, sensitivity, modes."""
 
 import random
+from types import SimpleNamespace
 
 from scripts.build_scored_bundle import assemble_groups
 
 from materials_triage.config.schema import QuerySettings
 from materials_triage.records.bundle import CaveatId, ExclusionRule, Flag
+from materials_triage.render.precision import fmt
 from materials_triage.scoring.scorer import thermo_enrichment_ids
 from tests.scoring.conftest import run, with_overrides
 
@@ -81,6 +83,15 @@ def test_ranking_is_deterministic_and_order_independent(
     ]
 
 
+def test_tied_rows_keep_one_rank_under_perturbation() -> None:
+    """Six rows tied at 1.000 showed "rank 1 to 1", "2 to 2" ... "6 to 6" in the audit view."""
+    from materials_triage.scoring.scorer import _rank
+
+    rows = [SimpleNamespace(composition=c, polymorph=None) for c in ("A", "B", "C")]
+    ranks = _rank(rows, {"A": 1.0, "B": 1.0, "C": 0.5})  # type: ignore[arg-type]
+    assert ranks == {"A": 1, "B": 1, "C": 3}
+
+
 def test_sensitivity_and_thermo_selector(
     baseline_groups, dielectric_profile, site, policy, references, echa
 ) -> None:  # type: ignore[no-untyped-def]
@@ -88,7 +99,14 @@ def test_sensitivity_and_thermo_selector(
     ranked = [c for c in r.candidates if c.rank]
     for c in ranked:
         assert c.sensitivity is not None and c.sensitivity.perturbations == 10  # 5 weighted
-        assert c.sensitivity.rank_min <= (c.rank or 0) <= c.sensitivity.rank_max
+        # the range uses the rank the page shows: tied rows share their group's first rank
+        shown = min(
+            o.rank or 0
+            for o in ranked
+            if fmt(o.score.total if o.score else None, "score")
+            == fmt(c.score.total if c.score else None, "score")
+        )
+        assert c.sensitivity.rank_min <= shown <= c.sensitivity.rank_max
     al = next(c for c in ranked if c.composition == "Al2O3")
     assert al.sensitivity is not None and al.sensitivity.stable and al.sensitivity.rank_min == 1
     assert len(r.thermo_enrichment_ids) > 0

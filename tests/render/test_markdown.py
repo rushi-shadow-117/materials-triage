@@ -238,7 +238,11 @@ def test_key_caveat_is_the_most_row_specific_one() -> None:
     for r in [*view.rows, *view.excluded, *view.anchors]:
         assert r.key_caveat != band_offsets, r.composition
         assert all(c.id not in PROFILE_WIDE for c in r.caveats), r.composition
-    assert [c.text for c in view.profile_caveats].count(band_offsets) == 1
+    # shown once, under "What this screen cannot tell you" (the site's missing list); the
+    # "Applies to every row" list no longer repeats it (UI audit)
+    assert [c.text for c in view.profile_caveats].count(band_offsets) == 0
+    assert any("band offset" in m.lower() for m in view.missing_properties)
+    assert band_offsets in view.caveat_texts["band_offsets_not_checked"].text
     # the composition-level gap note is profile-wide too (owner decision, Nov 4)
     composition_level = cfg.resolve(Caveat(id=CaveatId.EXPERIMENTAL_GAP_COMPOSITION_LEVEL)).text
     assert composition_level in [c.text for c in view.profile_caveats]

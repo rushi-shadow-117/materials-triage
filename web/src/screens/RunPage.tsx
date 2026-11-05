@@ -166,7 +166,10 @@ function Results({ data, view, setView, runId }: { data: RunViewJson; view: "pi_
 
       {r.partial && (
         <div className="panel warn">
-          <strong>Partial results.</strong> {data.partial_reasons.join("; ")}. Affected values are shown as missing, never estimated. Run again later for the missing part, or check Source health in the console.
+          <strong>Partial results.</strong> Affected values are shown as missing, never estimated. Run again later for the missing part, or check Source health in the console.
+          <ul className="reasons" data-testid="partial-reasons">
+            {data.partial_reasons.map((p) => <li key={p}>{p.replace(/\.$/, "")}</li>)}
+          </ul>
         </div>
       )}
       {ranked === 0 && (!data.relaxations || data.relaxations.length === 0) && (
@@ -202,6 +205,11 @@ function Results({ data, view, setView, runId }: { data: RunViewJson; view: "pi_
             <ul>{data.profile_caveats.map((c) => <li key={c.id}>{c.text}</li>)}</ul>
           </div>
         )}
+        {data.hazard_attribution && (
+          <p className="muted" data-testid="hazard-attribution" style={{ gridColumn: "1 / -1", margin: 0 }}>
+            Hazard classifications: {data.hazard_attribution}
+          </p>
+        )}
       </div>
 
       {data.chart && <GapKChart chart={data.chart} audit={view === "audit"} />}
@@ -221,6 +229,7 @@ function Results({ data, view, setView, runId }: { data: RunViewJson; view: "pi_
       )}
 
       <div className="panel">
+        <div className="table-scroll">
         <table>
           <thead>
             <tr>
@@ -232,12 +241,13 @@ function Results({ data, view, setView, runId }: { data: RunViewJson; view: "pi_
             {data.anchors.map((row) => <Row key={`anchor-${row.composition}`} row={row} runId={runId} audit={view === "audit"} />)}
           </tbody>
         </table>
+        </div>
         {data.ties_note && <p className="muted" data-testid="ties-note">{data.ties_note}</p>}
         {data.hidden_ranked > 0 && (
           <p className="muted" data-testid="hidden-ranked">
-            {data.hidden_ranked} more ranked rows beyond top N
+            {`${data.hidden_ranked} more ranked rows beyond top N`}
             {data.hidden_unchecked > 0 ? `, of which ${data.hidden_unchecked} were scored on summary data only (hazard and structure not checked, not compared against)` : ""}
-            ; export the CSV or JSON for all of them.
+            {"; export the CSV or JSON for all of them."}
           </p>
         )}
         <p className="muted">
@@ -250,12 +260,14 @@ function Results({ data, view, setView, runId }: { data: RunViewJson; view: "pi_
       <h2>Excluded ({data.excluded.length + data.hidden_excluded}) · removed before ranking by rule</h2>
       <div className="panel">
         {data.excluded_by_rule.length > 0 && (
-          <p data-testid="excluded-counts">
-            By rule: {data.excluded_by_rule.map((r) => <span key={r.rule} className="chip" style={{ marginRight: 4 }}><Tip kind="exclusion" id={r.rule}>{r.rule}</Tip> {r.count}</span>)}
-          </p>
+          <div className="flags" data-testid="excluded-counts">
+            <span>By rule:</span>
+            {data.excluded_by_rule.map((r) => <span key={r.rule} className="chip"><Tip kind="exclusion" id={r.rule}>{r.rule}</Tip> {r.count}</span>)}
+          </div>
         )}
         {data.excluded.length > 0 && <p className="muted">Shown: cross-checked candidates first, then the closest misses. {data.hidden_excluded > 0 ? `${data.hidden_excluded} more in the CSV.` : ""}</p>}
         {data.excluded.length === 0 ? <p className="muted">None. Every fetched candidate passed the hard rules.</p> : (
+          <div className="table-scroll">
           <table>
             <thead><tr><th>Material</th><th>Rule</th><th>Detail</th><th>Rule source</th></tr></thead>
             <tbody>
@@ -264,11 +276,12 @@ function Results({ data, view, setView, runId }: { data: RunViewJson; view: "pi_
                   <td>{view === "audit" ? <Link to={`/runs/${runId}/rows/${row.composition}/stability`}>{row.composition}</Link> : row.composition}</td>
                   <td className="mono"><Tip kind="exclusion" id={row.exclusion ?? ""}>{row.exclusion}</Tip></td>
                   <td>{row.exclusion_detail}</td>
-                  <td className="mono">{row.exclusion_ref}</td>
+                  <td className="mono wrap">{row.exclusion_ref}</td>
                 </tr>
               ))}
             </tbody>
           </table>
+          </div>
         )}
         <p className="muted">Excluded materials are never ranked. Hazard rules are set by the site admin; scientists cannot override them.</p>
       </div>
@@ -339,16 +352,19 @@ function Results({ data, view, setView, runId }: { data: RunViewJson; view: "pi_
 function Row({ row, runId, audit }: { row: RowView; runId: string; audit: boolean }) {
   const cell = (criterion: string, text: string) =>
     audit ? <Link to={`/runs/${runId}/rows/${row.composition}/${criterion}`}>{text}</Link> : <>{text}</>;
+  // the Evidence column already says "unclassified" or "not used this run"; the PI view does
+  // not repeat it as a chip on every row (the audit view keeps every flag)
+  const flags = audit ? row.flags : row.flags.filter((f) => f !== "evidence_unclassified");
   return (
     <tr className={row.is_anchor ? "anchor" : undefined} data-composition={row.composition}>
       <td className="num">{row.is_anchor ? "Ref" : row.rank}</td>
       <td>
         <strong>{row.composition}</strong>
         {row.is_anchor && <div><small className="muted">{row.rank}. Shown for calibration; not a candidate.</small></div>}
-        {row.flags.length > 0 && <div>{row.flags.map((f) => <Tip key={f} kind="flag" id={f}><span className={`chip ${f.includes("hazard") || f.includes("conflict") ? "warn" : ""}`} style={{ marginRight: 4 }}>{f.replace(/_/g, " ")}</span></Tip>)}</div>}
+        {flags.length > 0 && <div className="flags">{flags.map((f) => <Tip key={f} kind="flag" id={f}><span className={`chip ${f.includes("hazard") || f.includes("conflict") ? "warn" : ""}`}>{f.replace(/_/g, " ")}</span></Tip>)}</div>}
       </td>
       <td className="num">{cell("band_gap", row.total)}</td>
-      <td>{row.rationale || <span className="muted">no rationale (no model)</span>}</td>
+      <td className="why">{row.rationale || <span className="muted">no rationale</span>}</td>
       <td>{row.key_caveat}</td>
       <td><Tip kind="tier" id={row.evidence_tier}>{cell("evidence", row.evidence_tier)}</Tip></td>
       <td className="num">{cell("dielectric_constant", row.k)}</td>

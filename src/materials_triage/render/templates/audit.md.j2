@@ -46,6 +46,10 @@
 - {{ c.text }}
 {% endfor %}
 {% endif %}
+{% if view.hazard_attribution %}
+
+Hazard classifications: {{ view.hazard_attribution }}
+{% endif %}
 
 {% if r.exclusion %}
 - Excluded: {{ r.exclusion }} ({{ r.exclusion_detail }}){% if r.exclusion_ref %}; rule source {{ r.exclusion_ref }}{% endif %}

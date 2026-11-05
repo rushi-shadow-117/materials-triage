@@ -1644,3 +1644,71 @@ because the alphabetical exclusion list happened to carry the same ids; with exc
 reordered, two cases' judge items flipped to fail on ids the page never shows. The suite stays
 at 39 of 43 and no judge item changes outcome.
 Alternative: keep listing every ranked row, which grades a view on text it cannot hold.
+
+## Track H: Haiku default and the UI audit (Nov 4)
+
+### 2026-11-04 The default model is Haiku
+Decision: `LLM_MODEL` defaults to `claude-haiku-5-5` (Settings, the preset guard, `.env.example`,
+the Terraform default, the cold run). The four tools are narrow (parse into a form, label one
+abstract, write token prose, propose a relaxation), and code checks every output, so the
+smaller model's cost and speed fit. The client sends no sampling, thinking, or prefill
+parameters, so none of Haiku 5.5's request restrictions apply. The eval judge stays on Sonnet:
+a judge that differs from the model under test is the stronger check. Live results recorded
+on Sonnet stay as they are.
+Alternative: keep Sonnet, at a higher cost per run for the same checked outputs.
+
+### 2026-11-04 One provider failure ends classification for the run
+Decision: when a classify call fails because the model is unavailable (no credit, a rejected
+key) or the provider returns an error, the step stops; the remaining abstracts stay
+unclassified with the same plain reason, and no further request is sent. The decision log
+counts labelled calls and failed calls separately. Found on the brief's example: about thirty
+identical "usage limit" lines, and a log line saying "29 classified by the model" when every
+call had failed.
+Alternative: keep calling per abstract, which repeats the failure and spends on a dead key.
+
+### 2026-11-04 Reader-facing failure reasons are plain sentences
+Decision: a provider error reaches the page as "provider error (BadRequestError, HTTP 400)"
+or the model-status sentence; the raw provider message stays in the decision-log entry's
+detail. The partial banner lists its reasons one per line.
+Alternative: show the raw message, which put a Python dict on the results page.
+
+### 2026-11-04 The evidence note names rows on the final page
+Decision: when evidence is dropped, the note names the unread rows of the final top N and
+anchors. Before, it named the rows of the round where the rule fired, including SO3 (later
+excluded) and Li2O (pushed to 12th).
+Alternative: name the rows at the time the rule fired, which names rows the page never shows.
+
+### 2026-11-04 Sensitivity ranges use the rank the page shows
+Decision: perturbed ranks are competition ranks at display precision, the rule behind "1=".
+Six rows tied at 1.000 showed "rank 1 to 1", "2 to 2" ... "6 to 6" while all read "1=".
+Alternative: keep positional ranks, which contradicts the table.
+
+### 2026-11-04 The template rationale holds values, not caveats
+Decision: the no-model rationale lists the row's criterion values only; the reference row
+gets the same template. Before, it appended the row's caveat text, so the Why cell repeated
+the Key caveat beside it, and the reference row said "no rationale (no model)".
+Alternative: keep caveats in the template, which duplicates a column.
+
+### 2026-11-04 Element symbols in the hazard policy are strings
+Decision: the loader rejects a non-string element symbol, and `No` (nobelium) is quoted. YAML
+1.1 reads a bare `No` as false, so the radioactive list held `False` and not nobelium.
+Alternative: switch YAML loaders, a larger change for one symbol.
+
+### 2026-11-04 Smaller page fixes from the UI audit
+Decision:
+- The drill-down's Source names the database and Method the aggregate.
+- The band gap rule text names the JARVIS record and the MP polymorph it was matched to.
+- The ECHA attribution is its own line, not a caveat bullet.
+- "Band offsets" appears once, under "What this screen cannot tell you".
+- The pending-reference caveat names its property.
+- Molecular-exclusion details read as one parenthetical.
+- Chart ticks carry no unit.
+- The decision log is in time order with one score line.
+- The console shows yes/no for booleans and "not set" for a layer that holds nothing.
+- Compound hazard rows show their recorded PubChem codes.
+- The form shows the effective hull cutoff as a hint under its input.
+- The run history reads a small summary index instead of parsing every bundle.
+- Wide tables scroll inside their panel on a phone.
+
+Each change has a test (docs/FAILURE_MATRIX.md).
+Alternative: none considered; these are defects.

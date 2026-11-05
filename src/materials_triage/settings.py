@@ -34,7 +34,7 @@ class Settings(BaseSettings):
     # recorded in every bundle. Provider "none" runs the pipeline with no LLM step. A missing,
     # rejected, or out-of-credit key falls back to no model with a banner (agent/llm_status.py).
     llm_provider: LLMProvider = "anthropic"
-    llm_model: str = "claude-sonnet-5-5"
+    llm_model: str = "claude-haiku-5-5"
     anthropic_api_key: SecretStr | None = None
     llm_base_url: str | None = None  # openai_compatible: the server's /v1 base URL
     llm_api_key: SecretStr | None = None  # openai_compatible: optional bearer token

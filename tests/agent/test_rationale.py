@@ -24,10 +24,11 @@ def test_template_only_slots_pass_the_verifier(bundle: ProvenanceBundle) -> None
     assert "{formula:HfO2} ranks {rank:HfO2}" in slots["candidate:HfO2:one_line"].text
 
 
-def test_template_rationale_renders_caveat_text_never_ids() -> None:
-    """Human test session, item 6: the PI saw "Caveats: band_offsets_not_checked, ...". The
-    template carries caveat tokens for the row's own caveats; the renderer fills their text.
-    Uses the scored bundle, whose rows carry real caveats (the sample bundle's are placeholders)."""
+def test_template_rationale_holds_values_not_caveats() -> None:
+    """Human test session, item 6: the PI saw caveat ids in the rationale. UI audit: the
+    template then filled caveat text, so the Why cell repeated the Key caveat beside it. The
+    template now holds criterion values only; caveats have their own column. The reference
+    row gets the same template instead of "no rationale"."""
     from pathlib import Path
 
     from materials_triage.records.bundle import CaveatId
@@ -42,18 +43,15 @@ def test_template_rationale_renders_caveat_text_never_ids() -> None:
     assert report.passed
     ids = {c.value for c in CaveatId}
     for slot in slots.values():
+        assert "{caveat:" not in slot.text, slot.text
         assert not any(i in TOKEN_RE.sub("", slot.text) for i in ids), slot.text
     view = build(checked, caveats_mod.CaveatConfig.load(), units="eV", hide_ids=True)
-    rows = [*view.rows, *view.excluded]
-    assert rows and all(not any(i in r.rationale for i in ids) for r in rows)
-    with_caveat = [
-        r for r in view.rows if "{caveat:" in slots[f"candidate:{r.composition}:one_line"].text
-    ]
-    assert with_caveat, "the sample bundle has a row with its own caveat"
-    for r in with_caveat:
-        assert "caveat listed below" not in r.rationale  # filled with config text
-    # profile-wide caveats never enter a row's rationale
-    assert all("Band offsets to the substrate" not in r.rationale for r in view.rows)
+    for r in [*view.rows, *view.anchors]:
+        assert r.rationale, r.composition
+        if r.key_caveat:
+            assert r.key_caveat not in r.rationale, r.composition
+    anchors = view.anchors
+    assert anchors and all("would place" in r.rationale for r in anchors)
 
 
 def test_redacted_view_carries_no_raw_numbers(bundle: ProvenanceBundle) -> None:

@@ -273,3 +273,14 @@ def test_pbe_window_caveat_text_comes_from_each_profile() -> None:
             "Only a computed PBE gap is available; PBE typically underestimates gaps "
             "(Materials Project documentation)."
         )
+
+
+def test_a_jarvis_value_names_its_own_record(baseline_groups, references) -> None:  # type: ignore[no-untyped-def]
+    """The rule text cites the JARVIS record, matched to the MP polymorph, not the MP id alone."""
+    o = outcome(baseline_groups["HfO2"], references)
+    tb = o.candidates["tbmbj"]
+    record = tb.provenance.source_record_id
+    assert record.startswith("JVASP-")
+    assert tb.detail == f"jarvis_tbmbj on {record}, matched to mp-352"
+    pbe = o.candidates["pbe"]
+    assert pbe.detail == "mp_summary on mp-352"

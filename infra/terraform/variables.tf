@@ -56,7 +56,7 @@ variable "settings" {
     AUTH_MODE     = "oidc"
     SITE_MODE     = "true"
     LLM_PROVIDER  = "anthropic"
-    LLM_MODEL     = "claude-sonnet-5-5"
+    LLM_MODEL     = "claude-haiku-5-5"
     CLASSIFY_MODE = "cache_only"
     FETCH_MODE    = "live"
   }
