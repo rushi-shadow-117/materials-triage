@@ -348,7 +348,7 @@ Decision (owner, applied to the Phase 1 plan):
    fixtures for the provider-agnostic OPTIMADE parser. COD is the only wired OPTIMADE provider.
 8. Three Postgres roles from day one: `triage_app` (INSERT, SELECT), `triage_migrate` (DDL,
    Alembic), `triage_maint` (DELETE for retention via a logged admin job).
-Reason: each is recorded with its trade-off in internal/PHASE1_PLAN.md.
+Reason: each is recorded with its trade-off in the owner's planning notes (not in the repository).
 
 ## 2026-10-31 GNoME gating confirmed on the wire
 Decision: no change; the licensing decision stands with evidence. The `/heartbeat` response
@@ -389,9 +389,9 @@ Reason: a citation that does not contain the value is not a source.
 Decision (owner's parallel plan): Track 0 records the full composition set, ships the bundle
 and config contracts, a generated sample bundle, CLI and API stubs with generated TypeScript
 types, and freezes dependencies. After it merges, pyproject.toml, uv.lock, CLAUDE.md,
-internal/PLAN_OVERVIEW.md, records/, provenance/, and adapters/ are frozen; a track that
+records/, provenance/, and adapters/ are frozen; a track that
 needs a change there stops and asks. Each later track appends only under its own heading
-below. Rules: internal/parallel-plan.md.
+below. Rules: the owner's planning notes (not in the repository).
 Reason: six sessions build in parallel against one deadline; collisions cost more than the
 contracts cost.
 Alternative: one sequential session.
@@ -426,7 +426,7 @@ Alternative: free strings with a shared constants module.
 ### 2026-11-02 Default profile renamed; optional criteria added to CRITERIA
 Decision (owner): `config/scoring_profiles/oxide_dielectric_thin_film.yaml` replaces
 `gate_dielectric_on_si.yaml` (same owner-sourced entries; `default_paths()`, the API stub, and
-the CLI default repointed). `CRITERIA` in `config/schema.py` gains `deposition_method` and
+the CLI default repointed). `CRITERIA` in `src/materials_triage/config/schema.py` gains `deposition_method` and
 `cost`, both weight 0 by default (`OPTIONAL_CRITERIA`), so site weight bounds and query
 clamping govern them like the other criteria. The owner approved these two frozen-file edits
 on 2026-11-02 as part of the Track A contract commit.
@@ -674,7 +674,7 @@ seconds) for each of parse, classify, rationale, and relax, replacing the single
 (`max_tool_calls`, `max_tokens`, `max_seconds`); `CoreConfig.max_abstracts_per_candidate` is
 5, taken in the literature search's result order. The run records `<step>.<counter>` under
 `budgets_used` and `budgets_limit`, including the CLI's parse step. Editing the budget fields
-in `config/schema.py` was owner-authorized on 2026-11-03.
+in `src/materials_triage/config/schema.py` was owner-authorized on 2026-11-03.
 Reason: one pool let a long classify phase starve the rationale step; per-step limits make
 a partial run name the step that ran out.
 Alternative: one pool with reservations per step.
@@ -757,7 +757,7 @@ the number reproducible.
 Alternative: a hand-chosen tolerance.
 
 ### 2026-11-02 A temporary stand-in scorer ran the validation path before Track A merged
-Decision: until Track A merged, `validation/stand_in.py` reproduced the sample bundle's
+Decision: until Track A merged, `validation/stand_in.py` (removed once Track A merged) reproduced the sample bundle's
 illustrative normalizations with Track A's vocabularies so the groups-to-report path ran end
 to end. Its run note said it was not scoring and no results from it were committed. It was
 deleted on 2026-11-02 at the rebase onto main after Track A's merge; `validation.track_a`
@@ -847,7 +847,7 @@ classify calls depends on the data, so a fixed queue is exhausted or wasted).
 Finding 1: with the baseline eleven as a candidate list, classifying the top ten candidates'
 hits spends the core budget of 40 tool calls before the rationale step, so the run is partial
 with "rationale not written: max_tool_calls (40) reached" and the rationale is template text.
-The A1 check `run_completed` reports this; the budget lives in the frozen `config/schema.py`
+The A1 check `run_completed` reports this; the budget lives in the frozen `src/materials_triage/config/schema.py`
 and is the owner's to raise.
 Finding 2: the classifier accepts a `not_relevant` label without a supporting sentence, but
 the verifier checks a quote on every label except `no_abstract` and `unclassified`, so such a
@@ -878,7 +878,7 @@ Alternative considered: Yim's own gap and dielectric values from the paper (reje
 question is what our records say).
 
 ### 2026-11-03 Case files from the owner's catalogue, verbatim, with the nearest structural check
-Decision: `evals/cases/<id>.yaml` holds one case per query in `internal/test-queries.md`
+Decision: `evals/cases/<id>.yaml` holds one case per query in the owner's test-query catalogue (not in the repository)
 (43 cases, A1 to G5). Requests and expectations are copied verbatim; B1's request carries the
 owner's wording "between 2 and 3.3 eV" (decision 2026-11-03, matching the photocatalyst
 profile's window). Each case names structural checks; where the catalogue expects something
@@ -1221,7 +1221,7 @@ bundles untouched.
 Alternative: edit the profile in place, which would change what an old run's name refers to.
 
 ### 2026-11-04 Wireframes followed, with these differences
-The wireframes under `internal/wireframes/` (workspace confirm, run in progress, PI summary,
+The owner's wireframes (not in the repository: workspace confirm, run in progress, PI summary,
 audit view, drill-down, workspace states, dark theme, console) set the layout and states. Shown
 as the system really is, not as the wireframe sample text says:
 - Sources are Materials Project, JARVIS, the experimental gap compendium, OpenAlex and
@@ -1275,8 +1275,7 @@ Alternative: omit it; the plan names it as a deliverable.
 Decision: `tests/test_docs.py` checks that every CLI command, script, and repository path the
 README and the guides name exists, and that the README stays under 150 lines (owner rule).
 The records (DECISIONS, FAILURE_MATRIX, EVAL, wire-findings) describe what was true when
-written and are not checked. `docs/DESIGN_NOTE.md` is a placeholder link; the owner writes it
-outside this repository and adds it later.
+written and are not checked. The design note ships as `docs/DESIGN_NOTE.pdf`.
 Alternative: trust the prose; the state report showed how fast it drifts.
 
 ### 2026-11-04 The cold run is a script with its output recorded
@@ -1455,7 +1454,7 @@ Alternative: keep it per row, where it became the key caveat on most rows.
 Decision (owner): `CoreConfig.max_request_chars` (2,000) and `max_candidates` (50) are
 code-owned; `/api/parse`, `/api/criteria/resolve`, and `/api/runs` refuse over them with a
 422 and a sentence, and the web app reads the limits from `/api/config/effective` for its
-counter. Typed candidate text is split by `config/limits.py` (commas, semicolons, new lines;
+counter. Typed candidate text is split by `src/materials_triage/config/limits.py` (commas, semicolons, new lines;
 blanks dropped; a case-insensitive repeat keeps its first spelling) when the confirm form
 sends `candidate_text`; the CLI's `--formulas` uses the same function. The browser parses
 nothing: matched entries come back from resolve as chips beside the red unmatched ones.
@@ -1558,7 +1557,7 @@ Alternative: retry the read on a parse error, which hides the half-written file 
 removing it.
 
 ### 2026-11-04 Requested properties are matched to criteria by phrase, in code
-Decision: `config/schema.py` maps a requested property to a criterion by the exact table
+Decision: `src/materials_triage/config/schema.py` maps a requested property to a criterion by the exact table
 first and then by an ordered phrase list (`PROPERTY_PHRASES`: "conductiv" and "thermal" name
 nothing; "dielectric", "band gap", "gap", "toxic", "stab", "simple", "evidence", "public",
 "deposition", "cost" and their neighbours name their criterion), and the parse response

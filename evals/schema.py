@@ -1,6 +1,6 @@
 """Case files, observations, and results for the eval harness.
 
-A Case is one query from internal/test-queries.md with its expectation verbatim and the
+A Case is one query from the owner's test-query catalogue with its expectation verbatim and the
 coded checks that decide it. An Observation is what one run produced: the bundle, the
 transcript, the configuration before and after, the rendered views. Results carry every check
 with its detail so the report can show why a case passed or failed.
@@ -72,7 +72,7 @@ class Case(Strict):
     title: str
     request: str  # the query, verbatim
     context: str | None = None  # an earlier turn this request follows up on
-    expectation: str  # verbatim from internal/test-queries.md
+    expectation: str  # verbatim from the owner's test-query catalogue
     mode: Literal["discovery", "candidate_list"] = "discovery"
     candidate_list: list[str] = Field(default_factory=list)
     settings: dict[str, Any] = Field(default_factory=dict)  # QuerySettings overrides
