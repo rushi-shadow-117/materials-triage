@@ -17,7 +17,7 @@ import yaml
 from pydantic import BaseModel
 
 from evals.schema import JudgeItem, JudgeVerdict
-from materials_triage.records.bundle import ProvenanceBundle
+from materials_triage.records.bundle import Anchor, Candidate, ProvenanceBundle
 
 ROOT = Path(__file__).resolve().parents[1]
 RUBRIC = ROOT / "evals" / "judge_rubric.md"
@@ -44,7 +44,8 @@ def caveat_terms(bundle: ProvenanceBundle) -> list[str]:
     top_n = bundle.criteria.effective_settings.get("top_n")
     ranked = bundle.ranked()
     shown = ranked[: int(top_n)] if isinstance(top_n, int) and top_n > 0 else ranked
-    ids = {str(cv.id) for c in [*shown, *bundle.anchors] for cv in c.caveats}
+    rows: list[Candidate | Anchor] = [*shown, *bundle.anchors]
+    ids = {str(cv.id) for c in rows for cv in c.caveats}
     return sorted(ids)
 
 
