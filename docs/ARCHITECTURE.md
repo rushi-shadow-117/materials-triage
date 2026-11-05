@@ -98,10 +98,14 @@ re-scoring. `agent/pipeline.py::discovery_filter` is the one place this is appli
   Evidence labels are cached by abstract hash, prompt hash, and model version, so a rerun with
   the same model reuses them.
 
-What may vary between runs: the parse (fixed once the scientist confirms), evidence labels
-when the model is live, and rationale wording. Everything after the parse is deterministic for
-a given bundle, and the eval suite's G1 case checks five repeats are identical in ranks,
-exclusions, and prompt hash.
+Determinism covers the prompts, the data, and the scoring: the same settings give
+byte-identical prompts, the same recorded data gives the same values, and the scorer ranks the
+same inputs the same way, ties broken by composition. What may vary between runs: the parse
+(fixed once the scientist confirms), rationale wording, and live evidence labels on a cold
+classifier cache. The model labels each abstract, so two live runs that read abstracts for the
+first time can label them differently and move ranks; the cache keeps a label fixed once read,
+and `materials-triage diff` attributes such a change to the model. The eval suite's G1 case
+checks five repeats on the scripted model are identical in ranks, exclusions, and prompt hash.
 
 ## Where things live
 

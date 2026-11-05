@@ -1841,3 +1841,14 @@ script uses the same rule. The scored golden bundle is built with a fixed time b
 and shows "fetched", as before.
 Alternative: the manifest time alone, which is the last recording session, not when each
 response was recorded.
+
+### 2026-11-05 The brief runs offline from a shipped criteria file; stale docs fixed (review F10, F16, F05)
+Decision: `examples/brief_discovery.yaml` holds the brief's discovery criteria (mode discovery,
+profile defaults), and the README gives the one-line offline CLI path with no key. Before, a
+no-key admin got "--no-llm needs --criteria FILE" and the only criteria file was a test fixture
+with a candidate list. CLAUDE.md no longer says Keycloak is cut, that `serve` is a stub, or that
+CI has no web job, and it no longer points at a gitignored plan. ARCHITECTURE and the EVAL
+report state that determinism covers prompts, data, and scoring, and that live evidence labels
+can vary on a cold classifier cache, with `diff` attributing the change to the model.
+Alternative: a `--brief` flag that hard-codes the example, which hides the criteria the run
+used.

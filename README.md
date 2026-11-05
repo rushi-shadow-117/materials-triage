@@ -32,6 +32,13 @@ review the criteria, and run. The command line does the same:
 uv run materials-triage rank --formulas HfO2,ZrO2,Al2O3 --no-llm --fetch cassettes
 ```
 
+The brief's discovery request runs offline with no key from a criteria file:
+
+```
+uv run materials-triage query "Find promising oxide dielectric candidates for thin-film experiments." \
+  --yes --no-llm --criteria examples/brief_discovery.yaml --fetch cassettes
+```
+
 Or with Docker: `docker build --target api -t materials-triage:api . && docker run --rm -p 8000:8000 materials-triage:api`.
 
 The bare defaults read the recorded data and use `claude-haiku-5-5`. With no key, a banner

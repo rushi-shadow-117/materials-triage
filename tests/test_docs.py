@@ -60,3 +60,16 @@ def test_commands_and_links_in_docs_exist() -> None:
             if not (ROOT / m.group(1)).exists() and m.group(1) != "docs/DESIGN_NOTE.md":
                 problems.append(f"{doc.name}: missing {m.group(1)}")
     assert problems == [], problems
+
+
+def test_claude_md_has_no_stale_lines_and_determinism_is_scoped() -> None:
+    # review F16 and F05
+    claude = (ROOT / "CLAUDE.md").read_text()
+    for stale in ("Keycloak is cut", "only `serve` is still a stub", "No web job until"):
+        assert stale not in claude, stale
+    assert "Read it before planning" not in claude  # pointed at a gitignored plan
+    arch = (ROOT / "docs" / "ARCHITECTURE.md").read_text()
+    assert "live evidence labels on a cold" in arch and "materials-triage diff" in arch
+    from scripts.generate_eval_report import DETERMINISM_NOTE
+
+    assert "cold classifier cache" in DETERMINISM_NOTE
