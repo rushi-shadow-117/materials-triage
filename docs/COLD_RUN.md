@@ -35,7 +35,7 @@ bash scripts/cold_run.sh /tmp/cold-run        # defaults to the current commit
 Recorded below by Track D from the commit it was run on; rerun the script to refresh.
 
 <!-- cold-run-output -->
-Commit 5baf72f, 2026-11-05, macOS, Python 3.12, Node 20, bare defaults, run alone, `COLD_RUN_PORT=8799 bash scripts/cold_run.sh <dir> HEAD`:
+Commit 33b3d79, 2026-11-05, macOS, Python 3.12, Node 20, bare defaults, run alone, `COLD_RUN_PORT=8799 bash scripts/cold_run.sh <dir> HEAD`:
 
 ```
 1. clone HEAD into <dir>                        PASS
