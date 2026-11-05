@@ -428,6 +428,24 @@
         "title": "ConfirmedCriteria",
         "type": "object"
       },
+      "CoveredProperty": {
+        "properties": {
+          "criterion": {
+            "title": "Criterion",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "criterion"
+        ],
+        "title": "CoveredProperty",
+        "type": "object"
+      },
       "CriterionScore": {
         "additionalProperties": false,
         "properties": {
@@ -1689,6 +1707,13 @@
             "title": "Clamps",
             "type": "array"
           },
+          "covered_properties": {
+            "items": {
+              "$ref": "#/components/schemas/CoveredProperty"
+            },
+            "title": "Covered Properties",
+            "type": "array"
+          },
           "defaults_applied": {
             "items": {
               "type": "string"
@@ -1761,6 +1786,13 @@
               }
             ],
             "title": "Refusal Category"
+          },
+          "requested_properties": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Requested Properties",
+            "type": "array"
           },
           "settings": {
             "anyOf": [

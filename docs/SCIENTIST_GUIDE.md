@@ -8,8 +8,13 @@ missing.
 ## Two ways in
 
 **Describe a request.** Type the request as you would say it. A model turns it into the
-criteria form below the box, and you confirm or edit the form before anything is fetched.
-If no model is configured the box says so; fill the form by hand instead.
+criteria form below the box. "Parse and run" starts the search at once when the parse left
+nothing to confirm (no refusal, nothing missing, no clamp, every property you named covered
+by a criterion); otherwise, and always with "Parse, then confirm", the form shows what will
+run and you confirm or edit it before anything is fetched. While the model reads the request
+a panel counts the seconds; it is one model call. The form says how each property you named
+was understood ("wide band gaps: band gap"), and lists any property no source covers. If no
+model is configured the box says so; fill the form by hand instead.
 
 **Rank my list.** Paste formulas or names separated by commas, semicolons, or new lines, at
 most 50. The server splits the text and shows what matched as chips; an entry that matches no

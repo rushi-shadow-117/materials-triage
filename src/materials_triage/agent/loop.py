@@ -124,6 +124,19 @@ def _entry(step: str, summary: str, detail: dict[str, Any]) -> DecisionLogEntry:
     )
 
 
+def estimated_prompt_tokens(system: str, turns: list[Turn]) -> int:
+    """A deliberately high estimate of a request's input tokens (one per 3 characters), used
+    to refuse a request that cannot fit before it is sent."""
+    chars = len(system)
+    for t in turns:
+        chars += len(t.text or "")
+        for r in t.tool_results or ():
+            chars += len(r.content)
+        for c in t.tool_calls or ():
+            chars += len(str(c.input))
+    return chars // 3 + 1
+
+
 def run_step(
     *,
     client: LLMClient,
@@ -143,6 +156,14 @@ def run_step(
         if breach is not None:
             entries.append(_entry(step, f"budget: {breach}", {"attempt": attempt}))
             return StepResult(StepStatus.BUDGET, breach, entries=entries, turns=turns)
+        estimate = estimated_prompt_tokens(system, turns)
+        remaining = budget.max_tokens - budget.tokens
+        if estimate > remaining:
+            # checked before sending: a request that cannot fit the step's token budget is
+            # never made (the budget is otherwise charged only after a reply)
+            reason = f"prompt of about {estimate} tokens exceeds the {remaining} left in the budget"
+            entries.append(_entry(step, f"budget: {reason}", {"attempt": attempt}))
+            return StepResult(StepStatus.BUDGET, reason, entries=entries, turns=turns)
         try:
             response = client.complete(
                 system=system, turns=turns, tools=[tool], max_tokens=max_tokens
@@ -150,6 +171,10 @@ def run_step(
         except LLMUnavailableError as e:
             entries.append(_entry(step, "model unavailable", {"attempt": attempt, "note": str(e)}))
             return StepResult(StepStatus.FAILED, "llm_unavailable", entries=entries, turns=turns)
+        except Exception as e:  # noqa: BLE001 - any other provider error fails the step only
+            note = f"provider error: {type(e).__name__}: {str(e)[:300]}"
+            entries.append(_entry(step, note, {"attempt": attempt}))
+            return StepResult(StepStatus.FAILED, note, entries=entries, turns=turns)
         budget.charge(response.usage)
         detail: dict[str, Any] = {
             "attempt": attempt,

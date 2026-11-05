@@ -126,13 +126,80 @@ PROPERTY_CRITERIA: dict[str, str] = {
 }
 
 
+# Phrases a request uses for a property that the exact table above does not list, matched by
+# containment in order (the first hit wins). A None criterion names a property no source
+# covers even though a word in it would otherwise match (thermal conductivity holds "thermal",
+# conductivity is not a criterion). Names only; no thresholds or chemistry.
+PROPERTY_PHRASES: tuple[tuple[str, str | None], ...] = (
+    ("conductiv", None),
+    ("thermal", None),
+    ("dielectric", "dielectric_constant"),
+    ("permittivity", "dielectric_constant"),
+    ("high-k", "dielectric_constant"),
+    ("band gap", "band_gap"),
+    ("bandgap", "band_gap"),
+    ("band-gap", "band_gap"),
+    ("gap", "band_gap"),
+    ("toxic", "hazard"),
+    ("hazard", "hazard"),
+    ("safe", "hazard"),
+    ("radioactiv", "hazard"),
+    ("stab", "stability"),
+    ("thermodynamic", "stability"),
+    ("hull", "stability"),
+    ("simple", "simplicity"),
+    ("composition", "simplicity"),
+    ("element", "simplicity"),
+    ("evidence", "evidence"),
+    ("literature", "evidence"),
+    ("publish", "evidence"),
+    ("public", "evidence"),
+    ("synthes", "evidence"),
+    ("deposition", "deposition_method"),
+    ("cost", "cost"),
+    ("abundan", "cost"),
+)
+
+
+def _normalized(name: str) -> str:
+    return " ".join(name.lower().split())
+
+
+def criterion_for_property(name: str) -> str | None:
+    """The criterion that covers a requested property name, or None when no source does.
+    The exact table first, then the phrase rules; the researcher's words are kept as typed."""
+    key = _normalized(name)
+    if not key:
+        return None
+    if key in PROPERTY_CRITERIA:
+        return PROPERTY_CRITERIA[key]
+    for phrase, criterion in PROPERTY_PHRASES:
+        if phrase in key:
+            return criterion
+    return None
+
+
 def unavailable_properties(requested: list[str]) -> list[str]:
     """Requested property names no configured criterion covers, normalized and deduplicated."""
     out: list[str] = []
     for name in requested:
-        key = " ".join(name.lower().split())
-        if key and key not in PROPERTY_CRITERIA and key not in out:
+        key = _normalized(name)
+        if key and criterion_for_property(key) is None and key not in out:
             out.append(key)
+    return out
+
+
+def covered_properties(requested: list[str]) -> list[tuple[str, str]]:
+    """(name as typed, criterion) for every requested property a criterion covers, in order,
+    deduplicated; what the confirm form shows as "understood as"."""
+    out: list[tuple[str, str]] = []
+    seen: set[str] = set()
+    for name in requested:
+        key = _normalized(name)
+        criterion = criterion_for_property(key)
+        if key and criterion is not None and key not in seen:
+            seen.add(key)
+            out.append((key, criterion))
     return out
 
 

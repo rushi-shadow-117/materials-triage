@@ -28,6 +28,7 @@ from materials_triage.config import limits
 from materials_triage.config.schema import (
     CoreConfig,
     QuerySettings,
+    covered_properties,
     resolve,
     unavailable_properties,
 )
@@ -49,6 +50,7 @@ from . import help as help_mod
 from .runs import RunManager
 from .schemas import (
     CallEstimateOut,
+    CoveredProperty,
     DrillResponse,
     DrillValue,
     HazardRow,
@@ -217,6 +219,11 @@ def _outcome_response(outcome: parse_mod.ParseOutcome, *, model: str | None) -> 
         missing_required=list(outcome.missing_required),
         unresolved_candidates=list(outcome.unresolved_candidates),
         unavailable_properties=list(outcome.unavailable_properties),
+        requested_properties=list(outcome.requested_properties),
+        covered_properties=[
+            CoveredProperty(name=n, criterion=c)
+            for n, c in covered_properties(outcome.requested_properties)
+        ],
         model=model,
     )
 

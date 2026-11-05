@@ -584,6 +584,13 @@ export interface components {
             /** Unresolved Candidates */
             unresolved_candidates?: string[];
         };
+        /** CoveredProperty */
+        CoveredProperty: {
+            /** Criterion */
+            criterion: string;
+            /** Name */
+            name: string;
+        };
         /** CriterionScore */
         CriterionScore: {
             /** Contribution */
@@ -954,6 +961,8 @@ export interface components {
         ParseResponse: {
             /** Clamps */
             clamps?: components["schemas"]["materials_triage__config__schema__Clamp"][];
+            /** Covered Properties */
+            covered_properties?: components["schemas"]["CoveredProperty"][];
             /** Defaults Applied */
             defaults_applied?: string[];
             /** Missing Required */
@@ -970,6 +979,8 @@ export interface components {
             refusal?: string | null;
             /** Refusal Category */
             refusal_category?: string | null;
+            /** Requested Properties */
+            requested_properties?: string[];
             /** Settings */
             settings?: {
                 [key: string]: unknown;

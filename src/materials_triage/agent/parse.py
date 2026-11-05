@@ -8,6 +8,7 @@ the same QuerySettings from a criteria file.
 
 from __future__ import annotations
 
+import dataclasses
 import json
 import re
 from dataclasses import dataclass, field
@@ -56,6 +57,7 @@ class ParseOutcome:
     clamps: list[Clamp] = field(default_factory=list)
     defaults_applied: list[str] = field(default_factory=list)
     missing_required: list[str] = field(default_factory=list)
+    requested_properties: list[str] = field(default_factory=list)  # as the request named them
     unresolved_candidates: list[str] = field(default_factory=list)
     unavailable_properties: list[str] = field(default_factory=list)
 
@@ -286,6 +288,9 @@ def make_handler(
             )
         except ValueError as e:
             return loop.ToolOutcome(str(e), is_error=True)
+        outcome = dataclasses.replace(
+            outcome, requested_properties=list(parsed.requested_properties)
+        )
         content = {
             "clamps": [c.model_dump() for c in outcome.clamps],
             "defaults_applied": outcome.defaults_applied,

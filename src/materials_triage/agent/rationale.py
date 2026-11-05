@@ -31,9 +31,13 @@ ONE_LINE = "one_line"
 OVERVIEW = "summary:overview"
 
 
-def slot_plan(bundle: ProvenanceBundle) -> list[str]:
-    """One slot per ranked candidate, in rank order, then the run overview."""
-    return [f"candidate:{c.composition}:{ONE_LINE}" for c in bundle.ranked()] + [OVERVIEW]
+def slot_plan(bundle: ProvenanceBundle, top_n: int | None = None) -> list[str]:
+    """One slot per shown ranked candidate (the top N the views display), in rank order, then
+    the run overview. Rows beyond top N keep their template text: a discovery run ranks
+    thousands of rows, and asking the model for all of them built a 1.15M-token prompt."""
+    ranked = bundle.ranked()
+    shown = ranked[:top_n] if top_n is not None and top_n > 0 else ranked
+    return [f"candidate:{c.composition}:{ONE_LINE}" for c in shown] + [OVERVIEW]
 
 
 def template_only(bundle: ProvenanceBundle) -> dict[str, RationaleSlot]:
@@ -172,7 +176,7 @@ def run_rationale(
     budget: loop.Budget,
 ) -> RationaleResult:
     """Slots from the model where it answered, template text everywhere else."""
-    plan = slot_plan(bundle)
+    plan = slot_plan(bundle, effective.top_n)
     fallback = template_only(bundle)
     out = RationaleResult(slots=dict(fallback))
     if client is None:
